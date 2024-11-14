@@ -1,13 +1,21 @@
 <?php
-    //nivel de la carpeta desde donde se llama este componente (archivo prueba.php de la business/org/pages)
+    //nivel de la carpeta desde donde se llama este componente (archivo prueba.php de la carpeta business/org/pages)
     $nivel = "tres";
     require('../../../business/repositories/1cc2s4Home.php');
-
-    $sql_datos = "SELECT * FROM tbl_parametros WHERE parametro = 'telefono_admisiones'";
+    $res_sentencia = $mysqli1->query($sentencia."1");
+    while($row_sentencia = $res_sentencia->fetch_assoc()){
+        $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
+    }
     $res_datos = $mysqli1->query($sql_datos);
     while($row_datos = $res_datos->fetch_assoc()){
         $tel = $row_datos['t1'];
     }
+
+    $res_sentencia = $mysqli1->query($sentencia."2");
+    while($row_sentencia = $res_sentencia->fetch_assoc()){
+        $sql_imagenes = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
+    }
+    $res_imagenes = $mysqli1->query($sql_imagenes);
 ?>
 <h1>Bienvenido</h1>
 <div class="container">
@@ -50,5 +58,27 @@
             </select>
         </div>
         <div class="col-3"><label for=""><?php echo $tel; ?></label></div>
+    </div><br>
+    <div class="row">
+        <?php
+            while($row_imagenes = $res_imagenes->fetch_assoc()){
+                if ($nivel == "raiz") {
+                    echo '<div class="col-3"><img src="'.$row_imagenes['ruta'].'" id="img1" class="img-fluid" 
+                    onmouseout="this.src='."'".$row_imagenes['ruta']."'".';" onmouseover="this.src='."'".$row_imagenes['rutaEncima']."'".';"/></div>';
+                }
+                else if ($nivel == "uno") {
+                    echo '<div class="col-3"><img src="../'.$row_imagenes['ruta'].'" id="img1" class="img-fluid" 
+                    onmouseout="this.src='."'../".$row_imagenes['ruta']."'".';" onmouseover="this.src='."'../".$row_imagenes['rutaEncima']."'".';"/></div>';
+                }
+                else if ($nivel == "dos") {
+                    echo '<div class="col-3"><img src="../../'.$row_imagenes['ruta'].'" id="img1" class="img-fluid" 
+                    onmouseout="this.src='."'../../".$row_imagenes['ruta']."'".';" onmouseover="this.src='."'../../".$row_imagenes['rutaEncima']."'".';"/></div>';
+                }
+                else if ($nivel == "tres") {
+                    echo '<div class="col-3"><img src="../../../'.$row_imagenes['ruta'].'" id="img1" class="img-fluid" 
+                    onmouseout="this.src='."'../../../".$row_imagenes['ruta']."'".';" onmouseover="this.src='."'../../../".$row_imagenes['rutaEncima']."'".';"/></div>';
+                }
+            }
+        ?>
     </div>
 </div>
