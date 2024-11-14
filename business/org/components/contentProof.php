@@ -61,24 +61,26 @@
     </div><br>
     <div class="row">
         <?php
+            $html = '';
             while($row_imagenes = $res_imagenes->fetch_assoc()){
                 if ($nivel == "raiz") {
-                    echo '<div class="col-3"><img src="'.$row_imagenes['ruta'].'" id="img1" class="img-fluid" 
+                    $html .=  '<div class="col-3"><img src="'.$row_imagenes['ruta'].'" id="img1" class="img-fluid" 
                     onmouseout="this.src='."'".$row_imagenes['ruta']."'".';" onmouseover="this.src='."'".$row_imagenes['rutaEncima']."'".';"/></div>';
                 }
                 else if ($nivel == "uno") {
-                    echo '<div class="col-3"><img src="../'.$row_imagenes['ruta'].'" id="img1" class="img-fluid" 
+                    $html .=  '<div class="col-3"><img src="../'.$row_imagenes['ruta'].'" id="img1" class="img-fluid" 
                     onmouseout="this.src='."'../".$row_imagenes['ruta']."'".';" onmouseover="this.src='."'../".$row_imagenes['rutaEncima']."'".';"/></div>';
                 }
                 else if ($nivel == "dos") {
-                    echo '<div class="col-3"><img src="../../'.$row_imagenes['ruta'].'" id="img1" class="img-fluid" 
+                    $html .=  '<div class="col-3"><img src="../../'.$row_imagenes['ruta'].'" id="img1" class="img-fluid" 
                     onmouseout="this.src='."'../../".$row_imagenes['ruta']."'".';" onmouseover="this.src='."'../../".$row_imagenes['rutaEncima']."'".';"/></div>';
                 }
                 else if ($nivel == "tres") {
-                    echo '<div class="col-3"><img src="../../../'.$row_imagenes['ruta'].'" id="img1" class="img-fluid" 
+                    $html .=  '<div class="col-3"><img src="../../../'.$row_imagenes['ruta'].'" id="img1" class="img-fluid" 
                     onmouseout="this.src='."'../../../".$row_imagenes['ruta']."'".';" onmouseover="this.src='."'../../../".$row_imagenes['rutaEncima']."'".';"/></div>';
                 }
             }
+            echo $html;
         ?>
     </div>
 </div>
