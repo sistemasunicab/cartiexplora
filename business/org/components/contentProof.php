@@ -64,20 +64,16 @@
             $html = '';
             while($row_imagenes = $res_imagenes->fetch_assoc()){
                 if ($nivel == "raiz") {
-                    $html .=  '<div class="col-3"><img src="'.$row_imagenes['ruta'].'" id="img1" class="img-fluid" 
-                    onmouseout="this.src='."'".$row_imagenes['ruta']."'".';" onmouseover="this.src='."'".$row_imagenes['rutaEncima']."'".';"/></div>';
+                    $html .=  '<div class="col-3"><img src="'.$row_imagenes['ruta'].'" id="img1" class="img-fluid"/></div>';
                 }
                 else if ($nivel == "uno") {
-                    $html .=  '<div class="col-3"><img src="../'.$row_imagenes['ruta'].'" id="img1" class="img-fluid" 
-                    onmouseout="this.src='."'../".$row_imagenes['ruta']."'".';" onmouseover="this.src='."'../".$row_imagenes['rutaEncima']."'".';"/></div>';
+                    $html .=  '<div class="col-3"><img src="../'.$row_imagenes['ruta'].'" id="img1" class="img-fluid"/></div>';
                 }
                 else if ($nivel == "dos") {
-                    $html .=  '<div class="col-3"><img src="../../'.$row_imagenes['ruta'].'" id="img1" class="img-fluid" 
-                    onmouseout="this.src='."'../../".$row_imagenes['ruta']."'".';" onmouseover="this.src='."'../../".$row_imagenes['rutaEncima']."'".';"/></div>';
+                    $html .=  '<div class="col-3"><img src="../../'.$row_imagenes['ruta'].'" id="img1" class="img-fluid"/></div>';
                 }
                 else if ($nivel == "tres") {
-                    $html .=  '<div class="col-3"><img src="../../../'.$row_imagenes['ruta'].'" id="img1" class="img-fluid" 
-                    onmouseout="this.src='."'../../../".$row_imagenes['ruta']."'".';" onmouseover="this.src='."'../../../".$row_imagenes['rutaEncima']."'".';"/></div>';
+                    $html .=  '<div class="col-3"><img src="../../../'.$row_imagenes['ruta'].'" id="img1" class="img-fluid"/></div>';
                 }
             }
             echo $html;
