@@ -18,10 +18,10 @@
     }
     
     if (getenv('APP_ENV') == "local") {
-        $mysqli1 = new mysqli(getenv('DB_HOST'),getenv('DB_USERNAME_L'),getenv('DB_PASSWORD_L'), getenv('DB_DATABASE'), getenv('DB_PORT'));
+        $mysqli1 = new mysqli(getenv('DB_HOST'), getenv('DB_USERNAME_L'), getenv('DB_PASSWORD_L'), getenv('DB_DATABASE'), getenv('DB_PORT'));
     }
     else if (getenv('APP_ENV') == "pro") {
-        $mysqli1 = new mysqli(getenv('DB_HOST'),getenv('DB_USERNAME_P'),getenv('DB_PASSWORD_P'),getenv('DB_DATABASE'));
+        $mysqli1 = new mysqli(getenv('DB_HOST'), getenv('DB_USERNAME_P'), getenv('DB_PASSWORD_P'), getenv('DB_DATABASE'));
     }
     
 	if(mysqli_connect_error()) {
@@ -33,4 +33,5 @@
     }
     
     $mysqli1->set_charset("utf8");
+    $sentencia = str_replace('-', ' ', getenv('SENTENCIA_SQL'))." = ";
 ?>
