@@ -8,6 +8,7 @@
     include('components/headMain.php') 
 ?>
 <body>
+    <?php include('components/navBar.php') ?>
     <?php include('components/contentProof.php') ?>
     
     <?php
