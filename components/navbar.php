@@ -84,16 +84,31 @@
     }
 
     //Se arma el menú a cargar
-    $html = '<nav class="navbar navbar-expand-lg navbar-light bg-light menu">
-                <div class="container">
-                    <a class="navbar-brand" href="#">
-                        <img src="assets/img/unicab.png" alt="" width="50" >
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav">';
+    $html = '';
+    if ($nivel == "raiz") {
+        $html = '<nav class="navbar navbar-expand-lg navbar-light bg-light menu">
+                    <div class="container">
+                        <a class="navbar-brand" href="#">
+                            <img src="assets/img/unicab.png" alt="" width="50" >
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul class="navbar-nav">';
+    }
+    else if ($nivel == "tres") {
+        $html = '<nav class="navbar navbar-expand-lg navbar-light bg-light menu">
+                    <div class="container">
+                        <a class="navbar-brand" href="#">
+                            <img src="../../../assets/img/unicab.png" alt="" width="50" >
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul class="navbar-nav">';
+    }
     
     foreach($menuPrincipal as $clave1 => $valor1) {        
         if (count($valor1['submenus']) > 0) {
