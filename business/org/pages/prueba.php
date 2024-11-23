@@ -1,5 +1,5 @@
 <?php 
-    
+ include('../../../clases/ImageAttributeBuilder.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,6 +8,8 @@
     include('../../../components/headMain.php') 
 ?>
 <body>
+    <?php include('../../../components/bannerCarrousel.php') ?>
+    <?php include('../../../components/academicOffer.php') ?>
     <?php include('../components/contentProof.php') ?>
     
     <?php 

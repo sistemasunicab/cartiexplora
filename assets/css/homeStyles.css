@@ -85,7 +85,6 @@
 
 /** Variables CSS **/
 :root {
-
     /** Unicab Color Palette **/
     --blue: #127eb5;
     --green: #4dc250;
@@ -93,7 +92,6 @@
     --white: #f5f5f5;
     --medium-gray: #4d4d4f;
     --light-gray: #d4cece;
-
 }
 
 /** Global **/
@@ -118,4 +116,19 @@ body {
 
 .mt-10 {
     margin-top: 6.25rem; /** 100px **/
+}
+
+/** Banner Carousel Section **/
+.carousel-control-prev,
+.carousel-control-next {
+    width: 6%;
+}
+
+/** Academic Offer Section **/
+.academic-offer-img img {
+    cursor: pointer;
+}
+
+.academic-offer-img img:hover {
+    scale: 1.05;
 }
