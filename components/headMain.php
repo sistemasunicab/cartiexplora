@@ -13,6 +13,10 @@
             echo '<link rel="stylesheet" href="assets/bookstores/datatable/datatables.css">';
             //<!-- SELECT2 CSS -->
             echo '<link rel="stylesheet" href="assets/bookstores/select2/css/select2.css">';
+            //<!-- HOME CSS -->
+            echo '<link rel="stylesheet" href="assets/css/homeStyles.css">';
+            //<!-- SmartMenus jQuery Bootstrap Addon CSS -->
+            echo '<link href="assets/bookstores/smartmenus/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.css" rel="stylesheet">';
 
             //<!-- Jquery JS  -->
             echo '<script src="assets/bookstores/jquery-3.7.1.min.js"></script>';
@@ -28,6 +32,10 @@
             echo '<link rel="stylesheet" href="../assets/bookstores/datatable/datatables.css">';
             //<!-- SELECT2 CSS -->
             echo '<link rel="stylesheet" href="../assets/bookstores/select2/css/select2.css">';
+            //<!-- HOME CSS -->
+            echo '<link rel="stylesheet" href="../assets/css/homeStyles.css">';
+            //<!-- SmartMenus jQuery Bootstrap Addon CSS -->
+            echo '<link href="../assets/bookstores/smartmenus/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.css" rel="stylesheet">';
 
             //<!-- Jquery JS  -->
             echo '<script src="../assets/bookstores/jquery-3.7.1.min.js"></script>';
@@ -43,6 +51,10 @@
             echo '<link rel="stylesheet" href="../../assets/bookstores/datatable/datatables.css">';
             //<!-- SELECT2 CSS -->
             echo '<link rel="stylesheet" href="../../assets/bookstores/select2/css/select2.css">';
+            //<!-- HOME CSS -->
+            echo '<link rel="stylesheet" href="../../assets/css/homeStyles.css">';
+            //<!-- SmartMenus jQuery Bootstrap Addon CSS -->
+            echo '<link href="../../assets/bookstores/smartmenus/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.css" rel="stylesheet">';
 
             //<!-- Jquery JS  -->
             echo '<script src="../../assets/bookstores/jquery-3.7.1.min.js"></script>';
@@ -58,6 +70,10 @@
             echo '<link rel="stylesheet" href="../../../assets/bookstores/datatable/datatables.css">';
             //<!-- SELECT2 CSS -->
             echo '<link rel="stylesheet" href="../../../assets/bookstores/select2/css/select2.css">';
+            //<!-- HOME CSS -->
+            echo '<link rel="stylesheet" href="../../../assets/css/homeStyles.css">';
+            //<!-- SmartMenus jQuery Bootstrap Addon CSS -->
+            echo '<link href="../../../assets/bookstores/smartmenus/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.css" rel="stylesheet">';
 
             //<!-- Jquery JS  -->
             echo '<script src="../../../assets/bookstores/jquery-3.7.1.min.js"></script>';
