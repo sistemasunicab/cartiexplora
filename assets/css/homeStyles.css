@@ -1,0 +1,16 @@
+.menu {
+	background-color: #Fe9100 !important;
+}
+.menu ul li a{
+	color: white !important;
+}
+.menu ul li a:hover{
+	color: black !important;
+}
+.submenu, .submenu1 {
+  background-color: #127EB5;
+  opacity: 0.9;
+}
+.submenu a:hover {
+  background-color: #56BEF3;
+}
