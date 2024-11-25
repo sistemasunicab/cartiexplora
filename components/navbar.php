@@ -216,7 +216,7 @@
             </div>
         </nav>';
 
-    echo $html.'<br>'.basename(dirname(__FILE__));
+    echo $html;//.'<br>'.basename(dirname(__FILE__));
 ?>
 <!--<nav class="navbar navbar-expand-lg navbar-light bg-light menu">
     <div class="container">
