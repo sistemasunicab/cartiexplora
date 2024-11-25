@@ -1,0 +1,129 @@
+/** Fonts **/
+@font-face {
+     font-family: 'Roboto';
+     src: url('../fonts/Roboto-Regular.ttf');
+     font-weight: normal;
+     font-style: normal;
+}
+   
+@font-face {
+     font-family: 'Roboto';
+     src: url('../fonts/Roboto-Black.ttf');
+     font-weight:900;
+     font-style: normal;
+}
+
+@font-face {
+     font-family: 'Roboto';
+     src: url('../fonts/Roboto-Medium.ttf');
+     font-weight:600;
+     font-style: normal;
+}
+   
+@font-face {
+     font-family: 'Roboto';
+     src: url('../fonts/Roboto-Light.ttf');
+     font-weight: 200;
+     font-style: normal;
+}
+
+/** Utilities **/
+
+.text-white {
+     color: #F5F5F5;
+}
+
+.roboto-light-font {
+     font-family: 'Roboto', sans-serif;
+     font-weight: 200;
+}
+
+.background-blue {
+     background-color: #127EB5;    
+}
+
+.background-white {
+     background-color: #F5F5F5;
+}
+
+.text-center {
+     text-align: center;
+}
+
+.radius-1rem {
+     border-radius: 1rem;
+}
+
+.padding-top-bottom-1rem {
+     padding: 1rem 0;
+}
+
+.margin-bottom-0_3rem {
+     margin-bottom: .3rem;
+}
+
+.margin-top-4rem {
+     margin-top: 4rem;
+}
+
+.text-blue {
+     color: #127EB5;
+}
+
+/** Indicators **/
+
+.indicator {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     padding: .5rem 0;
+     gap: 1rem;
+}
+
+.indicator p {
+     margin: 0;
+     padding: 0;
+}
+
+.indicator-type {
+     font-family: 'Roboto', sans-serif;
+}
+
+.indicator-number {
+     color: #127EB5;
+     font-family: 'Roboto', sans-serif;
+     font-weight: 900;
+     font-size: 2rem;
+}    
+
+.indicator img {
+     width: 3rem;
+     height: auto;
+}
+
+/** Meet our campus **/
+
+.campus-title {
+     font-family: 'Roboto', sans-serif;
+     font-weight: 900;
+     font-size: 3.4rem;
+     margin: 0;
+}
+
+.campus-subtitle {
+     font-family: 'Roboto', sans-serif;
+     font-weight: 200;
+     font-size: 3.4rem;
+     margin: 0;
+}
+
+.campus-p {
+     font-family: 'Roboto', sans-serif;
+     font-weight: 600;
+     margin: 3.4rem 0;
+}
+
+.campus-img {
+     width: 12rem;
+     object-fit: cover;
+}
