@@ -1,5 +1,6 @@
 <?php 
  include('../../../clases/ImageAttributeBuilder.php');
+ include('../../../clases/ButtonStylesBannerBuilder.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -17,31 +17,31 @@ if ($nivel == "raiz") {
 }
 
 //? Verify that the section is visible
-$resSentecia = $mysqli1->query($sentencia . "4");
+$res_sentecia = $mysqli1->query($sentencia . "4");
 
-while ($record = $resSentecia->fetch_assoc()) {
-    $sqlAcademicOffer = $record['campos'] . $record['tablas'] . $record['condiciones'];
+while ($row_sentencia = $res_sentecia->fetch_assoc()) {
+    $sql_academic_offer = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
 }
 
-$resAcademicOfferSection = $mysqli1->query($sqlAcademicOffer);
+$res_academic_offer = $mysqli1->query($sql_academic_offer);
 
-while ($record = $resAcademicOfferSection->fetch_assoc()) {
+while ($row_data = $res_academic_offer->fetch_assoc()) {
 
-    if ($record['visible'] != 1) {
+    if ($row_data['visible'] != 1) {
         return;
     }
     //? Gets the section title and renders it
-    echo '<div class="row mt-10 mx-0"><h1 class="col text-center tx-color-bl fw-bold px-0">' . $record['titulo'] . '</h1></div>';
+    echo '<div class="row mt-10 mx-0"><h1 class="col text-center tx-color-bl fw-bold px-0">' . $row_data['titulo'] . '</h1></div>';
 }
 
 //? Search the images in section 2
-$resSentecia = $mysqli1->query($sentencia . "2");
+$res_sentecia = $mysqli1->query($sentencia . "2");
 
-while ($record = $resSentecia->fetch_assoc()) {
-    $sqlImages = $record['campos'] . $record['tablas'] . $record['condiciones'];
+while ($row_sentencia = $res_sentecia->fetch_assoc()) {
+    $sql_images = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
 }
 
-$resImages = $mysqli1->query($sqlImages);
+$res_images = $mysqli1->query($sql_images);
 
 ?>
 
@@ -50,8 +50,8 @@ $resImages = $mysqli1->query($sqlImages);
         <?php
         //? Render the images
         $html = '';
-        while ($record = $resImages->fetch_assoc()) {
-            $attributes = ImageAttributeBuilder::buildAttributes($nivel, $record['ruta'], $record['descripcion'], $record['rutaEncima']);
+        while ($row_images = $res_images->fetch_assoc()) {
+            $attributes = ImageAttributeBuilder::buildAttributes($nivel, $row_images['ruta'], $row_images['descripcion'], $row_images['rutaEncima']);
             $html .= '<img ' . $attributes . ' class="img-fluid col-2" />' . "\n";
         }
         echo $html;
