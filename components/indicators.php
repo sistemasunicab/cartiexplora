@@ -1,6 +1,9 @@
 <!--// Indicators //-->
 <?php
+     // Setting up level
      $nivel = "raiz";
+
+     // Getting main data
      require('business/repositories/1cc2s4Home.php');
      $res_sentencia = $mysqli1->query($sentencia."3");
      while($row_sentencia = $res_sentencia->fetch_assoc()){
@@ -13,6 +16,7 @@
           $indicatorsVisible = $row_datos['visible'];
      }    
 
+     // Checking section visibility
      if ($indicatorsVisible != 1) { return; }
 ?>
 
@@ -24,14 +28,16 @@
      
           <div class="container">
                <div class="row gap-3 justify-content-center">
-                    <div class="col-3 background-white radius-1rem indicator">
+
+                    
+                    <div class="col-3 background-white radius-1rem indicator"> <!-- Indicator -->
                          <img src="assets/img/estudiantes.png" alt="">
 
                          <div>
                               <p class="indicator-number lh-1">1000</p>
                               <p class="indicator-type lh-1">Estudiantes</p>  
                          </div>
-                    </div>
+                    </div> <!-- Indicator End -->
                </div>
           </div>
      </div>
