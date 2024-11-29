@@ -135,8 +135,9 @@ body {
     color: var(--white);
     text-transform: uppercase;
     font-weight: bolder;
-    background-color: var(--default-background); /* Añadir un color de fondo por defecto */
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+    background-color: var(--blue); /* Añadir un color de fondo por defecto */
+    transition: background-color 0.3s ease, transform 0.3s ease,
+        box-shadow 0.3s ease; /* Transiciones suaves */
 }
 
 .button-absolute:hover {
@@ -145,7 +146,6 @@ body {
     background-color: var(--green) !important;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Añadir sombra */
 }
-
 
 /* @media (max-width: 999px) {
     .button-absolute {
@@ -156,8 +156,10 @@ body {
 /** Academic Offer Section **/
 .academic-offer-img img {
     cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .academic-offer-img img:hover {
-    scale: 1.05;
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }

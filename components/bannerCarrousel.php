@@ -88,7 +88,7 @@ while ($row_image = $res_images->fetch_assoc()) {
 
             //? The first item in the carousel must have the active class, the rest must not.
             if ($firstImage  == 0) {
-                $html .= '<div class="carousel-item active"><a href="' . $link_image . '"><img ' . $attributes . ' class="img-fluid"></a><button href="' . $link_button . '" class="button-absolute" style="' . $styles . '">' . $text_button . '</button></div>' . "\n";
+                $html .= '<div class="carousel-item active"><a href="' . $link_image . '"><img ' . $attributes . ' class="img-fluid"></a><a href="' . $link_button . '" class="button-absolute" style="' . $styles . '">' . $text_button . '</a></div>' . "\n";
                 $firstImage++;
             } else {
                 $html .= '<div class="carousel-item"><a href="' . $link_image . '"><img ' . $attributes . ' class="img-fluid"></a><a href="' . $link_button . '" class="button-absolute " style="' . $styles . '">' . $text_button . '</a></div>' . "\n";

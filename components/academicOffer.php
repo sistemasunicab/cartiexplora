@@ -52,7 +52,7 @@ $res_images = $mysqli1->query($sql_images);
         $html = '';
         while ($row_images = $res_images->fetch_assoc()) {
             $attributes = ImageAttributeBuilder::buildAttributes($nivel, $row_images['ruta'], $row_images['descripcion'], $row_images['rutaEncima']);
-            $html .= '<img ' . $attributes . ' class="img-fluid col-2" />' . "\n";
+            $html .= '<a href="" class="col-2"><img ' . $attributes . ' class="img-fluid" /></a>' . "\n";
         }
         echo $html;
         ?>
