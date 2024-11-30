@@ -1,163 +1,166 @@
 <?php
+//nivel de la carpeta desde donde se llama este componente (archivo index.php de la raíz)
+
+if ($nivel == 'raiz') {
+    $levelSelect = 'linkNivelRaiz';
+    require('business/repositories/1cc2s4Home.php');
+}
+if ($nivel == 'uno') {
+    $levelSelect = 'linkNivelUno';
+    require('../business/repositories/1cc2s4Home.php');
+}
+if ($nivel == 'dos') {
+    $levelSelect = 'linkNivelDos';
+    require('../../business/repositories/1cc2s4Home.php');
+}
+if ($nivel == 'tres') {
+    $levelSelect = 'linkNivelTres';
+    require('../../../business/repositories/1cc2s4Home.php');
+}
+
+//Obtencion items base del menu
+$res_sentencia = $mysqli1->query($sentencia . "3");
+while ($row_sentencia = $res_sentencia->fetch_assoc()) {
+    $condiciones = str_replace('|x|', '\'\'', $row_sentencia['condiciones']);
+    $condiciones = str_replace('|y|', '\'\'', $condiciones);
+    $sql_datos = $row_sentencia['campos'] . $row_sentencia['tablas'] . $condiciones;
+}
+$res_datos = $mysqli1->query($sql_datos);
+
+
+$html_base = '<ul class="navbar-nav">';
+if ($res_datos) {
+    // Acceder a los datos
+    while ($row_datos = $res_datos->fetch_assoc()) {
+        $id = $row_datos['id'];
+        $html_base .= '<li class="nav-item">';
+        $html_base .= '<div class="menu-item">';
+        if ($row_datos[$levelSelect] != '') {
+            $html_base .= '<a class = "menu-item-text" target="' . $row_datos['destino'] . '" href="' . $row_datos[$levelSelect] . '">';
+            $html_base .= htmlspecialchars($row_datos['menu']);
+            $html_base .= '</a>';
+        } else {
+            $html_base .= '<p class="menu-item-text">';
+            $html_base .= htmlspecialchars($row_datos['menu']);
+            $html_base .= '</p>';
+        }
+        $html_base .= '</div>';
+        $res_sentencia_h = $mysqli1->query($sentencia . "3");
+        while ($row_sentencia_h = $res_sentencia_h->fetch_assoc()) {
+            $condiciones = str_replace('|x|', '\'' . 'raiz' . '\'', $row_sentencia_h['condiciones']);
+            $condiciones = str_replace('|y|', '\'' . $id . '\'', $condiciones);
+            $sql_datos_h = $row_sentencia_h['campos'] . $row_sentencia_h['tablas'] . $condiciones;
+        }
+        $res_datos_h = $mysqli1->query($sql_datos_h);
+        if ($res_datos_h && $res_datos_h->num_rows > 0) {
+            $html_s = '<div class="dropdown-container">';
+            $html_s .= '<ul class="dropdown">';
+            $html_s2 = '';
+            while ($row_datos_h = $res_datos_h->fetch_assoc()) {
+                $id_2 = $row_datos_h['id'];
+                $html_s .= '<li class="dropdown-item" id="submenu_' . $id . '.' . $id_2 . '">';
+                if ($row_datos_h[$levelSelect] != '') {
+                    $html_s .= '<a href="' . $row_datos_h[$levelSelect] . '">';
+                    $html_s .= htmlspecialchars($row_datos_h['menu']);
+                    $html_s .= '</a>';
+                } else {
+                    $html_s .= htmlspecialchars($row_datos_h['menu']);
+                }
+                $res_sentencia_h2 = $mysqli1->query($sentencia . "3");
+                while ($row_sentencia_h2 = $res_sentencia_h2->fetch_assoc()) {
+                    $condiciones = str_replace('|x|', '\'' . 'uno' . '\'', $row_sentencia_h2['condiciones']);
+                    $condiciones = str_replace('|y|', '\'' . $id_2 . '\'', $condiciones);
+                    $sql_datos_h2 = $row_sentencia_h2['campos'] . $row_sentencia_h2['tablas'] . $condiciones;
+                }
+                $res_datos_h2 = $mysqli1->query($sql_datos_h2);
+                if ($res_datos_h2 && $res_datos_h2->num_rows > 0) {
+                    $html_s2 .= '<ul class="dropdown2" id="submenu_' . $id . '.' . $id_2 . '_dropdown">';
+                    $count = 0;
+                    while ($row_datos_h2 = $res_datos_h2->fetch_assoc()) {
+                        // Añadir un contenedor cada 6 elementos
+                        if ($count % 6 === 0) {
+                            if ($count > 0) {
+                                $html_s2 .= '</div>'; // Cierra el contenedor anterior si no es el primero
+                            }
+                            $html_s2 .= '<div class="dropdown-column">'; // Nueva columna
+                        }
+                        $html_s2 .= '<li class="dropdown-item divide-words">';
+                        $html_s2 .= '<a href="' . $row_datos_h2[$levelSelect] . '">';
+                        $html_s2 .= htmlspecialchars($row_datos_h2['menu']);
+                        $html_s2 .= '</a>';
+                        $html_s2 .= '</li>';
+                        $count++;
+                    }
+                    if ($count > 0) {
+                        $html_s2 .= '</div>'; // Cierra la última columna
+                    }
+                    $html_s2 .= '</ul>';
+                }
+
+                $html_s .= '</li>';
+            }
+            $html_s .= '</ul>';
+            $html_s .= $html_s2;
+            $html_s .= '</div>';
+
+            $html_base .= $html_s;
+        }
+
+        $html_base .= '</li>';
+    }
+} else {
+    // Manejo de errores en caso de fallo en la consulta
+    echo "Error en la consulta: " . $mysqli1->error;
+}
+$html_base .= '</ul>';
 ?>
 
-<style>
-    /* Estilos para la navbar */
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-    }
-
-    .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #333;
-        color: white;
-        padding: 10px 20px;
-        position: relative;
-    }
-
-    .navbar .brand {
-        display: flex;
-        align-items: center;
-    }
-
-    .navbar .brand img {
-        height: 40px;
-        margin-right: 10px;
-    }
-
-    .navbar .menu {
-        display: flex;
-        gap: 20px;
-    }
-
-    .navbar .menu a {
-        color: white;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    .navbar .menu a:hover {
-        text-decoration: underline;
-    }
-
-    /* Estilos para las secciones desplegables */
-    .dropdown {
-        position: absolute;
-        background-color: white;
-        border: 1px solid #ddd;
-        padding: 15px;
-        width: 300px;
-        display: none;
-        /* Ocultas por defecto */
-        z-index: 1000;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-
-    .dropdown.active {
-        display: block;
-        /* Mostrar cuando está activo */
-    }
-
-    .dropdown h3 {
-        margin-top: 0;
-    }
-
-    .dropdown ul {
-        list-style-type: none;
-        padding: 0;
-    }
-
-    .dropdown ul li {
-        margin: 5px 0;
-    }
-
-    .dropdown ul li a {
-        text-decoration: none;
-        color: #333;
-    }
-
-    .dropdown ul li a:hover {
-        text-decoration: underline;
-    }
-</style>
-
-<div class="navbar">
-    <div class="brand">
-        <img src="logo.png" alt="Logo de UNICAB">
-        <span>UNICAB</span>
+<?php
+$html = '';
+if ($nivel == "raiz") {
+    $html .= '<a class="navbar-brand" href="index.php">';
+    $html .= '<img src="assets/img/unicab.png" alt="" width="55" height="55" class="d-inline-block align-text-center">';
+    $html .= '</a>';
+} else if ($nivel == "uno") {
+    $html .= '<a class="navbar-brand" href="../index.php">';
+    $html .= '<img src="../assets/img/unicab.png" alt="" width="55" height="55" class="d-inline-block align-text-center">';
+    $html .= '</a>';
+} else if ($nivel == "dos") {
+    $html .= '<a class="navbar-brand" href="../../index.php">';
+    $html .= '<img src="../../assets/img/unicab.png" alt="" width="55" height="55" class="d-inline-block align-text-center">';
+    $html .= '</a>';
+} else if ($nivel == "tres") {
+    $html .= '<a class="navbar-brand" href="../../../index.php">';
+    $html .= '<img src="../../../assets/img/unicab.png" alt="" width="55" height="55" class="d-inline-block align-text-center">';
+    $html .= '</a>';
+}
+?>
+<nav class="navbar navbar-expand-md navbar-light main-nav">
+    <div class="container">
+        <?php echo $html; ?>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarNav">
+            <?php echo $html_base; ?>
+        </div>
+        
     </div>
-    <div class="menu">
-        <a href="#" onclick="showDropdown('menu1', event)">Colegio UNICAB Virtual</a>
-        <a href="#" onclick="showDropdown('menu2', event)">CARTI Explora</a>
-        <a href="#" onclick="showDropdown('menu3', event)">UNICAB Solutions</a>
-        <a href="#" onclick="showDropdown('menu4', event)">Admisiones</a>
-    </div>
-</div>
+</nav>
 
-<!-- Secciones desplegables -->
-<div id="menu1" class="dropdown">
-    <h3>Colegio UNICAB Virtual</h3>
-    <ul>
-        <li><a href="#">Enlace 1</a></li>
-        <li><a href="#">Enlace 2</a></li>
-        <li><a href="#">Enlace 3</a></li>
-    </ul>
-</div>
-
-<div id="menu2" class="dropdown">
-    <h3>CARTI Explora</h3>
-    <ul>
-        <li><a href="#">Enlace 1</a></li>
-        <li><a href="#">Enlace 2</a></li>
-        <li><a href="#">Enlace 3</a></li>
-    </ul>
-</div>
-
-<div id="menu3" class="dropdown">
-    <h3>UNICAB Solutions</h3>
-    <ul>
-        <li><a href="#">Enlace 1</a></li>
-        <li><a href="#">Enlace 2</a></li>
-        <li><a href="#">Enlace 3</a></li>
-    </ul>
-</div>
-
-<div id="menu4" class="dropdown">
-    <h3>Admisiones</h3>
-    <ul>
-        <li><a href="#">Enlace 1</a></li>
-        <li><a href="#">Enlace 2</a></li>
-        <li><a href="#">Enlace 3</a></li>
-    </ul>
-</div>
-
-<script>
-    function showDropdown(menuId, event) {
-        // Ocultar todos los dropdowns
-        const dropdowns = document.querySelectorAll('.dropdown');
-        dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
-
-        // Mostrar el dropdown correspondiente
-        const dropdown = document.getElementById(menuId);
-        if (dropdown) {
-            // Obtener las coordenadas del enlace clicado
-            const rect = event.target.getBoundingClientRect();
-            dropdown.style.left = `${rect.left}px`; // Ajustar la posición horizontal
-            dropdown.style.top = `${rect.bottom}px`; // Ajustar la posición vertical
-            dropdown.classList.add('active');
-        }
-    }
-
-
-    // Cerrar los menús al hacer clic fuera de ellos
-    window.onclick = function (event) {
-        if (!event.target.closest('.navbar')) {
-            const dropdowns = document.querySelectorAll('.dropdown');
-            dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
-        }
-    };
-</script>
+<?php
+if ($nivel == "raiz") {
+    //<!-- script  -->
+    echo '<script src="assets/js/script.js"></script>';
+} else if ($nivel == "uno") {
+    //<!-- script  -->
+    echo '<script src="../assets/js/script.js"></script>';
+} else if ($nivel == "dos") {
+    //<!-- script  -->
+    echo '<script src="../../assets/js/script.js"></script>';
+} else if ($nivel == "tres") {
+    //<!-- script  -->
+    echo '<script src="../../../assets/js/script.js"></script>';
+}
+?>

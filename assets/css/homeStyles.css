@@ -1,0 +1,120 @@
+/*Inicio estilos NavBar*/
+
+.main-nav {
+    background-color: #Fe9100;
+}
+
+.dropdown-container {
+    position: absolute;
+    display: flex;
+}
+
+.dropdown {
+    display: none;
+    background-color: rgba(21, 135, 180, 0.9);
+    min-width: 160px;
+    padding-block: 1.5em;
+    z-index: 1000;
+}
+
+.dropdown2 {
+    display: none;
+    flex-direction: row;
+    background-color: rgba(24, 125, 174, 0.9);
+    min-width: 160px;
+    padding-left: 0.5em;
+    padding-right: 1em;
+    padding-block: 1.5em;
+    z-index: 1000;
+    left: 100%;
+    top: 0;
+}
+
+.dropdown-column {
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+}
+
+.dropdown-item {
+    font-weight: normal;
+    position: relative;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 2px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.dropdown-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 85%;
+    height: 2px;
+    background-color: rgba(86, 190, 243, 0.9);
+}
+
+.dropdown-item:hover {
+    color: white;
+    background-color: rgba(86, 190, 243, 0.9);
+}
+
+.dropdown-item.hover {
+    color: white;
+    background-color: rgba(86, 190, 243, 0.9);
+}
+
+.divide-words {
+    padding-block: 0.25rem;
+    padding-left: 0rem;
+    padding-right: 1rem;
+    white-space: normal;
+    word-wrap: break-word;
+    max-width: 250px;
+    box-sizing: border-box;
+}
+
+
+.menu-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.menu-item-text {
+    margin: auto;
+    font-weight: 600;
+    color: #F5F5F5;
+}
+
+.menu-item-text:hover {
+    color: #4D4D4F;
+    border-bottom: 2px solid #4D4D4F;
+    cursor: pointer;
+}
+
+.menu-item-text.hover {
+    color: #4D4D4F;
+    border-bottom: 2px solid #4D4D4F;
+    cursor: pointer;
+}
+
+.navbar-brand {
+    margin-right: 0;
+    transition: margin-left 0.3s ease;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*Fin estilos NavBar*/
