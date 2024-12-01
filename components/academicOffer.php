@@ -17,7 +17,8 @@ if ($nivel == "raiz") {
 }
 
 //? Verify that the section is visible
-$res_sentecia = $mysqli1->query($sentencia . "4");
+//$res_sentecia = $mysqli1->query($sentencia . "4");
+$res_sentecia = $mysqli1->query($sentencia . "5");
 
 while ($row_sentencia = $res_sentecia->fetch_assoc()) {
     $sql_academic_offer = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];

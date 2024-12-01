@@ -12,5 +12,7 @@ CREATE TABLE tbl_imagenes (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo, rutaEncima, textoAlterno) VALUES
-(2, 'assets/img/boton_primaria.png', 'botonPrimaria', '', '', 'assets/img/boton_over_primaria.png', '');
+(2, 'assets/img/boton_primaria.png', 'botonPrimaria', '', '', 'assets/img/boton_over_primaria.png', ''),
+(2, 'assets/img/boton_bachillerato.png', 'botonBachillerato', '', '', 'assets/img/boton_over_bachillerato.png', ''),
+(2, 'assets/img/boton_ciclos.png', 'botonCiclos', '', '', 'assets/img/boton_over_ciclos.png', '');
 
