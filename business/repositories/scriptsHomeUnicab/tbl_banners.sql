@@ -12,5 +12,5 @@ CREATE TABLE tbl_banners (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 INSERT INTO tbl_banners (visible, ruta, textoBoton, linkImagen, linkBoton, color, transparencia, porcentajeTop, porcentajeLeft) VALUES
-(1, 'assets/img/banner.png', 'Agendar Entrevista', '', '', '18, 126, 181', '1', '82', '70');
+(1, 'assets/img/banner.png', 'Agendar Entrevista', '', '', '51, 38, 21', '.5', '70', '70');
 

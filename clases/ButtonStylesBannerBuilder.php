@@ -1,24 +1,24 @@
 <?php
 
 /**
- * Class in charge of generating the styles and positioning the <a></a> or <button></button> HTML tag
+ * Clase encargada de generar los estilos y posicionamiento
+ * de la etiqueta <a></a> o <button></button>
  */
 class ButtonStylesBannerBuilder
 {
 
     /**
-     * Builds and returns a set of CSS styles based on the given parameters.
+     * Construye y devuelve un conjunto de estilos
+     * CSS teniendo en cuenta los parametros suministrados.
      * 
-     * @param string $color      The rgb  color value for the background.
-     * @param string $alpha      The alpha channel value to define transparency.
-     * @param string $top        The value of how many percent should be separated from the top
-     * @param string $left       The value of how many percent should be separated from the left part
+     * @param string $color      El valor del color en rgb.
+     * @param string $alpha      El valor del alpha channel que define la transaparencia.
+     * @param string $top        El valor de cuanto porcentaje debe estar separado del top
+     * @param string $left       El valor de cuanto porcentaje debe estar separado de la parte izquierda
      * 
-     * @return string Returns a string with the CSS styles for a button.
+     * @return string Devuelve un string con los estilos CSS de un boton.
      * 
-     * @author Cristian Ortiz
-     * 
-     * Usage example:
+     * Ejemplo de uso:
      * $styles = ButtonStylesBannerBuilder::buildStyles($row_db[$i]['color'], $row_db['transparencia'], $row_db['porcentajeTop'], $row_db['porcentajeLeft']);
      */
     public static function buildStyles($color = '0, 0, 0', $alpha = '0.5', $top = '0', $left = '0')

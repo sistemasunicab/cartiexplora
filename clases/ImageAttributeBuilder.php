@@ -1,23 +1,21 @@
 <?php
 
 /**
- * Class responsible for generating the attributes of the HTML image element
+ * Clase responsable de generar los atributos de la etiqueta IMG
  */
 class ImageAttributeBuilder
 {
     /**
-     * Builds and returns a set of img tag attributes based on the given parameters.
+     * Construye y devuelve un conjunto de atributos de la etiqueta img con base a los parametros dados.
      * 
-     * @param string $nivel      The level in the directory tree from which the image will be accessed.
-     * @param string $source     The source URL or path of the image.
-     * @param string $alt        (optional) The alternative text for the image. Default is an empty string.
-     * @param string $sourceOver (optional) The secondary source URL or path for hover effects. Default is an empty string.
+     * @param string $nivel      El nivel en el arbol de directorios donde sera accedida la imagen.
+     * @param string $source     El atributo source con la URL o path de la imagen.
+     * @param string $alt        (opcional) El texto alternativo de la imagen. Por defecto es un string vacío.
+     * @param string $sourceOver (opcional) El atributo source con la URL o path secundario para hacer el efecto hover. Por defecto es un string vacío.
      * 
-     * @return string Returns a string with the attributes of the image tag.
+     * @return string Devuelve un string con los atributos de la etiqueta image.
      * 
-     * @author Cristian Ortiz
-     * 
-     * Usage example:
+     * Ejemplo de uso:
      * $attributes = ImageAttributeBuilder::buildAttributes('raiz', $row_db['ruta'], $row_db['textoAlterno'], $row_db['rutaEncima']);
      */
     public static function buildAttributes($nivel, $source, $alt = '', $sourceOver = '')

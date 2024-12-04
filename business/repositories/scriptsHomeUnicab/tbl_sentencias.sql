@@ -14,4 +14,9 @@ CREATE TABLE tbl_sentencias (
 INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones) VALUES
 ('SELECT * ', 'FROM tbl_parametros ', 'WHERE parametro = |telefono_admisiones|', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 2', '', '', '', '');
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 1', '', '', '', '');
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 2 AND visible = 1', '', '', '', '');
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 1 AND visible = 1', '', '', '', '');
+('SELECT * ', 'FROM tbl_banners ', 'WHERE visible = 1', '', '', '', '');
+
 
