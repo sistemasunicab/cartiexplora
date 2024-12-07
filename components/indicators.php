@@ -10,22 +10,23 @@
           $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
      }  
      
+     // Getting all important info & initializing $html
      $res_datos = $mysqli1->query($sql_datos);
+     $html = '';
+
      while($row_datos = $res_datos->fetch_assoc()){
-          $indicatorsTitle = $row_datos['titulo'];
-          $indicatorsVisible = $row_datos['visible'];
+          // Renderizing main section
+
+          $html .= '
+          <section>
+          <div class="background-blue padding-top-bottom-1rem margin-top-5rem">
+          <h2 class="text-white text-center margin-bottom-0_3rem roboto-light-font lh1">'.$row_datos['titulo'].'</h2>
+          ';
      }    
 
      // Checking section visibility
-     if ($indicatorsVisible != 1) { return; }
-?>
-
-<section>
-     <div class="background-blue padding-top-bottom-1rem margin-top-5rem">
-          <?php
-               echo '<h2 class="text-white text-center margin-bottom-0_3rem roboto-light-font lh1">'.$indicatorsTitle.'</h2>'
-          ?>
-     
+     if ($html != '') {
+          $html .= '
           <div class="container">
                <div class="row gap-3 justify-content-center">
 
@@ -41,6 +42,14 @@
                     
                </div>
           </div>
-     </div>
-</section>
+          ';
+
+          $html .= '
+          </div>
+          </section>
+          ';
+     }
+
+     echo $html;
+?>
 
