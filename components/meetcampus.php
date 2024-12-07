@@ -35,7 +35,7 @@
 ?>
 
 <section>
-     <div class="container margin-top-4rem">
+     <div class="container margin-top-5rem">
 
           <?php
                // Printing Titles and content

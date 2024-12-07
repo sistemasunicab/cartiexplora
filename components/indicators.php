@@ -21,7 +21,7 @@
 ?>
 
 <section>
-     <div class="background-blue padding-top-bottom-1rem margin-top-4rem">
+     <div class="background-blue padding-top-bottom-1rem margin-top-5rem">
           <?php
                echo '<h2 class="text-white text-center margin-bottom-0_3rem roboto-light-font lh1">'.$indicatorsTitle.'</h2>'
           ?>
@@ -38,6 +38,7 @@
                               <p class="indicator-type lh-1">Estudiantes</p>  
                          </div>
                     </div> <!-- Indicator End -->
+                    
                </div>
           </div>
      </div>
