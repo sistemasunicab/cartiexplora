@@ -18,34 +18,34 @@ if ($nivel == 'tres') {
     require('../../../business/repositories/1cc2s4Home.php');
 }
 
-//Obtencion items base del menu
-$res_sentencia = $mysqli1->query($sentencia . "3");
+$numero_de_sentencia = "6";
+$res_sentencia = $mysqli1->query($sentencia . $numero_de_sentencia);
 while ($row_sentencia = $res_sentencia->fetch_assoc()) {
     $condiciones = str_replace('|x|', '\'\'', $row_sentencia['condiciones']);
     $condiciones = str_replace('|y|', '\'\'', $condiciones);
     $sql_datos = $row_sentencia['campos'] . $row_sentencia['tablas'] . $condiciones;
 }
 $res_datos = $mysqli1->query($sql_datos);
-
-
-$html_base = '<ul class="navbar-nav">';
+// Validar que la consulta fue exitosa
+$html_base = '<ul id="menuDisplay" class="main-container h-100" >';
 if ($res_datos) {
-    // Acceder a los datos
+    // Acceder a los datos 
     while ($row_datos = $res_datos->fetch_assoc()) {
         $id = $row_datos['id'];
-        $html_base .= '<li class="nav-item">';
-        $html_base .= '<div class="menu-item">';
+        $html_base .= '<li class="nav-item h-100">';
+        $html_base .= '<div class="menu-item h-100">';
         if ($row_datos[$levelSelect] != '') {
-            $html_base .= '<a class = "menu-item-text" target="' . $row_datos['destino'] . '" href="' . $row_datos[$levelSelect] . '">';
+            $html_base .= '<a class = "m-auto menu-item-text" target="' . $row_datos['destino'] . '" href="' . $row_datos[$levelSelect] . '">';
             $html_base .= htmlspecialchars($row_datos['menu']);
             $html_base .= '</a>';
         } else {
-            $html_base .= '<p class="menu-item-text">';
+            $html_base .= '<p class="m-auto menu-item-text">';
             $html_base .= htmlspecialchars($row_datos['menu']);
+            $html_base .= '<i class="icon-row fas fa-chevron-down"></i>';
             $html_base .= '</p>';
         }
         $html_base .= '</div>';
-        $res_sentencia_h = $mysqli1->query($sentencia . "3");
+        $res_sentencia_h = $mysqli1->query($sentencia . $numero_de_sentencia);
         while ($row_sentencia_h = $res_sentencia_h->fetch_assoc()) {
             $condiciones = str_replace('|x|', '\'' . 'raiz' . '\'', $row_sentencia_h['condiciones']);
             $condiciones = str_replace('|y|', '\'' . $id . '\'', $condiciones);
@@ -65,8 +65,9 @@ if ($res_datos) {
                     $html_s .= '</a>';
                 } else {
                     $html_s .= htmlspecialchars($row_datos_h['menu']);
+                    $html_s .= '<i class="icon-row fas fa-chevron-right"></i>';
                 }
-                $res_sentencia_h2 = $mysqli1->query($sentencia . "3");
+                $res_sentencia_h2 = $mysqli1->query($sentencia . $numero_de_sentencia);
                 while ($row_sentencia_h2 = $res_sentencia_h2->fetch_assoc()) {
                     $condiciones = str_replace('|x|', '\'' . 'uno' . '\'', $row_sentencia_h2['condiciones']);
                     $condiciones = str_replace('|y|', '\'' . $id_2 . '\'', $condiciones);
@@ -96,16 +97,13 @@ if ($res_datos) {
                     }
                     $html_s2 .= '</ul>';
                 }
-
                 $html_s .= '</li>';
             }
             $html_s .= '</ul>';
             $html_s .= $html_s2;
             $html_s .= '</div>';
-
             $html_base .= $html_s;
         }
-
         $html_base .= '</li>';
     }
 } else {
@@ -116,51 +114,62 @@ $html_base .= '</ul>';
 ?>
 
 <?php
+$numero_de_sentencia_logo = "7";
+$res_sentencia_logo = $mysqli1->query($sentencia . $numero_de_sentencia_logo);
+while ($row_sentencia_logo = $res_sentencia_logo->fetch_assoc()) {
+    $condiciones = str_replace('||', '\'\'', $row_sentencia_logo['condiciones']);
+    $sql_datos_logo = $row_sentencia_logo['campos'] . $row_sentencia_logo['tablas'] . $condiciones;
+}
+$res_datos_logo = $mysqli1->query($sql_datos_logo);
+while ($row_datos_logo = $res_datos_logo->fetch_assoc()) {
+    $ruta_logo = $row_datos_logo['ruta'];
+}
+
 $html = '';
 if ($nivel == "raiz") {
-    $html .= '<a class="navbar-brand" href="index.php">';
-    $html .= '<img src="assets/img/unicab.png" alt="" width="55" height="55" class="d-inline-block align-text-center">';
+    $html .= '<a class="unicab-brand" href="index.php">';
+    $html .= '<img src="' . $ruta_logo . '" alt="" width="55" height="55" class="d-inline-block align-text-center">';
     $html .= '</a>';
 } else if ($nivel == "uno") {
-    $html .= '<a class="navbar-brand" href="../index.php">';
-    $html .= '<img src="../assets/img/unicab.png" alt="" width="55" height="55" class="d-inline-block align-text-center">';
+    $html .= '<a class="unicab-brand" href="../index.php">';
+    $html .= '<img src="../' . $ruta_logo . '" alt="" width="55" height="55" class="d-inline-block align-text-center">';
     $html .= '</a>';
 } else if ($nivel == "dos") {
-    $html .= '<a class="navbar-brand" href="../../index.php">';
-    $html .= '<img src="../../assets/img/unicab.png" alt="" width="55" height="55" class="d-inline-block align-text-center">';
+    $html .= '<a class="unicab-brand" href="../../index.php">';
+    $html .= '<img src="../../' . $ruta_logo . '" alt="" width="55" height="55" class="d-inline-block align-text-center">';
     $html .= '</a>';
 } else if ($nivel == "tres") {
-    $html .= '<a class="navbar-brand" href="../../../index.php">';
-    $html .= '<img src="../../../assets/img/unicab.png" alt="" width="55" height="55" class="d-inline-block align-text-center">';
+    $html .= '<a class="unicab-brand" href="../../../index.php">';
+    $html .= '<img src="../../../' . $ruta_logo . '" alt="" width="55" height="55" class="d-inline-block align-text-center">';
     $html .= '</a>';
 }
 ?>
-<nav class="navbar navbar-expand-md navbar-light main-nav">
-    <div class="container">
-        <?php echo $html; ?>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse collapse" id="navbarNav">
-            <?php echo $html_base; ?>
+<nav class="navbar main-nav">
+    <div class="main-container h-100">
+        <div class="temporal-container">
+            <?php echo $html; ?>
+            <button class="navbar-toggler" type="button" id="menu-button">
+                <i class="fas fa-bars" id="bars"></i>
+            </button>
         </div>
-        
+
+        <?php
+        echo $html_base;
+        ?>
     </div>
 </nav>
 
 <?php
-if ($nivel == "raiz") {
-    //<!-- script  -->
-    echo '<script src="assets/js/script.js"></script>';
-} else if ($nivel == "uno") {
-    //<!-- script  -->
-    echo '<script src="../assets/js/script.js"></script>';
-} else if ($nivel == "dos") {
-    //<!-- script  -->
-    echo '<script src="../../assets/js/script.js"></script>';
-} else if ($nivel == "tres") {
-    //<!-- script  -->
-    echo '<script src="../../../assets/js/script.js"></script>';
+if ($nivel == 'raiz') {
+    echo '<script src="assets/js/script.js?v=1.0"></script>';
+}
+if ($nivel == 'uno') {
+    echo '<script src="../assets/js/script.js?v=1.0"></script>';
+}
+if ($nivel == 'dos') {
+    echo '<script src="../../assets/js/script.js?v=1.0"></script>';
+}
+if ($nivel == 'tres') {
+    echo '<script src="../../../assets/js/script.js?v=1.0"></script>';
 }
 ?>

@@ -18,5 +18,9 @@
         $nivel = "raiz"; 
         include('components/bookstoresMain.php') 
     ?>
+    <?php 
+        $nivel = "raiz";
+        include('components/footer.php')
+    ?>
 </body>
 </html>

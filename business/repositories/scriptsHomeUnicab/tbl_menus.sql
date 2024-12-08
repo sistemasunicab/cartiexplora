@@ -12,11 +12,11 @@ CREATE TABLE tbl_menus (
 
 INSERT INTO tbl_menus (menu, nivel, padre, icono, linkNivelRaiz, linkNivelTres, destino) VALUES
 ('Colegio UNICAB Virtual', '', '', '', '', '', ''),
-('CARTI Explora', '', '', '', '', ''),
-('UNICAB Solutions', '', '', '', '', ''),
-('Admisiones', '', '', '', '', ''),
+('CARTI Explora', '', '', '', '', '',''),
+('UNICAB Solutions', '' ,'', '', '', '', ''),
+('Admisiones', '', '', '', '', '', ''),
 ('Aula Virtual', '', '', '', 'https://aulavirtual.unicab.org/login/', 'https://aulavirtual.unicab.org/login/', '_blank'),
-('Registro Académico', '', '', '', '', ''),
+('Registro Académico', '', '', '', '', '', ''),
 ('Correo', '', '', '', 'https://mail.google.com/a/unicab.org/', 'https://mail.google.com/a/unicab.org/', '_blank'),
 
 ('Dirección y Administración', 'raiz', '1', '', '', '',''),

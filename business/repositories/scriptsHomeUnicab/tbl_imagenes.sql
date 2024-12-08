@@ -12,5 +12,9 @@ CREATE TABLE tbl_imagenes (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo, rutaEncima, textoAlterno) VALUES
-(2, 'assets/img/boton_primaria.png', 'botonPrimaria', '', '', 'assets/img/boton_over_primaria.png', '');
+(2, 'assets/img/boton_primaria.png', 'botonPrimaria', '', '', 'assets/img/boton_over_primaria.png', ''),
+(9, 'assets/img/unicab.png', 'logoUnicab', '', '', '', ''),
+(10, 'assets/img/unicab.png', 'logoUnicab', 'Colegio Unicab Virtual', '', '', ''),
+(10, 'assets/img/carti_explora.png', 'logoCartiExplora', 'CARTI Explora', '', '', ''),
+(10, 'assets/img/unicab_solutions.png', 'logoUnicabSolutions', 'UNICAB Solutions', '', '', '');
 
