@@ -85,8 +85,7 @@ ul {
 .dropdown-container {
     width: 100%;
     display: flex;
-    background-color: rgb(21, 135, 180);
-    
+    background-color: rgb(21, 135, 180);    
 }
 
 .dropdown-container.hover {
@@ -99,7 +98,6 @@ ul {
     background-color: rgba(21, 135, 180);
     padding-block: 1.5em;
 }
-
 
 .dropdown.hover{
     display: block;
@@ -156,6 +154,7 @@ ul {
     display: block;
     width: 100%;
 }
+
 .divide-words {
     padding-block: 0.25rem;
     padding-left: 0rem;
@@ -267,7 +266,6 @@ ul {
     
 }
 
-
 @media (min-width: 850px){
     .menu-item-text {
         max-width: 100px;
@@ -342,7 +340,6 @@ ul {
     font-family: 'Roboto-thinitalic';
     src: url('../fonts/Roboto-ThinItalic.ttf') format('truetype');
 }
-
 
 .first-footer {
     display: flex;
@@ -498,7 +495,6 @@ ul {
     padding-block: .2rem;
 }
 
-
 @media (min-width: 768px) {
     .first-footer {
         flex-direction: row;
@@ -515,7 +511,7 @@ ul {
 }
 /*Fin estilos Footer*//** FONT **/
 
-@font-face {
+/*@font-face {
     font-family: "Roboto";
     src: url("../fonts/Roboto-Black.ttf") format("truetype");
     font-weight: 900;
@@ -535,6 +531,7 @@ ul {
     font-weight: 700;
     font-style: normal;
 }
+
 @font-face {
     font-family: "Roboto";
     src: url("../fonts/Roboto-BoldItalic.ttf") format("truetype");
@@ -596,7 +593,7 @@ ul {
     src: url("../fonts/Roboto-ThinItalic.ttf") format("truetype");
     font-weight: 100;
     font-style: italic;
-}
+}*/
 
 /** Variables CSS **/
 :root {
@@ -662,12 +659,6 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Añadir sombra */
 }
 
-/* @media (max-width: 999px) {
-    .button-absolute {
-        display: none;
-    }
-} */
-
 /** Academic Offer Section **/
 .academic-offer-img img {
     cursor: pointer;
@@ -677,4 +668,136 @@ body {
 .academic-offer-img img:hover {
     transform: scale(1.05) rotate(2deg);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/** Fonts **/
+/*@font-face {
+     font-family: 'Roboto';
+     src: url('../fonts/Roboto-Regular.ttf');
+     font-weight: normal;
+     font-style: normal;
+}
+   
+@font-face {
+     font-family: 'Roboto';
+     src: url('../fonts/Roboto-Black.ttf');
+     font-weight:900;
+     font-style: normal;
+}
+
+@font-face {
+     font-family: 'Roboto';
+     src: url('../fonts/Roboto-Medium.ttf');
+     font-weight:600;
+     font-style: normal;
+}
+   
+@font-face {
+     font-family: 'Roboto';
+     src: url('../fonts/Roboto-Light.ttf');
+     font-weight: 200;
+     font-style: normal;
+}*/
+
+/** Utilities **/
+
+.text-white {
+     color: #F5F5F5;
+}
+
+.roboto-light-font {
+     font-family: 'Roboto', sans-serif;
+     font-weight: 200;
+}
+
+.background-blue {
+     background-color: #127EB5;    
+}
+
+.background-white {
+     background-color: #F5F5F5;
+}
+
+.text-center {
+     text-align: center;
+}
+
+.radius-1rem {
+     border-radius: 1rem;
+}
+
+.padding-top-bottom-1rem {
+     padding: 1rem 0;
+}
+
+.margin-bottom-0_3rem {
+     margin-bottom: .3rem;
+}
+
+.margin-top-5rem {
+     margin-top: 5rem;
+}
+
+.text-blue {
+     color: #127EB5;
+}
+
+/** Indicators **/
+
+.indicator {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     padding: .5rem 0;
+     gap: 1rem;
+}
+
+.indicator p {
+     margin: 0;
+     padding: 0;
+}
+
+.indicator-type {
+     font-family: 'Roboto', sans-serif;
+}
+
+.indicator-number {
+     color: #127EB5;
+     font-family: 'Roboto', sans-serif;
+     font-weight: 900;
+     font-size: 2rem;
+}    
+
+.indicator img {
+     width: 3rem;
+     height: auto;
+}
+
+/** Meet our campus **/
+
+.campus-title {
+     font-family: 'Roboto', sans-serif;
+     font-weight: 900;
+     font-size: 3.4rem;
+     margin: 0;
+}
+
+.campus-subtitle {
+     font-family: 'Roboto', sans-serif;
+     font-weight: 200;
+     font-size: 3.4rem;
+     margin: 0;
+}
+
+.campus-p {
+     font-family: 'Roboto', sans-serif;
+     font-weight: 600;
+     margin: 3.4rem;
+}
+
+.campus-img {
+     width: 18.75rem;
+     height: 18.75rem;
+     object-fit: cover;
+     object-position: center;
 }
