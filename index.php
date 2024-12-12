@@ -12,6 +12,7 @@
     <?php 
         $nivel = "raiz";
         include('components/navBar.php');
+        include('components/navBar_ghf.php');
         include('components/bannerCarrousel.php');
         //include('components/contentProof.php');
         include('components/academicOffer.php');
