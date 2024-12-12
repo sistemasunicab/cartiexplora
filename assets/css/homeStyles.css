@@ -3,7 +3,7 @@ body{
 }
 
 /*Menu ghf */
-.menu {
+/*.menu {
 	background-color: #Fe9100 !important;
 }
 .menu ul li a{
@@ -18,7 +18,7 @@ body{
 }
 .submenu a:hover {
   background-color: #56BEF3;
-}
+}*/
 /*Fin Menu ghf */
 
 /*Inicio estilos NavBar*/
