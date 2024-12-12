@@ -10,7 +10,8 @@
 <body>
     <?php 
         $nivel = "raiz";
-        include('components/navbar.php');
+        //include('components/navbar.php');
+        include('components/navbar_ghf.php');
     ?>
     <?php include('components/contentProof.php'); ?>
     
