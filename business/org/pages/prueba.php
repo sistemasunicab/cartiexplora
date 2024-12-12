@@ -1,5 +1,6 @@
 <?php 
-    
+ include('../../../clases/ImageAttributeBuilder.php');
+ include('../../../clases/ButtonStylesBannerBuilder.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,11 +9,9 @@
     include('../../../components/headMain.php');
 ?>
 <body>
-    <?php 
-        $nivel = "tres";
-        include('../../../components/navbar.php');
-    ?>
-    <?php include('../components/contentProof.php'); ?>
+    <?php include('../../../components/bannerCarrousel.php') ?>
+    <?php include('../../../components/academicOffer.php') ?>
+    <?php include('../components/contentProof.php') ?>
     
     <?php 
         $nivel = "tres";

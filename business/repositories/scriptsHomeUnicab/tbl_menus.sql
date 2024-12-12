@@ -14,39 +14,45 @@ CREATE TABLE tbl_menus (
 
 INSERT INTO tbl_menus (menu, nivel, padre, icono, linkNivelRaiz, linkNivelTres, destino) VALUES
 ('Colegio UNICAB Virtual', '', '', '', '', '', ''),
-('CARTI Explora', '', '', '', '', '', ''),
-('UNICAB Solutions', '', '', '', '', '', ''),
+('CARTI Explora', '', '', '', '', '',''),
+('UNICAB Solutions', '' ,'', '', '', '', ''),
 ('Admisiones', '', '', '', '', '', ''),
 ('Aula Virtual', '', '', '', 'https://aulavirtual.unicab.org/login/', 'https://aulavirtual.unicab.org/login/', '_blank'),
 ('Registro Académico', '', '', '', '', '', ''),
 ('Correo', '', '', '', 'https://mail.google.com/a/unicab.org/', 'https://mail.google.com/a/unicab.org/', '_blank'),
 
-('Dirección y Administración', 'raiz', '1', '', '', '', ''),
-('Consejo Directivo', 'raiz', '1', '', '', '', ''),
-('Rectoría', 'raiz', '1', '', '', '', ''),
-('Coordinación Académica', 'raiz', '1', '', '', '', ''),
-('Secretaría Académica', 'raiz', '1', '', '', '', ''),
-('Equipo de Maestros Mediadores', 'raiz', '1', '', '', '', ''),
-('Asesores Pedagógicos', 'raiz', '1', '', '', '', ''),
+('Dirección y Administración', 'raiz', '1', '', '', '',''),
+('Sobre Nosostros', 'raiz', '1', '', 'business/org/pages/sobreNosotros.php', 'sobreNosotros.php',''),
+('Nuestra Historia', 'raiz', '1', '', '', '',''),
+('Principios que Nos Guían', 'raiz', '1', '', '', '',''),
+('Red de Grupos UNICAB', 'raiz', '1', '', '', '',''),
+('Modelo Pedagógico', 'raiz', '1', '', '', '',''),
+('Oferta Educativa', 'raiz', '1', '', '', '',''),
+('Directorio de Contactos', 'raiz', '1', '', '', '',''),
+('Horarios de Atención', 'raiz', '1', '', '', '',''),
+('Calendario Académico', 'raiz', '1', '', '', '',''),
 
-('Misión y Visión', 'raiz', '2', '', 'business/cartiExplora/pages/misionVision.php', 'misionVision.php', ''),
-('Principios y valores', 'raiz', '2', '', 'business/cartiExplora/pages/principiosValores.php', 'principiosValores.php', ''),
-('Servicios', 'raiz', '2', '', 'business/cartiExplora/pages/servicios.php', 'servicios.php', ''),
+('Comunicados', 'uno', '8', '', 'business/org/pages/comunicados.php', 'comunicados.php', ''),
+('Estados Financieros', 'uno', '8', '', 'business/org/pages/estadosFinancieros.php', 'estadosFinancieros.php', ''),
+('Solicitud de Certificaciones', 'uno', '8', '', 'business/org/pages/solicitudCertificaciones.php', 'solicitudCertificaciones.php', ''),
+('Publicaciones Académicas', 'uno', '8', '', 'business/org/pages/publicacionesAcademicas.php', 'publicacionesAcademicas.php', ''),
 
-('¿Quienes Somos?', 'raiz', '3', '', 'business/solutions/pages/somos.php', 'somos.php', ''),
-('Misión', 'raiz', '3', '', 'business/solutions/pages/mision.php', 'mision.php', ''),
-('Director del Programa de Educación Formal', 'raiz', '3', '', 'business/solutions/pages/directorProgramaEducacionFormal.php', 'directorProgramaEducacionFormal.php', ''),
-('Servicios de Educación Informal', 'raiz', '3', '', 'business/solutions/pages/serviciosEducacionInformal.php', 'serviciosEducacionInformal.php', ''),
-('Consultoría Empresarial', 'raiz', '3', '', 'business/solutions/pages/consultoriaEmpresarial.php', 'consultoriaEmpresarial.php', ''),
+('Misión y Visión', 'raiz', '2', '', 'business/cartiExplora/pages/misionVision.php', 'misionVision.php',''),
+('Principios y Valores', 'raiz', '2', '', 'business/cartiExplora/pages/principiosValores.php', 'principiosValores.php',''),
+('Servicios', 'raiz', '2', '', 'business/cartiExplora/pages/servicios.php', 'servicios.php',''),
 
-('Entrevista', 'raiz', '4', '', 'business/org/pages/entrevista.php', 'entrevista.php', ''),
-('Evaluación Presaberes', 'raiz', '4', '', 'business/org/pages/evaluacionPresaberes.php', 'evaluacionPresaberes.php', ''),
-('Costos', 'raiz', '4', '', 'business/org/pages/costos.php', 'costos.php', ''),
-('Pagos', 'raiz', '4', '', 'business/org/pages/pagos.php', 'pagos.php', ''),
+('¿Quiénes Somos?', 'raiz', '3', '', 'business/solutions/pages/somos.php', 'somos.php',''),
+('Misión', 'raiz', '3', '', 'business/solutions/pages/mision.php', 'mision.php',''),
+('Visión', 'raiz', '3', '', 'business/solutions/pages/vision.php', 'vision.php',''),
+('Director del Programa de educación formal', 'raiz', '3', '', 'business/solutions/pages/directorProgramaEducacionFormal.php', 'directorProgramaEducacionFormal.php',''),
+('Servicios de educación informal', 'raiz', '3', '', 'business/solutions/pages/serviciosEducacionInformal.php', 'serviciosEducacionInformal.php',''),
+('Consultoría empresarial', 'raiz', '3', '', 'business/solutions/pages/consultoriaEmpresarial.php', 'consultoriaEmpresarial.php',''),
 
-('Estudiantes', 'uno', '8', '', 'business/org/pages/estudiantes.php', 'estudiantes.php', ''),
-('Educación Regular', 'uno', '8', '', 'business/org/pages/educacionRegular.php', 'educacionRegular.php', ''),
-('Solicitud de Certificaciones y Papeles', 'uno', '8', '', 'business/org/pages/solicitudCertificacionesPapeles.php', 'solicitudCertificacionesPapeles.php', ''),
-('Manual de Convivencia', 'uno', '8', '', 'business/org/pages/manualConvivencia.php', 'manualConvivencia.php', ''),
-('Educación por Ciclos Propedéuticos (Mayores 18 años)', 'uno', '8', '', 'business/org/pages/educacionCiclos.php', 'educacionCiclos.php', '');
+('Entrevista', 'raiz', '4', '', 'business/org/pages/entrevista.php', 'entrevista.php',''),
+('Evaluación Presaberes', 'raiz', '4', '', 'business/org/pages/evaluacionPresaberes.php', 'evaluacionPresaberes.php',''),
+('Costos', 'raiz', '4', '', 'business/org/pages/costos.php', 'costos.php',''),
+('Pagos', 'raiz', '4', '', 'business/org/pages/pagos.php', 'pagos.php','');
+
+
+
 
