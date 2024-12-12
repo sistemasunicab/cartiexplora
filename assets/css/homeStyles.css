@@ -2,6 +2,25 @@ body{
     width: 100% !important;
 }
 
+/*Menu ghf */
+/*.menu {
+	background-color: #Fe9100 !important;
+}
+.menu ul li a{
+	color: white !important;
+}
+.menu ul li a:hover{
+	color: black !important;
+}
+.submenu, .submenu1 {
+  background-color: #127EB5;
+  opacity: 0.9;
+}
+.submenu a:hover {
+  background-color: #56BEF3;
+}*/
+/*Fin Menu ghf */
+
 /*Inicio estilos NavBar*/
 a {
     text-decoration: none;
