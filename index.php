@@ -6,16 +6,17 @@
 <html lang="en">
 <?php 
     $nivel = "raiz";
-    include('components/headMain.php') 
+    include('components/headMain.php');
 ?>
 <body>
-    <?php include('components/bannerCarrousel.php') ?>
-    <?php include('components/academicOffer.php') ?>
-    <!-- <?php //include('components/contentProof.php') ?> -->
-    
-    <?php
-        $nivel = "raiz"; 
-        include('components/bookstoresMain.php') 
+    <?php 
+        $nivel = "raiz";
+        include('components/navBar.php');
+        include('components/bannerCarrousel.php');
+        //include('components/contentProof.php');
+        include('components/academicOffer.php');
+        include('components/footer.php');
+        include('components/bookstoresMain.php');
     ?>
 </body>
 </html>
