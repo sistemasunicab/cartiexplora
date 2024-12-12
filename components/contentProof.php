@@ -2,7 +2,7 @@
     //nivel de la carpeta desde donde se llama este componente (archivo index.php de la raíz)
     $nivel = "raiz";
     require('business/repositories/1cc2s4Home.php');
-    $res_sentencia = $mysqli1->query($sentencia."1");
+    $res_sentencia = $mysqli1->query($sentencia."13");
     while($row_sentencia = $res_sentencia->fetch_assoc()){
         $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
     }    
@@ -11,7 +11,7 @@
         $tel = $row_datos['t1'];
     }    
 
-    $res_sentencia = $mysqli1->query($sentencia."5");
+    $res_sentencia = $mysqli1->query($sentencia."17");
     while($row_sentencia = $res_sentencia->fetch_assoc()){
         $sql_imagenes = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
     }

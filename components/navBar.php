@@ -18,7 +18,7 @@ if ($nivel == 'tres') {
     require('../../../business/repositories/1cc2s4Home.php');
 }
 
-$numero_de_sentencia = "6";
+$numero_de_sentencia = "1";
 $res_sentencia = $mysqli1->query($sentencia . $numero_de_sentencia);
 while ($row_sentencia = $res_sentencia->fetch_assoc()) {
     $condiciones = str_replace('|x|', '\'\'', $row_sentencia['condiciones']);
@@ -114,7 +114,7 @@ $html_base .= '</ul>';
 ?>
 
 <?php
-$numero_de_sentencia_logo = "7";
+$numero_de_sentencia_logo = "24";
 $res_sentencia_logo = $mysqli1->query($sentencia . $numero_de_sentencia_logo);
 while ($row_sentencia_logo = $res_sentencia_logo->fetch_assoc()) {
     $condiciones = str_replace('||', '\'\'', $row_sentencia_logo['condiciones']);
