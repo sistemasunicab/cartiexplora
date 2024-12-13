@@ -1,3 +1,5 @@
+DROP TABLE tbl_sentencias;
+
 CREATE TABLE tbl_sentencias (
   id int(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   campos varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,

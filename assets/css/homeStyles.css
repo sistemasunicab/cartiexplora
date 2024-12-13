@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*Inicio estilos NavBar*/
 
 .main-nav {
@@ -118,3 +119,21 @@ a:hover {
 }
 
 /*Fin estilos NavBar*/
+=======
+.menu {
+	background-color: #Fe9100 !important;
+}
+.menu ul li a{
+	color: white !important;
+}
+.menu ul li a:hover{
+	color: black !important;
+}
+.submenu, .submenu1 {
+  background-color: #127EB5;
+  opacity: 0.9;
+}
+.submenu a:hover {
+  background-color: #56BEF3;
+}
+>>>>>>> 34e8358ecceb1877437b63e9ac71702ea73bfb95
