@@ -13,5 +13,11 @@ INSERT INTO tbl_parametros (parametro, v1, v2, t1, t2, f1, f2) VALUES
 ('telefono_admisiones', NULL, NULL, '300 815 6513', NULL, NULL, NULL),
 ('correo_admisiones', NULL, NULL, 'admisiones@unicab.org', NULL, NULL, NULL),
 ('direccion_unicab', NULL, NULL, 'Calle 13a No. 16-60', NULL, NULL, NULL),
-('ubicacion_unicab', NULL, NULL, 'Sogamoso - Boyacá - Colombia', NULL, NULL, NULL);
+('ubicacion_unicab', NULL, NULL, 'Sogamoso - Boyacá - Colombia', NULL, NULL, NULL),
+('facebook', NULL, NULL, 'https://www.facebook.com/unicabvir', NULL, NULL, NULL),
+('x', NULL, NULL, 'https://x.com/unicab_virtual?lang=es', NULL, NULL, NULL),
+('instagram', NULL, NULL, 'https://www.instagram.com/unicabvirtual/?hl=es', NULL, NULL, NULL),
+('youtube', NULL, NULL, 'https://www.youtube.com/@unicabco/videos', NULL, NULL, NULL),
+('terminos_condiciones', NULL, NULL, 'Términos y Condiciones / Política de privacidad / Cookies', NULL, NULL, NULL),
+('copyright', NULL, NULL, 'Copyright © 2025 - Equipo Creativo Unicab Virtual. Reservados todos los derechos', NULL, NULL, NULL);
 
