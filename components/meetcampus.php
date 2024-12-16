@@ -1,22 +1,22 @@
 <!--// Meet our Campus //-->
 <?php
 
-     // Setting up level
+     // Cargando el nivel
      $nivel = "raiz";
      require('business/repositories/1cc2s4Home.php');
 
-     // Getting campus data
+     // Obteniendo los datos del campus
      $res_sentencia = $mysqli1->query($sentencia."8");
      while($row_sentencia = $res_sentencia->fetch_assoc()){
           $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
      }  
      
-     // Getting all important info & initializing $html
+     // Obteniendo todos los datos importantes y inicializando $html
      $res_datos = $mysqli1->query($sql_datos);
      $html = '';
 
      while ($row_datos = $res_datos->fetch_assoc()) {
-          // Renderizing main section
+          // Renderizando la seccion
           $html .= '
           <section>
           <div class="container margin-top-5rem">
@@ -26,7 +26,7 @@
           ';
      }
 
-     // Getting campus images
+     // Obteniendo las imagenes del campus
      $res_sentencia = $mysqli1->query($sentencia."21");
      while($row_sentencia = $res_sentencia->fetch_assoc()){
           $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
@@ -37,12 +37,13 @@
           $campusImgs[] = $row_datos['ruta'];
      }    
 
+     // Verificando la visibilidad de la seccion
      if ($html != '') {
           $html .= '
-          <div class="row gap-4 justify-content-center">
+          <div class="row gap-5 justify-content-center">
           ';
 
-          // printing every image for this section
+          // Renderizando las imagenes del campus
           foreach ($campusImgs as $img) {
                $html .= '<img src="'.$img.'" alt="" class="col-2 campus-img p-0">';
           }
