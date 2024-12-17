@@ -689,6 +689,129 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/** Inicio Descubre tus Habilidades **/
+
+.habilidades-img {
+    height: 5rem;
+}
+
+.img-container {
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.img-container:hover {
+     transform: scale(1.05) rotate(2deg);
+ }
+  
+.img-container:not(:nth-child(6)):not(:nth-child(12))::after{
+    content: "";
+    position: absolute;
+    top: 40%; /* Centra verticalmente */
+    right: 0; /* Lado derecho */
+    width: 3px; /* Grosor de la línea */
+    height: 25%; /* Mitad de la altura del div */
+    background-color: var(--light-gray); /* Color de la línea */
+    transform: translateY(-40%); /* Asegura que la línea esté centrada */
+    border-radius: 10%;
+  }
+  
+/** Inicio inscripciones abiertas **/
+
+.notification {
+    display: none;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+  }
+  .success {
+    background-color: #d4edda;
+    color: var(--green);
+    text-align: center;
+  }
+  .error {
+    background-color: #f8d7da;
+    color: #721c24;
+    text-align: center;
+  }
+
+.inscripciones-seccion {
+    margin: 10rem auto;
+}
+
+.inscripciones-info {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.5rem;
+}
+
+.form-inscripciones{
+    font-size: 0.75rem;
+    border: 2px solid var(--green);
+}
+
+.inscripciones-form-titulo{
+    background-color: var(--green);
+    color: var(--white);
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+.form-label {
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 0.6rem;
+}
+
+.form-text {
+    margin: 0;
+    font-size: 0.6rem;
+}
+
+.form-input {
+    border: 1px solid var(--green);
+    padding: .5rem;
+}
+
+.form-textarea {
+    border: 1px solid var(--green);
+    min-height: 10rem;
+    padding: .5rem;
+}
+
+ input[type="checkbox"]{
+    border-color: var(--green);
+ }
+
+ .inscripciones-btn {
+    all: unset;
+    display: inline-block;
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-align: inherit;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.inscripciones-btn {
+    padding: .5rem 0;
+    background-color: var(--green);
+    text-transform: uppercase;
+    color: var(--white);
+    border-radius: 2px;
+    border: 1px solid var(--green);
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.inscripciones-btn:hover {
+    background-color: var(--orange);
+}
+
+
 /** Fonts **/
 /*@font-face {
      font-family: 'Roboto';
@@ -819,4 +942,34 @@ body {
      height: 18.75rem;
      object-fit: cover;
      object-position: center;
+}
+
+.titulo-1 {
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--blue);
+    font-weight: 700;
+}
+
+.titulo-2 {
+    font-size: 2.5rem;
+    line-height: 1;
+    color: black;
+    font-weight: 200;
+}
+
+.texto-grande {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.5rem;
+}
+
+.texto-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.texto-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
 }

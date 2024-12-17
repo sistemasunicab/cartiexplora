@@ -1,3 +1,5 @@
+DROP TABLE tbl_formularios;
+
 CREATE TABLE tbl_formularios (
   id int(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   id_seccion int(11) UNSIGNED NOT NULL,
@@ -10,3 +12,9 @@ CREATE TABLE tbl_formularios (
   CONSTRAINT fk_tbl_menus_tbl_secciones FOREIGN KEY (id_seccion) REFERENCES tbl_secciones (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
+INSERT INTO tbl_formularios (id_seccion, campo, tipo, obligatorio, soloLectura, habilitado ) VALUES 
+(4, 'nombre', 'text', 1, 0, 1 ),
+(4, 'correo', 'email', 1, 0, 1 ),
+(4, 'asunto', 'text', 1, 0, 1 ),
+(4, 'mensaje', 'textarea', 1, 0, 1 ),
+(4, 'checkbox', 'checkbox', 1, 0, 1 ); 
