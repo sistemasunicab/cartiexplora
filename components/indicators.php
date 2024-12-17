@@ -52,7 +52,7 @@
           ';
      }    
 
-     // Obteniendo las imagenes del campus
+     // Obteniendo las imagenes de los indicadores
      $res_sentencia = $mysqli1->query($sentencia."20");
      while($row_sentencia = $res_sentencia->fetch_assoc()){
           $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
