@@ -61,7 +61,8 @@ const reglasvalidacion  = {
 // Elemento donde se muestra el error
 let notificacionFormInscripciones;
 
-// Función para validar un campo
+let erroresCampos = {}; // Objeto para almacenar los errores actuales por campo
+
 function validar_campo(input) {
     if (!notificacionFormInscripciones) {
         notificacionFormInscripciones =
@@ -74,23 +75,36 @@ function validar_campo(input) {
         if (input.checked) {
             input.classList.remove("error");
             input.classList.add("success");
+            delete erroresCampos[name]; // Elimina el error si está corregido
         } else {
             input.classList.add("error");
             input.classList.remove("success");
+            erroresCampos[name] = `El campo ${name} debe estar marcado.`;
         }
-    } else if (reglasvalidacion[name].test(value)) {
-        notificacionFormInscripciones.innerText = ""; // Limpia errores
-        notificacionFormInscripciones.classList.add("notificacion-hidden");
+    } else if (reglasvalidacion[name].test(value) && value.trim() !== '') {
         input.classList.remove("error");
         input.classList.add("success");
+        delete erroresCampos[name]; // Elimina el error si está corregido
     } else {
-        notificacionFormInscripciones.classList.remove("notificacion-hidden");
-        notificacionFormInscripciones.innerText = mensaje_personalizado(name, value);
         input.classList.add("error");
         input.classList.remove("success");
+        erroresCampos[name] = mensaje_personalizado(name, value);
     }
-    
+
+    actualizarNotificacionesErrores();
     mostrar_submit();
+}
+
+function actualizarNotificacionesErrores() {
+    if (Object.keys(erroresCampos).length === 0) {
+        // No hay errores
+        notificacionFormInscripciones.classList.add("notificacion-hidden");
+        notificacionFormInscripciones.innerText = "";
+    } else {
+        // Mostrar todos los errores
+        notificacionFormInscripciones.classList.remove("notificacion-hidden");
+        notificacionFormInscripciones.innerText = Object.values(erroresCampos).join('\n');
+    }
 }
 
 const mensaje_personalizado = (campo, value) => {

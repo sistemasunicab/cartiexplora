@@ -39,4 +39,6 @@ INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamie
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 10 AND id < 39 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_menus ', 'WHERE visible = 1 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_formularios ', 'WHERE id_seccion = 4 ', '', '', '', ''),
-('INSERT ', 'INTO tbl_contactos ', '(nombre, correo, asunto, mensaje, fecha) VALUES (?, ?, ?, ?, ?) ', '', '', '', '');
+('INSERT ', 'INTO tbl_contactos ', '(nombre, correo, asunto, mensaje, fecha) VALUES (?, ?, ?, ?, ?) ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_parametros ', 'WHERE parametro = |titulo_form_inscripciones| ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_parametros ', 'WHERE parametro = |checkbox_form_inscripciones| ', '', '', '', '');

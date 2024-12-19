@@ -719,6 +719,7 @@ body {
 /** Inicio inscripciones abiertas **/
 
 .notificacion-error {
+    position: absolute;
     padding: 10px;
     margin: 10px 0;
     border-radius: 5px;
@@ -728,6 +729,8 @@ body {
 }
 
 .notificacion-success {
+    position: absolute;
+    left: 25%;
     padding: 10px;
     margin: 10px 0;
     border-radius: 5px;
@@ -750,9 +753,14 @@ body {
     font-size: 2rem;
 }
 
+.form-container{
+    position: relative;
+}
+
 .form-inscripciones{
     font-size: 0.75rem;
     border: 2px solid var(--green);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .inscripciones-form-titulo{
@@ -764,7 +772,8 @@ body {
 
 .form-label {
     text-transform: uppercase;
-    margin: 0;
+    margin: 0.1rem 0;
+    padding: 0;
     font-size: 0.6rem;
 }
 
@@ -826,7 +835,7 @@ body {
 }
 
 .inscripciones-btn:hover {
-    background-color: var(--orange);
+    background-color: #0ad310;
 }
 
 .inscripciones-btn:disabled {

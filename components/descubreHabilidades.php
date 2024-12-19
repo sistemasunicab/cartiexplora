@@ -1,31 +1,30 @@
 <?php
-
-    function posicionTituloImagen($imgHTML, $titulo, $posicionTitulo)
+    function posicionTituloImagen($imgHTML, $titulo, $posicionTitulo, $enlace)
     {
         if (strtolower($posicionTitulo) == 'abajo') {
             return
-                '<a href="#/" class="img-container col-md-2 d-flex flex-column align-items-center gap-4 p-0 my-3">' . "\n"
-                    . $imgHTML . "\n"
-                    . '<p>' . $titulo . '</p>' . "\n"
-                . '</a>' . "\n";
+                '<a href="'.$enlace.'" class="img-container col-md-2 d-flex flex-column align-items-center gap-4 p-0 my-3">' . "\n" .
+                     $imgHTML . "\n" .
+                     '<p>' . $titulo . '</p>' . "\n" .
+                '</a>' . "\n";
         } else if (strtolower($posicionTitulo) == 'derecha') {
             return
-                '<a href="#/" class="img-container col-md-2 d-flex align-items-center gap-4 p-0 mx-3">' . "\n"
-                    . $imgHTML . "\n"
-                    . '<p>' . $titulo . '</p>' . "\n"
-                . '</a>' . "\n";
+                '<a href="'.$enlace.'" class="img-container col-md-2 d-flex align-items-center gap-4 p-0 mx-3">' . "\n" .
+                     $imgHTML . "\n" .
+                     '<p>' . $titulo . '</p>' . "\n" .
+                '</a>' . "\n";
         } else if (strtolower($posicionTitulo) == 'izquierda') {
             return
-                '<a href="#/" class="img-container col-md-2 d-flex flex-row-reverse align-items-center gap-4 p-0 mx-3">' . "\n"
-                    . $imgHTML . "\n"
-                    . '<p>' . $titulo . '</p>' . "\n"
-                . '</a>' . "\n";
+                '<a href="'.$enlace.'" class="img-container col-md-2 d-flex flex-row-reverse align-items-center gap-4 p-0 mx-3">' . "\n" .
+                    $imgHTML . "\n" .
+                    '<p>' . $titulo . '</p>' . "\n" .
+                '</a>' . "\n";
         } else if (strtolower($posicionTitulo) == 'arriba') {
             return
-                '<a href="#/" class="img-container col-md-2 d-flex flex-column-reverse align-items-center gap-2 p-0 my-3">' . "\n"
-                . $imgHTML . "\n"
-                . '<p>' . $titulo . '</p>' . "\n"
-                . '</a>' . "\n";
+                '<a href="'.$enlace.'" class="img-container col-md-2 d-flex flex-column-reverse align-items-center gap-2 p-0 my-3">' . "\n" .
+                    $imgHTML . "\n" .
+                    '<p>' . $titulo . '</p>' . "\n" .
+                '</a>' . "\n";
         }
         return '';
     }
@@ -51,14 +50,17 @@
     while ($row_datos_seccion = $res_seccion_habilidades->fetch_assoc()) {
         // Obtiene el titulo de la sección y lo renderiza
         $html .= 
-        '<section class="container">' . '<div class="row mt-10 mx-0">' .
-            '<h2 class="col text-center titulo-1 px-0">' . "\n" . $row_datos_seccion['titulo'] . '</h2>' . "\n";
+        '<section class="container">' . 
+            '<div class="row mt-10 mx-0">' .
+                '<h2 class="col text-center titulo-1 px-0">' . "\n" . $row_datos_seccion['titulo'] . '</h2>' . "\n";
 
         //Obtener subtitulo
         $subtitulo = explode(" ", $row_datos_seccion['subTitulo']);
-        $html .= '<h3 class="text-center titulo-2">' . '<span class="fw-bold">' . $subtitulo[0] . '</span> ' . $subtitulo[1] . '</h3>' . "\n";
+        $html .= 
+                '<h3 class="text-center titulo-2">' . '<span class="fw-bold">' . $subtitulo[0] . '</span> ' . $subtitulo[1] . '</h3>' . "\n";
         //texto de esta sección 
-        $html .= '<p class="text-center texto-base">' . $row_datos_seccion['texto'] . '</p>' . "\n" .
+        $html .= 
+                '<p class="text-center texto-base">' . $row_datos_seccion['texto'] . '</p>' . "\n" .
             '</div>' . "\n";
     }
 
@@ -72,14 +74,16 @@
 
         $res_imagenes = $mysqli1->query($sql_imagenes);
 
-        $html .= '<div class="row px-5 mt-10 contenedor-imagenes">' . "\n";
+        $html .= 
+            '<div class="row px-5 mt-10 contenedor-imagenes">' . "\n";
 
         while ($row_imagenes = $res_imagenes->fetch_assoc()) {
             $attributes = ImageAttributeBuilder::buildAttributes($nivel, $row_imagenes['ruta'], $row_imagenes['descripcion'], $row_imagenes['rutaEncima']);
-            $html .= posicionTituloImagen('<img class="habilidades-img" ' . $attributes . '>', $row_imagenes['titulo'], $row_imagenes['posicionTitulo']);
+            $html .= posicionTituloImagen('<img class="habilidades-img" ' . $attributes . '>', $row_imagenes['titulo'], $row_imagenes['posicionTitulo'], '#/');
         }
 
-        $html .= '</div>' . "\n"
-            . '</section>' . "\n";
+        $html .= 
+            '</div>' . "\n".
+        '</section>' . "\n";
     }
     echo $html;

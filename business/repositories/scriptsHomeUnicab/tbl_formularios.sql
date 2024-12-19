@@ -17,4 +17,5 @@ INSERT INTO tbl_formularios (id_seccion, campo, tipo, obligatorio, soloLectura, 
 (4, 'correo', 'email', 1, 0, 1 ),
 (4, 'asunto', 'text', 1, 0, 1 ),
 (4, 'mensaje', 'textarea', 1, 0, 1 ),
-(4, 'checkbox', 'checkbox', 1, 0, 1 ); 
+(4, 'checkbox', 'checkbox', 1, 0, 1 ),
+(4, 'Envía tu mensaje', 'submit', 0, 0, 0 );
