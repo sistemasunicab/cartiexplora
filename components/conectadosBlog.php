@@ -1,6 +1,35 @@
 <!--// Blog //-->
 <?php
      //-- Funciones --//
+     
+     function construirAtributosBlog($rutaImagenNormal, $rutaImagenEncima) {
+          $atributos = '';
+
+          $rutaEncima = '|'.$rutaImagenEncima.'|';
+          $rutaNormal = '|'.$rutaImagenNormal.'|';
+
+          $atributos .= 'onmouseover="cambiarImagenBlog(this, '.str_replace('|', "'", $rutaEncima).')" ';
+          $atributos .= 'onmouseout="restaurarImagenBlog(this, '.str_replace('|', "'", $rutaNormal).')" ';
+
+          return $atributos;
+     }
+
+     function generarBlog($datos) {
+          $bloque = '
+          <div class="col-3 blog-blockContainer" '.construirAtributosBlog($datos['rutaImagen'], $datos['rutaImagenEncima']).' > <!-- Block start -->
+               <img src="'.$datos['rutaImagen'].'" class="blog-blockImg">
+               
+               <div class="blog-block">
+                    <p class="blog-blockDate lh-1">'.$datos['fechaPublicacion'].'</p>
+                    <p class="blog-blockTitle lh-1">'.$datos['tituloBlog'].'</p>
+
+                    <p class="blog-blockDescription lh-1">'.substr($datos['descripcion'], 0, 100).'</p>
+                    <a href="#" class="blog-blockReadMore lh-1">'.$datos['textoBoton'].'</a>
+               </div>
+          </div> <!-- Block End -->';
+
+          return $bloque;
+     }
 
      //-- Runtime --//
 
@@ -34,47 +63,72 @@
 
      $res_datos = $mysqli1->query($sql_datos);
      while($row_datos = $res_datos->fetch_assoc()){
-          $blogDatos[] = [$row_datos['ruta'], $row_datos['titulo'], $row_datos['posicionTitulo']];
+          $datosImagenes[] = [$row_datos['ruta'], $row_datos['titulo'], $row_datos['posicionTitulo']];
+     }   
+     
+     // Obteniendo los ultimos 3 blogs
+     $res_sentencia = $mysqli1->query($sentencia."27");
+     while($row_sentencia = $res_sentencia->fetch_assoc()){
+          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
+     }  
+
+     $res_datos = $mysqli1->query($sql_datos);
+     $blogs = [];
+
+     while($row_datos = $res_datos->fetch_assoc()){
+          $blogs[] = [
+               'rutaImagen' => $row_datos['imagen'],
+               'rutaImagenEncima' => $row_datos['imagenEncima'],
+               'fechaPublicacion' => $row_datos['fechaPublicacion'],
+               'descripcion' => $row_datos['descripcionPrincipal'], 
+               'textoBoton' => $row_datos['textoBoton'],
+               'tituloBlog' => $row_datos['titulo']
+          ];
+     }   
+
+     // Obteniendo los parametros necesarios
+     $res_sentencia = $mysqli1->query($sentencia."28");
+     while($row_sentencia = $res_sentencia->fetch_assoc()){
+          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
+     }  
+
+     $res_datos = $mysqli1->query($sql_datos);
+     while($row_datos = $res_datos->fetch_assoc()){
+          $parametros[] = $row_datos;
      }   
      
      // Verificando la visibilidad de la seccion
      if ($html != '') {
+          $direction = FlexTitleLoader::setDirection($datosImagenes[1][2]);
+
           $html .= '
                <div class="container margin-top-5rem margin-bottom-5rem">
                     <hr class="blog-separator">
-                    <img src="'.$blogDatos[0][0].'" alt="" class="blog-titleimg">
+                    <img src="'.$datosImagenes[0][0].'" alt="" class="blog-titleimg">
                     <h2 class="text-center blog-title">'.$titulo.'</h2>    
 
                     <div class="row gap-8_5rem justify-content-center margin-bottom-2rem margin-top-2rem">
+          ';
+                  
+          foreach($blogs as $datosBlog) {
+               $html .= generarBlog($datosBlog);
+          } 
 
-                         <div class="col-3 blog-blockContainer"> <!-- Block start -->
-                              <img src="assets/img/cc1.png" alt="" class="blog-blockImg">
-
-                              <div class="blog-block">
-                                   <p class="blog-blockDate lh-1">Fecha</p>
-                                   <p class="blog-blockTitle lh-1">Titulo</p>
-                                   <p class="blog-blockDescription lh-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ad cupiditate sapiente eius necessitatibus</p>
-                                   <a href="#" class="blog-blockReadMore lh-1">Leer más</a>
-                              </div>
-                         </div> <!-- Block End -->
-                         
+          $html .= '
                     </div>
 
-                    <p class="blog-newsletter-advice">Recibe nuestras newsletter semanal</p>
+                    <p class="blog-newsletter-advice">'.$parametros[0]['t1'].'</p>
                     <div class="blog-newsletter-box">
                          <div class="blog-newsletter-container">
                               <input type="email" placeholder="Ingresa tu correo" class="input-form-item"></input>
                               <button class="blog-btn">
-                                   <div class="blog-subscribe">
-                                        <img src="'.$blogDatos[1][0].'" alt="" class="">
-                                        <p>Suscribir</p>
+                                   <div class="blog-subscribe '.$direction.'">
+                                        <img src="'.$datosImagenes[1][0].'" alt="" class="">
+                                        <p>'.$datosImagenes[1][1].'</p>
                                    </div>
                               </button>
                          </div>
                     </div>
-          ';
-
-          $html .= '
                </div>
           </section>
           ';

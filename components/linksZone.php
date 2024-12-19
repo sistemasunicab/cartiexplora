@@ -2,20 +2,10 @@
 <?php
      //-- Funciones --//
 
-     function posicionamientoTitulo($direccion){
-          $direcciones = [
-               'izquierda' => 'linksZone-linkLeft',
-               'derecha' => 'linksZone-linkRight',
-               'abajo' => 'linksZone-linkBottom',
-               'arriba' => 'linksZone-linkUp',
-          ];
-
-          return $direcciones[$direccion];
-     }
-
      function crearLink($datos){
+          $direccion = FlexTitleLoader::setDirection($datos[2]);
           $link = '   
-                    <div class="col-3 linksZone-linkGlobal '.posicionamientoTitulo($datos[2]).'"> <!-- Link -->
+                    <div class="col-3 linksZone-linkGlobal '.$direccion.'"> <!-- Link -->
                          <img src="'.$datos[0].'" alt="" class="linksZone-img">
                          <a href="#" class="linksZone-a">'.$datos[1].'</a>
                     </div> <!-- Link End -->
@@ -76,13 +66,4 @@
 
      echo $html;
 ?>
-
-<!-- 
-
-<div class="col-3 linksZone-linkGlobal linksZone-linkRight">
-     <img src="assets/img/manual.png" alt="" class="linksZone-img">
-     <a href="#" class="linksZone-a">Manual de convivencia</a>
-</div>
-
--->
 
