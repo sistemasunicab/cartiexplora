@@ -718,22 +718,27 @@ body {
   
 /** Inicio inscripciones abiertas **/
 
-.notification {
-    display: none;
+.notificacion-error {
     padding: 10px;
     margin: 10px 0;
     border-radius: 5px;
-  }
-  .success {
+    background-color: #f8d7da;
+    color: #721c24;
+    text-align: center;
+}
+
+.notificacion-success {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
     background-color: #d4edda;
     color: var(--green);
     text-align: center;
   }
-  .error {
-    background-color: #f8d7da;
-    color: #721c24;
-    text-align: center;
-  }
+
+.notificacion-hidden{
+    display: none;
+}
 
 .inscripciones-seccion {
     margin: 10rem auto;
@@ -742,7 +747,7 @@ body {
 .inscripciones-info {
     font-weight: bold;
     font-style: italic;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 .form-inscripciones{
@@ -773,10 +778,23 @@ body {
     padding: .5rem;
 }
 
+.form-input.success {
+    border: 2px solid green; 
+}
+.form-input.error, .form-input.error:focus { 
+    border: 2px solid red; 
+}
+
 .form-textarea {
     border: 1px solid var(--green);
-    min-height: 10rem;
     padding: .5rem;
+}
+
+.form-textarea.success {
+    border: 2px solid green; 
+}
+.form-textarea.error, .form-textarea.error:focus { 
+    border: 2px solid red; 
 }
 
  input[type="checkbox"]{
@@ -809,6 +827,13 @@ body {
 
 .inscripciones-btn:hover {
     background-color: var(--orange);
+}
+
+.inscripciones-btn:disabled {
+    background-color: #f0f0f0; /* Cambiar color de fondo */
+    color: #a0a0a0;           /* Cambiar color del texto */
+    border: 1px solid #ccc;   /* Cambiar el borde */
+    cursor: not-allowed;      /* Cambiar el cursor */
 }
 
 
@@ -952,7 +977,7 @@ body {
 }
 
 .titulo-2 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     line-height: 1;
     color: black;
     font-weight: 200;
