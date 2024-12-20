@@ -9,41 +9,15 @@
         require('../../../business/repositories/1cc2s4Home.php');
     }
     
-    $res_sentencia = $mysqli1->query($sentencia . "13");
-    while ($row_sentencia = $res_sentencia->fetch_assoc()) {
-        $sql_datos = $row_sentencia['campos'] . $row_sentencia['tablas'] . str_replace('|', '\'', $row_sentencia['condiciones']);
-    }
-    $res_datos = $mysqli1->query($sql_datos);
-    while ($row_datos = $res_datos->fetch_assoc()) {
-        $telefono_admisiones = $row_datos['t1'];
-    }
-    
-    $res_sentencia = $mysqli1->query($sentencia . "14");
-    while ($row_sentencia = $res_sentencia->fetch_assoc()) {
-        $sql_datos = $row_sentencia['campos'] . $row_sentencia['tablas'] . str_replace('|', '\'', $row_sentencia['condiciones']);
-    }
-    $res_datos = $mysqli1->query($sql_datos);
-    while ($row_datos = $res_datos->fetch_assoc()) {
-        $correo_admisiones = $row_datos['t1'];
-    }
-    
     $res_sentencia = $mysqli1->query($sentencia . "29");
     while ($row_sentencia = $res_sentencia->fetch_assoc()) {
-        $sql_datos = $row_sentencia['campos'] . $row_sentencia['tablas'] . str_replace('|', '\'', $row_sentencia['condiciones']);
-    }
-    $res_datos = $mysqli1->query($sql_datos);
-    while ($row_datos = $res_datos->fetch_assoc()) {
-        $titulo_form_inscripciones = $row_datos['t1'];
+        $sql_datos = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
     }
 
-    $res_sentencia = $mysqli1->query($sentencia . "30");
-    while ($row_sentencia = $res_sentencia->fetch_assoc()) {
-        $sql_datos = $row_sentencia['campos'] . $row_sentencia['tablas'] . str_replace('|', '\'', $row_sentencia['condiciones']);
-    }
-
-    $res_datos = $mysqli1->query($sql_datos);
-    while ($row_datos = $res_datos->fetch_assoc()) {
-        $checkbox_form_inscripciones = $row_datos['t1'];
+    $res_parametros = $mysqli1->query($sql_datos);
+    $parametros = [];
+    while ($row_datos = $res_parametros->fetch_assoc()) {
+        $parametros[$row_datos['parametro']] = $row_datos['t1'];
     }
 
     $res_sentecia = $mysqli1->query($sentencia . "6");
@@ -67,8 +41,8 @@
                             '</div>' .
                             '<div class="my-5">' .
                                 '<p class="m-0 fw-bold inscripciones-info">' . $row_datos_seccion['texto'] . '</p>' .
-                                '<p class="m-0 fw-bold inscripciones-info">' . $telefono_admisiones . '</p>' .
-                                '<p class="m-0 fw-bold inscripciones-info">' . $correo_admisiones . '</p>' .
+                                '<p class="m-0 fw-bold inscripciones-info">' . $parametros['telefono_admisiones'] . '</p>' .
+                                '<p class="m-0 fw-bold inscripciones-info">' . $parametros['correo_admisiones'] . '</p>' .
                             '</div>' .
                         '</div>' .
                     '</div>';
@@ -83,7 +57,7 @@
                             '<div class="col-md-1"></div>' .
                             '<div class="col-md-10">' .
                                 '<form class="form-inscripciones row" id="myForm">' .
-                                    '<h3 class="mb-2 pt-3 fw-bold text-center inscripciones-form-titulo">'. $titulo_form_inscripciones .'</h3>' .
+                                    '<h3 class="mb-2 pt-3 fw-bold text-center inscripciones-form-titulo">'. $parametros['titulo_form_inscripciones'] .'</h3>' .
                                     '<div class="col-md-2"></div>' .
                                     '<div class="col-md-8">';
     
@@ -121,7 +95,7 @@
                 $html .=
                     '<div class="row justify-content-center align-items-start my-4">' .
                         '<input class="col-md-2 inscripciones-input" onclick="validar_campo(this)" type="' . $tipo . '" id="inscripciones_' . $campo . '" name="' . $campo . '" ' . $obligatorio . ' ' . $soloLectura . ' ' . $deshabilitado . '>' .
-                        '<p class="form-text col-md-10">'. $checkbox_form_inscripciones .'</p>' .
+                        '<p class="form-text col-md-10">'. $parametros['checkbox_form_inscripciones'] .'</p>' .
                     '</div>';
             } else if ($tipo === 'textarea') {
                 $html .=

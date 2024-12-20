@@ -80,7 +80,7 @@
         while ($row_imagenes = $res_imagenes->fetch_assoc()) {
             $html .= '<div class="col-md-2 line">';
             $attributes = ImageAttributeBuilder::buildAttributes($nivel, $row_imagenes['ruta'], $row_imagenes['descripcion'], $row_imagenes['rutaEncima']);
-            $html .= posicionTituloImagen('<img class="habilidades-img" ' . $attributes . '>', $row_imagenes['titulo'], $row_imagenes['posicionTitulo'], '#/');
+            $html .= posicionTituloImagen('<img class="habilidades-img" ' . $attributes . '>', $row_imagenes['titulo'], $row_imagenes['posicionTitulo'], $row_imagenes['enlace']);
             $html .= '</div>'; 
         }
 

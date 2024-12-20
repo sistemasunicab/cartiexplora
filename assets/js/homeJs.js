@@ -136,8 +136,6 @@ const mayus = (element) => {
 const mostrar_submit = () => {
     const elementosForm = document.querySelectorAll(".inscripciones-input");
 
-    console.log(elementosForm);
-
     let todosValidos = true;
     elementosForm.forEach((input) => {
         if ((input.type != "submit" && !input.classList.contains("success")) || input.classList.contains("error")) {
