@@ -3,20 +3,9 @@
 
      //-- Funciones --//
 
-     function posicionamientoTitulo($direccion){
-          $direcciones = [
-               'izquierda' => 'indicator-left',
-               'derecha' => 'indicator-right',
-               'abajo' => 'indicator-bottom',
-               'arriba' => 'indicator-up',
-          ];
-
-          return $direcciones[$direccion];
-     }
-
      function crearIndicador($datos){
           $indicator = '                  
-                    <div class="col-3 background-white radius-1rem '.posicionamientoTitulo($datos[2]).' "> <!-- Indicator -->
+                    <div class="col-3 background-white radius-1rem indicator '.FlexTitleLoader::setDirection($datos[2]).' "> <!-- Indicator -->
                          <img src="'.$datos[0].'" alt="" class="indicator-img">
                          <div class="indicator-data">
                               <p class="indicator-type indicator-p lh-1">'.$datos[1].'</p> 

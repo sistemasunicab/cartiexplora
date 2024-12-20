@@ -1,6 +1,7 @@
 <?php
     include('./clases/ImageAttributeBuilder.php');
     include('./clases/ButtonStylesBannerBuilder.php');
+    include('./clases/FlexTitleLoader.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
