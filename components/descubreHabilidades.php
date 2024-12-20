@@ -3,25 +3,25 @@
     {
         if (strtolower($posicionTitulo) == 'abajo') {
             return
-                '<a href="'.$enlace.'" class="img-container col-md-2 d-flex flex-column align-items-center gap-4 p-0 my-3">' . "\n" .
+                '<a href="'.$enlace.'" class="img-container d-flex flex-column align-items-center gap-4 p-0 my-3">' . "\n" .
                      $imgHTML . "\n" .
                      '<p>' . $titulo . '</p>' . "\n" .
                 '</a>' . "\n";
         } else if (strtolower($posicionTitulo) == 'derecha') {
             return
-                '<a href="'.$enlace.'" class="img-container col-md-2 d-flex align-items-center gap-4 p-0 mx-3">' . "\n" .
+                '<a href="'.$enlace.'" class="img-container d-flex align-items-center gap-4 p-0 mx-3">' . "\n" .
                      $imgHTML . "\n" .
                      '<p>' . $titulo . '</p>' . "\n" .
                 '</a>' . "\n";
         } else if (strtolower($posicionTitulo) == 'izquierda') {
             return
-                '<a href="'.$enlace.'" class="img-container col-md-2 d-flex flex-row-reverse align-items-center gap-4 p-0 mx-3">' . "\n" .
+                '<a href="'.$enlace.'" class="img-container d-flex flex-row-reverse align-items-center gap-4 p-0 mx-3">' . "\n" .
                     $imgHTML . "\n" .
                     '<p>' . $titulo . '</p>' . "\n" .
                 '</a>' . "\n";
         } else if (strtolower($posicionTitulo) == 'arriba') {
             return
-                '<a href="'.$enlace.'" class="img-container col-md-2 d-flex flex-column-reverse align-items-center gap-2 p-0 my-3">' . "\n" .
+                '<a href="'.$enlace.'" class="img-container d-flex flex-column-reverse align-items-center gap-2 p-0 my-3">' . "\n" .
                     $imgHTML . "\n" .
                     '<p>' . $titulo . '</p>' . "\n" .
                 '</a>' . "\n";
@@ -75,11 +75,13 @@
         $res_imagenes = $mysqli1->query($sql_imagenes);
 
         $html .= 
-            '<div class="row px-5 mt-10 contenedor-imagenes">' . "\n";
+            '<div class="row px-5 mt-10 contenedor-imagenes-habilidades">' . "\n";
 
         while ($row_imagenes = $res_imagenes->fetch_assoc()) {
+            $html .= '<div class="col-md-2 line">';
             $attributes = ImageAttributeBuilder::buildAttributes($nivel, $row_imagenes['ruta'], $row_imagenes['descripcion'], $row_imagenes['rutaEncima']);
             $html .= posicionTituloImagen('<img class="habilidades-img" ' . $attributes . '>', $row_imagenes['titulo'], $row_imagenes['posicionTitulo'], '#/');
+            $html .= '</div>'; 
         }
 
         $html .= 

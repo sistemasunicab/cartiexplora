@@ -120,20 +120,20 @@
             }else if ($tipo === 'checkbox') {
                 $html .=
                     '<div class="row justify-content-center align-items-start my-4">' .
-                        '<input class="col-md-2" onclick="validar_campo(this)" type="' . $tipo . '" id="inscripciones_' . $campo . '" name="' . $campo . '" ' . $obligatorio . ' ' . $soloLectura . ' ' . $deshabilitado . '>' .
+                        '<input class="col-md-2 inscripciones-input" onclick="validar_campo(this)" type="' . $tipo . '" id="inscripciones_' . $campo . '" name="' . $campo . '" ' . $obligatorio . ' ' . $soloLectura . ' ' . $deshabilitado . '>' .
                         '<p class="form-text col-md-10">'. $checkbox_form_inscripciones .'</p>' .
                     '</div>';
             } else if ($tipo === 'textarea') {
                 $html .=
                     '<div class="row gap-2 my-2">' .
                         '<label for="' . $campo . '" class="form-label">' . $campo . (($obligatorio) ? " *" : '')  . '</label>' .
-                        '<textarea onkeyup="validar_campo(this)" name="' . $campo . '" id="inscripciones_' . $campo . '" rows="2" class="form-textarea" ' . $obligatorio . ' ' . $soloLectura . ' ' . $deshabilitado . '></textarea>' .
+                        '<textarea onkeyup="validar_campo(this)" name="' . $campo . '" id="inscripciones_' . $campo . '" rows="2" class="form-textarea inscripciones-input" ' . $obligatorio . ' ' . $soloLectura . ' ' . $deshabilitado . '></textarea>' .
                     '</div>';
             } else {
                 $html .=
                     '<div class="row gap-2 my-2">' .
                         '<label for="' . $campo . '" class="form-label">' . $campo . (($obligatorio) ? " *" : "")  . '</label>' .
-                        '<input onkeyup="validar_campo(this)" type="' . $tipo . '" id="inscripciones_' . $campo . '" name="' . $campo . '" class="form-input" ' . $obligatorio . ' ' . $soloLectura . ' ' . $deshabilitado . '>' .
+                        '<input onkeyup="validar_campo(this)" type="' . $tipo . '" id="inscripciones_' . $campo . '" name="' . $campo . '" class="form-input inscripciones-input" ' . $obligatorio . ' ' . $soloLectura . ' ' . $deshabilitado . '>' .
                     '</div>';
             }
         }

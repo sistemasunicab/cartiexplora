@@ -134,7 +134,9 @@ const mayus = (element) => {
 };
 
 const mostrar_submit = () => {
-    const elementosForm = document.querySelectorAll("input, textarea, select");
+    const elementosForm = document.querySelectorAll(".inscripciones-input");
+
+    console.log(elementosForm);
 
     let todosValidos = true;
     elementosForm.forEach((input) => {
