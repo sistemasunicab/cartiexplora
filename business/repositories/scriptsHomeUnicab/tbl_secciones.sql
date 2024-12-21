@@ -18,5 +18,10 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 ('zonaDeEnlaces', 1, 'home', 'Zona de Enlaces', '', ''),
 ('blogConectados', 1, 'home', 'Blog', '', ''),
 ('navBar', 1, 'home', '', '', ''),
-('footer', 1,'home', '', '', '');
+('footer', 1,'home', '', '', ''),
+('sobreNosotrosUnicab', 1,'sobreNosotros', '¿Qué es <b>UNICAB CORPORACIÓN EDUCATIVA?</b>', '', 'La UNIDAD DE CAPACITACIÓN EMPRESARIAL DE BOYACÁ “<b>UNICAB CORPORACIÓN EDUCATIVA</b>” es una institución sin ánimo de lucro, creada hace 23 años a través de la Secretaría de Participación Social de la Gobernación de Boyacá, que presta servicios de educación formal e informal con más de 23 años de experiencia y que cuenta con la siguiente estructura orgánica:'),
+('sobreNosotrosImagenesUne', 1,'sobreNosotros', '', '', ''),
+('sobreNosotrosEducacionFormal', 1,'sobreNosotros', '<b>Colegio</b><br> UNICAB Virtual', '(Educación Formal)', ''),
+('sobreNosotrosImagenesDos', 1,'sobreNosotros', '', '', ''),
+('sobreNosotrosQuinesSomos', 1,'sobreNosotros', '', '', '');
 
