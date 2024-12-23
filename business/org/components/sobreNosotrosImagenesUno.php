@@ -1,6 +1,6 @@
 <style>
   .nosotrosImagenesUno {
-    margin-block: 4rem;
+    margin-block: 6rem;
     width: 100%;
     display: flex;
     justify-content: center;

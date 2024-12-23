@@ -1,17 +1,18 @@
 <style>
     .educacion {
-        margin-block: 4rem;
+        margin-block: 6rem;
         width: 100%;
     }
 
     .container-educacion {
         display: flex;
-        width: 90%;
+        width: 85%;
+        justify-content: space-between;
         margin-inline: auto;
     }
 
     .titles {
-        margin-inline: auto;
+        margin-top: 15%;
         width: 30%;
     }
 
@@ -25,25 +26,34 @@
     }
 
     .titles h2 {
-        font-family: 'Roboto-regular';
+        font-family: 'Roboto-bold';
         margin-bottom: 3rem;
     }
 
     .educacion-data{
-        margin-inline: auto;
-        width: 55%;
+        width: 60%;
         display: flex;
         flex-direction: column;
     }
 
     .educacion-data img{
-        width: 10%;
-
+        width: 50px;
+        height: fit-content;
     }
 
-    .education-item{
+    .educacion-item{
+        font-family: 'Roboto-regular';
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .educacion-item-data h2{
+        font-family: 'Roboto-black';
+    }
+
+    .educacion-item-data {
+        margin-bottom: 1rem;
     }
 
 </style>
@@ -97,7 +107,7 @@ if ($res_datos_educacion->num_rows > 0) {
         $html_educacion .= '<div class="educacion-item">';
         $html_educacion .= '<img src="' . $path_image . '" alt="' . $altern . '">';
         $html_educacion .= '<div class="educacion-item-data">';
-        $html_educacion .= '<h4>' . $titulo . '</h4>';
+        $html_educacion .= '<h2>' . $titulo . '</h2>';
         $html_educacion .= '<p>' . $descripcion . '</p>';
         $html_educacion .= '</div>';
         $html_educacion .= '</div>';

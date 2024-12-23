@@ -1,17 +1,17 @@
 <style>
     .nosotros {
-        margin-block: 4rem;
+        margin-block: 6rem;
         width: 100%;
     }
 
     .container-nosotros {
         display: flex;
-        width: 90%;
+        width: 85%;
+        justify-content: space-between;
         margin-inline: auto;
     }
 
     .queEs {
-        margin-inline: auto;
         width: 45%;
     }
 

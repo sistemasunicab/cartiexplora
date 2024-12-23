@@ -14,14 +14,17 @@
         $nivel = "tres";
         include('../../../components/navBar.php');
     ?>
+
     <?php 
         $nivel = 'tres';
         include('../components/sobreNosotrosUnicab.php'); 
     ?>
+
     <?php 
         $nivel = 'tres';
         include('../components/sobreNosotrosImagenesUno.php'); 
     ?>
+    
     <?php 
         $nivel = 'tres';
         include('../components/sobreNosotrosEducacionFormal.php'); 
@@ -31,7 +34,11 @@
         $nivel = 'tres';
         include('../components/sobreNosotrosImagenesDos.php'); 
     ?>
-        
+      
+    <?php 
+        $nivel = 'tres';
+        include('../components/sobreNosotrosInfo.php'); 
+    ?>
     
     <?php 
         $nivel = "tres";
