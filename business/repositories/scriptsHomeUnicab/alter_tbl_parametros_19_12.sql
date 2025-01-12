@@ -1,0 +1,1 @@
+ALTER TABLE tbl_paramentros ADD COLUMN id_seccion int(11) UNSIGNED NOT NULL;

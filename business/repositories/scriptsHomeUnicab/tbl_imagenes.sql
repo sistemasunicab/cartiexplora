@@ -2,7 +2,7 @@ DROP TABLE tbl_imagenes;
 
 CREATE TABLE tbl_imagenes (
   id int(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  id_seccion int(11) UNSIGNED NOT NULL,
+  id_seccinon it(11) UNSIGNED NOT NULL,
   ruta varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
   descripcion varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NULL,
   titulo varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NULL,

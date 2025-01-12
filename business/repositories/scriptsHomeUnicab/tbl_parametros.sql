@@ -15,3 +15,5 @@ INSERT INTO tbl_parametros (parametro, v1, v2, t1, t2, f1, f2) VALUES
 ('direccion_unicab', NULL, NULL, 'Calle 13a No. 16-60', NULL, NULL, NULL),
 ('ubicacion_unicab', NULL, NULL, 'Sogamoso - Boyacá - Colombia', NULL, NULL, NULL);
 
+INSERT INTO tbl_parametros (parametro, v1, v2, t1, t2, f1, f2) VALUES
+('blog_newsletter_texto', NULL, NULL, 'Recibe nuestras newsletter semanal', NULL, NULL, NULL);

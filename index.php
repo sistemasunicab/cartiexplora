@@ -18,6 +18,8 @@
         include('components/academicOffer.php');
         include('components/indicators.php');
         include('components/meetcampus.php');
+        include('components/linksZone.php');
+        include('components/conectadosBlog.php');
         include('components/footer.php');
         include('components/bookstoresMain.php');
     ?>  
