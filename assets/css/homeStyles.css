@@ -761,17 +761,34 @@ body {
      color: #127EB5;
 }
 
+.flex-direction-left {
+    flex-direction: row-reverse;
+}
+
+.flex-direction-right {
+    flex-direction: row;
+}
+
+.flex-direction-up {
+    flex-direction: column-reverse;
+}
+
+.flex-direction-bottom {
+    flex-direction: column;
+}
+
+
 /** Indicators **/
 
 .indicator {
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     padding: .5rem 0;
-     gap: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem 0;
+    gap: 1rem;
 }
 
-.indicator p {
+.indicator-p {
      margin: 0;
      padding: 0;
 }
@@ -787,9 +804,14 @@ body {
      font-size: 2rem;
 }    
 
-.indicator img {
+.indicator-img {
      width: 3rem;
      height: auto;
+}
+
+.indicator-data {
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 /** Meet our campus **/
@@ -798,14 +820,14 @@ body {
      font-family: 'Roboto', sans-serif;
      font-weight: 900;
      font-size: 3.4rem;
-     margin: 0;
+     margin: 0 3.4rem;
 }
 
 .campus-subtitle {
      font-family: 'Roboto', sans-serif;
      font-weight: 200;
      font-size: 3.4rem;
-     margin: 0;
+     margin: 0 3.4rem;
 }
 
 .campus-p {
@@ -815,8 +837,9 @@ body {
 }
 
 .campus-img {
-     width: 18.75rem;
-     height: 18.75rem;
+     width: 15rem;
+     height: 15rem;
      object-fit: cover;
      object-position: center;
+     margin: 0 2.5rem;
 }
