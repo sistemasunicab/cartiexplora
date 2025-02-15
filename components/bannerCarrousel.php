@@ -58,10 +58,10 @@
 
         // El primer item o div del carrusel debe tener la clase "active", el resto no.
         if ($firstImage  == 0) {
-            $html .= '<div class="carousel-item active"><a href="' . $link_image . '"><img ' . $attributes . ' class="img-fluid"></a><a href="' . $link_button . '" class="button-absolute" style="' . $styles . '">' . $text_button . '</a></div>' . "\n";
+            $html .= '<div class="carousel-item active"><a href="' . $link_image . '"><img ' . $attributes . ' class="img-fluid w-100"></a><a href="' . $link_button . '" class="button-absolute" style="' . $styles . '">' . $text_button . '</a></div>' . "\n";
             $firstImage++;
         } else {
-            $html .= '<div class="carousel-item"><a href="' . $link_image . '"><img ' . $attributes . ' class="img-fluid"></a><a href="' . $link_button . '" class="button-absolute " style="' . $styles . '">' . $text_button . '</a></div>' . "\n";
+            $html .= '<div class="carousel-item"><a href="' . $link_image . '"><img ' . $attributes . ' class="img-fluid w-100"></a><a href="' . $link_button . '" class="button-absolute " style="' . $styles . '">' . $text_button . '</a></div>' . "\n";
         }
     }
 
