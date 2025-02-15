@@ -942,6 +942,10 @@ body {
     font-weight: 700;
 }
 
+.fm-black{
+    font-family: 'Roboto-black';
+}
+
 /** Indicators **/
 
 .indicator {
@@ -1002,6 +1006,8 @@ body {
      object-position: center;
 }
 
+
+/* Tamaños fuentes */
 
 .titulo-lg {
     font-size: 4.4rem;
@@ -1081,35 +1087,6 @@ body {
     }
 }
 
-
-
-.titulo-1 {
-    font-size: 2rem;
-    line-height: 1;
-    color: var(--blue);
-    font-weight: 700;
-}
-
-.titulo-2 {
-    font-size: 3.5rem;
-    line-height: 1;
-    color: black;
-    font-weight: 200;
-}
-
-.texto-grande {
-    font-size: 1.6rem;
-}
-
-.texto-base {
-    font-size: 1.4rem;
-    line-height: 2.5rem;
-}
-
-.texto-sm {
-    font-size: 0.875rem;
-    line-height: 1.25rem; 
-}
 
 /* Unicab Solutions */
 /* Página principal */

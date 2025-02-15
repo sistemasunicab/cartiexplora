@@ -5,25 +5,25 @@
             return
                 '<a href="'.$enlace.'" class="img-container d-flex flex-column align-items-center gap-4 p-0 my-3">' . "\n" .
                      $imgHTML . "\n" .
-                     '<p>' . $titulo . '</p>' . "\n" .
+                     '<p class="texto-base">' . $titulo . '</p>' . "\n" .
                 '</a>' . "\n";
         } else if (strtolower($posicionTitulo) == 'derecha') {
             return
                 '<a href="'.$enlace.'" class="img-container d-flex align-items-center gap-4 p-0 mx-3">' . "\n" .
                      $imgHTML . "\n" .
-                     '<p>' . $titulo . '</p>' . "\n" .
+                     '<p class="texto-base">' . $titulo . '</p>' . "\n" .
                 '</a>' . "\n";
         } else if (strtolower($posicionTitulo) == 'izquierda') {
             return
                 '<a href="'.$enlace.'" class="img-container d-flex flex-row-reverse align-items-center gap-4 p-0 mx-3">' . "\n" .
                     $imgHTML . "\n" .
-                    '<p>' . $titulo . '</p>' . "\n" .
+                    '<p class="texto-base">' . $titulo . '</p>' . "\n" .
                 '</a>' . "\n";
         } else if (strtolower($posicionTitulo) == 'arriba') {
             return
                 '<a href="'.$enlace.'" class="img-container d-flex flex-column-reverse align-items-center gap-2 p-0 my-3">' . "\n" .
                     $imgHTML . "\n" .
-                    '<p>' . $titulo . '</p>' . "\n" .
+                    '<p class="texto-base">' . $titulo . '</p>' . "\n" .
                 '</a>' . "\n";
         }
         return '';
@@ -52,12 +52,12 @@
         $html .= 
         '<section class="container">' . 
             '<div class="row mt-10 mx-0">' .
-                '<h2 class="col text-center titulo-1 px-0">' . "\n" . $row_datos_seccion['titulo'] . '</h2>' . "\n";
+                '<h2 class="col text-center titulo-md text-blue fm-black px-0">' . "\n" . $row_datos_seccion['titulo'] . '</h2>' . "\n";
 
         //Obtener subtitulo
         $subtitulo = explode(" ", $row_datos_seccion['subTitulo']);
         $html .= 
-                '<h3 class="text-center titulo-2">' . '<span class="fw-bold">' . $subtitulo[0] . '</span> ' . $subtitulo[1] . '</h3>' . "\n";
+                '<h3 class="text-center titulo-lg">' . '<span class="fw-bold">' . $subtitulo[0] . '</span> ' . $subtitulo[1] . '</h3>' . "\n";
         //texto de esta sección 
         $html .= 
                 '<p class="text-center texto-base">' . $row_datos_seccion['texto'] . '</p>' . "\n" .

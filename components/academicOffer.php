@@ -18,7 +18,7 @@
     $html = '';
     while ($row_datos_seccion = $res_seccion_dos->fetch_assoc()) {
         // Obtiene el titulo de la sección y lo renderiza
-        $html .= '<div class="row mt-10 mx-0"><h1 class="col titulo-1 text-center px-0">' . $row_datos_seccion['titulo'] . '</h1></div>';
+        $html .= '<div class="row mt-10 mx-0"><h1 class="col titulo-md text-blue fm-black text-center px-0">' . $row_datos_seccion['titulo'] . '</h1></div>';
     }
 
     if ($html != '') {
