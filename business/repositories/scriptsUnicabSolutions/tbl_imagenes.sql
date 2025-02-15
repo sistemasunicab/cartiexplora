@@ -17,9 +17,9 @@ CREATE TABLE tbl_imagenes (
 INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo, enlace, rutaEncima, textoAlterno) VALUES
 (1, 'assets/img/solutions-imagen-hero.png', '', '', '', '', '', ''),
 (2, 'assets/img/solutions-icon-sistemas.png', '', 'Diseño de Sistemas y Material Educativo Innovador', 'abajo', '/cartiexplora/business/solutions/pages/disenoSistemas.php', '', ''),
-(2, 'assets/img/solutions-icon-desarrollo.png', '', 'Diseño y Desarrollo de Software', 'abajo', '', '', ''),
-(2, 'assets/img/solutions-icon-transformacion.png', '', 'Capacitación en Transformación Digital', 'abajo', '', '', ''),
-(2, 'assets/img/solutions-icon-capacitacion.png', '', 'Servicios de capacitación con metodología virtual, e híbrida en diferentes modalidades', 'abajo', '', '', ''),
+(2, 'assets/img/solutions-icon-desarrollo.png', '', 'Diseño y Desarrollo de Software', 'abajo', '/cartiexplora/business/solutions/pages/desarrolloSoftware.php', '', ''),
+(2, 'assets/img/solutions-icon-transformacion.png', '', 'Capacitación en Transformación Digital', 'abajo', '/cartiexplora/business/solutions/pages/transformacionDigital.php', '', ''),
+(2, 'assets/img/solutions-icon-capacitacion.png', '', 'Servicios de capacitación con metodología virtual, e híbrida en diferentes modalidades', 'abajo', '/cartiexplora/business/solutions/pages/capacitacion.php', '', ''),
 (3, 'assets/img/solutions-imagen-sistemas2x.png', '', '', '', '', '', ''),
 (4, 'assets/img/solutions-imagen-desarrollo2x.png', '', '', '', '', '', ''),
 (5, 'assets/img/solutions-imagen-transformacion2x.png', '', '', '', '', '', ''),

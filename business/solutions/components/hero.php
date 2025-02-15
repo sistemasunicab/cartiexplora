@@ -4,7 +4,8 @@
 
     $html = '';
 
-    $res_sentecia = $mysqli1->query($sentencia . "1");
+    //Obtener imagen
+    $res_sentecia = $mysqli1->query($sentencia . "8");
     while ($row_sentencia = $res_sentecia->fetch_assoc()) {
         $sql_imagen_hero = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
     }
@@ -15,7 +16,8 @@
         $imagen_hero = $row_imagen_hero['ruta'];
     }
 
-    $res_sentencia = $mysqli1->query($sentencia."2");
+    //Obtener slogan
+    $res_sentencia = $mysqli1->query($sentencia."1");
     while($row_sentencia = $res_sentencia->fetch_assoc()){
         $sql_slogan = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
     }  
@@ -26,7 +28,8 @@
         $slogan = $row_slogan['t1'];
     }
 
-    $res_sentecia = $mysqli1->query($sentencia . "3");
+    // Verificar sección
+    $res_sentecia = $mysqli1->query($sentencia . "2");
     while ($row_sentencia = $res_sentecia->fetch_assoc()) {
         $sql_seccion_hero = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
     }

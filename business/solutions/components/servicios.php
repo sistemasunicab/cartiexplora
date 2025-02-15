@@ -5,7 +5,7 @@
     {
         if (strtolower($posicionTitulo) == 'abajo') {
             return
-            '<div class="col-4 solutions-card">
+            '<div class="col-5 solutions-card">
                 <div class="solutions-card-img d-flex justify-content-center align-items-center">
                     '. $imgHTML .'
                 </div>
@@ -18,7 +18,7 @@
             </div>';
         }  else if (strtolower($posicionTitulo) == 'arriba') {
             return
-            '<div class="col-4 solutions-card">   
+            '<div class="col-5 solutions-card">   
                 <div class="solutions-card-desc">
                     <p class="texto-lg">'. $titulo .'</p>
                 </div> 
@@ -35,7 +35,8 @@
 
     $html = '';
 
-    $res_sentecia = $mysqli1->query($sentencia . "4");
+    // Verificar sección
+    $res_sentecia = $mysqli1->query($sentencia . "3");
     while ($row_sentencia = $res_sentecia->fetch_assoc()) {
         $sql_seccion_servicios = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
     }
@@ -47,17 +48,22 @@
                      '<div class="row my-5">'; 
         
 
-        $res_sentecia = $mysqli1->query($sentencia . "5");
+        // Obtener imagenes
+        $res_sentecia = $mysqli1->query($sentencia . "9");
         while ($row_sentencia = $res_sentecia->fetch_assoc()) {
             $sql_imagenes = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
         }
         $res_imagenes = $mysqli1->query($sql_imagenes);
+
+        $numCards = 1;
         while ($row_imagenes = $res_imagenes->fetch_assoc()) {
-
-           $html .=         '<div class="col-1"></div>';
            $html .= posicionTituloImagen('<img'.ImageAttributeBuilder::buildAttributes('tres', $row_imagenes['ruta'], 'card-icon').'>', $row_imagenes['titulo'], $row_imagenes['posicionTitulo'], $row_imagenes['enlace']);
-           $html .=         '<div class="col-1"></div>';
 
+            if(!($numCards++ % 2 === 0)){
+                $html .=         '<div class="col-1"></div>';
+                $html .=         '<div class="col-1"></div>';
+            }
+           
         }
 
         $html .=     '</div>' . 
