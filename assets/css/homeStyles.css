@@ -1,6 +1,65 @@
 body{
     width: 100% !important;
 }
+@font-face {
+    font-family: 'Roboto-black';
+    src: url('../fonts/Roboto-Black.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-blackitalic';
+    src: url('../fonts/Roboto-BlackItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-bold';
+    src: url('../fonts/Roboto-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-bolditalic';
+    src: url('../fonts/Roboto-BoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-italic';
+    src: url('../fonts/Roboto-Italic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-light';
+    src: url('../fonts/Roboto-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-lightitalic';
+    src: url('../fonts/Roboto-LightItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-medium';
+    src: url('../fonts/Roboto-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-mediumitalic';
+    src: url('../fonts/Roboto-MediumItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-regular';
+    src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-thin';
+    src: url('../fonts/Roboto-Thin.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-thinitalic';
+    src: url('../fonts/Roboto-ThinItalic.ttf') format('truetype');
+}
 
 /*Menu ghf */
 /*.menu {
@@ -87,8 +146,9 @@ ul {
 }
 
 .menu-item-text {
-    font-family: 'Roboto-regular';
-    color: #F5F5F5;
+    font-family: 'Roboto-medium';
+    font-size: 1.2rem;
+    color: #ffffff;
 }
 
 .menu-item-text:hover {
@@ -302,65 +362,7 @@ ul {
 /*Fin estilos NavBar*/
 
 /*Inicio estilos Footer*/
-@font-face {
-    font-family: 'Roboto-black';
-    src: url('../fonts/Roboto-Black.ttf') format('truetype');
-}
 
-@font-face {
-    font-family: 'Roboto-blackitalic';
-    src: url('../fonts/Roboto-BlackItalic.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Roboto-bold';
-    src: url('../fonts/Roboto-Bold.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Roboto-bolditalic';
-    src: url('../fonts/Roboto-BoldItalic.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Roboto-italic';
-    src: url('../fonts/Roboto-Italic.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Roboto-light';
-    src: url('../fonts/Roboto-Light.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Roboto-lightitalic';
-    src: url('../fonts/Roboto-LightItalic.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Roboto-medium';
-    src: url('../fonts/Roboto-Medium.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Roboto-mediumitalic';
-    src: url('../fonts/Roboto-MediumItalic.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Roboto-regular';
-    src: url('../fonts/Roboto-Regular.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Roboto-thin';
-    src: url('../fonts/Roboto-Thin.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Roboto-thinitalic';
-    src: url('../fonts/Roboto-ThinItalic.ttf') format('truetype');
-}
 footer{
     width: 100%;
     background-color: rgb(13, 48, 65);
@@ -436,7 +438,7 @@ footer{
 #basic-info {
     display: flex;
     flex-direction: column;
-    margin-inline: auto;
+    width: fit-content;
 }
 
 #basic1 {
@@ -468,6 +470,7 @@ footer{
 #info {
     display: flex;
     flex-direction: column;
+    width: fit-content;
 }
 
 #basic4 {
@@ -540,12 +543,19 @@ footer{
     }
 
     .contact-info {
+        margin-inline: auto;
+    }
+}
+
+@media (min-width: 1200px){
+
+    .contact-info {
         width: 35%;
     }
-
     #basic-info {
         margin-inline: 0;
         margin-left: auto;
+        position: relative;
     }
     #basic1 {
         margin-inline: 0;
@@ -558,6 +568,13 @@ footer{
     #basic3 {
         margin-inline: 0;
     }
+    #info {
+        margin-inline: 0;
+        margin-left: auto;
+        position: relative;
+        right: 85px;
+    }
+
 }
 /*Fin estilos Footer*//** FONT **/
 

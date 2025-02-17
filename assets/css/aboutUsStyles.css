@@ -1,0 +1,236 @@
+/* About Us */
+
+h1{
+    font-size: 4.4rem;
+}
+
+h2{
+    font-size: 3.8rem;
+}
+
+h3{
+    font-size: 2.5rem;
+}
+
+h4{
+    font-size: 2.2rem;
+}
+
+p, label {
+    font-size: 1.2rem;
+}
+
+/* Sobre Nosotros Unicab */
+.nosotros {
+    margin-block: 6rem;
+    width: 100%;
+}
+
+.container-nosotros {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    margin-left: 7.5%;
+}
+
+.queEs {
+    width: 55%;
+}
+
+.queEs h2 {
+    font-family: 'Roboto-light';
+    color: #127EB5;
+    margin-bottom: 6rem;
+}
+
+.queEs h2 b {
+    font-family: 'Roboto-bold';
+}
+
+.queEs p {
+    font-family: 'Roboto-regular';
+    margin-bottom: 3rem;
+    width: 90%;
+    color: #2A2A2A;
+}
+
+.organigrama {
+    margin-inline: auto;
+    margin-top: auto;
+    width: 40%;
+}
+
+.organigrama img {
+    width: 100%;
+}
+
+/* Sobre Nosostros Educacion Formal */
+.educacion {
+    margin-block: 6rem;
+    width: 100%;
+}
+
+.container-educacion {
+    display: flex;
+    width: 85%;
+    justify-content: space-between;
+    margin-inline: auto;
+}
+
+.titles {
+    margin-top: 15%;
+    width: 30%;
+}
+
+.titles h2 {
+    font-family: 'Roboto-light';
+    color: #127EB5;
+}
+
+.titles h2 b {
+    font-family: 'Roboto-bold';
+}
+
+.titles h3 {
+    font-family: 'Roboto-bold';
+    margin-bottom: 3rem;
+}
+
+.educacion-data {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.educacion-data img {
+    width: 50px;
+    height: fit-content;
+}
+
+.educacion-item {
+    font-family: 'Roboto-regular';
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.educacion-item-data h3 {
+    font-family: 'Roboto-black';
+}
+
+.educacion-item-data {
+    margin-bottom: 1rem;
+}
+
+/* Sobre Nosotros Imagenes Dos */
+
+.nosotrosImagenesDos {
+    margin-block: 6rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-nosotrosImgDos h1 {
+    width: 40%;
+    font-family: "Roboto-light";
+    margin-left: 15%;
+    margin-bottom: 4rem;
+    color: #127EB5;
+}
+
+.container-nosotrosImgDos h1 b{
+    font-family: "Roboto-black";
+}
+
+.container-nosotrosImgDos img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Sobre Nosotros Imagenes Uno */
+
+.nosotrosImagenesUno {
+    margin-block: 6rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-nosotrosImgUno {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-nosotrosImgUno img {
+    width: 33%;
+    height: auto;
+    display: block;
+}
+
+/* Sobre Nosotros Info */
+.info {
+    margin-block: 6rem;
+    width: 100%;
+}
+
+.container-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 85%;
+    margin-inline: auto;
+}
+
+.info-item{
+    width: 26%;
+    font-family: 'Roboto-regular';
+    display: flex;
+    flex-direction: column;
+
+}
+
+.info-item img{
+    padding-left: 1rem;
+    width: 50px;
+    height: fit-content;
+}
+
+.info-item-data h3{
+    color: #Fe9100;
+    padding-left: 1rem;
+    font-family: 'Roboto-light';
+}
+
+.info-item-data h3 b{
+    font-family: 'Roboto-bold';
+}
+
+.info-item-data p{
+    font-family: 'Roboto-regular';
+    padding-block: .5rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.info-item-data p::before {
+    content: '';   
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    max-height: 400px;
+    border-left: 2px solid rgb(187, 187, 187);
+}
+
+
+.info-item-data {
+    margin-bottom: 1rem;
+}
+

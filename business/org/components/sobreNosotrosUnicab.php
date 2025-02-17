@@ -1,45 +1,5 @@
 <style>
-    .nosotros {
-        margin-block: 6rem;
-        width: 100%;
-    }
-
-    .container-nosotros {
-        display: flex;
-        width: 85%;
-        justify-content: space-between;
-        margin-inline: auto;
-    }
-
-    .queEs {
-        width: 45%;
-    }
-
-    .queEs h1 {
-        font-family: 'Roboto-light';
-        color: #127EB5;
-        margin-bottom: 6rem;
-    }
-
-    .queEs h1 b {
-        font-family: 'Roboto-bold';
-    }
-
-    .queEs p {
-        font-size: .95rem;
-        font-family: 'Roboto-regular';
-        margin-bottom: 3rem;
-    }
-
-    .organigrama {
-        margin-inline: auto;
-        margin-top: auto;
-        width: 40%;
-    }
-
-    .organigrama img {
-        width: 100%;
-    }
+    
 </style>
 <?php
 $numero_de_sentencia_nosotros = "35";
@@ -57,7 +17,7 @@ if ($res_datos_nosotros->num_rows > 0) {
 
     while ($row_datos_nosotros = $res_datos_nosotros->fetch_assoc()) {
         $html_nosotros .= '<div class="queEs">';
-        $html_nosotros .= '<h1>' . $row_datos_nosotros['titulo'] . '</h1>';
+        $html_nosotros .= '<h2>' . $row_datos_nosotros['titulo'] . '</h2>';
         $html_nosotros .= '<p>' . $row_datos_nosotros['texto'] . '</p>';
         $html_nosotros .= '</div>';
     }

@@ -1,17 +1,5 @@
 <style>
-  .nosotrosImagenesDos {
-    margin-block: 6rem;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .container-nosotrosImgDos img {
-    width: 100%;
-    height: auto;
-    display: block; 
-  }
+  
 </style>
 
 <?php
@@ -40,6 +28,7 @@ if (mysqli_num_rows($res_datos_nosotros) > 0) {
     while ($row_datos_nosotros = $res_datos_nosotros->fetch_assoc()) {
         $path = $row_datos_nosotros['ruta'];
         $altern = $row_datos_nosotros['textoAlterno'];
+        $title = $row_datos_nosotros['titulo'];
         $path_image = '';
         if ($nivel == "raiz") {
             $path_image = $path;
@@ -50,6 +39,7 @@ if (mysqli_num_rows($res_datos_nosotros) > 0) {
         } else if ($nivel == "tres") {
             $path_image = '../../../' . $path;
         }
+        $html_nosotrosImgDos .= '<h1>' . $title. '</h1>';
         $html_nosotrosImgDos .= '<img src="' . $path_image . '" alt="' . $altern . '">';
     }
 

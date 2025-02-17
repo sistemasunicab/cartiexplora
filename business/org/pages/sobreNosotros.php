@@ -6,7 +6,7 @@
 <html lang="en">
 <?php
     $nivel = "tres";
-    include('../../../components/headMain.php');
+    include('../components/headMain.php');
 ?>
 <body>
     

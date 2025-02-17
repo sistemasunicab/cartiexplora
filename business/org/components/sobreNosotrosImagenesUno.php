@@ -1,24 +1,5 @@
 <style>
-  .nosotrosImagenesUno {
-    margin-block: 6rem;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 
-  .container-nosotrosImgUno {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .container-nosotrosImgUno img {
-    width: 33%;
-    height: auto;
-    display: block; 
-  }
 </style>
 
 <?php
