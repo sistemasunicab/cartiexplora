@@ -47,11 +47,11 @@
                             <img class="solutions-icon" '.ImageAttributeBuilder::buildAttributes($nivel, $icono, 'icono') .'>
                         </div>
                         <div class="col-10">
-                            <h1 class="titulo-md text-blue titulo-servicio">'. $titulo .'</h1>
+                            <h1 class="text-blue titulo-servicio">'. $titulo .'</h1>
                         </div>
                     </div>';
 
-        $html .= '  <div class="row">
+        $html .= '  <div class="row my-5">
                         <div class="col-2"></div>
                         <div class="col-10">' . 
                          $row_datos_seccion['texto']  . 

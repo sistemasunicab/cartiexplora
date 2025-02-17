@@ -36,13 +36,13 @@
                     '<div class="col-md-7 d-flex align-items-center">' .
                         '<div>' .
                             '<div class="my-5">' .
-                                '<h2 class="fw-bold titulo-lg">' . $row_datos_seccion['titulo'] . '</h2>' .
-                                '<h3 class="titulo-lg">' . $row_datos_seccion['subTitulo'] . '</h3>' .
+                                '<h1 class="fw-bold">' . $row_datos_seccion['titulo'] . '</h1>' .
+                                '<h1>' . $row_datos_seccion['subTitulo'] . '</h1>' .
                             '</div>' .
                             '<div class="my-5">' .
-                                '<p class="m-0 fw-bold inscripciones-info subtitulos">' . $row_datos_seccion['texto'] . '</p>' .
-                                '<p class="m-0 fw-bold inscripciones-info subtitulos">' . $parametros['telefono_admisiones'] . '</p>' .
-                                '<p class="m-0 fw-bold inscripciones-info subtitulos">' . $parametros['correo_admisiones'] . '</p>' .
+                                '<p class="m-0 fw-bold inscripciones-info">' . $row_datos_seccion['texto'] . '</p>' .
+                                '<p class="m-0 fw-bold inscripciones-info">' . $parametros['telefono_admisiones'] . '</p>' .
+                                '<p class="m-0 fw-bold inscripciones-info">' . $parametros['correo_admisiones'] . '</p>' .
                             '</div>' .
                         '</div>' .
                     '</div>';
@@ -57,7 +57,7 @@
                             '<div class="col-md-1"></div>' .
                             '<div class="col-md-10">' .
                                 '<form class="form-inscripciones row" id="myForm">' .
-                                    '<h3 class="mb-2 pt-3 fw-bold text-center inscripciones-form-titulo subtitulos">'. $parametros['titulo_form_inscripciones'] .'</h3>' .
+                                    '<h3 class="mb-2 pt-3 fw-bold text-center inscripciones-form-titulo">'. $parametros['titulo_form_inscripciones'] .'</h3>' .
                                     '<div class="col-md-2"></div>' .
                                     '<div class="col-md-8">';
     

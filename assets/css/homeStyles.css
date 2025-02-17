@@ -782,7 +782,6 @@ body {
     background-color: var(--green);
     color: var(--white);
     font-weight: 800;
-    font-size: 1.5rem;
 }
 
 .form-label {
@@ -1009,83 +1008,27 @@ body {
 
 /* Tamaños fuentes */
 
-.titulo-lg {
+h1 {
     font-size: 4.4rem;
 }
 
-.titulo-md {
+h2 {
     font-size: 3.8rem;
 }
 
-.titulo-sm {
+h3 {
     font-size: 2.5rem;
 }
 
-.subtitulos {
+h4 {
     font-size: 2.2rem;
 }
 
-.texto-lg {
-    font-size: 1.9rem;
+p, label, a {
+    font-size: 2rem;
 }
 
-.texto-base {
-    font-size: 1.4rem;
-}
 
-.texto-sm {
-    font-size: 1.2rem;
-}
-
-/* Estilos para tablet (pantallas menores a 1024px) */
-@media (max-width: 1024px) {
-    .titulo-lg {
-        font-size: 3.8rem;
-    }
-    .titulo-md {
-        font-size: 3.2rem;
-    }
-    .titulo-sm {
-        font-size: 2.2rem;
-    }
-    .subtitulos {
-        font-size: 2rem;
-    }
-    .texto-lg {
-        font-size: 1.7rem;
-    }
-    .texto-base {
-        font-size: 1.3rem;
-    }
-    .texto-sm {
-        font-size: 1.1rem;
-    }
-}
-
-/* Estilos para móvil (pantallas menores a 768px) */
-@media (max-width: 768px) {
-    .titulo-lg {
-        font-size: 3rem;
-    }
-    .titulo-md {
-        font-size: 2.6rem;
-    }
-    .titulo-sm {
-        font-size: 2rem;
-    }
-    .subtitulos {
-        font-size: 1.8rem;
-    }
-    .texto-lg {
-        font-size: 1.5rem;
-    }
-    .texto-base {
-        font-size: 1.2rem;
-    }
-    .texto-sm {
-        font-size: 1rem;
-    }
-}
 
 
 /* Unicab Solutions */
@@ -1100,7 +1043,7 @@ body {
     border-radius: 15px;
     margin: -5rem auto 4rem auto;
     text-align: center;
-    max-width: 69rem;
+    max-width: 79rem;
     background-color: #FFF;
     color: var(--blue);
     box-shadow: var(--hero-shadow);
@@ -1108,20 +1051,24 @@ body {
 
 .solutions-slogan{
     color: var(--orange);
-    font-size: 1.8rem;
     font-style: italic;
 }
 
 .solutions-card{
     padding: 1rem 2rem;
     text-align: center;
-    font-weight: 700;
     margin: 2rem 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 2rem;
     box-shadow: var(--card-solutions-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.solutions-card:hover {
+    transform: scale(1.05);
+    box-shadow: var(--hero-shadow);
 }
 
 .solutions-card-img img{
@@ -1142,6 +1089,7 @@ body {
 .solutions-card-button{
     background-color: var(--orange);
     padding: .5rem;
+    font-size: 2rem;
     color: var(--white);
     border-radius: 15px;
 }
@@ -1184,10 +1132,6 @@ body {
     background-color: var(--orange);
 
   }
-
-.titulo-servicio span{
-    font-weight: 600;
-}
 
 .descripcion-servicio span {
     font-weight: bold;

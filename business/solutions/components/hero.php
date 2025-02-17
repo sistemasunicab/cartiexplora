@@ -39,11 +39,11 @@
        $html .= '<img src="../../../'. $imagen_hero .'" alt="imagen-hero" class="img-fluid imagen-hero">';
 
        $html .= '<div class="hero-card">' .
-                    '<h1>'.$row_datos_seccion['titulo'].'</h1>' .
+                    '<h2>'.$row_datos_seccion['titulo'].'</h2>' .
                 '</div>'; 
 
        $html .= '<section class="container my-4">' . 
-                    '<p class="text-center texto-base">' . 
+                    '<p class="text-center">' . 
                         $row_datos_seccion['texto'] . 
                     '</p>'. 
                     '<p class="solutions-slogan text-center">'. 

@@ -51,7 +51,7 @@
                         </div>
                     </div>';
 
-        $html .= '  <div class="row">
+        $html .= '  <div class="row my-5">
                         <div class="col-2"></div>
                         <div class="col-10">' . 
                          $row_datos_seccion['texto']  . 
