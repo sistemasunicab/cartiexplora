@@ -42,7 +42,7 @@ if ($res_datos_info->num_rows > 0) {
         $html_info .= '<img src="' . $path_image . '" alt="' . $altern . '">';
         $html_info .= '<div class="info-item-data">';
         $html_info .= '<h3>' . $titulo . '</h3>';
-        $html_info .= '<p>' . $descripcion . '</p>';
+        $html_info .= '<p class="special-paragraph">' . $descripcion . '</p>';
         $html_info .= '</div>';
         $html_info .= '</div>';
     }

@@ -49,7 +49,7 @@ if ($res_datos_educacion->num_rows > 0) {
         $html_educacion .= '<img src="' . $path_image . '" alt="' . $altern . '">';
         $html_educacion .= '<div class="educacion-item-data">';
         $html_educacion .= '<h3>' . $titulo . '</h3>';
-        $html_educacion .= '<p>' . $descripcion . '</p>';
+        $html_educacion .= '<p class="special-paragraph">' . $descripcion . '</p>';
         $html_educacion .= '</div>';
         $html_educacion .= '</div>';
     }

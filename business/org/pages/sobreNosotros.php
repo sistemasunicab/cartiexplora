@@ -6,7 +6,8 @@
 <html lang="en">
 <?php
     $nivel = "tres";
-    include('../components/headMain.php');
+    $page_title = "Sobre Nosotros";
+    include('../../../components/headMain.php');
 ?>
 <body>
     
@@ -17,27 +18,27 @@
 
     <?php 
         $nivel = 'tres';
-        include('../components/sobreNosotrosUnicab.php'); 
+        include('../components/aboutUs/aboutUsUnicab.php'); 
     ?>
 
     <?php 
         $nivel = 'tres';
-        include('../components/sobreNosotrosImagenesUno.php'); 
+        include('../components/aboutUs/aboutUsImageOne.php'); 
     ?>
     
     <?php 
         $nivel = 'tres';
-        include('../components/sobreNosotrosEducacionFormal.php'); 
+        include('../components/aboutUs/aboutUsEducation.php'); 
     ?>
     
     <?php 
         $nivel = 'tres';
-        include('../components/sobreNosotrosImagenesDos.php'); 
+        include('../components/aboutUs/aboutUsImageTwo.php'); 
     ?>
       
     <?php 
         $nivel = 'tres';
-        include('../components/sobreNosotrosInfo.php'); 
+        include('../components/aboutUs/aboutUsInfo.php'); 
     ?>
     
     <?php 
