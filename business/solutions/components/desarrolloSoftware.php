@@ -69,7 +69,7 @@
         <div class="row">
             <div class="col-2 d-flex justify-content-center align-items-center"><img class="solutions-icon" src="../../../assets/img/solutions-icon-desarrollo.png" alt=""></div>
             <div class="col-10">
-                <h1 class="titulo-md text-blue titulo-servicio">Diseño y Desarrollo de <span>Software</span></h1>
+                <h1 class="titulo-md text-blue titulo-servicio">Diseño y Desarrollo de <b>Software</b></h1>
             </div>
         </div>
         <div class="row">

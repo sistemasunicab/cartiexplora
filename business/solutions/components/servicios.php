@@ -12,7 +12,7 @@
                 <div class="solutions-card-desc">
                     <p class="texto-lg">'. $titulo .'</p>
                 </div>
-                <div class="d-flex justify-content-end">
+                <div class="d-flex justify-content-end card-line">
                     <a href="'. $enlace .'" class="solutions-card-button texto-sm">Más Información</a>
                 </div>
             </div>';
@@ -25,7 +25,7 @@
                 <div class="solutions-card-img d-flex justify-content-center align-items-center">
                         '. $imgHTML .'
                     </div>
-                <div class="d-flex justify-content-end">
+                <div class="d-flex justify-content-end card-line">
                     <a href="'. $enlace .'" class="solutions-card-button texto-sm">Más Información</a>
                 </div>
             </div>';

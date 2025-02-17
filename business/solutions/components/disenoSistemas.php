@@ -70,7 +70,7 @@
     <div class="row">
         <div class="col-2 d-flex justify-content-center align-items-center"><img class="solutions-icon" src="../../../assets/img/solutions-icon-sistemas.png" alt=""></div>
         <div class="col-10">
-            <h1 class="titulo-md text-blue titulo-servicio">Diseño de Sistemas y <span>Material Educativo Innovador</span></h1>
+            <h1 class="titulo-md text-blue titulo-servicio">Diseño de Sistemas y <b>Material Educativo Innovador</b></h1>
         </div>
     </div>
     <div class="row">

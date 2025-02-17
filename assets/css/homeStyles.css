@@ -1136,19 +1136,8 @@ body {
 .solutions-card-desc p{
     margin-bottom: 1rem;
     line-height: 2rem;
-    font-weight: bold;
+    font-family: 'Roboto-black'
 }
-
-.solutions-card-desc:after {
-    content: ""; 
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%; 
-    height: 2px; /* Grosor de la línea */
-    background-color: var(--orange);
-
-  }
 
 .solutions-card-button{
     background-color: var(--orange);
@@ -1156,6 +1145,20 @@ body {
     color: var(--white);
     border-radius: 15px;
 }
+
+.card-line{
+    position: relative;
+}
+
+.card-line:before {
+    content: ""; 
+    position: absolute;
+    left: 0;
+    top: -55%;
+    width: 100%; 
+    height: 2px; /* Grosor de la línea */
+    background-color: var(--orange);
+  }
 
 .solutions-icon{
     width: 8rem;
