@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS tbl_parametros;
+
 CREATE TABLE tbl_parametros (
   id int(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   parametro varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,

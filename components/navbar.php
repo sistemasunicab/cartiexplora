@@ -128,7 +128,7 @@
     $numero_de_sentencia_logo = "24";
     $res_sentencia_logo = $mysqli1->query($sentencia . $numero_de_sentencia_logo);
     while ($row_sentencia_logo = $res_sentencia_logo->fetch_assoc()) {
-        $condiciones = str_replace('||', '\'\'', $row_sentencia_logo['condiciones']);
+        $condiciones = str_replace('|', '\'', $row_sentencia_logo['condiciones']);
         $sql_datos_logo = $row_sentencia_logo['campos'] . $row_sentencia_logo['tablas'] . $condiciones;
     }
     $res_datos_logo = $mysqli1->query($sql_datos_logo);

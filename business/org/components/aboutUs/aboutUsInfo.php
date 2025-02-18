@@ -2,7 +2,7 @@
 $numero_de_sentencia_info = "39";
 $res_sentencia_info = $mysqli1->query($sentencia . $numero_de_sentencia_info);
 while ($row_sentencia_info = $res_sentencia_info->fetch_assoc()) {
-    $condiciones_info = str_replace('||', '\'\'', $row_sentencia_info['condiciones']);
+    $condiciones_info = str_replace('|', '\'', $row_sentencia_info['condiciones']);
     $sql_datos_info = $row_sentencia_info['campos'] . $row_sentencia_info['tablas'] . $condiciones_info;
 }
 
@@ -17,7 +17,7 @@ if ($res_datos_info->num_rows > 0) {
     $numero_de_sentencia_info = "34";
     $res_sentencia_info = $mysqli1->query($sentencia . $numero_de_sentencia_info);
     while ($row_sentencia_info = $res_sentencia_info->fetch_assoc()) {
-        $condiciones_info = str_replace('||', '\'\'', $row_sentencia_info['condiciones']);
+        $condiciones_info = str_replace('|', '\'', $row_sentencia_info['condiciones']);
         $sql_datos_info = $row_sentencia_info['campos'] . $row_sentencia_info['tablas'] . $condiciones_info;
     }
 

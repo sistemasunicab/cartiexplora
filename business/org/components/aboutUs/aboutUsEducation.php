@@ -2,7 +2,7 @@
 $numero_de_sentencia_educacion = "37";
 $res_sentencia_educacion = $mysqli1->query($sentencia . $numero_de_sentencia_educacion);
 while ($row_sentencia_educacion = $res_sentencia_educacion->fetch_assoc()) {
-    $condiciones_educacion = str_replace('||', '\'\'', $row_sentencia_educacion['condiciones']);
+    $condiciones_educacion = str_replace('|', '\'', $row_sentencia_educacion['condiciones']);
     $sql_datos_educacion = $row_sentencia_educacion['campos'] . $row_sentencia_educacion['tablas'] . $condiciones_educacion;
 }
 
@@ -22,7 +22,7 @@ if ($res_datos_educacion->num_rows > 0) {
     $numero_de_sentencia_educacion = "32";
     $res_sentencia_educacion = $mysqli1->query($sentencia . $numero_de_sentencia_educacion);
     while ($row_sentencia_educacion = $res_sentencia_educacion->fetch_assoc()) {
-        $condiciones_educacion = str_replace('||', '\'\'', $row_sentencia_educacion['condiciones']);
+        $condiciones_educacion = str_replace('|', '\'', $row_sentencia_educacion['condiciones']);
         $sql_datos_educacion = $row_sentencia_educacion['campos'] . $row_sentencia_educacion['tablas'] . $condiciones_educacion;
     }
 

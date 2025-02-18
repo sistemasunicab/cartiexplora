@@ -1,4 +1,4 @@
-DROP TABLE tbl_imagenes;
+DROP TABLE IF EXISTS tbl_imagenes;
 
 CREATE TABLE tbl_imagenes (
   id int(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -78,5 +78,7 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo,
 (16, 'assets/img/name3.png', 'table-icon', '', '', '', 'email'),
 (16, 'assets/img/name4.png', 'table-icon', '', '', '', 'work'),
 (16, 'assets/img/name5.png', 'table-icon', '', '', '', 'info'),
-(16, 'assets/img/NAME1.png', 'image-schedule', '', '', '', 'schedule');
+(16, 'assets/img/NAME1.png', 'image-schedule', '', '', '', 'schedule'),
+(17, 'assets/img/elearning_5466286.svg', 'E-learning', '', '', '', 'E-learning'),
+(19, 'assets/img/paper_14969976.svg', 'PDF', '', '', '', 'PDF');
 

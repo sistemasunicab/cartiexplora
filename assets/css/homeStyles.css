@@ -3,14 +3,17 @@ body {
 }
 
 h1 {
+    /*75 px*/
     font-size: 4.4rem;
 }
 
 h2 {
+    /*60 px*/
     font-size: 3.8rem;
 }
 
 h3 {
+    /*40 px*/
     font-size: 2.5rem;
 }
 
@@ -24,66 +27,6 @@ p, label {
 
 .special-paragraph {
     font-size: 1.5rem;
-}
-
-@font-face {
-    font-family: 'Roboto-black';
-    src: url('../fonts/Roboto-Black.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Roboto-blackitalic';
-    src: url('../fonts/Roboto-BlackItalic.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Roboto-bold';
-    src: url('../fonts/Roboto-Bold.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Roboto-bolditalic';
-    src: url('../fonts/Roboto-BoldItalic.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Roboto-italic';
-    src: url('../fonts/Roboto-Italic.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Roboto-light';
-    src: url('../fonts/Roboto-Light.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Roboto-lightitalic';
-    src: url('../fonts/Roboto-LightItalic.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Roboto-medium';
-    src: url('../fonts/Roboto-Medium.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Roboto-mediumitalic';
-    src: url('../fonts/Roboto-MediumItalic.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Roboto-regular';
-    src: url('../fonts/Roboto-Regular.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Roboto-thin';
-    src: url('../fonts/Roboto-Thin.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Roboto-thinitalic';
-    src: url('../fonts/Roboto-ThinItalic.ttf') format('truetype');
 }
 
 /*Menu ghf */
@@ -686,10 +629,82 @@ footer {
     font-weight: 100;
     font-style: italic;
 }*/
+@font-face {
+    font-family: 'Roboto-black';
+    src: url('../fonts/Roboto-Black.ttf') format('truetype');
+}
 
+@font-face {
+    font-family: 'Roboto-blackitalic';
+    src: url('../fonts/Roboto-BlackItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-bold';
+    src: url('../fonts/Roboto-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-bolditalic';
+    src: url('../fonts/Roboto-BoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-italic';
+    src: url('../fonts/Roboto-Italic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-light';
+    src: url('../fonts/Roboto-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-lightitalic';
+    src: url('../fonts/Roboto-LightItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-medium';
+    src: url('../fonts/Roboto-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-mediumitalic';
+    src: url('../fonts/Roboto-MediumItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-regular';
+    src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-thin';
+    src: url('../fonts/Roboto-Thin.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-thinitalic';
+    src: url('../fonts/Roboto-ThinItalic.ttf') format('truetype');
+}
 /** Variables CSS **/
 :root {
-    /** Unicab Color Palette **/
+    --roboto-black: 'Roboto-black', sans-serif;
+    --roboto-blackitalic: 'Roboto-blackitalic', sans-serif;
+    --roboto-bold: 'Roboto-bold', sans-serif;
+    --roboto-bolditalic: 'Roboto-bolditalic', sans-serif;
+    --roboto-italic: 'Roboto-italic', sans-serif;
+    --roboto-light: 'Roboto-light', sans-serif;
+    --roboto-lightitalic: 'Roboto-lightitalic', sans-serif;
+    --roboto-medium: 'Roboto-medium', sans-serif;
+    --roboto-mediumitalic: 'Roboto-mediumitalic', sans-serif;
+    --roboto-regular: 'Roboto-regular', sans-serif;
+    --roboto-thin: 'Roboto-thin', sans-serif;
+    --roboto-thinitalic: 'Roboto-thinitalic', sans-serif;
+
+    /* Color Palette */
+    --bold-blue:#0D3041;
     --blue: #127eb5;
     --green: #4dc250;
     --orange: #fe9100;
@@ -697,6 +712,7 @@ footer {
     --medium-gray: #4d4d4f;
     --light-gray: #d4cece;
 }
+
 
 /** Global **/
 
@@ -706,25 +722,171 @@ body {
 
 /** Utility Classes **/
 
+/* Font Classes */
+.font-roboto {
+    font-family: var(--roboto-regular);
+}
+
+.font-roboto-black {
+    font-family: var(--roboto-black);
+}
+
+.font-roboto-blackitalic {
+    font-family: var(--roboto-blackitalic);
+}
+
+.font-roboto-bold {
+    font-family: var(--roboto-bold);
+}
+
+.font-roboto-bolditalic {
+    font-family: var(--roboto-bolditalic);
+}
+
+.font-roboto-italic {
+    font-family: var(--roboto-italic);
+}
+
+.font-roboto-light {
+    font-family: var(--roboto-light);
+}
+
+.font-roboto-light-title {
+    font-family: var(--roboto-light);
+}
+
+.font-roboto-light-title b{
+    font-family: var(--roboto-black);
+}
+
+.font-roboto-lightitalic {
+    font-family: var(--roboto-lightitalic);
+}
+
+.font-roboto-medium {
+    font-family: var(--roboto-medium);
+}
+
+.font-roboto-mediumitalic {
+    font-family: var(--roboto-mediumitalic);
+}
+
+.font-roboto-regular {
+    font-family: var(--roboto-regular);
+}
+
+.font-roboto-thin {
+    font-family: var(--roboto-thin);
+}
+
+.font-roboto-thinitalic {
+    font-family: var(--roboto-thinitalic);
+}
+
+.w-90{
+    width: 90% !important;
+}
+
 .w-80{
     width: 80% !important;
+}
+
+.w-75{
+    width: 75% !important;
+}
+
+.w-70{
+    width: 70% !important;
+}
+
+.w-60{
+    width: 60% !important;
+}
+
+.w-50{
+    width: 50% !important;
+}
+
+.w-20{
+    width: 20% !important;
+}
+
+.bg-bold-blue{
+    background: var(--bold-blue);
+}
+
+.bg-medium-gray{
+    background: var(--medium-gray);
 }
 
 .bg-light-gray {
     background: var(--light-gray);
 }
 
+.bg-white {
+    background: var(--white);
+}
+
+.bg-orange {
+    background: var(--orange);
+}
+
 .tx-color-bl {
     color: var(--blue);
+}
+
+.tx-color-or {
+    color: var(--orange);
+}
+
+
+.tx-color-wh {
+    color: var(--white);
 }
 
 .fw-bold {
     font-weight: bold;
 }
 
+.ml-auto {
+    margin-left: auto !important;
+}
+
+.mr-10{
+    margin-right: 4rem !important;
+}
+
+.ml-5{
+    margin-left: 2rem !important;
+}
+
+.ml-10{
+    margin-left: 4rem !important;
+}
+
+.ml-15{
+    margin-left: 6rem !important;
+}
+
+.ml-20{
+    margin-left: 8rem !important;
+}
+
 .mt-10 {
-    margin-top: 4rem;
+    margin-top: 4rem !important;
     /** 100px **/
+}
+
+.mt-15 {
+    margin-top: 6rem !important;
+}
+
+.mt-20 {
+    margin-top: 8rem !important;
+}
+
+.m-block-15{
+    margin-block: 6rem !important;
 }
 
 /** Banner Carousel Section **/
@@ -1175,5 +1337,53 @@ body {
     .info-item {
         margin-inline: auto;
         width: 80%;
+    }
+}
+
+/*Calendario academico*/
+
+
+.border-radius-10{
+    border-radius: 10px !important;
+}
+
+.border-radius-20{
+    border-radius: 20px !important;
+}
+
+.btn-calendary{
+    padding-block: .5rem;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    background: var(--orange);
+    color: var(--white);
+    font-family: var(--roboto-bold);
+}
+
+
+.calendary-event {
+    width: 120px;
+    height: 120px;
+    border-radius: 20px;
+    color: var(--orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+}
+
+.calendary-event h2 {
+    margin: 0;
+}
+
+@media (max-width: 960px) {
+    .calendary-event {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .calendary-event h2 {
+        font-size: 2.5rem;
     }
 }

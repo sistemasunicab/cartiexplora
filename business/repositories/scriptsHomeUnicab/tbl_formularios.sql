@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS tbl_formularios;
+
 CREATE TABLE tbl_formularios (
   id int(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   id_seccion int(11) UNSIGNED NOT NULL,
