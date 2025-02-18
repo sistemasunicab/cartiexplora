@@ -17,8 +17,8 @@ if ($res_datos_nosotros->num_rows > 0) {
 
     while ($row_datos_nosotros = $res_datos_nosotros->fetch_assoc()) {
         $html_nosotros .= '<div class="queEs">';
-        $html_nosotros .= '<h2>' . $row_datos_nosotros['titulo'] . '</h2>';
-        $html_nosotros .= '<p class="special-paragraph">' . $row_datos_nosotros['texto'] . '</p>';
+        $html_nosotros .= '<h2 class="text-center">' . $row_datos_nosotros['titulo'] . '</h2>';
+        $html_nosotros .= '<p class="special-paragraph text-center">' . $row_datos_nosotros['texto'] . '</p>';
         $html_nosotros .= '</div>';
     }
 

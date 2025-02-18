@@ -59,8 +59,9 @@ while ($row_datos = $res_datos->fetch_assoc()) {
 <?php
 $numero_de_sentencia_footer = "25";
 $res_sentencia_footer = $mysqli1->query($sentencia . $numero_de_sentencia_footer);
+
 while ($row_sentencia_footer = $res_sentencia_footer->fetch_assoc()) {
-    $condiciones_footer = str_replace('||', '\'\'', $row_sentencia_footer['condiciones']);
+    $condiciones_footer = str_replace('|', '\'', $row_sentencia_footer['condiciones']);
     $sql_datos_footer = $row_sentencia_footer['campos'] . $row_sentencia_footer['tablas'] . $condiciones_footer;
 }
 $res_datos_footer = $mysqli1->query($sql_datos_footer);
@@ -91,7 +92,7 @@ foreach ($imagenes_footer as $imagen) {
     $hmtl_images .= '<div class="img-container">';
     $hmtl_images .= '<img src="' . $ruta_imagen . '" alt="logo">';
     $hmtl_images .= '</div>';
-    $hmtl_images .= '<p>' . $imagen['titulo'] . '</p>';
+    $hmtl_images .= '<p class="special-paragraph">' . $imagen['titulo'] . '</p>';
     $hmtl_images .= '</div>';
 }
 
@@ -102,7 +103,7 @@ $hmtl_images .= '</div>';
 $numero_de_sentencia_footer = "27";
 $res_sentencia_footer = $mysqli1->query($sentencia . $numero_de_sentencia_footer);
 while ($row_sentencia_footer = $res_sentencia_footer->fetch_assoc()) {
-    $condiciones_footer = str_replace('||', '\'\'', $row_sentencia_footer['condiciones']);
+    $condiciones_footer = str_replace('|', '\'', $row_sentencia_footer['condiciones']);
     $sql_datos_footer = $row_sentencia_footer['campos'] . $row_sentencia_footer['tablas'] . $condiciones_footer;
 }
 $res_datos_footer = $mysqli1->query($sql_datos_footer);
@@ -110,7 +111,7 @@ $res_datos_footer = $mysqli1->query($sql_datos_footer);
 $numero_de_sentencia_footer1 = "28";
 $res_sentencia_footer1 = $mysqli1->query($sentencia . $numero_de_sentencia_footer1);
 while ($row_sentencia_footer1 = $res_sentencia_footer1->fetch_assoc()) {
-    $condiciones_footer1 = str_replace('||', '\'\'', $row_sentencia_footer1['condiciones']);
+    $condiciones_footer1 = str_replace('|', '\'', $row_sentencia_footer1['condiciones']);
     $sql_datos_footer1 = $row_sentencia_footer1['campos'] . $row_sentencia_footer1['tablas'] . $condiciones_footer1;
 }
 $res_datos_footer1 = $mysqli1->query($sql_datos_footer1);
@@ -127,13 +128,13 @@ $imagenes_footer = [];
 while ($row_datos_footer = $res_datos_footer->fetch_assoc()) {
     $link_media = '';
     foreach ($links as $link) {
-        if ($row_datos_footer['descripcion'] === $link['title']){
+        if ($row_datos_footer['titulo'] === $link['title']){
             $link_media = $link['link'];
         }
     }
     $imagenes_footer[] = [
         'ruta' => $row_datos_footer['ruta'],
-        'descripcion' => $row_datos_footer['descripcion'],
+        'title' => $row_datos_footer['titulo'],
         'link' => $link_media
     ];
 }
@@ -152,7 +153,7 @@ foreach ($imagenes_footer as $imagen) {
         $ruta_imagen = '../../../' . $imagen['ruta'];
     }
     $hmtl_social_media .= '<a class="media" href="' . $imagen['link'] . '">';
-    $hmtl_social_media .= '<img src="' . $ruta_imagen . '" alt="' .$imagen['descripcion']. '">';
+    $hmtl_social_media .= '<img src="' . $ruta_imagen . '" alt="' .$imagen['title']. '">';
     $hmtl_social_media .= '</a>';
 }
 
@@ -161,17 +162,61 @@ $hmtl_social_media .= '</div>';
 ?>
 
 <?php
+$numero_de_sentencia_footer = "40";
+$res_sentencia_footer = $mysqli1->query($sentencia . $numero_de_sentencia_footer);
+while ($row_sentencia_footer = $res_sentencia_footer->fetch_assoc()) {
+    $condiciones_footer = str_replace('|', '\'', $row_sentencia_footer['condiciones']);
+    $sql_datos_footer = $row_sentencia_footer['campos'] . $row_sentencia_footer['tablas'] . $condiciones_footer;
+}
+$res_datos_footer = $mysqli1->query($sql_datos_footer);
+
+$imagenes_footer = [];
+while ($row_datos_footer = $res_datos_footer->fetch_assoc()) {
+    $imagenes_footer[] = [
+        'ruta' => $row_datos_footer['ruta'],
+        'titulo' => $row_datos_footer['titulo']
+    ];
+}
+$entities = '<div class="w-80 d-flex flex-column flex-md-row align-items-center align-items-md-end m-auto mt-4 mb-5 justify-content-between">';
+$entities .= '<div class="text-center mb-3 mb-md-0"> <p class="special-paragraph"><b>Entidades que nos vigilan:</b></p></div>';
+
+foreach ($imagenes_footer as $imagen) {
+    $ruta_imagen = '';
+    if ($nivel == "raiz") {
+        $ruta_imagen = $imagen['ruta'];
+    } else if ($nivel == "uno") {
+        $ruta_imagen = '../' . $imagen['ruta'];
+    } else if ($nivel == "dos") {
+        $ruta_imagen = '../../' . $imagen['ruta'];
+    } else if ($nivel == "tres") {
+        $ruta_imagen = '../../../' . $imagen['ruta'];
+    }
+
+    $entities .= '<div class="text-center mb-3 mb-md-0">'; // Margen solo en pantallas pequeñas
+    $entities .= '<div>';
+    $entities .= '<img src="' . $ruta_imagen . '" alt="logo" class="img-fluid" style="width: 70px; height: auto;">';
+    $entities .= '</div>';
+    $entities .= '<p class="special-paragraph m-0">' . $imagen['titulo'] . '</p>';
+    $entities .= '</div>';
+}
+
+$entities .= '</div>';
+
+
+
 $numero_de_sentencia_footer = "29";
 $res_sentencia_footer = $mysqli1->query($sentencia . $numero_de_sentencia_footer);
 while ($row_sentencia_footer = $res_sentencia_footer->fetch_assoc()) {
-    $condiciones_footer = str_replace('||', '\'\'', $row_sentencia_footer['condiciones']);
+    $condiciones_footer = str_replace('|', '\'', $row_sentencia_footer['condiciones']);
     $sql_datos_footer = $row_sentencia_footer['campos'] . $row_sentencia_footer['tablas'] . $condiciones_footer;
 }
 $res_datos_footer = $mysqli1->query($sql_datos_footer);
 
 $html_copyright = '<div class="second-footer">';
+$html_copyright .= $entities;
 while ($row_datos_footer = $res_datos_footer->fetch_assoc()){
-    $html_copyright .= '<p>'. $row_datos_footer['t1'] . '</p>';
+    $html_copyright .= '<p class="special-paragraph text-center">'. $row_datos_footer['t1'] . '</p>';
+
 }
 $html_copyright .= '</div>';
 ?>
@@ -182,11 +227,11 @@ $html_copyright .= '</div>';
         <div class="contact-info">
             <div id="basic-info">
                 <p id="basic1" class="">Llámanos o escríbenos</p>
-                <p id="basic2" class=""><?php echo $tel ?></p>
-                <p id="basic3" class=""><?php echo $correo ?></p>
+                <h4 id="basic2" class=""><?php echo $tel ?></h4>
+                <h4 id="basic3" class=""><?php echo $correo ?></h4>
             </div>
             <div id="info">
-                <p id="basic4" class="">Encuéntranos</p>
+                <p id="basic4" class="special-paragraph">Encuéntranos</p>
                 <?php echo $hmtl_social_media; ?>
                 <p id="first-class"><?php echo $direccion ?></p>
                 <p id="second-class"><?php echo $ubicacion ?></p>
@@ -194,5 +239,7 @@ $html_copyright .= '</div>';
 
         </div>
     </div>
-    <?php echo $html_copyright; ?>
+    <?php 
+        echo $html_copyright;
+    ?>
 </footer>
