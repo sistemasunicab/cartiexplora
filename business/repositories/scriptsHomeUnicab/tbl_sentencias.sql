@@ -51,4 +51,9 @@ INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamie
 ('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 13 AND visible = 1 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 14 AND visible = 1 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 15 AND visible = 1 ', '', '', '', ''),
-('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 10 AND descripcion = |entidades| ', '', '', '', '');
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 10 AND descripcion = |entidades| ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 16 AND visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 16 AND descripcion = |icon-search| ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 16 AND descripcion = |image-contact| ', '', '', '', '')
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 16 AND descripcion = |table-icon| ', '', '', '', '')
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 16 AND descripcion = |image-schedule| ', '', '', '', '');

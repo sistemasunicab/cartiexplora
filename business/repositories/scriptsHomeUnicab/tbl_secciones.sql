@@ -1,3 +1,5 @@
+DROP TABLE tbl_secciones;
+
 CREATE TABLE tbl_secciones (
   id int(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   seccion varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
@@ -23,5 +25,6 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 ('sobreNosotrosImagenesUne', 1,'sobreNosotros', '', '', ''),
 ('sobreNosotrosEducacionFormal', 1,'sobreNosotros', '<b>Colegio</b><br> UNICAB Virtual', '(Educación Formal)', ''),
 ('sobreNosotrosImagenesDos', 1,'sobreNosotros', '', '', ''),
-('sobreNosotrosQuinesSomos', 1,'sobreNosotros', '', '', '');
+('sobreNosotrosQuinesSomos', 1,'sobreNosotros', '', '', ''),
+('directorioInstitucional', 1, '', 'DIRECTORIO INSTITUCIONAL','','');
 
