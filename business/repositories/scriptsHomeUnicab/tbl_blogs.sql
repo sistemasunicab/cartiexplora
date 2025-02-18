@@ -17,3 +17,15 @@ CREATE TABLE tbl_blogs (
 INSERT INTO tbl_blogs 
   (idAdministrador, idCategoria, titulo, descripcionPrincipal, descripcionSecundaria, imagen, imagenEncima, fechaPublicacion, estadoRevisionTexto, estadoRevisionMultimedia, autor) 
   VALUES (18, 3, 'Titulo Test', 'Hola! esto es una descripcion test.', 'test', 'assets/img/blogtestover.png', 'assets/img/cc1.png', '2024-12-19', 0, 0, 'Miguel');
+
+  INSERT INTO tbl_blogs 
+  (idAdministrador, idCategoria, titulo, descripcionPrincipal, descripcionSecundaria, imagen, imagenEncima, fechaPublicacion, estadoRevisionTexto, estadoRevisionMultimedia, autor) 
+  VALUES (18, 3, 'Titulo Test2', 'Test ddescripcion', 'test', 'assets/img/blogtestover.png', 'assets/img/cc1.png', '2024-12-19', 0, 0, 'Miguel');
+
+    INSERT INTO tbl_blogs 
+  (idAdministrador, idCategoria, titulo, descripcionPrincipal, descripcionSecundaria, imagen, imagenEncima, fechaPublicacion, estadoRevisionTexto, estadoRevisionMultimedia, autor) 
+  VALUES (18, 3, 'Titulo Test3', 'Test ddescripcion', 'test', 'assets/img/blogtestover.png', 'assets/img/cc1.png', '2024-12-19', 0, 0, 'Miguel');
+
+    INSERT INTO tbl_blogs 
+  (idAdministrador, idCategoria, titulo, descripcionPrincipal, descripcionSecundaria, imagen, imagenEncima, fechaPublicacion, estadoRevisionTexto, estadoRevisionMultimedia, autor) 
+  VALUES (18, 3, 'Titulo Test4', 'Test ddescripcion', 'test', 'assets/img/blogtestover.png', 'assets/img/cc1.png', '2024-12-19', 0, 0, 'Miguel');

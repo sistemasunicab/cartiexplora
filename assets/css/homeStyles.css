@@ -623,6 +623,7 @@ ul {
     --white: #f5f5f5;
     --medium-gray: #4d4d4f;
     --light-gray: #d4cece;
+    --dark-blue: rgb(13, 48, 65);
 }
 
 /** Global **/
@@ -769,6 +770,11 @@ body {
     margin-top: 2rem;
 }
 
+.margin-y-5rem {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
 .text-blue {
      color: #127EB5;
 }
@@ -779,6 +785,10 @@ body {
 
 .gap-8_5rem {
     gap: 8.5rem;
+}
+
+.gap-2rem {
+    gap: 2rem;
 }
 
 .flex-direction-left {
@@ -795,6 +805,25 @@ body {
 
 .flex-direction-bottom {
     flex-direction: column;
+}
+
+.text-blue {
+    color: #127EB5;
+}
+
+.text-orange {
+    color: var(--orange);
+}
+
+.font-weight-700 {
+    font-weight: 700;
+}
+.font-size-1_375rem {
+    font-size: 1.375rem !important;
+}
+
+.j-c-space-between {
+    justify-content: space-between;
 }
 
 /** Indicators **/
@@ -1053,4 +1082,122 @@ body {
 .blog-newsletter-container input:focus {
     outline: none;
     border: 2px solid rgba(0, 0, 0, 0.7);
+}
+
+.titulo-lg{
+    font-size: 4.4rem;
+}
+
+.titulo-md{
+    font-size: 3.8rem;
+}
+
+.titulo-sm{
+    font-size: 2.5rem;
+}
+
+.subtitulos{
+    font-size: 2.2rem;
+}
+
+.texto-lg{
+    font-size: 1.9rem;
+}
+
+.texto-base {
+    font-size: 1.4rem;
+}
+
+.texto-sm {
+    font-size: 1.2rem;
+}
+/* Historia */
+
+.linea-tiempo-icono {
+    height: auto;
+    width: 4.5rem;
+}
+
+.historia-imgcontainer {
+    flex-wrap: wrap;
+    row-gap: 20rem;
+    column-gap: 3rem;
+}
+
+.historia-info-main {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.historia-info {
+    background-color: var(--dark-blue);
+    height: 38rem;
+    width: 100%;
+    z-index: -1;
+}
+
+.historia-info-img {
+    height: 28rem;
+    width: auto;
+
+    border: .5rem solid white;
+    border-radius: 2rem;
+
+    margin-bottom: -19rem;
+}
+
+.historia-info-mainimg {
+    height: 35rem;
+    width: auto;
+
+    margin-top: -15rem;
+}
+
+.ecosistema-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.ecosistema-block h2 {
+    font-family: 'Roboto-light';
+    min-height: 15rem;
+}
+
+@media (min-width: 1200px) {
+   .ecosistema-block h2 {
+    min-height: 6rem;
+}
+ 
+}
+
+.ecosistema-block p {
+    border-top: 2px solid var(--orange);
+    padding: 1rem 0;
+}
+
+.ecosistema-block a {
+    width: fit-content;
+    background-color: var(--orange);
+
+    padding: .7rem 1rem;
+    border-radius: .8rem;
+
+    font-style: italic;
+    color: var(--white);
+    transition: background-color .3s ease;
+}
+
+.ecosistema-block a:hover {
+    background-color: var(--dark-blue);
+
+}
+
+.ecosistema-block img {
+    height: auto;
+    width: 20rem;
+    box-shadow: 8px 10px 1rem rgba(0, 0, 0, 0.2);
 }

@@ -69,7 +69,7 @@
      // Obteniendo los ultimos 3 blogs
      $res_sentencia = $mysqli1->query($sentencia."27");
      while($row_sentencia = $res_sentencia->fetch_assoc()){
-          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
+          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']).$row_sentencia['ordenamientos'];
      }  
 
      $res_datos = $mysqli1->query($sql_datos);

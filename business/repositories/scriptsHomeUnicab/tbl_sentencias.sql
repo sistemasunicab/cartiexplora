@@ -40,4 +40,7 @@ INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamie
 ('SELECT * ', 'FROM tbl_menus ', 'WHERE visible = 1 ', '', '', '', '');
 
 INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones) VALUES
-('SELECT * ', 'FROM tbl_parametros ', 'WHERE id_seccion = 8', '', '', '', '');
+('SELECT * ', 'FROM tbl_blogs ', 'WHERE id_seccion = 8 ', '', '', '', '');
+
+INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones) VALUES
+('SELECT * ', 'FROM tbl_parametros ', 'WHERE id_seccion = 8 ', '', '', '', '');
