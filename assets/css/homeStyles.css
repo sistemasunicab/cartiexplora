@@ -1,5 +1,6 @@
 body{
     width: 100% !important;
+    font-family: "Roboto", sans-serif;
 }
 
 /*Menu ghf */
@@ -626,11 +627,6 @@ ul {
 }
 
 /** Global **/
-
-body {
-    font-family: "Roboto", sans-serif;
-}
-
 /** Utility Classes **/
 
 .bg-light-gray {
@@ -688,6 +684,174 @@ body {
     transform: scale(1.05) rotate(2deg);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
+/** Inicio Descubre tus Habilidades **/
+
+.habilidades-img {
+    height: 5rem;
+}
+
+.img-container {
+    transition: transform 0.3s ease;
+}
+
+.img-container:hover {
+    transform: scale(1.2) rotate(2deg);
+}
+
+.line {
+     position: relative;
+ }
+
+ .line:not(:nth-child(6)):not(:nth-child(12))::after {
+    content: "";
+    position: absolute;
+    top: 40%; 
+    right: 0;
+    width: 3px; 
+    height: 25%; 
+    background-color: var(--light-gray); 
+    transform: translateY(-40%); 
+    border-radius: 10%;
+}
+
+.contenedor-imagenes-habilidades:hover > :not(:hover) {
+    filter: blur(1px);
+    opacity: 0.8;
+}
+
+
+  
+/** Inicio inscripciones abiertas **/
+
+.notificacion-error {
+    position: absolute;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #f8d7da;
+    color: #721c24;
+    text-align: center;
+}
+
+.notificacion-success {
+    position: absolute;
+    left: 25%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #d4edda;
+    color: var(--green);
+    text-align: center;
+  }
+
+.notificacion-hidden{
+    display: none;
+}
+
+.inscripciones-seccion {
+    margin: 10rem auto;
+}
+
+.inscripciones-info {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 2rem;
+}
+
+.form-container{
+    position: relative;
+}
+
+.form-inscripciones{
+    font-size: 0.75rem;
+    border: 2px solid var(--green);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.inscripciones-form-titulo{
+    background-color: var(--green);
+    color: var(--white);
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+.form-label {
+    text-transform: uppercase;
+    margin: 0.1rem 0;
+    padding: 0;
+    font-size: 0.6rem;
+}
+
+.form-text {
+    margin: 0;
+    font-size: 0.6rem;
+}
+
+.form-input {
+    border: 1px solid var(--green);
+    padding: .5rem;
+}
+
+.form-input.success {
+    border: 2px solid green; 
+}
+.form-input.error, .form-input.error:focus { 
+    border: 2px solid red; 
+}
+
+.form-textarea {
+    field-sizing: content;
+    border: 1px solid var(--green);
+    padding: .5rem;
+}
+
+.form-textarea.success {
+    border: 2px solid green; 
+}
+.form-textarea.error, .form-textarea.error:focus { 
+    border: 2px solid red; 
+}
+
+ input[type="checkbox"]{
+    border-color: var(--green);
+ }
+
+ .inscripciones-btn {
+    all: unset;
+    display: inline-block;
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-align: inherit;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.inscripciones-btn {
+    padding: .5rem 0;
+    background-color: var(--green);
+    text-transform: uppercase;
+    color: var(--white);
+    border-radius: 2px;
+    border: 1px solid var(--green);
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.inscripciones-btn:hover {
+    background-color: #0ad310;
+}
+
+.inscripciones-btn:disabled {
+    background-color: #f0f0f0; /* Cambiar color de fondo */
+    color: #a0a0a0;           /* Cambiar color del texto */
+    border: 1px solid #ccc;   /* Cambiar el borde */
+    cursor: not-allowed;      /* Cambiar el cursor */
+}
+
 
 /** Fonts **/
 /*@font-face {
@@ -1076,4 +1240,34 @@ body {
 .blog-newsletter-container input:focus {
     outline: none;
     border: 2px solid rgba(0, 0, 0, 0.7);
+}
+
+.titulo-1 {
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--blue);
+    font-weight: 700;
+}
+
+.titulo-2 {
+    font-size: 3.5rem;
+    line-height: 1;
+    color: black;
+    font-weight: 200;
+}
+
+.texto-grande {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.5rem;
+}
+
+.texto-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.texto-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
 }

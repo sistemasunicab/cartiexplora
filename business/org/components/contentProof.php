@@ -17,6 +17,91 @@
     }
     $res_imagenes = $mysqli1->query($sql_imagenes);
 ?>
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light menu">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="assets/img/unicab.png" alt="" width="50" >
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Colegio UNICAB Virtual
+                    </a>
+                    <ul class="dropdown-menu submenu">
+                        <li class="nav-item dropdown ms-2">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dirección y Administración
+                            </a>
+                            <ul class="dropdown-menu submenu1">
+                                <li><a class="dropdown-item" href="#">Estudiantes</a></li>
+                                <li><a class="dropdown-item" href="#">Educación Regular</a></li>
+                                <li><a class="dropdown-item" href="#">Solicitud de Certificaciones y Papeles</a></li>
+                                <li><a class="dropdown-item" href="#">Manual de Convivencia</a></li>
+                                <li><a class="dropdown-item" href="#">Educación por Ciclos Propedéuticos (Mayores 18 años)</a></li>
+                            </ul>                            
+                        </li>
+                        <li><a class="dropdown-item" href="#">Consejo Directivo</a></li>
+                        <li><a class="dropdown-item" href="#">Rectoría</a></li>
+                        <li><a class="dropdown-item" href="#">Consejo de Padres</a></li>
+                        <li><a class="dropdown-item" href="#">Consejo Estudiantil</a></li>
+                        <li><a class="dropdown-item" href="#">Coordinación Académica</a></li>
+                        <li><a class="dropdown-item" href="#">Secretaría Académica</a></li>
+                        <li><a class="dropdown-item" href="#">Equipo de Maestros Mediadores</a></li>
+                        <li><a class="dropdown-item" href="#">Asesores Pedagógicos</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        CARTI Explora
+                    </a>
+                    <ul class="dropdown-menu submenu">
+                        <li><a class="dropdown-item" href="#">Misión y Visión</a></li>
+                        <li><a class="dropdown-item" href="#">Principios y Valores</a></li>
+                        <li><a class="dropdown-item" href="#">Servicios</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        UNICAB Solutions
+                    </a>
+                    <ul class="dropdown-menu submenu">
+                        <li><a class="dropdown-item" href="#">¿Quienes Somos?</a></li>
+                        <li><a class="dropdown-item" href="#">Misión</a></li>
+                        <li><a class="dropdown-item" href="#">Visión</a></li>
+                        <li><a class="dropdown-item" href="#">Director del Programa de Educación Formal</a></li>
+                        <li><a class="dropdown-item" href="#">Servicios de Educación Informal</a></li>
+                        <li><a class="dropdown-item" href="#">Consultoría Empresarial</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Admisiones
+                    </a>
+                    <ul class="dropdown-menu submenu">
+                        <li><a class="dropdown-item" href="#">Entrevista</a></li>
+                        <li><a class="dropdown-item" href="#">Evaluación Presaberes</a></li>
+                        <li><a class="dropdown-item" href="#">Costos</a></li>
+                        <li><a class="dropdown-item" href="#">Pagos</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Aula Virtual</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Registro Académico</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Correo</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>-->
+
 <h1>Bienvenido</h1>
 <div class="container">
     <div class="row">
@@ -64,16 +149,20 @@
             $html = '';
             while($row_imagenes = $res_imagenes->fetch_assoc()){
                 if ($nivel == "raiz") {
-                    $html .=  '<div class="col-3"><img src="'.$row_imagenes['ruta'].'" id="img1" class="img-fluid"/></div>';
+                    $html .= '<div class="col-3"><img src="'.$row_imagenes['ruta'].'" id="img1" class="img-fluid" 
+                    onmouseout="this.src='."'".$row_imagenes['ruta']."'".';" onmouseover="this.src='."'".$row_imagenes['rutaEncima']."'".';"/></div>';
                 }
                 else if ($nivel == "uno") {
-                    $html .=  '<div class="col-3"><img src="../'.$row_imagenes['ruta'].'" id="img1" class="img-fluid"/></div>';
+                    $html .= '<div class="col-3"><img src="../'.$row_imagenes['ruta'].'" id="img1" class="img-fluid" 
+                    onmouseout="this.src='."'../".$row_imagenes['ruta']."'".';" onmouseover="this.src='."'../".$row_imagenes['rutaEncima']."'".';"/></div>';
                 }
                 else if ($nivel == "dos") {
-                    $html .=  '<div class="col-3"><img src="../../'.$row_imagenes['ruta'].'" id="img1" class="img-fluid"/></div>';
+                    $html .=  '<div class="col-3"><img src="../../'.$row_imagenes['ruta'].'" id="img1" class="img-fluid" 
+                    onmouseout="this.src='."'../../".$row_imagenes['ruta']."'".';" onmouseover="this.src='."'../../".$row_imagenes['rutaEncima']."'".';"/></div>';
                 }
                 else if ($nivel == "tres") {
-                    $html .=  '<div class="col-3"><img src="../../../'.$row_imagenes['ruta'].'" id="img1" class="img-fluid"/></div>';
+                    $html .=  '<div class="col-3"><img src="../../../'.$row_imagenes['ruta'].'" id="img1" class="img-fluid" 
+                    onmouseout="this.src='."'../../../".$row_imagenes['ruta']."'".';" onmouseover="this.src='."'../../../".$row_imagenes['rutaEncima']."'".';"/></div>';
                 }
             }
             echo $html;

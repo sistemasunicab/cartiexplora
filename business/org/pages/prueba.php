@@ -6,7 +6,7 @@
 <html lang="en">
 <?php
     $nivel = "tres";
-    include('../../../components/headMain.php') 
+    include('../../../components/headMain.php');
 ?>
 <body>
     <?php include('../../../components/bannerCarrousel.php') ?>
@@ -15,7 +15,7 @@
     
     <?php 
         $nivel = "tres";
-        include('../../../components/bookstoresMain.php') 
+        include('../../../components/bookstoresMain.php');
     ?>
 </body>
 </html>

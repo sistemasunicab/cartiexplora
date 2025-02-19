@@ -16,6 +16,8 @@
         include('components/bannerCarrousel.php');
         //include('components/contentProof.php');
         include('components/academicOffer.php');
+        include('components/descubreHabilidades.php');
+        include('components/inscripciones.php');
         include('components/indicators.php');
         include('components/meetcampus.php');
         include('components/linksZone.php');
