@@ -6,6 +6,7 @@
 <html lang="en">
 <?php
     $nivel = "tres";
+    $page_title = "Servicios de capacitación";
     include('../../../components/headMain.php');
 ?>
 

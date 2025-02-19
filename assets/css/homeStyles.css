@@ -2,6 +2,30 @@ body{
     width: 100% !important;
 }
 
+h1{
+    font-size: 4.4rem;
+}
+
+h2{
+    font-size: 3.8rem;
+}
+
+h3{
+    font-size: 2.5rem;
+}
+
+h4{
+    font-size: 2.2rem;
+}
+
+p, label{
+    font-size: 2rem;
+}
+
+.special-paragraph{
+    font-size: 1.5rem;
+}
+
 /*Menu ghf */
 /*.menu {
 	background-color: #Fe9100 !important;
@@ -1004,32 +1028,6 @@ body {
      object-fit: cover;
      object-position: center;
 }
-
-
-/* Tamaños fuentes */
-
-h1 {
-    font-size: 4.4rem;
-}
-
-h2 {
-    font-size: 3.8rem;
-}
-
-h3 {
-    font-size: 2.5rem;
-}
-
-h4 {
-    font-size: 2.2rem;
-}
-
-p, label, a {
-    font-size: 2rem;
-}
-
-
-
 
 /* Unicab Solutions */
 /* Página principal */
