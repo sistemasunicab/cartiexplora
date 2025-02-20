@@ -13,7 +13,7 @@
         require('../../../business/repositories/1cc2s4Home.php');
     }
     
-    $res_sentencia = $mysqli1->query($sentencia."3");
+    $res_sentencia = $mysqli1->query($sentencia."26");
     while($row_sentencia = $res_sentencia->fetch_assoc()){
         $sql_navbar = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
     }    
@@ -216,7 +216,7 @@
             </div>
         </nav>';
 
-    echo $html.'<br>'.basename(dirname(__FILE__));
+    echo $html;//.'<br>'.basename(dirname(__FILE__));
 ?>
 <!--<nav class="navbar navbar-expand-lg navbar-light bg-light menu">
     <div class="container">
