@@ -23,7 +23,7 @@
         $html .=    '<div class="container my-2">';
         $html .=       '<div class="row">';
         $html .=           '<div class="col-lg-12">';
-        $html .=               '<h2 class="text-center font-roboto-black tx-blue">' . $row_datos_seccion['titulo'] . '</h2>';
+        $html .=               '<h2 class="text-center font-roboto-black tx-blue" id="ofertaAcademica">' . $row_datos_seccion['titulo'] . '</h2>';
         $html .=           '</div>';
         $html .=       '</div>';
         $html .=    '</div>';
