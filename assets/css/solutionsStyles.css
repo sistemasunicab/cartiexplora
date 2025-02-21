@@ -1,0 +1,147 @@
+:root {
+    --shadow-1: 1px 7px 22px -3px rgba(0,0,0,0.48);
+    --shadow-2: 9px 9px 12px -3px rgba(0,0,0,0.45);
+    --shadow-banners: 0px 30px 20px 0px rgba(0,0,0,0.16);
+}
+
+/* Unicab Solutions */
+
+/* Página principal */
+.hero-card{
+    padding: 2rem;
+    border-radius: 28px;
+    margin: -5rem 0 4rem 0;
+    text-align: center;
+    background-color: #FFF;
+    color: var(--blue);
+    box-shadow: var(--shadow-1);
+}
+
+.solutions-card{
+    padding: 1rem 2rem;
+    text-align: center;
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    box-shadow: var(--shadow-2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.solutions-card:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-1);
+}
+
+.solutions-card-img img{
+    width: 5rem;
+    height: 5rem;
+}
+
+.solutions-card-desc{
+    position: relative; 
+}
+
+.solutions-card-desc p{
+    margin-bottom: 1rem;
+    line-height: 2rem;
+}
+
+.solutions-card-button{
+    padding: .5rem;
+    font-size: 2rem;
+    border-radius: 15px;
+}
+
+.card-line{
+    position: relative;
+}
+
+.card-line:before {
+    content: ""; 
+    position: absolute;
+    left: 0;
+    top: -55%;
+    width: 100%; 
+    height: 2px; /* Grosor de la línea */
+    background-color: var(--orange);
+}
+
+/* Páginas secundarias */
+
+.banner-shadow {
+    box-shadow: var(--shadow-banners);
+}
+
+.titulo-servicio{
+    padding: .5rem 1rem .5rem 0;
+    margin: 1.5rem 0;
+    position: relative;
+}
+
+.titulo-servicio:after {
+    content: ""; 
+    position: absolute;
+    left: 2%;
+    bottom: 0;
+    width: 95%; 
+    height: 2px; /* Grosor de la línea */
+    background-color: var(--orange);
+}
+
+.descripcion-servicio span {
+    font-weight: bold;
+}
+
+.ul-solutions {
+    list-style-type: initial;
+}
+
+.solutions-icon {
+    width: 8rem;
+    height: 8rem;
+}
+
+
+
+
+/*-----------------------------------ORG------------------------------------*/
+/** Nuestros Estudiantes **/
+
+.nuestros-titulo{
+    font-family: 'Roboto-light';
+}
+
+.item {
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.item:hover {
+    transform: scale(1.05);
+}
+
+.item-seleccionado{
+    position: relative;
+}
+
+.item-seleccionado::after{
+    content: '';
+    padding: 2rem;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .5);
+    inset: 0;
+    z-index: 10;
+}
+
+.seccion-imagen-grande-galeria {
+    background-color: var(--light-gray);
+    padding: 2rem;
+}
+
+/** Principios y valores corporativos **/
+
+.titulo-principios {
+    text-transform: uppercase;
+}
