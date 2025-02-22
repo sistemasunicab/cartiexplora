@@ -66,6 +66,7 @@ while ($row_sentencia_footer = $res_sentencia_footer->fetch_assoc()) {
 $res_datos_footer = $mysqli1->query($sql_datos_footer);
 
 $imagenes_footer = [];
+
 while ($row_datos_footer = $res_datos_footer->fetch_assoc()) {
     $imagenes_footer[] = [
         'ruta' => $row_datos_footer['ruta'],
@@ -110,13 +111,51 @@ $html_footer .= '</div>';
             <div id="info">
                 <p id="basic4" class="">Encuéntranos</p>
                 <div id="basic5" class="social-media">
-                    <img src="assets/img/facebook.png" alt="facebook" height="20"
-                        class="d-inline-block align-text-center">
-                    <img src="assets/img/x.png" alt="twitter" height="20" class="d-inline-block align-text-center">
-                    <img src="assets/img/instagram.png" alt="instagram" height="20"
-                        class="d-inline-block align-text-center">
-                    <img src="assets/img/youtube.png" alt="youtube" height="20"
-                        class="d-inline-block align-text-center">
+                    <?php
+                        $ruta_imagen = '';
+                        if ($nivel == "raiz") {
+                    ?>
+                            <img src="assets/img/facebook.png" alt="facebook" height="20"
+                                class="d-inline-block align-text-center">
+                            <img src="assets/img/x.png" alt="twitter" height="20" class="d-inline-block align-text-center">
+                            <img src="assets/img/instagram.png" alt="instagram" height="20"
+                                class="d-inline-block align-text-center">
+                            <img src="assets/img/youtube.png" alt="youtube" height="20"
+                                class="d-inline-block align-text-center">
+                    <?php
+                        } else if ($nivel == "uno") {
+                    ?>
+                            <img src="../assets/img/facebook.png" alt="facebook" height="20"
+                                class="d-inline-block align-text-center">
+                            <img src="../assets/img/x.png" alt="twitter" height="20" class="d-inline-block align-text-center">
+                            <img src="../assets/img/instagram.png" alt="instagram" height="20"
+                                class="d-inline-block align-text-center">
+                            <img src="../assets/img/youtube.png" alt="youtube" height="20"
+                                class="d-inline-block align-text-center">
+                    <?php
+                        } else if ($nivel == "dos") {
+                    ?>
+                            <img src="../../assets/img/facebook.png" alt="facebook" height="20"
+                                class="d-inline-block align-text-center">
+                            <img src="../../assets/img/x.png" alt="twitter" height="20" class="d-inline-block align-text-center">
+                            <img src="../../assets/img/instagram.png" alt="instagram" height="20"
+                                class="d-inline-block align-text-center">
+                            <img src="../../assets/img/youtube.png" alt="youtube" height="20"
+                                class="d-inline-block align-text-center">
+                    <?php
+                        } else if ($nivel == "tres") {
+                    ?>
+                            <img src="../../../assets/img/facebook.png" alt="facebook" height="20"
+                                class="d-inline-block align-text-center">
+                            <img src="../../../assets/img/x.png" alt="twitter" height="20" class="d-inline-block align-text-center">
+                            <img src="../../../assets/img/instagram.png" alt="instagram" height="20"
+                                class="d-inline-block align-text-center">
+                            <img src="../../../assets/img/youtube.png" alt="youtube" height="20"
+                                class="d-inline-block align-text-center">
+                    <?php
+                        }
+                    ?>
+                    
                 </div>
                 <p id="first-class"><?php echo $direccion ?></p>
                 <p id="second-class"><?php echo $ubicacion ?></p>

@@ -36,8 +36,8 @@
                     '<div class="col-md-7 d-flex align-items-center">' .
                         '<div>' .
                             '<div class="my-5">' .
-                                '<h2 class="fw-bold titulo-2">' . $row_datos_seccion['titulo'] . '</h2>' .
-                                '<h3 class="titulo-2">' . $row_datos_seccion['subTitulo'] . '</h3>' .
+                                '<h1 class="fw-bold">' . $row_datos_seccion['titulo'] . '</h1>' .
+                                '<h1>' . $row_datos_seccion['subTitulo'] . '</h1>' .
                             '</div>' .
                             '<div class="my-5">' .
                                 '<p class="m-0 fw-bold inscripciones-info">' . $row_datos_seccion['texto'] . '</p>' .
