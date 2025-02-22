@@ -227,7 +227,7 @@ while ($row_datos_footer = $res_datos_footer->fetch_assoc()) {
                 <?php echo $hmtl_images; ?>
                 <div class="d-flex flex-column pt-4 mx-auto m-auto col-xl-5">
                     <div class="d-flex flex-column w-auto mb-3 mx-auto mx-xl-0 ms-xl-auto">
-                        <p class="lh-sm font-roboto-thinitalic my-0 mx-auto mx-xl-0 tx-white opacity-50">Llámanos o
+                        <p class="lh-sm font-roboto-thinitalic my-0 mx-auto mx-xl-0 tx-white opacity-75">Llámanos o
                             escríbenos</p>
                         <h4 class="lh-sm font-roboto-bolditalic my-0 mx-auto mx-xl-0 tx-white"><?php echo $tel ?></h4>
                         <h4 class="lh-sm font-roboto-bolditalic my-0 mx-auto mx-xl-0 tx-white"><?php echo $correo ?>

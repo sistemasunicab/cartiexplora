@@ -27,7 +27,7 @@ while ($row_sentencia = $res_sentencia->fetch_assoc()) {
 }
 $res_datos = $mysqli1->query($sql_datos);
 // Validar que la consulta fue exitosa
-$html_base = '<ul id="menuDisplay" class="p-0 d-none d-md-flex m-auto text-start h-100" >';
+$html_base = '<ul id="menuDisplay" class="p-0 d-none d-md-flex text-start" >';
 if ($res_datos) {
     // Acceder a los datos 
     while ($row_datos = $res_datos->fetch_assoc()) {
@@ -158,8 +158,8 @@ if ($nivel == "raiz") {
 <div class="container-fluid m-0 p-0">
     <div class="row m-0 p-0">
         <nav class="navbar col-12 bg-orange p-0 h-md-70 main-nav">
-            <div class="d-md-flex m-auto text-start p-0 col-11 h-100">
-                <div class="w-90 p-md-0 d-flex m-auto p-3 justify-content-between">
+            <div class="d-md-flex m-auto text-start p-0 col-11 h-100 justify-content-between">
+                <div class="p-md-0 d-flex flex-row m-auto mx-md-0 p-3 justify-content-between">
                     <?php echo $html; ?>
                     <button class="navbar-toggler d-md-none" type="button" id="menu-button">
                         <i class="fas fa-bars tx-white p-2" id="bars"></i>
