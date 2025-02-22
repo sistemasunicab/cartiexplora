@@ -21,7 +21,7 @@
         $mysqli1 = new mysqli(getenv('DB_HOST'), getenv('DB_USERNAME_L'), getenv('DB_PASSWORD_L'), getenv('DB_DATABASE_U_SOLUTIONS'), getenv('DB_PORT'));
     }
     else if (getenv('APP_ENV') == "pro") {
-        $mysqli1 = new mysqli(getenv('DB_HOST'), getenv('DB_USERNAME_P'), getenv('DB_PASSWORD_P'), getenv('DB_DATABASE'));
+        $mysqli1 = new mysqli(getenv('DB_HOST'), getenv('DB_USERNAME_PUS'), getenv('DB_PASSWORD_PUS'), getenv('DB_DATABASE_U_SOLUTIONS'));
     }
     
 	if(mysqli_connect_error()) {
