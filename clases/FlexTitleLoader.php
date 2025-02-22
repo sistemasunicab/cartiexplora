@@ -3,10 +3,10 @@
 class FlexTitleLoader {
      public static function setDirection($direction) {
           $types = [
-               'izquierda' => 'flex-direction-left',
-               'derecha' => 'flex-direction-right',
-               'abajo' => 'flex-direction-bottom',
-               'arriba' => 'flex-direction-up',
+               'izquierda' => 'flex-row-reverse',
+               'derecha' => 'flex-row',
+               'abajo' => 'flex-column',
+               'arriba' => 'flex-column-reverse',
           ];
           
           return $types[$direction];
