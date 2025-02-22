@@ -12,13 +12,13 @@ while ($row_sentencia_nosotros = $res_sentencia_nosotros->fetch_assoc()) {
 $res_datos_nosotros = $mysqli1->query($sql_datos_nosotros);
 
 if ($res_datos_nosotros->num_rows > 0) {
-    $html_nosotros = '<div class="nosotros">';
-    $html_nosotros .= '<div class="container-nosotros">';
+    $html_nosotros = '<div class="my-10 w-100">';
+    $html_nosotros .= '<div class="d-flex flex-column flex-xl-row justify-content-between mx-auto col-10">';
 
     while ($row_datos_nosotros = $res_datos_nosotros->fetch_assoc()) {
-        $html_nosotros .= '<div class="queEs">';
-        $html_nosotros .= '<h2 class="text-center">' . $row_datos_nosotros['titulo'] . '</h2>';
-        $html_nosotros .= '<p class="special-paragraph text-center">' . $row_datos_nosotros['texto'] . '</p>';
+        $html_nosotros .= '<div class="m-auto col-6">';
+        $html_nosotros .= '<h2 class="text-center text-xl-start font-roboto-light tx-blue mb-5">' . $row_datos_nosotros['titulo'] . '</h2>';
+        $html_nosotros .= '<p class="special-paragraph text-center text-xl-start font-roboto-regular my-auto col-11 tx-black mb-5">' . $row_datos_nosotros['texto'] . '</p>';
         $html_nosotros .= '</div>';
     }
 
@@ -32,7 +32,7 @@ if ($res_datos_nosotros->num_rows > 0) {
     $res_datos_nosotros = $mysqli1->query($sql_datos_nosotros);
 
     while ($row_datos_nosotros = $res_datos_nosotros->fetch_assoc()) {
-        $html_nosotros .= '<div class="organigrama">';
+        $html_nosotros .= '<div class="organigrama mx-auto mt-auto col-6">';
         $path = $row_datos_nosotros['ruta'];
         $altern = $row_datos_nosotros['textoAlterno'];
         $path_image = '';
@@ -45,7 +45,7 @@ if ($res_datos_nosotros->num_rows > 0) {
         } else if ($nivel == "tres") {
             $path_image = '../../../' . $path;
         }
-        $html_nosotros .= '<img src="' . $path_image . '" alt="' . $altern . '">';
+        $html_nosotros .= '<img src="' . $path_image . '" alt="' . $altern . '" style="width:100%;">';
         $html_nosotros .= '</div>';
     }
 
