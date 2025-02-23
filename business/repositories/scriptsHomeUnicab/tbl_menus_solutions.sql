@@ -14,9 +14,9 @@ INSERT INTO tbl_menus_solutions (menu, nivel, padre, icono, linkNivelRaiz, linkN
 ('UNICAB Solutions', '' ,'', '', '', '', ''),
 ('Correo', '', '', '', 'https://mail.google.com/a/unicab.org/', 'https://mail.google.com/a/unicab.org/', '_blank'),
 
-('¿Quiénes Somos?', 'raiz', '3', '', 'business/solutions/pages/index.php', 'index.php',''),
-('Misión', 'raiz', '3', '', 'business/solutions/pages/mision.php', 'mision.php',''),
-('Visión', 'raiz', '3', '', 'business/solutions/pages/vision.php', 'vision.php',''),
-('Director del Programa de educación formal', 'raiz', '3', '', 'business/solutions/pages/directorProgramaEducacionFormal.php', 'directorProgramaEducacionFormal.php',''),
-('Servicios de educación informal', 'raiz', '3', '', 'business/solutions/pages/serviciosEducacionInformal.php', 'serviciosEducacionInformal.php',''),
-('Consultoría empresarial', 'raiz', '3', '', 'business/solutions/pages/consultoriaEmpresarial.php', 'consultoriaEmpresarial.php','');
+('¿Quiénes Somos?', 'raiz', '1', '', 'business/solutions/pages/index.php', 'index.php',''),
+('Misión', 'raiz', '1', '', 'business/solutions/pages/mision.php', 'mision.php',''),
+('Visión', 'raiz', '1', '', 'business/solutions/pages/vision.php', 'vision.php',''),
+('Director del Programa de educación formal', 'raiz', '1', '', 'business/solutions/pages/directorProgramaEducacionFormal.php', 'directorProgramaEducacionFormal.php',''),
+('Servicios de educación informal', 'raiz', '1', '', 'business/solutions/pages/serviciosEducacionInformal.php', 'serviciosEducacionInformal.php',''),
+('Consultoría empresarial', 'raiz', '1', '', 'business/solutions/pages/consultoriaEmpresarial.php', 'consultoriaEmpresarial.php','');
