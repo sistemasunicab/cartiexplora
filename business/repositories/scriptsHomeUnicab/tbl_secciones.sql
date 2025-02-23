@@ -18,6 +18,7 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 ('zonaDeEnlaces', 1, 'home', 'Zona de Enlaces', '', ''),
 ('blogConectados', 1, 'home', 'Blog', '', ''),
 ('navBar', 1, 'home', '', '', ''),
-('footer', 1,'home', '', '', '');
+('footer', 1,'home', '', '', ''),
+('navBarSolutions', 1, 'home', '', '', '');
 
 
