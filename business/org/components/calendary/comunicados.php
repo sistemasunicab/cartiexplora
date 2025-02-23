@@ -50,11 +50,11 @@ while ($row_data_visible = $res_data_visible->fetch_assoc()) {
     $res_data_files = $mysqli1->query($sql_data_files);
 
     // CONTENEDOR PRINCIPAL
-    $html_communication = '<div class="w-60 m-auto m-block-15 d-flex flex-column">';
-    $html_communication .= '    <div class="d-flex flex-column w-80 m-auto pt-5 pb-5">';
+    $html_communication = '<div class="col-7 m-auto my-10 d-flex flex-column">';
+    $html_communication .= '    <div class="d-flex flex-column col-10 m-auto pt-5 pb-5">';
 
     // TÍTULO DE LA SECCIÓN (POR EJEMPLO "COMUNICADOS")
-    $html_communication .= '<h2 class="font-roboto-bold tx-color-bl m-auto">'
+    $html_communication .= '<h2 class="font-roboto-bold tx-blue m-auto">'
         . htmlspecialchars($row_data_visible['titulo'] ?? 'Sección sin título')
         . '</h2>';
 
@@ -78,12 +78,12 @@ while ($row_data_visible = $res_data_visible->fetch_assoc()) {
         }
 
         // Estructura: Ícono + Texto + Botón
-        $html_communication .= '  <div class="d-flex align-items-center justify-content-between mt-4">';
+        $html_communication .= '  <div class="d-flex align-items-center justify-content-between my-10">';
 
         // Lado izquierdo: texto (nombre y fecha)
         $html_communication .= '    <div class="d-flex flex-column text-start">';
         $html_communication .= '      <p class="font-roboto-bold mb-0">' . $nombreArchivo . '</p>';
-        $html_communication .= '      <p class="font-roboto-regular mb-0">' . $fechaArchivo . '</p>';
+        $html_communication .= '      <p class="font-roboto-bold mb-0">' . $fechaArchivo . '</p>';
         $html_communication .= '    </div>';
 
         // Lado derecho: ícono + botón
@@ -96,12 +96,15 @@ while ($row_data_visible = $res_data_visible->fetch_assoc()) {
 
         $html_communication .= '  </div>';
     }
-
-
     $html_communication .= '    </div>'; // cierra w-80 m-auto pt-5 pb-5
     $html_communication .= '</div>';     // cierra w-60 m-auto m-block-15 d-flex flex-column
-
-    // IMPRIME EL HTML
-    echo $html_communication;
 }
 ?>
+
+<div class="container-fluid m-0 p-0">
+    <div class="row m-0 p-0">
+        <?php
+        echo $html_communication;
+        ?>
+    </div>
+</div>

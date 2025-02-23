@@ -955,8 +955,7 @@ input[type="checkbox"] {
 
 /* End About Us */
 
-/*Calendario academico*/
-
+/* Begin calendary */
 
 .border-radius-10 {
     border-radius: 10px !important;
@@ -975,13 +974,15 @@ input[type="checkbox"] {
     font-family: var(--roboto-bold);
 }
 
+/* Calendario academico */
+
+/* Calendario proximo evento*/
+
+/* Comunicados*/
 
 .calendary-event {
     width: 120px;
     height: 120px;
-    border-radius: 20px;
-    color: var(--orange);
-    display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -1002,3 +1003,5 @@ input[type="checkbox"] {
         font-size: 2.5rem;
     }
 }
+
+/* End calendary */

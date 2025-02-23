@@ -9,11 +9,12 @@ while ($row_sentence_calendary = $res_sentence_calendary->fetch_assoc()) {
 
 $res_data_calendary = $mysqli1->query($sql_data_calendary);
 
-$html_base = '<div class="w-75 m-auto m-block-15 d-flex flex-column">';
+
 
 while ($row_data_calendary = $res_data_calendary->fetch_assoc()) {
+    $html_base = '<div class="p-0 col-9 m-auto my-10 d-flex flex-column">';
     // Display the title inside an h2
-    $html_base .= '<h2 class="tx-color-bl font-roboto-light-title">' . ($row_data_calendary['titulo']) . '</h2>';
+    $html_base .= '<h2 class="tx-blue font-roboto-light-title">' . ($row_data_calendary['titulo']) . '</h2>';
     // Fetch the SVG image with sentence #49
     $number_sentence_image = "49";
     $res_sentence_image = $mysqli1->query($sentencia . $number_sentence_image);
@@ -46,10 +47,15 @@ while ($row_data_calendary = $res_data_calendary->fetch_assoc()) {
         // Add the "Ver" button with margin-left, box shadow, circular border, and auto height
         $html_base .= '<button class="ml-20 btn shadow h-auto tx-color-wh btn-calendary fw-semibold" style="width:200px;">Ver</button>';
         $html_base .= '</div>';
-
+        $html_base .= '</div>';
     }
 }
-$html_base .= '</div>';
-echo $html_base;
-
 ?>
+
+<div class="container-fluid m-0 p-0">
+    <div class="row m-0 p-0">
+        <?php
+        echo $html_base;
+        ?>
+    </div>
+</div>
