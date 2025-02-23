@@ -12,7 +12,7 @@
 <body>
     <?php 
         $nivel = "tres";
-        include('../../../components/navBar.php');
+        include('../../../components/navBarSolutions.php');
         include("../components/hero.php");
         include("../components/servicios.php");
 

@@ -56,5 +56,6 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo,
 (10, 'assets/img/facebook.png', 'facebook', '', '', '', ''),
 (10, 'assets/img/x.png', 'x', '', '', '', ''),
 (10, 'assets/img/instagram.png', 'instagram', '', '', '', ''),
-(10, 'assets/img/youtube.png', 'youtube', '', '', '', '');
+(10, 'assets/img/youtube.png', 'youtube', '', '', '', ''),
+(11, 'assets/img/unicab_solutions.png', 'logoUnicabSolutions', '', '', '', '');
 
