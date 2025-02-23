@@ -11,8 +11,8 @@ $res_datos_info = $mysqli1->query($sql_datos_info);
 if ($res_datos_info->num_rows > 0) {
     $html_info = '';
 
-    $html_info = '<div class="info">';
-    $html_info .= '<div class="container-info">';
+    $html_info = '<div class="my-10 w-100 p-0">';
+    $html_info .= '<div class="d-flex flex-column flex-md-row justify-content-between col-10 mx-auto">';
 
     $numero_de_sentencia_info = "34";
     $res_sentencia_info = $mysqli1->query($sentencia . $numero_de_sentencia_info);
@@ -38,16 +38,22 @@ if ($res_datos_info->num_rows > 0) {
             $path_image = '../../../' . $path;
         }
 
-        $html_info .= '<div class="info-item">';
-        $html_info .= '<img src="' . $path_image . '" alt="' . $altern . '">';
-        $html_info .= '<div class="info-item-data">';
-        $html_info .= '<h3>' . $titulo . '</h3>';
-        $html_info .= '<p class="special-paragraph">' . $descripcion . '</p>';
+        $html_info .= '<div class="col-10 col-md-3 mx-auto mx-md-0 font-roboto-regular d-flex flex-column">';
+        $html_info .= '<img class="h-auto ps-3" style="width:60px;" src="' . $path_image . '" alt="' . $altern . '">';
+        $html_info .= '<div class="mb-3">';
+        $html_info .= '<h3 class="tx-orange font-roboto-light-title ps-3">' . $titulo . '</h3>';
+        $html_info .= '<p class="about-line-left special-paragraph font-roboto-regular px-2 ps-3 position-relative">' . $descripcion . '</p>';
         $html_info .= '</div>';
         $html_info .= '</div>';
     }
-
-
-    echo $html_info;
+    
 }
 ?>
+
+<div class="container-fluid m-0 p-0">
+    <div class="row m-0 p-0">
+        <?php
+        echo $html_info;
+        ?>
+    </div>
+</div>

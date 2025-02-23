@@ -915,207 +915,34 @@ input[type="checkbox"] {
 
 /*FIN HOME*/
 
-/* Sobre Nosotros Unicab */
+/* Begin About Us */
 
-@media (min-width: 1200px) {
+.mb-10{
+    margin-bottom: 6rem !important;
+}
 
-    .queEs {
-        width: 55%;
+@media (min-width: 768px) {
+    .mt-md-10{
+        margin-top: 6rem !important;
     }
-
-    .organigrama {
-        margin-inline: auto;
-        margin-top: auto;
-        width: 45%;
-    }
-
-    .queEs h2 {
-        text-align: left !important;
-    }
-
-    .queEs p {
-        margin-inline: 0;
-        text-align: left !important;
-    }
-
-
 }
 
-/* Sobre Nosotros Imagenes Uno */
+/* About Us Unicab */
 
-.nosotrosImagenesUno {
-    margin-block: 6rem;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+/* About Us ImageOne */
 
-.container-nosotrosImgUno {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-}
+/* About Us Education */
 
-.container-nosotrosImgUno img {
-    width: 33%;
-    height: auto;
-    display: block;
-}
-
-/* Sobre Nosostros Educacion Formal */
-.educacion {
-    margin-block: 6rem;
-    width: 100%;
-}
-
-.container-educacion {
-    display: flex;
-    flex-direction: row;
-    width: 85%;
-    justify-content: space-between;
-    margin-inline: auto;
-}
-
-.titles {
-    margin-top: 15%;
-    width: 30%;
-}
-
-.titles h2 {
-    font-family: 'Roboto-light';
-    color: #127EB5;
-}
-
-.titles h2 b {
-    font-family: 'Roboto-bold';
-}
-
-.titles h3 {
-    font-family: 'Roboto-bold';
-    margin-bottom: 3rem;
-}
-
-.educacion-data {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-}
-
-.educacion-data img {
+.image-education {
     width: 50px;
     height: fit-content;
 }
 
-.educacion-item {
-    font-family: 'Roboto-regular';
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-}
+/* About Us ImageTwo */
 
-.educacion-item-data h3 {
-    font-family: 'Roboto-black';
-}
+/*About Us Info */
 
-.educacion-item-data {
-    margin-bottom: 1rem;
-}
-
-@media (max-width: 768px) {
-    .container-educacion {
-        flex-direction: column;
-    }
-
-    .titles {
-        margin-top: 5%;
-        width: 80%;
-        text-align: center;
-        margin-inline: auto;
-    }
-
-    .educacion-data {
-        width: 80%;
-        margin-inline: auto;
-    }
-}
-
-/* Sobre Nosotros Imagenes Dos */
-
-.nosotrosImagenesDos {
-    margin-block: 6rem;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.container-nosotrosImgDos h1 {
-    width: 40%;
-    font-family: "Roboto-light";
-    margin-left: 15%;
-    margin-bottom: 4rem;
-    color: #127EB5;
-}
-
-.container-nosotrosImgDos h1 b {
-    font-family: "Roboto-black";
-}
-
-.container-nosotrosImgDos img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-
-
-/* Sobre Nosotros Info */
-.info {
-    margin-block: 6rem;
-    width: 100%;
-}
-
-.container-info {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 85%;
-    margin-inline: auto;
-}
-
-.info-item {
-    width: 26%;
-    font-family: 'Roboto-regular';
-    display: flex;
-    flex-direction: column;
-}
-
-.info-item img {
-    padding-left: 1rem;
-    width: 50px;
-    height: fit-content;
-}
-
-.info-item-data h3 {
-    color: #Fe9100;
-    padding-left: 1rem;
-    font-family: 'Roboto-light';
-}
-
-.info-item-data h3 b {
-    font-family: 'Roboto-bold';
-}
-
-.info-item-data p {
-    font-family: 'Roboto-regular';
-    padding-block: .5rem;
-    padding-left: 1rem;
-    position: relative;
-}
-
-.info-item-data p::before {
+.about-line-left::before {
     content: '';
     position: absolute;
     left: 0;
@@ -1126,20 +953,7 @@ input[type="checkbox"] {
     border-left: 2px solid rgb(187, 187, 187);
 }
 
-.info-item-data {
-    margin-bottom: 1rem;
-}
-
-@media (max-width: 768px) {
-    .container-info {
-        flex-direction: column;
-    }
-
-    .info-item {
-        margin-inline: auto;
-        width: 80%;
-    }
-}
+/* End About Us */
 
 /*Calendario academico*/
 
