@@ -56,5 +56,14 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo,
 (10, 'assets/img/facebook.png', 'facebook', '', '', '', ''),
 (10, 'assets/img/x.png', 'x', '', '', '', ''),
 (10, 'assets/img/instagram.png', 'instagram', '', '', '', ''),
-(10, 'assets/img/youtube.png', 'youtube', '', '', '', '');
+(10, 'assets/img/youtube.png', 'youtube', '', '', '', ''),
+(11, 'assets/img/Farid_Hastamorir.png', 'imagen-farid-hastamorir', '', '', '', ''),
+(11, 'assets/img/Favio_Felipe.png', 'imagen-favio-felipe', '', '', '', ''),
+(11, 'assets/img/favio_felipe_2.png', 'imagen-favio-felipe', '', '', '', ''),
+(11, 'assets/img/Isabella_Tapias.png', 'imagen-isabella-tapias', '', '', '', ''),
+(11, 'assets/img/Jhon_Caicedo.png', 'imagen-jhon-caicedo', '', '', '', ''),
+(11, 'assets/img/Juan_Baez.png', 'imagen-juan-baez', '', '', '', ''),
+(11, 'assets/img/Juan_Jose_Huerfano.png', 'imagen-juan-jose', '', '', '', ''),
+(11, 'assets/img/Katerin_Gomez.png', 'imagen-katerin-gomez', '', '', '', '');
+
 

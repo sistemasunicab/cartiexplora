@@ -1031,3 +1031,37 @@ input[type="checkbox"] {
     display: flex;
     flex-direction: column-reverse;
 }
+
+/** Nuestros Estudiantes **/
+
+.item {
+    display: block;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+
+}
+
+.item:hover {
+    transform: scale(1.05);
+}
+
+.item-seleccionado{
+    position: relative;
+}
+
+.item-seleccionado::after{
+    content: '';
+    padding: 2rem;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .5);
+    inset: 0;
+    z-index: 10;
+}
+
+/** Publicaciones académicas **/
+
+.publicaciones-button {
+    padding: .8rem 1.5rem;
+    font-size: 2rem;
+    border-radius: 10px;
+}

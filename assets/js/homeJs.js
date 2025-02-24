@@ -2,6 +2,28 @@ $(function () {
     $(".select2").select2();
 });
 
+
+/* Script Nuestros Estudiantes */
+document.addEventListener('DOMContentLoaded', () => {
+    const items = document.querySelectorAll(".galeria div .item");
+
+    items.forEach(item => {
+        item.addEventListener("click", () => {
+            // Elimina la clase seleccionada de la imagen actualmente seleccionada
+            document.querySelector(".item-seleccionado").classList.remove("item-seleccionado");
+
+            const itemImg = item.querySelector("img");
+            const imgGrande = document.querySelector("#imagen-grande-galeria");
+
+            imgGrande.src = itemImg.src;
+            imgGrande.alt = itemImg.alt;
+
+            item.classList.add("item-seleccionado");
+        });
+    });
+});
+
+
 $(document).ready(function () {
     $("#myForm").on("submit", function (e) {
         e.preventDefault();
