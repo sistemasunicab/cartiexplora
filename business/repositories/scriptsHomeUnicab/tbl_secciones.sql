@@ -22,3 +22,7 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 ('navBarSolutions', 1, 'home', '', '', '');
 
 
+INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, texto) VALUES
+('lineaTiempo', 1, 'historia', 'Historia y Logros Alcanzados', '', ''),
+('informacion', 1,'historia', '', '', ''),
+('ecosistema', 1, 'historia', '', '', ''),;

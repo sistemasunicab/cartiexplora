@@ -918,11 +918,13 @@ input[type="checkbox"] {
 /** linea tiempo **/
 .linea-tiempo-icono {
     height: auto;
-    width: 4.5rem;
+    width: 5.3rem;
+    
+    filter: invert(50%) sepia(98%) saturate(1116%) hue-rotate(2deg) brightness(105%) contrast(102%);
 }
 
 .linea-tiempo {
-    min-width: 19.188rem;
+    min-width: 20rem;
 }
 
 /* Historia */
@@ -941,25 +943,28 @@ input[type="checkbox"] {
 }
 
 .historia-info {
-    background-color: var(--dark-blue);
+    background-color: var(--bold-blue);
     height: 38rem;
     width: 100%;
     z-index: -1;
 }
 
 .historia-info-img {
-    height: 28rem;
-    width: auto;
+    height: auto;
+    width: 28%;
 
     border: .5rem solid white;
     border-radius: 2rem;
 
     margin-bottom: -19rem;
+
+    object-fit: cover;
+    object-position: center;
 }
 
 .historia-info-mainimg {
-    height: 35rem;
-    width: auto;
+    height: auto;
+    width: 60%;
 
     margin-top: -15rem;
 }
@@ -973,15 +978,17 @@ input[type="checkbox"] {
 }
 
 .ecosistema-block h2 {
+    display: flex;
+    align-items: center;
     font-family: 'Roboto-light';
-    min-height: 15rem;
+    min-height: 26rem;
 }
 
 @media (min-width: 1200px) {
-   .ecosistema-block h2 {
-    min-height: 6rem;
-}
- 
+    .ecosistema-block h2 {
+        font-family: 'Roboto-light';
+        min-height: 15rem;
+    }
 }
 
 .ecosistema-block p {
@@ -1002,7 +1009,7 @@ input[type="checkbox"] {
 }
 
 .ecosistema-block a:hover {
-    background-color: var(--dark-blue);
+    background-color: var(--bold-blue);
 
 }
 
