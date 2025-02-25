@@ -221,9 +221,9 @@
                     <div class="d-flex flex-column w-auto mb-3 mx-auto mx-xl-0 ms-xl-auto">
                         <p class="lh-sm font-roboto-thinitalic my-0 mx-auto mx-xl-0 tx-white opacity-75">Llámanos o
                             escríbenos</p>
-                        <h5 class="lh-sm font-roboto-bolditalic my-0 mx-auto mx-xl-0 tx-white"><?php echo $tel ?></h5>
-                        <h5 class="lh-sm font-roboto-bolditalic my-0 mx-auto mx-xl-0 tx-white"><?php echo $correo ?>
-                        </h5>
+                        <h4 class="lh-sm font-roboto-bolditalic my-0 mx-auto mx-xl-0 tx-white"><?php echo $tel ?></h4>
+                        <h4 class="lh-sm font-roboto-bolditalic my-0 mx-auto mx-xl-0 tx-white"><?php echo $correo ?>
+                        </h4>
                     </div>
                     <div id="info" class="d-flex flex-column w-auto mx-xl-0 ms-xl-auto">
                         <p class="special-paragraph font-roboto-bolditalic my-0 mx-auto">Encuéntranos</p>

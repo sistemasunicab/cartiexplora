@@ -125,7 +125,7 @@
 ?>
 
 <?php
-$numero_de_sentencia_logo = "24";
+$numero_de_sentencia_logo = "33";
 $res_sentencia_logo = $mysqli1->query($sentencia . $numero_de_sentencia_logo);
 while ($row_sentencia_logo = $res_sentencia_logo->fetch_assoc()) {
     $condiciones = str_replace('|', '\'', $row_sentencia_logo['condiciones']);
@@ -139,19 +139,19 @@ while ($row_datos_logo = $res_datos_logo->fetch_assoc()) {
 $html = '';
 if ($nivel == "raiz") {
     $html .= '<a class="unicab-brand" href="index.php">';
-    $html .= '<img src="' . $ruta_logo . '" alt="" width="55" height="55" class="d-inline-block align-text-center">';
+    $html .= '<img src="' . $ruta_logo . '" alt="" width="162" height="55" class="d-inline-block align-text-center">';
     $html .= '</a>';
 } else if ($nivel == "uno") {
     $html .= '<a class="unicab-brand" href="../index.php">';
-    $html .= '<img src="../' . $ruta_logo . '" alt="" width="55" height="55" class="d-inline-block align-text-center">';
+    $html .= '<img src="../' . $ruta_logo . '" alt="" width="162" height="55" class="d-inline-block align-text-center">';
     $html .= '</a>';
 } else if ($nivel == "dos") {
     $html .= '<a class="unicab-brand" href="../../index.php">';
-    $html .= '<img src="../../' . $ruta_logo . '" alt="" width="55" height="55" class="d-inline-block align-text-center">';
+    $html .= '<img src="../../' . $ruta_logo . '" alt="" width="162" height="55" class="d-inline-block align-text-center">';
     $html .= '</a>';
 } else if ($nivel == "tres") {
     $html .= '<a class="unicab-brand" href="../../../index.php">';
-    $html .= '<img src="../../../' . $ruta_logo . '" alt="" width="55" height="55" class="d-inline-block align-text-center">';
+    $html .= '<img src="../../../' . $ruta_logo . '" alt="" width="162" height="55" class="d-inline-block align-text-center">';
     $html .= '</a>';
 }
 ?>
