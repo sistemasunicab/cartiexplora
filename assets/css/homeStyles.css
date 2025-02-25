@@ -903,14 +903,6 @@ input[type="checkbox"] {
     color: #4DC250;
 }
 
-@media (min-width: 1200px) {
-    #info {
-        position: relative;
-        right: 85px;
-    }
-
-}
-
 /*Fin estilos Footer*/
 
 /*FIN HOME*/
