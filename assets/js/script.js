@@ -263,7 +263,7 @@ document.addEventListener("DOMContentLoaded", function () {
     (function () {
         // Check that our required global variables exist
         if (typeof fechaEvento === "undefined" || typeof countdownID === "undefined") {
-            console.error("Global variables 'fechaEvento' and/or 'countdownID' are not defined.");
+            console.log("Global variables 'fechaEvento' and/or 'countdownID' are not defined.");
             return;
         }
 

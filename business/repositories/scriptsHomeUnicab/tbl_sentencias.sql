@@ -36,6 +36,7 @@ INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamie
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 7 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 8 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 9 ', '', '', '', ''),
+
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 10 AND id < 39 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_menus ', 'WHERE visible = 1 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_blogs ', 'WHERE id > 0 ', '', 'ORDER BY id DESC LIMIT 3 ', '', ''),
@@ -47,11 +48,11 @@ INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamie
 ('SELECT * ', 'FROM tbl_menus_solutions ', 'WHERE nivel = |x| AND padre = |y| AND visible = 1 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 11 ', '', '', '', ''),
 
-/*('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 10 AND descripcion = |logo| ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 10 AND descripcion = |logo| ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_menus ', 'WHERE visible = 1 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 10 AND descripcion = |social-media| ', '', '', '', ''),
-('SELECT * ', 'FROM tbl_parametros ', 'WHERE 5 <= id AND id < 9 ', '', '', '', ''),
-('SELECT * ', 'FROM tbl_parametros ', 'WHERE 9 <= id AND id < 11 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_parametros ', 'WHERE id >= 8 AND id < 12 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_parametros ', 'WHERE id >= 12 AND id <= 13 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 11 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 12 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 13 ', '', '', '', ''),
@@ -74,4 +75,4 @@ INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamie
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 17 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 19 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_eventos ', 'WHERE visible = 1 AND fecha_hora > NOW() ', '', '', '', ''),
-('SELECT * ', 'FROM tbl_archivos ', 'WHERE visible = 1 ', '', '', '', '')*/;
+('SELECT * ', 'FROM tbl_archivos ', 'WHERE visible = 1 ', '', '', '', '');

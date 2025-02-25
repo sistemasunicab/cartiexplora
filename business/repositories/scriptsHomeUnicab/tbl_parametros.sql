@@ -26,5 +26,5 @@ INSERT INTO tbl_parametros (parametro, v1, v2, t1, t2, f1, f2, id_seccion) VALUE
 ('instagram', NULL, NULL, 'https://www.instagram.com/unicabvirtual/?hl=es', NULL, NULL, NULL, 10),
 ('youtube', NULL, NULL, 'https://www.youtube.com/@unicabco/videos', NULL, NULL, NULL, 10),
 ('terminos_condiciones', NULL, NULL, 'Términos y Condiciones / Política de privacidad / Cookies', NULL, NULL, NULL, 10),
-('copyright', NULL, NULL, 'Copyright © 2025 - Equipo Creativo Unicab Virtual. Reservados todos los derechos', NULL, NULL, NULL, 10);
+('copyright', NULL, NULL, 'Copyright © 2025 - Equipos Creativo y de Sistemas Unicab Virtual. Reservados todos los derechos', NULL, NULL, NULL, 10);
 
