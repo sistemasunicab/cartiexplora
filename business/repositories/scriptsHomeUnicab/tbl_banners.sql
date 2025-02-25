@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS tbl_banners;
+
 CREATE TABLE tbl_banners (
   id int(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   visible int(11) NOT NULL,

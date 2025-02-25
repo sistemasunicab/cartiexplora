@@ -1,10 +1,10 @@
-DROP TABLE tbl_imagenes;
+DROP TABLE IF EXISTS tbl_imagenes;
 
 CREATE TABLE tbl_imagenes (
   id int(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   id_seccion int(11) UNSIGNED NOT NULL,
   ruta varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
-  descripcion varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NULL,
+  descripcion varchar(800) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NULL,
   titulo varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NULL,
   posicionTitulo varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NULL,
   enlace varchar(200) NOT NULL DEFAULT '',
@@ -57,5 +57,28 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo,
 (10, 'assets/img/x.png', 'x', '', '', '', ''),
 (10, 'assets/img/instagram.png', 'instagram', '', '', '', ''),
 (10, 'assets/img/youtube.png', 'youtube', '', '', '', ''),
-(11, 'assets/img/unicab_solutions.png', 'logoUnicabSolutions', '', '', '', '');
+(11, 'assets/img/unicab_solutions.png', 'logoUnicabSolutions', '', '', '', ''),
+
+(12, 'assets/img/organigrama.jpg', 'organigrama', 'organigrama', '', '', 'organigrama'),
+(13, 'assets/img/_DSC0141.jpg', '', '', '', '', 'unicab'),
+(13, 'assets/img/_DSC0152.jpg', '', '', '', '', 'unicab'),
+(13, 'assets/img/sotarira.jpg', '', '', '', '', 'unicab'),
+(14, 'assets/img/Grupo 1@2x.png', 'Desde hace 17 años el Colegio se creó para servir a estudiantes con necesidades socioeconómicas especiales que con ignición profunda desean desarrollar sus habilidades personales especiales y estudiar su primaria y bachillerato (grado 1 a grado 11) como: deportistas en vía del alto rendimiento, artistas del ballet y la danza, el teatro, la pintura, investigadores de ciencia y tecnología, estudiantes cuyas familias viajan por Colombia y el mundo, estudiantes con situaciones de salud especiales entre otros.', 'Educación Regular(grado 1 a grado 11)', '', '', 'Educación regular'),
+(14, 'assets/img/Grupo 2@2x.png', 'El Colegio presta también el servicio de manera virtual a personas mayores de 18 años que no han podido terminar su bachillerato, a través de la modalidad de ciclos propedéuticos (2 años en 1) de manera virtual.', 'Educación por ciclos para adultos', '', '', 'Educación por ciclos'),
+(14, 'assets/img/Grupo 3@2x.png', 'Se realiza a través de una plataforma tecnológica MOODLE versión 3.11.18 gamificada, y Maestros Mediadores del Conocimiento que atienden a los estudiantes que se encuentran desde cualquier lugar del mundo a través de las modernas Tecnologías de la Información y Comunicación TIC, permitiéndoles incorporar en sus aprendizajes autonomía, desarrollo de habilidades de pensamiento, desarrollo de su curiosidad, creatividad y manejo de nuevas herramientas tecnológicas que los prepara para el actual y futuro mundo del conocimiento.', 'El proceso Enseñanza- Aprendizaje', '', '', 'El proceso Enseñanza'),
+(14, 'assets/img/Grupo 4@2x.png', 'Reconocido por la Secretaría de Educación de Sogamoso (Entidad certificada en Educación), a través de la cual hasta 2023 se han graduado 655 estudiantes bachilleres que han continuado con sus estudios superiores en el país y en países como EEUU, Japón, Italia, Argentina, y Chile entre otros.', 'Contamos con un Acto Administrativo vigente', '', '', 'Administrativo vigente'),
+(15, 'assets/img/campus.jpg', '', '<b>Conoce</b><br> Nuestro Campus', '', '', 'campus unicab'),
+(16, 'assets/img/people_16003670@2x.png', 'Somos un grupo de soñadores que pensamos que la educación tiene que transformarse como un derecho-servicio en beneficio de la gente y por eso creamos una Corporación sin ánimo de lucro hace 23 y desde entonces nos hemos dedicada a ofrecer servicios integrales en proyectos educativos dinámicos e incluyentes. <br><br> Nuestra labor está fundamentada en las necesidades de las comunidades, con un enfoque en las ciencias, la investigación y las tecnologías de la información y comunicación. Nos comprometemos con modelos estratégicos de gestión de calidad, brindando asesorías y consultorías que contribuyen al fortalecimiento y posicionamiento del sector productivo, en sintonía con nuestro propósito social.', '<b>¿Quiénes</b> Somos?', '', '', '¿Quiénes Somos?'),
+(16, 'assets/img/g2784@2x.png', 'En UNICAB Corporación Educativa, nos dedicamos a ofrecer una educación de calidad, humanista, innovadora y pertinente. <b>Nuestro modelo educativo, centrado en el estudiante</b>, se basa en la investigación y el desarrollo de aprendizajes dinámicos e incluyentes, alineados con las demandas de la sociedad del conocimiento. <br><br> Promovemos el pensamiento crítico, la creatividad y el aprendizaje continuo, todo ello inspirado en principios y valores que empoderan a nuestros estudiantes como líderes responsables y ciudadanos globales comprometidos con su entorno. ', '<b>Nuestra</b> Misión', '', '', 'Nuestra Misión'),
+(16, 'assets/img/vision_2967345@2x.png', 'Para el año 2027, seremos referentes en educación innovadora y transformadora, destacándonos por nuestra investigación en TIC y nuestro compromiso con el desarrollo de habilidades y potencialidades de nuestros estudiantes. Aspiramos a formar líderes que, desde la curiosidad y la colaboración, contribuyan a transformar sus comunidades de manera inclusiva y participativa en una sociedad global en constante evolución.', '<b>Nuestra</b> Visión', '', '', 'Nuestra visión'),
+(17, 'assets/img/search.png', 'icon-search', '', '', '', 'buscar'),
+(17, 'assets/img/CONTACTOS.png', 'image-contact', '', '', '', 'image'),
+(17, 'assets/img/name1.png', 'table-icon', '', '', '', 'name'),
+(17, 'assets/img/name2.png', 'table-icon', '', '', '', 'department'),
+(17, 'assets/img/name3.png', 'table-icon', '', '', '', 'email'),
+(17, 'assets/img/name4.png', 'table-icon', '', '', '', 'work'),
+(17, 'assets/img/name5.png', 'table-icon', '', '', '', 'info'),
+(17, 'assets/img/NAME1.png', 'image-schedule', '', '', '', 'schedule'),
+(18, 'assets/img/elearning_5466286.svg', 'E-learning', '', '', '', 'E-learning'),
+(20, 'assets/img/paper_14969976.svg', 'PDF', '', '', '', 'PDF');
 

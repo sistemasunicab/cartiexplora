@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const eventMap = listenersLarge.get(item);
                 eventMap.set('mouseenter', handleMouseEnterItem);
                 eventMap.set('mouseleave', handleMouseLeaveItem);
-                
+
                 // Manejar los submenús (dropdown2)
                 dropdownItems.forEach(dropdownItem => {
                     const submenuId = dropdownItem.id;
@@ -154,8 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                 // Ocultar todos los dropdownContainer abiertos
                                 document.querySelectorAll('.menu-item p.hover').forEach(element => {
                                     element.classList.remove('hover');
-                                });    
-                                
+                                });
+
                                 document.querySelectorAll('.dropdown-container.hover').forEach(element => {
                                     element.classList.remove('hover');
                                     const childDropdown = element.querySelector('.dropdown.hover');
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     // Agregar listener y guardar referencia
                     menuItem.addEventListener('click', toggleMenu);
-                    if (!listenersMedium.has(menuItem)){
+                    if (!listenersMedium.has(menuItem)) {
                         listenersMedium.set(menuItem, new Map());
                     }
                     const eventMap = listenersMedium.get(menuItem);
@@ -211,11 +211,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         // Agregar listener y guardar referencia
                         dropdownItem.addEventListener('click', toggleSubmenu);
-                        if (!listenersMedium.has(dropdownItem)){
+                        if (!listenersMedium.has(dropdownItem)) {
                             listenersMedium.set(dropdownItem, new Map());
-                        }   
+                        }
                         const eventMap = listenersMedium.get(dropdownItem);
-                        eventMap.set('click', toggleSubmenu);   
+                        eventMap.set('click', toggleSubmenu);
                     }
                 });
             });
@@ -257,3 +257,62 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 /*Fin java Script para el componente Navbar*/
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    (function () {
+        // Check that our required global variables exist
+        if (typeof fechaEvento === "undefined" || typeof countdownID === "undefined") {
+            console.error("Global variables 'fechaEvento' and/or 'countdownID' are not defined.");
+            return;
+        }
+
+        var targetDate = new Date(fechaEvento).getTime();
+        var countdownElem = document.getElementById(countdownID);
+
+        if (!countdownElem) return; // Ensure the element exists
+
+        var interval = setInterval(function () {
+            var now = new Date().getTime();
+            var distance = targetDate - now;
+
+            if (distance < 0) {
+                clearInterval(interval);
+                countdownElem.innerHTML = "¡El evento ya inició o ha finalizado!";
+                return;
+            }
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            let day = document.getElementById("calendary-day");
+            day.innerHTML = days;
+            let hour = document.getElementById("calendary-hour");
+            hour.innerHTML = hours;
+            let min = document.getElementById("calendary-min");
+            min.innerHTML = minutes;
+            let sec = document.getElementById("calendary-sec");
+            sec.innerHTML = seconds;
+        }, 1000);
+    })();
+});
+document.addEventListener("DOMContentLoaded", function () {
+    // Selecciona todos los botones con la clase .btn-route
+    const botonesVer = document.querySelectorAll('.btn-route');
+
+    botonesVer.forEach((boton) => {
+        boton.addEventListener('click', function () {
+            const rutaArchivo = this.getAttribute('data-ruta');
+            console.log(rutaArchivo);
+            // Crear un enlace invisible y forzar la descarga
+            const link = document.createElement('a');
+            link.href = rutaArchivo;
+            link.setAttribute('download', rutaArchivo.split('/').pop()); // Obtiene el nombre del archivo
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    });
+});

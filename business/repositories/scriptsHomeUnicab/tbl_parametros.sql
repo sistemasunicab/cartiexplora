@@ -1,4 +1,4 @@
-DROP TABLE tbl_parametros;
+DROP TABLE IF EXISTS tbl_parametros;
 
 CREATE TABLE tbl_parametros (
   id int(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -19,4 +19,12 @@ INSERT INTO tbl_parametros (parametro, v1, v2, t1, t2, f1, f2, id_seccion) VALUE
 ('ubicacion_unicab', NULL, NULL, 'Sogamoso - Boyacá - Colombia', NULL, NULL, NULL, 10),
 ('blog_newsletter_texto', NULL, NULL, 'Recibe nuestras newsletter semanal', NULL, NULL, NULL, 8),
 ('titulo_form_inscripciones', NULL, NULL, 'Saber más', NULL, NULL, NULL, 4),
-('checkbox_form_inscripciones', NULL, NULL, 'Estoy de acuerdo en que estos datos se almacenen y procesen con el fin de establecer el contacto. Soy consiente de que puedo revocar mi consentimiento en cualquier momento. *<br><br>* indica los campos obligatorios.', NULL, NULL, NULL, 4);
+('checkbox_form_inscripciones', NULL, NULL, 'Estoy de acuerdo en que estos datos se almacenen y procesen con el fin de establecer el contacto. Soy consiente de que puedo revocar mi consentimiento en cualquier momento. *<br><br>* indica los campos obligatorios.', NULL, NULL, NULL, 4),
+
+('facebook', NULL, NULL, 'https://www.facebook.com/unicabvir', NULL, NULL, NULL, 10),
+('x', NULL, NULL, 'https://x.com/unicab_virtual?lang=es', NULL, NULL, NULL, 10),
+('instagram', NULL, NULL, 'https://www.instagram.com/unicabvirtual/?hl=es', NULL, NULL, NULL, 10),
+('youtube', NULL, NULL, 'https://www.youtube.com/@unicabco/videos', NULL, NULL, NULL, 10),
+('terminos_condiciones', NULL, NULL, 'Términos y Condiciones / Política de privacidad / Cookies', NULL, NULL, NULL, 10),
+('copyright', NULL, NULL, 'Copyright © 2025 - Equipo Creativo Unicab Virtual. Reservados todos los derechos', NULL, NULL, NULL, 10);
+
