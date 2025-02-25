@@ -189,7 +189,7 @@
 
         $entities .= '<div class="text-center mb-3 mb-md-0">'; // Margen solo en pantallas pequeñas
         $entities .= '<div>';
-        $entities .= '<img src="' . $ruta_imagen . '" alt="logo" class="img-fluid" style="width: 70px; height: auto;">';
+        $entities .= '<img src="' . $ruta_imagen . '" alt="logo" class="img-fluid" style="width: 100px; height: auto;">';
         $entities .= '</div>';
         $entities .= '<p class="special-paragraph m-0 m-auto font-roboto-light tx-white  py-1">' . $imagen['titulo'] . '</p>';
         $entities .= '</div>';
@@ -217,19 +217,19 @@
         <footer class="w-100 p-0 m-0 bg-bold-blue">
             <div class="first-footer col-11 m-auto d-flex flex-column flex-md-row tx-white justify-content-end pb-5">
                 <?php echo $hmtl_images; ?>
-                <div class="d-flex flex-column pt-4 mx-auto m-auto col-xl-5">
-                    <div class="d-flex flex-column w-auto mb-3 mx-auto mx-xl-0 ms-xl-auto">
-                        <p class="lh-sm font-roboto-thinitalic my-0 mx-auto mx-xl-0 tx-white opacity-75">Llámanos o
+                <div class="col-12 col-md-5 d-flex flex-column pt-4 mx-auto m-auto">
+                    <div class="d-flex flex-column w-auto mb-3 mx-auto">
+                        <p class="lh-sm font-roboto-thinitalic my-0 mx-auto tx-white opacity-75">Llámanos o
                             escríbenos</p>
-                        <h4 class="lh-sm font-roboto-bolditalic my-0 mx-auto mx-xl-0 tx-white"><?php echo $tel ?></h4>
-                        <h4 class="lh-sm font-roboto-bolditalic my-0 mx-auto mx-xl-0 tx-white"><?php echo $correo ?>
-                        </h4>
+                        <h5 class="lh-sm font-roboto-bolditalic my-0 mx-auto tx-white"><?php echo $tel ?></h5>
+                        <h5 class="lh-sm font-roboto-bolditalic my-0 mx-auto tx-white"><?php echo $correo ?>
+                        </h5>
                     </div>
-                    <div id="info" class="d-flex flex-column w-auto mx-xl-0 ms-xl-auto">
+                    <div id="info" class="d-flex flex-column w-auto mx-auto">
                         <p class="special-paragraph font-roboto-bolditalic my-0 mx-auto">Encuéntranos</p>
                         <?php echo $hmtl_social_media; ?>
-                        <p class="font-roboto-light mx-auto mt-4 mb-0 tx-white text-nowrap overflow-visible"><?php echo $direccion ?></p>
-                        <p class="font-roboto-light mx-auto my-0 pb-3 tx-white text-nowrap overflow-visible"><?php echo $ubicacion ?></p>
+                        <p class="font-roboto-light mx-auto mt-4 mb-0 tx-white"><?php echo $direccion ?></p>
+                        <p class="font-roboto-light mx-auto my-0 pb-3 tx-white"><?php echo $ubicacion ?></p>
                     </div>
 
                 </div>

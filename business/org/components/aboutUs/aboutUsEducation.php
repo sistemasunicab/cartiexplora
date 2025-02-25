@@ -9,13 +9,13 @@ while ($row_sentencia_educacion = $res_sentencia_educacion->fetch_assoc()) {
 $res_datos_educacion = $mysqli1->query($sql_datos_educacion);
 
 if ($res_datos_educacion->num_rows > 0) {
-    $html_educacion = '<div class="educacion">';
-    $html_educacion .= '<div class="container-educacion">';
+    $html_educacion = '<div class="my-10 w-100 p-0">';
+    $html_educacion .= '<div class="d-flex flex-column flex-md-row col-10 justify-content-between mx-auto">';
 
     while ($row_datos_educacion = $res_datos_educacion->fetch_assoc()) {
-        $html_educacion .= '<div class="titles">';
-        $html_educacion .= '<h2>' . $row_datos_educacion['titulo'] . '</h2>';
-        $html_educacion .= '<h3>' . $row_datos_educacion['subTitulo'] . '</h3>';
+        $html_educacion .= '<div class="mx-auto mx-md-0 text-center text-md-start col-10 col-md-4 mt-0 mt-md-10 mb-5">';
+        $html_educacion .= '<h2 class="tx-blue font-roboto-light-title">' . $row_datos_educacion['titulo'] . '</h2>';
+        $html_educacion .= '<h3 class="tx-black font-roboto-bold">' . $row_datos_educacion['subTitulo'] . '</h3>';
         $html_educacion .= '</div>';
     }
 
@@ -28,9 +28,9 @@ if ($res_datos_educacion->num_rows > 0) {
 
     $res_datos_educacion = $mysqli1->query($sql_datos_educacion);
 
-    $html_educacion .= '<div class="educacion-data">';
+    $html_educacion .= '<div class="col-10 mx-auto me-md-0 d-md-flex flex-md-column col-md-7">';
     while ($row_datos_educacion = $res_datos_educacion->fetch_assoc()) {
-        
+
         $path = $row_datos_educacion['ruta'];
         $altern = $row_datos_educacion['textoAlterno'];
         $descripcion = $row_datos_educacion['descripcion'];
@@ -45,10 +45,10 @@ if ($res_datos_educacion->num_rows > 0) {
         } else if ($nivel == "tres") {
             $path_image = '../../../' . $path;
         }
-        $html_educacion .= '<div class="educacion-item">';
-        $html_educacion .= '<img src="' . $path_image . '" alt="' . $altern . '">';
-        $html_educacion .= '<div class="educacion-item-data">';
-        $html_educacion .= '<h3>' . $titulo . '</h3>';
+        $html_educacion .= '<div class="font-roboto-regular d-flex flex-row gap-4">';
+        $html_educacion .= '<img class="image-education" src="' . $path_image . '" alt="' . $altern . '">';
+        $html_educacion .= '<div class="mb-3">';
+        $html_educacion .= '<h3 class="font-roboto-black">' . $titulo . '</h3>';
         $html_educacion .= '<p class="special-paragraph">' . $descripcion . '</p>';
         $html_educacion .= '</div>';
         $html_educacion .= '</div>';
@@ -58,6 +58,13 @@ if ($res_datos_educacion->num_rows > 0) {
     $html_educacion .= '</div>';
     $html_educacion .= '</div>';
 
-    echo $html_educacion;
 }
 ?>
+
+<div class="container-fluid m-0 p-0">
+    <div class="row m-0 p-0">
+        <?php
+        echo $html_educacion;
+        ?>
+    </div>
+</div>
