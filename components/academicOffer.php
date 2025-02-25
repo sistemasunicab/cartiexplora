@@ -18,29 +18,49 @@
     $html = '';
     while ($row_datos_seccion = $res_seccion_dos->fetch_assoc()) {
         // Obtiene el titulo de la sección y lo renderiza
-        $html .= '<div class="row mt-10 mx-0"><h2 class="col text-blue fm-black text-center px-0">' . $row_datos_seccion['titulo'] . '</h2></div>';
-    }
 
-    if ($html != '') {
+        $html .= '<section class="my-5">';
+        $html .=    '<div class="container my-2">';
+        $html .=       '<div class="row">';
+        $html .=           '<div class="col-lg-12">';
+        $html .=               '<h2 class="text-center font-roboto-black tx-blue" id="ofertaAcademica">' . $row_datos_seccion['titulo'] . '</h2>';
+        $html .=           '</div>';
+        $html .=       '</div>';
+        $html .=    '</div>';
+        
         // Busqueda de las imagenes de la oferta academica
         $res_sentecia = $mysqli1->query($sentencia . "17");
-
+        
         while ($row_sentencia = $res_sentecia->fetch_assoc()) {
             $sql_images = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
         }
-
+        
         $res_images = $mysqli1->query($sql_images);
-
-        $html .= '<section class="bg-light-gray mt-4 py-3">
-            <div class="row justify-content-center gap-5 mx-0 academic-offer-img">';
-
-        // Renderiza las imágenes 
+        
+        $html .=    '<div class="bg-light-gray-o26">';
+        $html .=        '<div class="container py-5">';
+        $html .=            '<div class="row justify-content-between">';
+        
+        // Renderiza las imágenes
+        $ultimaImagen = 1; 
         while ($row_images = $res_images->fetch_assoc()) {
             $attributes = ImageAttributeBuilder::buildAttributes($nivel, $row_images['ruta'], $row_images['descripcion'], $row_images['rutaEncima']);
-            $html .= '<a href="" class="col-2"><img ' . $attributes . ' class="img-fluid" /></a>' . "\n";
+
+            $html .=            '<div class="col-md-3 col-lg-3">';
+            $html .=                '<a href="'.$row_images['enlace'].'" class="academic-offer-img">';
+            $html .=                    '<img ' . $attributes . ' class="img-fluid w-100" >';
+            $html .=                '</a>';
+            $html .=            '</div>';
+            if($ultimaImagen !== $res_images->num_rows){
+                $html .=        '<div class="col-md-1 col-lg-1"></div>';
+            }
+            $ultimaImagen++;
         }
-        
-        $html .= '</div></section>';
-    }
+        $html .=            '</div>';
+        $html .=        '</div>';
+        $html .=    '</div>';
+        $html .= '</section>';
+    }  
+
     echo $html;
 ?>

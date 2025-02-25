@@ -36,39 +36,30 @@
     $res_seccion_hero = $mysqli1->query($sql_seccion_hero);
 
     while($row_datos_seccion = $res_seccion_hero->fetch_assoc()){
-       $html .= '<img src="../../../'. $imagen_hero .'" alt="imagen-hero" class="img-fluid imagen-hero">';
 
-       $html .= '<div class="hero-card">' .
-                    '<h2>'.$row_datos_seccion['titulo'].'</h2>' .
-                '</div>'; 
-
-       $html .= '<section class="container my-4">' . 
-                    '<p class="text-center">' . 
-                        $row_datos_seccion['texto'] . 
-                    '</p>'. 
-                    '<p class="solutions-slogan text-center">'. 
-                        $slogan . 
-                    '</p>' . 
-                '</section>';
+        $html .= '<section class="row justify-content-center">';
+        $html .=    '<div class="col-lg-12">';
+        $html .=       '<img '.ImageAttributeBuilder::buildAttributes($nivel, $imagen_hero, 'hero-img').' class="img-fluid w-100">';
+        $html .=    '</div>';
+        $html .=    '<div class="col-lg-6 hero-card">';
+        $html .=       '<h2 class="font-roboto-light-title">'.$row_datos_seccion['titulo'].'</h2>';
+        $html .=    '</div>'; 
+        $html .= '</section>';
+        $html .= '<section class="container my-4">' ;
+        $html .=    '<div class="row">';
+        $html .=        '<div class="col-lg-12">';
+        $html .=            '<p class="text-center font-roboto">' ; 
+        $html .=                $row_datos_seccion['texto'] ; 
+        $html .=            '</p>'; 
+        $html .=        '</div>';
+        $html .=        '<div class="col-lg-12">';
+        $html .=            '<p class="text-center font-roboto-italic tx-orange">'; 
+        $html .=                $slogan ; 
+        $html .=            '</p>' ; 
+        $html .=        '</div>';
+        $html .=    '</div>';
+        $html .= '</section>';
     }
 
     echo $html;
 ?>
-
-
-<!-- <img src="../../../assets/img/solutions-imagen-hero.png" alt="" class="img-fluid imagen-hero">
-
-    <div class="hero-card">
-        <h1>Innovación y Soluciones Tecnológicas con <strong>UNICAB Solutions</strong></h1>
-    </div>
-
-    <section class="container my-4">
-        <p class="text-center texto-base">
-            En <strong>UNICAB Solutions</strong> transformamos ideas en soluciones tecnológicas que marcan la diferencia. Desde plataformas educativas personalizadas hasta software a medida y programas de capacitación en transformación digital, estamos aquí para revolucionar la forma en que aprendes, trabajas y lideras.
-            <br>
-            <br>
-            Nuestros servicios combinan innovación, personalización y tecnología avanzada para que alcances tus metas, sin importar el tamaño de tu proyecto o tu sector.
-        </p>
-        <p class="solutions-slogan text-center">¡Es momento de dar el salto hacia el futuro con nosotros!</p>
-
-    </section> -->

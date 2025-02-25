@@ -39,67 +39,29 @@
 
     while($row_datos_seccion = $res_seccion_disenio->fetch_assoc()){
 
-        $html .= '<img'. ImageAttributeBuilder::buildAttributes($nivel, $imagen,'imagen-principal') .'class="img-fluid w-100">';
-
-        $html .= '<main class="container">
-                    <div class="row">
-                        <div class="col-2 d-flex justify-content-center align-items-center">
-                            <img class="solutions-icon" '.ImageAttributeBuilder::buildAttributes($nivel, $icono, 'icono') .'>
-                        </div>
-                        <div class="col-10">
-                            <h1 class="titulo-md text-blue titulo-servicio">'. $titulo .'</h1>
-                        </div>
-                    </div>';
-
-        $html .= '  <div class="row my-5">
-                        <div class="col-2"></div>
-                        <div class="col-10">' . 
-                         $row_datos_seccion['texto']  . 
-                        '</div>
-                    </div>
-                </main>';
+        $html .= '<section class="row mb-5">';
+        $html .=    '<div class="col-lg-12">';
+        $html .=       '<img'. ImageAttributeBuilder::buildAttributes($nivel, $imagen,'imagen-principal') .'class="img-fluid w-100 banner-shadow">';
+        $html .=    '</div>';
+        $html .= '</section>';
+        $html .= '<main class="container">';
+        $html .=    '<div class="row my-5 align-items-center">';
+        $html .=        '<div class="col-lg-2 d-flex justify-content-center align-items-center">';
+        $html .=            '<img class="solutions-icon" '.ImageAttributeBuilder::buildAttributes($nivel, $icono, 'icono') .'>';
+        $html .=        '</div>';
+        $html .=        '<div class="col-lg-10">';
+        $html .=            '<h1 class="tx-blue titulo-servicio font-roboto-light-title">'. $titulo .'</h1>';
+        $html .=        '</div>';
+        $html .=    '</div>';
+        $html .=    '<div class="row my-5">';
+        $html .=        '<div class="col-lg-2"></div>';
+        $html .=        '<div class="col-lg-10">';
+        $html .=            $row_datos_seccion['texto'];
+        $html .=        '</div>';
+        $html .=    '</div>';
+        $html .= '</main>';
 
     }
 
     echo $html;
 ?>
-
-<!-- <img src="../../../assets/img/solutions-imagen-sistemas2x.png" alt="" class="img-fluid w-100">
-<main class="container">
-
-    <div class="row">
-        <div class="col-2 d-flex justify-content-center align-items-center"><img class="solutions-icon" src="../../../assets/img/solutions-icon-sistemas.png" alt=""></div>
-        <div class="col-10">
-            <h1 class="titulo-md text-blue titulo-servicio">Diseño de Sistemas y <b>Material Educativo Innovador</b></h1>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-10">
-            <p class="texto-base descripcion-servicio">
-                <span>Desarrollo de plataformas educativas LMS </span>personalizadas, desarrollo de plataformas de
-                contenidos académicos interactivos y gamificados según necesidades y modelo pedagógico,
-                aplicaciones móviles para la educación formal e informal.
-            </p>
-            <ul class="ul-solutions">
-                <li>
-                    <p class="texto-base descripcion-servicio">
-                        <span>Diseño de plataformas educativas virtuales personalizadas (LMS):</span> Sistemas intuitivos y escalables que facilitan la enseñanza y el aprendizaje online.
-                    </p>
-                </li>
-                <li>
-                    <p class="texto-base descripcion-servicio">
-                        <span>Elaboración de materiales educativos digitales:</span> Contenidos interactivos y multimedia
-                        diseñados con metodologías pedagógicas modernas y personalizados.
-                    </p>
-                </li>
-                <li>
-                    <p class="texto-base descripcion-servicio">
-                        <span>Capacitación para docentes y estudiantes:</span> Formación en el uso de herramientas
-                        tecnológicas aplicadas a educación.
-                    </p>
-                </li>
-            </ul>
-        </div>
-    </div>
-</main> -->
