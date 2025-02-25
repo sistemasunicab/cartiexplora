@@ -44,3 +44,18 @@ INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamie
 
 INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones) VALUES
 ('SELECT * ', 'FROM tbl_parametros ', 'WHERE id_seccion = 8 ', '', '', '', '');
+
+INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones) VALUES
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 11 AND visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 12 AND visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 13 AND visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 11 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_textos ', 'WHERE id_seccion = 11 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 12  AND textoAlterno = |parteArriba| ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 12  AND textoAlterno = |parteAbajo| ', '', 'ORDER BY id DESC LIMIT 1 ', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 13 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_textos ', 'WHERE id_seccion = 13 ', '', '', '', '');
+
+INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones) VALUES
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 14 AND visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 14 ', '', '', '', '');

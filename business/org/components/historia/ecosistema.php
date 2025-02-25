@@ -1,29 +1,84 @@
-<section class="container margin-y-5rem">
+<?php
+    
+    //-- Funciones --//
 
-     <div class="row j-c-space-between ">
-          <div class="col-4 ecosistema-block">
-               <h2 class="titulo-sm text-orange">Grupo de Investigación UNICAB (GIU)</h2>
-               <img src="../../../../cartiexplora/assets/img/equipoCreativo.jpg" alt="">
+    function generarEcosistema($rutaImagen, $titulo, $direccionTitulo, $texto) {
+        $bloque = '
+        <div class="col-lg-4 ecosistema-block">
+            <div class="d-flex '.FlexTitleLoader::setDirection($direccionTitulo).'">
+                <img src="../../../../cartiexplora/'.$rutaImagen.'" alt="">
+                <h3 class="tx-orange ecosistema-title">'.$titulo.'</h3>
+            </div>
 
-               <a href="#">Leer mas</a>
-               <p class="texto-base">Es un cuerpo colegiado de investigación conformado por un grupo de maestros y asesores externos, cuyo objetivo es adelantar desarrollos científicos, tecnológicos, pedagógicos y estrategias complementarias del modelo pedagógico UNICAB Ecosistema. Este grupo gestiona proyectos y propuestas de investigación coherentes, orientados a consolidar componentes cognitivos, propedéuticos, estratégicos, metodológicos y sinérgicos para desarrollar contenidos, secuencias y métodos de aprendizaje. Todo esto se aplica en la educación virtual de forma disruptiva e innovadora dentro de un entorno cibernético, formulando y respondiendo con rigor investigativo a uno o varios problemas del entorno. Además, proporciona soluciones y medidas correctivas mediante planes estratégicos de mediano y largo plazo, con el fin de generar conocimientos concretos sobre las temáticas abordadas.</p>
-          </div> <!-- Final de bloque -->
+            <a href="#">Leer mas</a>
+            <p class="texto-base">'.$texto.'</p>
+        </div> <!-- Final de bloque -->
+        ';
 
-          <div class="col-4 ecosistema-block">
-               <h2 class="titulo-sm text-orange">Equipo Creativo</h2>
-               <img src="../../../../cartiexplora/assets/img/equipoCreativo.jpg" alt="">
+        return $bloque;
+    }
+    
+    //-- Runtime --//
 
-               <a href="#">Leer mas</a>
-               <p class="texto-base">Está conformado por un selecto grupo de docentes de la institución y asesores externos, quienes, de manera libre y voluntaria, aportan su intelecto y creatividad en beneficio del desarrollo instruccional, visual, corporativo, pedagógico y publicitario. Este equipo se encarga de revisar y hacer seguimiento al material didáctico-pedagógico producido por los maestros mediadores antes de que sea publicado en las plataformas tecnológicas y canales de comunicación. También contribuye al apoyo en la gestión académica, las proyecciones empresariales, eventos interinstitucionales y trabajos publicitarios requeridos.</p>
-          </div> <!-- Final de bloque -->
+    if ($nivel == "raiz") {
+        require('business/repositories/1cc2s4Home.php');
+    } else if ($nivel == "uno") {
+        require('../business/repositories/1cc2s4Home.php');
+    } else if ($nivel == "dos") {
+        require('../../business/repositories/1cc2s4Home.php');
+    } else if ($nivel == "tres") {
+        require('../../../business/repositories/1cc2s4Home.php');
+    }
 
-          <div class="col-4 ecosistema-block">
-               <h2 class="titulo-sm text-orange">Equipo de Sistemas</h2>
-               <img src="../../../../cartiexplora/assets/img/equipoCreativo.jpg" alt="">
+    $res_sentecia = $mysqli1->query($sentencia . "31");
+    while ($row_sentencia = $res_sentecia->fetch_assoc()) {
+        $sql_seccion_dos = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
+    }
+    $res_seccion_dos = $mysqli1->query($sql_seccion_dos);
+    
+    $html = '';
+    while ($row_datos_seccion = $res_seccion_dos->fetch_assoc()) {
+        // renderiza la seccion
+        $html .= '<section class="container margin-top-5rem mb-5">';
+    }
 
-               <a href="#">Leer mas</a>
-               <p class="texto-base">Está integrado por docentes de la institución, ingenieros de sistemas externos y partners, quienes, de manera libre y voluntaria, contribuyen al desarrollo holístico e informático. Este equipo organiza y mantiene funcionales los recursos de hardware necesarios para la ejecución del software, buscando siempre la mayor rapidez y calidad en el manejo de la información institucional. Coordina acciones con las diferentes dependencias y usuarios del sistema para garantizar una excelente calidad en los procesos informáticos del colegio. Además, realiza labores de actualización, soporte y mantenimiento técnico o tecnológico, siguiendo las normas y procedimientos vigentes. Proporciona soporte técnico en hardware y software, capacita a usuarios en la utilización de programas, instala y actualiza aplicativos necesarios para las plataformas y efectúa controles periódicos. Asimismo, apoya en la comprensión y manejo de las tecnologías implementadas, supervisando su aplicación y funcionamiento.</p>
-          </div> <!-- Final de bloque -->
-     </div>
+    // Obteniendo datos
+    $res_sentencia = $mysqli1->query($sentencia."36");
+    while($row_sentencia = $res_sentencia->fetch_assoc()){
+         $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
+    }  
+    
+    $res_datos = $mysqli1->query($sql_datos);
+    while($row_datos = $res_datos->fetch_assoc()){
+         $datosBloques[$row_datos['titulo']] = [$row_datos['ruta'], $row_datos['titulo'], $row_datos['posicionTitulo']];
+    }
 
-</section>
+    $res_sentencia = $mysqli1->query($sentencia."37");
+    while($row_sentencia = $res_sentencia->fetch_assoc()){
+         $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
+    }  
+    
+    $res_datos = $mysqli1->query($sql_datos);
+    while($row_datos = $res_datos->fetch_assoc()){
+        foreach ($datosBloques as $identificador => $datos) {
+            if (strpos(strtolower($identificador), strtolower($row_datos['identificacion']))) {
+                array_push($datosBloques[$identificador], $row_datos['texto']);
+            }
+        }
+    }
+
+    if ($html != '') {
+        $html .= '<div class="row">'; 
+
+        foreach ($datosBloques as $datos) {
+            $html .= generarEcosistema($datos[0], $datos[1], $datos[2], $datos[3]); 
+        }
+
+        $html .= '
+            </div>
+        </section>
+        ';
+    }
+
+    echo $html;
+?>
