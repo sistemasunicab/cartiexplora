@@ -14,35 +14,12 @@
     <?php 
         $nivel = "tres";
         include('../../../components/navBar.php');
-    ?>
-
-    <?php 
-        $nivel = 'tres';
         include('../components/aboutUs/aboutUsUnicab.php'); 
-    ?>
-
-    <?php 
-        $nivel = 'tres';
-        include('../components/aboutUs/aboutUsImageOne.php'); 
-    ?>
-    
-    <?php 
-        $nivel = 'tres';
+        include('../components/aboutUs/aboutUsImageOne.php');
         include('../components/aboutUs/aboutUsEducation.php'); 
-    ?>
-    
-    <?php 
-        $nivel = 'tres';
         include('../components/aboutUs/aboutUsImageTwo.php'); 
-    ?>
-      
-    <?php 
-        $nivel = 'tres';
-        include('../components/aboutUs/aboutUsInfo.php'); 
-    ?>
-    
-    <?php 
-        $nivel = "tres";
+        include('../components/aboutUs/aboutUsInfo.php');
+        include('../../../components/footer.php');
         include('../../../components/bookstoresMain.php');
     ?>
 </body>

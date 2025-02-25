@@ -3,7 +3,7 @@
 </style>
 
 <?php
-$numero_de_sentencia_nosotros = "38";
+$numero_de_sentencia_nosotros = "47";
 $res_sentencia_nosotros = $mysqli1->query($sentencia . $numero_de_sentencia_nosotros);
 while ($row_sentencia_nosotros = $res_sentencia_nosotros->fetch_assoc()) {
     $condiciones_nosotros = str_replace('|', '\'', $row_sentencia_nosotros['condiciones']);
@@ -16,7 +16,7 @@ if (mysqli_num_rows($res_datos_nosotros) > 0) {
     $html_nosotrosImgDos = '<div class="my-10 w-100 p-0 d-flex justify-content-center align-items-center">';
     $html_nosotrosImgDos .= '<div>';
 
-    $numero_de_sentencia_nosotros = "33";
+    $numero_de_sentencia_nosotros = "42";
     $res_sentencia_nosotros = $mysqli1->query($sentencia . $numero_de_sentencia_nosotros);
     while ($row_sentencia_nosotros = $res_sentencia_nosotros->fetch_assoc()) {
         $condiciones_nosotros = str_replace('|', '\'', $row_sentencia_nosotros['condiciones']);

@@ -2,7 +2,7 @@
 
 </style>
 <?php
-$numero_de_sentencia_nosotros = "35";
+$numero_de_sentencia_nosotros = "44";
 $res_sentencia_nosotros = $mysqli1->query($sentencia . $numero_de_sentencia_nosotros);
 while ($row_sentencia_nosotros = $res_sentencia_nosotros->fetch_assoc()) {
     $condiciones_nosotros = str_replace('|', '\'', $row_sentencia_nosotros['condiciones']);
@@ -22,7 +22,7 @@ if ($res_datos_nosotros->num_rows > 0) {
         $html_nosotros .= '</div>';
     }
 
-    $numero_de_sentencia_nosotros = "30";
+    $numero_de_sentencia_nosotros = "39";
     $res_sentencia_nosotros = $mysqli1->query($sentencia . $numero_de_sentencia_nosotros);
     while ($row_sentencia_nosotros = $res_sentencia_nosotros->fetch_assoc()) {
         $condiciones_nosotros = str_replace('|', '\'', $row_sentencia_nosotros['condiciones']);
