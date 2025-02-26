@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS tbl_contactos;
+
 CREATE TABLE tbl_contactos (
   id int(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   nombre varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
