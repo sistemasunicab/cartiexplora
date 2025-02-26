@@ -5,11 +5,11 @@
 
      function crearIndicador($datos){
           $indicator = '                  
-                    <div class="col-3 background-white radius-1rem indicator '.FlexTitleLoader::setDirection($datos[2]).' "> <!-- Indicator -->
+                    <div class="p-3 col-lg-3 bg-white indicator '.FlexTitleLoader::setDirection($datos[2]).' "> <!-- Indicator -->
                          <img src="'.$datos[0].'" alt="" class="indicator-img">
                          <div class="indicator-data">
-                              <p class="indicator-type indicator-p lh-1">'.$datos[1].'</p> 
-                              <p class="indicator-number indicator-p lh-1">1000</p>
+                              <p class="font-roboto-light indicator-p m-0 p-0 lh-1">'.$datos[1].'</p> 
+                              <h3 class="font-roboto-black p-0 m-0 lh-1 tx-blue">1000</h3>
                          </div>
                     </div> <!-- Indicator End -->
           ';
@@ -35,9 +35,13 @@
      while($row_datos = $res_datos->fetch_assoc()){
           // Renderizando la seccion
           $html .= '
-          <section>
-               <div class="background-blue padding-top-bottom-1rem margin-top-5rem">
-                    <h2 class="text-white text-center margin-bottom-0_3rem roboto-light-font lh1">'.$row_datos['titulo'].'</h2>
+          <section class="bg-blue">
+               <div class="container py-4">
+                    <div class="row">
+                         <div class="col-lg-12">
+                              <h3 class="tx-white text-center font-roboto-light lh1 mb-4">'.$row_datos['titulo'].'</h3>
+                         </div>
+                    </div>
           ';
      }    
 
@@ -56,8 +60,7 @@
      if ($html != '') {
 
           $html .= '
-          <div class="container">
-               <div class="row gap-3 justify-content-center">  
+               <div class="row justify-content-evenly row-gap-3">
                ';
 
           // Renderizando los indicadores
@@ -66,13 +69,11 @@
           }
 
           $html .= '        
-                              </div>
-                         </div>
                     </div>
-               </section>
+               </div>
+          </section>
           ';
      }
 
      echo $html;
 ?>
-

@@ -39,77 +39,29 @@
 
     while($row_datos_seccion = $res_seccion_disenio->fetch_assoc()){
 
-        $html .= '<img'. ImageAttributeBuilder::buildAttributes($nivel, $imagen,'imagen-principal') .'class="img-fluid w-100">';
-
-        $html .= '<main class="container">
-                    <div class="row">
-                        <div class="col-2 d-flex justify-content-center align-items-center">
-                            <img class="solutions-icon" '.ImageAttributeBuilder::buildAttributes($nivel, $icono, 'icono') .'>
-                        </div>
-                        <div class="col-10">
-                            <h1 class="titulo-md text-blue titulo-servicio">'. $titulo .'</h1>
-                        </div>
-                    </div>';
-
-        $html .= '  <div class="row my-5">
-                        <div class="col-2"></div>
-                        <div class="col-10">' . 
-                         $row_datos_seccion['texto']  . 
-                        '</div>
-                    </div>
-                </main>';
+        $html .= '<section class="row mb-5">';
+        $html .=    '<div class="col-lg-12">';
+        $html .=       '<img'. ImageAttributeBuilder::buildAttributes($nivel, $imagen,'imagen-principal') .'class="img-fluid w-100 banner-shadow">';
+        $html .=    '</div>';
+        $html .= '</section>';
+        $html .= '<main class="container">';
+        $html .=    '<div class="row my-5 align-items-center">';
+        $html .=        '<div class="col-lg-2 d-flex justify-content-center align-items-center">';
+        $html .=            '<img class="solutions-icon" '.ImageAttributeBuilder::buildAttributes($nivel, $icono, 'icono') .'>';
+        $html .=        '</div>';
+        $html .=        '<div class="col-lg-10">';
+        $html .=            '<h1 class="tx-blue titulo-servicio font-roboto-light-title">'. $titulo .'</h1>';
+        $html .=        '</div>';
+        $html .=    '</div>';
+        $html .=    '<div class="row my-5">';
+        $html .=        '<div class="col-lg-2"></div>';
+        $html .=        '<div class="col-lg-10">';
+        $html .=            $row_datos_seccion['texto'];
+        $html .=        '</div>';
+        $html .=    '</div>';
+        $html .= '</main>';
 
     }
 
     echo $html;
 ?>
-    <!-- <img src="../../../assets/img/solutions-imagen-desarrollo2x.png" alt="" class="img-fluid w-100">
-    <main class="container">
-
-        <div class="row">
-            <div class="col-2 d-flex justify-content-center align-items-center"><img class="solutions-icon" src="../../../assets/img/solutions-icon-desarrollo.png" alt=""></div>
-            <div class="col-10">
-                <h1 class="titulo-md text-blue titulo-servicio">Diseño y Desarrollo de <b>Software</b></h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-2"></div>
-            <div class="col-10">
-              
-            <ul class="ul-solutions">
-                    <li>
-                        <p class="texto-base descripcion-servicio">
-                            <span>Programas para empresas:</span> Diseñamos herramientas que ayudan a organizar mejor las actividades de un negocio,
-                            como llevar inventarios, gestionar ventas o coordinar proyectos.
-                        </p>
-
-                    </li>
-                    <li>
-                        <p class="texto-base descripcion-servicio">
-                            <span>Soluciones a la medida:</span> Si tienes una idea o necesidad específica, creamos un software
-                            personalizado para resolverla, ya sea en educación, producción, comercialización,
-                            logística, gerencia o cualquier área.
-                        </p>
-
-                    </li>
-                    <li>
-                        <p class="texto-base descripcion-servicio">
-                            <span>Tecnología moderna:</span> Usamos lo mejor en tecnología
-                            para que el software sea rápido, eficiente y fácil de usar.
-                        </p>
-
-                    </li>
-                    <li>
-                        <p class="texto-base descripcion-servicio">
-                            <span>Desarrollo desde cero:</span> Hacemos programas únicos,
-                            diseñados exclusivamente para ti, asegurando que cumplan exactamente con lo que buscas y
-                            en código puro.
-                        </p>
-
-                    </li>
-                </ul>
-             
-            </div>
-        </div>
-
-    </main> -->

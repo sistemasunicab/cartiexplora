@@ -13,7 +13,7 @@
 <body>
     <?php
         $nivel = "tres";
-        //include('../../../components/navBar.php');
+        include('../../../components/navBarSolutions.php');
         include('../components/capacitacion.php');
         include('../../../components/footer.php');
         include('../../../components/bookstoresMain.php');

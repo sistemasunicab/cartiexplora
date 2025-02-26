@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS tbl_secciones;
+
 CREATE TABLE tbl_secciones (
   id int(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   seccion varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
@@ -19,6 +21,19 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 ('blogConectados', 1, 'home', 'Blog', '', ''),
 ('navBar', 1, 'home', '', '', ''),
 ('footer', 1,'home', '', '', ''),
-('navBarSolutions', 1, 'home', '', '', '');
+('navBarSolutions', 1, 'home', '', '', ''),
 
+('sobreNosotrosUnicab', 1,'sobreNosotros', '¿Qué es <b>UNICAB CORPORACIÓN EDUCATIVA?</b>', '', 'La UNIDAD DE CAPACITACIÓN EMPRESARIAL DE BOYACÁ “<b>UNICAB CORPORACIÓN EDUCATIVA</b>” es una institución sin ánimo de lucro, creada hace 23 años a través de la Secretaría de Participación Social de la Gobernación de Boyacá, que presta servicios de educación formal e informal con más de 23 años de experiencia y que cuenta con la siguiente estructura orgánica:'),
+('sobreNosotrosImagenesUne', 1,'sobreNosotros', '', '', ''),
+('sobreNosotrosEducacionFormal', 1,'sobreNosotros', '<b>Colegio</b><br> UNICAB Virtual', '(Educación Formal)', ''),
+('sobreNosotrosImagenesDos', 1,'sobreNosotros', '', '', ''),
+('sobreNosotrosQuinesSomos', 1,'sobreNosotros', '', '', ''),
+('directorioInstitucional', 1, '', 'DIRECTORIO INSTITUCIONAL','',''),
+('calendarioAcademico', 1, '', '<b>CALENDARIO ACADÉMICO</b>','',''),
+('calendarioProximoEvento', 1, '', 'Próximo evento','','Tiempo Restante'),
+('comunicados', 1, '', 'COMUNICADOS','',''),
 
+('lineaTiempo', 1, 'historia', 'Historia y Logros Alcanzados', '', ''),
+('informacion', 1,'historia', '', '', ''),
+('ecosistema', 1, 'historia', '', '', ''),
+('nuestroModelo', 1, 'modelo', 'Nuestro Modelo Pedagógico', 'Ecosistema UNICAB', 'La educación del siglo XXI, mediada por TIC, debe estar orientada por maestros mediadores y orientadores del conocimiento, quienes estudian, investigan y acompañan los procesos de enseñanza-aprendizaje, haciendo posible que los estudiantes y sus familias sean el centro del desarrollo del quehacer pedagógico. <br> <br> El modelo se ha venido construyendo con un equipo de profesionales apasionados por servir en la educación de calidad, al que hemos denominado: <span class="font-roboto-black">“MODELO PEDAGÓGICO UNICAB VIRTUAL”.</span> Este se basa en pedagogías constructivistas, conceptuales y problematizadoras, y en él, directivos, administrativos y maestros mediadores del conocimiento, a través de la tecnología y la virtualidad, trabajan sobre tres líneas base, a saber:');

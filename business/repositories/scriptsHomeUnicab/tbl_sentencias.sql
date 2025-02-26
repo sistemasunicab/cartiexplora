@@ -1,4 +1,4 @@
-DROP TABLE tbl_sentencias;
+DROP TABLE IF EXISTS tbl_sentencias;
 
 CREATE TABLE tbl_sentencias (
   id int(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -36,6 +36,7 @@ INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamie
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 7 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 8 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 9 ', '', '', '', ''),
+
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 10 AND id < 39 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_menus ', 'WHERE visible = 1 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_blogs ', 'WHERE id > 0 ', '', 'ORDER BY id DESC LIMIT 3 ', '', ''),
@@ -45,4 +46,45 @@ INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamie
 ('SELECT * ', 'FROM tbl_parametros ', 'WHERE id_seccion = 4 OR id IN (1, 2) ', '', '', '', ''),
 
 ('SELECT * ', 'FROM tbl_menus_solutions ', 'WHERE nivel = |x| AND padre = |y| AND visible = 1 ', '', '', '', ''),
-('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 11 ', '', '', '', '');
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 11 ', '', '', '', ''),
+
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 10 AND descripcion = |logo| ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_menus ', 'WHERE visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 10 AND descripcion = |social-media| ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_parametros ', 'WHERE id >= 8 AND id < 12 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_parametros ', 'WHERE id >= 12 AND id <= 13 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 12 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 13 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 14 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 15 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 16 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 12 AND visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 13 AND visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 14 AND visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 15 AND visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 16 AND visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 10 AND descripcion = |entidades| ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 16 AND visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 16 AND descripcion = |icon-search| ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 16 AND descripcion = |image-contact| ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 16 AND descripcion = |table-icon| ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 16 AND descripcion = |image-schedule| ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 17 AND visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 18 AND visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 19 AND visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 17 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 19 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_eventos ', 'WHERE visible = 1 AND fecha_hora > NOW() ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_archivos ', 'WHERE visible = 1 ', '', '', '', ''),
+
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 21 AND visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 22 AND visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 23 AND visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 24 AND visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 21 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_textos ', 'WHERE id_seccion = 21 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 22  AND textoAlterno = |parteArriba| ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 22  AND textoAlterno = |parteAbajo| ', '', 'ORDER BY id DESC LIMIT 1 ', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 23 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_textos ', 'WHERE id_seccion = 23 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 24 ', '', '', '', '');
