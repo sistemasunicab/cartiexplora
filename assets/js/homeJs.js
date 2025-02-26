@@ -2,15 +2,20 @@ $(function () {
     $(".select2").select2();
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    galeriaEstudiantes();
+});
 
-/* Script Nuestros Estudiantes */
-document.addEventListener('DOMContentLoaded', () => {
+/* Script Galeria Nuestros Estudiantes */
+const galeriaEstudiantes = () => {
     const items = document.querySelectorAll(".galeria div .item");
 
-    items.forEach(item => {
+    items.forEach((item) => {
         item.addEventListener("click", () => {
             // Elimina la clase seleccionada de la imagen actualmente seleccionada
-            document.querySelector(".item-seleccionado").classList.remove("item-seleccionado");
+            document
+                .querySelector(".item-seleccionado")
+                .classList.remove("item-seleccionado");
 
             const itemImg = item.querySelector("img");
             const imgGrande = document.querySelector("#imagen-grande-galeria");
@@ -21,8 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             item.classList.add("item-seleccionado");
         });
     });
-});
-
+};
 
 $(document).ready(function () {
     $("#myForm").on("submit", function (e) {
@@ -54,7 +58,9 @@ $(document).ready(function () {
                     reset_clases();
                 } else {
                     $("#form-notificacion")
-                        .text("Error al enviar el formulario. Inténtalo de nuevo")
+                        .text(
+                            "Error al enviar el formulario. Inténtalo de nuevo"
+                        )
                         .fadeIn()
                         .delay(3000)
                         .fadeOut();
@@ -71,7 +77,7 @@ $(document).ready(function () {
     });
 });
 
-const reglasvalidacion  = {
+const reglasvalidacion = {
     texto: /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/,
     texto1: /[_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/,
     nombre: /^[a-zA-ñÑ\s]{1,100}$/,
@@ -103,7 +109,7 @@ function validar_campo(input) {
             input.classList.remove("success");
             erroresCampos[name] = `El campo ${name} debe estar marcado.`;
         }
-    } else if (reglasvalidacion[name].test(value) && value.trim() !== '') {
+    } else if (reglasvalidacion[name].test(value) && value.trim() !== "") {
         input.classList.remove("error");
         input.classList.add("success");
         delete erroresCampos[name]; // Elimina el error si está corregido
@@ -125,7 +131,8 @@ function actualizarNotificacionesErrores() {
     } else {
         // Mostrar todos los errores
         notificacionFormInscripciones.classList.remove("notificacion-hidden");
-        notificacionFormInscripciones.innerText = Object.values(erroresCampos).join('\n');
+        notificacionFormInscripciones.innerText =
+            Object.values(erroresCampos).join("\n");
     }
 }
 
@@ -147,7 +154,12 @@ const mensaje_personalizado = (campo, value) => {
             return "El mensaje puede contener letras, números y símbolos permitidos, con un máximo de 2000 caracteres.";
         }
     }
-    return ("Ha ingresado alguno de los siguientes caracteres no válidos para " + campo + ": " + "- _ ' \" < > ~ ^ * $ ! ¡ # % & ¿ ? /= + , ; : ( ) { } [ ] \\");
+    return (
+        "Ha ingresado alguno de los siguientes caracteres no válidos para " +
+        campo +
+        ": " +
+        "- _ ' \" < > ~ ^ * $ ! ¡ # % & ¿ ? /= + , ; : ( ) { } [ ] \\"
+    );
 };
 
 const mayus = (element) => {
@@ -160,7 +172,10 @@ const mostrar_submit = () => {
 
     let todosValidos = true;
     elementosForm.forEach((input) => {
-        if ((input.type != "submit" && !input.classList.contains("success")) || input.classList.contains("error")) {
+        if (
+            (input.type != "submit" && !input.classList.contains("success")) ||
+            input.classList.contains("error")
+        ) {
             todosValidos = false;
         }
     });
