@@ -15,5 +15,5 @@ CREATE TABLE tbl_banners (
 
 INSERT INTO tbl_banners (visible, ruta, textoBoton, linkImagen, linkBoton, color, transparencia, porcentajeTop, porcentajeLeft) VALUES
 (1, 'assets/img/banner.png', 'Agendar Entrevista', '', '', '51, 38, 21', '.5', '70', '70'),
-(1, 'assets/img/banner2x.jpg', 'Haz crecer tus ideas con tecnología. ¡Contáctanos!', '', '', '51, 38, 21', '.5', '70', '45');
+(1, 'assets/img/banner2x.jpg', 'Haz crecer tus ideas con tecnología. ¡Contáctanos!', '', 'business/solutions/pages/somos.php', '51, 38, 21', '.5', '70', '45');
 
