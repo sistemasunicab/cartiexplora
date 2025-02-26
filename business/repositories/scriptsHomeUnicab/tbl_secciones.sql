@@ -35,4 +35,5 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 
 ('lineaTiempo', 1, 'historia', 'Historia y Logros Alcanzados', '', ''),
 ('informacion', 1,'historia', '', '', ''),
-('ecosistema', 1, 'historia', '', '', '');
+('ecosistema', 1, 'historia', '', '', ''),
+('nuestroModelo', 1, 'modelo', 'Nuestro Modelo Pedagógico', 'Ecosistema UNICAB', 'La educación del siglo XXI, mediada por TIC, debe estar orientada por maestros mediadores y orientadores del conocimiento, quienes estudian, investigan y acompañan los procesos de enseñanza-aprendizaje, haciendo posible que los estudiantes y sus familias sean el centro del desarrollo del quehacer pedagógico. <br> <br> El modelo se ha venido construyendo con un equipo de profesionales apasionados por servir en la educación de calidad, al que hemos denominado: <span class="font-roboto-black">“MODELO PEDAGÓGICO UNICAB VIRTUAL”.</span> Este se basa en pedagogías constructivistas, conceptuales y problematizadoras, y en él, directivos, administrativos y maestros mediadores del conocimiento, a través de la tecnología y la virtualidad, trabajan sobre tres líneas base, a saber:');

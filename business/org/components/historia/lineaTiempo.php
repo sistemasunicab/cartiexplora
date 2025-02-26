@@ -1,44 +1,84 @@
-    <main class="container d-flex flex-column gap-2rem margin-y-5rem">
-        <div class="row">
-            <div class="col-2 p-0 m-0 d-flex flex-column align-items-center"></div>
-            <div class="col-1 p-0"></div>
-
-            <h1 class="titulo-1 col-9 p-0 m-0 font-weight-700 text-blue">Historia y Logros Alcanzados</h1>
-        </div>
-
-        <div class="row">
-            <div class="col-2 p-0 m-0 d-flex flex-column align-items-center">
-                <img class="linea-tiempo-icono" src="../../../../cartiexplora/assets/img/estudiantes.png" alt="so">
-                <h2 class="text-center text-orange font-weight-700">Fundación</h2>
+<?php
+    //-- Funciones --//
+   function generarLineaTiempo($iconoLinea, $tituloLinea, $orientacion, $descripcionLinea) {
+        $bloque = '
+        <div class="col-lg-12 d-flex gap-5 justify-content-between mb-5 flex-column flex-lg-row">
+            <div class="p-0 m-0 d-flex '.FlexTitleLoader::setDirection($orientacion).' align-items-center linea-tiempo">
+                <img class="linea-tiempo-icono" src="../../../../cartiexplora/'.$iconoLinea.'" alt="">
+                <h2 class="text-center tx-orange font-roboto-black">'.$tituloLinea.'</h2>
             </div>
-            <div class="col-1 p-0"></div>
-            <p class="texto-base col-9 p-0 m-0 font-size-1_375rem">UNICAB Corporación Educativa fue creada en la ciudad de Sogamoso mediante la Resolución No. 0194 del 18 de julio de 2001, emitida por la Gobernación de Boyacá. Desde su inicio, se estableció como una institución sin ánimo de lucro, con una filosofía de vida orientada a ofrecer el derecho-servicio educativo de manera innovadora y acorde a las necesidades de quienes participan en sus procesos, fomentando el intercambio de saberes y fortaleciendo el liderazgo de sus participantes. Desde su creación y hasta el año 2007, UNICAB Corporación Educativa desarrolló diversos servicios:</p>
-        </div>
 
-        <div class="row">
-            <div class="col-2 p-0 m-0 d-flex flex-column align-items-center">
-                <img class="linea-tiempo-icono" src="../../../../cartiexplora/assets/img/estudiantes.png" alt="so">
-                <h2 class="text-center text-orange font-weight-700">Fundación</h2>
-            </div>
-            <div class="col-1 p-0"></div>
-            <p class="texto-base col-9 p-0 m-0 font-size-1_375rem">UNICAB Corporación Educativa fue creada en la ciudad de Sogamoso mediante la Resolución No. 0194 del 18 de julio de 2001, emitida por la Gobernación de Boyacá. Desde su inicio, se estableció como una institución sin ánimo de lucro, con una filosofía de vida orientada a ofrecer el derecho-servicio educativo de manera innovadora y acorde a las necesidades de quienes participan en sus procesos, fomentando el intercambio de saberes y fortaleciendo el liderazgo de sus participantes. Desde su creación y hasta el año 2007, UNICAB Corporación Educativa desarrolló diversos servicios:</p>
+            <p class="ps-5 m-0">'.$descripcionLinea.'</p>
         </div>
+        ';
 
-        <div class="row">
-            <div class="col-2 p-0 m-0 d-flex flex-column align-items-center">
-                <img class="linea-tiempo-icono" src="../../../../cartiexplora/assets/img/estudiantes.png" alt="so">
-                <h2 class="text-center text-orange font-weight-700">Fundación</h2>
-            </div>
-            <div class="col-1 p-0"></div>
-            <p class="texto-base col-9 p-0 m-0 font-size-1_375rem">UNICAB Corporación Educativa fue creada en la ciudad de Sogamoso mediante la Resolución No. 0194 del 18 de julio de 2001, emitida por la Gobernación de Boyacá. Desde su inicio, se estableció como una institución sin ánimo de lucro, con una filosofía de vida orientada a ofrecer el derecho-servicio educativo de manera innovadora y acorde a las necesidades de quienes participan en sus procesos, fomentando el intercambio de saberes y fortaleciendo el liderazgo de sus participantes. Desde su creación y hasta el año 2007, UNICAB Corporación Educativa desarrolló diversos servicios:</p>
-        </div>
+        return $bloque;
+   }
 
-        <div class="row">
-            <div class="col-2 p-0 m-0 d-flex flex-column align-items-center">
-                <img class="linea-tiempo-icono" src="../../../../cartiexplora/assets/img/estudiantes.png" alt="so">
-                <h2 class="text-center text-orange font-weight-700">Fundación</h2>
+    if ($nivel == "raiz") {
+        require('business/repositories/1cc2s4Home.php');
+    } else if ($nivel == "uno") {
+        require('../business/repositories/1cc2s4Home.php');
+    } else if ($nivel == "dos") {
+        require('../../business/repositories/1cc2s4Home.php');
+    } else if ($nivel == "tres") {
+        require('../../../business/repositories/1cc2s4Home.php');
+    }
+
+    $res_sentecia = $mysqli1->query($sentencia . "62");
+    while ($row_sentencia = $res_sentecia->fetch_assoc()) {
+        $sql_seccion_dos = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
+    }
+    $res_seccion_dos = $mysqli1->query($sql_seccion_dos);
+    
+    $html = '';
+    while ($row_datos_seccion = $res_seccion_dos->fetch_assoc()) {
+        // Obtiene el titulo de la sección y lo renderiza
+        $html .= '
+        <main class="container d-flex flex-column gap-2rem margin-top-5rem">
+            <div class="row">
+                <div class="col-lg-12 d-flex gap-5 justify-content-center mb-5">
+                    <h1 class="p-0 m-0 tx-blue font-roboto-black text-center">' . $row_datos_seccion['titulo'] . '</h1>
+                </div>
+        ';
+    }
+
+    // Obteniendo linea del tiempo
+    $res_sentencia = $mysqli1->query($sentencia."66");
+    while($row_sentencia = $res_sentencia->fetch_assoc()){
+         $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
+    }  
+    $datosLineas =[];
+    $res_datos = $mysqli1->query($sql_datos);
+    while($row_datos = $res_datos->fetch_assoc()){
+         $datosLineas[$row_datos['titulo']] = [$row_datos['ruta'], $row_datos['titulo'], $row_datos['posicionTitulo']];
+    }
+
+    $res_sentencia = $mysqli1->query($sentencia."67");
+    while($row_sentencia = $res_sentencia->fetch_assoc()){
+         $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
+    }  
+    
+    $res_datos = $mysqli1->query($sql_datos);
+    while($row_datos = $res_datos->fetch_assoc()){
+        if ($datosLineas[$row_datos['identificacion']]) {
+            array_push($datosLineas[$row_datos['identificacion']], $row_datos['texto']);
+        }
+    }
+
+    if ($html != '') {
+
+        foreach ($datosLineas as $datos) {
+            $html .= generarLineaTiempo($datos[0], $datos[1], $datos[2], $datos[3]);
+        }
+
+        $html .= '
             </div>
-            <div class="col-1 p-0"></div>
-            <p class="texto-base col-9 p-0 m-0 font-size-1_375rem">UNICAB Corporación Educativa fue creada en la ciudad de Sogamoso mediante la Resolución No. 0194 del 18 de julio de 2001, emitida por la Gobernación de Boyacá. Desde su inicio, se estableció como una institución sin ánimo de lucro, con una filosofía de vida orientada a ofrecer el derecho-servicio educativo de manera innovadora y acorde a las necesidades de quienes participan en sus procesos, fomentando el intercambio de saberes y fortaleciendo el liderazgo de sus participantes. Desde su creación y hasta el año 2007, UNICAB Corporación Educativa desarrolló diversos servicios:</p>
-        </div>
-    </main>
+        </main>
+        ';
+    }
+    echo $html;
+?>
+
+        
+        

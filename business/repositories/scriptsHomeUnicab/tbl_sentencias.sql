@@ -75,4 +75,16 @@ INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamie
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 17 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 19 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_eventos ', 'WHERE visible = 1 AND fecha_hora > NOW() ', '', '', '', ''),
-('SELECT * ', 'FROM tbl_archivos ', 'WHERE visible = 1 ', '', '', '', '');
+('SELECT * ', 'FROM tbl_archivos ', 'WHERE visible = 1 ', '', '', '', ''),
+
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 21 AND visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 22 AND visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 23 AND visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 24 AND visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 21 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_textos ', 'WHERE id_seccion = 21 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 22  AND textoAlterno = |parteArriba| ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 22  AND textoAlterno = |parteAbajo| ', '', 'ORDER BY id DESC LIMIT 1 ', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 23 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_textos ', 'WHERE id_seccion = 23 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 24 ', '', '', '', '');

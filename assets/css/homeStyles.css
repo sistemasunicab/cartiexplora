@@ -274,6 +274,10 @@ p, label {
     padding: 1rem 0;
 }
 
+.margin-x-o75 {
+    margin: 0 0.75rem;
+}
+
 .margin-bottom-0_3rem {
     margin-bottom: .3rem;
 }
@@ -903,6 +907,13 @@ input[type="checkbox"] {
     color: #4DC250;
 }
 
+@media (min-width: 1200px) {
+    #info {
+        position: relative;
+        right: 85px;
+    }
+}
+
 /*Fin estilos Footer*/
 
 /*FIN HOME*/
@@ -916,7 +927,7 @@ input[type="checkbox"] {
 }
 
 .linea-tiempo {
-    min-width: 20rem;
+    min-width: 21rem;
 }
 
 /* Historia */
@@ -969,7 +980,7 @@ input[type="checkbox"] {
     gap: 1.5rem;
 }
 
-.ecosistema-block h2 {
+.ecosistema-title {
     display: flex;
     align-items: center;
     font-family: 'Roboto-light';
@@ -977,14 +988,14 @@ input[type="checkbox"] {
 }
 
 @media (min-width: 1200px) {
-    .ecosistema-block h2 {
+    .ecosistema-title {
         font-family: 'Roboto-light';
-        min-height: 15rem;
+        min-height: 8rem;
     }
 }
 
 .ecosistema-block p {
-    border-top: 2px solid var(--orange);
+    border-top: 1px solid var(--orange);
     padding: 1rem 0;
 }
 
@@ -1006,9 +1017,12 @@ input[type="checkbox"] {
 }
 
 .ecosistema-block img {
-    height: auto;
-    width: 20rem;
-    box-shadow: 8px 10px 1rem rgba(0, 0, 0, 0.2);
+    height: 15rem;
+    width: 100%;
+    box-shadow: 5px 15px 2cap rgba(0, 0, 0, 0.2);
+
+    object-fit: cover;
+    object-position: center;
 }
 
 /** Nuestro Modelo **/
@@ -1020,10 +1034,9 @@ input[type="checkbox"] {
 
 .modelo-item {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: .5rem 0;
-    gap: 1rem;
+    padding: 4rem 1rem;
+
+    align-items: flex-start;
 }
 
 .modelo-item-data {
@@ -1122,3 +1135,7 @@ input[type="checkbox"] {
 }
 
 /* End calendary */
+.modelo-item img {
+    height: 8rem;
+    width: auto;
+}
