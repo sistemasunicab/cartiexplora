@@ -925,6 +925,7 @@ input[type="checkbox"] {
     width: 5.3rem;
     
     filter: invert(50%) sepia(98%) saturate(1116%) hue-rotate(2deg) brightness(105%) contrast(102%);
+    margin-bottom: 1.5  rem;
 }
 
 .linea-tiempo {

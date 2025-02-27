@@ -5,7 +5,7 @@
         <div class="col-lg-12 d-flex gap-5 justify-content-between mb-5 flex-column flex-lg-row">
             <div class="p-0 m-0 d-flex '.FlexTitleLoader::setDirection($orientacion).' align-items-center linea-tiempo">
                 <img class="linea-tiempo-icono" src="../../../../cartiexplora/'.$iconoLinea.'" alt="">
-                <h2 class="text-center tx-orange font-roboto-black">'.$tituloLinea.'</h2>
+                <h4 class="text-center tx-orange font-roboto-black">'.$tituloLinea.'</h4>
             </div>
 
             <p class="ps-5 m-0">'.$descripcionLinea.'</p>
@@ -38,7 +38,7 @@
         <main class="container d-flex flex-column gap-2rem margin-top-5rem">
             <div class="row">
                 <div class="col-lg-12 d-flex gap-5 justify-content-center mb-5">
-                    <h1 class="p-0 m-0 tx-blue font-roboto-black text-center">' . $row_datos_seccion['titulo'] . '</h1>
+                    <h2 class="p-0 m-0 tx-blue font-roboto-black text-center">' . $row_datos_seccion['titulo'] . '</h2>
                 </div>
         ';
     }
