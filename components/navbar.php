@@ -35,11 +35,11 @@ if ($res_datos) {
         $html_base .= '<li class="nav-item py-2 py-md-0 h-100">';
         $html_base .= '<div class="menu-item d-md-flex m-md-auto px-md-2 h-100">';
         if ($row_datos[$levelSelect] != '') {
-            $html_base .= '<a class = "m-auto font-roboto-regular tx-white little-paragraph menu-item-text" target="' . $row_datos['destino'] . '" href="' . $row_datos[$levelSelect] . '">';
+            $html_base .= '<a class = "m-auto font-roboto-regular tx-white special-paragraph menu-item-text" target="' . $row_datos['destino'] . '" href="' . $row_datos[$levelSelect] . '">';
             $html_base .= htmlspecialchars($row_datos['menu']);
             $html_base .= '</a>';
         } else {
-            $html_base .= '<p class="m-auto font-roboto-regular tx-white little-paragraph menu-item-text">';
+            $html_base .= '<p class="m-auto font-roboto-regular tx-white special-paragraph menu-item-text">';
             $html_base .= htmlspecialchars($row_datos['menu']);
             $html_base .= '<i class="icon-row fas fa-chevron-down"></i>';
             $html_base .= '</p>';
@@ -53,8 +53,8 @@ if ($res_datos) {
         }
         $res_datos_h = $mysqli1->query($sql_datos_h);
         if ($res_datos_h && $res_datos_h->num_rows > 0) {
-            $html_s = '<div class="dropdown-container w-100 d-flex">';
-            $html_s .= '<ul class="dropdown w-100 d-none py-4 bg-blue">';
+            $html_s = '<div class="dropdown_our-container w-100 d-flex">';
+            $html_s .= '<ul class="dropdown_our w-100 d-none py-4 bg-blue">';
             $html_s2 = '';
             $count_base = 0;
             while ($row_datos_h = $res_datos_h->fetch_assoc()) {
@@ -65,9 +65,9 @@ if ($res_datos) {
                     $html_s .= '<div class="d-md-flex flex-column me-md-3">'; // Nueva columna
                 }
                 $id_2 = $row_datos_h['id'];
-                $html_s .= '<li class="dropdown-item position-relative tx-white font-roboto-regular mb-1 text-start" id="submenu_' . $id . '.' . $id_2 . '">';
+                $html_s .= '<li class="dropdown_our-item position-relative tx-white font-roboto-regular px-1 mb-1 text-start" id="submenu_' . $id . '.' . $id_2 . '">';
                 if ($row_datos_h[$levelSelect] != '') {
-                    $html_s .= '<a class="w-100 d-block" href="' . $row_datos_h[$levelSelect] . '">';
+                    $html_s .= '<a class="w-100 d-block " href="' . $row_datos_h[$levelSelect] . '">';
                     $html_s .= htmlspecialchars($row_datos_h['menu']);
                     $html_s .= '</a>';
                 } else {
@@ -82,7 +82,7 @@ if ($res_datos) {
                 }
                 $res_datos_h2 = $mysqli1->query($sql_datos_h2);
                 if ($res_datos_h2 && $res_datos_h2->num_rows > 0) {
-                    $html_s2 .= '<ul class="dropdown2 w-100 w-md-auto" id="submenu_' . $id . '.' . $id_2 . '_dropdown">';
+                    $html_s2 .= '<ul class="dropdown_our2 w-100 w-md-auto" id="submenu_' . $id . '.' . $id_2 . '_dropdown_our">';
                     $count = 0;
                     while ($row_datos_h2 = $res_datos_h2->fetch_assoc()) {
                         // Añadir un contenedor cada 6 elementos
@@ -92,7 +92,7 @@ if ($res_datos) {
                             }
                             $html_s2 .= '<div class="d-md-flex flex-column me-md-3">'; // Nueva columna
                         }
-                        $html_s2 .= '<li class="dropdown-item divide-words">';
+                        $html_s2 .= '<li class="dropdown_our-item divide-words">';
                         $html_s2 .= '<a href="' . $row_datos_h2[$levelSelect] . '">';
                         $html_s2 .= htmlspecialchars($row_datos_h2['menu']);
                         $html_s2 .= '</a>';

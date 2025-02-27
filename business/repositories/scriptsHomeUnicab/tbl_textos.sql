@@ -1,4 +1,4 @@
-DROP TABLE tbl_textos;
+DROP TABLE IF EXISTS tbl_textos;
 
 CREATE TABLE tbl_textos (
   id int(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
