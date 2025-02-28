@@ -21,3 +21,4 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 ('footer', 1,'home', '', '', '');
 
 INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, texto) VALUES ('nuestrosEstudiantes', 1, 'nuestrosEstudiantes', '<b>Nuestros</b><br>Estudiantes', '', '');
+INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, texto) VALUES ('publicacionesAcademicas', 1, 'publicacionesAcademicas', '<b>Publicaciones</b> Académicas', '', '');

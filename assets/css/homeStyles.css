@@ -1057,3 +1057,25 @@ input[type="checkbox"] {
     inset: 0;
     z-index: 10;
 }
+
+/** Publicaciones académicas **/
+
+.publications-button {
+    padding: .8rem 1.5rem;
+    font-size: 2rem;
+    border-radius: 10px;
+}
+
+.download-button {
+    cursor: pointer;
+}
+
+:root {
+    --shadow-2: 9px 9px 12px -3px rgba(0,0,0,0.45);
+}
+
+.publications-card{
+    padding: 2rem;
+    box-shadow: var(--shadow-2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
