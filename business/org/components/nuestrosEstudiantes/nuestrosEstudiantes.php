@@ -24,7 +24,7 @@
         $html .= '<main class="container my-5">';
         $html .=    '<div class="row">';
         $html .=        '<div class="col-lg-12">';
-        $html .=            '<h1 class="my-5 tx-blue lh-1 font-roboto-light-title">'. $row_datos_seccion['titulo'] .'</h1>';
+        $html .=            '<h2 class="my-5 tx-blue lh-1 font-roboto-light-title">'. $row_datos_seccion['titulo'] .'</h2>';
         $html .=        '</div>';
         $html .=    '</div>';
 
