@@ -26,6 +26,7 @@ INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamie
 ('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 10 AND visible = 1 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 11 AND visible = 1 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 12 AND visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 13 AND visible = 1 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_parametros ', 'WHERE parametro = |telefono_admisiones| ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_parametros ', 'WHERE parametro = |correo_admisiones| ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_parametros ', 'WHERE parametro = |direccion_unicab| ', '', '', '', ''),
@@ -41,8 +42,10 @@ INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamie
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 10 AND id < 39 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 11 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 12 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 13 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_menus ', 'WHERE visible = 1 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_formularios ', 'WHERE id_seccion = 4 ', '', '', '', ''),
 ('INSERT ', 'INTO tbl_contactos ', '(nombre, correo, asunto, mensaje, fecha) VALUES (?, ?, ?, ?, ?) ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_parametros ', 'WHERE id_seccion = 4 ', '', '', '', ''),
-('SELECT * ', 'FROM tbl_publicaciones_academicas ', 'WHERE visible = 1 ', '', '', '', '');
+('SELECT * ', 'FROM tbl_publicaciones_academicas ', 'WHERE visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_textos ', 'WHERE id_seccion = 13 ', '', '', '', '');
