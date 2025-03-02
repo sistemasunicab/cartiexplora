@@ -89,4 +89,5 @@ INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamie
 ('SELECT * ', 'FROM tbl_textos ', 'WHERE id_seccion = 23 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 24 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 25 ', '', '', '', ''),
-('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 26 ', '', '', '', '');
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 26 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 26 ', '', '', '', '');

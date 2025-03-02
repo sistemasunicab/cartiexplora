@@ -65,7 +65,7 @@ if ($res_datos) {
                     $html_s .= '<div class="d-md-flex flex-column me-md-3">'; // Nueva columna
                 }
                 $id_2 = $row_datos_h['id'];
-                $html_s .= '<li class="dropdown_our-item position-relative tx-white font-roboto-regular px-1 mb-1 text-start" id="submenu_' . $id . '.' . $id_2 . '">';
+                $html_s .= '<li class="dropdown_our-item position-relative tx-white font-roboto-regular px-3 mb-2 text-start" id="submenu_' . $id . '.' . $id_2 . '">';
                 if ($row_datos_h[$levelSelect] != '') {
                     $html_s .= '<a class="w-100 d-block " href="' . $row_datos_h[$levelSelect] . '">';
                     $html_s .= htmlspecialchars($row_datos_h['menu']);
@@ -92,7 +92,7 @@ if ($res_datos) {
                             }
                             $html_s2 .= '<div class="d-md-flex flex-column me-md-3">'; // Nueva columna
                         }
-                        $html_s2 .= '<li class="dropdown_our-item divide-words">';
+                        $html_s2 .= '<li class="dropdown_our-item position-relative tx-white font-roboto-regular px-3 mb-2 text-start">';
                         $html_s2 .= '<a href="' . $row_datos_h2[$levelSelect] . '">';
                         $html_s2 .= htmlspecialchars($row_datos_h2['menu']);
                         $html_s2 .= '</a>';

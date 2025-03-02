@@ -103,5 +103,6 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo,
 (24, 'assets/img/ModeloPedagogico.png', '', '', 'izquierda', '', ''),
 (24, 'assets/img/think.svg', '', 'Potencialización de las habilidades individuales de los estudiantes.', 'abajo', '', ''),
 (24, 'assets/img/elearning.svg', '', 'Fortalecimiento de principios y valores basados en la autonomía del estudiante.', 'abajo', '', ''),
-(24, 'assets/img/audiobook.svg', '', 'Desarrollo del pensamiento creativo del estudiante.', 'abajo', '', '');
+(24, 'assets/img/audiobook.svg', '', 'Desarrollo del pensamiento creativo del estudiante.', 'abajo', '', ''),
+(26, 'assets/img/browser_4919708.png', '', 'Año(s) académico(s) al que corresponde la solicitud', 'arriba', '', '');
 
