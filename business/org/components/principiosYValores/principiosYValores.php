@@ -33,7 +33,7 @@
         } else if (strtolower($posicionTitulo) == 'arriba') {
             $title .= '<div class="row align-items-center justify-content-center my-2">';
             $title .=     '<div class="col-lg-12 my-4">';
-            $title .=         '<h4 class="font-roboto-black text-center">Compromiso</h4>';
+            $title .=         '<h4 class="font-roboto-black text-center">'. $titulo .'</h4>';
             $title .=     '</div>';
             $title .=     '<div class="col-lg-4">';
             $title .=         $imgHTML;
