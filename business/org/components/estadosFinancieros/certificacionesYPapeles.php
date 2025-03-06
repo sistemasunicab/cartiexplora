@@ -9,6 +9,8 @@ while ($row_certificaciones = $res_certificaciones->fetch_assoc()) {
 $res_datos_certificaciones = $mysqli1->query($sql_datos_certificaciones);
 
 while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
+    if ($row_datos_certificaciones['visible'] != 1)
+        continue;
     $html_certificaciones = '<div class="col-9 my-5 p-0 mx-auto d-flex flex-column">';
     $html_certificaciones .= '<h3 class="col-7 tx-blue font-roboto-light-title">' . $row_datos_certificaciones['titulo'] . '</h3>';
     // Primera fila
@@ -55,39 +57,70 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
     $html_certificaciones .= '</div>'; // Cierre btn-group
 
     $html_certificaciones .= '</div>'; // Cierre fila
-    
-    // Dropdown "Relación con la institución"
 
-    $html_certificaciones .= '<div class="btn_displayed my-5 btn-group col-4 my-2">';
-    $html_certificaciones .= '<button class="dropdown-toggle col-3 display-options btn p-0 d-flex flex-row" type="button" data-bs-toggle="dropdown" aria-expanded="false">';
-    $html_certificaciones .= '<p class="little-paragraph col-9 m-auto font-roboto-italic tx-white">Relación con la institución</p>';
+    // Dropdown "Relación con la institución"
+    $html_certificaciones .= '<div class="btn_displayed my-5 btn-group col-4 d-flex flex-column">';
+    $html_certificaciones .= '<button class="dropdown-toggle col-12 display-options btn p-0 d-flex flex-row dropdown-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">';
+    $html_certificaciones .= '<p class="little-paragraph col-9 m-auto font-roboto-italic tx-white dropdown-text">Relación con la institución</p>';
     $html_certificaciones .= '<span class="col-3 d-flex justify-content-center align-items-center p-0">▼</span>';
     $html_certificaciones .= '</button>';
     $html_certificaciones .= '<ul class="dropdown-menu w-100">';
-    $html_certificaciones .= '<li><a class="dropdown-item" href="#">Estudiante actual</a></li>';
-    $html_certificaciones .= '<li><a class="dropdown-item" href="#">Exalumno</a></li>';
-    $html_certificaciones .= '<li><a class="dropdown-item" href="#">Padre de familia</a></li>';
-    $html_certificaciones .= '<li><a class="dropdown-item" href="#">Maestro mediador</a></li>';
-    $html_certificaciones .= '<li><a class="dropdown-item" href="#">Otro (especificar)</a></li>';
+
+    $numero_opciones_dropdown = "76";
+    $res_opciones_dropdown = $mysqli1->query($sentencia . $numero_opciones_dropdown);
+
+    while ($row_opciones = $res_opciones_dropdown->fetch_assoc()) {
+        $condiciones_opciones = str_replace('|', '\'', $row_opciones['condiciones']);
+        $sql_opciones_dropdown = $row_opciones['campos'] . $row_opciones['tablas'] . $condiciones_opciones;
+    }
+
+    $res_datos_opciones = $mysqli1->query($sql_opciones_dropdown);
+    while ($row_datos_opciones = $res_datos_opciones->fetch_assoc()) {
+        if ($row_datos_opciones['visible'] != 1)
+            continue;
+
+        $valor = htmlspecialchars($row_datos_opciones['valor'], ENT_QUOTES, 'UTF-8');
+        $html_certificaciones .= '<li><a class="dropdown-item dropdown-option" data-value="' . $valor . '">' . $valor . '</a></li>';
+    }
     $html_certificaciones .= '</ul>';
+    $html_certificaciones .= '<input type="text" class="form-control mt-2 other-input" placeholder="Especificar" style="display: none;">';
     $html_certificaciones .= '</div>';
 
-    $html_certificaciones .= '<div class="btn-financiero col-3 d-flex flex-row bg-blue p-0 m-0">
+
+    $html_certificaciones .= '<div class="btn-financiero col-3 d-flex flex-row bg-blue p-0 m-0 my-2">
                                 <div class="bg-orange m-0 p-0 col-2" style="height:100%;"></div>
                                 <p class="special-paragraph py-1 col-10 font-roboto-italic tx-white text-center my-1">Detalles de la Solicitud: </p></div> ';
 
     $html_certificaciones .= '<div class="mt-5 d-flex flex-row col-12 position-relative">';
-    $html_certificaciones .= '<div class="btn_displayed my-2 btn-group col-4 my-2">';
-    $html_certificaciones .= '<button class="dropdown-toggle col-3 display-options btn p-0 d-flex flex-row" type="button" data-bs-toggle="dropdown" aria-expanded="false">';
-    $html_certificaciones .= '<p class="little-paragraph col-9 m-auto font-roboto-italic tx-white">Tipo de certificación</p>';
+    $html_certificaciones .= '<div class="btn_displayed my-2 btn-group col-4 d-flex flex-column">';
+    $html_certificaciones .= '<button class="dropdown-toggle col-12 display-options btn p-0 d-flex flex-row dropdown-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">';
+    $html_certificaciones .= '<p class="little-paragraph col-9 m-auto font-roboto-italic tx-white dropdown-text">Tipo de certificación</p>';
     $html_certificaciones .= '<span class="col-3 d-flex justify-content-center align-items-center p-0">▼</span>';
     $html_certificaciones .= '</button>';
     $html_certificaciones .= '<ul class="dropdown-menu w-100">';
-    $html_certificaciones .= '<li><a class="dropdown-item" href="#">Estudiante actual</a></li>';
-    $html_certificaciones .= '<li><a class="dropdown-item" href="#">Exalumno</a></li>';
-    $html_certificaciones .= '<li><a class="dropdown-item" href="#">Padre de familia</a></li>';
+
+    $numero_opciones_dropdown = "77";
+    $res_opciones_dropdown = $mysqli1->query($sentencia . $numero_opciones_dropdown);
+
+    while ($row_opciones = $res_opciones_dropdown->fetch_assoc()) {
+        $condiciones_opciones = str_replace('|', '\'', $row_opciones['condiciones']);
+        $sql_opciones_dropdown = $row_opciones['campos'] . $row_opciones['tablas'] . $condiciones_opciones;
+    }
+
+    $res_datos_opciones = $mysqli1->query($sql_opciones_dropdown);
+    while ($row_datos_opciones = $res_datos_opciones->fetch_assoc()) {
+        if ($row_datos_opciones['visible'] != 1)
+            continue;
+
+        $valor = htmlspecialchars($row_datos_opciones['valor'], ENT_QUOTES, 'UTF-8');
+        $html_certificaciones .= '<li><a class="dropdown-item dropdown-option" href="#" data-value="' . $valor . '">' . $valor . '</a></li>';
+    }
+
     $html_certificaciones .= '</ul>';
+    $html_certificaciones .= '<input type="text" class="form-control mt-2 other-input" placeholder="Especificar" style="display: none;">';
+
     $html_certificaciones .= '</div>';
+
 
     $number_sentence_image = "75";
     $res_sentence_image = $mysqli1->query($sentencia . $number_sentence_image);

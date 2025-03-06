@@ -316,3 +316,31 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+if (window.location.pathname.endsWith("estadosFinancieros.php")) {
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".btn_displayed").forEach(dropdownContainer => {
+            const dropdownText = dropdownContainer.querySelector(".dropdown-text");
+            const otherInput = dropdownContainer.querySelector(".other-input");
+
+            dropdownContainer.querySelectorAll(".dropdown-option").forEach(option => {
+                option.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const selectedValue = this.getAttribute("data-value");
+
+                    dropdownText.textContent = selectedValue;
+
+                    if (selectedValue === "Otro (especificar)") {
+                        otherInput.style.display = "block";
+                        otherInput.focus();
+                    } else {
+                        otherInput.style.display = "none";
+                        otherInput.value = "";
+                    }
+                });
+            });
+        });
+    });
+}
+

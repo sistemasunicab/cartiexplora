@@ -90,4 +90,6 @@ INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamie
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 24 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 25 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 26 ', '', '', '', ''),
-('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 26 ', '', '', '', '');
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 26 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_opciones_estados_financieros ', 'WHERE nombre_padre = |Relación con la institución|', '','','',''),
+('SELECT * ', 'FROM tbl_opciones_estados_financieros ', 'WHERE nombre_padre = |Tipo de certificación|', '','','','');
