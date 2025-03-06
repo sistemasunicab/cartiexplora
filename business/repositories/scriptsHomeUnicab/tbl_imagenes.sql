@@ -70,6 +70,17 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo,
 (13, 'assets/img/solutions-icon-sistemas.png', 'icono', 'Libertad', 'derecha', '', ''),
 (13, 'assets/img/equidad.png', 'Icono', 'Equidad', 'derecha', '', ''),
 (13, 'assets/img/responsabilidad.png', 'Icono', 'Responsabilidad', 'derecha', '', ''),
-(13, 'assets/img/compromiso.png', 'Icono', 'Compromiso', 'derecha', '', '');
+(13, 'assets/img/compromiso.png', 'Icono', 'Compromiso', 'derecha', '', ''),
+(14, 'assets/img/Banner_carti.png', 'Banner', '', '', '', ''),
+(14, 'assets/img/explorador.png', 'Imagen explorador', '', '', '', ''),
+(14, 'assets/img/solutions-icon-transformacion.png', 'Icono', 'Misión', 'abajo', '', ''),
+(14, 'assets/img/solutions-icon-capacitacion.png', 'Icono', 'Visión', 'abajo', '', ''),
+(14, 'assets/img/vision_naranja.png', 'Icono', 'Principios Institucionales', 'abajo', '', ''),
+(14, 'assets/img/compromiso.png', 'Icono', 'Compromiso', 'derecha', '', ''),
+(14, 'assets/img/honestidad.png', 'Icono', 'Ética', 'derecha', '', ''),
+(14, 'assets/img/solutions-icon-desarrollo.png', 'Icono', 'Libertad', 'derecha', '', ''),
+(14, 'assets/img/equidad.png', 'Icono', 'Equidad', 'derecha', '', ''),
+(14, 'assets/img/responsabilidad.png', 'Icono', 'Responsabilidad', 'derecha', '', ''),
+(14, 'assets/img/solutions-icon-sistemas.png', 'Icono', 'Pertinencia', 'derecha', '', '');
 
 
