@@ -74,7 +74,7 @@ INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamie
 ('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 19 AND visible = 1 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 17 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 19 ', '', '', '', ''),
-('SELECT * ', 'FROM tbl_eventos ', 'WHERE visible = 1 AND fecha_hora > NOW() ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_eventos ', 'WHERE estado = 1 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_archivos ', 'WHERE visible = 1 ', '', '', '', ''),
 
 ('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 21 AND visible = 1 ', '', '', '', ''),
