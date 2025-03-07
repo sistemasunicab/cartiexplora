@@ -9,7 +9,7 @@ while ($row_sentence_calendary = $res_sentence_calendary->fetch_assoc()) {
 
 $res_data_calendary = $mysqli1->query($sql_data_calendary);
 while ($row_data_calendary = $res_data_calendary->fetch_assoc()) {
-    $html_base = '<div class="p-0 col-9 m-auto my-10 d-flex flex-column">';
+    $html_base = '<div class="p-0 col-9 m-auto my-5 d-flex flex-column">';
     // Display the title inside an h2
     $html_base .= '<h2 class="tx-blue font-roboto-light-title">' . ($row_data_calendary['titulo']) . '</h2>';
     // Fetch the SVG image with sentence #49

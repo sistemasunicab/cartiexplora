@@ -29,7 +29,7 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 ('sobreNosotrosImagenesDos', 1,'sobreNosotros', '', '', ''),
 ('sobreNosotrosQuinesSomos', 1,'sobreNosotros', '', '', ''),
 ('directorioInstitucional', 1, '', 'DIRECTORIO INSTITUCIONAL','',''),
-('calendarioAcademico', 1, '', '<b>CALENDARIO ACADÉMICO</b>','',''),
+('calendarioAcademico', 1, '', '<b>CALENDARIO</b> ACADÉMICO','',''),
 ('calendarioProximoEvento', 1, '', 'Próximo evento','','Tiempo Restante'),
 ('comunicados', 1, '', 'COMUNICADOS','',''),
 

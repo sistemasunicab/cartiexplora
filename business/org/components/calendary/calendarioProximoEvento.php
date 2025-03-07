@@ -25,10 +25,10 @@ while ($row_data_visible = $res_data_visible->fetch_assoc()) {
     $res_data_events = $mysqli1->query($sql_data_events);
 
     // Main container
-    $html_next_event = '<div class="col-7 m-auto my-10 d-flex flex-column">';
+    $html_next_event = '<div class="col-7 m-auto my-5 d-flex flex-column">';
     $html_next_event .= '<div class="w-100 m-auto d-flex flex-column bg-bold-blue shadow">';
-    $html_next_event .= '<div class="d-flex flex-column m-auto pt-5 pb-5">';
-    $html_next_event .= '<h3 class="font-roboto-bold tx-white">' . $row_data_visible['titulo'] . '</h3>';
+    $html_next_event .= '<div class="col-10 d-flex flex-column m-auto pt-5 pb-5">';
+    $html_next_event .= '<h4 class="font-roboto-bold tx-white">' . $row_data_visible['titulo'] . '</h4>';
     $html_next_event .= '';
 
     // Loop through each upcoming event
@@ -39,16 +39,16 @@ while ($row_data_visible = $res_data_visible->fetch_assoc()) {
         $idEvento = $row_data_events['id'] ?? rand(1, 1000); // Unique ID fallback
 
         // Display event title
-        $html_next_event .= '<h2 class="font-roboto-bold tx-orange">' . $tituloEvento . '</h2>';
+        $html_next_event .= '<h3 class="font-roboto-bold tx-orange">' . $tituloEvento . '</h3>';
         $html_next_event .= '<p class="special-paragraph tx-white">' . $row_data_visible['texto'] . '</p>';
 
         // Create a container for the countdown with a unique ID
         $countdownID = 'countdown-' . $idEvento;
-        $html_next_event .= '<div id="' . $countdownID . '" class="d-flex gap-3 m-auto font-roboto-bold tx-color-bl my-2 fs-5">';
-        $html_next_event .= '<div class="calendary-event bg-white tx-orange d-flex border-radius-20"> <h2 class="m-0" id="calendary-day"></h2></div>';
-        $html_next_event .= '<div class="calendary-event bg-white tx-orange d-flex border-radius-20"> <h2 class="m-0" id="calendary-hour"></h2></div>';
-        $html_next_event .= '<div class="calendary-event bg-white tx-orange d-flex border-radius-20"> <h2 class="m-0" id="calendary-min"></h2></div>';
-        $html_next_event .= '<div class="calendary-event bg-white tx-orange d-flex border-radius-20"> <h2 class="m-0" id="calendary-sec"></h2></div>';
+        $html_next_event .= '<div id="' . $countdownID . '" class="d-flex gap-3 justify-content-center font-roboto-bold my-2 fs-5">';
+        $html_next_event .= '<div class="calendary-event col-2 bg-white tx-orange d-flex border-radius-20"> <h3 class="m-0" id="calendary-day"></h3></div>';
+        $html_next_event .= '<div class="calendary-event col-2 bg-white tx-orange d-flex border-radius-20"> <h3 class="m-0" id="calendary-hour"></h3></div>';
+        $html_next_event .= '<div class="calendary-event col-2 bg-white tx-orange d-flex border-radius-20"> <h3 class="m-0" id="calendary-min"></h3></div>';
+        $html_next_event .= '<div class="calendary-event col-2 bg-white tx-orange d-flex border-radius-20"> <h3 class="m-0" id="calendary-sec"></h3></div>';
         $html_next_event .= '</div>';
         $html_next_event .= '
             <script>
