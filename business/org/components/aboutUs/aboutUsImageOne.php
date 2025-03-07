@@ -9,7 +9,7 @@ while ($row_sentencia_nosotros = $res_sentencia_nosotros->fetch_assoc()) {
 $res_datos_nosotros = $mysqli1->query($sql_datos_nosotros);
 
 if (mysqli_num_rows($res_datos_nosotros) > 0) {
-    $html_nosotrosImgUno = '<div class="my-10 w-100 p-0 d-flex justify-content-center align-items-center">';
+    $html_nosotrosImgUno = '<div class="space-between-about w-100 p-0 d-flex justify-content-center align-items-center">';
     $html_nosotrosImgUno .= '<div class="d-flex w-100 justify-contetn-between align-items-center">';
 
     $numero_de_sentencia_nosotros = "40";

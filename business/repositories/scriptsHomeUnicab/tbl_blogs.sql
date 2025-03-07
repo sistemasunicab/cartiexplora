@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS tbl_blogs;
+
 CREATE TABLE tbl_blogs (
   id int(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   idAdministrador int(11) NOT NULL,
