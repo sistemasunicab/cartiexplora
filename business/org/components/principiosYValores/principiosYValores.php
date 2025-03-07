@@ -1,5 +1,13 @@
 <?php
 
+    function tratarTexto($texto){
+        $textoInsertarCienCaracteres = '<span class="show"> ...</span><span class="hide">';
+        $textoInsertarFinalCadena = '</span>';
+        $posicion = 450;
+        $nuevaCadena = substr_replace($texto, $textoInsertarCienCaracteres, $posicion, 0);
+        return $nuevaCadena . $textoInsertarFinalCadena;
+    }    
+
     function posicionTitulo($imgHTML, $titulo, $posicionTitulo)
     {
         $title = '';
@@ -108,10 +116,13 @@
         $html .=    '<div class="row my-5">';
         for ($i = 0; $i < $numeroCards; $i++) {
             $html .=        '<div class="col-lg-5 value my-5">';
-            $html .=             posicionTitulo('<img' . ImageAttributeBuilder::buildAttributes($nivel, $imagenes[$i]['ruta'], $imagenes[$i]['descripcion']) . ' class="img-fluid w-100">', $imagenes[$i]['titulo'], $imagenes[$i]['posicionTitulo']);
+            $html .=             posicionTitulo('<img' . ImageAttributeBuilder::buildAttributes($nivel, $imagenes[$i]['ruta'], $imagenes[$i]['descripcion']) . ' class="principios-icon">', $imagenes[$i]['titulo'], $imagenes[$i]['posicionTitulo']);
             $html .=             '<div class="row">';
-            $html .=                 '<div class="values-card">';
-            $html .=                     '<p class="special-paragraph text-lg-start">' . $textos[$i]['texto'] . '</p>';
+            $html .=                 '<div class="values-card col-lg-12" id="'.$imagenes[$i]['titulo']. '-'. $i .'">';
+            $html .=                     '<p class="special-paragraph text-lg-start">' . tratarTexto($textos[$i]['texto']) . '</p>';
+            $html .=                     '<div class="d-flex justify-content-end">';
+            $html .=                         '<a class="special-paragraph bg-orange tx-white p-3 rounded principios-button" onclick="leerMasPrincipios(\''.$imagenes[$i]['titulo']. '-'. $i .'\')">Leer más</a>';
+            $html .=                     '</div>';
             $html .=                 '</div>';
             $html .=             '</div>';
             $html .=         '</div>';

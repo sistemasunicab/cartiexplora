@@ -1077,6 +1077,11 @@ input[type="checkbox"] {
     --shadow-2: 9px 9px 12px -3px rgba(0,0,0,0.45);
 }
 
+.principios-icon {
+    width: auto;
+    height: 5rem;
+}
+
 .value{
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -1096,8 +1101,15 @@ input[type="checkbox"] {
     position: absolute;
     left: 5%;
     bottom: 4%;
-    width: 85%; 
+    width: 58%; 
     height: 2px;
     background-color: var(--orange);
 }
 
+.hide {
+    display: none;
+}
+
+.show {
+    display: inline;
+}
