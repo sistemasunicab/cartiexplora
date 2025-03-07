@@ -72,8 +72,7 @@
         $html .= '<main class="container">';
         $html .=    '<div class="row my-5">';
         $html .=        '<div class="col-lg-12">';
-        $html .=            '<p>Falta banner seccion</p>';
-        $html .=            '<img src="" alt="Imagen?">';
+        $html .=            '<img src="" alt="Imagen banner">';
         $html .=        '</div>';
         $html .=    '</div>';
         $html .=    '<div class="row my-5">';
