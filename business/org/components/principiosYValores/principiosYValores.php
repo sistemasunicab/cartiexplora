@@ -67,14 +67,37 @@
     }
     $res_seccion = $mysqli1->query($sql_seccion);
 
+    //Obtener Imagenes
+    $res_sentecia = $mysqli1->query($sentencia . "31");
+    while ($row_sentencia = $res_sentecia->fetch_assoc()) {
+        $sql_imagenes = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
+    }
+
+    $res1 = $mysqli1->query($sql_imagenes);
+    while ($row = $res1->fetch_assoc()) {
+        $imagenes[] = $row;
+    }
+
+    //Obtener textos
+    $res_sentecia = $mysqli1->query($sentencia . "37");
+    while ($row_sentencia = $res_sentecia->fetch_assoc()) {
+        $sql_textos = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
+    }
+    $res2 = $mysqli1->query($sql_textos);
+
+    while ($row = $res2->fetch_assoc()) {
+        $textos[] = $row;
+    }
+
     $html = '';
     while ($row_sentencia = $res_seccion->fetch_assoc()) {
+        $imagenBanner = array_shift($imagenes);
+        $html .= '<div class="row my-5">';
+        $html .=     '<div class="col-lg-12">';
+        $html .=         '<img '. ImageAttributeBuilder::buildAttributes($nivel, $imagenBanner['ruta'], $imagenBanner['descripcion']) .'" class="img-fluid w-100">';
+        $html .=     '</div>';
+        $html .= '</div>';
         $html .= '<main class="container">';
-        $html .=    '<div class="row my-5">';
-        $html .=        '<div class="col-lg-12">';
-        $html .=            '<img src="" alt="Imagen banner">';
-        $html .=        '</div>';
-        $html .=    '</div>';
         $html .=    '<div class="row my-5">';
         $html .=        '<div class="col-lg-12">';
         $html .=            '<h2 class="tx-blue font-roboto-light-title tx-uppercase">' . $row_sentencia['titulo'] . '</h2>';
@@ -87,30 +110,8 @@
         $html .=    '</div>';
         $html .= '</main>';
 
-        //Obtener Imagenes
-        $res_sentecia = $mysqli1->query($sentencia . "31");
-        while ($row_sentencia = $res_sentecia->fetch_assoc()) {
-            $sql_imagenes = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
-        }
-
-        $res1 = $mysqli1->query($sql_imagenes);
-        while ($row = $res1->fetch_assoc()) {
-            $imagenes[] = $row;
-        }
-
-        //Obtener textos
-        $res_sentecia = $mysqli1->query($sentencia . "37");
-        while ($row_sentencia = $res_sentecia->fetch_assoc()) {
-            $sql_textos = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
-        }
-        $res2 = $mysqli1->query($sql_textos);
-
-        while ($row = $res2->fetch_assoc()) {
-            $textos[] = $row;
-        }
-
+    
         $numeroCards = sizeof($imagenes);
-
         $html .= '<section class="container my-5">';
         $html .=    '<div class="row my-5">';
         for ($i = 0; $i < $numeroCards; $i++) {
@@ -120,7 +121,7 @@
             $html .=                 '<div class="values-card col-lg-12" id="'.$imagenes[$i]['titulo']. '-'. $i .'">';
             $html .=                     '<p class="special-paragraph text-lg-start">' . tratarTexto($textos[$i]['texto']) . '</p>';
             $html .=                     '<div class="d-flex justify-content-end">';
-            $html .=                         '<a class="special-paragraph bg-orange tx-white p-3 rounded principios-button" onclick="leerMasPrincipios(\''.$imagenes[$i]['titulo']. '-'. $i .'\')">Leer más</a>';
+            $html .=                         '<a class="special-paragraph bg-orange tx-white p-3 rounded principios-button" role="button" onclick="leerMasPrincipios(\''.$imagenes[$i]['titulo']. '-'. $i .'\', this)">Leer más</a>';
             $html .=                     '</div>';
             $html .=                 '</div>';
             $html .=             '</div>';
