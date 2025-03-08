@@ -99,7 +99,7 @@ while ($row_data_visible = $res_data_visible->fetch_assoc()) {
 }
 ?>
 
-<div class="container-fluid m-0 p-0">
+<div id="comunicados" class="container-fluid m-0 p-0">
     <div class="row m-0 p-0">
         <?php
         echo $html_communication;

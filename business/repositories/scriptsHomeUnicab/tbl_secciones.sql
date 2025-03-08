@@ -28,7 +28,7 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 ('sobreNosotrosEducacionFormal', 1,'sobreNosotros', '<b>Colegio</b><br> UNICAB Virtual', '(Educación Formal)', ''),
 ('sobreNosotrosImagenesDos', 1,'sobreNosotros', '', '', ''),
 ('sobreNosotrosQuinesSomos', 1,'sobreNosotros', '', '', ''),
-('directorioInstitucional', 1, '', 'DIRECTORIO INSTITUCIONAL','',''),
+('directorioInstitucional', 1, '', '<b>DIRECTORIO</b> INSTITUCIONAL','',''),
 ('calendarioAcademico', 1, '', '<b>CALENDARIO</b> ACADÉMICO','',''),
 ('calendarioProximoEvento', 1, '', 'Próximo evento','','Tiempo Restante'),
 ('comunicados', 1, '', 'COMUNICADOS','',''),

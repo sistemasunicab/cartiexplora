@@ -1,45 +1,109 @@
 <?php
-$numero_de_sentencia_nosotros = "45";//36
-$res_sentencia_nosotros = $mysqli1->query($sentencia . $numero_de_sentencia_nosotros);
-while ($row_sentencia_nosotros = $res_sentencia_nosotros->fetch_assoc()) {
-    $condiciones_nosotros = str_replace('|', '\'', $row_sentencia_nosotros['condiciones']);
-    $sql_datos_nosotros = $row_sentencia_nosotros['campos'] . $row_sentencia_nosotros['tablas'] . $condiciones_nosotros;
+$numero_de_directorio = "78";
+$res_directorio = $mysqli1->query($sentencia . $numero_de_directorio);
+while ($row_directorio = $res_directorio->fetch_assoc()) {
+    $condiciones_directorio = str_replace('|', '\'', $row_directorio['condiciones']);
+    $sql_datos_directorio = $row_directorio['campos'] . $row_directorio['tablas'] . $condiciones_directorio;
 }
 
-$res_datos_nosotros = $mysqli1->query($sql_datos_nosotros);
+$res_datos_directorio = $mysqli1->query($sql_datos_directorio);
 
-if (mysqli_num_rows($res_datos_nosotros) > 0) {
-    $html_nosotrosImgUno = '<div class="nosotrosImagenesUno">';
-    $html_nosotrosImgUno .= '<div class="container-nosotrosImgUno">';
+while ($row_datos_directorio = $res_datos_directorio->fetch_assoc()) {
+    $html_directorio = '<div class="col-9 my-5 p-0 mx-auto d-flex flex-column">';
+    $html_directorio .= '<div class="col-11 my-5 p-0 mx-auto d-flex flex-column">';
+    $html_directorio .= '<h3 class="tx-blue mb-5 font-roboto-light-title">' . $row_datos_directorio['titulo'] . '</h3>';
+    $html_directorio .= '<h4 class="tx-orange font-roboto-light m-auto text-center mb-4">Escríbenos o Llámanos</h4>';
 
-    $numero_de_sentencia_nosotros = "40";//31
-    $res_sentencia_nosotros = $mysqli1->query($sentencia . $numero_de_sentencia_nosotros);
-    while ($row_sentencia_nosotros = $res_sentencia_nosotros->fetch_assoc()) {
-        $condiciones_nosotros = str_replace('|', '\'', $row_sentencia_nosotros['condiciones']);
-        $sql_datos_nosotros = $row_sentencia_nosotros['campos'] . $row_sentencia_nosotros['tablas'] . $condiciones_nosotros;
+    $number_sentence_image = "79";
+    $res_sentence_image = $mysqli1->query($sentencia . $number_sentence_image);
+
+    while ($row_sentence_image = $res_sentence_image->fetch_assoc()) {
+        $conditions_image = str_replace('|', '\'', $row_sentence_image['condiciones']);
+        $sql_data_image = $row_sentence_image['campos'] . $row_sentence_image['tablas'] . $conditions_image;
     }
 
-    $res_datos_nosotros = $mysqli1->query($sql_datos_nosotros);
+    $res_data_image = $mysqli1->query($sql_data_image);
 
-    while ($row_datos_nosotros = $res_datos_nosotros->fetch_assoc()) {
-        $path = $row_datos_nosotros['ruta'];
-        $altern = $row_datos_nosotros['textoAlterno'];
-        $path_image = '';
+    while ($row_data_image = $res_data_image->fetch_assoc()) {
+        $ruta = htmlspecialchars($row_data_image['ruta']);
+        $alt = htmlspecialchars($row_data_image['textoAlterno'] ?? 'Imagen'); // Default alt text
+
+        // Determine the correct path based on the $nivel variable
+        $image_path = '';
         if ($nivel == "raiz") {
-            $path_image = $path;
+            $image_path = $ruta;
         } else if ($nivel == "uno") {
-            $path_image = '../' . $path;
+            $image_path = '../' . $ruta;
         } else if ($nivel == "dos") {
-            $path_image = '../../' . $path;
+            $image_path = '../../' . $ruta;
         } else if ($nivel == "tres") {
-            $path_image = '../../../' . $path;
+            $image_path = '../../../' . $ruta;
         }
-        $html_nosotrosImgUno .= '<img src="' . $path_image . '" alt="' . $altern . '">';
+    }
+    $html_directorio .= '<div class="position-relative d-inline-block col-8 mx-auto">';
+    $html_directorio .= '<input type="text" class="form-control pe-5 border-bold-blue border-2 font-roboto-bold" style="height:80px;" placeholder="Buscar por nombre">';
+    $html_directorio .= '<img src="' . $image_path . '" class="position-absolute end-0 top-50 translate-middle-y me-4" alt="Buscar" width="40px">';
+    $html_directorio .= '</div>';
+    $html_directorio .= '</div>';
+    
+    $number_sentence_table = "80";
+    $res_sentence_table = $mysqli1->query($sentencia . $number_sentence_table);
+
+    $icons = [];
+
+    while ($row_sentence_table = $res_sentence_table->fetch_assoc()) {
+        $conditions_table = str_replace('|', '\'', $row_sentence_table['condiciones']);
+        $sql_data_table = $row_sentence_table['campos'] . $row_sentence_table['tablas'] . $conditions_table;
     }
 
-    $html_nosotrosImgUno .= '</div>';
-    $html_nosotrosImgUno .= '</div>';
+    // Ejecutamos la consulta para obtener las imágenes de los encabezados
+    $res_icons = $mysqli1->query($sql_data_table);
 
-    echo $html_nosotrosImgUno;
+    while ($row_icon = $res_icons->fetch_assoc()) {
+        // Determinar la ruta correcta de la imagen según el nivel
+        $ruta = htmlspecialchars($row_icon['ruta']);
+        $titulo = htmlspecialchars($row_icon['titulo']); // Nombre del encabezado
+
+        if ($nivel == "raiz") {
+            $image_path = $ruta;
+        } else if ($nivel == "uno") {
+            $image_path = '../' . $ruta;
+        } else if ($nivel == "dos") {
+            $image_path = '../../' . $ruta;
+        } else if ($nivel == "tres") {
+            $image_path = '../../../' . $ruta;
+        }
+
+        // Guardamos la información en un array asociativo
+        $icons[] = ['path' => $image_path, 'title' => $titulo];
+    }
+
+    // Construcción de la tabla con los encabezados dinámicos
+    $html_directorio .= '<table class="table table-bordered text-center">';
+    $html_directorio .= '<thead class="bg-bold-blue text-white">';
+    $html_directorio .= '<tr>';
+
+    // Generar los encabezados dinámicamente con los íconos obtenidos
+    foreach ($icons as $icon) {
+        $html_directorio .= '<th><img src="' . $icon['path'] . '" width="30px"> ' . $icon['title'] . '</th>';
+    }
+    $html_directorio .= '</tr>';
+    $html_directorio .= '</thead>';
+    $html_directorio .= '<tbody>';
+    $html_directorio .= '</tbody>'; // Dejamos el cuerpo vacío por ahora
+    $html_directorio .= '</table>';
+
+
+    
+    $html_directorio .= '</div>';
+
 }
 ?>
+
+<div class="container-fluid m-0 p-0">
+    <div class="row m-0 p-0">
+        <?php
+        echo $html_directorio;
+        ?>
+    </div>
+</div>
