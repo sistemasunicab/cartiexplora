@@ -1045,3 +1045,93 @@ input[type="checkbox"] {
     height: 8rem;
     width: auto;
 }
+
+/** busqueda Blog **/
+
+.blogsearch-main {
+    padding: 6rem 0;
+}
+
+.blogsearch-link {
+    font-family: var(--roboto-medium);
+
+    border-radius: 1rem;
+    text-align: center;
+    
+    padding: 1rem;
+    color: #FFF;
+
+    font-size: 1.5rem;
+    transition: color .4s ease;
+}
+
+.blogsearch-link:hover {
+    color: var(--bold-blue);
+}   
+
+.blogsearch-bar {
+    border-radius: 10rem;
+    padding: 1.5rem;
+
+    border: none;
+    line-height: 0;
+
+    font-size: 1.5rem;
+    width: 100%;
+}
+
+.blogsearch-bar::placeholder {
+    color: #000;
+}
+
+.blogsearch-bar:focus {
+    outline: none;
+}
+
+/*UTILIDADES A AÑADIR */
+
+.transform-hover {
+    transition: transform 0.3s ease;
+}
+
+.transform-hover:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+.box-shadow-o5rem {
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.5);
+}
+
+/** REMPLAZAR ESTAS CLASES EN HOME HASTA .blog-newsletter-box **/
+/* BLOG INICIO */
+
+.blog-blockImg {
+    display: block;
+    width: 135%;
+    height: 12rem;
+    margin-bottom: -2rem;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+}
+
+.blog-blocksize {
+    min-height: 20.875rem;
+    min-width: 14.625rem;
+}
+
+/* BLOG FIN */
+
+/** Pagina Blog **/
+
+.blog-page-btnicon {
+    height: 3.5rem;
+    width: auto;
+
+    margin: 0 1rem;
+}
+
+.blog-redes-icon {
+    height: 2.6rem;
+    width: auto;
+}

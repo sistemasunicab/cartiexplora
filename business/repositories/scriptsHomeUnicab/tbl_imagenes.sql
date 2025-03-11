@@ -57,3 +57,15 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo,
 (10, 'assets/img/instagram.png', 'instagram', '', '', '', ''),
 (10, 'assets/img/youtube.png', 'youtube', '', '', '', '');
 
+INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo, rutaEncima, textoAlterno) VALUES (15, 'assets/img/conectados.png', '', '', 'abajo', '', '');
+
+INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo, rutaEncima, textoAlterno) VALUES 
+(17, 'assets/img/enviar.png', '', 'Suscribir', 'izquierda', '', ''), 
+(17, 'assets/img/love.png', '', '', '', '', ''), 
+(17, 'assets/img/chatIcon.png', '', '', '', '', ''), 
+(17, 'assets/img/shareIcon.png', '', 'Compartir en', 'izquierda', '', ''), 
+(17, 'assets/img/facebookOrangeBg.png', '', '', '', '', ''), 
+(17, 'assets/img/instagramOrangeBg.png', '', '', '', '', ''), 
+(17, 'assets/img/linkedInOrangeBg.png', '', '', '', '', ''), 
+(17, 'assets/img/whatsappOrangeBg.png', '', '', '', '', '');
+
