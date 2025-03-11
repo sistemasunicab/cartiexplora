@@ -1,5 +1,5 @@
 <?php
-$number_sentence_calendary = "55";
+$number_sentence_calendary = "56";
 $res_sentence_calendary = $mysqli1->query($sentencia . $number_sentence_calendary);
 
 while ($row_sentence_calendary = $res_sentence_calendary->fetch_assoc()) {
@@ -13,7 +13,7 @@ while ($row_data_calendary = $res_data_calendary->fetch_assoc()) {
     // Display the title inside an h2
     $html_base .= '<h2 class="tx-blue font-roboto-light-title">' . ($row_data_calendary['titulo']) . '</h2>';
     // Fetch the SVG image with sentence #49
-    $number_sentence_image = "58";
+    $number_sentence_image = "62";
     $res_sentence_image = $mysqli1->query($sentencia . $number_sentence_image);
 
     while ($row_sentence_image = $res_sentence_image->fetch_assoc()) {

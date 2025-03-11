@@ -1,5 +1,5 @@
 <?php
-$numero_de_certificaciones = "74";
+$numero_de_certificaciones = "79";//74
 $res_certificaciones = $mysqli1->query($sentencia . $numero_de_certificaciones);
 while ($row_certificaciones = $res_certificaciones->fetch_assoc()) {
     $condiciones_certificaciones = str_replace('|', '\'', $row_certificaciones['condiciones']);
@@ -66,7 +66,7 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
     $html_certificaciones .= '</button>';
     $html_certificaciones .= '<ul class="dropdown-menu w-100">';
 
-    $numero_opciones_dropdown = "76";
+    $numero_opciones_dropdown = "81";//76
     $res_opciones_dropdown = $mysqli1->query($sentencia . $numero_opciones_dropdown);
 
     while ($row_opciones = $res_opciones_dropdown->fetch_assoc()) {
@@ -99,7 +99,7 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
     $html_certificaciones .= '</button>';
     $html_certificaciones .= '<ul class="dropdown-menu w-100">';
 
-    $numero_opciones_dropdown = "77";
+    $numero_opciones_dropdown = "82";//77
     $res_opciones_dropdown = $mysqli1->query($sentencia . $numero_opciones_dropdown);
 
     while ($row_opciones = $res_opciones_dropdown->fetch_assoc()) {
@@ -122,7 +122,7 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
     $html_certificaciones .= '</div>';
 
 
-    $number_sentence_image = "75";
+    $number_sentence_image = "80";//75
     $res_sentence_image = $mysqli1->query($sentencia . $number_sentence_image);
 
     while ($row_sentence_image = $res_sentence_image->fetch_assoc()) {

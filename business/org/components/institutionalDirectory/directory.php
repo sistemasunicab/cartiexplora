@@ -1,5 +1,5 @@
 <?php
-$numero_de_directorio = "78";
+$numero_de_directorio = "55";//78
 $res_directorio = $mysqli1->query($sentencia . $numero_de_directorio);
 while ($row_directorio = $res_directorio->fetch_assoc()) {
     $condiciones_directorio = str_replace('|', '\'', $row_directorio['condiciones']);
@@ -14,7 +14,7 @@ while ($row_datos_directorio = $res_datos_directorio->fetch_assoc()) {
     $html_directorio .= '<h3 class="tx-blue mb-5 font-roboto-light-title">' . $row_datos_directorio['titulo'] . '</h3>';
     $html_directorio .= '<h4 class="tx-orange font-roboto-light m-auto text-center mb-4">Escríbenos o Llámanos</h4>';
 
-    $number_sentence_image = "79";
+    $number_sentence_image = "60";//79
     $res_sentence_image = $mysqli1->query($sentencia . $number_sentence_image);
 
     while ($row_sentence_image = $res_sentence_image->fetch_assoc()) {
@@ -46,7 +46,7 @@ while ($row_datos_directorio = $res_datos_directorio->fetch_assoc()) {
     $html_directorio .= '</div>';
     $html_directorio .= '</div>';
     
-    $number_sentence_table = "80";
+    $number_sentence_table = "61";//80
     $res_sentence_table = $mysqli1->query($sentencia . $number_sentence_table);
 
     $icons = [];

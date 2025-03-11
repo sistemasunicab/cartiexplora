@@ -9,7 +9,7 @@
         require('../../../business/repositories/1cc2s4Home.php');
     }
 
-    $res_sentecia = $mysqli1->query($sentencia . "63");
+    $res_sentecia = $mysqli1->query($sentencia . "68");
     while ($row_sentencia = $res_sentecia->fetch_assoc()) {
         $sql_seccion_dos = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
     }
@@ -20,7 +20,7 @@
         $html .= '<section class="margin-top-5rem historia-info-main">';
     }
 
-    $res_sentencia = $mysqli1->query($sentencia."68");
+    $res_sentencia = $mysqli1->query($sentencia."73");
     while($row_sentencia = $res_sentencia->fetch_assoc()){
          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
     }  
@@ -30,7 +30,7 @@
         $imagenesArriba[] = $row_datos['ruta'];
     }
 
-    $res_sentencia = $mysqli1->query($sentencia."69");
+    $res_sentencia = $mysqli1->query($sentencia."74");
     while($row_sentencia = $res_sentencia->fetch_assoc()){
          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']).$row_sentencia['ordenamientos'];
     }  
