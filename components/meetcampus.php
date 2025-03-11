@@ -18,11 +18,13 @@
      while ($row_datos = $res_datos->fetch_assoc()) {
           // Renderizando la seccion
           $html .= '
-          <section>
-          <div class="container margin-top-5rem">
-          <h2 class="campus-title lh-1 text-blue">'.$row_datos['titulo'].'</h2>
-          <h2 class="campus-subtitle lh-1 text-blue">'.$row_datos['subTitulo'].'</h2>
-          <p class="campus-p">'.$row_datos['texto'].'</p>
+          <section class="container margin-top-5rem">
+               <div class="row">
+                    <div class="col-lg-12">
+                         <h2 class="lh-1 tx-blue mb-5 p-0 font-roboto-light-title"> <b>'.$row_datos['titulo'].'</b> <br> '.$row_datos['subTitulo'].' </h2>
+                         <p class="mb-5 special-paragraph p-0">'.$row_datos['texto'].'</p>
+                    </div>
+               </div>
           ';
      }
 
@@ -40,20 +42,24 @@
      // Verificando la visibilidad de la seccion
      if ($html != '') {
           $html .= '
-          <div class="row gap-5 justify-content-center">
+          <div class="row justify-content-between row-gap-3">
           ';
 
           // Renderizando las imagenes del campus
           foreach ($campusImgs as $img) {
-               $html .= '<img src="'.$img.'" alt="" class="col-2 campus-img p-0">';
+               $html .= '
+               <div class="col-lg-3">
+                    <img src="'.$img.'" alt="" class="campus-img img-fluid w-100">
+               </div>
+               ';
           }
 
           $html .= '
-          </div>   
-          </div>
+               </div>
           </section>
           ';
      }  
      
      echo $html;
 ?>
+

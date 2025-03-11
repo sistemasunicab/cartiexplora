@@ -5,7 +5,7 @@
             return
                 '<a href="'.$enlace.'" class="img-container d-flex flex-column align-items-center gap-4 p-0 my-3">' . "\n" .
                      $imgHTML . "\n" .
-                     '<p>' . $titulo . '</p>' . "\n" .
+                     '<p class="text-center">' . $titulo . '</p>' . "\n" .
                 '</a>' . "\n";
         } else if (strtolower($posicionTitulo) == 'derecha') {
             return
@@ -23,7 +23,7 @@
             return
                 '<a href="'.$enlace.'" class="img-container d-flex flex-column-reverse align-items-center gap-2 p-0 my-3">' . "\n" .
                     $imgHTML . "\n" .
-                    '<p>' . $titulo . '</p>' . "\n" .
+                    '<p class="text-center">' . $titulo . '</p>' . "\n" .
                 '</a>' . "\n";
         }
         return '';
@@ -49,22 +49,24 @@
 
     while ($row_datos_seccion = $res_seccion_habilidades->fetch_assoc()) {
         // Obtiene el titulo de la sección y lo renderiza
-        $html .= 
-        '<section class="container">' . 
-            '<div class="row mt-10 mx-0">' .
-                '<h2 class="col text-center titulo-1 px-0">' . "\n" . $row_datos_seccion['titulo'] . '</h2>' . "\n";
-
+        $html .= '<section class="container mt-100">';
+        $html .=    '<div class="row my-5">';
+        $html .=        '<div class="col-lg-12">';
+        $html .=            '<h2 class="text-center font-roboto-black tx-blue">' . "\n" . $row_datos_seccion['titulo'] . '</h2>' . "\n";
+        $html .=        '</div>';
+        
         //Obtener subtitulo
         $subtitulo = explode(" ", $row_datos_seccion['subTitulo']);
-        $html .= 
-                '<h3 class="text-center titulo-2">' . '<span class="fw-bold">' . $subtitulo[0] . '</span> ' . $subtitulo[1] . '</h3>' . "\n";
-        //texto de esta sección 
-        $html .= 
-                '<p class="text-center texto-base">' . $row_datos_seccion['texto'] . '</p>' . "\n" .
-            '</div>' . "\n";
-    }
+        $html .=        '<div class="col-lg-12">';
+        $html .=            '<h1 class="text-center font-roboto-light">' . '<span class="font-roboto-black">' . $subtitulo[0] . '</span> ' . $subtitulo[1] . '</h1>' . "\n";
+        $html .=        '</div>';
 
-    if ($html !== '') {
+        //texto de esta sección 
+        $html .=        '<div class="col-lg-12">';
+        $html .=            '<p class="text-center font-roboto">' . $row_datos_seccion['texto'] . '</p>';
+        $html .=        '</div>';
+        $html .=    '</div>';
+
         $res_sentecia = $mysqli1->query($sentencia . "18");
 
         while ($row_sentencia = $res_sentecia->fetch_assoc()) {
@@ -72,18 +74,19 @@
         }
 
         $res_imagenes = $mysqli1->query($sql_imagenes);
-        $html .= 
-            '<div class="row px-5 mt-10 contenedor-imagenes-habilidades">' . "\n";
+
+        $html .=    '<div class="row">';
 
         while ($row_imagenes = $res_imagenes->fetch_assoc()) {
-            $html .= '<div class="col-md-2 line">';
+            $html .=    '<div class="col-md-2 line">';
             $attributes = ImageAttributeBuilder::buildAttributes($nivel, $row_imagenes['ruta'], $row_imagenes['descripcion'], $row_imagenes['rutaEncima']);
             $html .= posicionTituloImagen('<img class="habilidades-img" ' . $attributes . '>', $row_imagenes['titulo'], $row_imagenes['posicionTitulo'], $row_imagenes['enlace']);
-            $html .= '</div>'; 
+            $html .=    '</div>'; 
         }
 
         $html .= 
             '</div>' . "\n".
         '</section>' . "\n";
+
     }
     echo $html;

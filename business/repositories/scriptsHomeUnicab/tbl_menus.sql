@@ -1,4 +1,4 @@
-DROP TABLE tbl_menus;
+DROP TABLE IF EXISTS tbl_menus;
 
 CREATE TABLE tbl_menus (
   id int(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -25,7 +25,7 @@ INSERT INTO tbl_menus (menu, nivel, padre, icono, linkNivelRaiz, linkNivelTres, 
 ('Nuestra Historia', 'raiz', '1', '', 'business/org/pages/historia.php', 'historia.php',''),
 ('Principios que Nos Guían', 'raiz', '1', '', 'business/org/pages/principios.php', 'principios.php',''),
 ('Red de Grupos UNICAB', 'raiz', '1', '', 'business/org/pages/historia.php/#grupos', 'historia.php/#grupos',''),
-('Modelo Pedagógico', 'raiz', '1', '', 'business/org/pages/modeloPedagogico.php', 'modeloPedagogico.php',''),
+('Modelo Pedagógico', 'raiz', '1', '', 'business/org/pages/modelo.php', 'modelo.php',''),
 ('Oferta Educativa', 'raiz', '1', '', '#ofertaAcademica', '#ofertaAcademica',''),
 ('Directorio de Contactos', 'raiz', '1', '', 'business/org/pages/directorio.php', 'directorio.php',''),
 ('Horarios de Atención', 'raiz', '1', '', 'business/org/pages/directorio.php/#horarios', 'directorio.php/#horarios',''),

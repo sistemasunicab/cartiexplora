@@ -1,4 +1,4 @@
-DROP TABLE tbl_formularios;
+DROP TABLE IF EXISTS tbl_formularios;
 
 CREATE TABLE tbl_formularios (
   id int(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,

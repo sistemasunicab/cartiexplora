@@ -16,14 +16,14 @@
 
      function generarBlog($datos) {
           $bloque = '
-          <div class="col-3 blog-blockContainer" '.construirAtributosBlog($datos['rutaImagen'], $datos['rutaImagenEncima']).' > <!-- Block start -->
+          <div class="col-lg-3 blog-blockContainer" '.construirAtributosBlog($datos['rutaImagen'], $datos['rutaImagenEncima']).' > <!-- Block start -->
                <img src="'.$datos['rutaImagen'].'" class="blog-blockImg">
                
                <div class="blog-block">
-                    <p class="blog-blockDate lh-1">'.$datos['fechaPublicacion'].'</p>
-                    <p class="blog-blockTitle lh-1">'.$datos['tituloBlog'].'</p>
+                    <p class="special-paragraph lh-1">'.$datos['fechaPublicacion'].'</p>
+                    <p class="font-roboto-bolditalic lh-1">'.$datos['tituloBlog'].'</p>
 
-                    <p class="blog-blockDescription lh-1">'.substr($datos['descripcion'], 0, 100).'</p>
+                    <p class="lh-1 special-paragraph">'.substr($datos['descripcion'], 0, 100).'</p>
                     <a href="#" class="blog-blockReadMore lh-1">'.$datos['textoBoton'].'</a>
                </div>
           </div> <!-- Block End -->';
@@ -51,7 +51,7 @@
 
           // Renderizando la seccion
           $html .= '
-          <section>
+          <section class="container margin-top-5rem mb-5">
           ';
      }
 
@@ -102,12 +102,21 @@
           $direction = FlexTitleLoader::setDirection($datosImagenes[1][2]);
 
           $html .= '
-               <div class="container margin-top-5rem margin-bottom-5rem">
-                    <hr class="blog-separator">
-                    <img src="'.$datosImagenes[0][0].'" alt="" class="blog-titleimg">
-                    <h2 class="text-center blog-title">'.$titulo.'</h2>    
+               <div class="row">
+                    <div class="col-lg-12">
+                         <hr class="blog-separator">
+                    </div>
 
-                    <div class="row gap-8_5rem justify-content-center margin-bottom-2rem margin-top-2rem">
+                    <div class="col-lg-12">
+                         <img src="'.$datosImagenes[0][0].'" alt="" class="blog-titleimg">
+                    </div>
+
+                    <div class="col-lg-12">
+                         <h2 class="text-center font-roboto-black">'.$titulo.'</h2>    
+                    </div>
+               </div>
+               
+               <div class="row justify-content-around my-4 row-gap-1rem">
           ';
                   
           foreach($blogs as $datosBlog) {
@@ -115,18 +124,22 @@
           } 
 
           $html .= '
-                    </div>
+               </div>
 
-                    <p class="blog-newsletter-advice">'.$parametros[0]['t1'].'</p>
-                    <div class="blog-newsletter-box">
-                         <div class="blog-newsletter-container">
-                              <input type="email" placeholder="Ingresa tu correo" class="input-form-item"></input>
-                              <button class="blog-btn">
-                                   <div class="blog-subscribe '.$direction.'">
-                                        <img src="'.$datosImagenes[1][0].'" alt="" class="">
-                                        <p>'.$datosImagenes[1][1].'</p>
-                                   </div>
-                              </button>
+               <div class="row">
+                    <div class="col-lg-12">
+                         <p class="blog-newsletter-advice special-paragraph font-roboto-lightitalic">'.$parametros[0]['t1'].'</p>
+     
+                         <div class="blog-newsletter-box">
+                              <div class="blog-newsletter-container">
+                                   <input type="email" placeholder="Ingresa tu correo" class="input-form-item"></input>
+                                   <a href="#" class="blog-btn">
+                                        <div class="blog-subscribe '.$direction.'">
+                                             <img src="'.$datosImagenes[1][0].'" alt="" class="special-paragraph">
+                                             <p class="font-roboto-mediumitalic special-paragraph">'.$datosImagenes[1][1].'</p>
+                                        </div>
+                                   </a>
+                              </div>
                          </div>
                     </div>
                </div>

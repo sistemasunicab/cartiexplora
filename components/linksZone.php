@@ -5,9 +5,9 @@
      function crearLink($datos){
           $direccion = FlexTitleLoader::setDirection($datos[2]);
           $link = '   
-                    <div class="col-3 linksZone-linkGlobal '.$direccion.'"> <!-- Link -->
+                    <div class="col-lg-4 linksZone-linkGlobal '.$direccion.'"> <!-- Link -->
                          <img src="'.$datos[0].'" alt="" class="linksZone-img">
-                         <a href="#" class="linksZone-a">'.$datos[1].'</a>
+                         <a href="#" class="font-roboto-bolditalic m-0 linksZone-a special-paragraph">'.$datos[1].'</a>
                     </div> <!-- Link End -->
           ';
 
@@ -32,10 +32,14 @@
 
           // Renderizando la seccion
           $html .= '
-          <section>
-               <div class="container margin-top-5rem">
-                    <h2 class="linksZone-title text-center text-blue">'.$row_datos['titulo'].'</h2>
-                         <div class="row gap-column-1rem justify-content-center">
+          <section class="container margin-top-5rem">
+               <div class="row">
+                    <div class="col-lg-12">
+                         <h2 class="font-roboto-black text-center tx-blue mb-4">'.$row_datos['titulo'].'</h2>
+                    </div>
+               </div>
+
+               <div class="row justify-content-center row-gap-1rem">
           ';
      }    
 

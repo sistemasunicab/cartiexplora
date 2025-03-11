@@ -7,6 +7,7 @@
 <html lang="en">
 <?php 
     $nivel = "raiz";
+    $page_title = "Home UNICAB";
     include('components/headMain.php');
 ?>
 <body>

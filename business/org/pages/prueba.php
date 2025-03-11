@@ -6,6 +6,7 @@
 <html lang="en">
 <?php
     $nivel = "tres";
+    $page_title = "Prueba";
     include('../../../components/headMain.php');
 ?>
 <body>
