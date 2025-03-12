@@ -17,9 +17,34 @@ while ($row_datos_estados_financieros = $res_datos_estados_financieros->fetch_as
     $html_estados_financieros .= '<div class="form-financial col-12 p-0 mx-auto d-flex flex-column">';
     $html_estados_financieros .= '<input type="text" class="text-center font-roboto-bolditalic col-6 mx-auto my-2" placeholder="Usuario email">';
     $html_estados_financieros .= '<input type="password" class="text-center font-roboto-bolditalic col-6 mx-auto my-2" placeholder="Password">';
+    $number_sentence_image = "76";
+    $res_sentence_image = $mysqli1->query($sentencia . $number_sentence_image);
+
+    while ($row_sentence_image = $res_sentence_image->fetch_assoc()) {
+        $conditions_image = str_replace('|', '\'', $row_sentence_image['condiciones']);
+        $sql_data_image = $row_sentence_image['campos'] . $row_sentence_image['tablas'] . $conditions_image;
+    }
+
+    $res_data_image = $mysqli1->query($sql_data_image);
+
+    while ($row_data_image = $res_data_image->fetch_assoc()) {
+        $ruta = htmlspecialchars($row_data_image['ruta']);
+        $alt = htmlspecialchars($row_data_image['textoAlterno'] ?? 'Imagen'); 
+        // Determine the correct path based on the $nivel variable
+        $image_path = '';
+        if ($nivel == "raiz") {
+            $image_path = $ruta;
+        } else if ($nivel == "uno") {
+            $image_path = '../' . $ruta;
+        } else if ($nivel == "dos") {
+            $image_path = '../../' . $ruta;
+        } else if ($nivel == "tres") {
+            $image_path = '../../../' . $ruta;
+        }
+    }
     $html_estados_financieros .= '<button class="btn p-2 bg-orange col-2 mx-auto d-flex flex-row align-items-center justify-content-center mt-3">';
     $html_estados_financieros .= '<p class="special-paragraph font-roboto-medium tx-white m-0 mx-2">Solicitar</p>';
-    $html_estados_financieros .= '<span class="icono-envio">✈️</span>';
+    $html_estados_financieros .= '<img src="' . $image_path . '" alt="Solicitar" width="30px">';
     $html_estados_financieros .= '</button>';
     $html_estados_financieros .= '</div>';
 

@@ -1191,6 +1191,17 @@ input[type="checkbox"] {
 
 }
 /* End Certificados y papeles */
+
+/* Directorio institucional */
+#datos-empelados tbody tr td:nth-child(even) {
+    background-color: #f0f0f0; /* Color gris claro */
+}
+
+#datos-empleados th, td {
+    width: 20%; /* Ajusta el ancho de cada celda, dependiendo del número de columnas */
+    text-align: center; /* Opcional: centra el texto */
+  }
+
 .modelo-item img {
     height: 8rem;
     width: auto;

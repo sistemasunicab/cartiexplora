@@ -90,9 +90,11 @@ INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamie
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 24 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 25 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 26 ', '', '', '', ''),
-('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 26 ', '', '', '', ''),
-('SELECT * ', 'FROM tbl_opciones_estados_financieros ', 'WHERE nombre_padre = |Relación con la institución|', '','','',''),
-('SELECT * ', 'FROM tbl_opciones_estados_financieros ', 'WHERE nombre_padre = |Tipo de certificación|', '','','',''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 26 AND descripcion=|calendario| ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 26 AND descripcion=|icon-send| ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_opciones_estados_financieros ', 'WHERE nombre_padre = |Relación con la institución| ', '','','',''),
+('SELECT * ', 'FROM tbl_opciones_estados_financieros ', 'WHERE nombre_padre = |Tipo de certificación| ', '','','',''),
 ('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 17 AND visible = 1 ', '', '', '', ''),
-('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 17 AND titulo=|search| ', '', '', '', ''),
-('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 17 AND descripcion=|table| ', '', '', '', '');
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 17 AND descripcion = |search| ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 17 AND descripcion = |table| ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 17 AND descripcion = |horario| ', '', '', '', '');
