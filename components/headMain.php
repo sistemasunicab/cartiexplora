@@ -17,6 +17,8 @@
             echo '<link rel="stylesheet" href="assets/css/homeStyles.css">';
             //<!-- SOLUTIONS CSS -->
             echo '<link rel="stylesheet" href="assets/css/solutionsStyles.css">';
+            //<!-- CARTI CSS -->
+            echo '<link rel="stylesheet" href="assets/css/cartiStyles.css">';
             //<!-- SmartMenus jQuery Bootstrap Addon CSS -->
             echo '<link href="assets/bookstores/smartmenus/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.css" rel="stylesheet">';
 
@@ -38,6 +40,8 @@
             echo '<link rel="stylesheet" href="../assets/css/homeStyles.css">';
             //<!-- SOLUTIONS CSS -->
             echo '<link rel="stylesheet" href="../assets/css/solutionsStyles.css">';
+            //<!-- CARTI CSS -->
+            echo '<link rel="stylesheet" href="../assets/css/cartiStyles.css">';
             //<!-- SmartMenus jQuery Bootstrap Addon CSS -->
             echo '<link href="../assets/bookstores/smartmenus/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.css" rel="stylesheet">';
 
@@ -59,6 +63,8 @@
             echo '<link rel="stylesheet" href="../../assets/css/homeStyles.css">';
             //<!-- SOLUTIONS CSS -->
             echo '<link rel="stylesheet" href="../../assets/css/solutionsStyles.css">';
+            //<!-- CARTI CSS -->
+            echo '<link rel="stylesheet" href="../../assets/css/cartiStyles.css">';
             //<!-- SmartMenus jQuery Bootstrap Addon CSS -->
             echo '<link href="../../assets/bookstores/smartmenus/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.css" rel="stylesheet">';
 
@@ -80,6 +86,8 @@
             echo '<link rel="stylesheet" href="../../../assets/css/homeStyles.css">';
             //<!-- SOLUTIONS CSS -->
             echo '<link rel="stylesheet" href="../../../assets/css/solutionsStyles.css">';
+            //<!-- CARTI CSS -->
+            echo '<link rel="stylesheet" href="../../../assets/css/cartiStyles.css">';
             //<!-- SmartMenus jQuery Bootstrap Addon CSS -->
             echo '<link href="../../../assets/bookstores/smartmenus/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.css" rel="stylesheet">';
 

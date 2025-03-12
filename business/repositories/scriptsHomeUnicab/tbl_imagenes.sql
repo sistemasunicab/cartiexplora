@@ -1,3 +1,4 @@
+
 DROP TABLE IF EXISTS tbl_imagenes;
 
 CREATE TABLE tbl_imagenes (
@@ -121,4 +122,16 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo,
 (29, 'assets/img/honestidad.png', 'Icono', 'Honestidad', 'derecha', '', ''),
 (29, 'assets/img/solutions-icon-sistemas.png', 'icono', 'Libertad', 'derecha', '', ''),
 (29, 'assets/img/equidad.png', 'Icono', 'Equidad', 'derecha', '', ''),
-(29, 'assets/img/responsabilidad.png', 'Icono', 'Responsabilidad', 'derecha', '', '');
+(29, 'assets/img/responsabilidad.png', 'Icono', 'Responsabilidad', 'derecha', '', ''),
+
+(30, 'assets/img/Banner_carti.png', 'Banner', '', '', '', ''),
+(30, 'assets/img/explorador.png', 'Imagen explorador', '', '', '', ''),
+(30, 'assets/img/solutions-icon-transformacion.png', 'Icono', 'Misión', 'abajo', '', ''),
+(30, 'assets/img/solutions-icon-capacitacion.png', 'Icono', 'Visión', 'abajo', '', ''),
+(30, 'assets/img/vision_naranja.png', 'Icono', 'Principios Institucionales', 'abajo', '', ''),
+(30, 'assets/img/compromiso.png', 'Icono', 'Compromiso', 'derecha', '', ''),
+(30, 'assets/img/honestidad.png', 'Icono', 'Ética', 'derecha', '', ''),
+(30, 'assets/img/solutions-icon-desarrollo.png', 'Icono', 'Libertad', 'derecha', '', ''),
+(30, 'assets/img/equidad.png', 'Icono', 'Equidad', 'derecha', '', ''),
+(30, 'assets/img/responsabilidad.png', 'Icono', 'Responsabilidad', 'derecha', '', ''),
+(30, 'assets/img/solutions-icon-sistemas.png', 'Icono', 'Pertinencia', 'derecha', '', '');

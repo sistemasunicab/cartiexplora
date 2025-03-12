@@ -36,8 +36,8 @@ INSERT INTO tbl_menus (menu, nivel, padre, icono, linkNivelRaiz, linkNivelTres, 
 ('Solicitud de Certificaciones', 'raiz', '1', '', 'business/org/pages/estadosFinancieros.php/#certificaciones', 'estadosFinancieros.php/#certificaciones', ''),
 ('Publicaciones Académicas', 'raiz', '1', '', 'business/org/pages/publicacionesAcademicas.php', 'publicacionesAcademicas.php', ''),
 
-('Misión y Visión', 'raiz', '2', '', 'business/cartiExplora/pages/misionVision.php', 'misionVision.php',''),
-('Principios y Valores', 'raiz', '2', '', 'business/cartiExplora/pages/principiosValores.php', 'principiosValores.php',''),
+('Misión y Visión', 'raiz', '2', '', 'business/cartiExplora/pages/cartiHome.php#divMision', 'cartiHome.php#divMision',''),
+('Principios y Valores', 'raiz', '2', '', 'business/cartiExplora/pages/cartiHome.php#divPrincipios', 'cartiHome.php#divPrincipios',''),
 ('Servicios', 'raiz', '2', '', 'business/cartiExplora/pages/servicios.php', 'servicios.php',''),
 
 ('¿Quiénes Somos?', 'raiz', '3', '', 'business/solutions/pages/somos.php', 'somos.php',''),
