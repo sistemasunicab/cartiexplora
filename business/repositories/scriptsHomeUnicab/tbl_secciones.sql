@@ -41,4 +41,5 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 ('estadosFinancieros', 1, '','<b>ESTADOS</b> FINANCIEROS', '', ''),
 ('solicitudesCertificaciones', 1, '','<b>SOLICITUDES DE</b> CERTIFICACIONES Y PAPELES', '', ''),
 
-('nuestrosEstudiantes', 1, 'nuestrosEstudiantes', '<b>Nuestros</b><br>Estudiantes', '', '');
+('nuestrosEstudiantes', 1, 'nuestrosEstudiantes', '<b>Nuestros</b><br>Estudiantes', '', ''),
+('publicacionesAcademicas', 1, 'publicacionesAcademicas', '<b>Publicaciones</b> Académicas', '', '');

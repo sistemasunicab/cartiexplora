@@ -28,6 +28,34 @@ const galeriaEstudiantes = () => {
     });
 };
 
+
+/**
+ * Función responsable de la descarga de archivos
+ * 
+ * @param {String} nivel El nivel en el árbol de directorios desde el que se accederá al archivo.
+ * @param {String} path ruta donde se encuentra el archivo a descargar
+ * @param {String} nombreArchivo  nombre nuevo que se va a asignar a este archivo
+ * @param {String} destino  target de la etiqueta <a></a>
+ * 
+ * */
+const descargarArchivo = (nivel, path, nombreNuevoArchivo, destino) => {
+    const instanciaADescargar = document.createElement('a');
+    if (nivel == "raiz") {
+        instanciaADescargar.href = path;
+     } else if (nivel == "uno") {
+         instanciaADescargar.href = `../${path}`;
+    } else if (nivel == "dos") {
+        instanciaADescargar.href = `../../${path}`;
+    } else if (nivel == "tres") {
+        instanciaADescargar.href = `../../../${path}`;
+    }
+    instanciaADescargar.target = destino;
+    instanciaADescargar.download = nombreNuevoArchivo;
+    document.body.appendChild(instanciaADescargar);
+    instanciaADescargar.click();
+    document.body.removeChild(instanciaADescargar);
+};
+
 $(document).ready(function () {
     $("#myForm").on("submit", function (e) {
         e.preventDefault();

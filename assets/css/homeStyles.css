@@ -1177,3 +1177,15 @@ input[type="checkbox"] {
     inset: 0;
     z-index: 10;
 }
+
+/** Publicaciones académicas **/
+
+.publications-button {
+    padding: .8rem 1.5rem;
+    font-size: 2rem;
+    border-radius: 10px;
+}
+
+.download-button {
+    cursor: pointer;
+}
