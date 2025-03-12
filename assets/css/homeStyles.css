@@ -1097,7 +1097,9 @@ input[type="checkbox"] {
 
 /* End About Us */
 
-/* Begin calendary */
+/* Inicio Calendario academico */
+
+/* Calendario */
 
 .border-radius-10 {
     border-radius: 10px !important;
@@ -1116,7 +1118,6 @@ input[type="checkbox"] {
     font-family: var(--roboto-bold);
 }
 
-/* Calendario academico */
 
 /* Calendario proximo evento*/
 
@@ -1129,13 +1130,11 @@ input[type="checkbox"] {
     text-align: center;
 }
 
-.calendary-event h2 {
-    margin: 0;
-}
+/* Fin calendario */
 
-/* End calendary */
+/* Inicio estados financieros */
 
-/* Begin Financial Data */
+/* Inicio Informacion financiera*/
 .btn-financiero{
     border: none;
     background: #16224F;
@@ -1153,9 +1152,8 @@ input[type="checkbox"] {
     color: var(--medium-gray);
 }
 
-/* End Financial Data */
 
-/* Begin Certificados y papeles */
+/* Inicio Certificados y papeles */
 
 .display-options {
     padding: 0;
@@ -1190,9 +1188,9 @@ input[type="checkbox"] {
     border-radius: 10px;
 
 }
-/* End Certificados y papeles */
+/* Fin estados financieros */
 
-/* Directorio institucional */
+/* Inicio Directorio institucional */
 #datos-empelados tbody tr td:nth-child(even) {
     background-color: #f0f0f0; /* Color gris claro */
 }
@@ -1202,6 +1200,7 @@ input[type="checkbox"] {
     text-align: center; /* Opcional: centra el texto */
   }
 
+/* Fin directorio institucional */
 .modelo-item img {
     height: 8rem;
     width: auto;
