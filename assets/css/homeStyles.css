@@ -1189,3 +1189,47 @@ input[type="checkbox"] {
 .download-button {
     cursor: pointer;
 }
+
+/** Principios y valores **/
+
+:root {
+    --shadow-1: 1px 7px 22px -3px rgba(0,0,0,0.48);
+    --shadow-2: 9px 9px 12px -3px rgba(0,0,0,0.45);
+}
+
+.principios-icon {
+    width: auto;
+    height: 5rem;
+}
+
+.value{
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value:hover {
+    transform: scale(1.02);
+}
+
+.values-card{
+    position: relative;
+    padding: 2rem;
+    box-shadow: var(--shadow-2);
+}
+
+.values-card p:after {
+    content: ""; 
+    position: absolute;
+    left: 5%;
+    bottom: 4%;
+    width: 58%; 
+    height: 2px;
+    background-color: var(--orange);
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: inline;
+}

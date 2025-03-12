@@ -109,4 +109,7 @@ INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamie
 ('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 28 AND visible = 1 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 28 ', '', '', '', ''),
 
-('SELECT * ', 'FROM tbl_publicaciones_academicas ', 'WHERE visible = 1 ', '', '', '', '');
+('SELECT * ', 'FROM tbl_publicaciones_academicas ', 'WHERE visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 29 AND visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 29 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_textos ', 'WHERE id_seccion = 29 ', '', '', '', '');

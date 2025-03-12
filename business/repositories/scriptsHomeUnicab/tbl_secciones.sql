@@ -42,4 +42,5 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 ('solicitudesCertificaciones', 1, '','<b>SOLICITUDES DE</b> CERTIFICACIONES Y PAPELES', '', ''),
 
 ('nuestrosEstudiantes', 1, 'nuestrosEstudiantes', '<b>Nuestros</b><br>Estudiantes', '', ''),
-('publicacionesAcademicas', 1, 'publicacionesAcademicas', '<b>Publicaciones</b> Académicas', '', '');
+('publicacionesAcademicas', 1, 'publicacionesAcademicas', '<b>Publicaciones</b> Académicas', '', ''),
+('principiosYValores', 1, 'principiosYValores', '<b>Principios y</b><br>Valores Corporativos', '', 'UNICAB, es una institución de educación formal que propende por la formación integral de todos y cada uno de susestudiantes; pero cuando hablamos de formación, nos trasladamos a un contexto totalmente innovador, pues es aquí donde a través de nuestra estructura curricular, la formación es el resultado autónomo y consciente del estudiante en lo que refiere a un proceso de aprendizaje definido y una metodología de enseñanza flexible, dinámica y pertinente basados en principios éticos para que junto con el desarrollo de capacidades, habilidades y destrezas en áreas específicas, puedan tener un excelente desempeño y proyectar un proyecto de vida armónico con identidad, que corresponda a sus sueños e ilusiones y habilidades.');
