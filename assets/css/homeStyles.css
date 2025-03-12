@@ -1117,37 +1117,109 @@ input[type="checkbox"] {
     font-family: var(--roboto-bold);
 }
 
-/* Calendario academico */
+/* Inicio Calendario academico */
+
+/* Calendario */
+
+.border-radius-10 {
+    border-radius: 10px !important;
+}
+
+.border-radius-20 {
+    border-radius: 20px !important;
+}
+
+.btn-calendary {
+    padding-block: .5rem;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    background: var(--orange);
+    color: var(--white);
+    font-family: var(--roboto-bold);
+}
 
 /* Calendario proximo evento*/
 
 /* Comunicados*/
 
 .calendary-event {
-    width: 120px;
-    height: 120px;
+    aspect-ratio: 1 / 1; 
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 10px;
 }
 
-.calendary-event h2 {
+/* Fin calendario */
+
+/* Inicio estados financieros */
+
+/* Inicio Informacion financiera*/
+.btn-financiero{
+    border: none;
+    background: #16224F;
+}
+
+.btn-financiero div{
+    background: #FFD156;
+}
+
+.form-financial input{
+    text-align: center;
+    border: 3px solid #42C3AE;
+    border-radius: 10px;
+    padding: .5rem;
+    color: var(--medium-gray);
+}
+
+/* Inicio Certificados y papeles */
+
+.display-options {
+    padding: 0;
     margin: 0;
+    border: 0px;
+    background: var(--orange);
 }
 
-@media (max-width: 960px) {
-    .calendary-event {
-        width: 60px;
-        height: 60px;
-    }
-
-    .calendary-event h2 {
-        font-size: 2.5rem;
-    }
+.display-options span {
+    font-size: 1.5rem;
+    border-radius: 0.25rem;
+    background: var(--bold-blue);
+    color: #FFD156;
 }
 
-/* End calendary */
+
+.btn_displayed {
+    height: 2.5rem;
+}
+
+.text-up-absolute{
+    position: absolute;
+    top:-50px;
+    margin: 0;
+    padding: 0;
+    font-size: 0.8rem;
+}
+
+.text-area-input{
+    padding: 0.25rem;
+    border: 3px solid #42C3AE;
+    border-radius: 10px;
+
+}
+/* Fin estados financieros */
+
+/* Inicio Directorio institucional */
+#datos-empelados tbody tr td:nth-child(even) {
+    background-color: #f0f0f0; /* Color gris claro */
+}
+
+#datos-empleados th, td {
+    width: 20%; /* Ajusta el ancho de cada celda, dependiendo del número de columnas */
+    text-align: center; /* Opcional: centra el texto */
+  }
+
+/* Fin directorio institucional */
+
 .modelo-item img {
     height: 8rem;
     width: auto;
