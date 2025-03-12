@@ -115,5 +115,10 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo,
 (27, 'assets/img/Juan_Jose_Huerfano.png', 'imagen-juan-jose', '', '', '', ''),
 (27, 'assets/img/Katerin_Gomez.png', 'imagen-katerin-gomez', '', '', '', ''),
 
-(28, 'assets/img/descargar_pdf.png', 'Icono descarga', '', '', '', '');
-
+(28, 'assets/img/descargar_pdf.png', 'Icono descarga', '', '', '', ''),
+(29, 'assets/img/bannerPrincipios.png', 'Banner', '', '', '', ''),
+(29, 'assets/img/compromiso.png', 'Icono', 'Compromiso', 'derecha', '', ''),
+(29, 'assets/img/honestidad.png', 'Icono', 'Honestidad', 'derecha', '', ''),
+(29, 'assets/img/solutions-icon-sistemas.png', 'icono', 'Libertad', 'derecha', '', ''),
+(29, 'assets/img/equidad.png', 'Icono', 'Equidad', 'derecha', '', ''),
+(29, 'assets/img/responsabilidad.png', 'Icono', 'Responsabilidad', 'derecha', '', '');
