@@ -88,7 +88,7 @@ $(document).ready(function () {
             mensaje: mensaje,
             subscribe: subscribe,
         };
-
+        
         $.ajax({
             url: "../../cartiexplora/ajax/formInscripcionesAbiertas.php",
             type: "POST",
@@ -141,7 +141,6 @@ function validar_campo(input) {
     }
 
     let { name, value, type } = input;
-
     if (type === "checkbox") {
         if (input.checked) {
             input.classList.remove("error");
@@ -179,7 +178,7 @@ function actualizarNotificacionesErrores() {
     }
 }
 
-const mensaje_personalizado = (campo, value) => {
+const mensaje_personalizado = (campo, value) => {    
     if (campo === "nombre") {
         if (value.length > 100) {
             return "El nombre debe contener solo letras y espacios, y no exceder 100 caracteres.";
