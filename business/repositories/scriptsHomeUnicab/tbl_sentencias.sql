@@ -39,6 +39,7 @@ INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamie
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 9 ', '', '', '', ''),
 
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 10 AND id < 39 ', '', '', '', ''),
+--('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 11 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_menus ', 'WHERE visible = 1 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_blogs ', 'WHERE id > 0 ', '', 'ORDER BY id DESC LIMIT 3 ', '', ''),
 ('SELECT * ', 'FROM tbl_parametros ', 'WHERE id_seccion = 8 ', '', '', '', ''),
