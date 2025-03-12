@@ -1,6 +1,6 @@
 <?php
 // 1) VERIFICAR SI LA SECCIÓN ESTÁ VISIBLE (Sentencia #48)
-$number_sentence_visible = "57";
+$number_sentence_visible = "58";
 $res_sentence_visible = $mysqli1->query($sentencia . $number_sentence_visible);
 
 while ($row_sentence_visible = $res_sentence_visible->fetch_assoc()) {
@@ -13,7 +13,7 @@ $res_data_visible = $mysqli1->query($sql_data_visible);
 while ($row_data_visible = $res_data_visible->fetch_assoc()) {
 
     // 2) OBTENER LA IMAGEN DEL ÍCONO (Sentencia #50)
-    $number_sentence_icon = "59";
+    $number_sentence_icon = "64";
     $res_sentence_icon = $mysqli1->query($sentencia . $number_sentence_icon);
 
     while ($row_sentence_icon = $res_sentence_icon->fetch_assoc()) {
@@ -39,7 +39,7 @@ while ($row_data_visible = $res_data_visible->fetch_assoc()) {
     }
 
     // 3) OBTENER LOS ARCHIVOS DE LA TABLA (Sentencia #52)
-    $number_sentence_files = "61";
+    $number_sentence_files = "66";
     $res_sentence_files = $mysqli1->query($sentencia . $number_sentence_files);
 
     while ($row_sentence_files = $res_sentence_files->fetch_assoc()) {
@@ -59,8 +59,8 @@ while ($row_data_visible = $res_data_visible->fetch_assoc()) {
     // RECORRER CADA ARCHIVO DE LA TABLA
     while ($row_data_files = $res_data_files->fetch_assoc()) {
         // Información del archivo
-        $nombreArchivo = htmlspecialchars($row_data_files['nombre_archivo'] ?? 'Documento sin título');
-        $fechaArchivo = htmlspecialchars($row_data_files['fecha_subida'] ?? 'Fecha no disponible');
+        $nombreArchivo = htmlspecialchars($row_data_files['nombrArchivo'] ?? 'Documento sin título');
+        $fechaArchivo = htmlspecialchars($row_data_files['fechaSubida'] ?? 'Fecha no disponible');
         $rutaArchivo = $row_data_files['ruta'] ?? '';
 
         // Ajustar la ruta según el nivel

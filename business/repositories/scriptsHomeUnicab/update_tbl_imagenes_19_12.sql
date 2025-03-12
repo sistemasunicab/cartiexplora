@@ -1,1 +1,0 @@
-UPDATE tbl_imagenes SET titulo = 'Suscribir', posicionTitulo = 'derecha' WHERE id = 34;

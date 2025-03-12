@@ -23,7 +23,7 @@ INSERT INTO tbl_menus (menu, nivel, padre, icono, linkNivelRaiz, linkNivelTres, 
 
 ('Sobre Nosostros', 'raiz', '1', '', 'business/org/pages/sobreNosotros.php', 'sobreNosotros.php',''),
 ('Nuestra Historia', 'raiz', '1', '', 'business/org/pages/historia.php', 'historia.php',''),
-('Principios que Nos Guían', 'raiz', '1', '', 'business/org/pages/principios.php', 'principios.php',''),
+('Principios que Nos Guían', 'raiz', '1', '', 'business/org/pages/principiosYValores.php', 'principiosYValores.php',''),
 ('Red de Grupos UNICAB', 'raiz', '1', '', 'business/org/pages/historia.php/#grupos', 'historia.php/#grupos',''),
 ('Modelo Pedagógico', 'raiz', '1', '', 'business/org/pages/modelo.php', 'modelo.php',''),
 ('Oferta Educativa', 'raiz', '1', '', '#ofertaAcademica', '#ofertaAcademica',''),
@@ -36,8 +36,8 @@ INSERT INTO tbl_menus (menu, nivel, padre, icono, linkNivelRaiz, linkNivelTres, 
 ('Solicitud de Certificaciones', 'raiz', '1', '', 'business/org/pages/estadosFinancieros.php/#certificaciones', 'estadosFinancieros.php/#certificaciones', ''),
 ('Publicaciones Académicas', 'raiz', '1', '', 'business/org/pages/publicacionesAcademicas.php', 'publicacionesAcademicas.php', ''),
 
-('Misión y Visión', 'raiz', '2', '', 'business/cartiExplora/pages/misionVision.php', 'misionVision.php',''),
-('Principios y Valores', 'raiz', '2', '', 'business/cartiExplora/pages/principiosValores.php', 'principiosValores.php',''),
+('Misión y Visión', 'raiz', '2', '', 'business/cartiExplora/pages/cartiHome.php#divMision', 'cartiHome.php#divMision',''),
+('Principios y Valores', 'raiz', '2', '', 'business/cartiExplora/pages/cartiHome.php#divPrincipios', 'cartiHome.php#divPrincipios',''),
 ('Servicios', 'raiz', '2', '', 'business/cartiExplora/pages/servicios.php', 'servicios.php',''),
 
 ('¿Quiénes Somos?', 'raiz', '3', '', 'business/solutions/pages/somos.php', 'somos.php',''),
@@ -50,7 +50,10 @@ INSERT INTO tbl_menus (menu, nivel, padre, icono, linkNivelRaiz, linkNivelTres, 
 ('Entrevista', 'raiz', '4', '', 'business/org/pages/entrevista.php', 'entrevista.php',''),
 ('Evaluación Presaberes', 'raiz', '4', '', 'business/org/pages/evaluacionPresaberes.php', 'evaluacionPresaberes.php',''),
 ('Costos', 'raiz', '4', '', 'business/org/pages/costos.php', 'costos.php',''),
-('Pagos', 'raiz', '4', '', 'business/org/pages/pagos.php', 'pagos.php','');
+('Pagos', 'raiz', '4', '', 'business/org/pages/pagos.php', 'pagos.php',''),
+
+('Nuestros Estudiantes', 'raiz', '1', '', 'business/org/pages/nuestrosEstudiantes.php', 'nuestrosEstudiantes.php', ''),
+('Blog', 'raiz', '1', '', 'business/org/pages/blog.php', 'blog.php', '');
 
 
 

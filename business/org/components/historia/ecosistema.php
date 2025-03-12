@@ -30,7 +30,7 @@
         require('../../../business/repositories/1cc2s4Home.php');
     }
 
-    $res_sentecia = $mysqli1->query($sentencia . "64");
+    $res_sentecia = $mysqli1->query($sentencia . "69");
     while ($row_sentencia = $res_sentecia->fetch_assoc()) {
         $sql_seccion_dos = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
     }
@@ -43,7 +43,7 @@
     }
 
     // Obteniendo datos
-    $res_sentencia = $mysqli1->query($sentencia."70");
+    $res_sentencia = $mysqli1->query($sentencia."75");
     while($row_sentencia = $res_sentencia->fetch_assoc()){
          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
     }  
@@ -53,7 +53,7 @@
          $datosBloques[$row_datos['titulo']] = [$row_datos['ruta'], $row_datos['titulo'], $row_datos['posicionTitulo']];
     }
 
-    $res_sentencia = $mysqli1->query($sentencia."71");
+    $res_sentencia = $mysqli1->query($sentencia."76");
     while($row_sentencia = $res_sentencia->fetch_assoc()){
          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
     }  

@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!empty($nombre) && !empty($email) && !empty($asunto) && !empty($mensaje) && $subscribe != false && filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
-        $res_sentecia = $mysqli1->query($sentencia . "28");
+        $res_sentecia = $mysqli1->query($sentencia . "30");
         while ($row_sentencia = $res_sentecia->fetch_assoc()) {
             $sql_form =  $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
         }

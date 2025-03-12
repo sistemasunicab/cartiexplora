@@ -1,3 +1,4 @@
+
 DROP TABLE IF EXISTS tbl_imagenes;
 
 CREATE TABLE tbl_imagenes (
@@ -105,4 +106,42 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo,
 (24, 'assets/img/elearning.svg', '', 'Fortalecimiento de principios y valores basados en la autonomía del estudiante.', 'abajo', '', ''),
 (24, 'assets/img/audiobook.svg', '', 'Desarrollo del pensamiento creativo del estudiante.', 'abajo', '', ''),
 (26, 'assets/img/browser_4919708.png', 'calendario', 'Año(s) académico(s) al que corresponde la solicitud', 'arriba', '', ''),
-(26, 'assets/img/icon-send.png', 'icon-send', '', '', '', '');
+(26, 'assets/img/icon-send.png', 'icon-send', '', '', '', ''),
+(27, 'assets/img/Farid_Hastamorir.png', 'imagen-farid-hastamorir', '', '', '', ''),
+(27, 'assets/img/Favio_Felipe.png', 'imagen-favio-felipe', '', '', '', ''),
+(27, 'assets/img/favio_felipe_2.png', 'imagen-favio-felipe', '', '', '', ''),
+(27, 'assets/img/Isabella_Tapias.png', 'imagen-isabella-tapias', '', '', '', ''),
+(27, 'assets/img/Jhon_Caicedo.png', 'imagen-jhon-caicedo', '', '', '', ''),
+(27, 'assets/img/Juan_Baez.png', 'imagen-juan-baez', '', '', '', ''),
+(27, 'assets/img/Juan_Jose_Huerfano.png', 'imagen-juan-jose', '', '', '', ''),
+(27, 'assets/img/Katerin_Gomez.png', 'imagen-katerin-gomez', '', '', '', ''),
+
+(28, 'assets/img/descargar_pdf.png', 'Icono descarga', '', '', '', ''),
+(29, 'assets/img/bannerPrincipios.png', 'Banner', '', '', '', ''),
+(29, 'assets/img/compromiso.png', 'Icono', 'Compromiso', 'derecha', '', ''),
+(29, 'assets/img/honestidad.png', 'Icono', 'Honestidad', 'derecha', '', ''),
+(29, 'assets/img/solutions-icon-sistemas.png', 'icono', 'Libertad', 'derecha', '', ''),
+(29, 'assets/img/equidad.png', 'Icono', 'Equidad', 'derecha', '', ''),
+(29, 'assets/img/responsabilidad.png', 'Icono', 'Responsabilidad', 'derecha', '', ''),
+
+(30, 'assets/img/Banner_carti.png', 'Banner', '', '', '', ''),
+(30, 'assets/img/explorador.png', 'Imagen explorador', '', '', '', ''),
+(30, 'assets/img/solutions-icon-transformacion.png', 'Icono', 'Misión', 'abajo', '', ''),
+(30, 'assets/img/solutions-icon-capacitacion.png', 'Icono', 'Visión', 'abajo', '', ''),
+(30, 'assets/img/vision_naranja.png', 'Icono', 'Principios Institucionales', 'abajo', '', ''),
+(30, 'assets/img/compromiso.png', 'Icono', 'Compromiso', 'derecha', '', ''),
+(30, 'assets/img/honestidad.png', 'Icono', 'Ética', 'derecha', '', ''),
+(30, 'assets/img/solutions-icon-desarrollo.png', 'Icono', 'Libertad', 'derecha', '', ''),
+(30, 'assets/img/equidad.png', 'Icono', 'Equidad', 'derecha', '', ''),
+(30, 'assets/img/responsabilidad.png', 'Icono', 'Responsabilidad', 'derecha', '', ''),
+(30, 'assets/img/solutions-icon-sistemas.png', 'Icono', 'Pertinencia', 'derecha', '', ''),
+
+(31, 'assets/img/conectados.png', '', 'Principal', 'abajo', '', ''),
+(33, 'assets/img/enviar.png', '', 'Suscribir', 'izquierda', '', ''), 
+(33, 'assets/img/love.png', '', '', '', '', ''), 
+(33, 'assets/img/chatIcon.png', '', '', '', '', ''), 
+(33, 'assets/img/shareIcon.png', '', 'Compartir en', 'izquierda', '', ''), 
+(33, 'assets/img/facebookOrangeBg.png', '', '', '', '', ''), 
+(33, 'assets/img/instagramOrangeBg.png', '', '', '', '', ''), 
+(33, 'assets/img/linkedInOrangeBg.png', '', '', '', '', ''), 
+(33, 'assets/img/whatsappOrangeBg.png', '', '', '', '', '');
