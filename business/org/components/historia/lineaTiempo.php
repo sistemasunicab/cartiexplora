@@ -25,7 +25,7 @@
         require('../../../business/repositories/1cc2s4Home.php');
     }
 
-    $res_sentecia = $mysqli1->query($sentencia . "62");
+    $res_sentecia = $mysqli1->query($sentencia . "67");
     while ($row_sentencia = $res_sentecia->fetch_assoc()) {
         $sql_seccion_dos = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
     }
@@ -44,7 +44,7 @@
     }
 
     // Obteniendo linea del tiempo
-    $res_sentencia = $mysqli1->query($sentencia."66");
+    $res_sentencia = $mysqli1->query($sentencia."71");
     while($row_sentencia = $res_sentencia->fetch_assoc()){
          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
     }  
@@ -54,7 +54,7 @@
          $datosLineas[$row_datos['titulo']] = [$row_datos['ruta'], $row_datos['titulo'], $row_datos['posicionTitulo']];
     }
 
-    $res_sentencia = $mysqli1->query($sentencia."67");
+    $res_sentencia = $mysqli1->query($sentencia."72");
     while($row_sentencia = $res_sentencia->fetch_assoc()){
          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
     }  

@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             navItems.forEach(item => {
                 const menuItem = item.querySelector('.menu-item p');
-                const dropdown = item.querySelector('.dropdown');
-                const dropdownItems = dropdown ? dropdown.querySelectorAll('.dropdown-item') : [];
-                const dropdownContainer = item.querySelector('.dropdown-container');
+                const dropdown_our = item.querySelector('.dropdown_our');
+                const dropdown_ourItems = dropdown_our ? dropdown_our.querySelectorAll('.dropdown_our-item') : [];
+                const dropdown_ourContainer = item.querySelector('.dropdown_our-container');
 
                 // Función para verificar si el mouse está en un elemento específico
                 const isMouseInElement = (element) => {
@@ -37,32 +37,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Función para manejar mouseenter
                 const handleMouseEnterItem = () => {
-                    if (dropdown) {
-                        dropdownContainer.classList.add('hover');
+                    if (dropdown_our) {
+                        dropdown_ourContainer.classList.add('hover');
                         menuItem.classList.add('hover');
-                        dropdown.classList.add('hover');
+                        dropdown_our.classList.add('hover');
                     }
                 };
 
                 // Función para manejar mouseleave
                 const handleMouseLeaveItem = () => {
-                    if (dropdown) {
-                        const isInDropdown = isMouseInElement(dropdown);
-                        const isInAnyDropdown2 = Array.from(dropdownItems).some(dropdownItem => {
-                            const submenuId = dropdownItem.id;
-                            const dropdown2 = document.querySelector(`#${submenuId.replace('.', '\\.')}_dropdown`);
-                            return isMouseInElement(dropdown2);
+                    if (dropdown_our) {
+                        const isInDropdown = isMouseInElement(dropdown_our);
+                        const isInAnyDropdown2 = Array.from(dropdown_ourItems).some(dropdown_ourItem => {
+                            const submenuId = dropdown_ourItem.id;
+                            const dropdown_our2 = document.querySelector(`#${submenuId.replace('.', '\\.')}_dropdown_our`);
+                            return isMouseInElement(dropdown_our2);
                         });
 
                         if (!isInDropdown && !isInAnyDropdown2) {
-                            dropdownContainer.classList.remove('hover');
+                            dropdown_ourContainer.classList.remove('hover');
                             menuItem.classList.remove('hover');
-                            dropdown.classList.remove('hover');
+                            dropdown_our.classList.remove('hover');
 
-                            dropdownItems.forEach(dropdownItem => {
-                                const dropdown2 = document.querySelector(`#${dropdownItem.id.replace('.', '\\.')}_dropdown`);
-                                if (dropdown2) {
-                                    dropdown2.classList.remove('hover');
+                            dropdown_ourItems.forEach(dropdown_ourItem => {
+                                const dropdown_our2 = document.querySelector(`#${dropdown_ourItem.id.replace('.', '\\.')}_dropdown_our`);
+                                if (dropdown_our2) {
+                                    dropdown_our2.classList.remove('hover');
                                 }
                             });
                         }
@@ -81,53 +81,53 @@ document.addEventListener('DOMContentLoaded', () => {
                 eventMap.set('mouseenter', handleMouseEnterItem);
                 eventMap.set('mouseleave', handleMouseLeaveItem);
 
-                // Manejar los submenús (dropdown2)
-                dropdownItems.forEach(dropdownItem => {
-                    const submenuId = dropdownItem.id;
-                    const dropdown2 = document.querySelector(`#${submenuId.replace('.', '\\.')}_dropdown`);
+                // Manejar los submenús (dropdown_our2)
+                dropdown_ourItems.forEach(dropdown_ourItem => {
+                    const submenuId = dropdown_ourItem.id;
+                    const dropdown_our2 = document.querySelector(`#${submenuId.replace('.', '\\.')}_dropdown_our`);
 
-                    if (dropdown2) {
+                    if (dropdown_our2) {
                         const handleMouseEnterDropdownItem = () => {
-                            dropdownItem.classList.add('hover');
-                            dropdown2.classList.add('hover');
+                            dropdown_ourItem.classList.add('hover');
+                            dropdown_our2.classList.add('hover');
                         };
 
                         const handleMouseLeaveDropdownItem = () => {
-                            if (!isMouseInElement(dropdown2)) {
-                                dropdownContainer.classList.remove('hover');
-                                dropdownItem.classList.remove('hover');
-                                dropdown2.classList.remove('hover');
+                            if (!isMouseInElement(dropdown_our2)) {
+                                dropdown_ourContainer.classList.remove('hover');
+                                dropdown_ourItem.classList.remove('hover');
+                                dropdown_our2.classList.remove('hover');
                             }
                         };
 
                         const handleMouseEnterDropdown2 = () => {
-                            dropdown2.classList.add('hover');
+                            dropdown_our2.classList.add('hover');
                         };
 
                         const handleMouseLeaveDropdown2 = () => {
-                            dropdownContainer.classList.remove('hover');
-                            dropdown2.classList.remove('hover');
-                            dropdownItem.classList.remove('hover');
+                            dropdown_ourContainer.classList.remove('hover');
+                            dropdown_our2.classList.remove('hover');
+                            dropdown_ourItem.classList.remove('hover');
                         };
 
                         // Agregar listeners
-                        dropdownItem.addEventListener('mouseenter', handleMouseEnterDropdownItem);
-                        dropdownItem.addEventListener('mouseleave', handleMouseLeaveDropdownItem);
-                        dropdown2.addEventListener('mouseenter', handleMouseEnterDropdown2);
-                        dropdown2.addEventListener('mouseleave', handleMouseLeaveDropdown2);
+                        dropdown_ourItem.addEventListener('mouseenter', handleMouseEnterDropdownItem);
+                        dropdown_ourItem.addEventListener('mouseleave', handleMouseLeaveDropdownItem);
+                        dropdown_our2.addEventListener('mouseenter', handleMouseEnterDropdown2);
+                        dropdown_our2.addEventListener('mouseleave', handleMouseLeaveDropdown2);
 
                         // Guardar las referencias
-                        if (!listenersLarge.has(dropdownItem)) {
-                            listenersLarge.set(dropdownItem, new Map());
+                        if (!listenersLarge.has(dropdown_ourItem)) {
+                            listenersLarge.set(dropdown_ourItem, new Map());
                         }
-                        const eventMapDropdownItem = listenersLarge.get(dropdownItem);
+                        const eventMapDropdownItem = listenersLarge.get(dropdown_ourItem);
                         eventMapDropdownItem.set('mouseenter', handleMouseEnterDropdownItem);
                         eventMapDropdownItem.set('mouseleave', handleMouseLeaveDropdownItem);
 
-                        if (!listenersLarge.has(dropdown2)) {
-                            listenersLarge.set(dropdown2, new Map());
+                        if (!listenersLarge.has(dropdown_our2)) {
+                            listenersLarge.set(dropdown_our2, new Map());
                         }
-                        const eventMapDropdown2 = listenersLarge.get(dropdown2);
+                        const eventMapDropdown2 = listenersLarge.get(dropdown_our2);
                         eventMapDropdown2.set('mouseenter', handleMouseEnterDropdown2);
                         eventMapDropdown2.set('mouseleave', handleMouseLeaveDropdown2);
                     }
@@ -141,37 +141,37 @@ document.addEventListener('DOMContentLoaded', () => {
             navItems.forEach(item => {
                 let actualDisplayedDropdown2 = null;
                 const menuItem = item.querySelector('.menu-item p');
-                const dropdown = item.querySelector('.dropdown');
-                const dropdownItems = dropdown ? dropdown.querySelectorAll('.dropdown-item') : [];
-                const dropdownContainer = item.querySelector('.dropdown-container');
+                const dropdown_our = item.querySelector('.dropdown_our');
+                const dropdown_ourItems = dropdown_our ? dropdown_our.querySelectorAll('.dropdown_our-item') : [];
+                const dropdown_ourContainer = item.querySelector('.dropdown_our-container');
 
                 if (menuItem) {
                     // Función identificable para el menú principal
                     const toggleMenu = () => {
-                        if (dropdown) {
+                        if (dropdown_our) {
                             const isOpen = menuItem.classList.contains('hover');
                             if (!isOpen) {
-                                // Ocultar todos los dropdownContainer abiertos
+                                // Ocultar todos los dropdown_ourContainer abiertos
                                 document.querySelectorAll('.menu-item p.hover').forEach(element => {
                                     element.classList.remove('hover');
                                 });
 
-                                document.querySelectorAll('.dropdown-container.hover').forEach(element => {
+                                document.querySelectorAll('.dropdown_our-container.hover').forEach(element => {
                                     element.classList.remove('hover');
-                                    const childDropdown = element.querySelector('.dropdown.hover');
-                                    const childDropdown2 = element.querySelector('.dropdown2.hover');
+                                    const childDropdown = element.querySelector('.dropdown_our.hover');
+                                    const childDropdown2 = element.querySelector('.dropdown_our2.hover');
                                     if (childDropdown) childDropdown.classList.remove('hover');
                                     if (childDropdown2) childDropdown2.classList.remove('hover');
                                 });
-                                // Mostrar el dropdown actual
-                                dropdownContainer.classList.add('hover');
+                                // Mostrar el dropdown_our actual
+                                dropdown_ourContainer.classList.add('hover');
                                 menuItem.classList.add('hover');
-                                dropdown.classList.add('hover');
+                                dropdown_our.classList.add('hover');
                             } else {
-                                // Ocultar el dropdown actual
-                                dropdownContainer.classList.remove('hover');
+                                // Ocultar el dropdown_our actual
+                                dropdown_ourContainer.classList.remove('hover');
                                 menuItem.classList.remove('hover');
-                                dropdown.classList.remove('hover');
+                                dropdown_our.classList.remove('hover');
                                 if (actualDisplayedDropdown2) {
                                     actualDisplayedDropdown2.classList.remove('hover');
                                 }
@@ -188,33 +188,33 @@ document.addEventListener('DOMContentLoaded', () => {
                     eventMap.set('click', toggleMenu);
                 }
 
-                // Manejar los submenús (dropdown2)
-                dropdownItems.forEach(dropdownItem => {
-                    const submenuId = dropdownItem.id;
-                    const dropdown2 = document.querySelector(`#${submenuId.replace('.', '\\.')}_dropdown`);
+                // Manejar los submenús (dropdown_our2)
+                dropdown_ourItems.forEach(dropdown_ourItem => {
+                    const submenuId = dropdown_ourItem.id;
+                    const dropdown_our2 = document.querySelector(`#${submenuId.replace('.', '\\.')}_dropdown_our`);
 
-                    if (dropdown2) {
+                    if (dropdown_our2) {
                         // Función identificable para submenús
                         const toggleSubmenu = () => {
-                            const isOpen = dropdown2.classList.contains('hover');
+                            const isOpen = dropdown_our2.classList.contains('hover');
                             if (!isOpen) {
                                 if (actualDisplayedDropdown2) {
                                     actualDisplayedDropdown2.classList.remove('hover');
                                 }
                                 menuItem.classList.add('hover');
-                                dropdownContainer.classList.add('hover');
-                                if (window.innerWidth < 768) dropdown.classList.remove('hover');
-                                dropdown2.classList.add('hover');
-                                actualDisplayedDropdown2 = dropdown2;
+                                dropdown_ourContainer.classList.add('hover');
+                                if (window.innerWidth < 768) dropdown_our.classList.remove('hover');
+                                dropdown_our2.classList.add('hover');
+                                actualDisplayedDropdown2 = dropdown_our2;
                             }
                         };
 
                         // Agregar listener y guardar referencia
-                        dropdownItem.addEventListener('click', toggleSubmenu);
-                        if (!listenersMedium.has(dropdownItem)) {
-                            listenersMedium.set(dropdownItem, new Map());
+                        dropdown_ourItem.addEventListener('click', toggleSubmenu);
+                        if (!listenersMedium.has(dropdown_ourItem)) {
+                            listenersMedium.set(dropdown_ourItem, new Map());
                         }
-                        const eventMap = listenersMedium.get(dropdownItem);
+                        const eventMap = listenersMedium.get(dropdown_ourItem);
                         eventMap.set('click', toggleSubmenu);
                     }
                 });
@@ -316,3 +316,31 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+if (window.location.pathname.endsWith("estadosFinancieros.php")) {
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".btn_displayed").forEach(dropdownContainer => {
+            const dropdownText = dropdownContainer.querySelector(".dropdown-text");
+            const otherInput = dropdownContainer.querySelector(".other-input");
+
+            dropdownContainer.querySelectorAll(".dropdown-option").forEach(option => {
+                option.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const selectedValue = this.getAttribute("data-value");
+
+                    dropdownText.textContent = selectedValue;
+
+                    if (selectedValue === "Otro (especificar)") {
+                        otherInput.style.display = "block";
+                        otherInput.focus();
+                    } else {
+                        otherInput.style.display = "none";
+                        otherInput.value = "";
+                    }
+                });
+            });
+        });
+    });
+}
+

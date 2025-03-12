@@ -11,7 +11,7 @@ $res_datos_info = $mysqli1->query($sql_datos_info);
 if ($res_datos_info->num_rows > 0) {
     $html_info = '';
 
-    $html_info = '<div class="my-10 w-100 p-0">';
+    $html_info = '<div class="space-between-about w-100 p-0">';
     $html_info .= '<div class="d-flex flex-column flex-md-row justify-content-between col-10 mx-auto">';
 
     $numero_de_sentencia_info = "43";

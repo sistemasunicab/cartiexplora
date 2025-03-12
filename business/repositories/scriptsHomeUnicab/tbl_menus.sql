@@ -23,7 +23,7 @@ INSERT INTO tbl_menus (menu, nivel, padre, icono, linkNivelRaiz, linkNivelTres, 
 
 ('Sobre Nosostros', 'raiz', '1', '', 'business/org/pages/sobreNosotros.php', 'sobreNosotros.php',''),
 ('Nuestra Historia', 'raiz', '1', '', 'business/org/pages/historia.php', 'historia.php',''),
-('Principios que Nos Guían', 'raiz', '1', '', 'business/org/pages/principios.php', 'principios.php',''),
+('Principios que Nos Guían', 'raiz', '1', '', 'business/org/pages/principiosYValores.php', 'principiosYValores.php',''),
 ('Red de Grupos UNICAB', 'raiz', '1', '', 'business/org/pages/historia.php/#grupos', 'historia.php/#grupos',''),
 ('Modelo Pedagógico', 'raiz', '1', '', 'business/org/pages/modelo.php', 'modelo.php',''),
 ('Oferta Educativa', 'raiz', '1', '', '#ofertaAcademica', '#ofertaAcademica',''),
@@ -50,7 +50,9 @@ INSERT INTO tbl_menus (menu, nivel, padre, icono, linkNivelRaiz, linkNivelTres, 
 ('Entrevista', 'raiz', '4', '', 'business/org/pages/entrevista.php', 'entrevista.php',''),
 ('Evaluación Presaberes', 'raiz', '4', '', 'business/org/pages/evaluacionPresaberes.php', 'evaluacionPresaberes.php',''),
 ('Costos', 'raiz', '4', '', 'business/org/pages/costos.php', 'costos.php',''),
-('Pagos', 'raiz', '4', '', 'business/org/pages/pagos.php', 'pagos.php','');
+('Pagos', 'raiz', '4', '', 'business/org/pages/pagos.php', 'pagos.php',''),
+
+('Nuestros Estudiantes', 'raiz', '1', '', 'business/org/pages/nuestrosEstudiantes.php', 'nuestrosEstudiantes.php', '');
 
 
 
