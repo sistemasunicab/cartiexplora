@@ -113,5 +113,7 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo,
 (27, 'assets/img/Jhon_Caicedo.png', 'imagen-jhon-caicedo', '', '', '', ''),
 (27, 'assets/img/Juan_Baez.png', 'imagen-juan-baez', '', '', '', ''),
 (27, 'assets/img/Juan_Jose_Huerfano.png', 'imagen-juan-jose', '', '', '', ''),
-(27, 'assets/img/Katerin_Gomez.png', 'imagen-katerin-gomez', '', '', '', '');
+(27, 'assets/img/Katerin_Gomez.png', 'imagen-katerin-gomez', '', '', '', ''),
+
+(28, 'assets/img/descargar_pdf.png', 'Icono descarga', '', '', '', '');
 
