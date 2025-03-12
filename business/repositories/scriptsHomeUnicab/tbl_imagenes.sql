@@ -104,5 +104,14 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo,
 (24, 'assets/img/think.svg', '', 'Potencialización de las habilidades individuales de los estudiantes.', 'abajo', '', ''),
 (24, 'assets/img/elearning.svg', '', 'Fortalecimiento de principios y valores basados en la autonomía del estudiante.', 'abajo', '', ''),
 (24, 'assets/img/audiobook.svg', '', 'Desarrollo del pensamiento creativo del estudiante.', 'abajo', '', ''),
-(26, 'assets/img/browser_4919708.png', '', 'Año(s) académico(s) al que corresponde la solicitud', 'arriba', '', '');
+(26, 'assets/img/browser_4919708.png', '', 'Año(s) académico(s) al que corresponde la solicitud', 'arriba', '', ''),
+
+(27, 'assets/img/Farid_Hastamorir.png', 'imagen-farid-hastamorir', '', '', '', ''),
+(27, 'assets/img/Favio_Felipe.png', 'imagen-favio-felipe', '', '', '', ''),
+(27, 'assets/img/favio_felipe_2.png', 'imagen-favio-felipe', '', '', '', ''),
+(27, 'assets/img/Isabella_Tapias.png', 'imagen-isabella-tapias', '', '', '', ''),
+(27, 'assets/img/Jhon_Caicedo.png', 'imagen-jhon-caicedo', '', '', '', ''),
+(27, 'assets/img/Juan_Baez.png', 'imagen-juan-baez', '', '', '', ''),
+(27, 'assets/img/Juan_Jose_Huerfano.png', 'imagen-juan-jose', '', '', '', ''),
+(27, 'assets/img/Katerin_Gomez.png', 'imagen-katerin-gomez', '', '', '', '');
 

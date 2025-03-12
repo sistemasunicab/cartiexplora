@@ -50,7 +50,9 @@ INSERT INTO tbl_menus (menu, nivel, padre, icono, linkNivelRaiz, linkNivelTres, 
 ('Entrevista', 'raiz', '4', '', 'business/org/pages/entrevista.php', 'entrevista.php',''),
 ('Evaluación Presaberes', 'raiz', '4', '', 'business/org/pages/evaluacionPresaberes.php', 'evaluacionPresaberes.php',''),
 ('Costos', 'raiz', '4', '', 'business/org/pages/costos.php', 'costos.php',''),
-('Pagos', 'raiz', '4', '', 'business/org/pages/pagos.php', 'pagos.php','');
+('Pagos', 'raiz', '4', '', 'business/org/pages/pagos.php', 'pagos.php',''),
+
+('Nuestros Estudiantes', 'raiz', '1', '', 'business/org/pages/nuestrosEstudiantes.php', 'nuestrosEstudiantes.php', '');
 
 
 
