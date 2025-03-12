@@ -1,5 +1,5 @@
 <?php
-$numero_de_directorio = "55";//78
+$numero_de_directorio = "55";//79
 $res_directorio = $mysqli1->query($sentencia . $numero_de_directorio);
 while ($row_directorio = $res_directorio->fetch_assoc()) {
     $condiciones_directorio = str_replace('|', '\'', $row_directorio['condiciones']);
@@ -10,11 +10,11 @@ $res_datos_directorio = $mysqli1->query($sql_datos_directorio);
 
 while ($row_datos_directorio = $res_datos_directorio->fetch_assoc()) {
     $html_directorio = '<div class="col-9 my-5 p-0 mx-auto d-flex flex-column">';
-    $html_directorio .= '<div class="col-11 my-5 p-0 mx-auto d-flex flex-column">';
+    $html_directorio .= '<div class="col-10 my-5 p-0 mx-auto d-flex flex-column">';
     $html_directorio .= '<h3 class="tx-blue mb-5 font-roboto-light-title">' . $row_datos_directorio['titulo'] . '</h3>';
     $html_directorio .= '<h4 class="tx-orange font-roboto-light m-auto text-center mb-4">Escríbenos o Llámanos</h4>';
 
-    $number_sentence_image = "60";//79
+    $number_sentence_image = "60";//80
     $res_sentence_image = $mysqli1->query($sentencia . $number_sentence_image);
 
     while ($row_sentence_image = $res_sentence_image->fetch_assoc()) {
@@ -46,7 +46,7 @@ while ($row_datos_directorio = $res_datos_directorio->fetch_assoc()) {
     $html_directorio .= '</div>';
     $html_directorio .= '</div>';
     
-    $number_sentence_table = "61";//80
+    $number_sentence_table = "61";//81
     $res_sentence_table = $mysqli1->query($sentencia . $number_sentence_table);
 
     $icons = [];
@@ -79,7 +79,7 @@ while ($row_datos_directorio = $res_datos_directorio->fetch_assoc()) {
     }
 
     // Construcción de la tabla con los encabezados dinámicos
-    $html_directorio .= '<table class="table table-bordered text-center">';
+    $html_directorio .= '<table id="datos-empelados" class="table table-bordered text-center">';
     $html_directorio .= '<thead class="bg-bold-blue text-white">';
     $html_directorio .= '<tr>';
 
@@ -90,10 +90,47 @@ while ($row_datos_directorio = $res_datos_directorio->fetch_assoc()) {
     $html_directorio .= '</tr>';
     $html_directorio .= '</thead>';
     $html_directorio .= '<tbody>';
+    // Agregar 4 filas vacías
+    for ($i = 0; $i < 4; $i++) {
+        $html_directorio .= '<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>';
+    }
+
     $html_directorio .= '</tbody>'; // Dejamos el cuerpo vacío por ahora
     $html_directorio .= '</table>';
 
+    $number_sentence_image = "82";
+    $res_sentence_image = $mysqli1->query($sentencia . $number_sentence_image);
 
+    while ($row_sentence_image = $res_sentence_image->fetch_assoc()) {
+        $conditions_image = str_replace('|', '\'', $row_sentence_image['condiciones']);
+        $sql_data_image = $row_sentence_image['campos'] . $row_sentence_image['tablas'] . $conditions_image;
+    }
+
+    $res_data_image = $mysqli1->query($sql_data_image);
+
+    while ($row_data_image = $res_data_image->fetch_assoc()) {
+        $ruta = htmlspecialchars($row_data_image['ruta']);
+        $alt = htmlspecialchars($row_data_image['textoAlterno'] ?? 'Imagen'); // Default alt text
+        $titulo = $row_data_image['titulo'] ; // Default description
+        // Determine the correct path based on the $nivel variable
+        $image_path = '';
+        if ($nivel == "raiz") {
+            $image_path = $ruta;
+        } else if ($nivel == "uno") {
+            $image_path = '../' . $ruta;
+        } else if ($nivel == "dos") {
+            $image_path = '../../' . $ruta;
+        } else if ($nivel == "tres") {
+            $image_path = '../../../' . $ruta;
+        }
+    }
+
+    $html_directorio .= '<div class="col-10 my-5 p-0 mx-auto d-flex flex-row justify-content-between">';
+    $html_directorio .= '<div class="col-5 d-flex flex-column">';
+    $html_directorio .= '<img src="' . $image_path . '" class="h-auto" alt="' . $alt . '">';
+    $html_directorio .= '</div>';
+    $html_directorio .= '<p class="col-6 my-auto"><b>' . $titulo . '</b></p>';
+    $html_directorio .= '</div>';
     
     $html_directorio .= '</div>';
 

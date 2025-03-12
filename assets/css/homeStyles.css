@@ -1098,25 +1098,6 @@ input[type="checkbox"] {
 
 /* End About Us */
 
-/* Begin calendary */
-
-.border-radius-10 {
-    border-radius: 10px !important;
-}
-
-.border-radius-20 {
-    border-radius: 20px !important;
-}
-
-.btn-calendary {
-    padding-block: .5rem;
-    border-radius: 10px;
-    font-size: 1.5rem;
-    background: var(--orange);
-    color: var(--white);
-    font-family: var(--roboto-bold);
-}
-
 /* Inicio Calendario academico */
 
 /* Calendario */
@@ -1137,6 +1118,8 @@ input[type="checkbox"] {
     color: var(--white);
     font-family: var(--roboto-bold);
 }
+
+/* Calendario academico */
 
 /* Calendario proximo evento*/
 

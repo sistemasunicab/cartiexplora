@@ -66,7 +66,7 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
     $html_certificaciones .= '</button>';
     $html_certificaciones .= '<ul class="dropdown-menu w-100">';
 
-    $numero_opciones_dropdown = "81";//76
+    $numero_opciones_dropdown = "76";
     $res_opciones_dropdown = $mysqli1->query($sentencia . $numero_opciones_dropdown);
 
     while ($row_opciones = $res_opciones_dropdown->fetch_assoc()) {
@@ -99,7 +99,7 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
     $html_certificaciones .= '</button>';
     $html_certificaciones .= '<ul class="dropdown-menu w-100">';
 
-    $numero_opciones_dropdown = "82";//77
+    $numero_opciones_dropdown = "77";
     $res_opciones_dropdown = $mysqli1->query($sentencia . $numero_opciones_dropdown);
 
     while ($row_opciones = $res_opciones_dropdown->fetch_assoc()) {
@@ -162,9 +162,35 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
     $html_certificaciones .= '<input class="form-check-input" type="checkbox" id="dataConsent">';
     $html_certificaciones .= '<label class="form-check-label d-flex align-items-center font-roboto-regular special-paragraph m-0" for="dataConsent">Acepto tratamiento de datos.</label>';
     $html_certificaciones .= '</div>';
+
+    $number_sentence_image = "76";
+    $res_sentence_image = $mysqli1->query($sentencia . $number_sentence_image);
+
+    while ($row_sentence_image = $res_sentence_image->fetch_assoc()) {
+        $conditions_image = str_replace('|', '\'', $row_sentence_image['condiciones']);
+        $sql_data_image = $row_sentence_image['campos'] . $row_sentence_image['tablas'] . $conditions_image;
+    }
+
+    $res_data_image = $mysqli1->query($sql_data_image);
+
+    while ($row_data_image = $res_data_image->fetch_assoc()) {
+        $ruta = htmlspecialchars($row_data_image['ruta']);
+        $alt = htmlspecialchars($row_data_image['textoAlterno'] ?? 'Imagen'); 
+        // Determine the correct path based on the $nivel variable
+        $image_path = '';
+        if ($nivel == "raiz") {
+            $image_path = $ruta;
+        } else if ($nivel == "uno") {
+            $image_path = '../' . $ruta;
+        } else if ($nivel == "dos") {
+            $image_path = '../../' . $ruta;
+        } else if ($nivel == "tres") {
+            $image_path = '../../../' . $ruta;
+        }
+    }
     $html_certificaciones .= '<button class="btn p-2 bg-orange col-2 mx-auto d-flex flex-row align-items-center justify-content-center mt-3">';
     $html_certificaciones .= '<p class="special-paragraph font-roboto-medium tx-white m-0 mx-2">Solicitar</p>';
-    $html_certificaciones .= '<span class="icono-envio">✈️</span>';
+    $html_certificaciones .= '<img src="' . $image_path . '" alt="' . $alt . '" class="img-fluid" style="width:30px;">';
     $html_certificaciones .= '</button>';
     $html_certificaciones .= '</div>'; // Cierre contenedor principal
 
