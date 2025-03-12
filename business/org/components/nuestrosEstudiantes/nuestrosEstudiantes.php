@@ -11,7 +11,7 @@
     }
 
     
-    $res_sentecia = $mysqli1->query($sentencia . "13");
+    $res_sentecia = $mysqli1->query($sentencia . "83");//13
     while ($row_sentencia = $res_sentecia->fetch_assoc()) {
         $sql_seccion = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
     }
@@ -29,7 +29,7 @@
         $html .=    '</div>';
 
 
-        $res_sentecia = $mysqli1->query($sentencia . "27");
+        $res_sentecia = $mysqli1->query($sentencia . "84");//27
         while ($row_sentencia = $res_sentecia->fetch_assoc()) {
             $sql_imagenes = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
         }

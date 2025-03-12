@@ -103,5 +103,6 @@ INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamie
 ('SELECT * ', 'FROM tbl_opciones_estados_financieros ', 'WHERE nombrePadre = |Relación con la institución| ', '','','',''),
 ('SELECT * ', 'FROM tbl_opciones_estados_financieros ', 'WHERE nombrePadre = |Tipo de certificación| ', '','','',''),
 
-('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 27 AND visible = 1 ', '', '', '', '');
+('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 27 AND visible = 1 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 27 ', '', '', '', '');
 

@@ -202,6 +202,10 @@ p, label {
     background: var(--bold-blue);
 }
 
+.border-bold-blue {
+    border-color: var(--bold-blue);
+}
+
 /* Blue */
 .tx-blue {
     color: var(--blue);
@@ -335,6 +339,10 @@ ul {
     padding: 0;
 }
 
+.btn-group .dropdown-toggle::after {
+    display: none !important;
+}
+
 /*INICIO HOME*/
 /*Inicio estilos NavBar*/
 .unicab-brand {
@@ -361,20 +369,20 @@ ul {
     cursor: pointer;
 }
 
-.dropdown-container.hover {
+.dropdown_our-container.hover {
     border: var(--medium-gray) 2px solid;
     border-radius: 5px;
 }
 
-.dropdown.hover {
+.dropdown_our.hover {
     display: block !important;
 }
 
-.dropdown2.hover {
+.dropdown_our2.hover {
     display: block;
 }
 
-.dropdown2 {
+.dropdown_our2 {
     box-sizing: border-box;
     overflow-x: hidden;
     display: none;
@@ -384,17 +392,23 @@ ul {
     padding-block: 1.5em;
 }
 
-.dropdown-item:hover {
+.dropdown_our-item:hover {
     color: var(--white);
     background-color: rgba(86, 190, 243, 0.97);
 }
 
-.dropdown-item.hover {
+.dropdown_our-item.hover {
     color: var(--white);
     background-color: rgba(86, 190, 243, 0.97);
 }
 
-.dropdown-item {
+.dropdown_our-item {
+    display: block;
+    width: 100%;
+    clear: both;
+    text-align: inherit;
+    white-space: nowrap;
+    border: 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -433,22 +447,22 @@ ul {
         border-bottom: 2px solid var(--medium-gray);
     }
 
-    .dropdown-container {
+    .dropdown_our-container {
         position: absolute;
         width: auto !important;
     }
 
-    .dropdown-container.hover {
+    .dropdown_our-container.hover {
         border: none;
     }
 
-    .dropdown {
+    .dropdown_our {
         background: unset !important;
         min-width: 160px;
         z-index: 1000;
     }
 
-    .dropdown::before {
+    .dropdown_our::before {
         content: "";
         position: absolute;
         top: 0;
@@ -459,12 +473,12 @@ ul {
         opacity: 0.97;
     }
 
-    .dropdown.hover {
+    .dropdown_our.hover {
         display: flex !important;
         flex-direction: row;
     }
 
-    .dropdown2 {
+    .dropdown_our2 {
         background-color: rgba(24, 125, 174, 0.90);
         flex-direction: row;
         min-width: 160px;
@@ -473,7 +487,7 @@ ul {
         top: 0;
     }
 
-    .dropdown2.hover {
+    .dropdown_our2.hover {
         display: flex;
     }
 
@@ -907,12 +921,6 @@ input[type="checkbox"] {
     color: #4DC250;
 }
 
-@media (min-width: 1200px) {
-    #info {
-        position: relative;
-        right: 85px;
-    }
-}
 
 /*Fin estilos Footer*/
 
