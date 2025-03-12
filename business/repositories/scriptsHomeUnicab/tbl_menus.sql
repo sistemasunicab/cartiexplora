@@ -52,7 +52,8 @@ INSERT INTO tbl_menus (menu, nivel, padre, icono, linkNivelRaiz, linkNivelTres, 
 ('Costos', 'raiz', '4', '', 'business/org/pages/costos.php', 'costos.php',''),
 ('Pagos', 'raiz', '4', '', 'business/org/pages/pagos.php', 'pagos.php',''),
 
-('Nuestros Estudiantes', 'raiz', '1', '', 'business/org/pages/nuestrosEstudiantes.php', 'nuestrosEstudiantes.php', '');
+('Nuestros Estudiantes', 'raiz', '1', '', 'business/org/pages/nuestrosEstudiantes.php', 'nuestrosEstudiantes.php', ''),
+('Blog', 'raiz', '1', '', 'business/org/pages/blog.php', 'blog.php', '');
 
 
 
