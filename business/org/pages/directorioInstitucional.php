@@ -14,15 +14,8 @@
     <?php 
         $nivel = "tres";
         include('../../../components/navBar.php');
-    ?>
-
-    <?php 
-        $nivel = 'tres';
         include('../components/institutionalDirectory/directory.php'); 
-    ?>
-
-    <?php 
-        $nivel = "tres";
+        include('../../../components/footer.php');
         include('../../../components/bookstoresMain.php');
     ?>
 </body>

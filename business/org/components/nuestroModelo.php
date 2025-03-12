@@ -25,7 +25,7 @@
         require('../../../business/repositories/1cc2s4Home.php');
     }
 
-    $res_sentecia = $mysqli1->query($sentencia . "65");
+    $res_sentecia = $mysqli1->query($sentencia . "70");
     while ($row_sentencia = $res_sentecia->fetch_assoc()) {
         $sql_seccion_dos = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
     }
@@ -51,7 +51,7 @@
     }
 
     // Obteniendo Imagenes
-    $res_sentencia = $mysqli1->query($sentencia."72");
+    $res_sentencia = $mysqli1->query($sentencia."77");
     while($row_sentencia = $res_sentencia->fetch_assoc()){
          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
     }  

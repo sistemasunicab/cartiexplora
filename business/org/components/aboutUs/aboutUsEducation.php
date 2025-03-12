@@ -9,7 +9,7 @@ while ($row_sentencia_educacion = $res_sentencia_educacion->fetch_assoc()) {
 $res_datos_educacion = $mysqli1->query($sql_datos_educacion);
 
 if ($res_datos_educacion->num_rows > 0) {
-    $html_educacion = '<div class="my-10 w-100 p-0">';
+    $html_educacion = '<div class="space-between-about w-100 p-0">';
     $html_educacion .= '<div class="d-flex flex-column flex-md-row col-10 justify-content-between mx-auto">';
 
     while ($row_datos_educacion = $res_datos_educacion->fetch_assoc()) {
