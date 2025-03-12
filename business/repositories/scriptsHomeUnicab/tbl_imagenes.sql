@@ -134,4 +134,14 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo,
 (30, 'assets/img/solutions-icon-desarrollo.png', 'Icono', 'Libertad', 'derecha', '', ''),
 (30, 'assets/img/equidad.png', 'Icono', 'Equidad', 'derecha', '', ''),
 (30, 'assets/img/responsabilidad.png', 'Icono', 'Responsabilidad', 'derecha', '', ''),
-(30, 'assets/img/solutions-icon-sistemas.png', 'Icono', 'Pertinencia', 'derecha', '', '');
+(30, 'assets/img/solutions-icon-sistemas.png', 'Icono', 'Pertinencia', 'derecha', '', ''),
+
+(31, 'assets/img/conectados.png', '', 'Principal', 'abajo', '', ''),
+(33, 'assets/img/enviar.png', '', 'Suscribir', 'izquierda', '', ''), 
+(33, 'assets/img/love.png', '', '', '', '', ''), 
+(33, 'assets/img/chatIcon.png', '', '', '', '', ''), 
+(33, 'assets/img/shareIcon.png', '', 'Compartir en', 'izquierda', '', ''), 
+(33, 'assets/img/facebookOrangeBg.png', '', '', '', '', ''), 
+(33, 'assets/img/instagramOrangeBg.png', '', '', '', '', ''), 
+(33, 'assets/img/linkedInOrangeBg.png', '', '', '', '', ''), 
+(33, 'assets/img/whatsappOrangeBg.png', '', '', '', '', '');

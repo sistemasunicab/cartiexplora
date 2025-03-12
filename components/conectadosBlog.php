@@ -16,18 +16,20 @@
 
      function generarBlog($datos) {
           $bloque = '
-          <div class="col-lg-3 blog-blockContainer" '.construirAtributosBlog($datos['rutaImagen'], $datos['rutaImagenEncima']).' > <!-- Block start -->
-               <img src="'.$datos['rutaImagen'].'" class="blog-blockImg">
+          <div class="col-lg-2 mx-4 d-flex align-items-center flex-column transform-hover" '.construirAtributosBlog($datos['rutaImagen'], $datos['rutaImagenEncima']).' > <!-- Block start -->
+               <img src="'.$datos['rutaImagen'].'" alt="" class="blog-blockImg">
                
-               <div class="blog-block">
-                    <p class="special-paragraph lh-1">'.$datos['fechaPublicacion'].'</p>
-                    <p class="font-roboto-bolditalic lh-1">'.$datos['tituloBlog'].'</p>
+               <div class="p-3 bg-white box-shadow-o5rem blog-blocksize d-flex flex-column justify-content-between">
+                    <div>
+                         <p class="little-paragraph m-0">'.$datos['fechaPublicacion'].'</p>
+                         <h3 class="font-roboto-bolditalic m-0">'.$datos['tituloBlog'].'</h3>
+                    </div>
 
-                    <p class="lh-1 special-paragraph">'.substr($datos['descripcion'], 0, 100).'</p>
-                    <a href="#" class="blog-blockReadMore lh-1">'.$datos['textoBoton'].'</a>
+                    <p class="m-0 little-paragraph text-center">'.substr($datos['descripcion'], 0, 100).'</p>
+                    <a href="" class="font-roboto-italic">'.$datos['textoBoton'].'</a>
                </div>
           </div> <!-- Block End -->';
-
+          
           return $bloque;
      }
 
