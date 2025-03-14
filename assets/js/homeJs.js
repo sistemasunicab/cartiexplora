@@ -28,22 +28,21 @@ const galeriaEstudiantes = () => {
     });
 };
 
-
 /**
  * Función responsable de la descarga de archivos
- * 
+ *
  * @param {String} nivel El nivel en el árbol de directorios desde el que se accederá al archivo.
  * @param {String} path ruta donde se encuentra el archivo a descargar
  * @param {String} nombreArchivo  nombre nuevo que se va a asignar a este archivo
  * @param {String} destino  target de la etiqueta <a></a>
- * 
+ *
  * */
 const descargarArchivo = (nivel, path, nombreNuevoArchivo, destino) => {
-    const instanciaADescargar = document.createElement('a');
+    const instanciaADescargar = document.createElement("a");
     if (nivel == "raiz") {
         instanciaADescargar.href = path;
-     } else if (nivel == "uno") {
-         instanciaADescargar.href = `../${path}`;
+    } else if (nivel == "uno") {
+        instanciaADescargar.href = `../${path}`;
     } else if (nivel == "dos") {
         instanciaADescargar.href = `../../${path}`;
     } else if (nivel == "tres") {
@@ -57,19 +56,28 @@ const descargarArchivo = (nivel, path, nombreNuevoArchivo, destino) => {
 };
 
 const leerMasPrincipios = (id, boton) => {
-  let tresPuntos = document.querySelector(`#${id} .show`);
-  let textoOculto = document.querySelector(`#${id} .hide`);
+    let tresPuntos = document.querySelector(`#${id} .show`);
+    let textoOculto = document.querySelector(`#${id} .hide`);
 
-  //Oculta o Muestra tres puntos ...
-  tresPuntos.classList.toggle('show');
-  tresPuntos.classList.toggle('hide');
+    //Oculta o Muestra tres puntos ...
+    tresPuntos.classList.toggle("show");
+    tresPuntos.classList.toggle("hide");
 
-  //Oculta o muestra el texto escondido
-  textoOculto.classList.toggle('hide');
-  textoOculto.classList.toggle('show');
+    //Oculta o muestra el texto escondido
+    textoOculto.classList.toggle("hide");
+    textoOculto.classList.toggle("show");
 
-  boton.innerText = boton.innerText === "Leer más" ? "Leer menos" : "Leer más";
-}
+    boton.innerText =
+        boton.innerText === "Leer más" ? "Leer menos" : "Leer más";
+};
+
+// Despues de enviado el formulario hace el reset de clases css aplicadas
+const reset_clases = () => {
+    const elementosForm = document.querySelectorAll("input, textarea, select");
+    elementosForm.forEach((elementoForm) =>
+        elementoForm.classList.remove("success", "error")
+    );
+};
 
 $(document).ready(function () {
     $("#myForm").on("submit", function (e) {
@@ -88,7 +96,7 @@ $(document).ready(function () {
             mensaje: mensaje,
             subscribe: subscribe,
         };
-        
+
         $.ajax({
             url: "../../cartiexplora/ajax/formInscripcionesAbiertas.php",
             type: "POST",
@@ -122,50 +130,23 @@ $(document).ready(function () {
 
 const reglasvalidacion = {
     texto: /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/,
-    texto1: /[_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/,
-    nombre: /^[a-zA-ñÑ\s]{1,100}$/,
     correo: /^[_-\w.]+@[a-z]+\.[a-z]{2,5}$/,
-    asunto: /^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s]{1,200}$/,
-    mensaje: /^[\wáéíóúÁÉÍÓÚñÑ.,!?¿¡()\-:\s]{1,2000}$/,
+    numero: /^[0-9]{1,}$/,
+    fecha: /^[0-9]{4}-[0-1]{1}[0-9]{1}-[0-3]{1}[0-9]{1}$/,
 };
+
+// Objeto para almacenar los errores actuales por campo
+let erroresCampos = {};
 
 // Elemento donde se muestra el error
 let notificacionFormInscripciones;
 
-let erroresCampos = {}; // Objeto para almacenar los errores actuales por campo
-
-function validar_campo(input) {
+const actualizarNotificacionesErrores = () => {
+    // Verifica que el elemento no sea undefined
     if (!notificacionFormInscripciones) {
-        notificacionFormInscripciones =
-            document.querySelector("#form-notificacion");
+        notificacionFormInscripciones = document.querySelector("#form-notificacion");
     }
 
-    let { name, value, type } = input;
-    if (type === "checkbox") {
-        if (input.checked) {
-            input.classList.remove("error");
-            input.classList.add("success");
-            delete erroresCampos[name]; // Elimina el error si está corregido
-        } else {
-            input.classList.add("error");
-            input.classList.remove("success");
-            erroresCampos[name] = `El campo ${name} debe estar marcado.`;
-        }
-    } else if (reglasvalidacion[name].test(value) && value.trim() !== "") {
-        input.classList.remove("error");
-        input.classList.add("success");
-        delete erroresCampos[name]; // Elimina el error si está corregido
-    } else {
-        input.classList.add("error");
-        input.classList.remove("success");
-        erroresCampos[name] = mensaje_personalizado(name, value);
-    }
-
-    actualizarNotificacionesErrores();
-    mostrar_submit();
-}
-
-function actualizarNotificacionesErrores() {
     if (Object.keys(erroresCampos).length === 0) {
         // No hay errores
         notificacionFormInscripciones.classList.add("notificacion-hidden");
@@ -177,37 +158,6 @@ function actualizarNotificacionesErrores() {
             Object.values(erroresCampos).join("\n");
     }
 }
-
-const mensaje_personalizado = (campo, value) => {    
-    if (campo === "nombre") {
-        if (value.length > 100) {
-            return "El nombre debe contener solo letras y espacios, y no exceder 100 caracteres.";
-        }
-    } else if (campo === "correo") {
-        if (value.length > 50) {
-            return "El correo electrónico debe ser válido y tener un máximo de 50 caracteres (ejemplo: nombre@dominio.com).";
-        }
-    } else if (campo === "asunto") {
-        if (value.length > 200) {
-            return "El asunto debe contener solo letras, números y puntuación válida, con un máximo de 200 caracteres.";
-        }
-    } else if (campo === "mensaje") {
-        if (value.length > 2000) {
-            return "El mensaje puede contener letras, números y símbolos permitidos, con un máximo de 2000 caracteres.";
-        }
-    }
-    return (
-        "Ha ingresado alguno de los siguientes caracteres no válidos para " +
-        campo +
-        ": " +
-        "- _ ' \" < > ~ ^ * $ ! ¡ # % & ¿ ? /= + , ; : ( ) { } [ ] \\"
-    );
-};
-
-const mayus = (element) => {
-    element.value = element.value.toUpperCase();
-    validar_campo(element);
-};
 
 const mostrar_submit = () => {
     const elementosForm = document.querySelectorAll(".inscripciones-input");
@@ -222,16 +172,138 @@ const mostrar_submit = () => {
         }
     });
 
-    if (todosValidos) {
+    if (todosValidos && Object.keys(erroresCampos).length === 0) {
         $("#inscripciones_enviar").removeAttr("disabled");
     } else {
         $("#inscripciones_enviar").attr("disabled", "disabled");
     }
 };
 
-const reset_clases = () => {
-    const elementosForm = document.querySelectorAll("input, textarea, select");
-    elementosForm.forEach((elementoForm) =>
-        elementoForm.classList.remove("success", "error")
-    );
+const marcarInputError = (input) => {
+    input.classList.add("error");
+    input.classList.remove("success");
 };
+
+const marcarInputCorrecto = (input) => {
+    let {name} = input;
+    input.classList.remove("error");
+    input.classList.add("success");
+    delete erroresCampos[name];
+};
+
+const validar_texto = (input) => {
+
+    let { name, value } = input;
+    const campoObligatorio = input.getAttribute("required") === '' ? true : false;
+    
+    if ((value.trim() === "" || value.trim() === '') && campoObligatorio) {
+        marcarInputError(input);
+        erroresCampos[name] = `El campo ${name} es obligatorio`;
+    } else if (value.match(reglasvalidacion.texto)) {
+        marcarInputError(input);
+        erroresCampos[name] = `Ha ingresado alguno de los siguientes caracteres no válidos para ${name}: - _ ' \" < > ~ ^ * $ ! ¡ # % & ¿ ? /= + , ; : ( ) { } [ ] \\`;
+    } else {
+        marcarInputCorrecto(input);
+    }
+    
+    actualizarNotificacionesErrores();
+    mostrar_submit();
+};
+
+const validar_numero = (input) => {
+    let { name, value } = input;
+    const campoObligatorio = input.getAttribute("required") === '' ? true : false;
+    
+    if ((value.trim() === "" || value.trim() === '') && campoObligatorio) {
+        marcarInputError(input);
+        erroresCampos[name] = `El campo ${name} es obligatorio.`;
+    } else if (reglasvalidacion.numero.test(value)) {
+        marcarInputCorrecto(input);
+    } else {
+        erroresCampos[name] = `Ingrese sólamente números mayores a 0 para ${name}`;
+        marcarInputError(input);
+    }
+    
+    actualizarNotificacionesErrores();
+    mostrar_submit();
+}
+
+const validar_correo = (input) => {
+    let { name, value } = input;
+    const campoObligatorio = input.getAttribute("required") === '' ? true : false;
+    
+    if ((value.trim() === "" || value.trim() === '') && campoObligatorio) {
+        marcarInputError(input);
+        erroresCampos[name] = `El campo ${name} es obligatorio.`;
+    } else if (reglasvalidacion.correo.test(value)) {
+        marcarInputCorrecto(input);
+    } else {
+        erroresCampos[name] = `No es un patrón válido para ${name}`;
+        marcarInputError(input);
+    }
+    
+    actualizarNotificacionesErrores();
+    mostrar_submit();
+};
+
+const validar_fecha = (input) => {
+    
+    let { name, value: fecha } = input;
+    const campoObligatorio = input.getAttribute("required") === '' ? true : false;
+    
+    if ((fecha.trim() === "" || fecha.trim() === '') && campoObligatorio) {
+        marcarInputError(input);
+        erroresCampos[name] = `El campo ${name} es obligatorio.`;
+
+    } else if (reglasvalidacion.fecha.test(fecha)) {
+        
+        const partesFecha = fecha.split("-");
+        const anio = partesFecha[0];
+        const mes  = partesFecha[1];
+        const dia  = partesFecha[2];
+        let contieneErrores = false;
+
+        if(anio < 1850 || anio > 2050) {
+            contieneErrores = true;
+            marcarInputError(input);
+            erroresCampos[name] = `No es un patrón válido para ${name}`;
+        }
+
+        if(mes < 1 || mes > 12) {
+            contieneErrores = true;
+            marcarInputError(input);
+            erroresCampos[name] = `No es un patrón válido para ${name}`;
+        } else {
+            
+            if(mes == 2) {
+                if(dia < 1 || dia > 29) {
+                    contieneErrores = true;
+                    marcarInputError(input);
+                    erroresCampos[name] = `No es un patrón válido para ${name}`;
+                } 
+            } else if(mes == 4 || mes == 6 || mes == 9 || mes == 11) {
+                if(dia < 1 || dia > 30) {
+                    contieneErrores = true;
+                    marcarInputError(input);
+                    erroresCampos[name] = `No es un patrón válido para ${name}`;
+                } 
+            } else {
+                if(dia < 1 || dia > 31) {
+                    contieneErrores = true;
+                    marcarInputError(input);
+                    erroresCampos[name] = `No es un patrón válido para ${name}`;
+                } 
+            }
+        }
+        
+        if(!contieneErrores){
+            marcarInputCorrecto(input);
+        }
+    } else {
+        erroresCampos[name] = `No es un patrón válido para ${name}`;
+        marcarInputError(input);
+    }
+    
+    actualizarNotificacionesErrores();
+    mostrar_submit();
+}
