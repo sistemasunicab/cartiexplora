@@ -50,8 +50,8 @@ while ($row_data_visible = $res_data_visible->fetch_assoc()) {
     $res_data_files = $mysqli1->query($sql_data_files);
 
     // CONTENEDOR PRINCIPAL
-    $html_communication = '<div class="col-7 mx-auto my-5 d-flex flex-column">';
-    $html_communication .= '    <div class="d-flex flex-column col-10 m-auto">';
+    $html_communication = '<div class="col-9 col-sm-7 mx-auto my-5 d-flex flex-column p-0">';
+    $html_communication .= '    <div class="d-flex flex-column col-12 col-sm-10 m-auto">';
 
     // TÍTULO DE LA SECCIÓN (POR EJEMPLO "COMUNICADOS")
     $html_communication .= '<h2 class="font-roboto-bold tx-blue m-auto">'. $row_data_visible['titulo']. '</h2>';
@@ -79,16 +79,16 @@ while ($row_data_visible = $res_data_visible->fetch_assoc()) {
         $html_communication .= '  <div class="d-flex align-items-center justify-content-between my-10">';
 
         // Lado izquierdo: texto (nombre y fecha)
-        $html_communication .= '    <div class="d-flex flex-column text-start">';
+        $html_communication .= '    <div class="col-7 d-flex flex-column text-start">';
         $html_communication .= '      <p class="font-roboto-bold mb-0">' . $nombreArchivo . '</p>';
         $html_communication .= '      <p class="font-roboto-bold mb-0">' . $fechaArchivo . '</p>';
         $html_communication .= '    </div>';
 
         // Lado derecho: ícono + botón
-        $html_communication .= '    <div class="d-flex align-items-center">';
-        $html_communication .= '      <img src="' . $icon_path . '" alt="PDF icon" style="width:50px; margin-right:15px;">';
+        $html_communication .= '    <div class="col-5 d-flex flex-sm-row flex-column align-items-end">';
+        $html_communication .= '      <img src="' . $icon_path . '" alt="PDF" class="fluid-img col-5 mx-auto col-sm-4 col-md-3 my-auto mb-sm-auto mb-3 mb-sm-0 me-sm-3">';
         // Usar data-ruta para el botón (si usarás JavaScript para descargar)
-        $html_communication .= '      <button class="btn shadow h-auto tx-color-wh btn-calendary fw-semibold btn-route" '
+        $html_communication .= '      <button class="my-auto mx-auto btn shadow h-auto tx-color-wh btn-calendary fw-semibold btn-route" '
             . 'style="width:100px;" data-ruta="' . $archivo_path . '">Ver</button>';
         $html_communication .= '    </div>';
 
