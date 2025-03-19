@@ -61,7 +61,7 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
     // Dropdown "Relación con la institución"
     $html_certificaciones .= '<div class="btn_displayed my-5 btn-group col-10 col-sm-4 mx-auto mx-sm-0 d-flex flex-column">';
     $html_certificaciones .= '<button class="dropdown-toggle col-12 display-options btn p-0 d-flex flex-row dropdown-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">';
-    $html_certificaciones .= '<p class="little-paragraph col-9 m-auto font-roboto-italic tx-white dropdown-text">Relación con la institución</p>';
+    $html_certificaciones .= '<p class="little-paragraph col-9 text-break m-auto font-roboto-italic tx-white dropdown-text">Relación con la institución</p>';
     $html_certificaciones .= '<span class="col-3 d-flex justify-content-center align-items-center p-0">▼</span>';
     $html_certificaciones .= '</button>';
     $html_certificaciones .= '<ul class="dropdown-menu w-100">';
