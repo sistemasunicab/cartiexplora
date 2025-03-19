@@ -53,7 +53,7 @@
     }
 
     //Obtener Imagenes
-    $res_sentecia = $mysqli1->query($sentencia . "93");//33
+    $res_sentecia = $mysqli1->query($sentencia . "106");
     while ($row_sentencia = $res_sentecia->fetch_assoc()) {
         $sql_imagenes = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
     }
@@ -64,7 +64,7 @@
     }
 
     //Obtener textos
-    $res_sentecia = $mysqli1->query($sentencia . "91");//40
+    /*$res_sentecia = $mysqli1->query($sentencia . "91");
     while ($row_sentencia = $res_sentecia->fetch_assoc()) {
         $sql_textos = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
     }
@@ -72,9 +72,9 @@
 
     while ($row = $res2->fetch_assoc()) {
         $textos[] = $row;
-    }
+    }*/
 
-    $res_sentecia = $mysqli1->query($sentencia . "92");//16
+    $res_sentecia = $mysqli1->query($sentencia . "105");
     while ($row_sentencia = $res_sentecia->fetch_assoc()) {
         $sql_seccion = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
     }
@@ -82,26 +82,24 @@
 
     $html = '';
     while ($row_sentencia = $res_seccion->fetch_assoc()) {
-
         $imagen_banner = array_shift($imagenes);
-
         $html .= '<section class="row mb-5">';
         $html .=    '<div class="col-lg-12">';
         $html .=        '<img '.ImageAttributeBuilder::buildAttributes($nivel, $imagen_banner['ruta'], $imagen_banner['descripcion']).' class="img-fluid w-100">';
         $html .=    '</div>';
         $html .= '</section>';
 
-        $html .= '<main class="container" id="divMision">';
+        /*$html .= '<main class="container" id="divMision">';
         $html .=    '<div class="row my-2">';
         $html .=        '<div class="col-lg-12">';
         $html .=            '<h2 class="text-center tx-blue font-roboto-light-title">'. $row_sentencia['titulo'] .'</h2>';
         $html .=        '</div>';
-        $html .=    '</div>';
+        $html .=    '</div>';*/
 
-        $imagen_explorador = array_shift($imagenes);
-        $numeroCards = sizeof($textos);
+        //$imagen_explorador = array_shift($imagenes);
+        //$numeroCards = sizeof($textos);
 
-        $html .=    '<div class="row">';
+        /*$html .=    '<div class="row">';
         for ($i = 0; $i < 3; $i++) {
             //Muestra las primeras cards del home con diferente estructura
             $html .=    '<div class="col-lg-6 p-4 value">';
@@ -138,7 +136,7 @@
             $html .=    '</div>';
         }
 
-        $html .=    '</div>';
+        $html .=    '</div>';*/
         $html .= '</main>';
 
         }

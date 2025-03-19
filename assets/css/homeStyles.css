@@ -1427,4 +1427,25 @@ input[type="checkbox"] {
     .little-paragraph {
         font-size: 1rem; 
     }
+
+    .inscripciones-movil{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; 
+        overflow: auto;
+        z-index: 100;
+        margin: 0!important;
+        animation: moverDesdeDerecha 0.8s ease-out forwards;
+      }
+      
+      @keyframes moverDesdeDerecha {
+        from {
+          transform: translateX(900px);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
 }
