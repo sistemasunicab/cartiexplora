@@ -96,16 +96,13 @@ INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamie
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 23 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_textos ', 'WHERE id_seccion = 23 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 24 ', '', '', '', ''),
+
 ('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 25 AND visible = 1 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 26 AND visible = 1 ', '', '', '', ''),
-('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 26 AND descripcion=|calendario| ', '', '', '', ''),
-('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 26 AND descripcion=|icon-send| ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 26 AND descripcion = |calendario| ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_opciones_estados_financieros ', 'WHERE nombre_padre = |Relación con la institución| ', '','','',''),
 ('SELECT * ', 'FROM tbl_opciones_estados_financieros ', 'WHERE nombre_padre = |Tipo de certificación| ', '','','',''),
-('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 17 AND visible = 1 ', '', '', '', ''),
-('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 17 AND descripcion = |search| ', '', '', '', ''),
-('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 17 AND descripcion = |table| ', '', '', '', ''),
-('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 17 AND descripcion = |horario| ', '', '', '', ''),
+
 ('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 27 AND visible = 1 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 27 ', '', '', '', ''),
 
@@ -128,4 +125,6 @@ INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamie
 ('SELECT * ', 'FROM tbl_blogs ', 'WHERE id > 0 ', '', 'ORDER BY id DESC LIMIT 4 ', '', ''),
 ('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 33 AND visible = 1 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_blogs ', 'WHERE id > 0 ', '', 'ORDER BY id DESC LIMIT 1 ', '', ''),
-('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 33 ', '', '', '', '');
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 33 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 26 AND descripcion = |icon-send| ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 17 AND descripcion = |image-schedule| ', '', '', '', '');

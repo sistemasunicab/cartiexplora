@@ -1,5 +1,5 @@
 <?php
-$numero_de_estados_financieros = "73";
+$numero_de_estados_financieros = "78";
 $res_estados_financieros = $mysqli1->query($sentencia . $numero_de_estados_financieros);
 while ($row_estados_financieros = $res_estados_financieros->fetch_assoc()) {
     $condiciones_estados_financieros = str_replace('|', '\'', $row_estados_financieros['condiciones']);
@@ -17,7 +17,7 @@ while ($row_datos_estados_financieros = $res_datos_estados_financieros->fetch_as
     $html_estados_financieros .= '<div class="form-financial col-12 p-0 mx-auto d-flex flex-column">';
     $html_estados_financieros .= '<input type="text" class="text-center font-roboto-bolditalic col-6 mx-auto my-2" placeholder="Usuario email">';
     $html_estados_financieros .= '<input type="password" class="text-center font-roboto-bolditalic col-6 mx-auto my-2" placeholder="Password">';
-    $number_sentence_image = "76";
+    $number_sentence_image = "103";
     $res_sentence_image = $mysqli1->query($sentencia . $number_sentence_image);
 
     while ($row_sentence_image = $res_sentence_image->fetch_assoc()) {

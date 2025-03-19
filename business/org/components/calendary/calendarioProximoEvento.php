@@ -1,6 +1,6 @@
 <?php
 // 1) CHECK IF THE SECTION IS VISIBLE (Sentence #47)
-$number_sentence_visible = "56";
+$number_sentence_visible = "57";
 $res_sentence_visible = $mysqli1->query($sentencia . $number_sentence_visible);
 
 while ($row_sentence_visible = $res_sentence_visible->fetch_assoc()) {
@@ -14,7 +14,7 @@ $res_data_visible = $mysqli1->query($sql_data_visible);
 while ($row_data_visible = $res_data_visible->fetch_assoc()) {
 
     // 2) FETCH UPCOMING EVENTS (Sentence #51)
-    $number_sentence_events = "60";
+    $number_sentence_events = "65";
     $res_sentence_events = $mysqli1->query($sentencia . $number_sentence_events);
 
     while ($row_sentence_events = $res_sentence_events->fetch_assoc()) {
@@ -23,7 +23,6 @@ while ($row_data_visible = $res_data_visible->fetch_assoc()) {
     }
 
     $res_data_events = $mysqli1->query($sql_data_events);
-
     // Main container
     $html_next_event = '<div class="col-7 m-auto my-5 d-flex flex-column">';
     $html_next_event .= '<div class="w-100 m-auto d-flex flex-column bg-bold-blue shadow">';
@@ -34,8 +33,10 @@ while ($row_data_visible = $res_data_visible->fetch_assoc()) {
     // Loop through each upcoming event
     while ($row_data_events = $res_data_events->fetch_assoc()) {
         // Get event title and date
-        $tituloEvento = htmlspecialchars($row_data_events['nombre'] ?? 'Evento sin título');
-        $fechaEvento = htmlspecialchars($row_data_events['fecha_hora'] ?? '2025-12-31 00:00:00');
+        $tituloEvento = htmlspecialchars($row_data_events['nombre']);
+        $fechaEvento = $row_data_events['fecha'];
+        $horaEvento = $row_data_events['hora'];
+        $fechaEvento = date('Y-m-d H:i:s', strtotime("$fechaEvento $horaEvento"));
         $idEvento = $row_data_events['id'] ?? rand(1, 1000); // Unique ID fallback
 
         // Display event title

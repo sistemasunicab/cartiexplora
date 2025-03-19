@@ -98,7 +98,7 @@ while ($row_datos_directorio = $res_datos_directorio->fetch_assoc()) {
     $html_directorio .= '</tbody>'; // Dejamos el cuerpo vacío por ahora
     $html_directorio .= '</table>';
 
-    $number_sentence_image = "82";
+    $number_sentence_image = "104";
     $res_sentence_image = $mysqli1->query($sentencia . $number_sentence_image);
 
     while ($row_sentence_image = $res_sentence_image->fetch_assoc()) {

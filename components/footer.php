@@ -54,7 +54,7 @@ while ($row_datos = $res_datos->fetch_assoc()) {
     $ubicacion = $row_datos['t1'];
 }
 
-$numero_de_sentencia_footer = "35";
+$numero_de_sentencia_footer = "34";
 $res_sentencia_footer = $mysqli1->query($sentencia . $numero_de_sentencia_footer);
 
 while ($row_sentencia_footer = $res_sentencia_footer->fetch_assoc()) {
@@ -96,7 +96,7 @@ foreach ($imagenes_footer as $imagen) {
 
 $hmtl_images .= '</div>';
 
-$numero_de_sentencia_footer = "37";
+$numero_de_sentencia_footer = "36";
 $res_sentencia_footer = $mysqli1->query($sentencia . $numero_de_sentencia_footer);
 while ($row_sentencia_footer = $res_sentencia_footer->fetch_assoc()) {
     $condiciones_footer = str_replace('|', '\'', $row_sentencia_footer['condiciones']);
@@ -104,7 +104,7 @@ while ($row_sentencia_footer = $res_sentencia_footer->fetch_assoc()) {
 }
 $res_datos_footer = $mysqli1->query($sql_datos_footer);
 
-$numero_de_sentencia_footer1 = "38";
+$numero_de_sentencia_footer1 = "37";
 $res_sentencia_footer1 = $mysqli1->query($sentencia . $numero_de_sentencia_footer1);
 while ($row_sentencia_footer1 = $res_sentencia_footer1->fetch_assoc()) {
     $condiciones_footer1 = str_replace('|', '\'', $row_sentencia_footer1['condiciones']);
@@ -155,7 +155,7 @@ foreach ($imagenes_footer as $imagen) {
 
 $hmtl_social_media .= '</div>';
 
-$numero_de_sentencia_footer = "50";
+$numero_de_sentencia_footer = "49";
 $res_sentencia_footer = $mysqli1->query($sentencia . $numero_de_sentencia_footer);
 while ($row_sentencia_footer = $res_sentencia_footer->fetch_assoc()) {
     $condiciones_footer = str_replace('|', '\'', $row_sentencia_footer['condiciones']);
@@ -198,7 +198,7 @@ foreach ($imagenes_footer as $imagen) {
 $entities .= '</div>';
 
 
-$numero_de_sentencia_footer = "39";
+$numero_de_sentencia_footer = "38";
 $res_sentencia_footer = $mysqli1->query($sentencia . $numero_de_sentencia_footer);
 while ($row_sentencia_footer = $res_sentencia_footer->fetch_assoc()) {
     $condiciones_footer = str_replace('|', '\'', $row_sentencia_footer['condiciones']);

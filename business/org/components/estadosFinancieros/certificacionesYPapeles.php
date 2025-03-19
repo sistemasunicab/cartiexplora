@@ -66,7 +66,7 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
     $html_certificaciones .= '</button>';
     $html_certificaciones .= '<ul class="dropdown-menu w-100">';
 
-    $numero_opciones_dropdown = "76";
+    $numero_opciones_dropdown = "81";
     $res_opciones_dropdown = $mysqli1->query($sentencia . $numero_opciones_dropdown);
 
     while ($row_opciones = $res_opciones_dropdown->fetch_assoc()) {
@@ -99,7 +99,7 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
     $html_certificaciones .= '</button>';
     $html_certificaciones .= '<ul class="dropdown-menu w-100">';
 
-    $numero_opciones_dropdown = "77";
+    $numero_opciones_dropdown = "82";
     $res_opciones_dropdown = $mysqli1->query($sentencia . $numero_opciones_dropdown);
 
     while ($row_opciones = $res_opciones_dropdown->fetch_assoc()) {
@@ -163,7 +163,7 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
     $html_certificaciones .= '<label class="form-check-label d-flex align-items-center font-roboto-regular special-paragraph m-0" for="dataConsent">Acepto tratamiento de datos.</label>';
     $html_certificaciones .= '</div>';
 
-    $number_sentence_image = "76";
+    $number_sentence_image = "103";
     $res_sentence_image = $mysqli1->query($sentencia . $number_sentence_image);
 
     while ($row_sentence_image = $res_sentence_image->fetch_assoc()) {
