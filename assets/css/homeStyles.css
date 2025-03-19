@@ -1042,8 +1042,15 @@ input[type="checkbox"] {
 /** Nuestro Modelo **/
 
 .nuestro-modelo-img {
-    display: flex;
     align-items: center;
+}
+
+.box-shadow-2rem {
+    box-shadow: 8px 20px 2rem rgba(0, 0, 0, 0.2);
+}
+
+.modelo-img-movil {
+    margin-bottom: -6rem;
 }
 
 .modelo-item {
@@ -1396,4 +1403,35 @@ input[type="checkbox"] {
 .blog-redes-icon {
     height: 2.6rem;
     width: auto;
+}
+
+/* Adaptación para móviles */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.8rem; /* Reducido de 4.4rem */
+    }
+
+    h2 {
+        font-size: 2.4rem; /* Reducido de 3.8rem */
+    }
+
+    h3 {
+        font-size: 2rem; /* Reducido de 2.5rem */
+    }
+
+    h4 {
+        font-size: 1.8rem; /* Reducido de 2.2rem */
+    }
+
+    p, label {
+        font-size: 1.2rem; /* Reducido de 1.5rem */
+    }
+
+    .special-paragraph {
+        font-size: 0.9rem; /* Reducido de 1rem */
+    }
+
+    .little-paragraph {
+        font-size: 1rem; /* Reducido de 1.2rem */
+    }
 }

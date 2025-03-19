@@ -235,3 +235,18 @@ const reset_clases = () => {
         elementoForm.classList.remove("success", "error")
     );
 };
+
+
+function cambiarImagenBlog(objeto, ruta) {
+    const imagen = objeto.querySelector('img')
+    if (imagen) {
+        imagen.src = ruta;
+    }
+}
+
+function restaurarImagenBlog(objeto, ruta) {
+    const imagen = objeto.querySelector('img')
+    if (imagen) {
+        imagen.src = ruta;
+    }
+}

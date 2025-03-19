@@ -4,9 +4,9 @@
 
      function generarItem($rutaIcono, $texto, $posicionTexto) {
           $item = '
-               <div class="col-lg-4 modelo-item '.FlexTitleLoader::setDirection($posicionTexto).'"> <!-- Item -->
+               <div class="col-lg-4 modelo-item '.FlexTitleLoader::setDirection($posicionTexto).' align-items-center align-items-lg-start"> <!-- Item -->
                     <img src="../../../../cartiexplora/'.$rutaIcono.'" alt="" class="mb-5">
-                    <p class="lh-1 font-roboto-black tx-blue">'.$texto.'</p>
+                    <p class="lh-1 font-roboto-black tx-blue text-lg-start text-center">'.$texto.'</p>
                </div> <!-- Item End -->
           ';
 
@@ -41,8 +41,8 @@
                <main class="container margin-top-5rem mb-5">
                     <div class="row">
                          <div class="col-lg-12">
-                              <h2 class="text-center text-lg-start margin-bottom-2rem tx-orange font-roboto-black">'.$row_datos_seccion['titulo'].'</h2>
-                              <h1 class="text-center text-lg-start margin-bottom-2rem tx-blue font-roboto-light"> <span class="font-roboto-black">'.$titulo.'</span> <br> '.$subtitulo.' </h1>
+                              <h2 class="margin-bottom-2rem tx-orange font-roboto-black">'.$row_datos_seccion['titulo'].'</h2>
+                              <h1 class="margin-bottom-2rem tx-blue font-roboto-light"> <span class="font-roboto-black">'.$titulo.'</span> <br> '.$subtitulo.' </h1>
                          </div>
                     </div>
           ';
@@ -62,10 +62,12 @@
     }
 
     if ($html != '') {
+          $modeloImg = array_shift($imagenes);
+
           $html .= '
-                    <div class="row '.FlexTitleLoader::setDirection($imagenes[0][2]).'">
-                         <div class="col-lg-6 nuestro-modelo-img">
-                              <img class="img-fluid w-100" src="../../../../cartiexplora/'.$imagenes[0][0].'" alt="">
+                    <div class="row '.FlexTitleLoader::setDirection($modeloImg[2]).'">
+                         <div class="d-none d-lg-flex col-lg-6 nuestro-modelo-img">
+                              <img class="img-fluid w-100 box-shadow-2rem" src="../../../../cartiexplora/'.$modeloImg[0].'" alt="">
                          </div>
 
                          <div class="col-lg-6">
@@ -74,18 +76,19 @@
                     </div>
                </main>
 
-               <section class="margin-top-5rem mb-5 bg-light-gray-o26">
+               <section class="margin-top-5rem bg-light-gray-o26" style="margin-bottom: 15rem;">
                     <div class="container">
                          <div class="row justify-content-center align-items-center m-0">
           ';
-
-          unset($imagenes[0]);
 
           foreach ($imagenes as $datos) {
                $html .= generarItem($datos[0], $datos[1], $datos[2]);
           }
 
           $html .= '
+                         <div class="col-lg-4 d-lg-none d-block">
+                              <img class="img-fluid w-100 modelo-img-movil box-shadow-2rem" src="../../../../cartiexplora/'.$modeloImg[0].'" alt="">
+                         </div>
                     </div>
                </div>
           </section>

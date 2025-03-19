@@ -42,7 +42,7 @@
     }
 
     // Obteniendo datos
-    $res_sentencia = $mysqli1->query($sentencia."96");//42
+    $res_sentencia = $mysqli1->query($sentencia."97");//42
     while($row_sentencia = $res_sentencia->fetch_assoc()){
          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
     }  
@@ -52,7 +52,7 @@
          $links[] = ["linkName" => $row_datos['texto']];
     }
 
-    $res_sentencia = $mysqli1->query($sentencia."97");//43
+    $res_sentencia = $mysqli1->query($sentencia."96");//43
     while($row_sentencia = $res_sentencia->fetch_assoc()){
          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
     }  
