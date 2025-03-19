@@ -145,4 +145,8 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo,
 (33, 'assets/img/facebookOrangeBg.png', '', '', '', '', ''), 
 (33, 'assets/img/instagramOrangeBg.png', '', '', '', '', ''), 
 (33, 'assets/img/linkedInOrangeBg.png', '', '', '', '', ''), 
-(33, 'assets/img/whatsappOrangeBg.png', '', '', '', '', '');
+(33, 'assets/img/whatsappOrangeBg.png', '', '', '', '', ''),
+
+(34, 'assets/img/admisiones/Admisiones_2025_1.jpg', '', '', '', '', ''), 
+(34, 'assets/img/admisiones/ico1_admisiones_2025_1.jpg', '', '', '', '', ''), 
+(34, 'assets/img/admisiones/ico2_admisiones_2025_1.jpg', '', '', '', '', '');

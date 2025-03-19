@@ -48,4 +48,6 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 
 ('busqueda', 1, 'blog', '<span class="font-roboto-black">Celebrando Logros y</span><br>Compartiendo Experiencias', '', ''),
 ('noticias', 1,'blog', 'Noticias Destacadas', '', ''),
-('lastPost', 1, 'blog', '', '', '');
+('lastPost', 1, 'blog', '', '', ''),
+
+('entrevista', 1, 'admisiones', 'Admisiones', 'Entrevistas', '');

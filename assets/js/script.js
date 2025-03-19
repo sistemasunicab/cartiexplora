@@ -258,7 +258,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 /*Fin java Script para el componente Navbar*/
 
-
 document.addEventListener("DOMContentLoaded", function () {
     (function () {
         // Check that our required global variables exist
@@ -298,6 +297,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 1000);
     })();
 });
+
 document.addEventListener("DOMContentLoaded", function () {
     // Selecciona todos los botones con la clase .btn-route
     const botonesVer = document.querySelectorAll('.btn-route');
@@ -316,7 +316,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-
 
 if (window.location.pathname.endsWith("estadosFinancieros.php")) {
     document.addEventListener("DOMContentLoaded", function () {
