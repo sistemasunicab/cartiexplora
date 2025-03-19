@@ -32,7 +32,7 @@
 
         $html .= '<section class="container inscripciones-seccion">';
         $html .=    '<div class="row">';
-        $html .=        '<div class="col-lg-7 d-flex align-items-center">';
+        $html .=        '<div class="d-none d-md-none col-lg-7 d-lg-flex align-items-center">';
         $html .=            '<div>';
         $html .=                '<div class="my-5">';
         $html .=                    '<h1 class="font-roboto-black">' . $row_datos_seccion['titulo'] . '</h1>';
@@ -45,14 +45,33 @@
         $html .=                '</div>';
         $html .=            '</div>';
         $html .=        '</div>';
-        $html .=        '<div class="col-lg-5 form-container">';
-        $html .=            '<div class="row d-none d-sm-none d-lg-flex">';
-        $html .=                '<div class="col-lg-1 p-0"></div>';
-        $html .=                '<div class="col-lg-10">';
+        // Version Movil
+        $html .=        '<div class="col-12 d-lg-none bg-bold-blue p-5">';
+        $html .=            '<h1 class="font-roboto-black tx-white">' . $row_datos_seccion['titulo'] . '</h1>';
+        $html .=            '<h1 class="font-roboto-light tx-white">' . $row_datos_seccion['subTitulo'] . '</h1>';
+        $html .=        '</div>';
+        $html .=         '<div class="col-6 d-lg-none d-flex flex-column justify-content-center p-4 bg-light-gray-o26">';
+        $html .=             '<a class="p-3 tx-white bg-orange rounded text-center font-roboto-black" role="button" onclick="mostrarInscripcionesMovil()">' . $parametros['titulo_form_inscripciones'] . '</a>';
+        $html .=         '</div>';  
+        $html .=         '<div class="col-6 d-lg-none p-4 bg-light-gray-o26">';
+        $html .=             '<p class="m-0 font-roboto-bolditalic special-paragraph">' . $row_datos_seccion['texto'] . '</p>';
+        $html .=             '<p class="m-0 font-roboto-bolditalic special-paragraph">' . $parametros['telefono_admisiones'] . '</p>';
+        $html .=             '<p class="m-0 font-roboto-bolditalic special-paragraph">' . $parametros['correo_admisiones'] . '</p>';
+        $html .=         '</div>';     
+        // Fin Version Movil
+        $html .=        '<div class="d-none col-lg-5 form-container d-sm-none d-lg-block my-4 py-4 my-lg-4 my-lg-0 bg-white" id="form-container">';
+        // Botón version Movil
+        $html .=            '<div class="p-4 mb-4 d-md-none d-flex justify-content-end">';
+        $html .=                '<a class="p-3 tx-white bg-orange rounded-circle text-center font-roboto-black" role="button" onclick="mostrarInscripcionesMovil()"> < </a>';
+        $html .=            '</div>'; 
+        // Fin Botón 
+        $html .=            '<div class="row">';
+        $html .=                '<div class="col-1 col-lg-1 p-0"></div>';
+        $html .=                '<div class="col-10 col-lg-10">';
         $html .=                    '<form class="form-inscripciones row" id="myForm">';
         $html .=                        '<h3 class="mb-2 pt-3 fw-bold text-center inscripciones-form-titulo">' . $parametros['titulo_form_inscripciones'] . '</h3>';
-        $html .=                        '<div class="col-lg-2"></div>';
-        $html .=                        '<div class="col-lg-8">';
+        $html .=                        '<div class="col-2 col-lg-2"></div>';
+        $html .=                        '<div class="col-8 col-lg-8">';
 
         $res_sentecia = $mysqli1->query($sentencia . "29");
         while ($row_sentencia = $res_sentecia->fetch_assoc()) {
@@ -97,8 +116,8 @@
 
                 case 'checkbox':
                     $html .= '<div class="row justify-content-center align-items-start my-4">';
-                    $html .=     '<input class="col-lg-2" type="' . $tipo . '" id="inscripciones_' . $campo . '" name="' . $campo . '" ' . $obligatorio . ' ' . $soloLectura . ' ' . $deshabilitado . '>';
-                    $html .=     '<p class="form-text col-lg-10">' . $parametros['checkbox_form_inscripciones'] . '</p>';
+                    $html .=     '<input class="col-2 col-lg-2" type="' . $tipo . '" id="inscripciones_' . $campo . '" name="' . $campo . '" ' . $obligatorio . ' ' . $soloLectura . ' ' . $deshabilitado . '>';
+                    $html .=     '<p class="form-text col-10 col-lg-10">' . $parametros['checkbox_form_inscripciones'] . '</p>';
                     $html .= '</div>';
                     break;
 
@@ -141,13 +160,14 @@
     }
 
         $html .=                        '</div>';
-        $html .=                        '<div class="col-lg-2"></div>';
+        $html .=                        '<div class="col-2 col-lg-2"></div>';
         $html .=                    '</form>';
         $html .=                '</div>';
-        $html .=                '<div class="col-lg-1"></div>';
+        $html .=                '<div class="col-1 col-lg-1"></div>';
         $html .=            '</div>';
-        $html .=            '<div class="notificacion-error notificacion-hidden" id="form-notificacion"></div>';
-        $html .=            '<div class="notificacion-success notificacion-hidden" id="notificacion-success">¡Formulario enviado con éxito!</div>';
+        $html .=            '<div class="position-static notificacion-error notificacion-hidden my-3" id="form-notificacion-resultado-envio"></div>';
+        $html .=            '<div class="position-static notificacion-error notificacion-hidden p-3 my-3" id="form-notificacion-error"></div>';
+        $html .=            '<div class="position-static notificacion-success notificacion-hidden my-3" id="notificacion-success">¡Formulario enviado con éxito!</div>';
         $html .=        '</div>';
         $html .=    '</div>';
         $html .= '</section>';
