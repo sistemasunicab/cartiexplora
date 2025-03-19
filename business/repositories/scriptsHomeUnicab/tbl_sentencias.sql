@@ -126,5 +126,7 @@ INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamie
 ('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 33 AND visible = 1 ', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_blogs ', 'WHERE id > 0 ', '', 'ORDER BY id DESC LIMIT 1 ', '', ''),
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 33 ', '', '', '', ''),
+
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 26 AND descripcion = |icon-send| ', '', '', '', ''),
-('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 17 AND descripcion = |image-schedule| ', '', '', '', '');
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 17 AND descripcion = |image-schedule| ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 17 AND descripcion=|image-contact| ', '', '', '', '');
