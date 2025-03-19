@@ -1205,13 +1205,26 @@ input[type="checkbox"] {
     height: 2.5rem;
 }
 
-.text-up-absolute{
-    position: absolute;
-    top:-50px;
-    margin: 0;
-    padding: 0;
-    font-size: 0.8rem;
+@media (min-width: 576px) {
+    .text-up-absolute{
+        position: absolute;
+        top:-90px;
+        margin: 0;
+        padding: 0;
+        font-size: 0.8rem;
+    }    
 }
+
+@media (min-width: 978px) {
+    .text-up-absolute{
+        position: absolute;
+        top:-50px;
+        margin: 0;
+        padding: 0;
+        font-size: 0.8rem;
+    }    
+}
+
 
 .text-area-input{
     padding: 0.25rem;

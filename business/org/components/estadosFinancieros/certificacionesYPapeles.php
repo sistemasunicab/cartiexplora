@@ -11,18 +11,18 @@ $res_datos_certificaciones = $mysqli1->query($sql_datos_certificaciones);
 while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
     if ($row_datos_certificaciones['visible'] != 1)
         continue;
-    $html_certificaciones = '<div class="col-9 my-5 p-0 mx-auto d-flex flex-column">';
-    $html_certificaciones .= '<h3 class="col-7 tx-blue font-roboto-light-title">' . $row_datos_certificaciones['titulo'] . '</h3>';
+    $html_certificaciones = '<div class="col-12 col-sm-9 my-5 p-0 mx-auto d-flex flex-column">';
+    $html_certificaciones .= '<h3 class="col-10 col-sm-7 mx-auto mx-sm-0 tx-blue font-roboto-light-title">' . $row_datos_certificaciones['titulo'] . '</h3>';
     // Primera fila
     $html_certificaciones .= '<div class="my-5 form-financial d-flex flex-column">';
 
     // Primera fila
-    $html_certificaciones .= '<div class="my-2 d-flex flex-row justify-content-between">';
-    $html_certificaciones .= '<input type="text" class="col-4 font-roboto-bolditalic my-2" placeholder="Nombre Completo">';
-    $html_certificaciones .= '<input type="text" class="col-4 font-roboto-bolditalic my-2" placeholder="Número de identificación">';
+    $html_certificaciones .= '<div class="my-2 d-flex flex-column flex-sm-row justify-content-between">';
+    $html_certificaciones .= '<input type="text" class="col-10 col-sm-4 mx-auto ms-sm-0 font-roboto-bolditalic my-2" placeholder="Nombre Completo">';
+    $html_certificaciones .= '<input type="text" class="col-10 col-sm-4 mx-auto ms-sm-0 font-roboto-bolditalic my-2" placeholder="Número de identificación">';
 
     // Dropdown "Tipo"
-    $html_certificaciones .= '<div class="btn-group col-3 my-2">';
+    $html_certificaciones .= '<div class="btn-group col-6 col-sm-3 mx-auto my-2">';
     $html_certificaciones .= '<button class="dropdown-toggle col-3 display-options btn p-0 d-flex flex-row" type="button" data-bs-toggle="dropdown" aria-expanded="false">';
     $html_certificaciones .= '<p class="little-paragraph col-9 m-auto font-roboto-italic tx-white">Tipo</p>';
     $html_certificaciones .= '<span class="col-3 d-flex justify-content-center align-items-center p-0">▼</span>';
@@ -38,12 +38,12 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
     $html_certificaciones .= '</div>'; // Cierre fila
 
     // Segunda fila
-    $html_certificaciones .= '<div class="my-2 d-flex flex-row justify-content-between">';
-    $html_certificaciones .= '<input type="email" class="col-4 font-roboto-bolditalic my-2" placeholder="Correo electrónico">';
-    $html_certificaciones .= '<input type="text" class="col-4 font-roboto-bolditalic my-2" placeholder="Número de teléfono">';
+    $html_certificaciones .= '<div class="my-2 d-flex flex-column flex-sm-row justify-content-between">';
+    $html_certificaciones .= '<input type="email" class="col-10 col-sm-4 mx-auto ms-sm-0 font-roboto-bolditalic my-2" placeholder="Correo electrónico">';
+    $html_certificaciones .= '<input type="text" class="col-10 col-sm-4 mx-auto ms-sm-0 font-roboto-bolditalic my-2" placeholder="Número de teléfono">';
 
     // Dropdown "Grado"
-    $html_certificaciones .= '<div class="btn-group col-3 my-2">';
+    $html_certificaciones .= '<div class="btn-group col-6 col-sm-3 mx-auto my-2">';
     $html_certificaciones .= '<button class="dropdown-toggle col-3 display-options btn p-0 d-flex flex-row" type="button" data-bs-toggle="dropdown" aria-expanded="false">';
     $html_certificaciones .= '<p class="little-paragraph col-9 m-auto font-roboto-italic tx-white">Grado</p>';
     $html_certificaciones .= '<span class="col-3 d-flex justify-content-center align-items-center p-0">▼</span>';
@@ -59,7 +59,7 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
     $html_certificaciones .= '</div>'; // Cierre fila
 
     // Dropdown "Relación con la institución"
-    $html_certificaciones .= '<div class="btn_displayed my-5 btn-group col-4 d-flex flex-column">';
+    $html_certificaciones .= '<div class="btn_displayed my-5 btn-group col-10 col-sm-4 mx-auto mx-sm-0 d-flex flex-column">';
     $html_certificaciones .= '<button class="dropdown-toggle col-12 display-options btn p-0 d-flex flex-row dropdown-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">';
     $html_certificaciones .= '<p class="little-paragraph col-9 m-auto font-roboto-italic tx-white dropdown-text">Relación con la institución</p>';
     $html_certificaciones .= '<span class="col-3 d-flex justify-content-center align-items-center p-0">▼</span>';
@@ -87,12 +87,13 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
     $html_certificaciones .= '</div>';
 
 
-    $html_certificaciones .= '<div class="btn-financiero col-3 d-flex flex-row bg-blue p-0 m-0 my-2">
+    $html_certificaciones .= '<div class="btn-financiero col-12 col-sm-3 d-flex flex-row bg-blue p-0 m-0 my-2">
                                 <div class="bg-orange m-0 p-0 col-2" style="height:100%;"></div>
-                                <p class="special-paragraph py-1 col-10 font-roboto-italic tx-white text-center my-1">Detalles de la Solicitud: </p></div> ';
+                                <p class="special-paragraph py-2 py-sm-1 col-10 font-roboto-italic tx-white text-center my-1">Detalles de la Solicitud: </p></div> ';
 
-    $html_certificaciones .= '<div class="mt-5 d-flex flex-row col-12 position-relative">';
-    $html_certificaciones .= '<div class="btn_displayed my-2 btn-group col-4 d-flex flex-column">';
+    $html_certificaciones .= '<div class="mt-5 d-flex flex-column flex-sm-row col-12 position-relative">';
+    
+    $html_certificaciones .= '<div class="btn_displayed my-2 btn-group col-10 col-sm-4 mx-auto mx-sm-0 d-flex flex-column">';
     $html_certificaciones .= '<button class="dropdown-toggle col-12 display-options btn p-0 d-flex flex-row dropdown-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">';
     $html_certificaciones .= '<p class="little-paragraph col-9 m-auto font-roboto-italic tx-white dropdown-text">Tipo de certificación</p>';
     $html_certificaciones .= '<span class="col-3 d-flex justify-content-center align-items-center p-0">▼</span>';
@@ -148,17 +149,17 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
             $image_path = '../../../' . $ruta;
         }
 
-        $html_certificaciones .= '<div class="col-2 d-flex flex-column align-items-center text-center mx-auto position-relative">';
+        $html_certificaciones .= '<div class="my-5 my-sm-0 col-8 col-sm-2 d-flex flex-column align-items-center text-center mx-auto position-relative">';
         $html_certificaciones .= '<p class="text-up-absolute">' . $row_data_image["titulo"] . '</p>';
         $html_certificaciones .= '<img src="' . $image_path . '" alt="' . $alt . '" class="img-fluid" style="width:80px;">';
         // Add the "Ver" button with margin-left, box shadow, circular border, and auto height
         $html_certificaciones .= '</div>';
 
     }
-    $html_certificaciones .= '<textarea class="text-area-input col-4" placeholder="Propósito del documento" rows="4"></textarea>';
+    $html_certificaciones .= '<textarea class="text-area-input col-10 col-sm-4 mx-auto mx-sm-0" placeholder="Propósito del documento" rows="4"></textarea>';
     $html_certificaciones .= '</div>';
 
-    $html_certificaciones .= '<div class="form-check mt-3 d-flex align-items-center gap-2">';
+    $html_certificaciones .= '<div class="my-4 my-sm-3 mx-auto mx-sm-0 form-check d-flex align-items-center gap-2">';
     $html_certificaciones .= '<input class="form-check-input" type="checkbox" id="dataConsent">';
     $html_certificaciones .= '<label class="form-check-label d-flex align-items-center font-roboto-regular special-paragraph m-0" for="dataConsent">Acepto tratamiento de datos.</label>';
     $html_certificaciones .= '</div>';
@@ -188,7 +189,7 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
             $image_path = '../../../' . $ruta;
         }
     }
-    $html_certificaciones .= '<button class="btn p-2 bg-orange col-2 mx-auto d-flex flex-row align-items-center justify-content-center mt-3">';
+    $html_certificaciones .= '<button class="btn p-2 bg-orange col-4 col-sm-3 col-md-2 mx-auto d-flex flex-row align-items-center justify-content-center mt-3">';
     $html_certificaciones .= '<p class="special-paragraph font-roboto-medium tx-white m-0 mx-2">Solicitar</p>';
     $html_certificaciones .= '<img src="' . $image_path . '" alt="' . $alt . '" class="img-fluid" style="width:30px;">';
     $html_certificaciones .= '</button>';
