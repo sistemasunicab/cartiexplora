@@ -32,12 +32,15 @@ if ($res_datos) {
     // Acceder a los datos 
     while ($row_datos = $res_datos->fetch_assoc()) {
         $id = $row_datos['id'];
-        $html_base .= '<li class="nav-item py-2 py-md-0 h-100">';
+        $html_base .= '<li class="nav-item py-2 py-md-0 h-100 mx-auto mx-sm-0">';
         $html_base .= '<div class="menu-item d-md-flex m-md-auto px-md-2 h-100">';
         if ($row_datos[$levelSelect] != '') {
-            $html_base .= '<a class = "m-auto font-roboto-regular tx-white special-paragraph menu-item-text" target="' . $row_datos['destino'] . '" href="' . $row_datos[$levelSelect] . '">';
+            $html_base .= '<div class = "m-auto font-roboto-regular tx-white special-paragraph menu-item-text" target="' . $row_datos['destino'] . '" href="' . $row_datos[$levelSelect] . '">';
+            $html_base .= '<a>';
             $html_base .= htmlspecialchars($row_datos['menu']);
             $html_base .= '</a>';
+            $html_base .= '<i class="icon-row fas fa-chevron-down"></i>';
+            $html_base .= '</div>';
         } else {
             $html_base .= '<p class="m-auto font-roboto-regular tx-white special-paragraph menu-item-text">';
             $html_base .= htmlspecialchars($row_datos['menu']);
@@ -67,7 +70,7 @@ if ($res_datos) {
                 $id_2 = $row_datos_h['id'];
                 $html_s .= '<li class="dropdown_our-item position-relative tx-white font-roboto-regular px-3 mb-2 text-start" id="submenu_' . $id . '.' . $id_2 . '">';
                 if ($row_datos_h[$levelSelect] != '') {
-                    $html_s .= '<a class="w-100 d-block " href="' . $row_datos_h[$levelSelect] . '">';
+                    $html_s .= '<a class="w-auto col-md-12 d-block text-center text-md-start" href="' . $row_datos_h[$levelSelect] . '">';
                     $html_s .= htmlspecialchars($row_datos_h['menu']);
                     $html_s .= '</a>';
                 } else {
@@ -158,7 +161,7 @@ if ($nivel == "raiz") {
 <div class="container-fluid m-0 p-0">
     <div class="row m-0 p-0">
         <nav class="navbar col-12 bg-orange p-0 h-md-70 main-nav">
-            <div class="d-md-flex m-auto text-start p-0 col-11 h-100 justify-content-between">
+            <div class="d-md-flex m-auto text-start p-0 col-12 col-md-11 h-100 justify-content-between">
                 <div class="p-md-0 d-flex flex-row m-auto mx-md-0 p-3 justify-content-between">
                     <?php echo $html; ?>
                     <button class="navbar-toggler d-md-none" type="button" id="menu-button">
