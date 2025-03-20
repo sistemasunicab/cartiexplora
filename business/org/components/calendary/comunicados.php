@@ -76,7 +76,7 @@ while ($row_data_visible = $res_data_visible->fetch_assoc()) {
         }
 
         // Estructura: Ícono + Texto + Botón
-        $html_communication .= '  <div class="d-flex align-items-center justify-content-between my-10">';
+        $html_communication .= '  <div class="file-container d-flex align-items-center justify-content-between my-10">';
 
         // Lado izquierdo: texto (nombre y fecha)
         $html_communication .= '    <div class="col-7 d-flex flex-column text-start">';

@@ -1162,6 +1162,11 @@ input[type="checkbox"] {
     text-align: center;
 }
 
+.file-container {
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--medium-gray);
+}
+
 /* Fin calendario */
 
 /* Inicio estados financieros */
