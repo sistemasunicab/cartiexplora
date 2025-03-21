@@ -1438,14 +1438,65 @@ input[type="checkbox"] {
         z-index: 100;
         margin: 0!important;
         animation: moverDesdeDerecha 0.8s ease-out forwards;
-      }
+    }
       
-      @keyframes moverDesdeDerecha {
+    @keyframes moverDesdeDerecha {
         from {
           transform: translateX(900px);
         }
         to {
           transform: translateX(0);
         }
-      }
+     }
+}
+
+/** Inicio Formulario Entrevistas  */
+
+.amarillo {
+    background: #FFD156;
+    color: #FFD156;
+}
+.azuloscuro {
+    background: #16224F;
+    color: white;
+    font-weight: bold;
+    display: table;
+    height:50px;
+}
+.azuloscuro h5 {
+    display: table-cell;
+    vertical-align: middle;
+}
+.form-select {
+    appearance: none !important;
+    background-image: url("../img/admisiones/select_Icon2.png") !important;
+    background-repeat: no-repeat;
+    background-position: right center;
+    min-height: 40px !important;
+}
+.icono {
+    width: 50%;
+}
+.icono1 {
+    width: 15%;
+}
+input[type="text"], .select {
+    border-radius: 15px !important;
+    border: 2px solid #42C3AE;
+}
+.form-label1 {
+    margin: 0.1rem 0;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.btnContinuar, .btnEnviar {
+    border: none;
+    background: transparent;
+}
+/** Fin Formulario Entrevistas  */
+
+/* DESCUBRE TUS HABILIDADES MOVIL */
+.line:not(:nth-child(6)):not(:nth-child(12))::after {
+    display: none;
 }

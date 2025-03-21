@@ -131,4 +131,6 @@ INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamie
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 17 AND descripcion = |image-schedule| ', '', '', '', '')
 
 ('SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 34 AND visible = 1 ', '', '', '', ''),
-('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 34 ', '', '', '', '');
+('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 34 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_formularios ', 'WHERE id_seccion = 34 ', '', '', '', ''),
+('SELECT * ', 'FROM tbl_textos ', 'WHERE id_seccion = 34 ', '', '', '', '');

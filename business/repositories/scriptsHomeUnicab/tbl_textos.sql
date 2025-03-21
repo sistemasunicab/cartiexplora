@@ -42,4 +42,8 @@ INSERT INTO tbl_textos (id_seccion, paginaPadre, identificacion, texto ) VALUES
 (31, 'blog', 'linkBusqueda', 'Celebración de Logros'),
 (31, 'blog', 'linkBusqueda', 'Proyectos y experiencias'),
 (31, 'blog', 'linkBusqueda', 'Investigación GIU'),
-(31, 'blog', 'barraBusqueda', 'Buscar');
+(31, 'blog', 'barraBusqueda', 'Buscar'),
+
+(34, 'entrevista', 'Paso 1.', 'Ingresa los siguientes datos para iniciar el proceso de matrícula en nuestro colegio UNICAB Virtual.'),
+(34, 'entrevista', 'Paso 2.', 'Datos complementarios del estudiante.'),
+(34, 'entrevista', 'Paso 3.', 'Datos complementarios del acudiente.');
