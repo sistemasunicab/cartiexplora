@@ -61,7 +61,7 @@
         // Fin Version Movil
         $html .=        '<div class="d-none col-lg-5 form-container d-sm-none d-lg-block my-4 py-4 my-lg-4 my-lg-0 bg-white" id="form-container">';
         // Botón version Movil
-        $html .=            '<div class="p-4 mb-4 d-md-none d-flex justify-content-end">';
+        $html .=            '<div class="p-4 mb-2 d-md-none d-flex justify-content-end">';
         $html .=                '<a class="p-3 tx-white bg-orange rounded-circle text-center font-roboto-black" role="button" onclick="mostrarInscripcionesMovil()"> < </a>';
         $html .=            '</div>'; 
         // Fin Botón 

@@ -74,11 +74,10 @@ const leerMasPrincipios = (id, boton) => {
 // Inscripciones Academicas
 
 const mostrarInscripcionesMovil = () => {
+    document.body.classList.toggle('overflow-hidden');
     const formInscripciones = document.querySelector("#form-container");
     formInscripciones.classList.toggle("inscripciones-movil");
     formInscripciones.classList.toggle("d-none");
-    document.body.classList.toggle("overflow-hidden")
-
 };
 
 // Despues de enviado el formulario hace el reset de clases css aplicadas
