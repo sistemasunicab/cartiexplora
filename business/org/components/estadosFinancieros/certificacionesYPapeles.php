@@ -201,7 +201,7 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
 }
 ?>
 
-<div class="container-fluid m-0 p-0">
+<div class="container-fluid m-0 p-0" id="certificaciones">
     <div class="row m-0 p-0">
         <?php
         echo $html_certificaciones;
