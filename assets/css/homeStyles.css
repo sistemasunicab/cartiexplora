@@ -1582,3 +1582,98 @@ input[type="text"], .select, textarea {
 }
 /** Fin Formulario Entrevistas  */
 
+/* Inicio btn flotante */
+.home-button-fixed {
+    position: fixed;
+    top: 50%;
+    right: 2%;
+    border-radius: 5rem;
+    transform: translateY(-50%);
+    max-width: 4rem;
+    max-height: fit-content;
+    z-index: 100;
+}
+
+/* Estilos base para cada elemento icono */
+.button-move {
+    display: inline-flex;
+    transition: transform 0.3s ease, display 0.3s ease; 
+}
+  
+/* Estilos para el texto que aparece */
+.button-fixed-text {
+  display: none;
+  transform: translate(-66%);
+  font-family: var(--roboto-bold);
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  transition: transform 0.3s ease, display 0.3s ease;
+  white-space: nowrap;
+}
+  
+/* Al hacer hover sobre el enlace, se desplaza el conjunto */
+.button-section .button-move:hover {
+  transform: translateX(-40%);
+}
+  
+.button-section .button-move:hover .button-fixed-icon {
+    display: none
+}
+
+.button-section .button-move:hover .button-fixed-text {
+    display: inline-flex;
+
+}
+
+@media (max-width: 767px) {
+    .button-absolute {
+        font-size: 3vw;  
+        padding: 2vw 2vw;  
+    }
+
+    .home-button-fixed {
+        position: sticky;
+        width: 100%;
+        max-width: none;
+        border-radius: unset;
+        top: 0;
+        right: 0;
+        transform: unset;
+        z-index: 100;
+    }
+
+    /* Estilos base para cada elemento icono */
+    .button-move {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Estilos para el texto que aparece */
+    .button-fixed-text {
+        display: inline-block;
+        transform: translate(0%);
+        font-family: var(--roboto-bold);
+        font-size: 3vw;
+        border-top-left-radius: unset;
+        border-bottom-left-radius: unset;
+    }
+    .button-fixed-icon{
+        display: inline-block;
+        max-width: 7vw;
+    }
+
+    .button-section .button-move:hover {
+        transform: unset;
+    }
+    
+    .button-section .button-move:hover .button-fixed-icon {
+        display: inline-block;
+    }
+  
+    .button-section .button-move:hover .button-fixed-text {
+        display: inline-block;
+    }
+}
+/* Fin btn flotante */
+

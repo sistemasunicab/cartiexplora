@@ -4,7 +4,36 @@ $(function () {
 
 document.addEventListener("DOMContentLoaded", () => {
     galeriaEstudiantes();
+    actualizarPorcentajesBotonBanner();
 });
+
+const actualizarPorcentajesBotonBanner = () => {
+    const botones = document.querySelectorAll(
+        ".carousel-item .button-carousel"
+    );
+    const anchoActual = window.innerWidth;
+    botones.forEach((boton) => {
+        // Almacena los valores originales solo una vez, si no están ya guardados
+        if (!boton.dataset.originalTop) {
+            boton.dataset.originalTop = boton.style.top;
+        }
+        if (!boton.dataset.originalLeft) {
+            boton.dataset.originalLeft = boton.style.left;
+        }
+        if (anchoActual < 768) {
+            boton.style.top = "50%";
+            boton.style.left = "50%";
+            boton.style.transform = "translate(-50%, -50%)";
+        } else if (anchoActual >= 768) {
+            boton.style.top = boton.dataset.originalTop;
+            boton.style.left = boton.dataset.originalLeft;
+            boton.style.transform = "";
+        }
+    });
+};
+
+// Escuchamos el evento resize para ejecutar la verificación cada vez que cambie el ancho de la ventana
+window.addEventListener('resize', actualizarPorcentajesBotonBanner);
 
 /* Script Galeria Nuestros Estudiantes */
 const galeriaEstudiantes = () => {
