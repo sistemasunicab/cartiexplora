@@ -1,0 +1,1 @@
+CREATE DATABASE u756063299_admin_unicab DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci;

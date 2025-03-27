@@ -344,7 +344,7 @@ ul {
 }
 
 /*INICIO HOME*/
-/*Inicio estilos NavBar*/
+/Inicio estilos NavBar/
 .unicab-brand {
     width: max-content;
     height: max-content;
@@ -355,23 +355,42 @@ ul {
     border-radius: 5px;
 }
 
+#menuDisplay {
+    background-color: var(--blue);
+}
+
 #menuDisplay.hover {
     display: block !important;
 }
 
+#menuDisplay.hover {
+    display: block !important;
+}
+
+.menu-item-text{
+    text-align: center;
+    width: 90%;
+    padding: 0.5em;
+}
+
 .menu-item-text:hover {
-    color: var(--medium-gray) !important;
+    color: rgb(27, 27, 27) !important;
+    background-color: rgba(86, 190, 243);
     cursor: pointer;
 }
 
 .menu-item-text.hover {
-    color: var(--medium-gray) !important;
+    color: rgb(27, 27, 27) !important;
+    background-color: rgba(86, 190, 243);
     cursor: pointer;
 }
 
+.menu-item-text.hover svg{
+    transform: rotate(180deg);
+}
+
 .dropdown_our-container.hover {
-    border: var(--medium-gray) 2px solid;
-    border-radius: 5px;
+    border-radius: 0;
 }
 
 .dropdown_our.hover {
@@ -412,7 +431,6 @@ ul {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    border-bottom: 2px solid rgba(86, 190, 243, 0.97);
     cursor: pointer;
 }
 
@@ -426,7 +444,32 @@ ul {
     padding-inline: 1em;
 }
 
+
 @media (min-width: 768px) {
+
+    .menu-item-text:hover {
+        background-color: inherit;
+        color: var(--medium-gray) !important;
+        cursor: pointer;
+    }
+    
+    .menu-item-text.hover {
+        background-color: inherit;
+        color: var(--medium-gray) !important;
+        cursor: pointer;
+    }
+    
+    .dropdown_our-item {
+        border-bottom: 2px solid rgba(86, 190, 243, 0.97);
+    }
+    #menuDisplay {
+        background-color: inherit;
+    }
+
+    .menu-item-text{
+        width: fit-content;
+    }
+
     .icon-row {
         display: none;
     }
@@ -1448,10 +1491,53 @@ input[type="checkbox"] {
           transform: translateX(0);
         }
      }
+
+     /* PRINCIPIOS Y VALORES MOVIL */
+    .values-card p:after {
+        bottom: 12%;
+        width: 55%;
+    }
+
+     /* DESCUBRE TUS HABILIDADES MOVIL */
+    .line:not(:nth-child(6)):not(:nth-child(12))::after {
+        display: none;
+    }
 }
 
+.error {
+    background: #FBE5E7;
+}
+#alert {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 5000;
+    height: auto;
+}
+#pdesc {
+    font-size: 1rem;
+}
+#whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right:20px;
+ }
+ svg {
+    width: 80px;
+    filter: drop-shadow(0 1px 4px rgba(0,0,0,.4));
+ }
+ circle {
+    fill: #25d366;
+ }
+ path {
+    fill: #fff;
+ }
 /** Inicio Formulario Entrevistas  */
-
+.loader {
+    opacity: .8;
+    width: 50%;
+    margin-left: 25%;
+}
 .amarillo {
     background: #FFD156;
     color: #FFD156;
@@ -1480,7 +1566,7 @@ input[type="checkbox"] {
 .icono1 {
     width: 15%;
 }
-input[type="text"], .select {
+input[type="text"], .select, textarea {
     border-radius: 15px !important;
     border: 2px solid #42C3AE;
 }
@@ -1496,7 +1582,3 @@ input[type="text"], .select {
 }
 /** Fin Formulario Entrevistas  */
 
-/* DESCUBRE TUS HABILIDADES MOVIL */
-.line:not(:nth-child(6)):not(:nth-child(12))::after {
-    display: none;
-}

@@ -71,6 +71,15 @@ const leerMasPrincipios = (id, boton) => {
         boton.innerText === "Leer más" ? "Leer menos" : "Leer más";
 };
 
+// Inscripciones Academicas
+
+const mostrarInscripcionesMovil = () => {
+    document.body.classList.toggle('overflow-hidden');
+    const formInscripciones = document.querySelector("#form-container");
+    formInscripciones.classList.toggle("inscripciones-movil");
+    formInscripciones.classList.toggle("d-none");
+};
+
 // Despues de enviado el formulario hace el reset de clases css aplicadas
 const reset_clases = () => {
     const elementosForm = document.querySelectorAll("input, textarea, select");
@@ -80,6 +89,9 @@ const reset_clases = () => {
 };
 
 $(document).ready(function () {
+    marcarCamposObligatorios();
+    $("#alert").hide();
+
     $("#myForm").on("submit", function (e) {
         e.preventDefault();
 
@@ -130,83 +142,135 @@ $(document).ready(function () {
 
 const reglasvalidacion = {
     texto: /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/,
+    texto1: /[_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/,
     correo: /^[_-\w.]+@[a-z]+\.[a-z\.]{2,7}$/,
     numero: /^[0-9]{1,}$/,
     fecha: /^[0-9]{4}-[0-1]{1}[0-9]{1}-[0-3]{1}[0-9]{1}$/,
 };
 
-// Objeto para almacenar los errores actuales por campo
-let erroresCampos = {};
+let camposError = [];
 
 // Elemento donde se muestra el error
-let notificacionFormInscripciones;
+//let notificacionFormInscripciones;
 
-const actualizarNotificacionesErrores = () => {
+/*const actualizarNotificacionesErrores = () => {
     // Verifica que el elemento no sea undefined
     if (!notificacionFormInscripciones) {
-        notificacionFormInscripciones = document.querySelector("#form-notificacion");
+        notificacionFormInscripciones = document.querySelector("#form-notificacion-error");
     }
 
-    if (Object.keys(erroresCampos).length === 0) {
+    if (error === '') {
         // No hay errores
         notificacionFormInscripciones.classList.add("notificacion-hidden");
         notificacionFormInscripciones.innerText = "";
     } else {
         // Mostrar todos los errores
         notificacionFormInscripciones.classList.remove("notificacion-hidden");
-        notificacionFormInscripciones.innerText =
-            Object.values(erroresCampos).join("\n");
+        notificacionFormInscripciones.innerText = error;
     }
-}
+}*/
+
+const marcarCamposObligatorios = () => {
+    const elementosForm = document.querySelectorAll(".campoFormulario");
+
+    elementosForm.forEach((input) => {
+        let { id } = input;
+        const campoObligatorio = input.getAttribute("required") === '' ? true : false;
+
+        if (campoObligatorio && input.value === ''){
+            marcarInputError(id);
+            agregarCampoError(id);
+        }
+        else {
+            marcarInputCorrecto(id);
+            quitarCampoError(id);
+        }
+    });
+};
 
 const mostrar_submit = () => {
     const elementosForm = document.querySelectorAll(".inscripciones-input");
 
     let todosValidos = true;
     elementosForm.forEach((input) => {
-        if (
-            (input.type != "submit" && !input.classList.contains("success")) ||
-            input.classList.contains("error")
-        ) {
+        const campoObligatorio = input.getAttribute("required") === '' ? true : false;
+
+        if (campoObligatorio && input.value === ''){
+            marcarInputError(input);
+        }
+
+        if ((input.type != "submit" && !input.classList.contains("success")) ||input.classList.contains("error")) {
             todosValidos = false;
         }
     });
 
-    if (todosValidos && Object.keys(erroresCampos).length === 0) {
+    if (todosValidos && error === '') {
         $("#inscripciones_enviar").removeAttr("disabled");
     } else {
         $("#inscripciones_enviar").attr("disabled", "disabled");
     }
 };
 
-const marcarInputError = (input) => {
-    input.classList.add("error");
-    input.classList.remove("success");
+const mostrarSubmit = (botonSubmit) => {
+    let control = 0;
+    let control1 = 1;
+    let idObjeto = "#" + botonSubmit;
+    marcarCamposObligatorios();
+
+    camposError.forEach(campo => {
+        marcarInputError(campo);
+        control = 1;
+    }); 
+
+    if(control > 0) {
+        $(idObjeto).hide();
+    }
+    else {
+        if(control1 == 0) {
+            if($("#register_correoA").val() == $("#register_correoA1").val()) {
+                $(idObjeto).show();
+            }
+            else {
+                var texto = "El email y la confirmación del email del acudiente deben ser iguales";
+                $("#pdesc").html(texto).css("color","red");
+                $(idObjeto).hide();
+            }
+        } else {
+            $(idObjeto).show();
+        }
+    }
 };
 
-const marcarInputCorrecto = (input) => {
-    let {name} = input;
-    input.classList.remove("error");
-    input.classList.add("success");
-    delete erroresCampos[name];
+const marcarInputError = (id) => {
+    //input.classList.add("error");
+    //input.classList.remove("success");
+    let idObjeto = "#" + id;
+    $(idObjeto).addClass("error");
+};
+
+const marcarInputCorrecto = (id) => {
+    //input.classList.remove("error");
+    //input.classList.add("success");
+    let idObjeto = "#" + id;
+    $(idObjeto).removeClass("error");
 };
 
 const validar_texto = (input) => {
-
     let { name, value } = input;
     const campoObligatorio = input.getAttribute("required") === '' ? true : false;
     
     if ((value.trim() === "" || value.trim() === '') && campoObligatorio) {
         marcarInputError(input);
-        erroresCampos[name] = `El campo ${name} es obligatorio`;
+        error = `El campo ${name} es obligatorio`;
     } else if (value.match(reglasvalidacion.texto)) {
         marcarInputError(input);
-        erroresCampos[name] = `Ha ingresado alguno de los siguientes caracteres no válidos para ${name}: - _ ' \" < > ~ ^ * $ ! ¡ # % & ¿ ? /= + , ; : ( ) { } [ ] \\`;
+        error = `Ha ingresado alguno de los siguientes caracteres no válidos para ${name}: - _ ' \" < > ~ ^ * $ ! ¡ # % & ¿ ? /= + , ; : ( ) { } [ ] \\`;
     } else {
         marcarInputCorrecto(input);
+        error = '';
     }
     
-    actualizarNotificacionesErrores();
+    actualizarNotificacionesErrores(error);
     mostrar_submit();
 };
 
@@ -216,47 +280,47 @@ const validar_numero = (input) => {
     
     if ((value.trim() === "" || value.trim() === '') && campoObligatorio) {
         marcarInputError(input);
-        erroresCampos[name] = `El campo ${name} es obligatorio.`;
+        error = `El campo ${name} es obligatorio.`;
     } else if (reglasvalidacion.numero.test(value)) {
         marcarInputCorrecto(input);
+        error = '';
     } else {
-        erroresCampos[name] = `Ingrese sólamente números mayores a 0 para ${name}`;
+        error = `Ingrese sólamente números mayores a 0 para ${name}`;
         marcarInputError(input);
     }
     
-    actualizarNotificacionesErrores();
+    actualizarNotificacionesErrores(error);
     mostrar_submit();
 }
 
 const validar_correo = (input) => {
     let { name, value } = input;
     const campoObligatorio = input.getAttribute("required") === '' ? true : false;
-    
+
     if ((value.trim() === "" || value.trim() === '') && campoObligatorio) {
         marcarInputError(input);
-        erroresCampos[name] = `El campo ${name} es obligatorio.`;
+        error = `El campo ${name} es obligatorio.`;
     } else if (reglasvalidacion.correo.test(value)) {
         marcarInputCorrecto(input);
+        error = '';
     } else {
-        erroresCampos[name] = `No es un patrón válido para ${name}`;
+        error = `No es un patrón válido para ${name}`;
         marcarInputError(input);
     }
     
-    actualizarNotificacionesErrores();
+    actualizarNotificacionesErrores(error);
     mostrar_submit();
 };
 
-const validar_fecha = (input) => {
-    
+const validar_fecha = (input) => {    
     let { name, value: fecha } = input;
     const campoObligatorio = input.getAttribute("required") === '' ? true : false;
-    
+
     if ((fecha.trim() === "" || fecha.trim() === '') && campoObligatorio) {
         marcarInputError(input);
-        erroresCampos[name] = `El campo ${name} es obligatorio.`;
+        error = `El campo ${name} es obligatorio.`;
 
-    } else if (reglasvalidacion.fecha.test(fecha)) {
-        
+    } else if (reglasvalidacion.fecha.test(fecha)) {        
         const partesFecha = fecha.split("-");
         const anio = partesFecha[0];
         const mes  = partesFecha[1];
@@ -266,44 +330,356 @@ const validar_fecha = (input) => {
         if(anio < 1850 || anio > 2050) {
             contieneErrores = true;
             marcarInputError(input);
-            erroresCampos[name] = `No es un patrón válido para ${name}`;
+            error = `No es un patrón válido para ${name}`;
         }
 
         if(mes < 1 || mes > 12) {
             contieneErrores = true;
             marcarInputError(input);
-            erroresCampos[name] = `No es un patrón válido para ${name}`;
+            error = `No es un patrón válido para ${name}`;
         } else {
             
             if(mes == 2) {
                 if(dia < 1 || dia > 29) {
                     contieneErrores = true;
                     marcarInputError(input);
-                    erroresCampos[name] = `No es un patrón válido para ${name}`;
+                    error = `No es un patrón válido para ${name}`;
                 } 
             } else if(mes == 4 || mes == 6 || mes == 9 || mes == 11) {
                 if(dia < 1 || dia > 30) {
                     contieneErrores = true;
                     marcarInputError(input);
-                    erroresCampos[name] = `No es un patrón válido para ${name}`;
+                    error = `No es un patrón válido para ${name}`;
                 } 
             } else {
                 if(dia < 1 || dia > 31) {
                     contieneErrores = true;
                     marcarInputError(input);
-                    erroresCampos[name] = `No es un patrón válido para ${name}`;
+                    error = `No es un patrón válido para ${name}`;
                 } 
             }
         }
         
         if(!contieneErrores){
             marcarInputCorrecto(input);
+            error = '';
         }
     } else {
-        erroresCampos[name] = `No es un patrón válido para ${name}`;
+        error = `No es un patrón válido para ${name}`;
         marcarInputError(input);
     }
     
-    actualizarNotificacionesErrores();
+    actualizarNotificacionesErrores(error);
     mostrar_submit();
+}
+
+/**
+ * Función responsable de validar el ingreso de datos en formularios
+ *
+ * @param {object} input campo del formulario.
+ * @param {String} descripcion descripción personalizada del campo del formulario que se mostrará en caso de error
+ * @param {String} reglaValidacion  propiedad del objeto reglasValidacion con la cual se va a evaluar el ingreso de datos
+ * @param {Int} controlSubmit  parámetro que indica si se lanza o no la función mostrarSubmit: 0 no se lanza, 1 si se lanza
+ * @param {String} botonSubmit  nombre del botón submit del formulario
+ *
+ * */
+const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonSubmit) => {
+    let { id, name, value } = input;
+    const campoObligatorio = input.getAttribute("required") === '' ? true : false;
+    let control = 0;
+    let texto = "";
+    
+    if ((value.trim() === "" || value.trim() === '') && campoObligatorio) {
+        control = 1;
+        marcarInputError(id);
+        agregarCampoError(id);
+        texto = "El campo " + descripcion + " se debe llenar";
+    } else {
+        marcarInputCorrecto(id);
+        quitarCampoError(id);
+    }
+
+    if (control == 0) {
+        if (reglaValidacion == "numero") {
+            if (reglasvalidacion.numero.test(value)) {
+                marcarInputCorrecto(id);
+                quitarCampoError(id);
+            } else {
+                marcarInputError(id);
+                agregarCampoError(id);
+                texto = "Ingrese sólamente números para " + descripcion;
+            }
+        } else if (reglaValidacion == "texto") {
+            if (value.match(reglasvalidacion.texto)) {
+                marcarInputError(id);
+                agregarCampoError(id);
+                texto = "Ha ingresado alguno de los siguientes caracteres no válidos para " + desc + ": ";
+                texto += "- _ \' \" < > ~ ^ * $ ! ¡ # % & ¿ ? /= + , ; : ( ) { } [ ] \\";
+            } else {
+                marcarInputCorrecto(id);
+                quitarCampoError(id);
+            }
+        } else if (reglaValidacion == "texto1") {
+            if (value.match(reglasvalidacion.texto1)) {
+                marcarInputError(id);
+                agregarCampoError(id);
+                texto = "Ha ingresado alguno de los siguientes caracteres no válidos para " + desc + ": ";
+                texto += "_ \' \" < > ~ ^ * $ ! ¡ # % & ¿ ? /= + , ; : ( ) { } [ ] \\";
+            } else {
+                marcarInputCorrecto(id);
+                quitarCampoError(id);
+            }
+        } else if (reglaValidacion == "correo") {
+            if (reglasvalidacion.correo.test(value)) {
+                marcarInputCorrecto(id);
+                quitarCampoError(id);
+            } else {
+                marcarInputError(id);
+                agregarCampoError(id);
+                texto = "No es un patrón de correo válido para " + descripcion;
+            }
+        } else if (reglaValidacion == "fecha") {
+            if (reglasvalidacion.fecha.test(value)) {
+                marcarInputCorrecto(id);
+                quitarCampoError(id);
+            } else {
+                marcarInputError(id);
+                agregarCampoError(id);
+                texto = "No es un patrón válido para " + descripcion;
+            }
+        }
+    }
+
+    if (texto != "") {
+        $("#pdesc").html(texto).css("color","red");
+        $("#alert").show();
+    } else {
+        $("#pdesc").html("");
+        $("#alert").hide();
+    }
+    
+    //actualizarNotificacionesErrores(error);
+    if (controlSubmit == 1) {
+        mostrarSubmit(botonSubmit);
+    }    
+};
+
+const agregarCampoError = (id) => {
+    if (!camposError.includes(id)) {
+        camposError.push(id);
+    }
+    console.log(camposError);
+}
+
+const quitarCampoError = (id) => {
+    try {
+        let indice = camposError.indexOf(id);
+        camposError.splice(indice, 1);
+    }
+    catch(e) {}
+    console.log(camposError);
+}
+
+const valDocumentoEntrevista = (botonSubmit) => {
+    $("#divcargando").css({display:'block'});
+    
+    $(".datos").hide();
+    $("#msgdocumento").html("");
+    $("#estnuevo").val("NO");
+    $("#btnEnviar").hide();
+    $("#register_documentoe_f").val("");
+    
+    //Se limpian lo cuadros de texto
+    $("#register_nombres").val("");
+    $("#register_apellidos").val("");
+    $("#register_grado").val(0);
+    $('#register_grado').change();
+    $("#register_tipo_documento").val(0);
+    $('#register_tipo_documento').change();
+    $("#register_telefono").val("");
+    $("#register_medio").val(0);
+    $('#register_medio').change();
+    $("#activiadad_extra").val("");
+    $("#register_genero").val(0);
+    $("#register_genero").change();
+    
+    $("#register_nombreA").val("");
+    $("#register_documentoA").val("");
+    $("#register_direccionA").val("");
+    $("#register_celularA").val("");
+    $("#register_correoA").val("");
+    $("#register_correoA1").val("");
+    $("#parentesco_acudiente_1").val("NA");
+    $('#parentesco_acudiente_1').change();
+    $("#register_ciudada").val("");
+    
+    let doc = $("#register_documentoe").val();
+    let cifra = doc.substring(0,1);
+    //alert(cifra);
+    if (doc == "0" || cifra == "0") {
+        $("#msgdocumento").html("El documento no puede ser 0, o no puede empezar por 0");
+    }
+    else if (doc == "") {
+        $("#msgdocumento").html("Ingrese el número de documento del estudiante");
+    }
+    else {
+        $.ajax({
+            type:"POST",
+            url:"../../org/ajax/registro_matricula_0.php",
+            data:"documento=" + doc,
+            success:function(r) {
+                let res = JSON.parse(r);
+                console.log(res.estado);
+                let control_matricula = 0;
+                let r_est = res.estado;
+                
+                $("#register_estado").val(r_est);
+                
+                //Se valida si ya tiene un proceso de pre matrícula abierto
+                if(res.procesoAbierto == "SI") {
+                    control_matricula = 1;
+                    $("#pdesc").html("");
+                    if(res.programoEntrevista == "SI") {
+                        $("#msgdocumento").html("Este documento ya tiene un proceso de entrevista abierto. Verificar el email " + res.emailA + " para revisar la información que se envío de la entrevista.");
+                    }
+                    else {
+                        $("#msgdocumento").html("Este documento ya tiene un proceso de entrevista abierto. Verificar el email " + res.emailA + " para revisar la información que se le enviará de la entrevista.");
+                    }							
+                }
+                
+                if(control_matricula == 0) {
+                    $("#pdesc").html("");
+                    if(r_est == "activo") {
+                        let r_grado = res.grados[0].gra;
+                        let r_idgrado = res.grados[0].id_gra;
+                        
+                        $("#msgdocumento").html("Este documento se encuentra activo en el grado " + r_grado + ". El proceso de entrevista es solo para estudiantes nuevos.");
+                    }
+                    else if(r_est == "solicitud" || r_est == "pre_solicitud") {
+                        let r_grado = res.grados[0].gra;
+                        let r_idgrado = res.grados[0].id_gra;
+                        
+                        $("#msgdocumento").html("Este documento ya tiene una solicitud de matrícula en el grado " + r_grado + ". El proceso de entrevista es solo para estudiantes nuevos.");
+                    }
+                    else if(r_est == "reprobado") {
+                        let r_grado = res.grados[0].gra;
+                        let r_idgrado = res.grados[0].id_gra;
+                        
+                        $("#msgdocumento").html("Estudiante antiguo, el proceso de entrevista es solo para estudiantes nuevos.");
+                    }
+                    else if(r_est == "aprobado") {
+                        let r_grado = res.grados[0].gra;
+                        let r_idgrado = res.grados[0].id_gra;
+                        
+                        $("#msgdocumento").html("Estudiante antiguo, el proceso de entrevista es solo para estudiantes nuevos.");
+                    }
+                    else if(r_est == "retirado") {
+                        $("#msgdocumento").html("Este documento se encuentra Retirado. Comunícate con Secretaría Académica.");
+                    }
+                    else if(r_est == "nuevo") {
+                        $("#estnuevo").val("SI");
+                        $("#register_documentoe_f").val(doc);
+                        $(".datos").show();
+                        $(".btnContinuar").hide();
+                        $("#btnEnviar").hide();
+                        $("#divcargando").css({display:'none'});
+                        //mostrar_submit(botonSubmit);
+                        $("#pdesc").html("");
+                        
+                        //Se cargan los datos si existen
+                        if (res.control_antiguos == "2") {
+                            $("#register_nombres").val(res.nombres);
+                            $("#register_apellidos").val(res.apellidos);
+                            //$("#register_grado").val(0);
+                            //$('#register_grado').change();
+                            $("#register_tipo_documento").val(res.id_tdoc);
+                            $('#register_tipo_documento').change();
+                            $("#register_telefono").val(res.tel);
+                            //$("#register_medio").val(0);
+                            //$('#register_medio').change();
+                            $("#activiadad_extra").val(res.actividad_extra);
+                            $("#register_genero").val(res.genero);
+                            $("#register_genero").change();
+                            
+                            $("#register_nombreA").val(res.acudiente);
+                            $("#register_documentoA").val(res.documento_responsable);
+                            $("#register_direccionA").val(res.direccion);
+                            $("#register_celularA").val(res.telA);
+                            $("#register_correoA").val(res.emailA);
+                            $("#register_correoA1").val(res.emailA);
+                            $("#parentesco_acudiente_1").val(res.parentesco_acudiente_1);
+                            $('#parentesco_acudiente_1').change();
+                            $("#register_ciudada").val(res.ciudadA);
+                            
+                            mostrarSubmit(botonSubmit);
+                        }
+                        
+                    }
+                    else if(r_est == "inactivo") {
+                        $("#msgdocumento").html("Este documento se encuentra inactivo en este momento. Comunícate con Secretaría Académica.");
+                    }
+                    else {
+                        $("#msgdocumento").html("No se pudo procesar la solicitud de matrícula para éste documento. Comunícate con Secretaría Académica.");
+                    }
+                }
+                
+                $("#divcargando").css({display:'none'});
+            }
+        });				
+    }			
+    
+}
+
+const limpiar = () => {
+    $(".datos").hide();
+    $("#msgdocumento").html("");
+    $("#estnuevo").val("NO");
+    $(".btnContinuar").show();
+    $("#btnEnviar").hide();
+    $("#register_documentoe_f").val("");
+    
+    //Se ponen los control de los controles en 1
+    $("#ctr_register_nombres").val(1);
+    $("#ctr_register_apellidos").val(1);
+    $("#crt_register_grado").val(1);
+    $("#ctr_register_tipo_documento").val(1);
+    $("#ctr_register_telefono").val(1);
+    $("#ctr_register_medio").val(1);
+    $("#ctr_activiadad_extra").val(1);
+    $("#ctr_register_genero").val(1);
+    
+    $("#ctr_register_nombreA").val(1);
+    $("#ctr_register_documentoA").val(1);
+    $("#ctr_register_direccionA").val(1);
+    $("#ctr_register_celularA").val(1);
+    $("#ctr_register_correoA").val(1);
+    $("#ctr_register_correoA1").val(1);
+    $("#ctr_parentesco_acudiente_1").val(1);
+    $("#ctr_register_ciudada").val(1);
+    
+    //Se limpian lo cuadros de texto
+    $("#register_nombres").val("");
+    $("#register_apellidos").val("");
+    $("#register_grado").val(0);
+    $('#register_grado').change();
+    $("#register_tipo_documento").val(0);
+    $('#register_tipo_documento').change();
+    $("#register_telefono").val("");
+    $("#register_medio").val(0);
+    $('#register_medio').change();
+    $("#activiadad_extra").val("");
+    $("#register_genero").val(0);
+    $("#register_genero").change();
+    
+    $("#register_nombreA").val("");
+    $("#register_documentoA").val("");
+    $("#register_direccionA").val("");
+    $("#register_celularA").val("");
+    $("#register_correoA").val("");
+    $("#register_correoA1").val("");
+    $("#parentesco_acudiente_1").val("NA");
+    $('#parentesco_acudiente_1').change();
+    $("#register_ciudada").val("");
+    
+    $("#pdesc").html("");
 }
