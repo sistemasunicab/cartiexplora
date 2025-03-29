@@ -1,4 +1,6 @@
 <?php
+	include('../../../clases/GenerateQuery.php');
+
 	$nivel = "dos";
 	if ($nivel == "raiz") {
 		require('repositories/1cc2s4Org.php');
@@ -35,18 +37,13 @@
     }
 	$fechaHoy = $fanio1."-".$mes."-".$dia;
 	
-	$tablae = "estudiantes";
-	//$tablae = "estudiantes_n";
-	$tablam = "matricula";
-	//$tablam = "matriculas_n";
-	
 	//################################### OJO ############################
 	//Se valida si el documento tiene solicitud escrita de matrícula por extemporaneidad -- esto solo aplica para el proceso de matrícula
 	/*$validar_extemporaneidad = "SI";
 	$datos->validar_extemporaneidad = $validar_extemporaneidad;
 	
 	$sql_val_extemporaneidad = "SELECT COUNT(1) ct FROM tbl_solicitudes_matricula WHERE n_documento = '$documento' AND a = $fanio";
-	$res_val_extemporaneidad = $mysqli1->query($sql_val_extemporaneidad);
+	$res_val_extemporaneidad = $mysqli2->query($sql_val_extemporaneidad);
 	while($row_val_ext = $res_val_extemporaneidad->fetch_assoc()) {
 	    $ct_ext = $row_val_ext['ct'];
 	}
@@ -59,14 +56,13 @@
 	//################################### OJO ############################
 	
 	//Se hace la consulta del máximo registro en matrículas
-	$sentenciaFinal = $sentencia."'máximo registro en matricula'";
-	$res_sentencia = $mysqli1->query($sentenciaFinal);
-    while($row_sentencia = $res_sentencia->fetch_assoc()){
-        $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
-    }
-	$query0 = str_replace('_documento*', $documento, $sql_datos);
+	$sentenciaFinal = $sentencia2."'máximo registro en matricula'";
+	$valores = [
+		'_documento*' => $documento
+	];
+	$query0 = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
     //echo $query0;
-	$resultado0 = $mysqli1->query($query0);
+	$resultado0 = $mysqli2->query($query0);
 	while($row0 = $resultado0->fetch_assoc()) {
 	    $maxid = $row0['maxid'];
 	}
@@ -82,12 +78,12 @@
 	if($maxid == 0) {
 	    $datos->estado = "nuevo";
 	    //Se cargan los grados
-	    $sentenciaFinal = $sentencia."'grados'";
-		$res_sentencia = $mysqli1->query($sentenciaFinal);
-		while($row_sentencia = $res_sentencia->fetch_assoc()){
-			$query_g = $row_sentencia['campos'].$row_sentencia['tablas'];
-		}
-	    $resultadog = $mysqli1->query($query_g);
+	    $sentenciaFinal = $sentencia2."'grados'";
+		$valores = [
+			'*' => '*'
+		];
+		$query_g = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
+	    $resultadog = $mysqli2->query($query_g);
     	while($rowg = $resultadog->fetch_assoc()) {
     	    $valores = [$rowg['id'],$rowg['grado']];
     	    $grados_temp = array_combine($keys,$valores);
@@ -97,14 +93,13 @@
 		$datos->rh = "NA";
 		
 		//Se buscan datos iniciales... ¡si existen!
-		$sentenciaFinal = $sentencia."'buscar datos iniciales'";
-		$res_sentencia = $mysqli1->query($sentenciaFinal);
-		while($row_sentencia = $res_sentencia->fetch_assoc()){
-			$sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
-		}
-		$query1 = str_replace('_documento*', $documento, $sql_datos);
+		$sentenciaFinal = $sentencia2."'buscar datos iniciales'";
+		$valores = [
+			'_documento*' => $documento
+		];
+		$query1 = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
 	    //echo $query1;
-        $resultado1 = $mysqli1->query($query1);
+        $resultado1 = $mysqli2->query($query1);
 		while($row1 = $resultado1->fetch_assoc()) {
             $datos->acudiente = $row1['acudiente_1'];
     	    $datos->emailA = $row1['email_acudiente_1'];
@@ -114,14 +109,13 @@
 	}
 	else {
 		//Se valida que sea antiguo del presente año para matrículas ordinarias o del año anterior para matrículas extraordinarias
-		$sentenciaFinal = $sentencia."'se valida que sea antiguo'";
-		$res_sentencia = $mysqli1->query($sentenciaFinal);
-		while($row_sentencia = $res_sentencia->fetch_assoc()){
-			$sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
-		}
-		$sql_val_estado = str_replace('_maxid*', $maxid, $sql_datos);
+		$sentenciaFinal = $sentencia2."'se valida que sea antiguo'";
+		$valores = [
+			'_maxid*' => $maxid
+		];
+		$sql_val_estado = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
 		//echo $sql_val_estado."<br>";
-		$res_val_estado = $mysqli1->query($sql_val_estado);
+		$res_val_estado = $mysqli2->query($sql_val_estado);
         while($row_val_estado = $res_val_estado->fetch_assoc()) {
 			$estado_val = $row_val_estado['estado'];
 			$diferencia_val = $row_val_estado['diferencia'];
@@ -140,13 +134,12 @@
 		else if ($estado_val == 'activo') {
 			$datos->estado = $estado_val;
 			//Se cargan los grados
-			$sentenciaFinal = $sentencia."'grado activo'";
-			$res_sentencia = $mysqli1->query($sentenciaFinal);
-			while($row_sentencia = $res_sentencia->fetch_assoc()){
-				$sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
-			}
-			$query_g = str_replace('_idGrado*', $id_grado, $sql_datos);
-			$resultadog = $mysqli1->query($query_g);
+			$sentenciaFinal = $sentencia2."'grado activo'";
+			$valores = [
+				'_idGrado*' => $id_grado
+			];
+			$query_g = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
+			$resultadog = $mysqli2->query($query_g);
 			while($rowg = $resultadog->fetch_assoc()) {
 				$valores = [$rowg['id'],$rowg['grado']];
 				$grados_temp = array_combine($keys,$valores);
@@ -157,12 +150,12 @@
 		else {
 			$datos->estado = "nuevo";
 			//Se cargan los grados
-			$sentenciaFinal = $sentencia."'grados'";
-			$res_sentencia = $mysqli1->query($sentenciaFinal);
-			while($row_sentencia = $res_sentencia->fetch_assoc()){
-				$query_g = $row_sentencia['campos'].$row_sentencia['tablas'];
-			}
-			$resultadog = $mysqli1->query($query_g);
+			$sentenciaFinal = $sentencia2."'grados'";
+			$valores = [
+				'*' => '*'
+			];
+			$query_g = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
+			$resultadog = $mysqli2->query($query_g);
 			while($rowg = $resultadog->fetch_assoc()) {
 				$valores = [$rowg['id'],$rowg['grado']];
 				$grados_temp = array_combine($keys,$valores);
@@ -172,14 +165,13 @@
 			$datos->rh = "NA";
 			
 			//Se buscan datos iniciales... ¡si existen!
-			$sentenciaFinal = $sentencia."'buscar datos iniciales'";
-			$res_sentencia = $mysqli1->query($sentenciaFinal);
-			while($row_sentencia = $res_sentencia->fetch_assoc()){
-				$sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
-			}
-			$query1 = str_replace('_documento*', $documento, $sql_datos);
+			$sentenciaFinal = $sentencia2."'buscar datos iniciales'";
+			$valores = [
+				'_documento*' => $documento
+			];
+			$query1 = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
 			//echo $query1;
-			$resultado1 = $mysqli1->query($query1);
+			$resultado1 = $mysqli2->query($query1);
 			while($row1 = $resultado1->fetch_assoc()) {
 				$datos->acudiente = $row1['acudiente_1'];
 				$datos->emailA = $row1['email_acudiente_1'];
@@ -195,15 +187,14 @@
 		
 		//echo $control_antiguos;
 		if ($control_antiguos == 1 || $control_antiguos == 2) {
-			$sentenciaFinal = $sentencia."'datos estudiante0'";
-			$res_sentencia = $mysqli1->query($sentenciaFinal);
-			while($row_sentencia = $res_sentencia->fetch_assoc()){
-				$sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
-			}
-			$query1 = str_replace('_documento*', $documento, $sql_datos);
-			$query1 = str_replace('_maxid*', $maxid, $query1);
+			$sentenciaFinal = $sentencia2."'datos estudiante0'";
+			$valores = [
+				'_documento*' => $documento,
+				'_maxid*' => $maxid
+			];
+			$query1 = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
 			//echo $query1;
-			$resultado1 = $mysqli1->query($query1);
+			$resultado1 = $mysqli2->query($query1);
 			while($row1 = $resultado1->fetch_assoc()) {
 				$datos->nombres = $row1['nombres'];
 				$datos->apellidos = $row1['apellidos'];
@@ -230,13 +221,12 @@
 				if($row1['estado'] == "aprobado") {
 					//Se cargan los grados
 					$siguiente_grado = $row1['id_grado'] + 1;
-					$sentenciaFinal = $sentencia."'grado activo'";
-					$res_sentencia = $mysqli1->query($sentenciaFinal);
-					while($row_sentencia = $res_sentencia->fetch_assoc()){
-						$sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
-					}
-					$query_g = str_replace('_idGrado*', $siguiente_grado, $sql_datos);
-					$resultadog = $mysqli1->query($query_g);
+					$sentenciaFinal = $sentencia2."'grado'";
+					$valores = [
+						'_idGrado*' => $siguiente_grado
+					];
+					$query_g = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
+					$resultadog = $mysqli2->query($query_g);
 					while($rowg = $resultadog->fetch_assoc()) {
 						$valores = [$rowg['id'],$rowg['grado']];
 						$grados_temp = array_combine($keys,$valores);
@@ -247,13 +237,12 @@
 				else  {
 					//Se cargan los grados
 					//$query_g = "SELECT * FROM grados WHERE id = ".$row1['id_grado'];
-					$sentenciaFinal = $sentencia."'grado activo'";
-					$res_sentencia = $mysqli1->query($sentenciaFinal);
-					while($row_sentencia = $res_sentencia->fetch_assoc()){
-						$sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
-					}
-					$query_g = str_replace('_idGrado*', $row1['id_grado'], $sql_datos);
-					$resultadog = $mysqli1->query($query_g);
+					$sentenciaFinal = $sentencia2."'grado activo'";
+					$valores = [
+						'_idGrado*' => $row1['id_grado']
+					];
+					$query_g = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
+					$resultadog = $mysqli2->query($query_g);
 					while($rowg = $resultadog->fetch_assoc()) {
 						$valores = [$rowg['id'],$rowg['grado']];
 						$grados_temp = array_combine($keys,$valores);
@@ -269,29 +258,27 @@
 	
 	//Se consulta el código de entrevista para estudiatnes que no sean nuevos
 	$id = 0;
-	$sentenciaFinal = $sentencia."'datos entrevista'";
-	$res_sentencia = $mysqli1->query($sentenciaFinal);
-	while($row_sentencia = $res_sentencia->fetch_assoc()){
-		$sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
-	}
-	$sqlcodigo = str_replace('_documento*', $documento, $sql_datos);
+	$sentenciaFinal = $sentencia2."'datos entrevista'";
+	$valores = [
+		'_documento*' => $documento
+	];
+	$sqlcodigo = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
 	//echo $sqlcodigo;
-	$resultado_c = $mysqli1->query($sqlcodigo);
+	$resultado_c = $mysqli2->query($sqlcodigo);
 	while($rowc = $resultado_c->fetch_assoc()) {
 	    $id = $rowc['id1'];
 	}
 	$id = (is_null($id)) ? 0 : $id;
 	if($id == 0) {
 	    //$sqlcodigo1 = "SELECT *, ifnull(id, 0) id1 FROM tbl_pre_matricula WHERE documento_est = '$documento' AND año < $fanio";
-		$sentenciaFinal = $sentencia."'datos tbl_pre_matricula'";
-		$res_sentencia = $mysqli1->query($sentenciaFinal);
-		while($row_sentencia = $res_sentencia->fetch_assoc()){
-			$sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
-		}
-		$sqlcodigo1 = str_replace('_documento*', $documento, $sql_datos);
-		$sqlcodigo1 = str_replace('_fanio*', $fanio, $sqlcodigo1);
+		$sentenciaFinal = $sentencia2."'datos tbl_pre_matricula'";
+		$valores = [
+			'_documento*' => $documento,
+			'_fanio*' => $fanio
+		];
+		$sqlcodigo1 = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
     	//echo $sqlcodigo1;
-    	$resultado_c1 = $mysqli1->query($sqlcodigo1);
+    	$resultado_c1 = $mysqli2->query($sqlcodigo1);
     	while($rowc1 = $resultado_c1->fetch_assoc()) {
     	    $id = $rowc1['id1'];
     	}
@@ -304,14 +291,13 @@
 	//Se valida si ya tiene un proceso de pre matrícula abierto
 	$datos->procesoAbierto = "NO";
 	$datos->gradoSolicitado = 0;
-	$sentenciaFinal = $sentencia."'datos tbl_pre_matricula1'";
-	$res_sentencia = $mysqli1->query($sentenciaFinal);
-	while($row_sentencia = $res_sentencia->fetch_assoc()){
-		$sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
-	}
-	$sql_pre_matricula = str_replace('_documento*', $documento, $sql_datos);
-	$sql_pre_matricula = str_replace('_fanio*', $fanio, $sql_pre_matricula);
-	$resultado_pre_matricula = $mysqli1->query($sql_pre_matricula);
+	$sentenciaFinal = $sentencia2."'datos tbl_pre_matricula1'";
+	$valores = [
+		'_documento*' => $documento,
+		'_fanio*' => $fanio
+	];
+	$sql_pre_matricula = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
+	$resultado_pre_matricula = $mysqli2->query($sql_pre_matricula);
 	while($rowpm = $resultado_pre_matricula->fetch_assoc()) {
 	    $datos->procesoAbierto = "SI";
 		$datos->gradoSolicitado = $rowpm['id_grado'];
@@ -320,13 +306,12 @@
 	//Se valida si ya se programó entrevista
 	$datos->programoEntrevista = "NO";
 	//$sql_prog_entrevista = "SELECT * FROM tbl_entrevistas WHERE documento_est = '$documento' AND fecha >= '2024-10-07'";
-	$sentenciaFinal = $sentencia."'datos tbl_entrevistas'";
-	$res_sentencia = $mysqli1->query($sentenciaFinal);
-	while($row_sentencia = $res_sentencia->fetch_assoc()){
-		$sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
-	}
-	$sql_prog_entrevista = str_replace('_documento*', $documento, $sql_datos);
-	$resultado_prog_entrevista = $mysqli1->query($sql_prog_entrevista);
+	$sentenciaFinal = $sentencia2."'datos tbl_entrevistas'";
+	$valores = [
+		'_documento*' => $documento
+	];
+	$sql_prog_entrevista = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
+	$resultado_prog_entrevista = $mysqli2->query($sql_prog_entrevista);
 	while($rowpe = $resultado_prog_entrevista->fetch_assoc()) {
 	    $datos->programoEntrevista = "SI";
 	}
@@ -337,16 +322,14 @@
 	FROM tbl_cod_pre_matricula WHERE identificacion = $documento AND codigo = '$codigo' 
 	GROUP BY email_pre_mat";*/
 	//echo $sql_c1;
-	$sentenciaFinal = $sentencia."'validar codigo pre matricula documento'";
-	$res_sentencia = $mysqli1->query($sentenciaFinal);
-	while($row_sentencia = $res_sentencia->fetch_assoc()){
-		$sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']).$row_sentencia['agrupaciones'];
-	}
-	$sql_c1 = str_replace('_documento*', $documento, $sql_datos);
-	$sql_c1 = str_replace('_codigo*', $codigo, $sql_c1);
-	
+	$sentenciaFinal = $sentencia2."'validar codigo pre matricula documento'";
+	$valores = [
+		'_documento*' => $documento,
+		'_codigo*' => $codigo
+	];
+	$sql_c1 = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
 	$email_premat = '';
-	$resultado_c1 = $mysqli1->query($sql_c1);
+	$resultado_c1 = $mysqli2->query($sql_c1);
 	while($rowc1 = $resultado_c1->fetch_assoc()) {
 	    $ct_c1 = $rowc1['ct'];
 	    $email_premat = $rowc1['email_pre_mat'];
@@ -362,15 +345,14 @@
 	//Se busca si debe presentar evaluación de validación
 	//$sql_val_ct = "SELECT COUNT(1) ct FROM tbl_validaciones WHERE documento_est = '$documento' AND año = '$fanio'";
 	$ct_val_ct = 0;
-	$sentenciaFinal = $sentencia."'validar codigo pre matricula documento'";
-	$res_sentencia = $mysqli1->query($sentenciaFinal);
-	while($row_sentencia = $res_sentencia->fetch_assoc()){
-		$sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']).$row_sentencia['agrupaciones'];
-	}
-	$sql_val_ct = str_replace('_documento*', $documento, $sql_datos);
-	$sql_val_ct = str_replace('_fanio*', $fanio, $sql_val_ct);
+	$sentenciaFinal = $sentencia2."'evaluacion de validacion'";
+	$valores = [
+		'_documento*' => $documento,
+		'_fanio*' => $fanio
+	];
+	$sql_val_ct = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
 	//echo $sql_val_ct;
-	$exe_val_ct= $mysqli1->query($sql_val_ct);
+	$exe_val_ct= $mysqli2->query($sql_val_ct);
     while($row_val_ct = $exe_val_ct->fetch_assoc()) {
         $ct_val_ct = $row_val_ct['ct'];
     }
@@ -378,10 +360,16 @@
     if($ct_val_ct > 0) {
         $datos->eval_validacion = "SI";
         //Se busca el grado máximo
-        $sql_max_grado = "SELECT g.id, g.grado 
+        /*$sql_max_grado = "SELECT g.id, g.grado 
         FROM (SELECT MAX(id_grado) id_grado FROM tbl_validaciones WHERE documento_est = '$documento' AND fecha_programacion like '%$fanio%') v, grados g 
-        WHERE v.id_grado = g.id";
-        $exe_max_grado = $mysqli1->query($sql_max_grado);
+        WHERE v.id_grado = g.id";*/
+		$sentenciaFinal = $sentencia2."'grado maximo a validar'";
+		$valores = [
+			'_documento*' => $documento,
+			'_fanio*' => $fanio
+		];
+		$sql_max_grado = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
+        $exe_max_grado = $mysqli2->query($sql_max_grado);
         while($row_max_grado = $exe_max_grado->fetch_assoc()) {
             $max_idgrado = $row_max_grado['id'];
             $max_grado = $row_max_grado['grado'];
@@ -390,22 +378,32 @@
         $datos->idgra_validacion = $max_idgrado;
         $datos->gra_validacion = $max_grado;
         
-    	$sql_eval_val = "SELECT COUNT(1) ct FROM tbl_validaciones WHERE documento_est = '$documento' AND resultado = 'APROBADO' 
-    	AND id_grado = $max_idgrado";
+    	/*$sql_eval_val = "SELECT COUNT(1) ct FROM tbl_validaciones WHERE documento_est = '$documento' AND resultado = 'APROBADO' 
+    	AND id_grado = $max_idgrado";*/
     	//echo $sql_eval_val;
-    	$exe_eval_val = $mysqli1->query($sql_eval_val);
+		$sentenciaFinal = $sentencia2."'grado maximo aprobado'";
+		$valores = [
+			'_documento*' => $documento,
+			'_max_idgrado*' => $max_idgrado
+		];
+		$sql_eval_val = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
+    	$exe_eval_val = $mysqli2->query($sql_eval_val);
         while($row_eval_val = $exe_eval_val->fetch_assoc()) {
             $ct_eval_val = $row_eval_val['ct'];
         }
         if($ct_eval_val == 1) {
             $datos->res_validacion = "APROBADO";
             //Se consulta el grado a matricular
-           $sql_grado_ant = "SELECT * FROM grados WHERE id = $max_idgrado + 1";
-           $exe_grado_ant = $mysqli1->query($sql_grado_ant);
+            /*$sql_grado_ant = "SELECT * FROM grados WHERE id = $max_idgrado + 1";*/
+		    $idGrado = $max_idgrado + 1;
+		    $sentenciaFinal = $sentencia2."'grado'";
+			$valores = [
+				'_idGrado*' => $idGrado
+			];
+			$sql_grado_ant = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
+            $exe_grado_ant = $mysqli2->query($sql_grado_ant);
             while($row_grado_ant = $exe_grado_ant->fetch_assoc()) {
-                //$datos->idgra_validacion_ant = $row_grado_ant['id'];
                 $datos->idgra_a_matricular = $row_grado_ant['id'];
-                //$datos->gra_validacion_ant = $row_grado_ant['grado'];
                 $datos->gra_a_matricular = $row_grado_ant['grado'];
             }
         }
@@ -429,9 +427,16 @@
 	if ($documento == "9397454" || $documento == "46376709") {
 		$datos->evaluacionPresaberes = "SI";
 	}
-	$sql_val_pre = "SELECT COUNT(1) ct FROM tbl_respuestas WHERE identificacion = '$documento' AND a = '$fanio1' AND estado = 'FINALIZADA'";
+	/*$sql_val_pre = "SELECT COUNT(1) ct FROM tbl_respuestas WHERE identificacion = '$documento' AND a = '$fanio1' AND estado = 'FINALIZADA'";*/
 	//echo $sql_val_pre;
-	$exe_val_pre = $mysqli1->query($sql_val_pre);
+	$sentenciaFinal = $sentencia2."'evaluacion presaberes finalizada'";
+	$valores = [
+		'_documento*' => $documento,
+		'_fanio1*' => $fanio1
+	];
+	$sql_val_pre = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
+
+	$exe_val_pre = $mysqli2->query($sql_val_pre);
     while($row_val_pre = $exe_val_pre->fetch_assoc()) {
         $ct_val_pre = $row_val_pre['ct'];
     }
@@ -443,8 +448,14 @@
 	//Se valida si el documento no presenta entrevista ni evalución
 	$sin_entrevista = '0';
 	$sin_evaluacion = '0';
-	$sql_exento = "SELECT * FROM tbl_estudiantes_sin_ee WHERE n_documento = '$documento'";
-	$exe_exento = $mysqli1->query($sql_exento);
+	//$sql_exento = "SELECT * FROM tbl_estudiantes_sin_ee WHERE n_documento = '$documento'";
+	$sentenciaFinal = $sentencia2."'valida no entrevista no evaluacion'";
+	$valores = [
+		'_documento*' => $documento
+	];
+	$sql_exento = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
+
+	$exe_exento = $mysqli2->query($sql_exento);
 	while($row_exento = $exe_exento->fetch_assoc()) {
         $sin_entrevista = $row_exento['sin_entrevista'];
 		$sin_evaluacion = $row_exento['sin_evaluacion'];
@@ -461,8 +472,13 @@
 	}
 	
 	//Se consulta el rango de matrícula ordinaria
-	$sql_matricula = "SELECT f1, f2 FROM tbl_parametros WHERE parametro = 'mat_ordinarias'";
-	$exe_matricula = $mysqli1->query($sql_matricula);
+	//$sql_matricula = "SELECT f1, f2 FROM tbl_parametros WHERE parametro = 'mat_ordinarias'";
+	$sentenciaFinal = $sentencia2."'rango matricula ordinaria'";
+	$valores = [
+		'*' => '*'
+	];
+	$sql_matricula = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
+	$exe_matricula = $mysqli2->query($sql_matricula);
 	while($row_matricula = $exe_matricula->fetch_assoc()) {
 		$f1 = $row_matricula['f1'];
 		$f2 = $row_matricula['f2'];
@@ -483,8 +499,13 @@
 	}
 	
 	//Se consulta el rango de matrícula extra ordinaria
-	$sql_matricula_extra = "SELECT f1, f2 FROM tbl_parametros WHERE parametro = 'mat_extraordinarias'";
-	$exe_matricula_extra = $mysqli1->query($sql_matricula_extra);
+	//$sql_matricula_extra = "SELECT f1, f2 FROM tbl_parametros WHERE parametro = 'mat_extraordinarias'";
+	$sentenciaFinal = $sentencia2."'rango matricula extra ordinaria'";
+	$valores = [
+		'*' => '*'
+	];
+	$sql_matricula_extra = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
+	$exe_matricula_extra = $mysqli2->query($sql_matricula_extra);
 	while($row_matricula_extra = $exe_matricula_extra->fetch_assoc()) {
 		$f1e = $row_matricula_extra['f1'];
 		$f2e = $row_matricula_extra['f2'];
@@ -507,8 +528,13 @@
 	//Se valida si el estudiante esta bloqueado
 	$bloqueado = "NO";
 	$ct_bloqueado = 0;
-	$sql_bloqueado = "SELECT COUNT(1) ct FROM tbl_estudiantes_bloqueados WHERE n_documento = '$documento'";
-	$exe_bloqueado = $mysqli1->query($sql_bloqueado);
+	//$sql_bloqueado = "SELECT COUNT(1) ct FROM tbl_estudiantes_bloqueados WHERE n_documento = '$documento'";
+	$sentenciaFinal = $sentencia2."'valida estudiante bloqueado'";
+	$valores = [
+		'_documento*' => $documento
+	];
+	$sql_bloqueado = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
+	$exe_bloqueado = $mysqli2->query($sql_bloqueado);
 	while($row_bloqueado = $exe_bloqueado->fetch_assoc()) {
 		$ct_bloqueado = $row_bloqueado['ct'];
 	}

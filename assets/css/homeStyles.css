@@ -344,7 +344,7 @@ ul {
 }
 
 /*INICIO HOME*/
-/Inicio estilos NavBar/
+/*Inicio estilos NavBar*/
 .unicab-brand {
     width: max-content;
     height: max-content;
@@ -1529,7 +1529,7 @@ input[type="checkbox"] {
  circle {
     fill: #25d366;
  }
- path {
+ #svg_2 {
     fill: #fff;
  }
 /** Inicio Formulario Entrevistas  */
@@ -1553,7 +1553,7 @@ input[type="checkbox"] {
     display: table-cell;
     vertical-align: middle;
 }
-.form-select {
+.form-select1 {
     appearance: none !important;
     background-image: url("../img/admisiones/select_Icon2.png") !important;
     background-repeat: no-repeat;

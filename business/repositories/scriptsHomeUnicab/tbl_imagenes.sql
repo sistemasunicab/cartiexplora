@@ -151,5 +151,6 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo,
 (34, 'assets/img/admisiones/ico1_admisiones_2025_1.jpg', '', '', '', '', ''), 
 (34, 'assets/img/admisiones/ico2_admisiones_2025_1.jpg', '', '', '', '', ''),
 (34, 'assets/img/admisiones/continua_proceso_1.jpg', '', '', '', '', ''),
-(34, 'assets/img/loading1.gif', '', '', '', '', '')
+(34, 'assets/img/loading1.gif', '', '', '', '', ''),
+(34, 'assets/img/admisiones/enviar_1.jpg', '', '', '', '', '')
 ;

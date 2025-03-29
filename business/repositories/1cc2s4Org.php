@@ -18,10 +18,10 @@
     }
     
     if (getenv('APP_ENV') == "local") {
-        $mysqli1 = new mysqli(getenv('DB_HOST'), getenv('DB_USERNAME_L'), getenv('DB_PASSWORD_L'), getenv('DB_DATABASE_ORG'), getenv('DB_PORT'));
+        $mysqli2 = new mysqli(getenv('DB_HOST'), getenv('DB_USERNAME_L'), getenv('DB_PASSWORD_L'), getenv('DB_DATABASE_ORG'), getenv('DB_PORT'));
     }
     else if (getenv('APP_ENV') == "pro") {
-        $mysqli1 = new mysqli(getenv('DB_HOST'), getenv('DB_USERNAME_ORG'), getenv('DB_PASSWORD_ORG'), getenv('DB_DATABASE_ORG'));
+        $mysqli2 = new mysqli(getenv('DB_HOST'), getenv('DB_USERNAME_ORG'), getenv('DB_PASSWORD_ORG'), getenv('DB_DATABASE_ORG'));
     }
     
 	if(mysqli_connect_error()) {
@@ -32,6 +32,6 @@
         //echo "Conexión exitosa";
     }
     
-    $mysqli1->set_charset("utf8");
-    $sentencia = str_replace('-', ' ', getenv('SENTENCIA_PROCESO_SQL'))." = ";
+    $mysqli2->set_charset("utf8");
+    $sentencia2 = str_replace('-', ' ', getenv('SENTENCIA_PROCESO_SQL'))." = ";
 ?>

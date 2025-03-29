@@ -44,19 +44,28 @@
 
     if ($nivel == "raiz") {
         require('business/repositories/1cc2s4Home.php');
+        require('business/repositories/1cc2s4Org.php');
     } else if ($nivel == "uno") {
         require('../business/repositories/1cc2s4Home.php');
+        require('../business/repositories/1cc2s4Org.php');
     } else if ($nivel == "dos") {
         require('../../business/repositories/1cc2s4Home.php');
+        require('../../business/repositories/1cc2s4Org.php');
     } else if ($nivel == "tres") {
         require('../../../business/repositories/1cc2s4Home.php');
+        require('../../../business/repositories/1cc2s4Org.php');
     }
 
     //Obtener Imagenes
-    $res_sentecia = $mysqli1->query($sentencia . "106");
+    /*$res_sentecia = $mysqli1->query($sentencia . "106");
     while ($row_sentencia = $res_sentecia->fetch_assoc()) {
         $sql_imagenes = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
-    }
+    }*/
+    $res_sentecia = $sentencia."106";
+	$valores = [
+		'*' => '*'
+	];
+	$sql_imagenes = GenerateQuery::querySql($mysqli1, $res_sentecia, $valores);
 
     $res1 = $mysqli1->query($sql_imagenes);
     while ($row = $res1->fetch_assoc()) {
@@ -64,22 +73,18 @@
     }
 
     //Obtener textos
-    $res_sentecia = $mysqli1->query($sentencia . "108");
-    while ($row_sentencia = $res_sentecia->fetch_assoc()) {
-        $sql_textos = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
-    }
-    $res2 = $mysqli1->query($sql_textos);
+    $res_sentecia = $sentencia."108";
+	$sql_textos = GenerateQuery::querySql($mysqli1, $res_sentecia, $valores);
 
+    $res2 = $mysqli1->query($sql_textos);
     while ($row = $res2->fetch_assoc()) {
         $textos[] = $row;
     }
 
-    $res_sentecia = $mysqli1->query($sentencia . "105");
-    while ($row_sentencia = $res_sentecia->fetch_assoc()) {
-        $sql_seccion = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
-    }
-    $res_seccion = $mysqli1->query($sql_seccion);
+    $res_sentecia = $sentencia."105";
+	$sql_seccion = GenerateQuery::querySql($mysqli1, $res_sentecia, $valores);
 
+    $res_seccion = $mysqli1->query($sql_seccion);
     $html = '';
     while ($row_sentencia = $res_seccion->fetch_assoc()) {
         $imagen_banner = array_shift($imagenes);
@@ -89,55 +94,7 @@
         $html .=    '</div>';
         $html .= '</section>';
 
-        /*$html .= '<main class="container" id="divMision">';
-        $html .=    '<div class="row my-2">';
-        $html .=        '<div class="col-lg-12">';
-        $html .=            '<h2 class="text-center tx-blue font-roboto-light-title">'. $row_sentencia['titulo'] .'</h2>';
-        $html .=        '</div>';
-        $html .=    '</div>';*/
-
-        //$imagen_explorador = array_shift($imagenes);
-        //$numeroCards = sizeof($textos);
-
-        /*$html .=    '<div class="row">';
-        for ($i = 0; $i < 3; $i++) {
-            //Muestra las primeras cards del home con diferente estructura
-            $html .=    '<div class="col-lg-6 p-4 value">';
-            $html .=        posicionTitulo('<img '.ImageAttributeBuilder::buildAttributes($nivel, $imagenes[$i]['ruta'], $imagenes[$i]['descripcion']).' class="carti-icons object-fit-cover">', 
-            $imagenes[$i]['titulo'],  $imagenes[$i]['posicionTitulo'], 'tx-orange');
-            $html .=        '<div class="row" id="divPrincipios">';
-            $html .=            '<div class="col-lg-12 my-3">';
-            $html .=                '<p class="special-paragraph">';
-            $html .=                    $textos[$i]['texto'];
-            $html .=                '</p>';
-            $html .=            '</div>';
-            $html .=         '</div>';
-            $html .=    '</div>';
-            
-            if($i === 2){
-                $html .=    '<div class="col-lg-6 value">';
-                $html .=       '<img '. ImageAttributeBuilder::buildAttributes($nivel, $imagen_explorador['ruta'], $imagen_explorador['descripcion']) .' class="img-fluid w-100">';
-                $html .=    '</div>';    
-            }
-        }
-        $html .=    '</div>';
-        $html .=    '<div class="row my-3">';
-        for ($i = 3; $i < $numeroCards; $i++) {
-            $html .=    '<div class="col-lg-4 p-4 value">';
-            $html .=        posicionTitulo('<img '.ImageAttributeBuilder::buildAttributes($nivel, $imagenes[$i]['ruta'], $imagenes[$i]['descripcion']).' class="carti-icons object-fit-cover">', 
-            $imagenes[$i]['titulo'],  $imagenes[$i]['posicionTitulo']);
-            $html .=        '<div class="row">';
-            $html .=            '<div class="col-lg-12">';
-            $html .=                '<p class="special-paragraph">';
-            $html .=                    $textos[$i]['texto'];
-            $html .=                '</p>';
-            $html .=            '</div>';
-            $html .=         '</div>';
-            $html .=    '</div>';
-        }
-
-        $html .=    '</div>';*/
-        $html .= '</main>';
+        //$html .= '</main>';
     }
 
     $html .= '<div class="container datosEstudiante">
@@ -157,152 +114,13 @@
                 </div>		
             </div><br>';
 
-    /*$html .= '<section class="container inscripciones-seccion">';
-    $html .=    '<div class="row">';
-    $html .=        '<div class="col-lg-7 d-flex align-items-center">';
-    $html .=            '<div>';
-    $html .=                '<div class="my-5">';
-    $html .=                    '<h1 class="font-roboto-black">' . $row_datos_seccion['titulo'] . '</h1>';
-    $html .=                    '<h1 class="font-roboto-light">' . $row_datos_seccion['subTitulo'] . '</h1>';
-    $html .=                '</div>';
-    $html .=                '<div class="my-5">';
-    $html .=                    '<p class="m-0 font-roboto-bolditalic">' . $row_datos_seccion['texto'] . '</p>';
-    $html .=                    '<p class="m-0 font-roboto-bolditalic">' . $parametros['telefono_admisiones'] . '</p>';
-    $html .=                    '<p class="m-0 font-roboto-bolditalic">' . $parametros['correo_admisiones'] . '</p>';
-    $html .=                '</div>';
-    $html .=            '</div>';
-    $html .=        '</div>';
-    $html .=        '<div class="col-lg-5 form-container">';
-    $html .=            '<div class="row d-none d-sm-none d-lg-flex">';
-    $html .=                '<div class="col-lg-1 p-0"></div>';
-    $html .=                '<div class="col-lg-10">';
-    $html .=                    '<form class="form-inscripciones row" id="myForm">';
-    $html .=                        '<h3 class="mb-2 pt-3 fw-bold text-center inscripciones-form-titulo">' . $parametros['titulo_form_inscripciones'] . '</h3>';
-    $html .=                        '<div class="col-lg-2"></div>';
-    $html .=                        '<div class="col-lg-8">';*/
-
-    /*$res_sentecia = $mysqli1->query($sentencia . "107");
-    while ($row_sentencia = $res_sentecia->fetch_assoc()) {
-        $sql_formulario = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
-    }
-
-    $res_formulario = $mysqli1->query($sql_formulario);
-    while ($row_datos_form = $res_formulario->fetch_assoc()) {
-
-        $campo = $row_datos_form['campo'];
-        $tipo = $row_datos_form['tipo'];
-
-        $obligatorio = 'required';
-        $soloLectura = 'readonly';
-        $deshabilitado = 'disabled';
-
-        if ($row_datos_form['obligatorio'] != 1) {
-            $obligatorio = '';
-        }
-        if ($row_datos_form['soloLectura'] != 1) {
-            $soloLectura = '';
-        }
-        if ($row_datos_form['habilitado'] != 0) {
-            $deshabilitado = '';
-        }
-
-        switch ($tipo) {
-            case 'text':
-                $html .= '<div class="row gap-2 my-2">';
-                $html .=    '<label for="' . $campo . '" class="form-label">' . $campo . (($obligatorio) ? " *" : "")  . '</label>';
-                $html .=    '<input onkeyup="validar_texto(this)" type="' . $tipo . '" id="inscripciones_' . $campo . '" name="' . $campo . '" class="form-input ' . (($obligatorio) ? "inscripciones-input" : "") . '" ' . $obligatorio . ' ' . $soloLectura . ' ' . $deshabilitado . '>';
-                $html .= '</div>';
-                break;
-
-            case 'button':
-            case 'submit':
-            case 'reset':
-                $html .= '<div class="row justify-content-center align-items-start my-5">';
-                $html .=     '<input type="'. $tipo .'" id="inscripciones_enviar" class="inscripciones-btn w-100 form-text" ' . $obligatorio . ' ' . $soloLectura . ' ' . $deshabilitado . ' value="' . $campo . '">';
-                $html .= '</div>';
-                break;
-
-            case 'checkbox':
-                $html .= '<div class="row justify-content-center align-items-start my-4">';
-                $html .=     '<input class="col-lg-2" type="' . $tipo . '" id="inscripciones_' . $campo . '" name="' . $campo . '" ' . $obligatorio . ' ' . $soloLectura . ' ' . $deshabilitado . '>';
-                $html .=     '<p class="form-text col-lg-10">' . $parametros['checkbox_form_inscripciones'] . '</p>';
-                $html .= '</div>';
-                break;
-
-            case 'textarea':
-                $html .= '<div class="row gap-2 my-2">';
-                $html .=    '<label for="' . $campo . '" class="form-label">' . $campo . (($obligatorio) ? " *" : '')  . '</label>';
-                $html .=    '<textarea onkeyup="validar_texto(this)" name="' . $campo . '" id="inscripciones_' . $campo . '" rows="2" class="form-textarea ' . (($obligatorio) ? "inscripciones-input" : "") . '" ' . $obligatorio . ' ' . $soloLectura . ' ' . $deshabilitado . '></textarea>';
-                $html .= '</div>';
-                break;
-
-            case 'number':
-                $html .= '<div class="row gap-2 my-2">';
-                $html .=     '<label for="' . $campo . '" class="form-label">' . $campo . (($obligatorio) ? " *" : "")  . '</label>';
-                $html .=     '<input min="1" onchange="validar_numero(this)" type="' . $tipo . '" id="inscripciones_' . $campo . '" name="' . $campo . '" class="form-input ' . (($obligatorio) ? "inscripciones-input" : "") . '" ' . $obligatorio . ' ' . $soloLectura . ' ' . $deshabilitado . '>';
-                $html .= '</div>';
-                break;
-
-            case 'email':
-                $html .= '<div class="row gap-2 my-2">';
-                $html .=    '<label for="' . $campo . '" class="form-label">' . $campo . (($obligatorio) ? " *" : "")  . '</label>';
-                $html .=    '<input onkeyup="validar_correo(this)" type="' . $tipo . '" id="inscripciones_' . $campo . '" name="' . $campo . '" class="form-input ' . (($obligatorio) ? "inscripciones-input" : "") . '" ' . $obligatorio . ' ' . $soloLectura . ' ' . $deshabilitado . '>';
-                $html .= '</div>';
-                break;
-
-            case 'date':
-                $html .= '<div class="row gap-2 my-2">';
-                $html .=    '<label for="' . $campo . '" class="form-label">' . $campo . (($obligatorio) ? " *" : "")  . '</label>';
-                $html .=    '<input onchange="validar_fecha(this)" type="' . $tipo . '" id="inscripciones_' . $campo . '" name="' . $campo . '" class="form-input ' . (($obligatorio) ? "inscripciones-input" : "") . '" ' . $obligatorio . ' ' . $soloLectura . ' ' . $deshabilitado . '>';
-                $html .= '</div>';
-                break;
-
-            default:
-                $html .= '<div class="row gap-2 my-2">';
-                $html .=    '<label for="' . $campo . '" class="form-label">' . $campo . (($obligatorio) ? " *" : "")  . '</label>';
-                $html .=    '<input onkeyup="validar_texto(this)" type="' . $tipo . '" id="inscripciones_' . $campo . '" name="' . $campo . '" class="form-input ' . (($obligatorio) ? "inscripciones-input" : "") . '" ' . $obligatorio . ' ' . $soloLectura . ' ' . $deshabilitado . '>';
-                $html .= '</div>';
-                break;
-        }
-    }
-
-    $html .=                        '</div>';
-    $html .=                        '<div class="col-lg-2"></div>';
-    $html .=                    '</form>';
-    $html .=                '</div>';
-    $html .=                '<div class="col-lg-1"></div>';
-    $html .=            '</div>';
-    $html .=            '<div class="notificacion-error notificacion-hidden" id="form-notificacion"></div>';
-    $html .=            '<div class="notificacion-success notificacion-hidden" id="notificacion-success">¡Formulario enviado con éxito!</div>';
-    $html .=        '</div>';
-    $html .=    '</div>';
-    $html .= '</section>';*/
-
     $campos_formulario = [];
-    $res_sentecia = $mysqli1->query($sentencia . "107");
-    while ($row_sentencia = $res_sentecia->fetch_assoc()) {
-        $sql_formulario = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
-    }
+    $res_sentecia = $sentencia."107";
+	$sql_formulario = GenerateQuery::querySql($mysqli1, $res_sentecia, $valores);
 
     $res_formulario = $mysqli1->query($sql_formulario);
     while ($row_datos_form = $res_formulario->fetch_assoc()) {
         $campos_formulario[] = $row_datos_form;
-        /*$campo = $row_datos_form['campo'];
-        $tipo = $row_datos_form['tipo'];
-
-        $obligatorio = 'required';
-        $soloLectura = 'readonly';
-        $deshabilitado = 'disabled';
-
-        if ($row_datos_form['obligatorio'] != 1) {
-            $obligatorio = '';
-        }
-        if ($row_datos_form['soloLectura'] != 1) {
-            $soloLectura = '';
-        }
-        if ($row_datos_form['habilitado'] != 0) {
-            $deshabilitado = '';
-        }*/
     }
 
     //<img src="assets/img/admisiones/ico1_admisiones_2025_1.jpg" id="imgh1" class="icono img-fluid"/>
@@ -310,6 +128,7 @@
     $icono_datos = array_shift($imagenes);
     $imagen_continua_proceso = array_shift($imagenes);
     $gif_loading = array_shift($imagenes);
+    $imagen_submit = array_shift($imagenes);
     $documento_estudiante = array_shift($campos_formulario);
     $html .= '<div class="container datosEstudiante">
                 <div class="container">
@@ -361,11 +180,315 @@
                 </div>		
             </div><br>';
 
+    $html .= '<div class="container datos">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2 col-2 amarillo">
+                            <h5>'.$textos[1]['identificacion'].'</h5>
+                        </div>
+                        <div class="col-md-1 col-1 azuloscuro">
+                            <h5>'.$textos[1]['identificacion'].'</h5>
+                        </div>
+                        <div class="col-md-9 col-9 azuloscuro">
+                            <h5>'.$textos[1]['texto'].'</h5>
+                        </div>
+                    </div>
+                    <br>
+                </div>		
+            </div><br>';
+
+    $html .= '<div class="container datos">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5 col-5"></div>
+                        <div class="col-md-2 col-2">
+                            <center>
+                                <img '.ImageAttributeBuilder::buildAttributes($nivel, $icono_datos['ruta'], $icono_datos['descripcion']).' class="icono img-fluid">
+                            </center>
+                        </div>
+                        <div class="col-md-5 col-5"></div>
+                    </div>
+                </div>		
+            </div><br>';
+
+    //Formulario
+    $register_documentoe_f = array_shift($campos_formulario);
+    $estnuevo = array_shift($campos_formulario);
+    $register_apellidos = array_shift($campos_formulario);
+    $register_nombres = array_shift($campos_formulario);
+    $register_grado = array_shift($campos_formulario);
+    $grado_permitido = array_shift($campos_formulario);
+    $register_tipo_documento = array_shift($campos_formulario);
+    $td_text = array_shift($campos_formulario);
+    $register_telefono = array_shift($campos_formulario);
+    $register_medio = array_shift($campos_formulario);
+    $register_genero = array_shift($campos_formulario);
+    $activiadad_extra = array_shift($campos_formulario);
+    $register_nombreA = array_shift($campos_formulario);
+    $register_documentoA = array_shift($campos_formulario);
+    $register_direccionA = array_shift($campos_formulario);
+    $register_celularA = array_shift($campos_formulario);
+    $register_correoA = array_shift($campos_formulario);
+    $register_correoA1 = array_shift($campos_formulario);
+    $parentesco_acudiente_1 = array_shift($campos_formulario);
+    $register_ciudada = array_shift($campos_formulario);
+
+    $html .= '<div class="container datos">
+                <form name="formulario" id="formulario" method="post" action="registro_inicial_putdat.php" enctype="multipart/form-data">
+                    <input type="'.$register_documentoe_f['tipo'].'" id="'.$register_documentoe_f['campo'].'" name="'.$register_documentoe_f['campo'].'" '.$register_documentoe_f['obligatorio'].' '.$register_documentoe_f['soloLectura'].' '.$register_documentoe_f['habilitado'].'>
+                    <input type="'.$estnuevo['tipo'].'" id="'.$estnuevo['campo'].'" name="'.$estnuevo['campo'].'" >
+                    
+                    <div class="row ml-5">
+                        <div class="col-12 col-sm-5">
+                            <div class="form-group">
+                                <label for="'.$register_apellidos['campo'].'" class="form-label1">'.$register_apellidos['texto'].'</label>
+                                <input type="'.$register_apellidos['tipo'].'" class="form-control campoFormulario" id="'.$register_apellidos['campo'].'" name="'.$register_apellidos['campo'].'" placeholder="'.$register_apellidos['placeHolder'].'" onkeyup="validarCampo(this, \'Apellidos\', \'texto\', 1, \'btnEnviar\');" '.$register_apellidos['obligatorio'].' '.$register_apellidos['soloLectura'].' '.$register_apellidos['habilitado'].' >
+                                <input type="hidden" style="width: 20px" id="ctr_register_apellidos" value="1"/>
+                            </div>
+                        </div>
+                        <div class="col-1">
+                        </div>
+                        <div class="col-12 col-sm-5">
+                            <div class="form-group">
+                                <label for="'.$register_nombres['campo'].'" class="form-label1">'.$register_nombres['texto'].'</label>
+                                <input type="'.$register_nombres['tipo'].'" class="form-control campoFormulario" id="'.$register_nombres['campo'].'" name="'.$register_nombres['campo'].'" placeholder="'.$register_nombres['placeHolder'].'" onkeyup="validarCampo(this, \'Nombres\', \'texto\', 1, \'btnEnviar\');" '.$register_nombres['obligatorio'].' '.$register_nombres['soloLectura'].' '.$register_nombres['habilitado'].' >
+                                <input type="hidden" style="width: 20px" id="ctr_register_nombres" value="1"/>
+                            </div>
+                        </div>
+                    </div><br>
+                    
+                    <div class="row ml-5">                                                        	
+                        <div class="col-12 col-sm-5">
+                            <div class="form-group">
+                                <label for="'.$register_grado['campo'].'" id="lblgrado" class="form-label1">'.$register_grado['texto'].'</label><br>
+                                <select class="form-control form-select1 snormal select campoFormulario" id="'.$register_grado['campo'].'" name="'.$register_grado['campo'].'" '.$register_grado['obligatorio'].' '.$register_grado['soloLectura'].' '.$register_grado['habilitado'].' >
+                                    <option value="NA" selected>Seleccione grado</option>';
+                                    
+                                        $sentenciaFinal = $sentencia2."'grados'";
+                                        $valores = [
+                                            '*' => '*'
+                                        ];
+                                        $sql = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
+                                        $petecion = $mysqli2->query($sql);
+                                        while ($row = mysqli_fetch_array($petecion)) {
+                                            $html .= '<option value="'.$row['id'].'">'.$row['grado'].'</option>';
+                                        }
+                                    
+                        $html .= '</select>
+                                <input type="hidden" style="width: 20px" id="ctr_register_grado" value="1"/> 
+                                <input type="hidden" id="grado_permitido" value="0"/>
+                            </div>
+                        </div>
+                        <div class="col-1">
+                        </div>			
+                        <div class="col-12 col-sm-5">
+                            <div class="form-group">
+                                <label for="'.$register_tipo_documento['campo'].'" id="lbltd" class="form-label1">'.$register_tipo_documento['texto'].'</label><br>
+                                <select class="form-control form-select1 snormal select campoFormulario" id="'.$register_tipo_documento['campo'].'" name="'.$register_tipo_documento['campo'].'" '.$register_tipo_documento['obligatorio'].' '.$register_tipo_documento['soloLectura'].' '.$register_tipo_documento['habilitado'].' >
+                                    <option value="NA" selected>Seleccione tipo documento</option>';
+                                    
+                                        $sentenciaFinal = $sentencia2."'tipos documento'";
+                                        $valores = [
+                                            '*' => '*'
+                                        ];
+                                        $sql = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
+                                        $petecion1 = $mysqli2->query($sql);
+                                        while ($row1 = mysqli_fetch_array($petecion1)) {
+                                            $html .= '<option value="'.$row1['id'].'">'.$row1['tipo_documento'].'</option>';
+                                        }
+                                    
+                        $html .= '</select>
+                                <input type="hidden" style="width: 20px" id="ctr_register_tipo_documento" value="1"/> 
+                                <input type="hidden" id="td_text" name="td_text"/>
+                            </div>
+                        </div>
+                    </div><br>
+                    
+                    <div class="row ml-5">
+                        <div class="col-12 col-sm-5">
+                            <div class="form-group">
+                                <label for="'.$register_telefono['campo'].'" class="form-label1">'.$register_telefono['texto'].'</label>
+                                <input type="'.$register_telefono['tipo'].'" class="form-control campoFormulario" id="'.$register_telefono['campo'].'" name="'.$register_telefono['campo'].'" placeholder="'.$register_telefono['placeHolder'].'" onkeyup="validarCampo(this, \'Número telefónico\', \'texto\', 1, \'btnEnviar\');" '.$register_telefono['obligatorio'].' '.$register_telefono['soloLectura'].' '.$register_telefono['habilitado'].' >
+                                <input type="hidden" style="width: 20px" id="ctr_register_telefono" value="1"/>
+                            </div>
+                        </div>
+                        <div class="col-1">
+                        </div>
+                        <div class="col-12 col-sm-5">
+                            <div class="form-group">
+                                <label for="'.$register_medio['campo'].'" id="lblmedio" class="form-label1">'.$register_medio['texto'].'</label><br>
+                                <select class="form-control form-select1 snormal select campoFormulario" id="'.$register_medio['campo'].'" name="'.$register_medio['campo'].'" '.$register_medio['obligatorio'].' '.$register_medio['soloLectura'].' '.$register_medio['habilitado'].' >
+                                    <option value="NA" selected>Seleccione medio</option>';
+                                    
+                                        $sentenciaFinal = $sentencia2."'medios llegada'";
+                                        $valores = [
+                                            '*' => '*'
+                                        ];
+                                        $sql = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
+                                        $res_medio = $mysqli2->query($sql);
+                                        while ($row_medio = mysqli_fetch_array($res_medio)) {
+                                            $html .= '<option value="'.$row_medio['id'].'">'.$row_medio['medio'].'</option>';
+                                        }
+                                    
+                        $html .= '</select>
+                                <input type="hidden" style="width: 20px" id="ctr_register_medio" value="1"/>
+                            </div>
+                        </div>
+                    </div><br>
+                    
+                    <div class="row ml-5">
+                        <div class="col-12 col-sm-5">
+                            <div class="form-group">
+                                <label for="register_genero" id="lblgen" class="form-label1">Género</label><br>
+                                <select class="form-control form-select1 snormal select campoFormulario" id="register_genero" name="register_genero" required>
+                                    <option value="NA" selected>Seleccione género</option>
+                                    <option value="MASCULINO">MASCULINO</option>
+                                    <option value="FEMENINO">FEMENINO</option>
+                                </select>
+                                <input type="hidden" style="width: 20px" id="ctr_register_genero" value="1"/>
+                            </div>
+                        </div>
+                        <div class="col-1">
+                        </div>
+                        <div class="col-12 col-sm-5">
+                            <div class="form-group">
+                                <label for="'.$activiadad_extra['campo'].'" class="form-label1">'.$activiadad_extra['texto'].'</label>
+                                <input type="'.$activiadad_extra['tipo'].'" class="form-control campoFormulario" id="'.$activiadad_extra['campo'].'" name="'.$activiadad_extra['campo'].'" placeholder="'.$activiadad_extra['placeHolder'].'" onkeyup="validarCampo(this, \'Actividad extra\', \'texto\', 1, \'btnEnviar\');" '.$activiadad_extra['obligatorio'].' '.$activiadad_extra['soloLectura'].' '.$activiadad_extra['habilitado'].' >
+                                <input type="hidden" style="width: 20px" id="ctr_activiadad_extra" value="1"/>
+                            </div>
+                        </div>
+                    </div><br>
+                    
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-2 col-2 amarillo">
+                                <h5>'.$textos[2]['identificacion'].'</h5>
+                            </div>
+                            <div class="col-md-1 col-1 azuloscuro">
+                                <h5>'.$textos[2]['identificacion'].'</h5>
+                            </div>
+                            <div class="col-md-9 col-9 azuloscuro">
+                                <h5>'.$textos[2]['texto'].'</h5>
+                            </div>
+                        </div>
+                        <br>
+                    </div><br>
+                    
+                    <div class="row ml-5">
+                        <div class="col-12 col-sm-5">
+                            <div class="form-group">
+                                <label for="'.$register_nombreA['campo'].'" class="form-label1">'.$register_nombreA['texto'].'</label>
+                                <input type="'.$register_nombreA['tipo'].'" class="form-control campoFormulario" id="'.$register_nombreA['campo'].'" name="'.$register_nombreA['campo'].'" placeholder="'.$register_nombreA['placeHolder'].'" onkeyup="validarCampo(this, \'Nombre acudiente\', \'texto\', 1, \'btnEnviar\');" '.$register_nombreA['obligatorio'].' '.$register_nombreA['soloLectura'].' '.$register_nombreA['habilitado'].' >
+                                <input type="hidden" style="width: 20px" id="ctr_register_nombreA" value="1"/>
+                            </div>
+                        </div>
+                        <div class="col-1">
+                        </div>
+                        <div class="col-12 col-sm-5">
+                            <div class="form-group">
+                                <label for="'.$register_documentoA['campo'].'" class="form-label1">'.$register_documentoA['texto'].'</label>
+                                <input type="'.$register_documentoA['tipo'].'" class="form-control campoFormulario" id="'.$register_documentoA['campo'].'" name="'.$register_documentoA['campo'].'" placeholder="'.$register_documentoA['placeHolder'].'" onkeyup="validarCampo(this, \'Documento acudiente\', \'numero\', 1, \'btnEnviar\');" '.$register_documentoA['obligatorio'].' '.$register_documentoA['soloLectura'].' '.$register_documentoA['habilitado'].' >
+                                <input type="hidden" style="width: 20px" id="ctr_register_documentoA" value="1"/>
+                            </div>
+                        </div>
+                    </div><br>
+                    
+                    <div class="row ml-5">
+                        <div class="col-12 col-sm-5">
+                            <div class="form-group">
+                                <label for="'.$register_direccionA['campo'].'" class="form-label1">'.$register_direccionA['texto'].'</label>
+                                <input type="'.$register_direccionA['tipo'].'" class="form-control campoFormulario" id="'.$register_direccionA['campo'].'" name="'.$register_direccionA['campo'].'" placeholder="'.$register_direccionA['placeHolder'].'" onkeyup="validarCampo(this, \'Direccion de residencia acudiente\', \'texto\', 1, \'btnEnviar\');" '.$register_direccionA['obligatorio'].' '.$register_direccionA['soloLectura'].' '.$register_direccionA['habilitado'].' >
+                                <input type="hidden" style="width: 20px" id="ctr_register_direccionA" value="1"/>
+                            </div>
+                        </div>
+                        <div class="col-1">
+                        </div>
+                        <div class="col-12 col-sm-5">
+                            <div class="form-group">
+                                <label for="'.$register_celularA['campo'].'" class="form-label1">'.$register_celularA['texto'].'</label>
+                                <input type="'.$register_celularA['tipo'].'" class="form-control campoFormulario" id="'.$register_celularA['campo'].'" name="'.$register_celularA['campo'].'" placeholder="'.$register_celularA['placeHolder'].'" onkeyup="validarCampo(this, \'Celular acudiente\', \'numero\', 1, \'btnEnviar\');" '.$register_celularA['obligatorio'].' '.$register_celularA['soloLectura'].' '.$register_celularA['habilitado'].' >
+                                <input type="hidden" style="width: 20px" id="ctr_register_celularA" value="1"/>
+                            </div>
+                        </div>
+                    </div><br>
+                    
+                    <div class="row ml-5">
+                        <div class="col-12 col-sm-5">
+                            <div class="form-group">
+                                <label for="'.$register_correoA['campo'].'" class="form-label1">'.$register_correoA['texto'].'</label>
+                                <input type="'.$register_correoA['tipo'].'" class="form-control campoFormulario" id="'.$register_correoA['campo'].'" name="'.$register_correoA['campo'].'" placeholder="'.$register_correoA['placeHolder'].'" onkeyup="validarCampo(this, \'Correo electrónico acudiente\', \'correo\', 1, \'btnEnviar\');" '.$register_correoA['obligatorio'].' '.$register_correoA['soloLectura'].' '.$register_correoA['habilitado'].' >
+                                <input type="hidden" style="width: 20px" id="ctr_register_correoA" value="1"/>
+                            </div>
+                        </div>
+                        <div class="col-1">
+                        </div>
+                        <div class="col-12 col-sm-5">
+                            <div class="form-group">
+                                <label for="'.$register_correoA1['campo'].'" class="form-label1">'.$register_correoA1['texto'].'</label>
+                                <input type="'.$register_correoA1['tipo'].'" class="form-control campoFormulario" id="'.$register_correoA1['campo'].'" name="'.$register_correoA1['campo'].'" placeholder="'.$register_correoA1['placeHolder'].'" onkeyup="validarCampo(this, \'Confirmar correo electrónico acudiente\', \'correo\', 1, \'btnEnviar\');" '.$register_correoA1['obligatorio'].' '.$register_correoA1['soloLectura'].' '.$register_correoA1['habilitado'].' >
+                                <input type="hidden" style="width: 20px" id="ctr_register_correoA1" value="1"/>
+                            </div>
+                        </div>
+                    </div><br>
+                    
+                    <div class="row ml-5">                                                        	
+                        <div class="col-12 col-sm-5">
+                            <div class="form-group">
+                                <label for="parentesco_acudiente_1" id="lblparentesco" class="form-label1">Parentesco</label>
+                                <select id="parentesco_acudiente_1" name="parentesco_acudiente_1" class="form-control form-select1 snormal select campoFormulario" required>
+                                    <option value="NA">Seleccione Parentesco</option>
+                                    <option value="MADRE">MADRE</option>
+                                    <option value="PADRE">PADRE</option>
+                                    <option value="ABUELA">ABUELA</option>
+                                    <option value="ABUELO">ABUELO</option>
+                                    <option value="HERMANA">HERMANA</option>
+                                    <option value="HERMANO">HERMANO</option>
+                                    <option value="TIA">TIA</option>
+                                    <option value="TIO">TIO</option>
+                                    <option value="PRIMA">PRIMA</option>
+                                    <option value="PRIMO">PRIMO</option>
+                                    <option value="OTRO">OTRO</option>
+                                </select>
+                                <input type="hidden" style="width: 20px" id="ctr_parentesco_acudiente_1" value="1"/> 
+                            </div>
+                        </div>
+                        <div class="col-1">
+                        </div>			
+                        <div class="col-12 col-sm-5">
+                            <div class="form-group">
+                                <label for="'.$register_ciudada['campo'].'" class="form-label1">'.$register_ciudada['texto'].'</label>
+                                <input type="'.$register_ciudada['tipo'].'" class="form-control campoFormulario" id="'.$register_ciudada['campo'].'" name="'.$register_ciudada['campo'].'" placeholder="'.$register_ciudada['placeHolder'].'" onkeyup="validarCampo(this, \'Ciudad acudiente\', \'texto\', 1, \'btnEnviar\');" '.$register_ciudada['obligatorio'].' '.$register_ciudada['soloLectura'].' '.$register_ciudada['habilitado'].' >
+                                <input type="hidden" style="width: 20px" id="ctr_register_ciudada" value="1"/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <br>
+                    <div class="row ml-5">                                                        	
+                        <div class="col-md-4 col-4"></div>
+                        <div class="col-md-4 col-4">
+                            <div class="form-group">
+                                <center>
+                                    <button type="submit" id="btnEnviar" class="btnEnviar">
+                                        <img '.ImageAttributeBuilder::buildAttributes($nivel, $imagen_submit['ruta'], $imagen_submit['descripcion']).' id="sig1" class="img-fluid"/>
+                                    </button>
+                                </center>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-4"></div>
+                    </div>
+                    <input type="hidden" value="<?php echo $documento; ?>" id="register_documento" name="register_documento"/>
+                    
+                </form><br>		
+            </div>';
+
+    //alert
     $html .= '<div class="alert alert-danger" role="alert" id="alert" style="margin-left: 5rem;">
                 <p><i class="fa fa-warning"></i><span>: </span><label id="pdesc"></label>
                 <input type="text" class="alert" style="width: 20px; border: none; background: transparent;" id="txtvacio" value="0"></p>
             </div>';
 
+    //whatsapp
     $html .= '<div id="whatsapp">
                 <a href="https://wa.me/573008156531/?text=Hola. Necesito asesoría del proceso de admisiones." target="_blank">
                     <svg width="80" height="80" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">

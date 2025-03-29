@@ -118,8 +118,12 @@ const reset_clases = () => {
 };
 
 $(document).ready(function () {
+    $(".datos").hide();
     marcarCamposObligatorios();
     $("#alert").hide();
+    $("#divcargando").css({display:'none'});
+    let btnSubmit = document.querySelector('button[type="submit"]');
+    let idSubmit = "#" + btnSubmit.id;
 
     $("#myForm").on("submit", function (e) {
         e.preventDefault();
@@ -167,6 +171,115 @@ $(document).ready(function () {
             },
         });
     });
+
+    $("#register_grado").change(function() {
+        let gra = $("#register_grado").val();
+        
+        if(gra == "NA") {
+            //$(idSubmit).hide();
+            let texto = "Debe seleccionar un grado para la matrícula";
+            $("#pdesc").html(texto).css("color","red");
+            $("#alert").show();
+            marcarInputError(this.id);
+            agregarCampoError(this.id);
+        }
+        else {
+            //$("#btnEnviar").show();
+            $("#pdesc").html("");
+            $("#alert").hide();
+            marcarInputCorrecto(this.id);
+            quitarCampoError(this.id);
+        }
+        mostrarSubmit(btnSubmit.id);
+    });
+    
+    $("#register_tipo_documento").change(function() {
+        let td = $("#register_tipo_documento").val();
+        let td_txt = $("#register_tipo_documento option:selected").text();
+        $("#td_text").val(td_txt);
+        
+        if(td == "NA") {
+            //$("#btnEnviar").hide();
+            let texto = "Debe seleccionar un tipo de documento para la matrícula";
+            $("#pdesc").html(texto).css("color","red");
+            $("#alert").show();
+            marcarInputError(this.id);
+            agregarCampoError(this.id);
+        }
+        else {
+            //$("#btnEnviar").show();
+            $("#pdesc").html("");
+            $("#alert").hide();
+            marcarInputCorrecto(this.id);
+            quitarCampoError(this.id);
+        }
+        mostrarSubmit(btnSubmit.id);
+    });
+    
+    $("#register_medio").change(function() {
+        let medio = $("#register_medio").val();
+        
+        if(medio == "NA") {
+            //$("#btnEnviar").hide();
+            let texto = "Debe seleccionar un medio de llegada";
+            $("#pdesc").html(texto).css("color","red");
+            $("#alert").show();
+            marcarInputError(this.id);
+            agregarCampoError(this.id);
+        }
+        else {
+            //$("#btnEnviar").show();
+            $("#pdesc").html("");
+            $("#alert").hide();
+            marcarInputCorrecto(this.id);
+            quitarCampoError(this.id);
+        }
+        mostrarSubmit(btnSubmit.id);
+    });
+    
+    $("#register_genero").change(function() {
+        let gen = $("#register_genero").val();
+        
+        if(gen == "NA") {
+            //$("#btnEnviar").hide();
+            let texto = "Debe seleccionar un género para la matrícula";
+            $("#pdesc").html(texto).css("color","red");
+            $("#alert").show();
+            marcarInputError(this.id);
+            agregarCampoError(this.id);
+        }
+        else {
+            //$("#btnEnviar").show();
+            $("#pdesc").html("");
+            $("#alert").hide();
+            marcarInputCorrecto(this.id);
+            quitarCampoError(this.id);
+        }
+        mostrarSubmit(btnSubmit.id);
+    });
+    
+    $("#parentesco_acudiente_1").change(function() {
+        let parentesco = $("#parentesco_acudiente_1").val();
+        
+        if(parentesco == "NA") {
+            //$("#btnEnviar").hide();
+            let texto = "Debe seleccionar un parentesco para el acudiente";
+            $("#pdesc").html(texto).css("color","red");
+            $("#alert").show();
+            marcarInputError(this.id);
+            agregarCampoError(this.id);
+        }
+        else {
+            //$("#btnEnviar").show();
+            $("#pdesc").html("");
+            $("#alert").hide();
+            marcarInputCorrecto(this.id);
+            quitarCampoError(this.id);
+        }
+        mostrarSubmit(btnSubmit.id);
+    });
+    
+    mostrarSubmit(btnSubmit.id);
 });
 
 const reglasvalidacion = {
@@ -201,18 +314,15 @@ let camposError = [];
 
 const marcarCamposObligatorios = () => {
     const elementosForm = document.querySelectorAll(".campoFormulario");
-
-    elementosForm.forEach((input) => {
-        let { id } = input;
-        const campoObligatorio = input.getAttribute("required") === '' ? true : false;
-
-        if (campoObligatorio && input.value === ''){
-            marcarInputError(id);
-            agregarCampoError(id);
+    
+    elementosForm.forEach((elemento) => {
+        if (elemento.hasAttribute("required") && (elemento.value == "" || elemento.value == "NA")) {
+            marcarInputError(elemento.id);
+            agregarCampoError(elemento.id);
         }
         else {
-            marcarInputCorrecto(id);
-            quitarCampoError(id);
+            marcarInputCorrecto(elemento.id);
+            quitarCampoError(elemento.id);
         }
     });
 };
@@ -284,7 +394,7 @@ const marcarInputCorrecto = (id) => {
     $(idObjeto).removeClass("error");
 };
 
-const validar_texto = (input) => {
+/*const validar_texto = (input) => {
     let { name, value } = input;
     const campoObligatorio = input.getAttribute("required") === '' ? true : false;
     
@@ -400,7 +510,7 @@ const validar_fecha = (input) => {
     
     actualizarNotificacionesErrores(error);
     mostrar_submit();
-}
+}*/
 
 /**
  * Función responsable de validar el ingreso de datos en formularios
@@ -442,7 +552,7 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
             if (value.match(reglasvalidacion.texto)) {
                 marcarInputError(id);
                 agregarCampoError(id);
-                texto = "Ha ingresado alguno de los siguientes caracteres no válidos para " + desc + ": ";
+                texto = "Ha ingresado alguno de los siguientes caracteres no válidos para " + descripcion + ": ";
                 texto += "- _ \' \" < > ~ ^ * $ ! ¡ # % & ¿ ? /= + , ; : ( ) { } [ ] \\";
             } else {
                 marcarInputCorrecto(id);
@@ -452,7 +562,7 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
             if (value.match(reglasvalidacion.texto1)) {
                 marcarInputError(id);
                 agregarCampoError(id);
-                texto = "Ha ingresado alguno de los siguientes caracteres no válidos para " + desc + ": ";
+                texto = "Ha ingresado alguno de los siguientes caracteres no válidos para " + descripcion + ": ";
                 texto += "_ \' \" < > ~ ^ * $ ! ¡ # % & ¿ ? /= + , ; : ( ) { } [ ] \\";
             } else {
                 marcarInputCorrecto(id);
@@ -497,16 +607,16 @@ const agregarCampoError = (id) => {
     if (!camposError.includes(id)) {
         camposError.push(id);
     }
-    console.log(camposError);
 }
 
 const quitarCampoError = (id) => {
     try {
         let indice = camposError.indexOf(id);
-        camposError.splice(indice, 1);
+        if (indice >= 0) {
+            camposError.splice(indice, 1);
+        }        
     }
     catch(e) {}
-    console.log(camposError);
 }
 
 const valDocumentoEntrevista = (botonSubmit) => {
@@ -517,19 +627,20 @@ const valDocumentoEntrevista = (botonSubmit) => {
     $("#estnuevo").val("NO");
     $("#btnEnviar").hide();
     $("#register_documentoe_f").val("");
+    $("#alert").hide();
     
     //Se limpian lo cuadros de texto
     $("#register_nombres").val("");
     $("#register_apellidos").val("");
-    $("#register_grado").val(0);
+    $("#register_grado").val("NA");
     $('#register_grado').change();
-    $("#register_tipo_documento").val(0);
+    $("#register_tipo_documento").val("NA");
     $('#register_tipo_documento').change();
     $("#register_telefono").val("");
-    $("#register_medio").val(0);
+    $("#register_medio").val("NA");
     $('#register_medio').change();
     $("#activiadad_extra").val("");
-    $("#register_genero").val(0);
+    $("#register_genero").val("NA");
     $("#register_genero").change();
     
     $("#register_nombreA").val("");
@@ -667,25 +778,6 @@ const limpiar = () => {
     $("#btnEnviar").hide();
     $("#register_documentoe_f").val("");
     
-    //Se ponen los control de los controles en 1
-    $("#ctr_register_nombres").val(1);
-    $("#ctr_register_apellidos").val(1);
-    $("#crt_register_grado").val(1);
-    $("#ctr_register_tipo_documento").val(1);
-    $("#ctr_register_telefono").val(1);
-    $("#ctr_register_medio").val(1);
-    $("#ctr_activiadad_extra").val(1);
-    $("#ctr_register_genero").val(1);
-    
-    $("#ctr_register_nombreA").val(1);
-    $("#ctr_register_documentoA").val(1);
-    $("#ctr_register_direccionA").val(1);
-    $("#ctr_register_celularA").val(1);
-    $("#ctr_register_correoA").val(1);
-    $("#ctr_register_correoA1").val(1);
-    $("#ctr_parentesco_acudiente_1").val(1);
-    $("#ctr_register_ciudada").val(1);
-    
     //Se limpian lo cuadros de texto
     $("#register_nombres").val("");
     $("#register_apellidos").val("");
@@ -711,4 +803,5 @@ const limpiar = () => {
     $("#register_ciudada").val("");
     
     $("#pdesc").html("");
+    $("#alert").hide();
 }
