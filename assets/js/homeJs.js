@@ -316,6 +316,7 @@ const marcarCamposObligatorios = () => {
     const elementosForm = document.querySelectorAll(".campoFormulario");
     
     elementosForm.forEach((elemento) => {
+        //if (elemento.tagName === "INPUT") {}
         if (elemento.hasAttribute("required") && (elemento.value == "" || elemento.value == "NA")) {
             marcarInputError(elemento.id);
             agregarCampoError(elemento.id);
