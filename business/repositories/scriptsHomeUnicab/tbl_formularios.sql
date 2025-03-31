@@ -42,5 +42,5 @@ INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLe
 (34, 'register_correoA', 'text', 'Correo electrónico acudiente (al cual llegará la factura electrónica)', 'required', '', '', 'Escribe el correo electrónico del acudiente' ),
 (34, 'register_correoA1', 'text', 'Confirmar correo electrónico acudiente', 'required', '', '', 'Escribe el correo electrónico del acudiente' ),
 (34, 'parentesco_acudiente_1', 'select', 'Parentesco', 'required', '', '', '' ),
-(34, 'register_ciudada', 'select', 'Ciudad acudiente', 'required', '', '', 'Escribe la ciudad del acudiente' ),
+(34, 'register_ciudada', 'text', 'Ciudad acudiente', 'required', '', '', 'Escribe la ciudad del acudiente' ),
 (34, '', 'submit', '', '', '', '', '' );

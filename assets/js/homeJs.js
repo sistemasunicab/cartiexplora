@@ -353,7 +353,6 @@ const mostrar_submit = () => {
 
 const mostrarSubmit = (botonSubmit) => {
     let control = 0;
-    let control1 = 1;
     let idObjeto = "#" + botonSubmit;
     marcarCamposObligatorios();
 
@@ -366,17 +365,15 @@ const mostrarSubmit = (botonSubmit) => {
         $(idObjeto).hide();
     }
     else {
-        if(control1 == 0) {
-            if($("#register_correoA").val() == $("#register_correoA1").val()) {
-                $(idObjeto).show();
-            }
-            else {
-                var texto = "El email y la confirmación del email del acudiente deben ser iguales";
-                $("#pdesc").html(texto).css("color","red");
-                $(idObjeto).hide();
-            }
-        } else {
+        if($("#register_correoA").val() == $("#register_correoA1").val()) {
             $(idObjeto).show();
+            $("#alert").hide();
+        }
+        else {
+            var texto = "El email y la confirmación del email del acudiente deben ser iguales";
+            $("#pdesc").html(texto).css("color","red");
+            $(idObjeto).hide();
+            $("#alert").show();
         }
     }
 };
@@ -670,7 +667,6 @@ const valDocumentoEntrevista = (botonSubmit) => {
             data:"documento=" + doc,
             success:function(r) {
                 let res = JSON.parse(r);
-                console.log(res.estado);
                 let control_matricula = 0;
                 let r_est = res.estado;
                 

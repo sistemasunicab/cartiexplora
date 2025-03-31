@@ -37,24 +37,6 @@
     }
 	$fechaHoy = $fanio1."-".$mes."-".$dia;
 	
-	//################################### OJO ############################
-	//Se valida si el documento tiene solicitud escrita de matrícula por extemporaneidad -- esto solo aplica para el proceso de matrícula
-	/*$validar_extemporaneidad = "SI";
-	$datos->validar_extemporaneidad = $validar_extemporaneidad;
-	
-	$sql_val_extemporaneidad = "SELECT COUNT(1) ct FROM tbl_solicitudes_matricula WHERE n_documento = '$documento' AND a = $fanio";
-	$res_val_extemporaneidad = $mysqli2->query($sql_val_extemporaneidad);
-	while($row_val_ext = $res_val_extemporaneidad->fetch_assoc()) {
-	    $ct_ext = $row_val_ext['ct'];
-	}
-	if ($ct_ext > 0 && $validar_extemporaneidad == "SI") {
-		$datos->solicitud_matricula_escrita = "SI";
-	}
-	else {
-		$datos->solicitud_matricula_escrita = "NO";
-	}*/
-	//################################### OJO ############################
-	
 	//Se hace la consulta del máximo registro en matrículas
 	$sentenciaFinal = $sentencia2."'máximo registro en matricula'";
 	$valores = [
@@ -134,7 +116,7 @@
 		else if ($estado_val == 'activo') {
 			$datos->estado = $estado_val;
 			//Se cargan los grados
-			$sentenciaFinal = $sentencia2."'grado activo'";
+			$sentenciaFinal = $sentencia2."'grado'";
 			$valores = [
 				'_idGrado*' => $id_grado
 			];

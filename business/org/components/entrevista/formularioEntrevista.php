@@ -234,7 +234,7 @@
     $register_ciudada = array_shift($campos_formulario);
 
     $html .= '<div class="container datos">
-                <form name="formulario" id="formulario" method="post" action="registro_inicial_putdat.php" enctype="multipart/form-data">
+                <form name="formulario" id="formulario" method="post" action="../dml/registro_inicial_putdat.php" enctype="multipart/form-data" target="_blank">
                     <input type="'.$register_documentoe_f['tipo'].'" id="'.$register_documentoe_f['campo'].'" name="'.$register_documentoe_f['campo'].'" '.$register_documentoe_f['obligatorio'].' '.$register_documentoe_f['soloLectura'].' '.$register_documentoe_f['habilitado'].'>
                     <input type="'.$estnuevo['tipo'].'" id="'.$estnuevo['campo'].'" name="'.$estnuevo['campo'].'" >
                     
@@ -483,9 +483,9 @@
             </div>';
 
     //alert
-    $html .= '<div class="alert alert-danger" role="alert" id="alert" style="margin-left: 5rem;">
+    $html .= '<div id="alert" style="margin-left: 2rem;">
                 <p><i class="fa fa-warning"></i><span>: </span><label id="pdesc"></label>
-                <input type="text" class="alert" style="width: 20px; border: none; background: transparent;" id="txtvacio" value="0"></p>
+                <input type="text" class="alert" style="width: 20px; border: none; background: transparent; color: transparent" id="txtvacio" value="0"></p>
             </div>';
 
     //whatsapp
