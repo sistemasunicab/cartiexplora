@@ -16,11 +16,11 @@ CREATE TABLE tbl_formularios (
 
 INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder ) VALUES 
 (4, 'nombre', 'text', 'nombre', 'required', '', '', '' ),
-(4, 'correo', 'email', 'correo', 'required', '', '', '' ),
+(4, 'correo', 'text', 'correo', 'required', '', '', '' ),
 (4, 'asunto', 'text', 'asunto', 'required', '', '', '' ),
-(4, 'mensaje', 'textarea', 'mensaje', 'required', '', '', '' ),
+(4, 'mensaje', 'text', 'mensaje', 'required', '', '', '' ),
 (4, 'checkbox', 'checkbox', 'checkbox', 'required', '', '', '' ),
-(4, 'Envía tu mensaje', 'submit', 'Envía tu mensaje', '', '', '', '' ),
+(4, 'envia_tu_mensaje', 'submit', 'Envía tu mensaje', '', '', '', '' ),
 
 (34, 'register_documentoe', 'text', 'Escribe el número documento estudiante y luego haz clic en Continua con el proceso!', 'required', '', '', '"Escribe el número de documento del estudiante sin puntos' ),
 (34, 'register_documentoe_f', 'hidden', '', 'required', '', '', '' ),

@@ -537,17 +537,20 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
     }
 
     if (control == 0) {
+        console.log(reglaValidacion);
         if (reglaValidacion == "numero") {
             if (reglasvalidacion.numero.test(value)) {
                 marcarInputCorrecto(id);
                 quitarCampoError(id);
             } else {
+                control = 1;
                 marcarInputError(id);
                 agregarCampoError(id);
                 texto = "Ingrese sólamente números para " + descripcion;
             }
         } else if (reglaValidacion == "texto") {
             if (value.match(reglasvalidacion.texto)) {
+                control = 1;
                 marcarInputError(id);
                 agregarCampoError(id);
                 texto = "Ha ingresado alguno de los siguientes caracteres no válidos para " + descripcion + ": ";
@@ -558,6 +561,7 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
             }
         } else if (reglaValidacion == "texto1") {
             if (value.match(reglasvalidacion.texto1)) {
+                control = 1;
                 marcarInputError(id);
                 agregarCampoError(id);
                 texto = "Ha ingresado alguno de los siguientes caracteres no válidos para " + descripcion + ": ";
@@ -567,10 +571,13 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
                 quitarCampoError(id);
             }
         } else if (reglaValidacion == "correo") {
+            console.log(value);
+            console.log(reglasvalidacion.correo.test(value));
             if (reglasvalidacion.correo.test(value)) {
                 marcarInputCorrecto(id);
                 quitarCampoError(id);
             } else {
+                control = 1;
                 marcarInputError(id);
                 agregarCampoError(id);
                 texto = "No es un patrón de correo válido para " + descripcion;
@@ -580,6 +587,7 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
                 marcarInputCorrecto(id);
                 quitarCampoError(id);
             } else {
+                control = 1;
                 marcarInputError(id);
                 agregarCampoError(id);
                 texto = "No es un patrón válido para " + descripcion;
@@ -595,8 +603,9 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
         $("#alert").hide();
     }
     
+    console.log(camposError);
     //actualizarNotificacionesErrores(error);
-    if (controlSubmit == 1) {
+    if (controlSubmit == 1 && control == 0) {
         mostrarSubmit(botonSubmit);
     }    
 };
@@ -605,16 +614,19 @@ const agregarCampoError = (id) => {
     if (!camposError.includes(id)) {
         camposError.push(id);
     }
+    console.log(camposError);
 }
 
 const quitarCampoError = (id) => {
     try {
         let indice = camposError.indexOf(id);
+        console.log(indice);
         if (indice >= 0) {
             camposError.splice(indice, 1);
         }        
     }
     catch(e) {}
+    console.log(camposError);
 }
 
 const valDocumentoEntrevista = (botonSubmit) => {
