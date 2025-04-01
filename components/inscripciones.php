@@ -114,6 +114,8 @@
                                 <p><i class="fa fa-warning"></i><span>: </span><label id="pdesc"></label>
                                 <input type="text" class="alert" style="width: 20px; border: none; background: transparent; color: transparent" id="txtvacio" value="0"></p>
                             </div>';
+        $html .=            '<div class="notificacion-error notificacion-hidden" id="notificacionError"></div>';
+        $html .=            '<div class="notificacion-success notificacion-hidden" id="notificacionSuccess">¡Formulario enviado con éxito!</div>';
         $html .=        '</div>';
         $html .=    '</div>';
         $html .= '</section>';
