@@ -354,8 +354,7 @@ const mostrar_submit = () => {
 const mostrarSubmit = (botonSubmit) => {
     let control = 0;
     let idObjeto = "#" + botonSubmit;
-    marcarCamposObligatorios();
-
+    
     camposError.forEach(campo => {
         marcarInputError(campo);
         control = 1;
@@ -365,15 +364,28 @@ const mostrarSubmit = (botonSubmit) => {
         $(idObjeto).hide();
     }
     else {
-        if($("#register_correoA").val() == $("#register_correoA1").val()) {
-            $(idObjeto).show();
-            $("#alert").hide();
-        }
-        else {
-            var texto = "El email y la confirmación del email del acudiente deben ser iguales";
-            $("#pdesc").html(texto).css("color","red");
-            $(idObjeto).hide();
-            $("#alert").show();
+        try {
+            let email1 = document.getElementById("register_correoA");
+            let email2 = document.getElementById("register_correoA1");
+            
+            if (email1 && email2) {
+                if($("#register_correoA").val() == $("#register_correoA1").val()) {
+                    $(idObjeto).show();
+                    $("#alert").hide();
+                }
+                else {
+                    var texto = "El email y la confirmación del email del acudiente deben ser iguales";
+                    $("#pdesc").html(texto).css("color","red");
+                    $(idObjeto).hide();
+                    $("#alert").show();
+                }
+            }
+            else {
+                $(idObjeto).show();
+                $("#alert").hide();
+            }
+        } catch (error) {
+            
         }
     }
 };
@@ -392,124 +404,6 @@ const marcarInputCorrecto = (id) => {
     $(idObjeto).removeClass("error");
 };
 
-/*const validar_texto = (input) => {
-    let { name, value } = input;
-    const campoObligatorio = input.getAttribute("required") === '' ? true : false;
-    
-    if ((value.trim() === "" || value.trim() === '') && campoObligatorio) {
-        marcarInputError(input);
-        error = `El campo ${name} es obligatorio`;
-    } else if (value.match(reglasvalidacion.texto)) {
-        marcarInputError(input);
-        error = `Ha ingresado alguno de los siguientes caracteres no válidos para ${name}: - _ ' \" < > ~ ^ * $ ! ¡ # % & ¿ ? /= + , ; : ( ) { } [ ] \\`;
-    } else {
-        marcarInputCorrecto(input);
-        error = '';
-    }
-    
-    actualizarNotificacionesErrores(error);
-    mostrar_submit();
-};
-
-const validar_numero = (input) => {
-    let { name, value } = input;
-    const campoObligatorio = input.getAttribute("required") === '' ? true : false;
-    
-    if ((value.trim() === "" || value.trim() === '') && campoObligatorio) {
-        marcarInputError(input);
-        error = `El campo ${name} es obligatorio.`;
-    } else if (reglasvalidacion.numero.test(value)) {
-        marcarInputCorrecto(input);
-        error = '';
-    } else {
-        error = `Ingrese sólamente números mayores a 0 para ${name}`;
-        marcarInputError(input);
-    }
-    
-    actualizarNotificacionesErrores(error);
-    mostrar_submit();
-}
-
-const validar_correo = (input) => {
-    let { name, value } = input;
-    const campoObligatorio = input.getAttribute("required") === '' ? true : false;
-
-    if ((value.trim() === "" || value.trim() === '') && campoObligatorio) {
-        marcarInputError(input);
-        error = `El campo ${name} es obligatorio.`;
-    } else if (reglasvalidacion.correo.test(value)) {
-        marcarInputCorrecto(input);
-        error = '';
-    } else {
-        error = `No es un patrón válido para ${name}`;
-        marcarInputError(input);
-    }
-    
-    actualizarNotificacionesErrores(error);
-    mostrar_submit();
-};
-
-const validar_fecha = (input) => {    
-    let { name, value: fecha } = input;
-    const campoObligatorio = input.getAttribute("required") === '' ? true : false;
-
-    if ((fecha.trim() === "" || fecha.trim() === '') && campoObligatorio) {
-        marcarInputError(input);
-        error = `El campo ${name} es obligatorio.`;
-
-    } else if (reglasvalidacion.fecha.test(fecha)) {        
-        const partesFecha = fecha.split("-");
-        const anio = partesFecha[0];
-        const mes  = partesFecha[1];
-        const dia  = partesFecha[2];
-        let contieneErrores = false;
-
-        if(anio < 1850 || anio > 2050) {
-            contieneErrores = true;
-            marcarInputError(input);
-            error = `No es un patrón válido para ${name}`;
-        }
-
-        if(mes < 1 || mes > 12) {
-            contieneErrores = true;
-            marcarInputError(input);
-            error = `No es un patrón válido para ${name}`;
-        } else {
-            
-            if(mes == 2) {
-                if(dia < 1 || dia > 29) {
-                    contieneErrores = true;
-                    marcarInputError(input);
-                    error = `No es un patrón válido para ${name}`;
-                } 
-            } else if(mes == 4 || mes == 6 || mes == 9 || mes == 11) {
-                if(dia < 1 || dia > 30) {
-                    contieneErrores = true;
-                    marcarInputError(input);
-                    error = `No es un patrón válido para ${name}`;
-                } 
-            } else {
-                if(dia < 1 || dia > 31) {
-                    contieneErrores = true;
-                    marcarInputError(input);
-                    error = `No es un patrón válido para ${name}`;
-                } 
-            }
-        }
-        
-        if(!contieneErrores){
-            marcarInputCorrecto(input);
-            error = '';
-        }
-    } else {
-        error = `No es un patrón válido para ${name}`;
-        marcarInputError(input);
-    }
-    
-    actualizarNotificacionesErrores(error);
-    mostrar_submit();
-}*/
-
 /**
  * Función responsable de validar el ingreso de datos en formularios
  *
@@ -525,7 +419,9 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
     const campoObligatorio = input.getAttribute("required") === '' ? true : false;
     let control = 0;
     let texto = "";
-    
+    let idSubmit = "#" + botonSubmit;
+    $(idSubmit).hide();
+
     if ((value.trim() === "" || value.trim() === '') && campoObligatorio) {
         control = 1;
         marcarInputError(id);
@@ -542,15 +438,16 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
                 marcarInputCorrecto(id);
                 quitarCampoError(id);
             } else {
+                control = 1;
                 marcarInputError(id);
                 agregarCampoError(id);
                 texto = "Ingrese sólamente números para " + descripcion;
             }
         } else if (reglaValidacion == "texto") {
             if (value.match(reglasvalidacion.texto)) {
+                control = 1;
                 marcarInputError(id);
                 agregarCampoError(id);
-                control = 1;
                 texto = "Ha ingresado alguno de los siguientes caracteres no válidos para " + descripcion + ": ";
                 texto += "- _ \' \" < > ~ ^ * $ ! ¡ # % & ¿ ? /= + , ; : ( ) { } [ ] \\";
             } else {
@@ -559,9 +456,9 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
             }
         } else if (reglaValidacion == "texto1") {
             if (value.match(reglasvalidacion.texto1)) {
+                control = 1;
                 marcarInputError(id);
                 agregarCampoError(id);
-                control = 1;
                 texto = "Ha ingresado alguno de los siguientes caracteres no válidos para " + descripcion + ": ";
                 texto += "_ \' \" < > ~ ^ * $ ! ¡ # % & ¿ ? /= + , ; : ( ) { } [ ] \\";
             } else {
@@ -573,9 +470,9 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
                 marcarInputCorrecto(id);
                 quitarCampoError(id);
             } else {
+                control = 1;
                 marcarInputError(id);
                 agregarCampoError(id);
-                control = 1;
                 texto = "No es un patrón de correo válido para " + descripcion;
             }
         } else if (reglaValidacion == "fecha") {
@@ -583,9 +480,9 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
                 marcarInputCorrecto(id);
                 quitarCampoError(id);
             } else {
+                control = 1;
                 marcarInputError(id);
                 agregarCampoError(id);
-                control = 1;
                 texto = "No es un patrón válido para " + descripcion;
             }
         }
@@ -599,7 +496,6 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
         $("#alert").hide();
     }
     
-    //actualizarNotificacionesErrores(error);
     if (controlSubmit == 1 && control == 0) {
         mostrarSubmit(botonSubmit);
     }    

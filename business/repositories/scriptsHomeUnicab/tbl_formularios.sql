@@ -20,7 +20,7 @@ INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLe
 (4, 'asunto', 'text', 'asunto', 'required', '', '', '' ),
 (4, 'mensaje', 'textarea', 'mensaje', 'required', '', '', '' ),
 (4, 'checkbox', 'checkbox', 'checkbox', 'required', '', '', '' ),
-(4, 'Envía tu mensaje', 'submit', 'Envía tu mensaje', '', '', '', '' ),
+(4, 'enviaMensaje', 'submit', 'Envía tu mensaje', '', '', '', '' ),
 
 (34, 'register_documentoe', 'text', 'Escribe el número documento estudiante y luego haz clic en Continua con el proceso!', 'required', '', '', '"Escribe el número de documento del estudiante sin puntos' ),
 (34, 'register_documentoe_f', 'hidden', '', 'required', '', '', '' ),
