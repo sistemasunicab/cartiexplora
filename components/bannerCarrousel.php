@@ -53,29 +53,69 @@
         $link_button = $rows_imagenes[$i]['linkBoton'];
         $text_button = $rows_imagenes[$i]['textoBoton'];
         $styles = ButtonStylesBannerBuilder::buildStyles($rows_imagenes[$i]['color'], $rows_imagenes[$i]['transparencia'], $rows_imagenes[$i]['porcentajeTop'], $rows_imagenes[$i]['porcentajeLeft']);
-        $attributes = ImageAttributeBuilder::buildAttributes($nivel, $rows_imagenes[$i]['ruta']);
+
+        $atributosEscritorio = ImageAttributeBuilder::buildAttributes($nivel, $rows_imagenes[$i]['ruta']);
+        $atributosMovil = ImageAttributeBuilder::buildAttributes($nivel, $rows_imagenes[$i]['rutaMovil']);
+        $atributosTabletaVertical = ImageAttributeBuilder::buildAttributes($nivel, $rows_imagenes[$i]['rutaTabletaVertical']);
+        $atributosTabletaHorizontal = ImageAttributeBuilder::buildAttributes($nivel, $rows_imagenes[$i]['rutaTabletaHorizontal']);
+
+        $imagenes = [
+            [
+                'atributos' => $atributosEscritorio,
+                'clases'    => 'd-lg-inline d-md-none d-sm-none d-none img-fluid w-100'
+            ],
+            [
+                'atributos' => $atributosMovil,
+                'clases'    => 'd-lg-none d-md-none d-sm-none d-inline img-fluid w-100'
+            ],
+            [
+                'atributos' => $atributosTabletaVertical,
+                'clases'    => 'd-lg-none d-md-none d-sm-inline d-none img-fluid w-100'
+            ],
+            [
+                'atributos' => $atributosTabletaHorizontal,
+                'clases'    => 'd-lg-none d-md-inline d-sm-none d-none img-fluid w-100'
+            ]
+        ];
 
         // El primer item o div del carrusel debe tener la clase "active", el resto no.
         if ($firstImage  == 0) {
-            $html .= '<div class="carousel-item active"><a href="' . $link_image . '"><img ' . $attributes . ' class="img-fluid w-100"></a><a href="' . $link_button . '" class="button-absolute" style="' . $styles . '">' . $text_button . '</a></div>' . "\n";
+            $html .= '<div class="carousel-item active">';
+            $html .=    '<a href="' . $link_image . '">';
+
+            foreach ($imagenes as $img) {
+                $html .= '<img ' . $img['atributos'] . ' class="' . $img['clases'] . '">';
+            }
+
+            $html .=    '</a>';
+            $html .=    '<a href="' . $link_button . '" class="button-carousel button-absolute" style="' . $styles . '" role="button">' . $text_button . '</a>';
+            $html .= '</div>';
             $firstImage++;
         } else {
-            $html .= '<div class="carousel-item"><a href="' . $link_image . '"><img ' . $attributes . ' class="img-fluid w-100"></a><a href="' . $link_button . '" class="button-absolute " style="' . $styles . '">' . $text_button . '</a></div>' . "\n";
+            $html .= '<div class="carousel-item">';
+            $html .=    '<a href="' . $link_image . '">';
+            
+            foreach ($imagenes as $img) {
+                $html .= '<img ' . $img['atributos'] . ' class="' . $img['clases'] . '">';
+            }
+
+            $html .=    '</a>';
+            $html .=    '<a href="' . $link_button . '" class="button-carousel button-absolute" style="' . $styles . '" role="button">' . $text_button . '</a>';
+            $html .= '</div>';
         }
     }
-
-    $html .= '
-        </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </section>';
+    
+    $html .=        '</div>';
+    $html .=        '<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">';
+    $html .=            '<span class="carousel-control-prev-icon" aria-hidden="true"></span>';
+    $html .=            '<span class="visually-hidden">Previous</span>';
+    $html .=        '</button>';
+    $html .=        '<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">';
+    $html .=            '<span class="carousel-control-next-icon" aria-hidden="true"></span>';
+    $html .=            '<span class="visually-hidden">Next</span>';
+    $html .=        '</button>';
+    $html .=    '</div>';
+    $html .= '</section>';
 
     echo $html;
 ?>
