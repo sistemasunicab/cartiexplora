@@ -156,5 +156,9 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo,
 
 (35, 'assets/img/whatsapp_icon_negro.png', 'contact-icon', 'Comunícate', '', '', ''),
 (35, 'assets/img/location_icon_negro.png', 'location-icon', 'Comunícate', '', '', ''),
-(35, 'assets/img/blog_icon_negro.png', 'blog-icon', 'Comunícate', '', '', '')
+(35, 'assets/img/blog_icon_negro.png', 'blog-icon', 'Comunícate', '', '', '');
+
+INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo, rutaEncima, textoAlterno) VALUES
+(36, 'assets/img/advertencia_correo1.png', 'Advertencia', '', '', '', ''),
+(36, 'assets/img/admisiones/Panchita.png', 'Panchita', '', '', '', '')
 ;

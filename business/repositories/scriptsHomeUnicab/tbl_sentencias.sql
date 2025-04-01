@@ -140,3 +140,9 @@ INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones
 ('NO', '', 'SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 35 AND visible = 1 ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 35', '', '', '', '', '')
 ;
+
+INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
+('NO', '', 'SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 36 AND visible = 1 ', '', '', '', '', ''),
+('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 36', '', '', '', '', ''),
+('NO', '', 'SELECT * ', 'FROM tbl_textos ', 'WHERE id_seccion = 36', '', '', '', '', '')
+;

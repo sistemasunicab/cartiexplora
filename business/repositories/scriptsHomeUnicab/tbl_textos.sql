@@ -47,3 +47,13 @@ INSERT INTO tbl_textos (id_seccion, paginaPadre, identificacion, texto ) VALUES
 (34, 'entrevista', 'Paso 1.', 'Ingresa los siguientes datos para iniciar el proceso de matrícula en nuestro colegio UNICAB Virtual.'),
 (34, 'entrevista', 'Paso 2.', 'Datos complementarios del estudiante.'),
 (34, 'entrevista', 'Paso 3.', 'Datos complementarios del acudiente.');
+
+INSERT INTO tbl_textos (id_seccion, paginaPadre, identificacion, texto ) VALUES 
+(36, 'admisiones', 'Texto1', '¡EL REGISTRO SE TERMINÓ CON ÉXITO PARA EL DOCUMENTO: '),
+(36, 'admisiones', 'Texto2', 'A la dirección de correo del acudiente se le enviará:'),
+(36, 'admisiones', 'Texto3', 'Un link para contestar la evaluación de admisión que se debe presentar al momento de la entrevista.'),
+(36, 'admisiones', 'Texto4', 'Un link con el día y hora en la que se programó la entrevista.'),
+(36, 'admisiones', 'Texto5', 'Es probable que cuando le llegue el correo le aparezca una imagen como esta:'),
+(36, 'admisiones', 'Texto6', 'No haga clic en ninguna de las opciones de la imagen.'),
+(36, 'admisiones', 'Texto7', 'Es un mensaje de advertencia que genera por seguridad nuestro hosting.')
+;

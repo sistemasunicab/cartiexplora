@@ -31,7 +31,6 @@
 	$ciudadA = strtoupper($_REQUEST['register_ciudada']);
 
 	//Se busca el grado
-	//$sql_grado = "SELECT grado FROM grados WHERE id = $idgra";
 	$sentenciaFinal = $sentencia2."'grado'";
 	$valores = [
 		'_idGrado*' => $idgra
@@ -58,12 +57,11 @@
 	}
 	
 	//Se valida si el registro ya existe en tbl_pre_matricula
-	//$sql_premat = "SELECT COUNT(1) ct FROM tbl_pre_matricula WHERE documento_est = '$documentoe' AND año = $año_matricula";
 	$ct_premat = 0;
-	$sentenciaFinal = $sentencia2."'datos tbl_pre_matricula1'";
+	$sentenciaFinal = $sentencia2."'existe registro en tbl_pre_matricula'";
 	$valores = [
 		'_documento*' => $documentoe,
-		'_fanio*' => $año_matricula
+		'_añoMatricula*' => $año_matricula
 	];
 	$sql_premat = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
 	$res_premat = $mysqli2->query($sql_premat);	
@@ -72,56 +70,69 @@
 	}
 	echo "<br>ct_premat: ".$ct_premat;
 	
-	/*if ($ct_premat > 0) {
-		$sql_insupd_prem = "UPDATE tbl_pre_matricula 
-		SET id_grado = $idgra, nombres_est = '$nombres', apellidos_est = '$apellidos', fecha = '$fecha2', actividad_extra = '$extra', 
-		nombre_a = '$nombreA', celular_a = '$celA', email_a = '$emailA', ciudad_a = '$ciudadA', id_medio = $medio 
-		WHERE documento_est = '$documentoe' AND año = $año_matricula";
-		
+	$valores1 = [
+		'_idGrado*' => $idgra,
+		'_nombres*' => $nombres,
+		'_apellidos*' => $apellidos,
+		'_fecha2*' => $fecha2,
+		'_extra*' => $extra,
+		'_nombreA*' => $nombreA,
+		'_celA*' => $celA,
+		'_emailA*' => $emailA,
+		'_ciudadA*' => $ciudadA,
+		'_medio*' => $medio,
+		'_documento*' => $documentoe,
+		'_añoMatricula*' => $año_matricula,
+		'_genero*' => $genero,
+		'_tdoc*' => $tdoc,
+		'_telefonoE*' => $cel,
+		'_parentesco1*' => $parentesco1,
+		'_documentoA*' => $documentoA
+	];
+	if ($ct_premat > 0) {
+		$sentenciaFinal = $sentencia2."'update tbl_pre_matricula'";		
+		$sql_insupd_prem = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores1);
 	}
 	else {
-		$sql_insupd_prem = "INSERT INTO tbl_pre_matricula (id_empleado, id_grado, documento_est, nombres_est, apellidos_est, fecha, actividad_extra, 
-		nombre_a, celular_a, email_a, ciudad_a, entrevista, eval, id_medio, año) 
-		VALUES (18, $idgra, '$documentoe', '$nombres', '$apellidos', '$fecha2', '$extra', 
-		'$nombreA', '$celA', '$emailA', '$ciudadA', 'NO', 0, $medio, $año_matricula)";
+		$sentenciaFinal = $sentencia2."'insert tbl_pre_matricula'";		
+		$sql_insupd_prem = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores1);
 	}
 	echo "<br>".$sql_insupd_prem;
-	$exe_insupd_prem = mysqli_query($conexion,$sql_insupd_prem);
+	$exe_insupd_prem = $mysqli2->query($sql_insupd_prem);
     
     //Se valida si el documento ya existe en estudiantes
-	$sql_est = "SELECT COUNT(1) ct FROM estudiantes WHERE n_documento = '$documentoe'";
+	$sentenciaFinal = $sentencia2."'existe registro en estudiantes'";
+	$valores = [
+		'_documento*' => $documentoe
+	];
+	$sql_est = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
 	echo "<br>".$sql_est;
-	$res_est = $mysqli1->query($sql_est);	
+	$res_est = $mysqli2->query($sql_est);	
 	while($row_est = $res_est->fetch_assoc()){
 		$ct_est = $row_est['ct'];
 	}
 	echo "<br>ct_est: ".$ct_est;
 	
 	if ($ct_est > 0) {
-		$sql_insupd_est = "UPDATE estudiantes SET apellidos = '$apellidos', nombres = '$nombres', genero = '$genero', tipo_documento = $tdoc, telefono_estudiante = '$cel', 
-		actividad_extra = '$extra', email_acudiente_1 = '$emailA', acudiente_1 = '$nombreA', telefono_acudiente_1 = '$celA', parentesco_acudiente_1 = '$parentesco1', 
-		fecha_datos = '$fecha2', documento_responsable = '$documentoA', ciudad = '$ciudadA', a_matricula = $año_matricula WHERE n_documento = '$documentoe'";
+		$sentenciaFinal = $sentencia2."'update estudiantes'";		
+		$sql_insupd_est = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores1);
 	}
 	else {
-		$sql_insupd_est = "INSERT INTO estudiantes (apellidos, nombres, genero, tipo_documento, n_documento, ciudad, telefono_estudiante, actividad_extra, 
-		email_acudiente_1, acudiente_1, telefono_acudiente_1, parentesco_acudiente_1, fecha_datos, documento_responsable, a_matricula) 
-		VALUES ('$apellidos', '$nombres', '$genero', $tdoc, '$documentoe', '$ciudadA', '$cel', '$extra', 
-		'$emailA', '$nombreA', '$celA', '$parentesco1', '$fecha2', '$documentoA', ".$año_matricula.")";
+		$sentenciaFinal = $sentencia2."'insert estudiantes'";		
+		$sql_insupd_est = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores1);
 	}
 	echo "<br>".$sql_insupd_est;
-	$exe_insupd_est = mysqli_query($conexion,$sql_insupd_est);
+	$exe_insupd_est = $mysqli2->query($sql_insupd_est);
 	
 	//Se direcciona para completar los datos de solicitud de matrícula
 	if ($estnuevo == "SI") {
-		//header('Location: admisiones_nuevos.php?documento='.$documentoe);
-		//header('Location: pre_admisiones1_us_nuevos2025.php?documento='.$documentoe.'&idgra='.$idgra.'&email='.$emailA);
-		header('Location: https://unicab.solutions/pre_admisiones1_us_nuevos2025.php?documento='.$documentoe);
+		header('Location: https://unicab.solutions/pre_admisiones1_us_nuevos2025_newhome.php?documento='.$documentoe);
 	}
 	else if ($estnuevo == "NO") {
 		//header('Location: admisiones_antiguos.php?documento='.$documentoe);
 		//header('Location: pre_admisiones1_us_antiguos2025.php?documento='.$documentoe.'&idgra='.$idgra.'&email='.$emailA);
 		//header('Location: https://unicab.solutions/pre_admisiones1_us_antiguos2025.php?documento='.$documentoe);
-	}*/
+	}
     	
 ?>
 

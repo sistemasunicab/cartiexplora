@@ -19,7 +19,7 @@
                 //Se valida si es insert
                 if ($row_sentencia['inserciones'] != "") {
                     $sql_datos = str_replace('|', '\'', $row_sentencia['tablas'])
-                    .$row_sentencia['inserciones'];
+                    .str_replace('|', '\'', $row_sentencia['inserciones']);
                     $control = 1;
                 }
                 
@@ -27,7 +27,7 @@
                 if ($control == 0) {
                     if ($row_sentencia['modificaciones'] != "") {
                         $sql_datos = str_replace('|', '\'', $row_sentencia['tablas'])
-                        .$row_sentencia['modificaciones']
+                        .str_replace('|', '\'', $row_sentencia['modificaciones'])
                         .str_replace('|', '\'', $row_sentencia['condiciones']);
                         $control = 1;
                     }

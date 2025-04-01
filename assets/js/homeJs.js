@@ -550,6 +550,7 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
             if (value.match(reglasvalidacion.texto)) {
                 marcarInputError(id);
                 agregarCampoError(id);
+                control = 1;
                 texto = "Ha ingresado alguno de los siguientes caracteres no válidos para " + descripcion + ": ";
                 texto += "- _ \' \" < > ~ ^ * $ ! ¡ # % & ¿ ? /= + , ; : ( ) { } [ ] \\";
             } else {
@@ -560,6 +561,7 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
             if (value.match(reglasvalidacion.texto1)) {
                 marcarInputError(id);
                 agregarCampoError(id);
+                control = 1;
                 texto = "Ha ingresado alguno de los siguientes caracteres no válidos para " + descripcion + ": ";
                 texto += "_ \' \" < > ~ ^ * $ ! ¡ # % & ¿ ? /= + , ; : ( ) { } [ ] \\";
             } else {
@@ -573,6 +575,7 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
             } else {
                 marcarInputError(id);
                 agregarCampoError(id);
+                control = 1;
                 texto = "No es un patrón de correo válido para " + descripcion;
             }
         } else if (reglaValidacion == "fecha") {
@@ -582,6 +585,7 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
             } else {
                 marcarInputError(id);
                 agregarCampoError(id);
+                control = 1;
                 texto = "No es un patrón válido para " + descripcion;
             }
         }
@@ -596,7 +600,7 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
     }
     
     //actualizarNotificacionesErrores(error);
-    if (controlSubmit == 1) {
+    if (controlSubmit == 1 && control == 0) {
         mostrarSubmit(botonSubmit);
     }    
 };

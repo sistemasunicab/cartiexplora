@@ -1554,6 +1554,18 @@ input[type="text"], .select, textarea {
     border: none;
     background: transparent;
 }
+
+.hrResultadoPreAdmisiones {
+    border: 1px solid #Ff9805 !important;
+}
+.imgAyuda {
+    width: 20%;
+    height: auto;
+}
+#page-title-area {
+    background-color: #4d4d4f;
+    color: white;
+}
 /** Fin Formulario Entrevistas  */
 
 /* Inicio btn flotante */

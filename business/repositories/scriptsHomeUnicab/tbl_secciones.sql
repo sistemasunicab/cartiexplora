@@ -51,5 +51,7 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 ('lastPost', 1, 'blog', '', '', ''),
 
 ('entrevista', 1, 'admisiones', 'Admisiones', 'Entrevistas', ''),
-('botonFlotante', 1, 'home', '', '', '')
+('botonFlotante', 1, 'home', '', '', ''),
+
+('resultadoPreAdmisiones', 1, 'admisiones', 'Admisiones', 'Resultado Pre Admisiones', '')
 ;
