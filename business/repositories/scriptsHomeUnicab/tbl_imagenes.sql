@@ -84,7 +84,7 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo,
 (17, 'assets/img/_2294971155520.png', 'table', 'Correo', '', '', ''),
 (17, 'assets/img/_2294971183744.png', 'table', 'Cargo', '', '', ''),
 (17, 'assets/img/_2294971184896.png', 'table', 'Información', '', '', ''),
-(17, 'assets/img/NAME1.png', 'image-schedule', '', '', '', 'schedule'),
+(17, 'assets/img/Grupo 1.png', 'image-schedule', 'LUNES A VIERNES<br>8:00 a.m. A 12:00 p.m.', '', '', 'schedule'),
 (18, 'assets/img/elearning_5466286.svg', 'E-learning', '', '', '', 'E-learning'),
 (20, 'assets/img/paper_14969976.svg', 'PDF', '', '', '', 'PDF'),
 
@@ -106,6 +106,7 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo,
 (24, 'assets/img/elearning.svg', '', 'Fortalecimiento de principios y valores basados en la autonomía del estudiante.', 'abajo', '', ''),
 (24, 'assets/img/audiobook.svg', '', 'Desarrollo del pensamiento creativo del estudiante.', 'abajo', '', ''),
 (26, 'assets/img/browser_4919708.png', '', 'Año(s) académico(s) al que corresponde la solicitud', 'arriba', '', ''),
+(26, 'assets/img/icon-send.png', 'icon-send', '', '', '', ''),
 
 (27, 'assets/img/Farid_Hastamorir.png', 'imagen-farid-hastamorir', '', '', '', ''),
 (27, 'assets/img/Favio_Felipe.png', 'imagen-favio-felipe', '', '', '', ''),
@@ -144,4 +145,20 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo,
 (33, 'assets/img/facebookOrangeBg.png', '', '', '', '', ''), 
 (33, 'assets/img/instagramOrangeBg.png', '', '', '', '', ''), 
 (33, 'assets/img/linkedInOrangeBg.png', '', '', '', '', ''), 
-(33, 'assets/img/whatsappOrangeBg.png', '', '', '', '', '');
+(33, 'assets/img/whatsappOrangeBg.png', '', '', '', '', ''),
+
+(34, 'assets/img/admisiones/Admisiones_2025_1.jpg', '', '', '', '', ''), 
+(34, 'assets/img/admisiones/ico1_admisiones_2025_1.jpg', '', '', '', '', ''), 
+(34, 'assets/img/admisiones/ico2_admisiones_2025_1.jpg', '', '', '', '', ''),
+(34, 'assets/img/admisiones/continua_proceso_1.jpg', '', '', '', '', ''),
+(34, 'assets/img/loading1.gif', '', '', '', '', ''),
+(34, 'assets/img/admisiones/enviar_1.jpg', '', '', '', '', ''),
+
+(35, 'assets/img/whatsapp_icon_negro.png', 'contact-icon', 'Comunícate', '', '', ''),
+(35, 'assets/img/location_icon_negro.png', 'location-icon', 'Comunícate', '', '', ''),
+(35, 'assets/img/blog_icon_negro.png', 'blog-icon', 'Comunícate', '', '', '');
+
+INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo, rutaEncima, textoAlterno) VALUES
+(36, 'assets/img/advertencia_correo1.png', 'Advertencia', '', '', '', ''),
+(36, 'assets/img/admisiones/Panchita.png', 'Panchita', '', '', '', '')
+;
