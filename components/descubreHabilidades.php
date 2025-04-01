@@ -51,18 +51,18 @@
         // Obtiene el titulo de la sección y lo renderiza
         $html .= '<section class="container mt-100">';
         $html .=    '<div class="row my-5">';
-        $html .=        '<div class="col-lg-12">';
+        $html .=        '<div class="col-lg-12 col-md-12 col-sm-12 col-12 ">';
         $html .=            '<h2 class="text-center font-roboto-black tx-blue">' . "\n" . $row_datos_seccion['titulo'] . '</h2>' . "\n";
         $html .=        '</div>';
         
         //Obtener subtitulo
         $subtitulo = explode(" ", $row_datos_seccion['subTitulo']);
-        $html .=        '<div class="col-lg-12">';
+        $html .=        '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
         $html .=            '<h1 class="text-center font-roboto-light">' . '<span class="font-roboto-black">' . $subtitulo[0] . '</span> ' . $subtitulo[1] . '</h1>' . "\n";
         $html .=        '</div>';
 
         //texto de esta sección 
-        $html .=        '<div class="col-lg-12">';
+        $html .=        '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
         $html .=            '<p class="text-center font-roboto">' . $row_datos_seccion['texto'] . '</p>';
         $html .=        '</div>';
         $html .=    '</div>';
@@ -75,10 +75,10 @@
 
         $res_imagenes = $mysqli1->query($sql_imagenes);
 
-        $html .=    '<div class="row">';
+        $html .=    '<div class="row p-lg-0 p-md-0 p-sm-3 p-3 ">';
 
         while ($row_imagenes = $res_imagenes->fetch_assoc()) {
-            $html .=    '<div class="col-md-2 line">';
+            $html .=    '<div class="col-lg-2 col-md-2 col-sm-4 col-4 line">';
             $attributes = ImageAttributeBuilder::buildAttributes($nivel, $row_imagenes['ruta'], $row_imagenes['descripcion'], $row_imagenes['rutaEncima']);
             $html .= posicionTituloImagen('<img class="habilidades-img" ' . $attributes . '>', $row_imagenes['titulo'], $row_imagenes['posicionTitulo'], $row_imagenes['enlace']);
             $html .=    '</div>'; 
