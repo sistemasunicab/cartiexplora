@@ -360,21 +360,34 @@ const mostrarSubmit = (botonSubmit) => {
         marcarInputError(campo);
         control = 1;
     }); 
-
+    
     if(control > 0) {
         $(idObjeto).hide();
     }
     else {
-        if($("#register_correoA").val() == $("#register_correoA1").val()) {
-            $(idObjeto).show();
-            $("#alert").hide();
-        }
-        else {
-            var texto = "El email y la confirmación del email del acudiente deben ser iguales";
-            $("#pdesc").html(texto).css("color","red");
-            $(idObjeto).hide();
-            $("#alert").show();
-        }
+        try {
+            let email1 = document.getElementById("register_correoA");
+            let email2 = document.getElementById("register_correoA1");
+            console.log(email1 + " " + email2);
+            if (email1 && email2) {
+                if($("#register_correoA").val() == $("#register_correoA1").val()) {
+                    $(idObjeto).show();
+                    $("#alert").hide();
+                }
+                else {
+                    var texto = "El email y la confirmación del email del acudiente deben ser iguales";
+                    $("#pdesc").html(texto).css("color","red");
+                    $(idObjeto).hide();
+                    $("#alert").show();
+                }
+            }
+            else {
+                $(idObjeto).show();
+                $("#alert").hide();
+            }
+        } catch (error) {
+            
+        }        
     }
 };
 
@@ -525,6 +538,8 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
     const campoObligatorio = input.getAttribute("required") === '' ? true : false;
     let control = 0;
     let texto = "";
+    let idSubmit = "#" + botonSubmit;
+    $(idSubmit).hide();
     
     if ((value.trim() === "" || value.trim() === '') && campoObligatorio) {
         control = 1;
@@ -537,7 +552,6 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
     }
 
     if (control == 0) {
-        console.log(reglaValidacion);
         if (reglaValidacion == "numero") {
             if (reglasvalidacion.numero.test(value)) {
                 marcarInputCorrecto(id);
@@ -603,18 +617,15 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
         $("#alert").hide();
     }
     
-    console.log(camposError);
-    //actualizarNotificacionesErrores(error);
     if (controlSubmit == 1 && control == 0) {
         mostrarSubmit(botonSubmit);
-    }    
+    }
 };
 
 const agregarCampoError = (id) => {
     if (!camposError.includes(id)) {
         camposError.push(id);
     }
-    console.log(camposError);
 }
 
 const quitarCampoError = (id) => {
@@ -626,7 +637,6 @@ const quitarCampoError = (id) => {
         }        
     }
     catch(e) {}
-    console.log(camposError);
 }
 
 const valDocumentoEntrevista = (botonSubmit) => {

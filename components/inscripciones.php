@@ -77,22 +77,22 @@
         
         $html .=                            '<div class="row gap-2 my-2">';
         $html .=                               '<label for="' . $inscripciones_nombre['campo'] . '" class="form-label text-capitalize">' . $inscripciones_nombre['texto'] .' *</label>';
-        $html .=                               '<input onkeyup="validarCampo(this,\''. $inscripciones_nombre['texto'] .'\', \'texto\', 1, \'inscripciones_enviar\')" type="' . $inscripciones_nombre['tipo'] . '" id="' . $inscripciones_nombre['campo'] . '" name="' . $inscripciones_nombre['campo'] . '" class="campoFormulario" ' . $inscripciones_nombre['obligatorio'] . ' ' . $inscripciones_nombre['soloLectura'] . ' ' . $inscripciones_nombre['habilitado'] . '>';
+        $html .=                               '<input onkeyup="validarCampo(this,\''. $inscripciones_nombre['texto'] .'\', \'texto\', 1, \'enviaMensaje\')" type="' . $inscripciones_nombre['tipo'] . '" id="' . $inscripciones_nombre['campo'] . '" name="' . $inscripciones_nombre['campo'] . '" class="campoFormulario" ' . $inscripciones_nombre['obligatorio'] . ' ' . $inscripciones_nombre['soloLectura'] . ' ' . $inscripciones_nombre['habilitado'] . '>';
         $html .=                            '</div>';
 
         $html .=                            '<div class="row gap-2 my-2">';
         $html .=                               '<label for="' . $inscripciones_correo['campo'] . '" class="form-label text-capitalize">' . $inscripciones_correo['texto'] .' *</label>';
-        $html .=                               '<input onkeyup="validarCampo(this,\''. $inscripciones_correo['texto'] .'\', \'correo\', 1, \'inscripciones_enviar\')" type="' . $inscripciones_correo['tipo'] . '" id="' . $inscripciones_correo['campo'] . '" name="' . $inscripciones_correo['campo'] . '" class="campoFormulario" ' . $inscripciones_correo['obligatorio'] . ' ' . $inscripciones_correo['soloLectura'] . ' ' . $inscripciones_correo['habilitado'] . '>';
+        $html .=                               '<input onkeyup="validarCampo(this,\''. $inscripciones_correo['texto'] .'\', \'correo\', 1, \'enviaMensaje\')" type="' . $inscripciones_correo['tipo'] . '" id="' . $inscripciones_correo['campo'] . '" name="' . $inscripciones_correo['campo'] . '" class="campoFormulario" ' . $inscripciones_correo['obligatorio'] . ' ' . $inscripciones_correo['soloLectura'] . ' ' . $inscripciones_correo['habilitado'] . '>';
         $html .=                            '</div>';
 
         $html .=                            '<div class="row gap-2 my-2">';
         $html .=                               '<label for="' . $inscripciones_asunto['campo'] . '" class="form-label text-capitalize">' . $inscripciones_asunto['texto'] .' *</label>';
-        $html .=                               '<input onkeyup="validarCampo(this,\''. $inscripciones_asunto['texto'] .'\', \'texto\', 1, \'inscripciones_enviar\')" type="' . $inscripciones_asunto['tipo'] . '" id="' . $inscripciones_asunto['campo'] . '" name="' . $inscripciones_asunto['campo'] . '" class="campoFormulario" ' . $inscripciones_asunto['obligatorio'] . ' ' . $inscripciones_asunto['soloLectura'] . ' ' . $inscripciones_asunto['habilitado'] . '>';
+        $html .=                               '<input onkeyup="validarCampo(this,\''. $inscripciones_asunto['texto'] .'\', \'texto\', 1, \'enviaMensaje\')" type="' . $inscripciones_asunto['tipo'] . '" id="' . $inscripciones_asunto['campo'] . '" name="' . $inscripciones_asunto['campo'] . '" class="campoFormulario" ' . $inscripciones_asunto['obligatorio'] . ' ' . $inscripciones_asunto['soloLectura'] . ' ' . $inscripciones_asunto['habilitado'] . '>';
         $html .=                            '</div>';
 
         $html .=                            '<div class="row gap-2 my-2">';
         $html .=                               '<label for="' . $inscripciones_mensaje['campo'] . '" class="form-label text-capitalize">' . $inscripciones_mensaje['texto'] .' *</label>';
-        $html .=                               '<input onkeyup="validarCampo(this,\''. $inscripciones_mensaje['texto'] .'\', \'texto\', 1, \'inscripciones_enviar\')" type="' . $inscripciones_mensaje['tipo'] . '" id="' . $inscripciones_mensaje['campo'] . '" name="' . $inscripciones_mensaje['campo'] . '" class="campoFormulario" ' . $inscripciones_mensaje['obligatorio'] . ' ' . $inscripciones_mensaje['soloLectura'] . ' ' . $inscripciones_mensaje['habilitado'] . '>';
+        $html .=                               '<textarea onkeyup="validarCampo(this,\''. $inscripciones_mensaje['texto'] .'\', \'texto\', 1, \'enviaMensaje\')" id="' . $inscripciones_mensaje['campo'] . '" name="' . $inscripciones_mensaje['campo'] . '" class="campoFormulario" ' . $inscripciones_mensaje['obligatorio'] . ' ' . $inscripciones_mensaje['soloLectura'] . ' ' . $inscripciones_mensaje['habilitado'] . '></textarea>';
         $html .=                            '</div>';
 
         $html .=                            '<div class="row justify-content-center align-items-start my-4">';
@@ -101,7 +101,7 @@
         $html .=                            '</div>';
 
         $html .=                            '<div class="row justify-content-center align-items-start my-5">';
-        $html .=                                '<input type="'. $inscripciones_enviar['tipo'] .'" id="'.$inscripciones_enviar['campo'].'" class="inscripciones-btn w-100 form-text" ' . $inscripciones_enviar['obligatorio'] . ' ' . $inscripciones_enviar['soloLectura'] . ' ' . $inscripciones_enviar['habilitado'] . ' value="' . $inscripciones_enviar['texto'] . '">';
+        $html .=                                '<button type="submit" id="enviaMensaje" class="inscripciones-btn w-100 form-text"  >' . $inscripciones_enviar['texto'] . '</button>';
         $html .=                            '</div>';
 
         $html .=                        '</div>';
