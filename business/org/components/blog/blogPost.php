@@ -21,7 +21,7 @@
     while ($row_datos_seccion = $res_seccion_dos->fetch_assoc()) {
         // renderiza la seccion
         $html .= '
-          <section class="bg-light-gray-o26 py-5 margin-top-5rem">
+          <section class="bg-light-gray-o26 py-5 margin-top-5rem blogpost-section">
                <div class="container">
 
         ';
@@ -69,28 +69,25 @@
 
     if ($html != '') {
 
-        $html .= '
-          <div class="row">
-               <div class="col-lg-12">
-                    <div class="blog-newsletter-box flex-column align-items-end">
-                         <div>
-                              <p class="text-start special-paragraph font-roboto-bolditalic m-0">'.$parametros[0]['t1'].'</p>
+        $html .= ' 
+          <div class="row m-0">
+               <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-end p-0">
+                    <p class="text-start special-paragraph font-roboto-lightitalic m-0">'.$parametros[0]['t1'].'</p>
+               </div>    
+          </div>
+          
+          <div class="row justify-content-end m-0">
+               <div class="col-lg-12 col-md-12 col-sm-12 col-12 p-0 d-flex justify-content-end blog-newsletter">
+                    <input type="email" placeholder="Ingresa tu correo" class="input-form-item"></input>
 
-                              <div class="blog-newsletter-container">
-                                   <input type="email" placeholder="Ingresa tu correo" class="input-form-item"></input>
-                                   <a href="#" class="blog-btn">
-                                        <div class="blog-subscribe '.FlexTitleLoader::setDirection($iconos[0]['posicion']).' ">
-                                             <p class="font-roboto-mediumitalic special-paragraph">'.$iconos[0]['titulo'].'</p>
-                                             <img src="../../../'.$iconos[0]['ruta'].'" alt="" class="special-paragraph">
-                                        </div>
-                                   </a>
-                              </div>
-                         </div>
-                    </div>
+                    <a href="#" class="blog-btn blog-subscribe '.FlexTitleLoader::setDirection($iconos[0]['posicion']).'">
+                         <p class="font-roboto-mediumitalic special-paragraph m-0">'.$iconos[0]['titulo'].'</p>
+                         <img src="../../../'.$iconos[0]['ruta'].'" alt="" class="img-fluid">
+                    </a>
                </div>
           </div>
 
-          <div class="row py-5">
+          <div class="row justify-content-center py-5 gap-5">
         '; 
 
           $fecha = new DateTime($lastBlog['fechaPublicacion']);
@@ -98,27 +95,27 @@
           $fechaFormateada = $formatter->format($fecha);
 
           $html .= '
-               <div class="col-lg-9">
+               <div class="col-lg-8 col-md-8 col-sm-12 col-12">
                     <h2 class="font-roboto-black tx-blue m-0">'.$lastBlog['tituloBlog'].'</h2>
                     <p class="font-roboto-bolditalic m-0">Por: '.$lastBlog['autor'].'</p>
                     <p class="special-paragraph m-0">'.$fechaFormateada.'</p>
                </div>
 
-               <div class="col-lg-3 d-flex justify-content-center">
+               <div class="col-lg-3 col-md-3 col-sm-12 col-12 justify-content-lg-end justify-content-center d-flex gap-4 p-0">
                     <a href="">
-                         <img src="../../../'.$iconos[1]['ruta'].'" alt="" class="blog-page-btnicon">
+                         <img src="../../../'.$iconos[1]['ruta'].'" alt="" class="img-fluid blog-page-btnicon m-0">
                     </a>
 
                     <a href="">
-                         <img src="../../../'.$iconos[2]['ruta'].'" alt="" class="blog-page-btnicon">
+                         <img src="../../../'.$iconos[2]['ruta'].'" alt="" class="img-fluid blog-page-btnicon m-0">
                     </a>
                </div>
 
-               <div class="col-lg-12 d-flex justify-content-center py-5">
-                    <img src="../../../'.$lastBlog['imagenPrincipal'].'" alt="" class="img-fluid w-100">
+               <div class="col-lg-12 col-md-12 col-sm-12 col-12  d-flex justify-content-center post-img">
+                    <img src="../../../'.$lastBlog['imagenPrincipal'].'" alt="" class="img-fluid w-75">
                </div>
                
-               <div class="col-lg-12">
+               <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                     <p class="special-paragraph">'.$lastBlog['descripcion'].'</p>
                </div>
           ';
@@ -130,7 +127,7 @@
 
           <section class="container my-5">
                <div class="row">
-                    <div class="col-lg-12 d-flex">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex justify-content-end justify-content-lg-start">
                          <div class="d-flex '.FlexTitleLoader::setDirection($iconos[3]['posicion']).'">
                               <h3 class="font-roboto-bolditalic tx-bold-blue mx-4">'.$iconos[3]['titulo'].'</h3>
                               <img src="../../../'.$iconos[3]['ruta'].'" alt="" class="blog-redes-icon">
