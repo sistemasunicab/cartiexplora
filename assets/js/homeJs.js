@@ -100,23 +100,6 @@ const leerMasPrincipios = (id, boton) => {
         boton.innerText === "Leer más" ? "Leer menos" : "Leer más";
 };
 
-// Inscripciones Academicas
-
-const mostrarInscripcionesMovil = () => {
-    document.body.classList.toggle('overflow-hidden');
-    const formInscripciones = document.querySelector("#form-container");
-    formInscripciones.classList.toggle("inscripciones-movil");
-    formInscripciones.classList.toggle("d-none");
-};
-
-// Despues de enviado el formulario hace el reset de clases css aplicadas
-const reset_clases = () => {
-    const elementosForm = document.querySelectorAll("input, textarea, select");
-    elementosForm.forEach((elementoForm) =>
-        elementoForm.classList.remove("success", "error")
-    );
-};
-
 $(document).ready(function () {
     $(".datos").hide();
     marcarCamposObligatorios();
@@ -125,14 +108,14 @@ $(document).ready(function () {
     let btnSubmit = document.querySelector('button[type="submit"]');
     let idSubmit = "#" + btnSubmit.id;
 
-    $("#myForm").on("submit", function (e) {
+    $("#formulario").on("submit", function (e) {
         e.preventDefault();
 
-        let nombre = $("#inscripciones_nombre").val();
-        let email = $("#inscripciones_correo").val();
-        let asunto = $("#inscripciones_asunto").val();
-        let mensaje = $("#inscripciones_mensaje").val();
-        let subscribe = $("#inscripciones_checkbox").is(":checked");
+        let nombre = $("#nombre").val();
+        let email = $("#correo").val();
+        let asunto = $("#asunto").val();
+        let mensaje = $("#mensaje").val();
+        let subscribe = $("#checkbox").is(":checked");
 
         const data = {
             nombre: nombre,
@@ -148,12 +131,10 @@ $(document).ready(function () {
             data: data,
             success: function (response) {
                 if (response.status === "success") {
-                    $("#myForm")[0].reset();
-                    $("#inscripciones_enviar").attr("disabled", "disabled");
-                    $("#notificacion-success").fadeIn().delay(3000).fadeOut();
-                    reset_clases();
+                    $("#formulario")[0].reset();
+                    $("#notificacionSuccess").fadeIn().delay(3000).fadeOut();
                 } else {
-                    $("#form-notificacion")
+                    $("#notificacionError")
                         .text(
                             "Error al enviar el formulario. Inténtalo de nuevo"
                         )
@@ -163,7 +144,7 @@ $(document).ready(function () {
                 }
             },
             error: function (response) {
-                $("#form-notificacion")
+                $("#notificacionError")
                     .text("Error al enviar el formulario. Inténtalo de nuevo")
                     .fadeIn()
                     .delay(3000)
