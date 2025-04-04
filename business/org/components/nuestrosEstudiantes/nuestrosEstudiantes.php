@@ -23,7 +23,7 @@
     while ($row_datos_seccion = $res_seccion->fetch_assoc()) {
         $html .= '<main class="container my-5">';
         $html .=    '<div class="row">';
-        $html .=        '<div class="col-lg-12">';
+        $html .=        '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
         $html .=            '<h2 class="my-5 tx-blue lh-1 font-roboto-light-title">'. $row_datos_seccion['titulo'] .'</h2>';
         $html .=        '</div>';
         $html .=    '</div>';
@@ -39,7 +39,7 @@
         $html .=    '<div class="row galeria">';
         while ($row_imagenes = $res_imagenes->fetch_assoc()) {
             if($primeraImagen){
-                $html .= '<div class="col-lg-3 my-3">';
+                $html .= '<div class="col-lg-3 col-md-3 col-sm-4 col-4 my-3">';
                 $html .=    '<a href="#zoom-imagen" class="item item-seleccionado">';
                 $html .=        '<img'. ImageAttributeBuilder::buildAttributes($nivel, $row_imagenes['ruta'],$row_imagenes['descripcion']) .' class="img-fluid w-100" draggable="false">';
                 $html .=    '</a>';
@@ -47,7 +47,7 @@
                 $imagenInicial = ImageAttributeBuilder::buildAttributes($nivel, $row_imagenes['ruta'],$row_imagenes['descripcion']);
                 $primeraImagen = false;
             }else{
-                $html .= '<div class="col-lg-3 my-3">';
+                $html .= '<div class="col-lg-3 col-md-3 col-sm-4 col-4 my-3">';
                 $html .=     '<a href="#zoom-imagen" class="item">';
                 $html .=         '<img'. ImageAttributeBuilder::buildAttributes($nivel, $row_imagenes['ruta'],$row_imagenes['descripcion']) .' class="img-fluid w-100" draggable="false">';
                 $html .=     '</a>';
@@ -60,11 +60,11 @@
         $html .= '<section class="bg-light-gray-o26 p-1" id="zoom-imagen">';
         $html .=    '<div class="container my-5">';
         $html .=        '<div class="row">';
-        $html .=            '<div class="col-lg-2"></div>';
-        $html .=            '<div class="col-lg-8">';
+        $html .=            '<div class="col-lg-2 col-md-2 col-sm-1 col-1 "></div>';
+        $html .=            '<div class="col-lg-8 col-md-8 col-sm-10 col-10 ">';
         $html .=                '<img id="imagen-grande-galeria" '. $imagenInicial .' class="img-fluid w-100" draggable="false">';
         $html .=            '</div>';
-        $html .=            '<div class="col-lg-2"></div>';
+        $html .=            '<div class="col-lg-2 col-md-2 col-sm-1 col-1"></div>';
         $html .=        '</div>';
         $html .=    '</div>';
         $html .= '</section>';
