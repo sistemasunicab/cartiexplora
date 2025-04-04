@@ -696,33 +696,6 @@ ul {
     font-size: 0.6rem;
 }
 
-.form-input {
-    border: 1px solid var(--green);
-    padding: .5rem;
-}
-
-.form-input.success {
-    border: 2px solid green;
-}
-
-.form-input.error, .form-input.error:focus {
-    border: 2px solid red;
-}
-
-.form-textarea {
-    field-sizing: content;
-    border: 1px solid var(--green);
-    padding: .5rem;
-}
-
-.form-textarea.success {
-    border: 2px solid green;
-}
-
-.form-textarea.error, .form-textarea.error:focus {
-    border: 2px solid red;
-}
-
 input[type="checkbox"] {
     border-color: var(--green);
 }
@@ -753,17 +726,6 @@ input[type="checkbox"] {
 
 .inscripciones-btn:hover {
     background-color: #0ad310;
-}
-
-.inscripciones-btn:disabled {
-    background-color: #f0f0f0;
-    /* Cambiar color de fondo */
-    color: #a0a0a0;
-    /* Cambiar color del texto */
-    border: 1px solid #ccc;
-    /* Cambiar el borde */
-    cursor: not-allowed;
-    /* Cambiar el cursor */
 }
 
 /* Fin inscripciones abiertas */
@@ -918,7 +880,7 @@ input[type="checkbox"] {
     }
 }
 
-/* Fin blog */
+/* Fin blog */
 
 /*Inicio estilos Footer*/
 
@@ -955,6 +917,8 @@ input[type="checkbox"] {
     flex-wrap: wrap;
     row-gap: 20rem;
     column-gap: 3rem;
+    padding: 5rem 0;
+    margin: 18rem 0;
 }
 
 .historia-info-main {
@@ -973,23 +937,19 @@ input[type="checkbox"] {
 }
 
 .historia-info-img {
-    height: auto;
-    width: 28%;
+    height: 20rem;
 
     border: .5rem solid white;
     border-radius: 2rem;
 
-    margin-bottom: -19rem;
+    margin-top: -20rem;
 
     object-fit: cover;
     object-position: center;
 }
 
 .historia-info-mainimg {
-    height: auto;
-    width: 60%;
-
-    margin-top: -15rem;
+    margin-bottom: -25rem;
 }
 
 /** Ecosistema **/
@@ -998,25 +958,15 @@ input[type="checkbox"] {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    margin: 2rem 0;
 }
 
-.ecosistema-block h2 {
-    font-family: 'Roboto-light';
-    min-height: 15rem;
-}
 
 .ecosistema-title {
     display: flex;
     align-items: center;
     font-family: 'Roboto-light';
-    min-height: 26rem;
-}
-
-@media (min-width: 1200px) {
-    .ecosistema-title {
-        font-family: 'Roboto-light';
-        min-height: 8rem;
-    }
+    min-height: 15rem;
 }
 
 .ecosistema-block p {
@@ -1038,7 +988,6 @@ input[type="checkbox"] {
 
 .ecosistema-block a:hover {
     background-color: var(--bold-blue);
-
 }
 
 .ecosistema-block img {
@@ -1343,14 +1292,14 @@ input[type="checkbox"] {
 }   
 
 .blogsearch-bar {
-    border-radius: 10rem;
+    border-radius: 10rem !important;
     padding: 1.5rem;
 
-    border: none;
+    border: none !important;
     line-height: 0;
+    width: 100%;
 
     font-size: 1.5rem;
-    width: 100%;
 }
 
 .blogsearch-bar::placeholder {
@@ -1359,6 +1308,13 @@ input[type="checkbox"] {
 
 .blogsearch-bar:focus {
     outline: none;
+}
+
+.post-img img {
+    height: 35rem;
+
+    object-fit: cover;
+    object-position: center;
 }
 
 /*UTILIDADES A AÑADIR */
@@ -1464,12 +1420,7 @@ input[type="checkbox"] {
     .values-card p:after {
         bottom: 12%;
         width: 55%;
-    }
-
-     /* DESCUBRE TUS HABILIDADES MOVIL */
-    .line:not(:nth-child(6)):not(:nth-child(12))::after {
-        display: none;
-    }
+    }     
 }
 
 .error {
@@ -1553,6 +1504,18 @@ input[type="text"], .select, textarea {
 .btnContinuar, .btnEnviar {
     border: none;
     background: transparent;
+}
+
+.hrResultadoPreAdmisiones {
+    border: 1px solid #Ff9805 !important;
+}
+.imgAyuda {
+    width: 20%;
+    height: auto;
+}
+#page-title-area {
+    background-color: #4d4d4f;
+    color: white;
 }
 /** Fin Formulario Entrevistas  */
 
@@ -1648,6 +1611,44 @@ input[type="text"], .select, textarea {
     .button-section .button-move:hover .button-fixed-text {
         display: inline-block;
     }
+
+    /* DESCUBRE TUS HABILIDADES */
+    .line:not(:nth-child(6)):not(:nth-child(12))::after {
+        display: none;
+    }
+ 
+    /* INSCRIPCIONES ABIERTAS */
+    .inscripciones-seccion {
+        margin: 3rem auto;
+    }
+
+    .historia-info-img {
+        height: auto;
+        margin-top: 0;
+    }
+
+    .historia-info-mainimg {
+        margin-bottom: -15rem;
+    }
+
+    .ecosistema-block,
+    .ecosistema-block .d-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .ecosistema-block p {
+        text-align: center;
+    }
+
+    .ecosistema-title {
+        text-align: center;
+        min-height: auto;
+        font-family: var(--roboto-bold);
+    }
+
+    .post-img img {
+        height: auto;
+    }
 }
 /* Fin btn flotante */
-
