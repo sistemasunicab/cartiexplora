@@ -145,4 +145,20 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo,
 (33, 'assets/img/instagramOrangeBg.png', '', '', '', '', ''), 
 (33, 'assets/img/linkedInOrangeBg.png', '', '', '', '', ''), 
 (33, 'assets/img/whatsappOrangeBg.png', '', '', '', '', ''),
-(26, 'assets/img/icon-send.png', 'icon-send', '', '', '', '');
+(26, 'assets/img/icon-send.png', 'icon-send', '', '', '', ''),
+
+(34, 'assets/img/admisiones/Admisiones_2025_1.jpg', '', '', '', '', ''), 
+(34, 'assets/img/admisiones/ico1_admisiones_2025_1.jpg', '', '', '', '', ''), 
+(34, 'assets/img/admisiones/ico2_admisiones_2025_1.jpg', '', '', '', '', ''),
+(34, 'assets/img/admisiones/continua_proceso_1.jpg', '', '', '', '', ''),
+(34, 'assets/img/loading1.gif', '', '', '', '', ''),
+(34, 'assets/img/admisiones/enviar_1.jpg', '', '', '', '', ''),
+
+(35, 'assets/img/whatsapp_icon_negro.png', 'contact-icon', 'Comunícate', '', '', ''),
+(35, 'assets/img/location_icon_negro.png', 'location-icon', 'Comunícate', '', '', ''),
+(35, 'assets/img/blog_icon_negro.png', 'blog-icon', 'Comunícate', '', '', '');
+
+INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo, rutaEncima, textoAlterno) VALUES
+(36, 'assets/img/advertencia_correo1.png', 'Advertencia', '', '', '', ''),
+(36, 'assets/img/admisiones/Panchita.png', 'Panchita', '', '', '', '');
+
