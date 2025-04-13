@@ -86,7 +86,7 @@ foreach ($imagenes_footer as $imagen) {
         $ruta_imagen = '../../../' . $imagen['ruta'];
     }
 
-    $hmtl_images .= '<div class="image-footer d-flex flex-column align-items-center text-center" style="width:200px;">';
+    $hmtl_images .= '<div class="col-sm-3 col-4 image-footer d-flex flex-column align-items-center text-center" >';
     $hmtl_images .= '<div class="d-flex justify-content-center align-items-center" style="height: 125px;">';
     $hmtl_images .= '<img src="' . $ruta_imagen . '" alt="logo">';
     $hmtl_images .= '</div>';

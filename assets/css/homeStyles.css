@@ -1253,7 +1253,7 @@ input[type="checkbox"] {
     height: 2.5rem;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 768px) {
     .text-up-absolute{
         position: absolute;
         top:-90px;

@@ -39,10 +39,10 @@ while ($row_data_calendary = $res_data_calendary->fetch_assoc()) {
             $image_path = '../../../' . $ruta;
         }
 
-        $html_base .= '<div class="d-flex flex-column flex-sm-row align-items-center text-center mx-auto mt-10">';
-        $html_base .= '<img src="' . $image_path . '" alt="' . $alt . '" class="mb-5 mb-sm-0 mx-auto mx-sm-0 me-sm-5 img-fluid" style="width:140px;">';
+        $html_base .= '<div class="d-flex flex-column flex-md-row align-items-center text-center mx-auto mt-10">';
+        $html_base .= '<img src="' . $image_path . '" alt="' . $alt . '" class="mb-5 mb-md-0 mx-auto mx-md-0 me-md-5 img-fluid" style="width:140px;">';
         // Add the "Ver" button with margin-left, box shadow, circular border, and auto height
-        $html_base .= '<button class="mx-auto ms-0 ms-sm-5  btn shadow h-auto tx-color-wh btn-calendary fw-semibold" style="width:200px;">Ver</button>';
+        $html_base .= '<button class="mx-auto ms-0 ms-md-5  btn shadow h-auto tx-color-wh btn-calendary fw-semibold" style="width:200px;">Ver</button>';
         $html_base .= '</div>';
         $html_base .= '</div>';
     }

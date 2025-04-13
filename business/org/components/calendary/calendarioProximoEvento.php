@@ -24,7 +24,7 @@ while ($row_data_visible = $res_data_visible->fetch_assoc()) {
 
     $res_data_events = $mysqli1->query($sql_data_events);
     // Main container
-    $html_next_event = '<div class="col-12 p-0 col-sm-8 m-auto my-5 d-flex flex-column">';
+    $html_next_event = '<div class="col-lg-8 col-md-8 col-sm-12 col-12 p-0 m-auto my-5 d-flex flex-column">';
     $html_next_event .= '<div class="w-100 m-auto d-flex flex-column bg-bold-blue shadow">';
     $html_next_event .= '<div class="col-10 d-flex flex-column m-auto pt-5 pb-5">';
     $html_next_event .= '<h4 class="font-roboto-bold tx-white">' . $row_data_visible['titulo'] . '</h4>';
@@ -61,7 +61,7 @@ while ($row_data_visible = $res_data_visible->fetch_assoc()) {
     }
     $html_next_event .= '</div>';
     $html_next_event .= '</div>';
-    $html_next_event .= '<button class="mx-auto mx-0 ms-sm-auto me-sm-5 mt-4 btn shadow h-auto tx-white btn-calendary fw-semibold" style="width:250px;">Más información</button>';
+    $html_next_event .= '<button class="mx-auto mx-0 ms-md-auto me-md-5 mt-4 btn shadow h-auto tx-white btn-calendary fw-semibold" style="width:250px;">Más información</button>';
     $html_next_event .= '</div>';
 
 
