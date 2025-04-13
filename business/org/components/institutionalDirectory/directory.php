@@ -26,7 +26,6 @@ while ($row_datos_directorio = $res_datos_directorio->fetch_assoc()) {
     }
 
     $res_data_image = $mysqli1->query($sql_data_image);
-
     while ($row_data_image = $res_data_image->fetch_assoc()) {
         $ruta = htmlspecialchars($row_data_image['ruta']);
         $alt = htmlspecialchars($row_data_image['textoAlterno'] ?? 'Imagen'); // Default alt text
@@ -43,14 +42,13 @@ while ($row_datos_directorio = $res_datos_directorio->fetch_assoc()) {
             $image_path = '../../../' . $ruta;
         }
     }
-    $number_sentence_image = "105";
+    $number_sentence_image = "114";
     $res_sentence_image = $mysqli1->query($sentencia . $number_sentence_image);
 
     while ($row_sentence_image = $res_sentence_image->fetch_assoc()) {
         $conditions_image = str_replace('|', '\'', $row_sentence_image['condiciones']);
         $sql_data_image = $row_sentence_image['campos'] . $row_sentence_image['tablas'] . $conditions_image;
     }
-
     $res_data_image = $mysqli1->query($sql_data_image);
     while ($row_data_image = $res_data_image->fetch_assoc()) {
         $ruta = htmlspecialchars($row_data_image['ruta']);
@@ -156,7 +154,7 @@ while ($row_datos_directorio = $res_datos_directorio->fetch_assoc()) {
         }
     }
 
-    $html_directorio .= '<div class="col-10 my-5 p-0 mx-auto d-flex flex-md-row flex-column justify-content-between">';
+    $html_directorio .= '<div id="horarios" class="col-10 my-5 p-0 mx-auto d-flex flex-md-row flex-column justify-content-between">';
     $html_directorio .= '<div class="mb-3 mb-md-0 mx-auto ms-md-0 col-lg-5 col-md-5 col-sm-8 col-12 d-flex flex-column">';
     $html_directorio .= '<img src="' . $image_path . '" class="h-auto" alt="' . $alt . '">';
     $html_directorio .= '</div>';

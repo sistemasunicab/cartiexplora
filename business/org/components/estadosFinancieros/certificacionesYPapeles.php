@@ -73,7 +73,7 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
         $condiciones_opciones = str_replace('|', '\'', $row_opciones['condiciones']);
         $sql_opciones_dropdown = $row_opciones['campos'] . $row_opciones['tablas'] . $condiciones_opciones;
     }
-
+    
     $res_datos_opciones = $mysqli1->query($sql_opciones_dropdown);
     while ($row_datos_opciones = $res_datos_opciones->fetch_assoc()) {
         if ($row_datos_opciones['visible'] != 1)

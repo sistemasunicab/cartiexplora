@@ -277,7 +277,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (distance < 0) {
                 clearInterval(interval);
-                countdownElem.innerHTML = "¡El evento ya inició o ha finalizado!";
+                countdownElem.innerHTML = "";
                 return;
             }
 
