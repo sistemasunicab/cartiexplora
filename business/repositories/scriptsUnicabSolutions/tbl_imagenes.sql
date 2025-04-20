@@ -16,11 +16,16 @@ CREATE TABLE tbl_imagenes (
 
 INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo, enlace, rutaEncima, textoAlterno) VALUES
 (1, 'assets/img/solutions-imagen-hero.png', '', '', '', '', '', ''),
+(1, 'assets/img/banner2xvertical.jpg', '', '', '', '', '', ''),
 (2, 'assets/img/solutions-icon-sistemas.png', '', 'Diseño de Sistemas y <b>Material Educativo Innovador</b>', 'abajo', '/cartiexplora/business/solutions/pages/disenoSistemas.php', '', ''),
 (2, 'assets/img/solutions-icon-desarrollo.png', '', 'Diseño y Desarrollo de <b>Software</b>', 'abajo', '/cartiexplora/business/solutions/pages/desarrolloSoftware.php', '', ''),
 (2, 'assets/img/solutions-icon-transformacion.png', '', 'Capacitación en <b>Transformación Digital</b>', 'abajo', '/cartiexplora/business/solutions/pages/transformacionDigital.php', '', ''),
 (2, 'assets/img/solutions-icon-capacitacion.png', '', 'Servicios de <b>capacitación con metodología virtual, e híbrida</b> en diferentes modalidades', 'abajo', '/cartiexplora/business/solutions/pages/capacitacion.php', '', ''),
 (3, 'assets/img/solutions-imagen-sistemas2x.png', '', '', '', '', '', ''),
+(3, 'assets/img/solutions-icon-sistemas.png', '', 'Diseño de Sistemas y <b>Material Educativo Innovador</b>', 'abajo', '/cartiexplora/business/solutions/pages/disenoSistemas.php', '', ''),
 (4, 'assets/img/solutions-imagen-desarrollo2x.png', '', '', '', '', '', ''),
+(4, 'assets/img/solutions-icon-desarrollo.png', '', 'Diseño y Desarrollo de <b>Software</b>', 'abajo', '/cartiexplora/business/solutions/pages/desarrolloSoftware.php', '', ''),
 (5, 'assets/img/solutions-imagen-transformacion2x.png', '', '', '', '', '', ''),
-(6, 'assets/img/solutions-imagen-capacitacion2x.png', '', '', '', '', '', '');
+(5, 'assets/img/solutions-icon-transformacion.png', '', 'Capacitación en <b>Transformación Digital</b>', 'abajo', '/cartiexplora/business/solutions/pages/transformacionDigital.php', '', ''),
+(6, 'assets/img/solutions-imagen-capacitacion2x.png', '', '', '', '', '', ''),
+(6, 'assets/img/solutions-icon-capacitacion.png', '', 'Servicios de <b>capacitación con metodología virtual, e híbrida</b> en diferentes modalidades', 'abajo', '/cartiexplora/business/solutions/pages/capacitacion.php', '', '');
