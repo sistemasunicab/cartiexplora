@@ -880,7 +880,7 @@ input[type="checkbox"] {
     }
 }
 
-/* Fin blog */
+/* Fin blog */
 
 /*Inicio estilos Footer*/
 
@@ -1653,3 +1653,43 @@ input[type="text"], .select, textarea {
 }
 /* Fin btn flotante */
 
+    /* DESCUBRE TUS HABILIDADES */
+    .line:not(:nth-child(6)):not(:nth-child(12))::after {
+        display: none;
+    }
+ 
+    /* INSCRIPCIONES ABIERTAS */
+    .inscripciones-seccion {
+        margin: 3rem auto;
+    }
+
+    .historia-info-img {
+        height: auto;
+        margin-top: 0;
+    }
+
+    .historia-info-mainimg {
+        margin-bottom: -15rem;
+    }
+
+    .ecosistema-block,
+    .ecosistema-block .d-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .ecosistema-block p {
+        text-align: center;
+    }
+
+    .ecosistema-title {
+        text-align: center;
+        min-height: auto;
+        font-family: var(--roboto-bold);
+    }
+
+    .post-img img {
+        height: auto;
+    }
+}
+/* Fin btn flotante */

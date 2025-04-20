@@ -16,9 +16,9 @@ CREATE TABLE tbl_formularios (
 
 INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder ) VALUES 
 (4, 'nombre', 'text', 'nombre', 'required', '', '', '' ),
-(4, 'correo', 'email', 'correo', 'required', '', '', '' ),
+(4, 'correo', 'text', 'correo', 'required', '', '', '' ),
 (4, 'asunto', 'text', 'asunto', 'required', '', '', '' ),
-(4, 'mensaje', 'textarea', 'mensaje', 'required', '', '', '' ),
+(4, 'mensaje', 'text', 'mensaje', 'required', '', '', '' ),
 (4, 'checkbox', 'checkbox', 'checkbox', 'required', '', '', '' ),
 (4, 'enviaMensaje', 'submit', 'Envía tu mensaje', '', '', '', '' ),
 
