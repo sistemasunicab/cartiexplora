@@ -13,37 +13,37 @@
         $title = '';
         if (strtolower($posicionTitulo) == 'abajo') {
             $title .= '<div class="row align-items-center justify-content-center my-2">';
-            $title .=    '<div class="col-lg-4 my-4">';
+            $title .=    '<div class="col-4 col-lg-4 my-4">';
             $title .=        $imgHTML;
             $title .=    '</div>';
-            $title .=    '<div class="col-lg-12">';
+            $title .=    '<div class="col-12 col-lg-12">';
             $title .=        '<h4 class="font-roboto-black text-center">' . $titulo . '</h4>';
             $title .=    '</div>';
             $title .= '</div>';
         } else if (strtolower($posicionTitulo) == 'derecha') {
             $title .= '<div class="row align-items-center justify-content-center my-2">';
-            $title .=     '<div class="col-lg-3">';
+            $title .=     '<div class="col-3 col-lg-3">';
             $title .=         $imgHTML;
             $title .=     '</div>';
-            $title .=     '<div class="col-lg-8">';
+            $title .=     '<div class="col-8 col-lg-8">';
             $title .=         '<h4 class="font-roboto-black">' . $titulo . '</h4>';
             $title .=     '</div>';
             $title .= '</div>';
         } else if (strtolower($posicionTitulo) == 'izquierda') {
             $title .= '<div class="row align-items-center justify-content-center my-2">';
-            $title .=     '<div class="col-lg-8">';
+            $title .=     '<div class="col-8 col-lg-8">';
             $title .=         '<h4 class="font-roboto-black text-end">' . $titulo . '</h4>';
             $title .=     '</div>';
-            $title .=     '<div class="col-lg-3">';
+            $title .=     '<div class="col-3 col-lg-3">';
             $title .=         $imgHTML;
             $title .=     '</div>';
             $title .= '</div>';
         } else if (strtolower($posicionTitulo) == 'arriba') {
             $title .= '<div class="row align-items-center justify-content-center my-2">';
-            $title .=     '<div class="col-lg-12 my-4">';
+            $title .=     '<div class="col-12 col-lg-12 my-4">';
             $title .=         '<h4 class="font-roboto-black text-center">'. $titulo .'</h4>';
             $title .=     '</div>';
-            $title .=     '<div class="col-lg-4">';
+            $title .=     '<div class="col-4 col-lg-4">';
             $title .=         $imgHTML;
             $title .=     '</div>';
             $title .= '</div>';
@@ -92,19 +92,21 @@
     $html = '';
     while ($row_sentencia = $res_seccion->fetch_assoc()) {
         $imagenBanner = array_shift($imagenes);
-        $html .= '<div class="row my-5">';
-        $html .=     '<div class="col-lg-12">';
-        $html .=         '<img '. ImageAttributeBuilder::buildAttributes($nivel, $imagenBanner['ruta'], $imagenBanner['descripcion']) .'" class="img-fluid w-100">';
-        $html .=     '</div>';
+        $html .= '<div class="container my-5">';
+        $html .=    '<div class="row">';
+        $html .=        '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
+        $html .=            '<img '. ImageAttributeBuilder::buildAttributes($nivel, $imagenBanner['ruta'], $imagenBanner['descripcion']) .'" class="img-fluid w-100">';
+        $html .=        '</div>';
+        $html .=    '</div>';
         $html .= '</div>';
         $html .= '<main class="container">';
         $html .=    '<div class="row my-5">';
-        $html .=        '<div class="col-lg-12">';
+        $html .=        '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
         $html .=            '<h2 class="tx-blue font-roboto-light-title tx-uppercase">' . $row_sentencia['titulo'] . '</h2>';
         $html .=        '</div>';
         $html .=    '</div>';
         $html .=    '<div class="row my-5">';
-        $html .=        '<div class="col-lg-12">';
+        $html .=        '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
         $html .=            '<p>' . $row_sentencia['texto'] . '</p>';
         $html .=        '</div>';
         $html .=    '</div>';
@@ -113,12 +115,12 @@
     
         $numeroCards = sizeof($imagenes);
         $html .= '<section class="container my-5">';
-        $html .=    '<div class="row my-5">';
+        $html .=    '<div class="row p-3 my-5">';
         for ($i = 0; $i < $numeroCards; $i++) {
-            $html .=        '<div class="col-lg-5 value my-5">';
-            $html .=             posicionTitulo('<img' . ImageAttributeBuilder::buildAttributes($nivel, $imagenes[$i]['ruta'], $imagenes[$i]['descripcion']) . ' class="principios-icon">', $imagenes[$i]['titulo'], $imagenes[$i]['posicionTitulo']);
+            $html .=        '<div class="col-lg-5 col-md-5 col-sm-12 col-12 value my-5">';
+            $html .=             posicionTitulo('<img' . ImageAttributeBuilder::buildAttributes($nivel, $imagenes[$i]['ruta'], $imagenes[$i]['descripcion']) . ' class="principios-icon img-fluid h-auto">', $imagenes[$i]['titulo'], $imagenes[$i]['posicionTitulo']);
             $html .=             '<div class="row">';
-            $html .=                 '<div class="values-card col-lg-12" id="'.$imagenes[$i]['titulo']. '-'. $i .'">';
+            $html .=                 '<div class="values-card col-lg-12 col-md-12 col-sm-12 col-12" id="'.$imagenes[$i]['titulo']. '-'. $i .'">';
             $html .=                     '<p class="special-paragraph text-lg-start">' . tratarTexto($textos[$i]['texto']) . '</p>';
             $html .=                     '<div class="d-flex justify-content-end">';
             $html .=                         '<a class="special-paragraph bg-orange tx-white p-3 rounded principios-button" role="button" onclick="leerMasPrincipios(\''.$imagenes[$i]['titulo']. '-'. $i .'\', this)">Leer más</a>';
@@ -127,7 +129,7 @@
             $html .=             '</div>';
             $html .=         '</div>';
             if($i % 2 === 0){
-                $html .=        '<div class="col-lg-2 my-4"></div>';
+                $html .=        '<div class="col-lg-2 col-md-2 d-lg-block d-md-block d-none my-4"></div>';
             }
         }
         $html .=     '</div>';
