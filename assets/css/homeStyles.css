@@ -1142,11 +1142,11 @@ input[type="checkbox"] {
 }
 
 .form-financial input{
-    text-align: center;
-    border: 3px solid #42C3AE;
-    border-radius: 10px;
-    padding: .5rem;
-    color: var(--medium-gray);
+    text-align: center !important;
+    border: 3px solid #42C3AE !important;
+    border-radius: 15px !important;
+    padding: .5rem !important;
+    color: var(--medium-gray) !important;
 }
 
 /* Inicio Certificados y papeles */

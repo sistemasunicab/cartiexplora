@@ -14,9 +14,30 @@ while ($row_datos_estados_financieros = $res_datos_estados_financieros->fetch_as
     $html_estados_financieros .= '<div class="btn-financiero col-lg-3 col-md-3 col-sm-12 col-12 d-flex flex-row bg-blue p-0 m-0 my-3 mb-5 my-md-5">
                                 <div class="bg-orange m-0 p-0 col-2" style="height:100%;"></div>
                                 <p class="special-paragraph py-2 py-md-1 col-10 font-roboto-italic tx-white text-center my-1">Solicitar información</p></div> ';
-    $html_estados_financieros .= '<div class="form-financial col-12 p-0 mx-auto d-flex flex-column">';
-    $html_estados_financieros .= '<input type="text" class="text-center font-roboto-bolditalic col-lg-6 col-md-6 col-sm-10 col-10 mx-auto my-2" placeholder="Usuario email">';
-    $html_estados_financieros .= '<input type="password" class="text-center font-roboto-bolditalic col-lg-6 col-md-6 col-sm-10 col-10 mx-auto my-2" placeholder="Password">';
+    $html_estados_financieros .= '<form id="form_info" class="form-financial col-12 p-0 mx-auto d-flex flex-column">';
+
+    $html_estados_financieros .= '
+    <input
+        required
+        id="correo_estados_financieros"
+        name="correo"
+        type="email"
+        class="text-center font-roboto-bolditalic col-lg-6 col-md-6 col-sm-10 col-10 mx-auto my-2"
+        placeholder="Usuario email"
+        autocomplete="email"
+    >';
+
+    $html_estados_financieros .= '
+    <input
+        required
+        id="password_estados_financieros"
+        name="password"
+        type="password"
+        class="text-center font-roboto-bolditalic col-lg-6 col-md-6 col-sm-10 col-10 mx-auto my-2"
+        placeholder="Password"
+        autocomplete="current-password"
+    >';
+
     $number_sentence_image = "103";
     $res_sentence_image = $mysqli1->query($sentencia . $number_sentence_image);
 
@@ -29,7 +50,7 @@ while ($row_datos_estados_financieros = $res_datos_estados_financieros->fetch_as
 
     while ($row_data_image = $res_data_image->fetch_assoc()) {
         $ruta = htmlspecialchars($row_data_image['ruta']);
-        $alt = htmlspecialchars($row_data_image['textoAlterno'] ?? 'Imagen'); 
+        $alt = htmlspecialchars($row_data_image['textoAlterno'] ?? 'Imagen');
         // Determine the correct path based on the $nivel variable
         $image_path = '';
         if ($nivel == "raiz") {
@@ -46,7 +67,7 @@ while ($row_datos_estados_financieros = $res_datos_estados_financieros->fetch_as
     $html_estados_financieros .= '<p class="special-paragraph font-roboto-medium tx-white m-0 mx-2">Solicitar</p>';
     $html_estados_financieros .= '<img src="' . $image_path . '" alt="Solicitar" width="30px">';
     $html_estados_financieros .= '</button>';
-    $html_estados_financieros .= '</div>';
+    $html_estados_financieros .= '</form>';
 
     $html_estados_financieros .= '</div>';
 

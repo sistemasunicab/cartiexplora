@@ -104,7 +104,7 @@ $(document).ready(function () {
     $(".datos").hide();
     marcarCamposObligatorios();
     $("#alert").hide();
-    $("#divcargando").css({display:'none'});
+    $("#divcargando").css({ display: 'none' });
     let btnSubmit = document.querySelector('button[type="submit"]');
     let idSubmit = "#" + btnSubmit.id;
 
@@ -153,13 +153,13 @@ $(document).ready(function () {
         });
     });
 
-    $("#register_grado").change(function() {
+    $("#register_grado").change(function () {
         let gra = $("#register_grado").val();
-        
-        if(gra == "NA") {
+
+        if (gra == "NA") {
             //$(idSubmit).hide();
             let texto = "Debe seleccionar un grado para la matrícula";
-            $("#pdesc").html(texto).css("color","red");
+            $("#pdesc").html(texto).css("color", "red");
             $("#alert").show();
             marcarInputError(this.id);
             agregarCampoError(this.id);
@@ -173,16 +173,16 @@ $(document).ready(function () {
         }
         mostrarSubmit(btnSubmit.id);
     });
-    
-    $("#register_tipo_documento").change(function() {
+
+    $("#register_tipo_documento").change(function () {
         let td = $("#register_tipo_documento").val();
         let td_txt = $("#register_tipo_documento option:selected").text();
         $("#td_text").val(td_txt);
-        
-        if(td == "NA") {
+
+        if (td == "NA") {
             //$("#btnEnviar").hide();
             let texto = "Debe seleccionar un tipo de documento para la matrícula";
-            $("#pdesc").html(texto).css("color","red");
+            $("#pdesc").html(texto).css("color", "red");
             $("#alert").show();
             marcarInputError(this.id);
             agregarCampoError(this.id);
@@ -196,14 +196,14 @@ $(document).ready(function () {
         }
         mostrarSubmit(btnSubmit.id);
     });
-    
-    $("#register_medio").change(function() {
+
+    $("#register_medio").change(function () {
         let medio = $("#register_medio").val();
-        
-        if(medio == "NA") {
+
+        if (medio == "NA") {
             //$("#btnEnviar").hide();
             let texto = "Debe seleccionar un medio de llegada";
-            $("#pdesc").html(texto).css("color","red");
+            $("#pdesc").html(texto).css("color", "red");
             $("#alert").show();
             marcarInputError(this.id);
             agregarCampoError(this.id);
@@ -217,14 +217,14 @@ $(document).ready(function () {
         }
         mostrarSubmit(btnSubmit.id);
     });
-    
-    $("#register_genero").change(function() {
+
+    $("#register_genero").change(function () {
         let gen = $("#register_genero").val();
-        
-        if(gen == "NA") {
+
+        if (gen == "NA") {
             //$("#btnEnviar").hide();
             let texto = "Debe seleccionar un género para la matrícula";
-            $("#pdesc").html(texto).css("color","red");
+            $("#pdesc").html(texto).css("color", "red");
             $("#alert").show();
             marcarInputError(this.id);
             agregarCampoError(this.id);
@@ -238,14 +238,14 @@ $(document).ready(function () {
         }
         mostrarSubmit(btnSubmit.id);
     });
-    
-    $("#parentesco_acudiente_1").change(function() {
+
+    $("#parentesco_acudiente_1").change(function () {
         let parentesco = $("#parentesco_acudiente_1").val();
-        
-        if(parentesco == "NA") {
+
+        if (parentesco == "NA") {
             //$("#btnEnviar").hide();
             let texto = "Debe seleccionar un parentesco para el acudiente";
-            $("#pdesc").html(texto).css("color","red");
+            $("#pdesc").html(texto).css("color", "red");
             $("#alert").show();
             marcarInputError(this.id);
             agregarCampoError(this.id);
@@ -259,7 +259,7 @@ $(document).ready(function () {
         }
         mostrarSubmit(btnSubmit.id);
     });
-    
+
     mostrarSubmit(btnSubmit.id);
 });
 
@@ -295,7 +295,7 @@ let camposError = [];
 
 const marcarCamposObligatorios = () => {
     const elementosForm = document.querySelectorAll(".campoFormulario");
-    
+
     elementosForm.forEach((elemento) => {
         //if (elemento.tagName === "INPUT") {}
         if (elemento.hasAttribute("required") && (elemento.value == "" || elemento.value == "NA")) {
@@ -316,11 +316,11 @@ const mostrar_submit = () => {
     elementosForm.forEach((input) => {
         const campoObligatorio = input.getAttribute("required") === '' ? true : false;
 
-        if (campoObligatorio && input.value === ''){
+        if (campoObligatorio && input.value === '') {
             marcarInputError(input);
         }
 
-        if ((input.type != "submit" && !input.classList.contains("success")) ||input.classList.contains("error")) {
+        if ((input.type != "submit" && !input.classList.contains("success")) || input.classList.contains("error")) {
             todosValidos = false;
         }
     });
@@ -335,28 +335,28 @@ const mostrar_submit = () => {
 const mostrarSubmit = (botonSubmit) => {
     let control = 0;
     let idObjeto = "#" + botonSubmit;
-    
+
     camposError.forEach(campo => {
         marcarInputError(campo);
         control = 1;
-    }); 
+    });
 
-    if(control > 0) {
+    if (control > 0) {
         $(idObjeto).hide();
     }
     else {
         try {
             let email1 = document.getElementById("register_correoA");
             let email2 = document.getElementById("register_correoA1");
-            
+
             if (email1 && email2) {
-                if($("#register_correoA").val() == $("#register_correoA1").val()) {
+                if ($("#register_correoA").val() == $("#register_correoA1").val()) {
                     $(idObjeto).show();
                     $("#alert").hide();
                 }
                 else {
                     var texto = "El email y la confirmación del email del acudiente deben ser iguales";
-                    $("#pdesc").html(texto).css("color","red");
+                    $("#pdesc").html(texto).css("color", "red");
                     $(idObjeto).hide();
                     $("#alert").show();
                 }
@@ -366,7 +366,7 @@ const mostrarSubmit = (botonSubmit) => {
                 $("#alert").hide();
             }
         } catch (error) {
-            
+
         }
     }
 };
@@ -470,16 +470,16 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
     }
 
     if (texto != "") {
-        $("#pdesc").html(texto).css("color","red");
+        $("#pdesc").html(texto).css("color", "red");
         $("#alert").show();
     } else {
         $("#pdesc").html("");
         $("#alert").hide();
     }
-    
+
     if (controlSubmit == 1 && control == 0) {
         mostrarSubmit(botonSubmit);
-    }    
+    }
 };
 
 const agregarCampoError = (id) => {
@@ -493,21 +493,21 @@ const quitarCampoError = (id) => {
         let indice = camposError.indexOf(id);
         if (indice >= 0) {
             camposError.splice(indice, 1);
-        }        
+        }
     }
-    catch(e) {}
+    catch (e) { }
 }
 
 const valDocumentoEntrevista = (botonSubmit) => {
-    $("#divcargando").css({display:'block'});
-    
+    $("#divcargando").css({ display: 'block' });
+
     $(".datos").hide();
     $("#msgdocumento").html("");
     $("#estnuevo").val("NO");
     $("#btnEnviar").hide();
     $("#register_documentoe_f").val("");
     $("#alert").hide();
-    
+
     //Se limpian lo cuadros de texto
     $("#register_nombres").val("");
     $("#register_apellidos").val("");
@@ -521,7 +521,7 @@ const valDocumentoEntrevista = (botonSubmit) => {
     $("#activiadad_extra").val("");
     $("#register_genero").val("NA");
     $("#register_genero").change();
-    
+
     $("#register_nombreA").val("");
     $("#register_documentoA").val("");
     $("#register_direccionA").val("");
@@ -531,9 +531,9 @@ const valDocumentoEntrevista = (botonSubmit) => {
     $("#parentesco_acudiente_1").val("NA");
     $('#parentesco_acudiente_1').change();
     $("#register_ciudada").val("");
-    
+
     let doc = $("#register_documentoe").val();
-    let cifra = doc.substring(0,1);
+    let cifra = doc.substring(0, 1);
     //alert(cifra);
     if (doc == "0" || cifra == "0") {
         $("#msgdocumento").html("El documento no puede ser 0, o no puede empezar por 0");
@@ -543,67 +543,67 @@ const valDocumentoEntrevista = (botonSubmit) => {
     }
     else {
         $.ajax({
-            type:"POST",
-            url:"../../org/ajax/registro_matricula_0.php",
-            data:"documento=" + doc,
-            success:function(r) {
+            type: "POST",
+            url: "../../org/ajax/registro_matricula_0.php",
+            data: "documento=" + doc,
+            success: function (r) {
                 let res = JSON.parse(r);
                 let control_matricula = 0;
                 let r_est = res.estado;
-                
+
                 $("#register_estado").val(r_est);
-                
+
                 //Se valida si ya tiene un proceso de pre matrícula abierto
-                if(res.procesoAbierto == "SI") {
+                if (res.procesoAbierto == "SI") {
                     control_matricula = 1;
                     $("#pdesc").html("");
-                    if(res.programoEntrevista == "SI") {
+                    if (res.programoEntrevista == "SI") {
                         $("#msgdocumento").html("Este documento ya tiene un proceso de entrevista abierto. Verificar el email " + res.emailA + " para revisar la información que se envío de la entrevista.");
                     }
                     else {
                         $("#msgdocumento").html("Este documento ya tiene un proceso de entrevista abierto. Verificar el email " + res.emailA + " para revisar la información que se le enviará de la entrevista.");
-                    }							
+                    }
                 }
-                
-                if(control_matricula == 0) {
+
+                if (control_matricula == 0) {
                     $("#pdesc").html("");
-                    if(r_est == "activo") {
+                    if (r_est == "activo") {
                         let r_grado = res.grados[0].gra;
                         let r_idgrado = res.grados[0].id_gra;
-                        
+
                         $("#msgdocumento").html("Este documento se encuentra activo en el grado " + r_grado + ". El proceso de entrevista es solo para estudiantes nuevos.");
                     }
-                    else if(r_est == "solicitud" || r_est == "pre_solicitud") {
+                    else if (r_est == "solicitud" || r_est == "pre_solicitud") {
                         let r_grado = res.grados[0].gra;
                         let r_idgrado = res.grados[0].id_gra;
-                        
+
                         $("#msgdocumento").html("Este documento ya tiene una solicitud de matrícula en el grado " + r_grado + ". El proceso de entrevista es solo para estudiantes nuevos.");
                     }
-                    else if(r_est == "reprobado") {
+                    else if (r_est == "reprobado") {
                         let r_grado = res.grados[0].gra;
                         let r_idgrado = res.grados[0].id_gra;
-                        
+
                         $("#msgdocumento").html("Estudiante antiguo, el proceso de entrevista es solo para estudiantes nuevos.");
                     }
-                    else if(r_est == "aprobado") {
+                    else if (r_est == "aprobado") {
                         let r_grado = res.grados[0].gra;
                         let r_idgrado = res.grados[0].id_gra;
-                        
+
                         $("#msgdocumento").html("Estudiante antiguo, el proceso de entrevista es solo para estudiantes nuevos.");
                     }
-                    else if(r_est == "retirado") {
+                    else if (r_est == "retirado") {
                         $("#msgdocumento").html("Este documento se encuentra Retirado. Comunícate con Secretaría Académica.");
                     }
-                    else if(r_est == "nuevo") {
+                    else if (r_est == "nuevo") {
                         $("#estnuevo").val("SI");
                         $("#register_documentoe_f").val(doc);
                         $(".datos").show();
                         $(".btnContinuar").hide();
                         $("#btnEnviar").hide();
-                        $("#divcargando").css({display:'none'});
+                        $("#divcargando").css({ display: 'none' });
                         //mostrar_submit(botonSubmit);
                         $("#pdesc").html("");
-                        
+
                         //Se cargan los datos si existen
                         if (res.control_antiguos == "2") {
                             $("#register_nombres").val(res.nombres);
@@ -618,7 +618,7 @@ const valDocumentoEntrevista = (botonSubmit) => {
                             $("#activiadad_extra").val(res.actividad_extra);
                             $("#register_genero").val(res.genero);
                             $("#register_genero").change();
-                            
+
                             $("#register_nombreA").val(res.acudiente);
                             $("#register_documentoA").val(res.documento_responsable);
                             $("#register_direccionA").val(res.direccion);
@@ -628,24 +628,24 @@ const valDocumentoEntrevista = (botonSubmit) => {
                             $("#parentesco_acudiente_1").val(res.parentesco_acudiente_1);
                             $('#parentesco_acudiente_1').change();
                             $("#register_ciudada").val(res.ciudadA);
-                            
+
                             mostrarSubmit(botonSubmit);
                         }
-                        
+
                     }
-                    else if(r_est == "inactivo") {
+                    else if (r_est == "inactivo") {
                         $("#msgdocumento").html("Este documento se encuentra inactivo en este momento. Comunícate con Secretaría Académica.");
                     }
                     else {
                         $("#msgdocumento").html("No se pudo procesar la solicitud de matrícula para éste documento. Comunícate con Secretaría Académica.");
                     }
                 }
-                
-                $("#divcargando").css({display:'none'});
+
+                $("#divcargando").css({ display: 'none' });
             }
-        });				
-    }			
-    
+        });
+    }
+
 }
 
 const limpiar = () => {
@@ -655,7 +655,7 @@ const limpiar = () => {
     $(".btnContinuar").show();
     $("#btnEnviar").hide();
     $("#register_documentoe_f").val("");
-    
+
     //Se limpian lo cuadros de texto
     $("#register_nombres").val("");
     $("#register_apellidos").val("");
@@ -669,7 +669,7 @@ const limpiar = () => {
     $("#activiadad_extra").val("");
     $("#register_genero").val(0);
     $("#register_genero").change();
-    
+
     $("#register_nombreA").val("");
     $("#register_documentoA").val("");
     $("#register_direccionA").val("");
@@ -679,7 +679,243 @@ const limpiar = () => {
     $("#parentesco_acudiente_1").val("NA");
     $('#parentesco_acudiente_1').change();
     $("#register_ciudada").val("");
-    
+
     $("#pdesc").html("");
     $("#alert").hide();
 }
+
+
+/*Calendario*/
+if (window.location.pathname.endsWith("calendario.php")) {
+    document.addEventListener("DOMContentLoaded", function () {
+        // Selecciona todos los contenedores de countdown
+        const countdowns = document.querySelectorAll(".countdown-container");
+
+        if (countdowns.length === 0) {
+            // Ningún evento, ya mostramos el mensaje en PHP
+            return;
+        }
+
+        countdowns.forEach(function (container) {
+            const targetDate = new Date(container.dataset.fecha).getTime();
+            const dayEl = container.querySelector(".countdown-day");
+            const hourEl = container.querySelector(".countdown-hour");
+            const minEl = container.querySelector(".countdown-min");
+            const secEl = container.querySelector(".countdown-sec");
+
+            const interval = setInterval(function () {
+                const now = Date.now();
+                const distance = targetDate - now;
+
+                if (distance <= 0) {
+                    clearInterval(interval);
+                    container.innerHTML = '<p class="tx-white">El evento ya ha pasado.</p>';
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                dayEl.textContent = days;
+                hourEl.textContent = hours;
+                minEl.textContent = minutes;
+                secEl.textContent = seconds;
+            }, 1000);
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Selecciona todos los botones con la clase .btn-route
+        const botonesVer = document.querySelectorAll('.btn-route');
+
+        botonesVer.forEach((boton) => {
+            boton.addEventListener('click', function () {
+                const rutaArchivo = this.getAttribute('data-ruta');
+                console.log(rutaArchivo);
+                // Crear un enlace invisible y forzar la descarga
+                const link = document.createElement('a');
+                link.href = rutaArchivo;
+                link.setAttribute('download', rutaArchivo.split('/').pop()); // Obtiene el nombre del archivo
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            });
+        });
+    });
+}
+
+/*Fin Calendario*/
+
+
+/* Estados Financieros */
+if (window.location.pathname.endsWith("estadosFinancieros.php")) {
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const form_info = $("#form_info");
+        const form_servicios = $("#form_servicios");
+
+        form_info.on("submit", function (e) {
+            e.preventDefault();
+            console.log("submit form_servicios");
+            // Evitar que recargue la página
+            // Obtener los valores de los inputs
+            const correo = $("#correo_estados_financieros").val();
+            if (reglasvalidacion.correo.test(correo)) {
+                console.log("correo valido");
+            } else {
+                console.log("correo invalido");
+                return;
+            }
+
+        });
+
+
+        form_servicios.on("submit", function (e) {
+            const errorBox = $("#error-message-certificaciones");
+            e.preventDefault();
+            errorBox.hide().empty();
+
+            const errors = [];
+
+            // 1) Nombre completo
+            const nombre = $("#nombre_certificaciones").val().trim();
+            if (!nombre) {
+                errors.push("El nombre completo es obligatorio.");
+            } else if (reglasvalidacion.texto.test(nombre)) {
+                errors.push("El nombre no debe contener caracteres especiales.");
+            }
+
+            // 2) Identificación (solo números)
+            const identificacion = $("#identificacion_certificaciones").val().trim();
+            if (!identificacion) {
+                errors.push("El número de identificación es obligatorio.");
+            } else if (!reglasvalidacion.numero.test(identificacion)) {
+                errors.push("El número de identificación debe ser solo dígitos.");
+            }
+
+            // Helper: lee el texto mostrado en el dropdown
+            function getDropdownText(ulId) {
+                return $(`#${ulId}`)
+                    .closest(".btn-group, .btn_displayed")
+                    .find("button .dropdown-text, button .little-paragraph")
+                    .first()
+                    .text()
+                    .trim();
+            }
+
+            // 3) Tipo
+            const tipo = getDropdownText("tipo_id_certificaciones");
+            if (tipo === "Tipo") {
+                errors.push("Debes seleccionar un Tipo.");
+            }
+
+            // 4) Correo
+            const correo = $("#correo_certificaciones").val().trim();
+            if (!correo) {
+                errors.push("El correo electrónico es obligatorio.");
+            } else if (!reglasvalidacion.correo.test(correo)) {
+                errors.push("El correo electrónico no es válido.");
+            }
+
+            // 5) Teléfono (solo dígitos)
+            const telefono = $("#telefono_certificaciones").val().trim();
+            if (!telefono) {
+                errors.push("El número de teléfono es obligatorio.");
+            } else if (!reglasvalidacion.numero.test(telefono)) {
+                errors.push("El número de teléfono debe ser solo dígitos.");
+            }
+
+            // 6) Grado
+            const grado = getDropdownText("grado_certificaciones");
+            if (grado === "Grado") {
+                errors.push("Debes seleccionar un Grado.");
+            }
+
+            // 7) Relación con la institución
+            const relacion = getDropdownText("relacion_certificaciones");
+            if (relacion === "Relación con la institución") {
+                errors.push("Debes seleccionar tu Relación con la institución.");
+            }
+            // Si eligió "Otro", validar el input de especificar
+            const relInput = $("input[name='relacion']");
+            if (relInput.is(":visible") && !relInput.val().trim()) {
+                errors.push("Debes especificar la Relación con la institución.");
+            }
+
+            // 8) Tipo de certificación
+            const tipoCert = getDropdownText("tipo_certificaciones");
+            if (tipoCert === "Tipo de certificación") {
+                errors.push("Debes seleccionar un Tipo de certificación.");
+            }
+            const certInput = $("input[name='certificacion']");
+            if (certInput.is(":visible") && !certInput.val().trim()) {
+                errors.push("Debes especificar el Tipo de certificación.");
+            }
+
+            // 9) Propósito
+            const proposito = $("#proposito_certificaciones").val().trim();
+            if (!proposito) {
+                errors.push("El propósito del documento es obligatorio.");
+            }
+
+            // 10) Tratamiento de datos
+            if (!$("#tratamiento_certificaciones").is(":checked")) {
+                errors.push("Debes aceptar el tratamiento de datos.");
+            }
+
+            // Mostrar errores o enviar
+            if (errors.length) {
+                errorBox.html(errors.join("<br>")).show();
+            } else {
+                console.log("Formulario enviado correctamente.");
+                console.log("Datos del formulario:", {
+                    nombre,
+                    identificacion,
+                    tipo,
+                    correo,
+                    telefono,
+                    grado,
+                    relacion,
+                    tipoCert,
+                    proposito
+                });
+                // Aquí puedes hacer form.submit() o tu llamada AJAX
+            }
+        });
+
+
+        document.querySelectorAll(".btn_displayed").forEach(dropdownContainer => {
+            const dropdownText = dropdownContainer.querySelector(".dropdown-text");
+            const otherInput = dropdownContainer.querySelector(".other-input");
+
+            dropdownContainer.querySelectorAll(".dropdown-option").forEach(option => {
+                option.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const selectedValue = this.getAttribute("data-value");
+
+                    dropdownText.textContent = selectedValue;
+
+                    if (selectedValue === "Otro (especificar)") {
+                        otherInput.style.display = "block";
+                        otherInput.focus();
+                    } else {
+                        otherInput.style.display = "none";
+                        otherInput.value = "";
+                    }
+                });
+            });
+        });
+
+        // commonjs
+        flatpickr("#display-calendar", {
+            clickOpens: true,  // Abre el calendario al hacer clic (por defecto true)
+            mode: "range"
+        });
+
+    });
+}
+
+/* Fin Estados Financieros */
