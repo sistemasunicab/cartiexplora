@@ -15,17 +15,18 @@
 
      function generarBlog($datos) {
           $bloque = '
-          <div class="col-lg-2 mx-4 d-flex align-items-center flex-column transform-hover" '.construirAtributosBlog($datos['rutaImagen'], $datos['rutaImagenEncima']).' > <!-- Block start -->
-               <img src="../../../'.$datos['rutaImagen'].'" alt="" class="blog-blockImg">
+          <div class="col-lg-2 col-md-2 col-sm-8 col-8 p-0 d-flex align-items-center flex-column transform-hover" '.construirAtributosBlog($datos['rutaImagen'], $datos['rutaImagenEncima']).' > <!-- Block start -->
+               <img src="../../../'.$datos['rutaImagen'].'" alt="" class="blog-img box-shadow-o5rem">
                
-               <div class="p-3 bg-white box-shadow-o5rem blog-blocksize d-flex flex-column justify-content-between">
+
+               <div class="p-3 bg-white box-shadow-o5rem blog-blocksize d-flex flex-column justify-content-between w-100">
                     <div>
                          <p class="little-paragraph m-0">'.$datos['fechaPublicacion'].'</p>
-                         <h3 class="font-roboto-bolditalic m-0">'.$datos['tituloBlog'].'</h3>
+                         <h4 class="font-roboto-bolditalic m-0">'.$datos['tituloBlog'].'</h4>
                     </div>
 
                     <p class="m-0 little-paragraph text-center">'.substr($datos['descripcion'], 0, 100).'</p>
-                    <a href="" class="font-roboto-italic">'.$datos['textoBoton'].'</a>
+                    <a href="../../../business/org/pages/blogPost.php?blogId='.urlencode($datos['blogId']).'" class="font-roboto-italic">'.$datos['textoBoton'].'</a> 
                </div>
           </div> <!-- Block End -->';
           
@@ -78,12 +79,13 @@
                'fechaPublicacion' => $row_datos['fechaPublicacion'],
                'descripcion' => $row_datos['descripcionPrincipal'], 
                'textoBoton' => $row_datos['textoBoton'],
-               'tituloBlog' => $row_datos['titulo']
+               'tituloBlog' => $row_datos['titulo'],
+               'blogId' => $row_datos['id']
           ];
      }
 
     if ($html != '') {
-        $html .= '<div class="row justify-content-between mt-5">'; 
+        $html .= '<div class="row justify-content-around my-4 gap-5">'; 
 
         foreach($blogs as $datosBlog) {
           $html .= generarBlog($datosBlog);

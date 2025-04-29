@@ -1006,6 +1006,14 @@ input[type="checkbox"] {
     align-items: center;
 }
 
+.box-shadow-2rem {
+    box-shadow: 8px 20px 2rem rgba(0, 0, 0, 0.2);
+}
+
+.modelo-img-movil {
+    margin-bottom: -6rem;
+}
+
 .modelo-item {
     display: flex;
     padding: 4rem 1rem;
@@ -1653,43 +1661,43 @@ input[type="text"], .select, textarea {
 }
 /* Fin btn flotante */
 
-    /* DESCUBRE TUS HABILIDADES */
-    .line:not(:nth-child(6)):not(:nth-child(12))::after {
-        display: none;
-    }
- 
-    /* INSCRIPCIONES ABIERTAS */
-    .inscripciones-seccion {
-        margin: 3rem auto;
-    }
-
-    .historia-info-img {
-        height: auto;
-        margin-top: 0;
-    }
-
-    .historia-info-mainimg {
-        margin-bottom: -15rem;
-    }
-
-    .ecosistema-block,
-    .ecosistema-block .d-flex {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .ecosistema-block p {
-        text-align: center;
-    }
-
-    .ecosistema-title {
-        text-align: center;
-        min-height: auto;
-        font-family: var(--roboto-bold);
-    }
-
-    .post-img img {
-        height: auto;
-    }
+/* DESCUBRE TUS HABILIDADES */
+.line:not(:nth-child(6)):not(:nth-child(12))::after {
+    display: none;
 }
+
+/* INSCRIPCIONES ABIERTAS */
+.inscripciones-seccion {
+    margin: 3rem auto;
+}
+
+.historia-info-img {
+    height: auto;
+    margin-top: 0;
+}
+
+.historia-info-mainimg {
+    margin-bottom: -15rem;
+}
+
+.ecosistema-block,
+.ecosistema-block .d-flex {
+    flex-direction: column;
+    align-items: center;
+}
+
+.ecosistema-block p {
+    text-align: center;
+}
+
+.ecosistema-title {
+    text-align: center;
+    min-height: auto;
+    font-family: var(--roboto-bold);
+}
+
+.post-img img {
+    height: auto;
+}
+
 /* Fin btn flotante */

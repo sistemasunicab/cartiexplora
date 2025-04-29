@@ -162,3 +162,18 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo,
 (36, 'assets/img/advertencia_correo1.png', 'Advertencia', '', '', '', ''),
 (36, 'assets/img/admisiones/Panchita.png', 'Panchita', '', '', '', '')
 ;
+
+INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo, rutaEncima, textoAlterno) VALUES
+(38, 'assets/img/IconoPresaberes.png', '', '', 'abajo', '', '');
+
+INSERT INTO tbl_imagenes (id_seccion,  ruta,  descripcion,  titulo, posicionTitulo, rutaEncima, textoAlterno) VALUES 
+(39, 'assets/img/pagos/statement.png', 'statement-cion', 'Pago a través de MiPagoAmigo', '', '', ''),
+(39, 'assets/img/pagos/Banco_Caja_Social.png', 'banco caja social icono', '', '', '', ''),
+(39, 'assets/img/pagos/mipagoamigo.png', 'mipagoamigo icono', '', '', '', ''),
+(39, 'assets/img/pagos/operation.png', 'instructivo pago', 'Instructivo de pago', '', '', ''),
+(39, 'assets/img/pagos/statement.png', 'statement-icon', 'Pago a través de ePayco', '', '', ''),
+(39, 'assets/img/pagos/epayco.png', 'epayco', 'Conceptos de pago de pensión', '', '', ''),
+(39, 'assets/img/pagos/right-arrow.png', 'flecha', '', '', '', ''),
+(39, 'assets/img/pagos/ref_pago.png', 'referencia pago', 'Referencia de pago', 'arriba', '', ''),
+(39, 'assets/img/pagos/transaction.png', 'transaccion icono', '', '', '', '')
+;

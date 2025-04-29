@@ -44,3 +44,26 @@ INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLe
 (34, 'parentesco_acudiente_1', 'select', 'Parentesco', 'required', '', '', '' ),
 (34, 'register_ciudada', 'text', 'Ciudad acudiente', 'required', '', '', 'Escribe la ciudad del acudiente' ),
 (34, '', 'submit', '', '', '', '', '' );
+
+INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder) VALUES
+(37, 'comentario', 'text', 'Comentario', 'required', '', '', 'Comentario'),
+(37, 'correo', 'text', 'Correo', 'required', '', '', 'Correo Electronico'),
+(37, 'aceptaDatos', 'checkbox', 'Estoy de acuerdo en que estos datos se almacenen y procesen con el fin de establecer contacto. Soy consciente de que puedo revocar mi consentimiento en cualquier momento.', 'required', '', '', ''),
+(37, 'enviarComentarioBlog', 'submit', 'Enviar', '', '', '', '');
+
+INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder) VALUES
+(39, 'btn_pagoamigo', 'button', 'Haz clic para el pago', '', '', '', ''),
+(39, 'nombre_responsable', 'text', 'Datos de quien paga', 'required', ' ', ' ', 'Nombre de quien paga'),
+(39, 'identificacion_responsable', 'text', '', 'required', '', '', 'Número de identificación'),
+(39, 'tratamiento_datos', 'checkbox', 'Acepto tratamiento de datos', 'required', '', '', ''),
+(39, 'opvalor0', 'radio', 'Ingrese referencia de pago', '', '', '', ''),
+(39, 'opvalor1', 'radio', 'Ingrese valor manual', '', '', '', ''),
+(39, 'txtref', 'text', '', 'required', '', '', 'Referencia de pago'),
+(39, 'txtvalorref', 'text', '', '', 'readonly', '', 'Valor a pagar'),
+(39, 'consultaref', 'button', 'Consultar', '', '', '', ''),
+(39, 'txtnumdoc', 'text', 'Documento estudiante', 'required', '', '', 'Documento estudiante'),
+(39, 'txtanio', 'text', 'Año', 'required', '', '', 'Año'),
+(39, 'txtvalor', 'text', 'Ingrese valor a pagar', 'required', '', '', 'Ingrese valor'),
+(39, 'txtvalorrefman', 'text', '', '', 'readonly', '', 'Referencia de pago'),
+(39, 'btnpagar', 'submit', 'Realizar pago por ePayco', '', '', '', '')
+;

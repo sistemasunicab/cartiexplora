@@ -32,9 +32,11 @@
         // renderiza la seccion
         $html .= '
           <main class="container margin-top-5rem mb-5">
-               <div class="row">
-                    <div class="col-lg-12 d-flex '.FlexTitleLoader::setDirection($datosImgTitulo[1]).' gap-5 align-items-center">
-                         <img '.ImageAttributeBuilder::BuildAttributes($nivel, $datosImgTitulo[0]).' alt="" class="img-fluid" style="width: 20%;">
+               <div class="row justify-content-center align-items-center '.FlexTitleLoader::setDirection($datosImgTitulo[1]).' gap-4">
+                    <div class="col-lg-2 col-md-2 col-sm-5 col-5">
+                         <img '.ImageAttributeBuilder::BuildAttributes($nivel, $datosImgTitulo[0]).' alt="" class="img-fluid w-100">
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-12 col-12 d-flex gap-5 align-items-center">
                          <h2 class="font-roboto-light tx-blue">'.$row_datos_seccion['titulo'].'</h2>
                     </div>
                </div>
@@ -42,7 +44,7 @@
     }
 
     // Obteniendo datos
-    $res_sentencia = $mysqli1->query($sentencia."96");//42
+    $res_sentencia = $mysqli1->query($sentencia."97");//42
     while($row_sentencia = $res_sentencia->fetch_assoc()){
          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
     }  
@@ -52,7 +54,7 @@
          $links[] = ["linkName" => $row_datos['texto']];
     }
 
-    $res_sentencia = $mysqli1->query($sentencia."97");//43
+    $res_sentencia = $mysqli1->query($sentencia."96");//43
     while($row_sentencia = $res_sentencia->fetch_assoc()){
          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
     }  
@@ -64,29 +66,31 @@
 
     if ($html != '') {
         $html .= '
-          <section class="bg-bold-blue margin-top-5rem mb-5">
-               <div class="container blogsearch-main">
-                    <div class="row justify-content-center mb-5">
+          <section class="margin-top-5rem">
+               <div class="bg-bold-blue">
+                    <div class="container">
+                         <div class="blogsearch-main row justify-content-center">
                     '; 
 
         foreach ($links as $link) {
           $html .= '
-               <div class="col-lg-3 d-flex justify-content-center">
-                    <a href="" class="blogsearch-link bg-orange">'.$link["linkName"].'</a>
+               <div class="col-lg-3 col-md-3 col-sm-12 col-12 mb-4 d-flex justify-content-center">
+                    <a href="" class="blogsearch-link bg-orange w-100">'.$link["linkName"].'</a>
                </div>
           ';
         }
 
         $html .= '
-          </div>
+               </div>
 
-          <div class="row mt-5">
-               <div class="col-lg-12 d-flex align-items-center">
-                    <input type="text" class="blogsearch-bar" placeholder="'.$searchBar["placeholder"].'" id="searchbar-blog">
+          <div class="row pb-5">
+               <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex align-items-center justify-content-center">
+                    <input type="text" class="blogsearch-bar text-lg-start text-center" placeholder="'.$searchBar["placeholder"].'" id="searchbar-blog">
                </div>
         ';
 
         $html .= '
+                         </div>
                     </div>
                </div>
           </section>

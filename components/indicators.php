@@ -5,8 +5,9 @@
 
      function crearIndicador($datos){
           $indicator = '                  
-                    <div class="p-3 col-lg-3 bg-white indicator '.FlexTitleLoader::setDirection($datos[2]).' "> <!-- Indicator -->
-                         <img src="'.$datos[0].'" alt="" class="indicator-img">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-6 p-3 bg-white indicator '.FlexTitleLoader::setDirection($datos[2]).' "> <!-- Indicator -->
+                         <img src="'.$datos[0].'" alt="" class="indicator-img img-fluid">
+                         
                          <div class="indicator-data">
                               <p class="font-roboto-light indicator-p m-0 p-0 lh-1">'.$datos[1].'</p> 
                               <h3 class="font-roboto-black p-0 m-0 lh-1 tx-blue">1000</h3>
@@ -36,10 +37,11 @@
           // Renderizando la seccion
           $html .= '
           <section class="bg-blue">
-               <div class="container py-4">
+               <div class="container py-5">
+
                     <div class="row">
-                         <div class="col-lg-12">
-                              <h3 class="tx-white text-center font-roboto-light lh1 mb-4">'.$row_datos['titulo'].'</h3>
+                         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                              <h3 class="tx-white text-center font-roboto-light lh-1 mb-4">'.$row_datos['titulo'].'</h3>
                          </div>
                     </div>
           ';
@@ -60,7 +62,7 @@
      if ($html != '') {
 
           $html .= '
-               <div class="row justify-content-evenly row-gap-3">
+               <div class="row justify-content-evenly gap-3">
                ';
 
           // Renderizando los indicadores

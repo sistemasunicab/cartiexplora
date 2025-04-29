@@ -19,9 +19,13 @@
           // Renderizando la seccion
           $html .= '
           <section class="container margin-top-5rem">
+
                <div class="row">
-                    <div class="col-lg-12">
-                         <h2 class="lh-1 tx-blue mb-5 p-0 font-roboto-light-title"> <b>'.$row_datos['titulo'].'</b> <br> '.$row_datos['subTitulo'].' </h2>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                         <h2 class="lh1 tx-blue mb-5 p-0 font-roboto-light-title"> <b>'.$row_datos['titulo'].'</b> <br> '.$row_datos['subTitulo'].' </h2>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                          <p class="mb-5 special-paragraph p-0">'.$row_datos['texto'].'</p>
                     </div>
                </div>
@@ -42,14 +46,14 @@
      // Verificando la visibilidad de la seccion
      if ($html != '') {
           $html .= '
-          <div class="row justify-content-between row-gap-3">
+          <div class="row justify-content-between gap-5">
           ';
 
           // Renderizando las imagenes del campus
           foreach ($campusImgs as $img) {
                $html .= '
-               <div class="col-lg-3">
-                    <img src="'.$img.'" alt="" class="campus-img img-fluid w-100">
+               <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+                    <img src="'.$img.'" alt="" class="img-fluid w-100 p-lg-0 p-4">
                </div>
                ';
           }

@@ -17,7 +17,7 @@
     
     $html = '';
     while ($row_datos_seccion = $res_seccion_dos->fetch_assoc()) {
-        $html .= '<section class="margin-top-5rem historia-info-main">';
+        $html .= '<section class="bg-bold-blue historia-imgcontainer">';
     }
 
     $res_sentencia = $mysqli1->query($sentencia."73");
@@ -42,20 +42,38 @@
 
     if ($html != '') {
         $html .= '
-        <div class="d-flex justify-content-center historia-imgcontainer">
+        <div class="container">
+            <div class="row justify-content-between m-0">
         ';
         
+        $count = 0;
         foreach ($imagenesArriba as $imgRuta) {
-            $html .= '<img class="historia-info-img" src="../../../../cartiexplora/'.$imgRuta.'" alt="">';
+            $mobileCol = 'col-sm-6 col-6';
+
+            if ($count % 3 == 2) {
+                $mobileCol = 'col-sm-12 col-12';
+            }
+
+            $html .= '
+            <div class="col-lg-3 col-md-3 '.$mobileCol.' mb-4">
+                <img class="img-fluid w-100 p-0 historia-info-img" src="../../../../cartiexplora/'.$imgRuta.'" alt="">
+            </div>
+            
+            ';
+            $count++;
         }
         
 
         $html .= '
-        </div>     
+            </div>
 
-        <div class="historia-info"></div>
+            <div class="row justify-content-center m-0">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                    <img class="img-fluid w-100 historia-info-mainimg" src="../../../../cartiexplora/'.$rutaImgHistoria.'" alt="">
+                </div>
+            </div>
+        </div>
 
-        <img class="historia-info-mainimg d-flex justify-content-center" src="../../../../cartiexplora/'.$rutaImgHistoria.'" alt="">
         </section>
         ';
     }
