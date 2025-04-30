@@ -61,3 +61,6 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 ('Presaberes', 1, 'presaberes', 'Evaluacion Presaberes', '(Se recomienda utilizar navegadores diferentes a Internet Explorer)', ''),
 ('pagos', '1', 'admisiones', '', '', '')
 ;
+
+INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, texto) VALUES 
+('costos', 1, 'admisiones', '', 'Consulta aquí los costos aprobados por la Secretaría de Educación de Sogamoso para el año 2025', '');

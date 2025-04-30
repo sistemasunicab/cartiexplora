@@ -177,3 +177,8 @@ INSERT INTO tbl_imagenes (id_seccion,  ruta,  descripcion,  titulo, posicionTitu
 (39, 'assets/img/pagos/ref_pago.png', 'referencia pago', 'Referencia de pago', 'arriba', '', ''),
 (39, 'assets/img/pagos/transaction.png', 'transaccion icono', '', '', '', '')
 ;
+
+INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo, rutaEncima, textoAlterno) VALUES 
+(40, 'assets/img/pagos/statement.png', 'statement-cion', 'Costos', '', '', ''),
+(40, 'assets/img/paper_14969976.svg', 'descargar-pdf', 'Ver', '', '', ''),
+(40, 'assets/img/ayuda.gif', 'imagen ayuda', 'Contáctate con nuestro equipo de trabajo', '', '', '');

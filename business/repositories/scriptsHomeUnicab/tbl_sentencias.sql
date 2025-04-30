@@ -165,3 +165,7 @@ INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones
 ('NO','','SELECT valor, texto ','FROM tbl_conceptos_pago ','','','','','',''),
 ('NO','','SELECT valor, texto ','FROM tbl_formas_pago ','','','','','','')
 ;
+
+INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
+('NO','','SELECT * ','FROM tbl_secciones ','WHERE id = 40 AND visible = 1 ','','','','',''),
+('NO','','SELECT * ','FROM tbl_imagenes ','WHERE id_seccion = 40 ','','','','','');
