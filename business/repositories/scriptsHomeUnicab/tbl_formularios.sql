@@ -44,5 +44,3 @@ INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLe
 (34, 'parentesco_acudiente_1', 'select', 'Parentesco', 'required', '', '', '' ),
 (34, 'register_ciudada', 'text', 'Ciudad acudiente', 'required', '', '', 'Escribe la ciudad del acudiente' ),
 (34, '', 'submit', '', '', '', '', '' );
-
-INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder ) VALUES 
