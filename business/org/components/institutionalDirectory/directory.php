@@ -107,25 +107,32 @@ while ($row_datos_directorio = $res_datos_directorio->fetch_assoc()) {
         $icons[] = ['path' => $image_path, 'title' => $titulo];
     }
 
-    // Construcción de la tabla con los encabezados dinámicos
+    // Aquí agregamos un div que manejará el overflow
+    $html_directorio .= '<div class="table-responsive-md">'; // Bootstrap tiene esta clase lista para ti
     $html_directorio .= '<table id="datos-empelados" class="table table-bordered text-center">';
     $html_directorio .= '<thead class="bg-bold-blue text-white">';
     $html_directorio .= '<tr>';
 
     // Generar los encabezados dinámicamente con los íconos obtenidos
     foreach ($icons as $icon) {
-        $html_directorio .= '<th><img src="' . $icon['path'] . '" width="30px"> ' . $icon['title'] . '</th>';
+        $html_directorio .= '<th>
+                                <div class="d-flex flex-row align-items-center justify-content-center">
+                                    <img class="me-3" src="' . $icon['path'] . '" width="30px"> ' . $icon['title'] . '
+                                </div>
+                            </th>';
     }
     $html_directorio .= '</tr>';
     $html_directorio .= '</thead>';
     $html_directorio .= '<tbody>';
+
     // Agregar 4 filas vacías
     for ($i = 0; $i < 4; $i++) {
         $html_directorio .= '<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>';
     }
 
-    $html_directorio .= '</tbody>'; // Dejamos el cuerpo vacío por ahora
+    $html_directorio .= '</tbody>';
     $html_directorio .= '</table>';
+    $html_directorio .= '</div>'; // Cierre del div de la tabla-responsive
 
     $number_sentence_image = "104";
     $res_sentence_image = $mysqli1->query($sentencia . $number_sentence_image);

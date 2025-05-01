@@ -348,7 +348,6 @@ const mostrarSubmit = (botonSubmit) => {
         try {
             let email1 = document.getElementById("register_correoA");
             let email2 = document.getElementById("register_correoA1");
-
             if (email1 && email2) {
                 if ($("#register_correoA").val() == $("#register_correoA1").val()) {
                     $(idObjeto).show();
@@ -686,6 +685,7 @@ const limpiar = () => {
 
 
 /*Calendario*/
+
 if (window.location.pathname.endsWith("calendario.php")) {
     document.addEventListener("DOMContentLoaded", function () {
         // Selecciona todos los contenedores de countdown
@@ -750,6 +750,49 @@ if (window.location.pathname.endsWith("calendario.php")) {
 
 
 /* Estados Financieros */
+
+function validarSelect(elemento, descripcion, botonSubmit, otherInputId) {
+    const id = elemento.id;
+    const value = elemento.value;
+    const boton = document.getElementById(botonSubmit);
+    const idSubmit = "#" + botonSubmit;
+
+    // 1) Oculta el botón mientras validas
+    $(idSubmit).hide();
+
+    // 2) Si vienen el id de un "otro input", muéstralo o escóndelo
+    if (otherInputId) {
+        const otroInput = document.getElementById(otherInputId);
+        if (value === "Otro (especificar)") {
+            otroInput.style.display = 'block';
+            otroInput.required = true;
+            // dispara la validación si ya había texto
+            otroInput.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
+        } else {
+            otroInput.style.display = 'none';
+            otroInput.required = false;
+            otroInput.value = '';
+        }
+    }
+
+    // 3) Validación básica del select
+    if (!value) {
+        marcarInputError(id);
+        agregarCampoError(id);
+        $("#pdesc")
+            .html(`Debe seleccionar una opción en ${descripcion}`)
+            .css("color", "red");
+        $("#alert").show();
+    } else {
+        marcarInputCorrecto(id);
+        quitarCampoError(id);
+        $("#pdesc").html("");
+        $("#alert").hide();
+        mostrarSubmit(botonSubmit);
+    }
+}
+
+
 if (window.location.pathname.endsWith("estadosFinancieros.php")) {
 
 
@@ -757,156 +800,64 @@ if (window.location.pathname.endsWith("estadosFinancieros.php")) {
         const form_info = $("#form_info");
         const form_servicios = $("#form_servicios");
 
+        const reset_form_info = () => {
+            const inputs_info = form_info.find("input, select, textarea");
+            for (let i = 0; i < inputs_info.length; i++) {
+                const elemento = inputs_info[i];
+                marcarInputCorrecto(elemento.id);
+                quitarCampoError(elemento.id);
+            }
+        }
+
+        const reset_form_servicios = () => {
+            const inputs_servicios = form_servicios.find("input, select, textarea");
+            for (let i = 0; i < inputs_servicios.length; i++) {
+                const elemento = inputs_servicios[i];
+                marcarInputCorrecto(elemento.id);
+                quitarCampoError(elemento.id);
+            }
+        }
+
+
+        form_info.on("click", function (e) {
+            const id = "submit-estados-financieros";
+            const send_info = $("#" + id);
+            reset_form_servicios();
+            camposError = [];
+            send_info.hide();
+            const inputs_info = form_info.find("input, select, textarea");
+
+            for (let i = inputs_info.length - 1; i >= 0; i--) {
+                const elemento = inputs_info[i];
+                elemento.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
+            }
+            mostrarSubmit(id);
+        });
+
+        form_servicios.on("click", function (e) {
+            const id = "submit-certificaciones-papeles";
+            const send_servicios = $("#" + id);
+            reset_form_info();
+            camposError = [];
+            send_servicios.hide();
+            const inputs_servicios = form_servicios.find("input, select, textarea");
+
+            for (let i = inputs_servicios.length - 1; i >= 0; i--) {
+                const elemento = inputs_servicios[i];
+                elemento.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
+            }
+
+            mostrarSubmit(id);
+        });
+
+
         form_info.on("submit", function (e) {
             e.preventDefault();
-            console.log("submit form_servicios");
-            // Evitar que recargue la página
-            // Obtener los valores de los inputs
-            const correo = $("#correo_estados_financieros").val();
-            if (reglasvalidacion.correo.test(correo)) {
-                console.log("correo valido");
-            } else {
-                console.log("correo invalido");
-                return;
-            }
 
         });
-
 
         form_servicios.on("submit", function (e) {
-            const errorBox = $("#error-message-certificaciones");
             e.preventDefault();
-            errorBox.hide().empty();
-
-            const errors = [];
-
-            // 1) Nombre completo
-            const nombre = $("#nombre_certificaciones").val().trim();
-            if (!nombre) {
-                errors.push("El nombre completo es obligatorio.");
-            } else if (reglasvalidacion.texto.test(nombre)) {
-                errors.push("El nombre no debe contener caracteres especiales.");
-            }
-
-            // 2) Identificación (solo números)
-            const identificacion = $("#identificacion_certificaciones").val().trim();
-            if (!identificacion) {
-                errors.push("El número de identificación es obligatorio.");
-            } else if (!reglasvalidacion.numero.test(identificacion)) {
-                errors.push("El número de identificación debe ser solo dígitos.");
-            }
-
-            // Helper: lee el texto mostrado en el dropdown
-            function getDropdownText(ulId) {
-                return $(`#${ulId}`)
-                    .closest(".btn-group, .btn_displayed")
-                    .find("button .dropdown-text, button .little-paragraph")
-                    .first()
-                    .text()
-                    .trim();
-            }
-
-            // 3) Tipo
-            const tipo = getDropdownText("tipo_id_certificaciones");
-            if (tipo === "Tipo") {
-                errors.push("Debes seleccionar un Tipo.");
-            }
-
-            // 4) Correo
-            const correo = $("#correo_certificaciones").val().trim();
-            if (!correo) {
-                errors.push("El correo electrónico es obligatorio.");
-            } else if (!reglasvalidacion.correo.test(correo)) {
-                errors.push("El correo electrónico no es válido.");
-            }
-
-            // 5) Teléfono (solo dígitos)
-            const telefono = $("#telefono_certificaciones").val().trim();
-            if (!telefono) {
-                errors.push("El número de teléfono es obligatorio.");
-            } else if (!reglasvalidacion.numero.test(telefono)) {
-                errors.push("El número de teléfono debe ser solo dígitos.");
-            }
-
-            // 6) Grado
-            const grado = getDropdownText("grado_certificaciones");
-            if (grado === "Grado") {
-                errors.push("Debes seleccionar un Grado.");
-            }
-
-            // 7) Relación con la institución
-            const relacion = getDropdownText("relacion_certificaciones");
-            if (relacion === "Relación con la institución") {
-                errors.push("Debes seleccionar tu Relación con la institución.");
-            }
-            // Si eligió "Otro", validar el input de especificar
-            const relInput = $("input[name='relacion']");
-            if (relInput.is(":visible") && !relInput.val().trim()) {
-                errors.push("Debes especificar la Relación con la institución.");
-            }
-
-            // 8) Tipo de certificación
-            const tipoCert = getDropdownText("tipo_certificaciones");
-            if (tipoCert === "Tipo de certificación") {
-                errors.push("Debes seleccionar un Tipo de certificación.");
-            }
-            const certInput = $("input[name='certificacion']");
-            if (certInput.is(":visible") && !certInput.val().trim()) {
-                errors.push("Debes especificar el Tipo de certificación.");
-            }
-
-            // 9) Propósito
-            const proposito = $("#proposito_certificaciones").val().trim();
-            if (!proposito) {
-                errors.push("El propósito del documento es obligatorio.");
-            }
-
-            // 10) Tratamiento de datos
-            if (!$("#tratamiento_certificaciones").is(":checked")) {
-                errors.push("Debes aceptar el tratamiento de datos.");
-            }
-
-            // Mostrar errores o enviar
-            if (errors.length) {
-                errorBox.html(errors.join("<br>")).show();
-            } else {
-                console.log("Formulario enviado correctamente.");
-                console.log("Datos del formulario:", {
-                    nombre,
-                    identificacion,
-                    tipo,
-                    correo,
-                    telefono,
-                    grado,
-                    relacion,
-                    tipoCert,
-                    proposito
-                });
-                // Aquí puedes hacer form.submit() o tu llamada AJAX
-            }
-        });
-
-
-        document.querySelectorAll(".btn_displayed").forEach(dropdownContainer => {
-            const dropdownText = dropdownContainer.querySelector(".dropdown-text");
-            const otherInput = dropdownContainer.querySelector(".other-input");
-
-            dropdownContainer.querySelectorAll(".dropdown-option").forEach(option => {
-                option.addEventListener("click", function (event) {
-                    event.preventDefault();
-                    const selectedValue = this.getAttribute("data-value");
-
-                    dropdownText.textContent = selectedValue;
-
-                    if (selectedValue === "Otro (especificar)") {
-                        otherInput.style.display = "block";
-                        otherInput.focus();
-                    } else {
-                        otherInput.style.display = "none";
-                        otherInput.value = "";
-                    }
-                });
-            });
         });
 
         // commonjs

@@ -1151,20 +1151,55 @@ input[type="checkbox"] {
 
 /* Inicio Certificados y papeles */
 
+.select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
 .display-options {
-    padding: 0;
-    margin: 0;
-    border: 0px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     background: var(--orange);
-}
-
-.display-options span {
-    font-size: 1.5rem;
+    height: 100%;
+    border: none;
+    text-align: left;
+    padding-left: 1rem;
     border-radius: 0.25rem;
-    background: var(--bold-blue);
-    color: #FFD156;
 }
 
+.display-options option{
+    margin-block: 1rem;
+    background-color: var(--blue);
+    height: 100%;
+    border: none;
+    font-family: var(--roboto-regular);
+    font-size: 1rem;
+}
+
+.display-options option:disabled{
+    color: var(--white);
+}
+
+.select-arrow {
+    background-color: var(--bold-blue);
+    color: #FFD156;
+    font-size: 1.5rem;
+    height: 100%;
+    display: flex;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    position: absolute;
+    right: 0;
+}
+
+.display-options.error{
+    background: #FBE5E7;
+}
 
 .btn_displayed {
     height: 2.5rem;

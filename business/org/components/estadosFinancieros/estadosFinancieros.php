@@ -18,6 +18,7 @@ while ($row_datos_estados_financieros = $res_datos_estados_financieros->fetch_as
 
     $html_estados_financieros .= '
     <input
+        onkeyup="validarCampo(this,\'correo\', \'correo\', 1, \'submit-estados-financieros\')"
         required
         id="correo_estados_financieros"
         name="correo"
@@ -29,6 +30,7 @@ while ($row_datos_estados_financieros = $res_datos_estados_financieros->fetch_as
 
     $html_estados_financieros .= '
     <input
+        onkeyup="validarCampo(this,\'contraseña\', \'texto\', 1, \'submit-estados-financieros\')"
         required
         id="password_estados_financieros"
         name="password"
@@ -63,12 +65,18 @@ while ($row_datos_estados_financieros = $res_datos_estados_financieros->fetch_as
             $image_path = '../../../' . $ruta;
         }
     }
-    $html_estados_financieros .= '<button class="btn p-2 bg-orange col-lg-2 col-md-3 col-sm-4 col-4 mx-auto d-flex flex-row align-items-center justify-content-center mt-3">';
+    $html_estados_financieros .= '<button id="submit-estados-financieros" class="btn p-2 bg-orange col-lg-2 col-md-3 col-sm-4 col-4 mx-auto mt-3">';
+    $html_estados_financieros .= '<div class="d-flex flex-row align-items-center justify-content-center">';
     $html_estados_financieros .= '<p class="special-paragraph font-roboto-medium tx-white m-0 mx-2">Solicitar</p>';
     $html_estados_financieros .= '<img src="' . $image_path . '" alt="Solicitar" width="30px">';
+    $html_estados_financieros .= '</div>';
     $html_estados_financieros .= '</button>';
     $html_estados_financieros .= '</form>';
 
+    $html_estados_financieros .=    '<div id="alert" style="margin-left: .5rem;">
+                                        <p><i class="fa fa-warning"></i><span>: </span><label id="pdesc"></label>
+                                        <input type="text" class="alert" style="width: 20px; border: none; background: transparent; color: transparent" id="txtvacio" value="0"></p>
+                                    </div>';
     $html_estados_financieros .= '</div>';
 
 }

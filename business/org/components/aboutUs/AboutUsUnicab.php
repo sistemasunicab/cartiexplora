@@ -1,6 +1,3 @@
-<style>
-
-</style>
 <?php
 $numero_de_sentencia_nosotros = "44";
 $res_sentencia_nosotros = $mysqli1->query($sentencia . $numero_de_sentencia_nosotros);
