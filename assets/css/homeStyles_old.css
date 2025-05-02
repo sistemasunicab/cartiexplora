@@ -34,36 +34,6 @@ p, label {
     font-size: 1.2rem;
 }
 
-@media (max-width: 576px) {
-    h1 {
-        font-size: 2.8rem; 
-    }
-
-    h2 {
-        font-size: 2.4rem; 
-    }
-
-    h3 {
-        font-size: 2rem; 
-    }
-
-    h4 {
-        font-size: 1.8rem;
-    }
-
-    p, label {
-        font-size: 1.2rem; 
-    }
-
-    .special-paragraph {
-        font-size: 0.9rem; 
-    }
-
-    .little-paragraph {
-        font-size: 1rem; 
-    }
-}
-
 /** Variables CSS **/
 :root {
     --roboto-black: 'Roboto-black', sans-serif;
@@ -1040,6 +1010,10 @@ input[type="checkbox"] {
     box-shadow: 8px 20px 2rem rgba(0, 0, 0, 0.2);
 }
 
+.modelo-img-movil {
+    margin-bottom: -6rem;
+}
+
 .modelo-item {
     display: flex;
     padding: 4rem 1rem;
@@ -1092,6 +1066,25 @@ input[type="checkbox"] {
 
 /* End About Us */
 
+/* Begin calendary */
+
+.border-radius-10 {
+    border-radius: 10px !important;
+}
+
+.border-radius-20 {
+    border-radius: 20px !important;
+}
+
+.btn-calendary {
+    padding-block: .5rem;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    background: var(--orange);
+    color: var(--white);
+    font-family: var(--roboto-bold);
+}
+
 /* Inicio Calendario academico */
 
 /* Calendario */
@@ -1113,8 +1106,6 @@ input[type="checkbox"] {
     font-family: var(--roboto-bold);
 }
 
-/* Calendario academico */
-
 /* Calendario proximo evento*/
 
 /* Comunicados*/
@@ -1124,11 +1115,6 @@ input[type="checkbox"] {
     align-items: center;
     justify-content: center;
     text-align: center;
-}
-
-.file-container {
-    padding-bottom: 15px;
-    border-bottom: 2px solid var(--medium-gray);
 }
 
 /* Fin calendario */
@@ -1146,89 +1132,41 @@ input[type="checkbox"] {
 }
 
 .form-financial input{
-    text-align: center !important;
-    border: 3px solid #42C3AE !important;
-    border-radius: 15px !important;
-    padding: .5rem !important;
-    color: var(--medium-gray) !important;
+    text-align: center;
+    border: 3px solid #42C3AE;
+    border-radius: 10px;
+    padding: .5rem;
+    color: var(--medium-gray);
 }
 
 /* Inicio Certificados y papeles */
 
-.select-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
 .display-options {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+    padding: 0;
+    margin: 0;
+    border: 0px;
     background: var(--orange);
-    height: 100%;
-    border: none;
-    text-align: left;
-    padding-left: 1rem;
-    border-radius: 0.25rem;
 }
 
-.display-options option{
-    margin-block: 1rem;
-    background-color: var(--blue);
-    height: 100%;
-    border: none;
-    font-family: var(--roboto-regular);
-    font-size: 1rem;
-}
-
-.display-options option:disabled{
-    color: var(--white);
-}
-
-.select-arrow {
-    background-color: var(--bold-blue);
-    color: #FFD156;
+.display-options span {
     font-size: 1.5rem;
-    height: 100%;
-    display: flex;
-    border: none;
-    align-items: center;
-    justify-content: center;
-    border-top-right-radius: 0.25rem;
-    border-bottom-right-radius: 0.25rem;
-    position: absolute;
-    right: 0;
+    border-radius: 0.25rem;
+    background: var(--bold-blue);
+    color: #FFD156;
 }
 
-.display-options.error{
-    background: #FBE5E7;
-}
 
 .btn_displayed {
     height: 2.5rem;
 }
 
-@media (min-width: 768px) {
-    .text-up-absolute{
-        position: absolute;
-        top:-90px;
-        margin: 0;
-        padding: 0;
-        font-size: 0.8rem;
-    }    
+.text-up-absolute{
+    position: absolute;
+    top:-50px;
+    margin: 0;
+    padding: 0;
+    font-size: 0.8rem;
 }
-
-@media (min-width: 978px) {
-    .text-up-absolute{
-        position: absolute;
-        top:-50px;
-        margin: 0;
-        padding: 0;
-        font-size: 0.8rem;
-    }    
-}
-
 
 .text-area-input{
     padding: 0.25rem;
@@ -1723,180 +1661,43 @@ input[type="text"], .select, textarea {
 }
 /* Fin btn flotante */
 
-/** PAGOS **/
-.tx-red {
-    color: red;
+/* DESCUBRE TUS HABILIDADES */
+.line:not(:nth-child(6)):not(:nth-child(12))::after {
+    display: none;
 }
 
-.tx-primary-blue {
-    color: blue;
+/* INSCRIPCIONES ABIERTAS */
+.inscripciones-seccion {
+    margin: 3rem auto;
 }
 
-.pagos-icono {
-    max-width: 6rem;
-    max-height: 6rem;
+.historia-info-img {
+    height: auto;
+    margin-top: 0;
 }
 
-.cards-icono {
-    max-width: 15rem;
-    max-height: 15rem;
-    object-fit: cover;
+.historia-info-mainimg {
+    margin-bottom: -15rem;
 }
 
-.pagos-btn {
-    font-family: var(--roboto-medium);
-    color: white;
-    width: 100%;
-    padding: 1rem 0;
-    background-color: var(--orange);
-    border: none;
-    font-size: 1.5rem;
-    border-radius: 10px;
-    transition: all 0.2s ease-in;
+.ecosistema-block,
+.ecosistema-block .d-flex {
+    flex-direction: column;
+    align-items: center;
 }
 
-.pagos-btn:hover {
-    transform: scale(1.05);
-    background-color: var(--green) !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-ul.pagos-concepto li img{
-    width: 8%;
-}
-
-.inactivo {
-    background: lightgray;
-    border: none;
-    color: black;
-}
-
-.radio-btn {
-    transform: scale(1.5);
-}
-
-/* A partir de 992*/
-@media (min-width: 992px) {
-    .form-select-pagos-img {
-        appearance: none !important;
-        background-repeat: no-repeat;
-        background-position: right center;
-        background-size: contain;
-        background-origin: content-box;
-        min-height: 40px !important;
-    }
-}
-/* Hasta 992 */
-@media (max-width: 992px)  {
-    .line:not(:nth-child(6)):not(:nth-child(12))::after {
-        display: none;
-    }
-}
-
-.form-select-pagos {
-    display: block;
-    width: 100%;
-    padding: 0.75rem 0.75rem;
-    font-size: 1.2rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: var(--white);
-    background-color: var(--orange);
-    background-clip: padding-box;
-    border: 2px solid var(--orange);
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border-radius: 0.25rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.form-select-pagos option {
-    background-color: var(--blue);
-}
-
-.bg-yellow {
- background-color: #FFD156;
-}
-
-.check-pagos {
-    transform: scale(1.8);
-    margin: 0 1rem;
-}
-
-.select-alert {
-    position: relative;
-    padding: .5rem .5rem;
-    background-color: #f8d7da;
-    border: 5px solid red;
-    border-radius: 0.25rem;
-}
-
-/** COSTOS **/
-.pdf-btn {
-    max-width: 4.5rem;
-    width: 100%;
-}
-
-.ayuda-gif {
-    max-width: 18rem;
-    width: 100%;
-}
-
-.btn:hover {
-    transform: scale(1.1);
-}
-
-.drop-shadow {
-    box-shadow: inset 0px 3px 6px #0000001F, 0px 3px 6px #00000029;
-}
-
-/** Principios y valores iconos **/
-
-.principios-icon{ 
-    max-width: 5rem;
-    width: 100%;
-    margin: 0 auto;
-    display: block;
-}
-
-/* Pagina Evaluacion presaberes */
-
-.orange-btn-1 {
-    padding: 1.2rem 3rem;
-    font-family: var(--roboto-bolditalic);
-    color: var(--white);
-    background-color: var(--orange);
+.ecosistema-block p {
     text-align: center;
-    transition: color .4s ease;
-    border-radius: 1rem;
-    font-size: 1.5rem;
 }
 
-.orange-btn-1:hover {
-    color: var(--bold-blue);
-}
-
-.orange-btn-2 {
-    padding: .4rem .6rem;
+.ecosistema-title {
+    text-align: center;
+    min-height: auto;
     font-family: var(--roboto-bold);
-    color: var(--bold-blue);
-    background-color: transparent;
-    text-align: center;
-    transition: background-color .2s ease;
-    border-radius: .5rem;
-    font-size: 1rem;
-    border-color: var(--orange);
-    border-width: 2px;
-    border-style: solid;
 }
 
-.orange-btn-2:hover {
-    background-color: var(--orange);
+.post-img img {
+    height: auto;
 }
 
-.border-green {
-    border-color: var(--green);
-    border-width: 2px;
-    border-style: solid;
-}
+/* Fin btn flotante */

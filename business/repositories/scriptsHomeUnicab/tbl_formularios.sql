@@ -16,9 +16,9 @@ CREATE TABLE tbl_formularios (
 
 INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder ) VALUES 
 (4, 'nombre', 'text', 'nombre', 'required', '', '', '' ),
-(4, 'correo', 'email', 'correo', 'required', '', '', '' ),
+(4, 'correo', 'text', 'correo', 'required', '', '', '' ),
 (4, 'asunto', 'text', 'asunto', 'required', '', '', '' ),
-(4, 'mensaje', 'textarea', 'mensaje', 'required', '', '', '' ),
+(4, 'mensaje', 'text', 'mensaje', 'required', '', '', '' ),
 (4, 'checkbox', 'checkbox', 'checkbox', 'required', '', '', '' ),
 (4, 'enviaMensaje', 'submit', 'Envía tu mensaje', '', '', '', '' ),
 
@@ -44,3 +44,63 @@ INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLe
 (34, 'parentesco_acudiente_1', 'select', 'Parentesco', 'required', '', '', '' ),
 (34, 'register_ciudada', 'text', 'Ciudad acudiente', 'required', '', '', 'Escribe la ciudad del acudiente' ),
 (34, '', 'submit', '', '', '', '', '' );
+
+INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder) VALUES
+(37, 'comentario', 'text', 'Comentario', 'required', '', '', 'Comentario'),
+(37, 'correo', 'text', 'Correo', 'required', '', '', 'Correo Electronico'),
+(37, 'aceptaDatos', 'checkbox', 'Estoy de acuerdo en que estos datos se almacenen y procesen con el fin de establecer contacto. Soy consciente de que puedo revocar mi consentimiento en cualquier momento.', 'required', '', '', ''),
+(37, 'enviarComentarioBlog', 'submit', 'Enviar', '', '', '', '');
+
+INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder) VALUES
+(39, 'btn_pagoamigo', 'button', 'Haz clic para el pago', '', '', '', ''),
+(39, 'nombre_responsable', 'text', 'Datos de quien paga', 'required', ' ', ' ', 'Nombre de quien paga'),
+(39, 'identificacion_responsable', 'text', '', 'required', '', '', 'Número de identificación'),
+(39, 'tratamiento_datos', 'checkbox', 'Acepto tratamiento de datos', 'required', '', '', ''),
+(39, 'opvalor0', 'radio', 'Ingrese referencia de pago', '', '', '', ''),
+(39, 'opvalor1', 'radio', 'Ingrese valor manual', '', '', '', ''),
+(39, 'txtref', 'text', '', 'required', '', '', 'Referencia de pago'),
+(39, 'txtvalorref', 'text', '', '', 'readonly', '', 'Valor a pagar'),
+(39, 'consultaref', 'button', 'Consultar', '', '', '', ''),
+(39, 'txtnumdoc', 'text', 'Documento estudiante', 'required', '', '', 'Documento estudiante'),
+(39, 'txtanio', 'text', 'Año', 'required', '', '', 'Año'),
+(39, 'txtvalor', 'text', 'Ingrese valor a pagar', 'required', '', '', 'Ingrese valor'),
+(39, 'txtvalorrefman', 'text', '', '', 'readonly', '', 'Referencia de pago'),
+(39, 'btnpagar', 'submit', 'Realizar pago por ePayco', '', '', '', '')
+;
+
+
+INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder)
+VALUES 
+(25, 'correo_estados_financieros', 'correo', 'correo', 'required', '', '', 'Usuario email'),
+(25, 'password_estados_financieros', 'texto', 'contraseña', 'required', '', '', 'Password'),
+(25, 'submit-estados-financieros', 'submit', 'Solicitar', '', '', '', '');
+
+INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder)
+VALUES 
+-- Primera fila
+(26, 'nombre_certificaciones', 'texto', 'nombre', 'required', '', '', 'Nombre Completo'),
+(26, 'identificacion_certificaciones', 'numero', 'identificación', 'required', '', '', 'Número de identificación'),
+(26, 'tipo_id_certificaciones', 'texto', 'tipo', 'required', '', '', 'Tipo'),
+
+-- Segunda fila
+(26, 'correo_certificaciones', 'correo', 'correo', 'required', '', '', 'Correo electrónico'),
+(26, 'telefono_certificaciones', 'numero', 'telefono', 'required', '', '', 'Número de teléfono'),
+(26, 'grado_id_certificaciones', 'texto', 'grado', 'required', '', '', 'Grado'),
+
+-- Relación con la institución
+(26, 'relacion_certificaciones_select', 'texto', 'relación', 'required', '', '', 'Relación con la institución'),
+
+-- Tipo de certificación
+(26, 'tipo_certificaciones_select', 'texto', 'tipo de certificación', 'required', '', '', 'Tipo de certificación'),
+
+-- Fecha 
+(26, 'certificaciones_date', 'numero', 'fecha', 'required', '', '', 'Fecha'),
+
+-- Propósito
+(26, 'proposito_certificaciones', 'texto', 'propósito', 'required', '', '', 'Propósito del documento'),
+
+-- Tratamiento de datos
+(26, 'tratamiento_certificaciones', 'checkbox', 'tratamiento de datos', 'required', '', '', 'Acepto tratamiento de datos.'),
+
+-- Botón de envío
+(26, 'submit-certificaciones-papeles', 'submit', 'Solicitar', '', '', '', '');

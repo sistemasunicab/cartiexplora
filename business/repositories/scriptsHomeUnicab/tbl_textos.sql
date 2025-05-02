@@ -57,3 +57,10 @@ INSERT INTO tbl_textos (id_seccion, paginaPadre, identificacion, texto ) VALUES
 (36, 'admisiones', 'Texto6', 'No haga clic en ninguna de las opciones de la imagen.'),
 (36, 'admisiones', 'Texto7', 'Es un mensaje de advertencia que genera por seguridad nuestro hosting.')
 ;
+
+INSERT INTO tbl_textos (id_seccion, paginaPadre, identificacion, texto ) VALUES 
+(39, 'pagos', 'Concepto', 'pm1|pm2|pm3|pm4|pm5|pm6|pm7|pm8|pm9|pm10'),
+(39, 'pagos', 'Descripción', 'Pago mes febrero|Pago mes marzo|Pago mes abril|Pago mes mayo|Pago mes junio|Pago mes julio|Pago mes agosto|Pago mes septiembre|Pago mes octubre|Pago mes noviembre'),
+(39, 'pagos', 'info financiera', '<p class=\"tx-red\"><b> <span class=\"tx-green\"> * Ingrese referencia de pago.</span> (* Incremento de 5% en pensión si paga después del día 10)</b></p><p class=\"tx-primary-blue\"><b>NOTA:</b> El valor de la pensión se debe pagar a partir de febrero del año 2024 con los nuevos costos emitidos por la Secretaría de Educación. <b>A partir del 1 de febrero el costo por concepto de matrícula tendrá un recargo adicional del 10% por extemporaneidad.</b> El concepto de pago <b>pp (primer pago)</b> incluye el valor de la matrícula más otros cobros periódicos <b>(incluye póliza)</b> más pensión primer mes.</p>'),
+(39, 'pagos', 'titulos pagos', 'Datos para referencia de pago|Datos para valor manual')
+;

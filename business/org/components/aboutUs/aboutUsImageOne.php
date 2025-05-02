@@ -20,7 +20,11 @@ if (mysqli_num_rows($res_datos_nosotros) > 0) {
     }
 
     $res_datos_nosotros = $mysqli1->query($sql_datos_nosotros);
-
+    
+    $class_images = ['col-lg-4 col-md-4 col-sm-6 col-12 img-fluid',
+                'col-lg-4 col-md-4 col-sm-6 col-0 img-fluid',
+                'col-lg-4 col-md-4 col-sm-0 col-0 img-fluid'];
+    $i = 0;
     while ($row_datos_nosotros = $res_datos_nosotros->fetch_assoc()) {
         $path = $row_datos_nosotros['ruta'];
         $altern = $row_datos_nosotros['textoAlterno'];
@@ -34,7 +38,8 @@ if (mysqli_num_rows($res_datos_nosotros) > 0) {
         } else if ($nivel == "tres") {
             $path_image = '../../../' . $path;
         }
-        $html_nosotrosImgUno .= '<img class="col-4 h-auto d-block" src="' . $path_image . '" alt="' . $altern . '">';
+        $html_nosotrosImgUno .= '<img class="' . $class_images[$i] . '" src="' . $path_image . '" alt="' . $altern . '">';
+        $i++;
     }
 
     $html_nosotrosImgUno .= '</div>';

@@ -4,9 +4,9 @@
 
     function generarEcosistema($rutaImagen, $titulo, $direccionTitulo, $texto) {
         $bloque = '
-        <div class="col-lg-4 ecosistema-block">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-12 ecosistema-block">
             <div class="d-flex '.FlexTitleLoader::setDirection($direccionTitulo).'">
-                <img src="../../../../cartiexplora/'.$rutaImagen.'" alt="">
+                <img src="../../../../cartiexplora/'.$rutaImagen.'" alt="" class="img-fluid">
                 <h3 class="tx-orange ecosistema-title">'.$titulo.'</h3>
             </div>
 
@@ -68,7 +68,7 @@
     }
 
     if ($html != '') {
-        $html .= '<div class="row">'; 
+        $html .= '<div class="row m-0">'; 
 
         foreach ($datosBloques as $datos) {
             $html .= generarEcosistema($datos[0], $datos[1], $datos[2], $datos[3]); 

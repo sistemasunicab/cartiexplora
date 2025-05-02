@@ -148,3 +148,29 @@ INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones
 ('NO', '', 'SELECT * ', 'FROM tbl_textos ', 'WHERE id_seccion = 36', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 17 AND descripcion=|image-contact| ', '', '', '', '', '')
 ;
+
+INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES 
+('NO','','SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 37 AND visible = 1 ', '', '', '', '', ''),
+('NO','','SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 38 AND visible = 1 ', '', '', '', '', ''),
+('NO','','SELECT * ', 'FROM tbl_blogs ', 'WHERE id = ', '', '', '', '', ''),
+('NO','','', 'INSERT INTO tbl_comentarios_blog ', '', '', '', '', '', '(id_blog, comentario, correo, fecha) VALUES (?, ?, ?, ?) '),
+('NO','','SELECT * ', 'FROM tbl_comentarios_blog ', 'WHERE id_blog = ', '', '', '', '', ''),
+('NO','','SELECT * ', 'FROM tbl_formularios ', 'WHERE id_seccion = 37 ', '', 'ORDER BY id DESC', '', '', ''),
+('NO','','SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 38 ', '', '', '', '', ''),
+('NO','','SELECT * ', 'FROM tbl_enlaces ', 'WHERE id_seccion = 37 ', '', '', '', '', '');
+
+INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES 
+('NO','','SELECT * ','FROM tbl_secciones ','WHERE id = 39 AND visible = 1 ','','','','',''),
+('NO','','SELECT * ','FROM tbl_imagenes ','WHERE id_seccion = 39 ','','','','',''),
+('NO','','SELECT * ','FROM tbl_formularios ','WHERE id_seccion = 39 ','','','','',''),
+('NO','','SELECT * ','FROM tbl_textos ','WHERE id_seccion = 39 ','','','','',''),
+('NO','','SELECT valor, texto ','FROM tbl_conceptos_pago ','','','','','',''),
+('NO','','SELECT valor, texto ','FROM tbl_formas_pago ','','','','','','')
+;
+
+INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
+('NO','','SELECT * ','FROM tbl_secciones ','WHERE id = 40 AND visible = 1 ','','','','',''),
+('NO','','SELECT * ','FROM tbl_imagenes ','WHERE id_seccion = 40 ','','','','',''),
+('NO', '', 'SELECT * ', 'FROM tbl_formularios ', 'WHERE id_seccion = 25 ', '', '', '', '', ''),
+('NO', '', 'SELECT * ', 'FROM tbl_formularios ', 'WHERE id_seccion = 26 ', '', '', '', '', '')
+;

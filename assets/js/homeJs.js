@@ -260,6 +260,49 @@ $(document).ready(function () {
         mostrarSubmit(btnSubmit.id);
     });
 
+    $("#comentariosCampos").on("submit", function (e) {
+        e.preventDefault();
+
+        const urlParams = new URLSearchParams(window.location.search);
+        let blogId = parseInt(urlParams.get("blogId"));
+
+        let email = $("#correo").val();
+        let comentario = $("#comentario").val();
+
+        const data = {
+            id: blogId,
+            email: email,
+            comentario: comentario,
+        };
+
+        $.ajax({
+            url: "../../org/ajax/comentarios.php",
+            type: "POST",
+            data: data,
+            success: function (response) {
+                if (response.status === "success") {
+                    $("#comentariosCampos")[0].reset();
+
+                    const comment = $("#comentario-plantilla .comment-block").clone();
+                    comment.addClass('order-first');
+                    comment.find('.comentario').text(data.comentario);
+                    comment.find('.correo').text(data.email);
+
+                    const date = new Date();
+                    const d = String(date.getDate()).padStart(2, '0');
+                    const m = String(date.getMonth() + 1).padStart(2, '0'); // Los meses van de 0 a 11
+                    const y = String(date.getFullYear()).slice(-2); // Últimos 2 dígitos del año
+                    comment.find('.fecha').text(`${y}-${m}-${d}`);
+
+                    $('#comentarios').append(comment);
+                }
+            },
+            error: function (response) {
+                console.log(response)
+            },
+        });
+    });
+
     mostrarSubmit(btnSubmit.id);
 });
 
@@ -683,6 +726,34 @@ const limpiar = () => {
     $("#alert").hide();
 }
 
+function cambiarImagenBlog(objeto, ruta) {
+    const imagen = objeto.querySelector('img')
+    if (imagen) {
+        imagen.src = ruta;
+    }
+}
+
+function restaurarImagenBlog(objeto, ruta) {
+    const imagen = objeto.querySelector('img')
+    if (imagen) {
+        imagen.src = ruta;
+    }
+}
+
+function cambiarImagenBlog(objeto, ruta) {
+    const imagen = objeto.querySelector('img')
+    if (imagen) {
+        imagen.src = ruta;
+    }
+}
+
+function restaurarImagenBlog(objeto, ruta) {
+    const imagen = objeto.querySelector('img')
+    if (imagen) {
+        imagen.src = ruta;
+    }
+}
+
 
 /*Calendario*/
 
@@ -860,12 +931,41 @@ if (window.location.pathname.endsWith("estadosFinancieros.php")) {
             e.preventDefault();
         });
 
-        // commonjs
-        flatpickr("#display-calendar", {
-            clickOpens: true,  // Abre el calendario al hacer clic (por defecto true)
-            mode: "range"
-        });
+        const currentYear = new Date().getFullYear();
+        const startYear = 2010;
+        const endYear = 2030;
 
+        document.querySelectorAll(".year-trigger").forEach((imgEl) => {
+            const container = imgEl.closest("div");
+            const select = container.querySelector(".year-select");
+
+            // Rellenar el select solo si está vacío
+            if (select.options.length === 0) {
+                for (let year = startYear; year <= endYear; year++) {
+                    const option = document.createElement("option");
+                    option.value = year;
+                    option.textContent = year;
+
+                    if (year === currentYear) {
+                        option.selected = true;
+                    }
+
+                    select.appendChild(option);
+                }
+
+                new Choices(select, {
+                    searchEnabled: false,
+                    itemSelectText: '',
+                    shouldSort: false,
+                });
+            }
+
+            // Mostrar el selector al hacer clic en la imagen
+            imgEl.addEventListener("click", () => {
+                select.classList.remove("d-none");
+                select.focus();
+            });
+        });
     });
 }
 

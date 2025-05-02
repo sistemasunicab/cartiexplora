@@ -11,6 +11,34 @@ $res_datos_certificaciones = $mysqli1->query($sql_datos_certificaciones);
 while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
     if ($row_datos_certificaciones['visible'] != 1)
         continue;
+
+    $sentencia_formulario = "132";
+    $campos_formulario = [];
+
+    $res_sentecia = $mysqli1->query($sentencia . $sentencia_formulario);
+    while ($row_sentencia = $res_sentecia->fetch_assoc()) {
+        $sql_formulario = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
+    }
+
+    $res_formulario = $mysqli1->query($sql_formulario);
+
+    while ($row_datos_form = $res_formulario->fetch_assoc()) {
+        $campos_formulario[] = $row_datos_form;
+    }
+    
+    $nombre_certificaciones = array_shift($campos_formulario);
+    $identificacion_certificaciones = array_shift($campos_formulario);
+    $tipo_id_certificaciones = array_shift($campos_formulario);
+    $correo_certificaciones = array_shift($campos_formulario);
+    $telefono_certificaciones = array_shift($campos_formulario);
+    $grado_id_certificaciones = array_shift($campos_formulario);
+    $relacion_id_certificaciones = array_shift($campos_formulario);
+    $tipo_certificaciones = array_shift($campos_formulario);
+    $fecha_certificaciones = array_shift($campos_formulario);
+    $proposito_certificaciones = array_shift($campos_formulario);
+    $tratamiento_certificaciones = array_shift($campos_formulario);
+    $botton_certificaciones = array_shift($campos_formulario);
+
     $html_certificaciones = '<div class="col-lg-9 col-md-9 col-sm-12 col-12 my-5 p-0 mx-auto d-flex flex-column">';
     $html_certificaciones .= '<h3 class="col-lg-7 col-md-7 col-sm-10 col-10 mx-auto mx-md-0 tx-blue font-roboto-light-title">' . $row_datos_certificaciones['titulo'] . '</h3>';
     // Primera fila
@@ -21,36 +49,37 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
 
     $html_certificaciones .= '
     <input
-        onkeyup="validarCampo(this,\'nombre\', \'texto\', 1, \'submit-certificaciones-papeles\')"
-        required
-        id="nombre_certificaciones"
-        name="nombre"
+        onkeyup="validarCampo(this,\''.$nombre_certificaciones['texto'].'\', \''.$nombre_certificaciones['tipo'].'\', 1, \''.$botton_certificaciones['campo'].'\')"
+        '.$nombre_certificaciones['obligatorio'].'
+        id="'.$nombre_certificaciones['campo'].'"
+        name="'.$nombre_certificaciones['campo'].'"
         type="text"
         class="col-lg-4 col-md-4 col-sm-10 col-10 mx-auto ms-md-0 font-roboto-bolditalic my-2"
-        placeholder="Nombre Completo"
+        placeholder="'.$nombre_certificaciones['placeHolder'].'"
         autocomplete="name"
     >';
 
     $html_certificaciones .= '
     <input
-        onkeyup="validarCampo(this,\'identificacion\', \'numero\', 1, \'submit-certificaciones-papeles\')"
-        required
-        id="identificacion_certificaciones"
-        name="identificacion"
+        onkeyup="validarCampo(this,\''.$identificacion_certificaciones['texto'].'\', \''.$identificacion_certificaciones['tipo'].'\', 1, \''.$botton_certificaciones['campo'].'\')"
+        '.$identificacion_certificaciones['obligatorio'].'
+        id="'.$identificacion_certificaciones['campo'].'"
+        name="'.$identificacion_certificaciones['campo'].'"
         type="text"
         class="col-lg-4 col-md-4 col-sm-10 col-10 mx-auto ms-md-0 font-roboto-bolditalic my-2"
-        placeholder="Número de identificación"
+        placeholder="'.$identificacion_certificaciones['placeHolder'].'"
         autocomplete="off"
     >';
 
     $html_certificaciones .= '
     <div class="select-wrapper col-lg-3 col-md-3 col-sm-6 col-6 mx-auto my-2">
+            
         <select 
-            onkeyup="validarSelect(this,\'tipo\', \'submit-certificaciones-papeles\', \'\' )"
-            id="tipo_certificaciones" 
-            name="tipo_id_certificaciones" 
-            class="col-12 display-options little-paragraph font-roboto-italic tx-white">
-            <option value="" disabled selected>Tipo</option>
+            onkeyup="validarSelect(this,\''.$tipo_id_certificaciones['texto'].'\', \''.$botton_certificaciones['campo'].'\', \'\')"
+            id="'.$tipo_id_certificaciones['campo'].'" 
+            name="'.$tipo_id_certificaciones['campo'].'" 
+            class="col-12 p-2 display-options little-paragraph font-roboto-italic tx-white">
+            <option value="" disabled selected>'.$tipo_id_certificaciones['placeHolder'].'</option>
             <option value="Estudiante">Estudiante</option>
             <option value="Docente">Docente</option>
             <option value="Administrativo">Administrativo</option>
@@ -65,40 +94,38 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
     $html_certificaciones .= '<div class="my-2 d-flex flex-column flex-md-row justify-content-between">';
     $html_certificaciones .= '
     <input
-        onkeyup="validarCampo(this,\'correo\', \'correo\', 1, \'submit-certificaciones-papeles\')"
-        required
-        id="correo_certificaciones"
-        name="correo"
+        onkeyup="validarCampo(this,\''.$correo_certificaciones['texto'].'\', \''.$correo_certificaciones['tipo'].'\', 1, \''.$botton_certificaciones['campo'].'\')"
+        '.$correo_certificaciones['obligatorio'].'
+        id="'.$correo_certificaciones['campo'].'"
+        name="'.$correo_certificaciones['campo'].'"
         type="text"
         class="col-lg-4 col-md-4 col-sm-10 col-10 mx-auto ms-md-0 font-roboto-bolditalic my-2"
-        placeholder="Correo electrónico"
+        placeholder="'.$correo_certificaciones['placeHolder'].'"
         autocomplete="email"
     >';
 
     $html_certificaciones .= '
     <input
-        onkeyup="validarCampo(this,\'telefono\', \'numero\', 1, \'submit-certificaciones-papeles\')"
-        required
-        id="telefono_certificaciones"
-        name="telefono"
+        onkeyup="validarCampo(this,\''.$telefono_certificaciones['texto'].'\', \''.$telefono_certificaciones['tipo'].'\', 1, \''.$botton_certificaciones['campo'].'\')"
+        '.$telefono_certificaciones['obligatorio'].'
+        id="'.$telefono_certificaciones['campo'].'"
+        name="'.$telefono_certificaciones['campo'].'"
         type="text"
         class="col-lg-4 col-md-4 col-sm-10 col-10 mx-auto ms-md-0 font-roboto-bolditalic my-2"
-        placeholder="Número de teléfono"
+        placeholder="'.$telefono_certificaciones['placeHolder'].'"
         autocomplete="tel"
-        pattern="[0-9]+"
-        inputmode="tel"
     >';
 
     // Dropdown "Grado"
     $html_certificaciones .= '
     <div class="select-wrapper col-lg-3 col-md-3 col-sm-6 col-6 mx-auto my-2">
         <select
-            onkeyup   ="validarSelect(this, \'grado\', \'submit-certificaciones-papeles\', \'\' )"
-            id="grado_certificaciones"
-            name="grado_id_certificaciones"
-            class="col-12 display-options little-paragraph font-roboto-italic tx-white"
+            onkeyup="validarSelect(this, \''.$grado_id_certificaciones['texto'].'\', \''.$botton_certificaciones['campo'].'\', \'\')"
+            id="'.$grado_id_certificaciones['campo'].'"
+            name="'.$grado_id_certificaciones['campo'].'"
+            class="col-12 p-2 display-options little-paragraph font-roboto-italic tx-white"
         >
-            <option value="" disabled selected>Grado</option>
+            <option value="" disabled selected>'.$grado_id_certificaciones['placeHolder'].'</option>
             <option value="Primaria">Primaria</option>
             <option value="Secundaria">Secundaria</option>
             <option value="Universitario">Universitario</option>
@@ -112,15 +139,15 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
 
     // Dropdown "Relación con la institución"
     $html_certificaciones .= '
-    <div class="col-lg-4 col-md-4 col-sm-10 col-10 my-5">
+    <div class="col-lg-4 col-md-4 col-sm-10 col-10 mx-md-0 mx-auto my-5">
         <div class="col-12 select-wrapper">
             <select
-                onkeyup   ="validarSelect(this, \'relación\', \'submit-certificaciones-papeles\', \'relacion_certificaciones_otro\')"
-                id="relacion_certificaciones_select"
-                name="relacion_id_certificaciones"
+                onkeyup="validarSelect(this, \''.$relacion_id_certificaciones['texto'].'\', \''.$botton_certificaciones['campo'].'\', \'relacion_certificaciones_otro\')"
+                id="'.$relacion_id_certificaciones['campo'].'"
+                name="'.$relacion_id_certificaciones['campo'].'"
                 class="col-12 p-2 display-options little-paragraph font-roboto-italic tx-white"
             >
-                <option value="" disabled selected>Relación con la institución</option>
+                <option value="" disabled selected>'.$relacion_id_certificaciones['placeHolder'].'</option>
     ';
 
     // --- Carga dinámica de opciones ---
@@ -175,39 +202,40 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
 
     // Dropdown "Tipo de certificación"
     $html_certificaciones .= '
-    <div class="col-lg-4 col-md-4 col-sm-10 col-10 my-2">
+    <div class="col-lg-4 col-md-4 col-sm-10 col-10 mx-md-0 mx-auto my-2">
         <div class="col-12 select-wrapper">
             <select
-                onkeyup   ="validarSelect(this, \'certificación\', \'submit-certificaciones-papeles\', \'tipo_certificaciones_otro\')"
-                id="tipo_certificaciones_select"
-                name="certificacion_id"
+                onkeyup="validarSelect(this, \''.$tipo_certificaciones['texto'].'\', \''.$botton_certificaciones['campo'].'\', \'tipo_certificaciones_otro\')"
+                id="'.$tipo_certificaciones['campo'].'"
+                name="'.$tipo_certificaciones['campo'].'"
                 class="col-12 p-2 display-options little-paragraph font-roboto-italic tx-white"
             >
-                <option value="" disabled selected>Tipo de certificación</option>
+                <option value="" disabled selected>'.$tipo_certificaciones['placeHolder'].'</option>
     ';
 
-        // --- Carga dinámica de opciones ---
-        $numero_opciones_dropdown = "82";
-        $res_opciones_dropdown      = $mysqli1->query($sentencia . $numero_opciones_dropdown);
-        $sql_opciones_dropdown      = '';
+    // --- Carga dinámica de opciones ---
+    $numero_opciones_dropdown = "82";
+    $res_opciones_dropdown = $mysqli1->query($sentencia . $numero_opciones_dropdown);
+    $sql_opciones_dropdown = '';
 
-        while ($row_opciones = $res_opciones_dropdown->fetch_assoc()) {
-            $condiciones_opciones = str_replace('|', '\'', $row_opciones['condiciones']);
-            $sql_opciones_dropdown = 
-                $row_opciones['campos'] . 
-                $row_opciones['tablas'] . 
-                $condiciones_opciones;
-        }
+    while ($row_opciones = $res_opciones_dropdown->fetch_assoc()) {
+        $condiciones_opciones = str_replace('|', '\'', $row_opciones['condiciones']);
+        $sql_opciones_dropdown =
+            $row_opciones['campos'] .
+            $row_opciones['tablas'] .
+            $condiciones_opciones;
+    }
 
-        if (!empty($sql_opciones_dropdown)) {
-            $res_datos_opciones = $mysqli1->query($sql_opciones_dropdown);
-            while ($row = $res_datos_opciones->fetch_assoc()) {
-                if ((int)$row['visible'] !== 1) continue;
-                $valor = htmlspecialchars($row['valor'], ENT_QUOTES, 'UTF-8');
-                $html_certificaciones .=
-                    '<option value="' . $valor . '">' . $valor . '</option>';
-            }
+    if (!empty($sql_opciones_dropdown)) {
+        $res_datos_opciones = $mysqli1->query($sql_opciones_dropdown);
+        while ($row = $res_datos_opciones->fetch_assoc()) {
+            if ((int) $row['visible'] !== 1)
+                continue;
+            $valor = htmlspecialchars($row['valor'], ENT_QUOTES, 'UTF-8');
+            $html_certificaciones .=
+                '<option value="' . $valor . '">' . $valor . '</option>';
         }
+    }
 
     $html_certificaciones .= '
             </select>
@@ -257,21 +285,21 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
             $image_path = '../../../' . $ruta;
         }
 
-        $html_certificaciones .= '<div id="display-calendar" class="my-5 my-md-0 col-lg-2 col-md-2 col-sm-8 col-8 d-flex flex-column align-items-center text-center mx-auto position-relative">';
+        $html_certificaciones .= '<div class="my-5 my-md-0 col-lg-2 col-md-2 col-sm-8 col-8 d-flex flex-column align-items-center text-center mx-auto position-relative">';
         $html_certificaciones .= '<p class="text-up-absolute">' . $row_data_image["titulo"] . '</p>';
-        $html_certificaciones .= '<img src="' . $image_path . '" alt="' . $alt . '" class="img-fluid" style="width:80px;">';
-        // Add the "Ver" button with margin-left, box shadow, circular border, and auto height
+        $html_certificaciones .= '<img src="' . $image_path . '" alt="' . $alt . '" class="img-fluid year-trigger" style="width:80px; cursor:pointer;">';
+        $html_certificaciones .= '<select id="certificaciones_date" required class="year-select mt-2 d-none"></select>';
         $html_certificaciones .= '</div>';
 
     }
     $html_certificaciones .= '
     <textarea
-        onkeyup="validarCampo(this,\'proposito\', \'texto\', 1, \'submit-certificaciones-papeles\')"
-        id="proposito_certificaciones"
-        required
-        name="proposito"
+        onkeyup="validarCampo(this, \''.$proposito_certificaciones['texto'].'\', \''.$proposito_certificaciones['tipo'].'\', 1, \''.$botton_certificaciones['campo'].'\')"
+        id="'.$proposito_certificaciones['campo'].'"
+        '.$proposito_certificaciones['obligatorio'].'
+        name="'.$proposito_certificaciones['campo'].'"
         class="text-area-input col-lg-4 col-md-4 col-sm-10 col-10 mx-auto mx-md-0"
-        placeholder="Propósito del documento"
+        placeholder="'.$proposito_certificaciones['placeHolder'].'"
         rows="4"
         autocomplete="off"
     ></textarea>
@@ -281,20 +309,19 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
     $html_certificaciones .= '
     <div class="my-4 my-md-3 mx-auto mx-md-0 form-check d-flex align-items-center gap-2">
         <input
-            required
+            '.$tratamiento_certificaciones['obligatorio'].'
             class="form-check-input"
             type="checkbox"
-            id="tratamiento_certificaciones"
-            name="tratamiento"
+            id="'.$tratamiento_certificaciones['campo'].'"
+            name="'.$tratamiento_certificaciones['campo'].'"
         >
         <label
             class="form-check-label d-flex align-items-center font-roboto-regular special-paragraph m-0"
-            for="tratamiento_certificaciones"
+            for="'.$tratamiento_certificaciones['campo'].'"
         >
-            Acepto tratamiento de datos.
+            '.$tratamiento_certificaciones['texto'].'
         </label>
-    </div>
-    ';
+    </div>';
 
     $number_sentence_image = "103";
     $res_sentence_image = $mysqli1->query($sentencia . $number_sentence_image);
@@ -322,22 +349,23 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
             $image_path = '../../../' . $ruta;
         }
     }
-    $html_certificaciones .= '<button id="submit-certificaciones-papeles" class="btn p-2 bg-orange col-lg-2 col-md-3 col-sm-4 col-4 mx-auto mt-3">';
+    $html_certificaciones .= '<button id="'.$botton_certificaciones['campo'].'" class="btn p-2 bg-orange col-lg-2 col-md-3 col-sm-4 col-4 mx-auto mt-3">';
     $html_certificaciones .= '<div class="d-flex flex-row align-items-center justify-content-center">';
-    $html_certificaciones .= '<p class="special-paragraph font-roboto-medium tx-white m-0 mx-2">Solicitar</p>';
+    $html_certificaciones .= '<p class="special-paragraph font-roboto-medium tx-white m-0 mx-2">'.$botton_certificaciones['texto'].'</p>';
     $html_certificaciones .= '<img src="' . $image_path . '" alt="' . $alt . '" class="img-fluid" style="width:30px;">';
     $html_certificaciones .= '</div>';
     $html_certificaciones .= '</button>';
     $html_certificaciones .= '</div>'; // Cierre contenedor principal
 
-    $html_certificaciones .= '</div>';
+    $html_certificaciones .= '</form>';
 
     $html_certificaciones .= '</div>';
 }
 ?>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+
 
 <div class="container-fluid m-0 p-0" id="certificaciones">
     <div class="row m-0 p-0">

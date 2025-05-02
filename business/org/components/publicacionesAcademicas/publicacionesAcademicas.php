@@ -33,7 +33,7 @@
         
         $html .= '<main class="container my-5">';
         $html .=    '<div class="row my-5">';
-        $html .=        '<div class="col-lg-12">';
+        $html .=        '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
         $html .=            '<h2 class="tx-blue font-roboto-light-title tx-uppercase">' . $row_sentencia['titulo'] . '</h2>';
         $html .=        '</div>';
         $html .=    '</div>';
@@ -49,24 +49,28 @@
             $date = new DateTime($row_publicacion['fechaSubida']);
             
             $html .= '<div class="row my-5">';
-            $html .=    '<div class="col-lg-5">';
+            $html .=    '<div class="col-lg-5 col-md-5 col-sm-12 col-12">';
             $html .=        '<h4 class="font-roboto-black mb-5">'. $row_publicacion['titulo'] .'</h4>';
-            $html .=        '<img '.ImageAttributeBuilder::buildAttributes($nivel, $row_publicacion['rutaImagen'], $row_publicacion['descripcionImagen']).' class="img-fluid w-75">';
+            $html .=        '<div class="row justify-content-evenly align-items-center my-5">';
+            $html .=            '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
+            $html .=                '<img '.ImageAttributeBuilder::buildAttributes($nivel, $row_publicacion['rutaImagen'], $row_publicacion['descripcionImagen']).' class="img-fluid w-75">';
+            $html .=            '</div>';
+            $html .=        '</div>';
             $html .=    '</div>';
-            $html .=    '<div class="col-lg-7">';
-            $html .=        '<p class="special-paragraph">Publicación: '.$date->format('m/Y'). '</p>';
+            $html .=    '<div class="col-lg-7 col-md-7 col-sm-12 col-12">';
+            $html .=        '<p class="special-paragraph tx-orange">Publicación: '.$date->format('m/Y'). '</p>';
             $html .=        '<p>'. $row_publicacion['texto'] . '</p>';
             $html .=        '<div class="row align-items-center my-5">';
-            $html .=            '<div class="col-lg-2">';
+            $html .=            '<div class="col-lg-2 col-lg-2 col-sm-4 col-4">';
             $html .=                '<a onclick="descargarArchivo(\'' . $nivel . '\', \''. $row_publicacion['ruta'] .'\', \''.$row_publicacion['nombreArchivo'] . '\', \'' . $row_publicacion['destino'] .'\')" class="download-button">';
             $html .=                    $iconoPdf;
             $html .=                '</a>';
             $html .=            '</div>';
-            $html .=            '<div class="col-lg-1"></div>';
-            $html .=            '<div class="col-lg-4">';
+            $html .=            '<div class="col-lg-1 col-md-1 col-sm-2 col-2"></div>';
+            $html .=            '<div class="col-lg-4 col-lg-4 col-sm-6 col-6">';
             $html .=                '<a href="'. $row_publicacion['linkLeer'] .'" class="publications-button bg-orange tx-white">Leer</a>';
             $html .=            '</div>';
-            $html .=            '<div class="col-lg-5"></div>';
+            $html .=            '<div class="col-lg-5 col-md-5 d-md-block d-none"></div>';
             $html .=        '</div>';
             $html .=    '</div>';
             $html .= '</div>';
