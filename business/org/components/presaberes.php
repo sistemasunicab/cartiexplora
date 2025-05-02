@@ -43,11 +43,11 @@
           <main class="bg-bold-blue margin-top-5rem">
                <div class="container py-5">
                     <div class="row justify-content-center">
-                         <div class="col-lg-1 col-md-1 col-sm-3 col-3 my-auto">
+                         <div class="col-lg-1 col-md-3 col-sm-3 col-3 my-auto">
                               <img class="img-fluid w-100" src="../../../'.$rutaIconoInicio.'" alt="">
                          </div>
 
-                         <div class="col-lg-7 col-md-7 col-sm-12 col-12 d-flex '.FlexTitleLoader::setDirection($posicionTitulo).' align-items-center">
+                         <div class="col-lg-7 col-md-12 col-sm-12 col-12 d-flex '.FlexTitleLoader::setDirection($posicionTitulo).' align-items-center">
                               <h2 class="font-roboto-black tx-white text-lg-start text-center">'.$row_datos_seccion['titulo'].'</h2>
                               <p class="font-roboto tx-white text-lg-start text-center">'.$row_datos_seccion['subTitulo'].'</p>
                               <a class="orange-btn-1" href="">Iniciar</a>

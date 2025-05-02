@@ -16,7 +16,7 @@
 
      function generarBlog($datos) {
           $bloque = '
-          <div class="col-lg-2 col-md-2 col-sm-8 col-8 p-0 d-flex align-items-center flex-column transform-hover" '.construirAtributosBlog($datos['rutaImagen'], $datos['rutaImagenEncima']).' > <!-- Block start -->
+          <div class="col-lg-2 col-md-6 col-sm-8 col-8 p-0 d-flex align-items-center flex-column transform-hover" '.construirAtributosBlog($datos['rutaImagen'], $datos['rutaImagenEncima']).' > <!-- Block start -->
                <img src="'.$datos['rutaImagen'].'" alt="" class="blog-img box-shadow-o5rem">
                
 
@@ -119,7 +119,7 @@
                </div>
           </div>
                
-          <div class="row justify-content-around my-4 gap-5">
+          <div class="row justify-content-lg-around justify-content-center my-4 gap-5">
           ';
 
           foreach($blogs as $datosBlog) {

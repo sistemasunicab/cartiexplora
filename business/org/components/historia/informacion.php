@@ -48,14 +48,14 @@
         
         $count = 0;
         foreach ($imagenesArriba as $imgRuta) {
-            $mobileCol = 'col-sm-6 col-6';
+            $mobileCol = 'col-md-6 col-sm-6 col-6';
 
             if ($count % 3 == 2) {
-                $mobileCol = 'col-sm-12 col-12';
+                $mobileCol = 'col-md-12 col-sm-12 col-12';
             }
 
             $html .= '
-            <div class="col-lg-3 col-md-3 '.$mobileCol.' mb-4">
+            <div class="col-lg-4 '.$mobileCol.' mb-4">
                 <img class="img-fluid w-100 p-0 historia-info-img" src="../../../../cartiexplora/'.$imgRuta.'" alt="">
             </div>
             

@@ -74,7 +74,7 @@
 
         foreach ($links as $link) {
           $html .= '
-               <div class="col-lg-3 col-md-3 col-sm-12 col-12 mb-4 d-flex justify-content-center">
+               <div class="col-lg-3 col-md-7 col-sm-12 col-12 mb-4 d-flex justify-content-center">
                     <a href="" class="blogsearch-link bg-orange w-100">'.$link["linkName"].'</a>
                </div>
           ';

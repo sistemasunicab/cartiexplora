@@ -5,7 +5,7 @@
      function crearLink($datos){
           $direccion = FlexTitleLoader::setDirection($datos[2]);
           $link = '   
-                    <div class="col-lg-4 col-md-4 col-sm-5 col-5 linksZone-linkGlobal '.$direccion.'"> <!-- Link -->
+                    <div class="col-lg-4 col-md-5 col-sm-5 col-5 linksZone-linkGlobal '.$direccion.'"> <!-- Link -->
                          <img src="'.$datos[0].'" alt="" class="linksZone-img">
                          <a href="#" class="font-roboto-bolditalic m-0 linksZone-a special-paragraph">'.$datos[1].'</a>
                     </div> <!-- Link End -->

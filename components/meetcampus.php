@@ -46,14 +46,14 @@
      // Verificando la visibilidad de la seccion
      if ($html != '') {
           $html .= '
-          <div class="row justify-content-between gap-5">
+          <div class="row justify-content-between">
           ';
 
           // Renderizando las imagenes del campus
           foreach ($campusImgs as $img) {
                $html .= '
-               <div class="col-lg-3 col-md-3 col-sm-12 col-12">
-                    <img src="'.$img.'" alt="" class="img-fluid w-100 p-lg-0 p-4">
+               <div class="col-lg-3 col-md-4 col-sm-12 col-12">
+                    <img src="'.$img.'" alt="" class="img-fluid w-100 p-lg-0 p-md-0 p-4">
                </div>
                ';
           }

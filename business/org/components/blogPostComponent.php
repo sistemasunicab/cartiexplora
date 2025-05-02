@@ -148,7 +148,7 @@
                </div>
           </div>
 
-          <div class="row py-5">
+          <div class="row justify-content-center py-5">
         '; 
 
           $fecha = new DateTime($showBlog['fechaPublicacion']);
@@ -156,7 +156,7 @@
           $fechaFormateada = $formatter->format($fecha);
 
           $html .= '
-               <div class="col-lg-8 col-md-8 col-sm-12 col-12 px-3">
+               <div class="col-lg-8 col-md-10 col-sm-12 col-12 px-3">
                     <div class="row m-0">
                          <div class="col-lg-8 col-md-8 col-sm-12 col-12">
                               <h3 class="font-roboto-black tx-blue m-0">'.$showBlog['tituloBlog'].'</h3>
@@ -184,7 +184,7 @@
                     </div>
                </div>
 
-               <aside class="col-lg-4 col-md-4 col-sm-12 col-12 d-flex flex-column gap-5 ps-lg-5 order-lg-last order-first mb-lg-0 mb-5">
+               <aside class="col-lg-4 col-md-7 col-sm-12 col-12 d-flex flex-column gap-5 ps-lg-5 order-lg-last order-first mb-lg-0 mb-5">
                     <div class="d-flex flex-column align-items-center bg-white px-3 py-4">
                          <p class="font-roboto-bold d-block">Siguenos en Facebook</p>
                          <iframe name="f68d834d7301a08bb" width="1000px" height="1000px" data-testid="fb:page Facebook Social Plugin" title="fb:page Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v5.0/plugins/page.php?adapt_container_width=true&amp;app_id=&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df61df77fa7a2c9a63%26domain%3Dunicab.org%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Funicab.org%252Ffec1659497d47cfb9%26relation%3Dparent.parent&amp;container_width=260&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Funicabvir%2F&amp;locale=es_LA&amp;sdk=joey&amp;show_facepile=false&amp;small_header=false&amp;tabs=timeline&amp;width=" style="border: none; visibility: visible; width: 260px; height: 500px;" class=""></iframe>
@@ -204,9 +204,9 @@
                               $html .= '<p class="special-paragraph font-roboto-bold m-0">'.$blogActualFecha.'</p>';
 
                               $html .= '
-                                   <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <p class="font-roboto m-0">'.$blog['tituloBlog'].'</p>
-                                        <a href="../../../business/org/pages/blogPost.php?blogId='.urlencode($blog['blogId']).'" class="rounded-3 bg-orange tx-white tx-center font-roboto-bolditalic px-3 py-2 m-0">'.$blog['textoBoton'].'</a>
+                                   <div class="row mx-0 justify-content-between align-items-center mb-3">
+                                        <p class="font-roboto m-0 col-7">'.$blog['tituloBlog'].'</p>
+                                        <a href="../../../business/org/pages/blogPost.php?blogId='.urlencode($blog['blogId']).'" class="col-4 rounded-3 bg-orange tx-white text-center font-roboto-bolditalic py-2 m-0">'.$blog['textoBoton'].'</a>
                                    </div>
                                    <img src="../../../'.$blog['imagenPrincipal'].'" alt="blog img" class="img-fluid w-100">
                               </div>
@@ -247,7 +247,7 @@
           
           <section class="container my-5">
                <div class="row mb-4">
-                    <div class="col-lg-8 col-md-8 col-sm-12 col-12">
+                    <div class="col-lg-8 col-md-12 col-sm-12 col-12">
                          <form class="d-flex flex-column gap-3 border-green px-0 pb-3" id="comentariosCampos">
                               <h4 class="bg-green tx-white py-3 text-center font-roboto-bolditalic m-0">Dejame tu comentario</h4>
 
@@ -260,7 +260,7 @@
                                         <input onkeyup="validarCampo(this, \''.$correoCampo['texto'].'\', \'correo\', 1, \'send_blog_comment\')" type="' . $correoCampo['tipo'] . '" id="' . $correoCampo['campo'] . '" class="campoFormulario w-100 p-2" ' . $correoCampo['obligatorio'] . ' ' . $correoCampo['soloLectura'] . ' ' . $correoCampo['habilitado'] . ' placeholder="'.$correoCampo['placeHolder'].'">
                                    </div>
                                    
-                                   <div class="col-lg-5 col-md-5 col-sm-12 col-12 p-0 d-flex">
+                                   <div class="col-lg-5 col-md-8 col-sm-12 col-12 p-0 d-flex">
                                         <input class="campoFormulario m-3" type="' . $aceptarDatosCampo['tipo'] . '" id="' . $aceptarDatosCampo['campo'] . '" name="' . $aceptarDatosCampo['campo'] . '" ' . $aceptarDatosCampo['obligatorio'] . ' ' . $aceptarDatosCampo['soloLectura'] . ' ' . $aceptarDatosCampo['habilitado'] . '>
                                         <p class="special-paragraph mx-3">'.$aceptarDatosCampo['texto'].' *</p>
                                    </div>
@@ -292,7 +292,7 @@
 
 
                <div class="row mb-3" id="comentarios">
-                    <div class="col-lg-8 col-md-8 col-sm-12 col-12 order-first">
+                    <div class="col-lg-8 col-md-12 col-sm-12 col-12 order-first">
                          <div class="row">
                               <div class="col-lg-8 col-md-8 col-sm-6 col-6">
                                    <p class="font-roboto-bolditalic">Comentario</p>
@@ -305,7 +305,7 @@
 
           foreach ($comentarios as $comentario) {
                $html .= '
-                    <div class="comment-block col-lg-8 col-md-8 col-sm-12 col-12">
+                    <div class="comment-block col-lg-8 col-md-12 col-sm-12 col-12">
                          <hr class="blog-separator border-1 w-100">
 
                          <div class="row bg-light-gray-o26 py-3 m-0">

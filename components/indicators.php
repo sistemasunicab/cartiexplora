@@ -9,7 +9,7 @@
                          <img src="'.$datos[0].'" alt="" class="indicator-img img-fluid">
                          
                          <div class="indicator-data">
-                              <p class="font-roboto-light indicator-p m-0 p-0 lh-1">'.$datos[1].'</p> 
+                              <p class="font-roboto-light indicator-p m-0 p-0 lh-1 little-paragraph-md">'.$datos[1].'</p> 
                               <h3 class="font-roboto-black p-0 m-0 lh-1 tx-blue">1000</h3>
                          </div>
                     </div> <!-- Indicator End -->
