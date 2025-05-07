@@ -78,7 +78,7 @@
         $html .=    '<div class="row p-lg-0 p-md-0 p-sm-3 p-3 ">';
 
         while ($row_imagenes = $res_imagenes->fetch_assoc()) {
-            $html .=    '<div class="col-lg-2 col-md-2 col-sm-4 col-4 line">';
+            $html .=    '<div class="col-lg-2 col-md-4 col-sm-4 col-4 line">';
             $attributes = ImageAttributeBuilder::buildAttributes($nivel, $row_imagenes['ruta'], $row_imagenes['descripcion'], $row_imagenes['rutaEncima']);
             $html .= posicionTituloImagen('<img class="habilidades-img" ' . $attributes . '>', $row_imagenes['titulo'], $row_imagenes['posicionTitulo'], $row_imagenes['enlace']);
             $html .=    '</div>'; 

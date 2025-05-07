@@ -3,7 +3,7 @@
     function tratarTexto($texto){
         $textoInsertarCienCaracteres = '<span class="show"> ...</span><span class="hide">';
         $textoInsertarFinalCadena = '</span>';
-        $posicion = 450;
+        $posicion = 350;
         $nuevaCadena = substr_replace($texto, $textoInsertarCienCaracteres, $posicion, 0);
         return $nuevaCadena . $textoInsertarFinalCadena;
     }    
@@ -117,19 +117,22 @@
         $html .= '<section class="container my-5">';
         $html .=    '<div class="row p-3 my-5">';
         for ($i = 0; $i < $numeroCards; $i++) {
-            $html .=        '<div class="col-lg-5 col-md-5 col-sm-12 col-12 value my-5">';
-            $html .=             posicionTitulo('<img' . ImageAttributeBuilder::buildAttributes($nivel, $imagenes[$i]['ruta'], $imagenes[$i]['descripcion']) . ' class="principios-icon img-fluid h-auto">', $imagenes[$i]['titulo'], $imagenes[$i]['posicionTitulo']);
-            $html .=             '<div class="row">';
-            $html .=                 '<div class="values-card col-lg-12 col-md-12 col-sm-12 col-12" id="'.$imagenes[$i]['titulo']. '-'. $i .'">';
-            $html .=                     '<p class="special-paragraph text-lg-start">' . tratarTexto($textos[$i]['texto']) . '</p>';
-            $html .=                     '<div class="d-flex justify-content-end">';
-            $html .=                         '<a class="special-paragraph bg-orange tx-white p-3 rounded principios-button" role="button" onclick="leerMasPrincipios(\''.$imagenes[$i]['titulo']. '-'. $i .'\', this)">Leer más</a>';
-            $html .=                     '</div>';
-            $html .=                 '</div>';
-            $html .=             '</div>';
-            $html .=         '</div>';
-            if($i % 2 === 0){
-                $html .=        '<div class="col-lg-2 col-md-2 d-lg-block d-md-block d-none my-4"></div>';
+            $html .=        '<div class="col-lg-5 col-md-12 col-sm-12 col-12 value my-5">';
+            if (strtolower($imagenes[$i]['titulo']) === strtolower($textos[$i]['identificacion'])) {
+                
+                $html .=             posicionTitulo('<img' . ImageAttributeBuilder::buildAttributes($nivel, $imagenes[$i]['ruta'], $imagenes[$i]['descripcion']) . ' class="principios-icon img-fluid">', $imagenes[$i]['titulo'], $imagenes[$i]['posicionTitulo']);
+                $html .=             '<div class="row">';
+                $html .=                 '<div class="values-card col-lg-12 col-md-12 col-sm-12 col-12" id="'.$imagenes[$i]['titulo']. '-'. $i .'">';
+                $html .=                     '<p class="special-paragraph text-lg-start">' . tratarTexto($textos[$i]['texto']) . '</p>';
+                $html .=                     '<div class="d-flex justify-content-end">';
+                $html .=                         '<a class="special-paragraph bg-orange tx-white p-3 rounded principios-button" role="button" onclick="leerMasPrincipios(\''.$imagenes[$i]['titulo']. '-'. $i .'\', this)">Leer más</a>';
+                $html .=                     '</div>';
+                $html .=                 '</div>';
+                $html .=             '</div>';
+                $html .=         '</div>';
+                if($i % 2 === 0){
+                    $html .=        '<div class="col-lg-2 d-lg-block d-none my-4"></div>';
+                }
             }
         }
         $html .=     '</div>';
