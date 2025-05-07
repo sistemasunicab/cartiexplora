@@ -1527,43 +1527,69 @@ input[type="text"], .select, textarea {
 .home-button-fixed {
     position: fixed;
     top: 50%;
-    right: 2%;
-    border-radius: 5rem;
+    right: 1%;
+    border-radius: 10px;
     transform: translateY(-50%);
-    max-width: 4rem;
-    max-height: fit-content;
+    width: 4rem;
     z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 }
 
-/* Estilos base para cada elemento icono */
 .button-move {
-    display: inline-flex;
-    transition: transform 0.3s ease, display 0.3s ease; 
-}
-  
-/* Estilos para el texto que aparece */
-.button-fixed-text {
-  display: none;
-  transform: translate(-66%);
-  font-family: var(--roboto-bold);
-  border-top-left-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
-  transition: transform 0.3s ease, display 0.3s ease;
-  white-space: nowrap;
-}
-  
-/* Al hacer hover sobre el enlace, se desplaza el conjunto */
-.button-section .button-move:hover {
-  transform: translateX(-40%);
-}
-  
-.button-section .button-move:hover .button-fixed-icon {
-    display: none
+    display: inline-block;
+    text-align: center;
 }
 
-.button-section .button-move:hover .button-fixed-text {
-    display: inline-flex;
+.button-move_content {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+    padding: .5rem;
+}
 
+
+.button-move:hover .button-move_content {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    gap: .6rem;
+    border-radius: 10px;
+    background-color: var(--orange);
+    transform: translateX(calc(-100% + 55px));
+}
+
+.button-move_content p {
+    margin: 0;
+    height: 0;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.button-move:hover .button-move_content p {
+    opacity: 1;
+    height: auto;
+    visibility: visible;
+    color: black;
+    font-weight: 700;
+}
+
+.button-move-icon {
+    max-width: 2rem;
+    object-fit: contain;
+    width: 100%;
+    height: auto;
+}
+
+.modal-body, .modal-body iframe {
+    width: 100%;
+    height: auto;
+    min-height: 35rem;
 }
 
 @media (max-width: 767px) {
@@ -1575,7 +1601,10 @@ input[type="text"], .select, textarea {
     .home-button-fixed {
         position: sticky;
         width: 100%;
-        max-width: none;
+        display: grid;
+        align-items: center;
+        text-align: center;
+        grid-template-columns: 2fr 1fr 2fr;
         border-radius: unset;
         top: 0;
         right: 0;
@@ -1583,37 +1612,44 @@ input[type="text"], .select, textarea {
         z-index: 100;
     }
 
+    .home-button-fixed a {
+        margin: 0;
+    }
+    .home-button-fixed a:last-of-type {
+        margin: 0;
+    }
     /* Estilos base para cada elemento icono */
     .button-move {
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-basis: 2;
     }
 
-    /* Estilos para el texto que aparece */
-    .button-fixed-text {
-        display: inline-block;
-        transform: translate(0%);
-        font-family: var(--roboto-bold);
-        font-size: 3vw;
-        border-top-left-radius: unset;
-        border-bottom-left-radius: unset;
-    }
-    .button-fixed-icon{
+    .button-move-icon{
         display: inline-block;
         max-width: 7vw;
     }
-
-    .button-section .button-move:hover {
-        transform: unset;
-    }
     
-    .button-section .button-move:hover .button-fixed-icon {
-        display: inline-block;
+    .button-move_content p {
+        display: none;
     }
-  
-    .button-section .button-move:hover .button-fixed-text {
-        display: inline-block;
+
+    .button-move:hover .button-move_content p {
+        display: none;
+    }
+
+    .button-move_content {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+        gap: .6rem;
+        padding: .5rem;
+    }
+
+    .button-move:hover .button-move_content {
+        transform: unset;
     }
 
     /* DESCUBRE TUS HABILIDADES */
@@ -1695,7 +1731,7 @@ input[type="text"], .select, textarea {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-ul.pagos-concepto li img{
+.flecha-icon{
     width: 8%;
 }
 

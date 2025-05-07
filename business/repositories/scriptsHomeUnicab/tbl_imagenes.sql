@@ -185,3 +185,8 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, ruta
 (40, 'assets/img/pagos/statement.png', '', '', '', 'statement-cion', 'Costos', '', '', ''),
 (40, 'assets/img/paper_14969976.svg', '', '', '', 'descargar-pdf', 'Ver', '', '', ''),
 (40, 'assets/img/ayuda.gif', '', '', '', 'imagen ayuda', 'Contáctate con nuestro equipo de trabajo', '', '', '');
+
+UPDATE tbl_imagenes SET titulo = '' WHERE (id = 130);
+UPDATE tbl_imagenes SET titulo = 'Inscripciones Abiertas', enlace = '#inscripcionesAbiertas' WHERE (id = 131);
+UPDATE tbl_imagenes SET enlace = 'https://wa.me/573008156531/?text=Hola necesito asesoría del proceso de admisiones.' WHERE (id = 129);
+
