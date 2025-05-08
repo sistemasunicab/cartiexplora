@@ -43,8 +43,7 @@
     $html .= '</div>
         <div class="carousel-inner">';
 
-    // Renderiza un item del carrusel con sus respectivos componenetes
-    $firstImage = 0;
+    $primerItemCarrusel = true;
 
     for ($i = 0; $i < sizeof($rows_imagenes); $i++) {
         if ($rows_imagenes[$i]['linkImagen'] == '') $link_image = '';
@@ -54,51 +53,36 @@
         $text_button = $rows_imagenes[$i]['textoBoton'];
         $styles = ButtonStylesBannerBuilder::buildStyles($rows_imagenes[$i]['color'], $rows_imagenes[$i]['transparencia'], $rows_imagenes[$i]['porcentajeTop'], $rows_imagenes[$i]['porcentajeLeft']);
 
-        $atributosEscritorio = ImageAttributeBuilder::buildAttributes($nivel, $rows_imagenes[$i]['ruta']);
+        $atributosEscritorio = ImageAttributeBuilder::buildsrcset($nivel, $rows_imagenes[$i]['ruta']);
+        $atributosTabletaVertical = ImageAttributeBuilder::buildsrcset($nivel, $rows_imagenes[$i]['rutaTabletaVertical']);
+        $atributosTabletaHorizontal = ImageAttributeBuilder::buildsrcset($nivel, $rows_imagenes[$i]['rutaTabletaHorizontal']);
         $atributosMovil = ImageAttributeBuilder::buildAttributes($nivel, $rows_imagenes[$i]['rutaMovil']);
-        $atributosTabletaVertical = ImageAttributeBuilder::buildAttributes($nivel, $rows_imagenes[$i]['rutaTabletaVertical']);
-        $atributosTabletaHorizontal = ImageAttributeBuilder::buildAttributes($nivel, $rows_imagenes[$i]['rutaTabletaHorizontal']);
-
-        $imagenes = [
-            [
-                'atributos' => $atributosEscritorio,
-                'clases'    => 'd-lg-inline d-md-none d-sm-none d-none img-fluid w-100'
-            ],
-            [
-                'atributos' => $atributosMovil,
-                'clases'    => 'd-lg-none d-md-none d-sm-none d-inline img-fluid w-100'
-            ],
-            [
-                'atributos' => $atributosTabletaVertical,
-                'clases'    => 'd-lg-none d-md-none d-sm-inline d-none img-fluid w-100'
-            ],
-            [
-                'atributos' => $atributosTabletaHorizontal,
-                'clases'    => 'd-lg-none d-md-inline d-sm-none d-none img-fluid w-100'
-            ]
-        ];
 
         // El primer item o div del carrusel debe tener la clase "active", el resto no.
-        if ($firstImage  == 0) {
+        if ($primerItemCarrusel) {
             $html .= '<div class="carousel-item active">';
             $html .=    '<a href="' . $link_image . '">';
 
-            foreach ($imagenes as $img) {
-                $html .= '<img ' . $img['atributos'] . ' class="' . $img['clases'] . '">';
-            }
-
+            $html .=        '<picture>';
+            $html .=           '<source '. $atributosEscritorio.' media="(min-width: 992px)">';
+            $html .=           '<source  '.$atributosTabletaHorizontal.' media="(min-width: 768px)">';
+            $html .=           '<source '.$atributosTabletaVertical.' media="(min-width: 576px)">';
+            $html .=           '<img '. $atributosMovil .' alt="Descripción de la imagen" class="img-fluid w-100">';
+            $html .=        '</picture>';
+            
             $html .=    '</a>';
             $html .=    '<a href="' . $link_button . '" class="button-carousel button-absolute" style="' . $styles . '" role="button">' . $text_button . '</a>';
             $html .= '</div>';
-            $firstImage++;
+            $primerItemCarrusel = false;
         } else {
             $html .= '<div class="carousel-item">';
             $html .=    '<a href="' . $link_image . '">';
-            
-            foreach ($imagenes as $img) {
-                $html .= '<img ' . $img['atributos'] . ' class="' . $img['clases'] . '">';
-            }
-
+            $html .=        '<picture>';
+            $html .=           '<source '. $atributosEscritorio.' media="(min-width: 992px)">';
+            $html .=           '<source  '.$atributosTabletaHorizontal.' media="(min-width: 768px)">';
+            $html .=           '<source '.$atributosTabletaVertical.' media="(min-width: 576px)">';
+            $html .=           '<img '. $atributosMovil .' alt="Descripción de la imagen" class="img-fluid w-100">';
+            $html .=        '</picture>';
             $html .=    '</a>';
             $html .=    '<a href="' . $link_button . '" class="button-carousel button-absolute" style="' . $styles . '" role="button">' . $text_button . '</a>';
             $html .= '</div>';
