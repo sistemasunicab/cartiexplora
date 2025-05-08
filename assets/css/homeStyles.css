@@ -814,16 +814,6 @@ input[type="checkbox"] {
     object-position: center;
 }
 
-@media (max-width: 768px) {
-    .blog-img {
-        height: 14rem;
-        width: 100%;
-    
-        object-fit: cover;
-        object-position: center;
-    }
-}
-
 .blog-btn {
     border: none;
     padding: .5rem;
@@ -870,6 +860,14 @@ input[type="checkbox"] {
 }
 
 @media (max-width: 768px) {
+    .blog-img {
+        height: 14rem;
+        width: 100%;
+    
+        object-fit: cover;
+        object-position: center;
+    } 
+
     .blog-newsletter a {
         display: flex;
         width: 35%;
@@ -877,6 +875,108 @@ input[type="checkbox"] {
     
     .blog-newsletter input {
         width: 50%;
+    }
+
+    .button-absolute {
+        font-size: 3vw;  
+        padding: 2vw 2vw;  
+    }
+
+    .home-button-fixed {
+        position: sticky;
+        width: 100%;
+        display: grid;
+        align-items: center;
+        text-align: center;
+        grid-template-columns: 2fr 1fr 2fr;
+        border-radius: unset;
+        top: 0;
+        right: 0;
+        transform: unset;
+        z-index: 100;
+    }
+
+    .home-button-fixed a {
+        margin: 0;
+    }
+    .home-button-fixed a:last-of-type {
+        margin: 0;
+    }
+    /* Estilos base para cada elemento icono */
+    .button-move {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-basis: 2;
+    }
+
+    .button-move-icon{
+        display: inline-block;
+        max-width: 7vw;
+    }
+    
+    .button-move_content p {
+        display: none;
+    }
+
+    .button-move:hover .button-move_content p {
+        display: none;
+    }
+
+    .button-move_content {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+        gap: .6rem;
+        padding: .5rem;
+    }
+
+    .button-move:hover .button-move_content {
+        transform: unset;
+    }
+
+    /* DESCUBRE TUS HABILIDADES */
+    .line:not(:nth-child(6)):not(:nth-child(12))::after {
+        display: none;
+    }
+ 
+    /* INSCRIPCIONES ABIERTAS */
+    .inscripciones-seccion {
+        margin: 3rem auto;
+    }
+
+    .ecosistema-block,
+    .ecosistema-block .d-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .ecosistema-block p {
+        text-align: center;
+    }
+
+    .ecosistema-title {
+        text-align: center;
+        min-height: auto;
+        font-family: var(--roboto-bold);
+    }
+
+    .post-img img {
+        height: auto;
+    }
+
+    .little-paragraph-md {
+        font-size: 1.2rem;
+    }
+
+    .historia-info-img {
+        height: auto;
+        margin-top: 0;
+    }
+
+    .historia-info-mainimg {
+        margin-bottom: -15rem;
     }
 }
 
@@ -1592,107 +1692,6 @@ input[type="text"], .select, textarea {
     min-height: 35rem;
 }
 
-@media (max-width: 767px) {
-    .button-absolute {
-        font-size: 3vw;  
-        padding: 2vw 2vw;  
-    }
-
-    .home-button-fixed {
-        position: sticky;
-        width: 100%;
-        display: grid;
-        align-items: center;
-        text-align: center;
-        grid-template-columns: 2fr 1fr 2fr;
-        border-radius: unset;
-        top: 0;
-        right: 0;
-        transform: unset;
-        z-index: 100;
-    }
-
-    .home-button-fixed a {
-        margin: 0;
-    }
-    .home-button-fixed a:last-of-type {
-        margin: 0;
-    }
-    /* Estilos base para cada elemento icono */
-    .button-move {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-basis: 2;
-    }
-
-    .button-move-icon{
-        display: inline-block;
-        max-width: 7vw;
-    }
-    
-    .button-move_content p {
-        display: none;
-    }
-
-    .button-move:hover .button-move_content p {
-        display: none;
-    }
-
-    .button-move_content {
-        display: flex;
-        flex-direction: column-reverse;
-        align-items: center;
-        justify-content: center;
-        gap: .6rem;
-        padding: .5rem;
-    }
-
-    .button-move:hover .button-move_content {
-        transform: unset;
-    }
-
-    /* DESCUBRE TUS HABILIDADES */
-    .line:not(:nth-child(6)):not(:nth-child(12))::after {
-        display: none;
-    }
- 
-    /* INSCRIPCIONES ABIERTAS */
-    .inscripciones-seccion {
-        margin: 3rem auto;
-    }
-
-    .historia-info-img {
-        height: auto;
-        margin-top: 0;
-    }
-
-    .historia-info-mainimg {
-        margin-bottom: -15rem;
-    }
-
-    .ecosistema-block,
-    .ecosistema-block .d-flex {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .ecosistema-block p {
-        text-align: center;
-    }
-
-    .ecosistema-title {
-        text-align: center;
-        min-height: auto;
-        font-family: var(--roboto-bold);
-    }
-
-    .post-img img {
-        height: auto;
-    }
-}
-/* Fin btn flotante */
-
 /** PAGOS **/
 .tx-red {
     color: red;
@@ -1756,6 +1755,7 @@ input[type="text"], .select, textarea {
         min-height: 40px !important;
     }
 }
+
 /* Hasta 992 */
 @media (max-width: 992px)  {
     .line:not(:nth-child(6)):not(:nth-child(12))::after {
