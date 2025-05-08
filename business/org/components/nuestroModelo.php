@@ -4,7 +4,7 @@
 
      function generarItem($rutaIcono, $texto, $posicionTexto) {
           $item = '
-               <div class="col-lg-4 col-md-4 col-sm-12 col-12 modelo-item '.FlexTitleLoader::setDirection($posicionTexto).' align-items-center align-items-lg-start"> <!-- Item -->
+               <div class="col-lg-4 col-md-8 col-sm-12 col-12 modelo-item '.FlexTitleLoader::setDirection($posicionTexto).' align-items-center align-items-lg-start"> <!-- Item -->
                     <img src="../../../../cartiexplora/'.$rutaIcono.'" alt="" class="mb-5">
                     <p class="lh-1 font-roboto-black tx-blue text-lg-start text-center">'.$texto.'</p>
                </div> <!-- Item End -->
@@ -65,12 +65,12 @@
           $modeloImg = array_shift($imagenes);
 
           $html .= '
-                    <div class="row gap-5 '.FlexTitleLoader::setDirection($modeloImg[2]).'">
-                         <div class="d-flex col-lg-6 col-md-6 col-sm-12 col-12 nuestro-modelo-img">
-                              <img class="img-fluid w-100 box-shadow-2rem" src="../../../../cartiexplora/'.$modeloImg[0].'" alt="">
+                    <div class="row '.FlexTitleLoader::setDirection($modeloImg[2]).'">
+                         <div class="d-flex col-lg-6 col-md-12 col-sm-12 col-12 nuestro-modelo-img">
+                              <img class="img-fluid w-100 box-shadow-2rem my-5" src="../../../../cartiexplora/'.$modeloImg[0].'" alt="">
                          </div>
 
-                         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                         <div class="col-lg-6 col-md-12 col-sm-12 col-12">
                               <p class="special-paragraph">'.$descripcion.'</p>
                          </div>
                     </div>
