@@ -38,11 +38,11 @@
           $subtitulo = substr($row_datos_seccion['subTitulo'], strpos($row_datos_seccion['subTitulo'], " ") + 1);
 
           $html .= '
-               <main class="container margin-top-5rem mb-5">
-                    <div class="row">
+               <main class="container my-2rem">
+                    <div class="row m-0">
                          <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                              <h2 class="margin-bottom-2rem tx-orange font-roboto-black">'.$row_datos_seccion['titulo'].'</h2>
-                              <h1 class="margin-bottom-2rem tx-blue font-roboto-light"> <span class="font-roboto-black">'.$titulo.'</span> <br> '.$subtitulo.' </h1>
+                              <h3 class="margin-bottom-2rem tx-orange font-roboto-black">'.$row_datos_seccion['titulo'].'</h3>
+                              <h2 class="margin-bottom-2rem tx-blue font-roboto-light"> <span class="font-roboto-black">'.$titulo.'</span> <br> '.$subtitulo.' </h2>
                          </div>
                     </div>
           ';
@@ -65,7 +65,7 @@
           $modeloImg = array_shift($imagenes);
 
           $html .= '
-                    <div class="row '.FlexTitleLoader::setDirection($modeloImg[2]).'">
+                    <div class="row '.FlexTitleLoader::setDirection($modeloImg[2]).' m-0">
                          <div class="d-flex col-lg-6 col-md-12 col-sm-12 col-12 nuestro-modelo-img">
                               <img class="img-fluid w-100 box-shadow-2rem my-5" src="../../../../cartiexplora/'.$modeloImg[0].'" alt="">
                          </div>
@@ -76,10 +76,9 @@
                     </div>
                </main>
 
-               <section class="margin-top-5rem mb-5">
-                    <div class="bg-light-gray-o26">
-                         <div class="container">
-                              <div class="row justify-content-center align-items-center m-0">
+               <section class="my-2rem bg-light-gray-o26">
+                    <div class="container">
+                         <div class="row justify-content-center align-items-center m-0">
           ';
 
           foreach ($imagenes as $datos) {
@@ -87,7 +86,6 @@
           }
 
           $html .= '
-                         </div>
                     </div>
                </div>
           </section>

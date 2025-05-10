@@ -18,7 +18,7 @@
     $res_seccion_dos = $mysqli1->query($sql_seccion_dos);
 
     // Obteniendo los iconos
-    $res_sentencia = $mysqli1->query($sentencia."121");
+    $res_sentencia = $mysqli1->query($sentencia."120");
     while($row_sentencia = $res_sentencia->fetch_assoc()){
          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
     }  
@@ -40,7 +40,7 @@
 
         // renderiza la seccion
         $html .= '
-          <main class="bg-bold-blue margin-top-5rem">
+          <main class="bg-bold-blue my-2rem">
                <div class="container py-5">
                     <div class="row justify-content-center">
                          <div class="col-lg-1 col-md-3 col-sm-3 col-3 my-auto">
@@ -48,8 +48,8 @@
                          </div>
 
                          <div class="col-lg-7 col-md-12 col-sm-12 col-12 d-flex '.FlexTitleLoader::setDirection($posicionTitulo).' align-items-center">
-                              <h2 class="font-roboto-black tx-white text-lg-start text-center">'.$row_datos_seccion['titulo'].'</h2>
-                              <p class="font-roboto tx-white text-lg-start text-center">'.$row_datos_seccion['subTitulo'].'</p>
+                              <h3 class="font-roboto-black tx-white text-lg-start text-center d-block w-100">'.$row_datos_seccion['titulo'].'</h3>
+                              <p class="font-roboto tx-white text-lg-start text-center d-block w-100">'.$row_datos_seccion['subTitulo'].'</p>
                               <a class="orange-btn-1" href="">Iniciar</a>
                          </div>
                     </div>
@@ -61,7 +61,7 @@
     if ($html != '') {
 
      $html .= '
-     <section class="container margin-top-5rem mb-5">
+     <section class="container my-2rem">
           <div class="row">
                <div class="col-lg-2 col-md-2 col-sm-12 col-12 bg-orange py-3 d-flex align-items-center">
                     <h4 class="tx-bold-blue text-center m-0 font-roboto-bolditalic w-100">PASO1</h4>
@@ -72,8 +72,8 @@
                </div>
           </div>
 
-          <div class="row align-items-center flex-column gap-4 mt-5">
-               <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class="row align-items-center flex-column gap-4">
+               <div class="col-lg-12 col-md-12 col-sm-12 col-12 my-2rem">
                     <h3 class="tx-bold-blue m-0 font-roboto-light text-center">Numero de documento de identidad del estudiante (sin puntos)</h3>
                </div>
 

@@ -21,7 +21,7 @@
     while ($row_datos_seccion = $res_seccion_dos->fetch_assoc()) {
         // renderiza la seccion
         $html .= '
-          <section class="bg-light-gray-o26 py-5 margin-top-5rem blogpost-section">
+          <section class="bg-light-gray-o26 py-5 my-2rem blogpost-section">
                <div class="container">
 
         ';
@@ -31,7 +31,7 @@
     if (isset($_GET['blogId'])) {
         $blogId = intval($_GET['blogId']);
     }
-    $res_sentencia = $mysqli1->query($sentencia."117");
+    $res_sentencia = $mysqli1->query($sentencia."116");
     while($row_sentencia = $res_sentencia->fetch_assoc()){
          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']).$blogId;
     }  
@@ -90,9 +90,9 @@
      }   
 
      // comentarios de este blog
-     $res_sentencia = $mysqli1->query($sentencia."119");
+     $res_sentencia = $mysqli1->query($sentencia."118");
      while($row_sentencia = $res_sentencia->fetch_assoc()){
-          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']).$blogId.' '.$row_sentencia['ordenamientos'];
+          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']).$blogId;
      }  
 
      $res_datos = $mysqli1->query($sql_datos);
@@ -107,7 +107,7 @@
      } 
      
       // Obteniendo el formulario / campos para comentar
-      $res_sentencia = $mysqli1->query($sentencia."120");
+      $res_sentencia = $mysqli1->query($sentencia."119");
       while($row_sentencia = $res_sentencia->fetch_assoc()){
            $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']).$row_sentencia['ordenamientos'];
       }  
@@ -115,10 +115,10 @@
       $res_datos = $mysqli1->query($sql_datos);
       while($row_datos = $res_datos->fetch_assoc()){
            $camposComentar[] = $row_datos;
-      }  
+      }
 
       // Obteniendo links de interes aside
-      $res_sentencia = $mysqli1->query($sentencia."122");
+      $res_sentencia = $mysqli1->query($sentencia."121");
       while($row_sentencia = $res_sentencia->fetch_assoc()){
            $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']).$row_sentencia['ordenamientos'];
       }  
@@ -169,7 +169,7 @@
                                    <img src="../../../'.$iconos[1]['ruta'].'" alt="" class="img-fluid blog-page-btnicon m-0">
                               </a>
 
-                              <a href="">
+                              <a href="#comentariosCampos">
                                    <img src="../../../'.$iconos[2]['ruta'].'" alt="" class="img-fluid blog-page-btnicon m-0">
                               </a>
                          </div>
@@ -184,7 +184,7 @@
                     </div>
                </div>
 
-               <aside class="col-lg-4 col-md-7 col-sm-12 col-12 d-flex flex-column gap-5 ps-lg-5 order-lg-last order-first mb-lg-0 mb-5">
+               <aside class="col-lg-4 col-md-9 col-sm-12 col-12 d-flex flex-column gap-5 ps-lg-5 order-lg-last order-first mb-lg-0 mb-5">
                     <div class="d-flex flex-column align-items-center bg-white px-3 py-4">
                          <p class="font-roboto-bold d-block">Siguenos en Facebook</p>
                          <iframe name="f68d834d7301a08bb" width="1000px" height="1000px" data-testid="fb:page Facebook Social Plugin" title="fb:page Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v5.0/plugins/page.php?adapt_container_width=true&amp;app_id=&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df61df77fa7a2c9a63%26domain%3Dunicab.org%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Funicab.org%252Ffec1659497d47cfb9%26relation%3Dparent.parent&amp;container_width=260&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Funicabvir%2F&amp;locale=es_LA&amp;sdk=joey&amp;show_facepile=false&amp;small_header=false&amp;tabs=timeline&amp;width=" style="border: none; visibility: visible; width: 260px; height: 500px;" class=""></iframe>
@@ -234,18 +234,18 @@
                </aside>
           ';
 
-
-          $comentarioCampo = array_shift($camposComentar);
-          $correoCampo = array_shift($camposComentar);
-          $aceptarDatosCampo = array_shift($camposComentar);
+          
           $enviarBoton = array_shift($camposComentar);
+          $aceptarDatosCampo = array_shift($camposComentar);
+          $correoCampo = array_shift($camposComentar);
+          $comentarioCampo = array_shift($camposComentar);
 
         $html .= '
                     </div>
                </div>
           </section>
           
-          <section class="container my-5">
+          <section class="container my-2rem">
                <div class="row mb-4">
                     <div class="col-lg-8 col-md-12 col-sm-12 col-12">
                          <form class="d-flex flex-column gap-3 border-green px-0 pb-3" id="comentariosCampos">
@@ -276,7 +276,7 @@
                </div>
                
                <div id="comentario-plantilla" class="d-none">
-                    <div class="comment-block col-lg-8 col-md-8 col-sm-12 col-12">
+                    <div class="comment-block col-lg-8 col-md-12 col-sm-12 col-12">
                          <hr class="blog-separator border-1 w-100">
                          <div class="row bg-light-gray-o26 py-3 m-0">
                               <div class="col-lg-8 col-md-8 col-sm-6 col-6 px-2">

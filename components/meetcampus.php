@@ -18,15 +18,15 @@
      while ($row_datos = $res_datos->fetch_assoc()) {
           // Renderizando la seccion
           $html .= '
-          <section class="container margin-top-5rem">
+          <section class="container my-2rem">
 
                <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                         <h2 class="lh1 tx-blue mb-5 p-0 font-roboto-light-title"> <b>'.$row_datos['titulo'].'</b> <br> '.$row_datos['subTitulo'].' </h2>
+                         <h2 class="lh1 tx-blue mb-2rem p-0 font-roboto-light-title"> <b>'.$row_datos['titulo'].'</b> <br> '.$row_datos['subTitulo'].' </h2>
                     </div>
 
                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                         <p class="mb-5 special-paragraph p-0">'.$row_datos['texto'].'</p>
+                         <p class="mb-2rem special-paragraph p-0">'.$row_datos['texto'].'</p>
                     </div>
                </div>
           ';
