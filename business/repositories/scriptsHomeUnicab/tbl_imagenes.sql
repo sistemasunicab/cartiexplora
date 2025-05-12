@@ -190,3 +190,9 @@ UPDATE tbl_imagenes SET titulo = '' WHERE (id = 130);
 UPDATE tbl_imagenes SET titulo = 'Inscripciones Abiertas', enlace = '#inscripcionesAbiertas' WHERE (id = 131);
 UPDATE tbl_imagenes SET enlace = 'https://wa.me/573008156531/?text=Hola necesito asesoría del proceso de admisiones.' WHERE (id = 129);
 
+UPDATE tbl_imagenes SET rutaMovil = 'assets/img/unicabHistoriaMovil.jpg' WHERE (id = 76);
+UPDATE tbl_imagenes SET rutaTabletaVertical = 'assets/img/unicabHistoriaTablets.jpg' WHERE (id = 76);
+
+INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, rutaTabletaHorizontal, descripcion, titulo, posicionTitulo, rutaEncima, textoAlterno) VALUES
+(37, 'assets/img/liked.png', '', '', '', '', '', '', '', '');
+

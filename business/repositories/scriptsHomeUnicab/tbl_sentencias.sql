@@ -172,3 +172,13 @@ INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones
 
 INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
 ('NO','','SELECT * ','FROM tbl_circulares','','','','','',''); 
+
+INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
+('NO', '', 'SELECT * ', 'FROM tbl_enlaces ', 'WHERE id_seccion = 7 ', '', '', '', '', '');
+
+INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
+('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 37 ', '', '', '', '', '');
+
+INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
+('NO', '', '', 'UPDATE tbl_blogs ', 'WHERE (id = ?) ', '', '', 'SET blogMeGusta = blogMeGusta + 1 ', '', ''),
+('NO', '', '', 'UPDATE tbl_blogs ', 'WHERE (id = ?) ', '', '', 'SET blogMeGusta = blogMeGusta - 1 ', '', '');

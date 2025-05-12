@@ -13,7 +13,8 @@ CREATE TABLE tbl_blogs (
   estadoRevisionTexto int(2) NOT NULL DEFAULT 0,
   estadoRevisionMultimedia int(2) NOT NULL DEFAULT 0,
   autor varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '',
-  textoBoton varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT 'Leer más'
+  textoBoton varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT 'Leer más',
+  blogMeGusta int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 INSERT INTO tbl_blogs 
