@@ -50,7 +50,7 @@ while ($row_data_visible = $res_data_visible->fetch_assoc()) {
     $res_data_files = $mysqli1->query($sql_data_files);
 
     // CONTENEDOR PRINCIPAL
-    $html_communication = '<div class="col-lg-7 col-md-7 col-sm-9 col-9 mx-auto my-5 d-flex flex-column p-0">';
+    $html_communication = '<div class="col-lg-7 col-md-7 col-sm-9 col-9 mx-auto my-2rem d-flex flex-column p-0">';
     $html_communication .= '    <div class="d-flex flex-column col-lg-10 col-md-10 col-sm-12 col-12 m-auto">';
 
     // TÍTULO DE LA SECCIÓN (POR EJEMPLO "COMUNICADOS")
@@ -76,7 +76,7 @@ while ($row_data_visible = $res_data_visible->fetch_assoc()) {
         }
 
         // Estructura: Ícono + Texto + Botón
-        $html_communication .= '  <div class="file-container d-flex align-items-center justify-content-between my-10">';
+        $html_communication .= '  <div class="file-container d-flex align-items-center justify-content-between my-2rem">';
 
         // Lado izquierdo: texto (nombre y fecha)
         $html_communication .= '    <div class="col-7 d-flex flex-column text-start">';

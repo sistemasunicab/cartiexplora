@@ -8,7 +8,7 @@ while ($row_estados_financieros = $res_estados_financieros->fetch_assoc()) {
 
 $res_datos_estados_financieros = $mysqli1->query($sql_datos_estados_financieros);
 
-$sentencia_formulario = "131";
+$sentencia_formulario = "132";
 
 $campos_formulario = [];
 $res_sentecia = $mysqli1->query($sentencia . $sentencia_formulario);
@@ -22,11 +22,11 @@ while ($row_datos_form = $res_formulario->fetch_assoc()) {
 };
 
 while ($row_datos_estados_financieros = $res_datos_estados_financieros->fetch_assoc()) {
-    $html_estados_financieros = '<div class="col-lg-9 col-md-9 col-sm-12 col-12 my-5 p-0 mx-auto d-flex flex-column">';
+    $html_estados_financieros = '<div class="col-lg-9 col-md-9 col-sm-12 col-12 my-2rem p-0 mx-auto d-flex flex-column">';
     $html_estados_financieros .= '<h3 class="mx-auto col-lg-12 col-md-12 col-sm-10 col-10 tx-blue font-roboto-light-title">' . $row_datos_estados_financieros['titulo'] . '</h3>';
-    $html_estados_financieros .= '<div class="btn-financiero col-lg-3 col-md-3 col-sm-12 col-12 d-flex flex-row bg-blue p-0 m-0 my-3 mb-5 my-md-5">
+    $html_estados_financieros .= '<div class="btn-financiero col-lg-3 col-md-3 col-sm-12 col-12 d-flex flex-row bg-blue p-0 m-0 my-2rem">
                                 <div class="bg-orange m-0 p-0 col-2" style="height:100%;"></div>
-                                <p class="special-paragraph py-2 py-md-1 col-10 font-roboto-italic tx-white text-center my-1">Solicitar información</p></div> ';
+                                <p class="special-paragraph py-2 py-md-1 col-10 font-roboto-italic tx-white text-center my-0">Solicitar información</p></div> ';
     $html_estados_financieros .= '<form id="form_info" class="form-financial col-12 p-0 mx-auto d-flex flex-column">';
 
     for ($i = 0; $i < count($campos_formulario) - 1; $i++) {

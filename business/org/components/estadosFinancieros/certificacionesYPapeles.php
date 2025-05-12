@@ -12,7 +12,7 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
     if ($row_datos_certificaciones['visible'] != 1)
         continue;
 
-    $sentencia_formulario = "132";
+    $sentencia_formulario = "133";
     $campos_formulario = [];
 
     $res_sentecia = $mysqli1->query($sentencia . $sentencia_formulario);
@@ -39,10 +39,10 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
     $tratamiento_certificaciones = array_shift($campos_formulario);
     $botton_certificaciones = array_shift($campos_formulario);
 
-    $html_certificaciones = '<div class="col-lg-9 col-md-9 col-sm-12 col-12 my-5 p-0 mx-auto d-flex flex-column">';
-    $html_certificaciones .= '<h3 class="col-lg-7 col-md-7 col-sm-10 col-10 mx-auto mx-md-0 tx-blue font-roboto-light-title">' . $row_datos_certificaciones['titulo'] . '</h3>';
+    $html_certificaciones = '<div class="col-lg-9 col-md-9 col-sm-12 col-12 my-2rem p-0 mx-auto d-flex flex-column">';
+    $html_certificaciones .= '<h3 class="col-lg-7 col-md-7 col-sm-10 col-10 mx-auto mx-md-0 tx-blue font-roboto-light-title my-0">' . $row_datos_certificaciones['titulo'] . '</h3>';
     // Primera fila
-    $html_certificaciones .= '<form id="form_servicios" class="my-5 form-financial d-flex flex-column">';
+    $html_certificaciones .= '<form id="form_servicios" class="my-2rem form-financial d-flex flex-column">';
 
     // Primera fila
     $html_certificaciones .= '<div class="my-2 d-flex flex-column flex-md-row justify-content-between">';
@@ -266,7 +266,6 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
         $conditions_image = str_replace('|', '\'', $row_sentence_image['condiciones']);
         $sql_data_image = $row_sentence_image['campos'] . $row_sentence_image['tablas'] . $conditions_image;
     }
-
     $res_data_image = $mysqli1->query($sql_data_image);
 
     while ($row_data_image = $res_data_image->fetch_assoc()) {

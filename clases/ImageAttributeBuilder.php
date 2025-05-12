@@ -50,4 +50,29 @@ class ImageAttributeBuilder
             return $attributes;
         }
     }
+
+    /**
+     * Builds and returns a srcset attribute based on the given parameters for picture source element.
+     * 
+     * @param string $nivel      The level in the directory tree from which the image will be accessed.
+     * @param string $source     The sourceset URL or path of the image.
+     * 
+     **/
+    public static function buildsrcset($nivel, $source)
+    {
+        $attributes = '';
+        if ($nivel == "raiz") {
+            $attributes = ' srcset="' . $source . '"';
+            return $attributes;
+        } else if ($nivel == "uno") {
+            $attributes = ' srcset="../' . $source . '"';
+            return $attributes;
+        } else if ($nivel == "dos") {
+            $attributes = ' srcset="../../' . $source . '"';
+            return $attributes;
+        } else if ($nivel == "tres") {
+            $attributes = ' srcset="../../../' . $source . '"';
+            return $attributes;
+        }
+    }
 }

@@ -46,13 +46,13 @@
         while ($row_images = $res_images->fetch_assoc()) {
             $attributes = ImageAttributeBuilder::buildAttributes($nivel, $row_images['ruta'], $row_images['descripcion'], $row_images['rutaEncima']);
 
-            $html .=            '<div class="my-lg-0 my-3 col-lg-3 col-md-3 col-sm-6 col-6">';
+            $html .=            '<div class="my-lg-0 my-3 col-lg-3 col-md-6 col-sm-6 col-6">';
             $html .=                '<a href="'.$row_images['enlace'].'" class="academic-offer-img">';
             $html .=                    '<img ' . $attributes . ' class="img-fluid w-100" >';
             $html .=                '</a>';
             $html .=            '</div>';
             if($ultimaImagen !== $res_images->num_rows){
-                $html .=        '<div class=" d-lg-block d-md-block d-sm-none d-none col-lg-1 col-md-1"></div>';
+                $html .=        '<div class=" d-lg-block d-md-none d-sm-none d-none col-lg-1"></div>';
             }
             $ultimaImagen++;
         }

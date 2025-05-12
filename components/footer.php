@@ -148,7 +148,7 @@ foreach ($imagenes_footer as $imagen) {
     } else if ($nivel == "tres") {
         $ruta_imagen = '../../../' . $imagen['ruta'];
     }
-    $hmtl_social_media .= '<a class="mt-2 mb-3 mx-3" href="' . $imagen['link'] . '">';
+    $hmtl_social_media .= '<a class="mt-2 mb-3 mx-3" href="' . $imagen['link'] . '" target="_blank">';
     $hmtl_social_media .= '<img style="height:25px" src="' . $ruta_imagen . '" alt="' . $imagen['title'] . '">';
     $hmtl_social_media .= '</a>';
 }

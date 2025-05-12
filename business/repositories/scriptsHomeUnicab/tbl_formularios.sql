@@ -80,18 +80,18 @@ VALUES
 -- Primera fila
 (26, 'nombre_certificaciones', 'texto', 'nombre', 'required', '', '', 'Nombre Completo'),
 (26, 'identificacion_certificaciones', 'numero', 'identificación', 'required', '', '', 'Número de identificación'),
-(26, 'tipo_id_certificaciones', 'texto', 'tipo', 'required', '', '', 'Tipo'),
+(26, 'tipo_id_certificaciones', 'texto', 'tipo', 'required', '', '', 'Seleccionar tipo'),
 
 -- Segunda fila
 (26, 'correo_certificaciones', 'correo', 'correo', 'required', '', '', 'Correo electrónico'),
 (26, 'telefono_certificaciones', 'numero', 'telefono', 'required', '', '', 'Número de teléfono'),
-(26, 'grado_id_certificaciones', 'texto', 'grado', 'required', '', '', 'Grado'),
+(26, 'grado_id_certificaciones', 'texto', 'grado', 'required', '', '', 'Seleccionar grado'),
 
 -- Relación con la institución
-(26, 'relacion_certificaciones_select', 'texto', 'relación', 'required', '', '', 'Relación con la institución'),
+(26, 'relacion_certificaciones_select', 'texto', 'relación', 'required', '', '', 'Seleccionar relación con la institución'),
 
 -- Tipo de certificación
-(26, 'tipo_certificaciones_select', 'texto', 'tipo de certificación', 'required', '', '', 'Tipo de certificación'),
+(26, 'tipo_certificaciones_select', 'texto', 'tipo de certificación', 'required', '', '', 'Seleccionar tipo de certificación'),
 
 -- Fecha 
 (26, 'certificaciones_date', 'numero', 'fecha', 'required', '', '', 'Fecha'),

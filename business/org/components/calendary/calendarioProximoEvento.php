@@ -23,7 +23,7 @@ while ($row_data_visible = $res_data_visible->fetch_assoc()) {
     $res_data_events = $mysqli1->query($sql_data_events);
 
     // 2) Contenedor principal
-    $html_next_event = '<div class="next-events-container col-lg-8 col-md-8 col-sm-12 col-12 p-0 m-auto my-5 d-flex flex-column">';
+    $html_next_event = '<div class="next-events-container col-lg-8 col-md-8 col-sm-12 col-12 p-0 mx-auto my-2rem d-flex flex-column">';
     $html_next_event .= '<div class="w-100 m-auto d-flex flex-column bg-bold-blue shadow">';
     $html_next_event .= '<div class="col-10 d-flex flex-column m-auto pt-5 pb-5">';
 
@@ -31,47 +31,80 @@ while ($row_data_visible = $res_data_visible->fetch_assoc()) {
     $html_next_event .= '<h4 class="font-roboto-bold tx-white">' . htmlspecialchars($row_data_visible['titulo']) . '</h4>';
 
     if ($res_data_events->num_rows === 0) {
-        // Si no hay eventos próximos
         $html_next_event .= '<p class="tx-white text-center py-5">No hay eventos próximos</p>';
     } else {
-        // Para cada evento
+        // Volcamos todos los rows a un array
+        $events = [];
         while ($row = $res_data_events->fetch_assoc()) {
-            $tituloEvento = htmlspecialchars($row['nombre']);
-            $fecha = $row['fecha'];
-            $hora = $row['hora'];
-            // Formato ISO
-            $fechaIso = date('c', strtotime("$fecha $hora"));
-            $descEvento = htmlspecialchars($row_data_visible['texto']);
-            $idEvento = 'evt' . ($row['id'] ?? rand(1000, 9999));
-
-            $html_next_event .= '
-        <div class="event-item mb-4">
-            <h3 class="font-roboto-bold tx-orange">' . $tituloEvento . '</h3>
-            <p id="info-evento-' . $idEvento . '" class="special-paragraph tx-white">' . $descEvento . '</p>
-
-            <div class="countdown-container d-flex gap-3 justify-content-center font-roboto-bold my-2 fs-5"
-                 data-fecha="' . $fechaIso . '"
-                 id="countdown-' . $idEvento . '">
-
-                <div class="calendary-event col-2 bg-white tx-orange d-flex border-radius-20">
-                    <h3 class="m-0 countdown-day">0</h3>
-                </div>
-                <div class="calendary-event col-2 bg-white tx-orange d-flex border-radius-20">
-                    <h3 class="m-0 countdown-hour">0</h3>
-                </div>
-                <div class="calendary-event col-2 bg-white tx-orange d-flex border-radius-20">
-                    <h3 class="m-0 countdown-min">0</h3>
-                </div>
-                <div class="calendary-event col-2 bg-white tx-orange d-flex border-radius-20">
-                    <h3 class="m-0 countdown-sec">0</h3>
-                </div>
-            </div>
-        </div>';
+            $events[] = $row;
         }
+    
+        // Iniciamos el carrusel
+        $html_next_event .= '
+        <div id="eventCarousel" class="carousel slide" data-bs-ride="carousel">
+          <ol class="carousel-indicators">';
+        
+        // Indicators
+        foreach ($events as $i => $_) {
+            $html_next_event .= '
+            <li data-bs-target="#eventCarousel" data-bs-slide-to="' . $i . '"'
+                             . ($i === 0 ? ' class="active"' : '') . '></li>';
+        }
+    
+        $html_next_event .= '
+          </ol>
+          <div class="mb-2rem carousel-inner">';
+        
+        // Slides
+        foreach ($events as $i => $row) {
+            $tituloEvento = htmlspecialchars($row['nombre']);
+            $fechaIso     = date('c', strtotime($row['fecha'] . ' ' . $row['hora']));
+            // aquí uso bien $row['texto']
+            $descEvento   = htmlspecialchars($row['descripcion']);
+            $idEvento     = 'evt' . ($row['id'] ?? rand(1000, 9999));
+    
+            $html_next_event .= '
+            <div class="carousel-item' . ($i === 0 ? ' active' : '') . '">
+              <div class="event-item mb-4">
+                <h3 class="font-roboto-bold tx-orange">' . $tituloEvento . '</h3>
+                <p id="info-evento-' . $idEvento . '" class="special-paragraph tx-white">'
+                  . $descEvento . '</p>
+                <div class="countdown-container d-flex gap-3 justify-content-center 
+                            font-roboto-bold my-2 fs-5"
+                     data-fecha="' . $fechaIso . '"
+                     id="countdown-' . $idEvento . '">
+                  <div class="calendary-event col-2 bg-white tx-orange 
+                              d-flex border-radius-20">
+                    <h3 class="m-0 countdown-day">0</h3>
+                  </div>
+                  <div class="calendary-event col-2 bg-white tx-orange 
+                              d-flex border-radius-20">
+                    <h3 class="m-0 countdown-hour">0</h3>
+                  </div>
+                  <div class="calendary-event col-2 bg-white tx-orange 
+                              d-flex border-radius-20">
+                    <h3 class="m-0 countdown-min">0</h3>
+                  </div>
+                  <div class="calendary-event col-2 bg-white tx-orange 
+                              d-flex border-radius-20">
+                    <h3 class="m-0 countdown-sec">0</h3>
+                  </div>
+                </div>
+              </div>
+            </div>';
+        }
+    
+        // Cerramos carrusel sin prev/next
+        $html_next_event .= '
+          </div>
+        </div>';
     }
+    
+
+
     $html_next_event .= '</div>';
     $html_next_event .= '</div>';
-    $html_next_event .= '<button class="mx-auto mx-0 ms-md-auto me-md-5 mt-4 btn shadow h-auto tx-white btn-calendary fw-semibold" style="width:250px;">Más información</button>';
+    $html_next_event .= '<button class="mx-auto mx-0 ms-md-auto me-md-5 mt-2rem btn shadow h-auto tx-white btn-calendary fw-semibold" style="width:250px;">Más información</button>';
     $html_next_event .= '</div>';
 
 

@@ -57,17 +57,14 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, ruta
 (10, 'assets/img/unicab.png', '', '', '', 'logo', 'Colegio Unicab Virtual', '', '', ''),
 (10, 'assets/img/carti_explora.png', '', '', '', 'logo', 'CARTI Explora', '', '', ''),
 (10, 'assets/img/unicab_solutions.png', '', '', '', 'logo', 'UNICAB Solutions', '', '', ''),
-
 (10, 'assets/img/facebook.png', '', '', '', 'social-media', 'facebook', '', '', ''),
 (10, 'assets/img/x.png', '', '', '', 'social-media', 'x', '', '', ''),
 (10, 'assets/img/instagram.png', '', '', '', 'social-media', 'instagram', '', '', ''),
 (10, 'assets/img/youtube.png', '', '', '', 'social-media', 'youtube', '', '', ''),
 (11, 'assets/img/unicab_solutions.png', '', '', '', 'logoUnicabSolutions', '', '', '', ''),
-
 (10, 'assets/img/1-1-1200x700.png', '', '', '', 'entidades', 'Gobernación de Boyacá', '', '', ''),
 (10, 'assets/img/LogosSecSogamoso-300x153.png', '', '', '', 'entidades', 'Secretaría de Educación de Sogamoso', '', '', ''),
 (10, 'assets/img/Logo_Dian_Derecho.png', '', '', '', 'entidades', 'DIAN', '', '', ''),
-
 (12, 'assets/img/organigrama.jpg', 'assets/img/organigrama_movil.png', 'assets/img/organigrama_tableta_horizontal.png', 'assets/img/organigrama_tableta_horizontal.png', 'organigrama', 'organigrama', '', '', 'organigrama'),
 (13, 'assets/img/_DSC0141.jpg', '', '', '', '', '', '', '', 'unicab'),
 (13, 'assets/img/_DSC0152.jpg', '', '', '', '', '', '', '', 'unicab'),
@@ -90,11 +87,10 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, ruta
 (17, 'assets/img/Grupo 1.png', '', '', '', 'image-schedule', 'LUNES A VIERNES<br>8:00 a.m. A 12:00 p.m.', '', '', 'schedule'),
 (18, 'assets/img/elearning_5466286.svg', '', '', '', 'E-learning', '', '', '', 'E-learning'),
 (20, 'assets/img/paper_14969976.svg', '', '', '', 'PDF', '', '', '', 'PDF'),
-
 (21, 'assets/img/entidades.png', '', '', '', '', 'Fundación', 'abajo', '', ''),
 (21, 'assets/img/trofeo.png', '', '', '', '', '2002-2003', 'abajo', '', ''),
 (21, 'assets/img/trofeo.png', '', '', '', '', '2004-2007', 'abajo', '', ''),
-(21, 'assets/img/trofeo.png', '', '', '','', '2007-2008', 'abajo', '', ''),
+(21, 'assets/img/trofeo.png', '', '', '', '', '2007-2008', 'abajo', '', ''),
 (22, 'assets/img/historia2.png', '', '', '', '', '', '', '', 'ParteArriba'),
 (22, 'assets/img/historia1.png', '', '', '', '', '', '', '', 'ParteArriba'),
 (22, 'assets/img/historia3.png', '', '', '', '', '', '', '', 'ParteArriba'),
@@ -109,6 +105,7 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, ruta
 (24, 'assets/img/elearning.svg', '', '', '', '', 'Fortalecimiento de principios y valores basados en la autonomía del estudiante.', 'abajo', '', ''),
 (24, 'assets/img/audiobook.svg', '', '', '', '', 'Desarrollo del pensamiento creativo del estudiante.', 'abajo', '', ''),
 (26, 'assets/img/browser_4919708.png', '', '', '', 'calendario', 'Año(s) académico(s) al que corresponde la solicitud', 'arriba', '', ''),
+(26, 'assets/img/icon-send.png', '', '', '', 'icon-send', '', '', '', ''),
 
 (27, 'assets/img/Farid_Hastamorir.png', '', '', '', 'imagen-farid-hastamorir', '', '', '', ''),
 (27, 'assets/img/Favio_Felipe.png', '', '', '', 'imagen-favio-felipe', '', '', '', ''),
@@ -148,7 +145,6 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, ruta
 (33, 'assets/img/instagramOrangeBg.png', '', '', '', '', '', '', '', ''), 
 (33, 'assets/img/linkedInOrangeBg.png', '', '', '', '', '', '', '', ''), 
 (33, 'assets/img/whatsappOrangeBg.png', '', '', '', '', '', '', '', ''),
-(26, 'assets/img/icon-send.png', '', '', '', 'icon-send', '', '', '', ''),
 
 (34, 'assets/img/admisiones/Admisiones_2025_1.jpg', '', '', '', '', '', '', '', ''), 
 (34, 'assets/img/admisiones/ico1_admisiones_2025_1.jpg', '', '', '', '', '', '', '', ''), 
@@ -181,7 +177,7 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, ruta
 (39, 'assets/img/pagos/transaction.png', '', '', '', 'transaccion icono', '', '', '', '')
 ;
 
-INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, rutaTabletaHorizontal, descripcion, titulo, posicionTitulo, rutaEncima, textoAlterno) VALUES 
+INSERT INTO tbl_imagenes (id_seccion, ruta,  rutaMovil, rutaTabletaVertical, rutaTabletaHorizontal, descripcion, titulo, posicionTitulo, rutaEncima, textoAlterno) VALUES 
 (40, 'assets/img/pagos/statement.png', '', '', '', 'statement-cion', 'Costos', '', '', ''),
 (40, 'assets/img/paper_14969976.svg', '', '', '', 'descargar-pdf', 'Ver', '', '', ''),
 (40, 'assets/img/ayuda.gif', '', '', '', 'imagen ayuda', 'Contáctate con nuestro equipo de trabajo', '', '', '');

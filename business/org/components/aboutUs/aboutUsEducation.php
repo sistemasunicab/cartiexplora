@@ -9,11 +9,11 @@ while ($row_sentencia_educacion = $res_sentencia_educacion->fetch_assoc()) {
 $res_datos_educacion = $mysqli1->query($sql_datos_educacion);
 
 if ($res_datos_educacion->num_rows > 0) {
-    $html_educacion = '<div class="space-between-about w-100 p-0 my-5">';
+    $html_educacion = '<div class="space-between-about w-100 p-0 my-2rem">';
     $html_educacion .= '<div class="d-flex flex-column flex-md-row col-10 justify-content-between mx-auto">';
 
     while ($row_datos_educacion = $res_datos_educacion->fetch_assoc()) {
-        $html_educacion .= '<div class="mx-auto mx-md-0 text-center text-md-start col-10 col-md-4 mt-0 mt-md-10 mb-5">';
+        $html_educacion .= '<div class="mx-auto mx-md-0 text-center text-md-start col-10 col-md-4 mt-0 mt-md-10 mb-3">';
         $html_educacion .= '<h2 class="tx-blue font-roboto-light-title">' . $row_datos_educacion['titulo'] . '</h2>';
         $html_educacion .= '<h3 class="tx-black font-roboto-bold">' . $row_datos_educacion['subTitulo'] . '</h3>';
         $html_educacion .= '</div>';
@@ -47,9 +47,9 @@ if ($res_datos_educacion->num_rows > 0) {
         }
         $html_educacion .= '<div class="font-roboto-regular d-flex flex-row gap-4">';
         $html_educacion .= '<img class="image-education" src="' . $path_image . '" alt="' . $altern . '">';
-        $html_educacion .= '<div class="mb-3">';
+        $html_educacion .= '<div class="">';
         $html_educacion .= '<h3 class="font-roboto-black">' . $titulo . '</h3>';
-        $html_educacion .= '<p class="special-paragraph">' . $descripcion . '</p>';
+        $html_educacion .= '<p class="special-paragraph my-3">' . $descripcion . '</p>';
         $html_educacion .= '</div>';
         $html_educacion .= '</div>';
     }

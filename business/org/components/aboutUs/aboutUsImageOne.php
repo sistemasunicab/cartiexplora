@@ -9,7 +9,7 @@ while ($row_sentencia_nosotros = $res_sentencia_nosotros->fetch_assoc()) {
 $res_datos_nosotros = $mysqli1->query($sql_datos_nosotros);
 
 if (mysqli_num_rows($res_datos_nosotros) > 0) {
-    $html_nosotrosImgUno = '<div class="space-between-about w-100 p-0 d-flex justify-content-center align-items-center">';
+    $html_nosotrosImgUno = '<div class="my-2rem space-between-about w-100 p-0 d-flex justify-content-center align-items-center">';
     $html_nosotrosImgUno .= '<div class="d-flex w-100 justify-contetn-between align-items-center">';
 
     $numero_de_sentencia_nosotros = "40";
@@ -22,8 +22,8 @@ if (mysqli_num_rows($res_datos_nosotros) > 0) {
     $res_datos_nosotros = $mysqli1->query($sql_datos_nosotros);
     
     $class_images = ['col-lg-4 col-md-4 col-sm-6 col-12 img-fluid',
-                'col-lg-4 col-md-4 col-sm-6 col-0 img-fluid',
-                'col-lg-4 col-md-4 col-sm-0 col-0 img-fluid'];
+                'col-lg-4 col-md-4 col-sm-6 col-0 img-fluid d-sm-flex d-none',
+                'col-lg-4 col-md-4 col-sm-0 col-0 img-fluid d-md-flex d-none',];
     $i = 0;
     while ($row_datos_nosotros = $res_datos_nosotros->fetch_assoc()) {
         $path = $row_datos_nosotros['ruta'];

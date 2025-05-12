@@ -9,13 +9,13 @@ while ($row_sentencia_nosotros = $res_sentencia_nosotros->fetch_assoc()) {
 $res_datos_nosotros = $mysqli1->query($sql_datos_nosotros);
 
 if ($res_datos_nosotros->num_rows > 0) {
-    $html_nosotros = '<div class="my-5 w-100 p-0">';
+    $html_nosotros = '<div class="my-2rem w-100 p-0">';
     $html_nosotros .= '<div class="d-flex flex-column flex-xl-row justify-content-between mx-auto col-10">';
 
     while ($row_datos_nosotros = $res_datos_nosotros->fetch_assoc()) {
-        $html_nosotros .= '<div class="m-auto col-12 col-xl-7">';
-        $html_nosotros .= '<h2 class="text-center text-xl-start font-roboto-light-title tx-blue mb-10">' . $row_datos_nosotros['titulo'] . '</h2>';
-        $html_nosotros .= '<p class="special-paragraph text-center text-xl-start font-roboto-regular my-auto col-11 tx-black mb-5">' . $row_datos_nosotros['texto'] . '</p>';
+        $html_nosotros .= '<div class="mx-auto mb-2rem col-12 col-xl-7">';
+        $html_nosotros .= '<h2 class="text-center text-xl-start font-roboto-light-title tx-blue mb-2rem">' . $row_datos_nosotros['titulo'] . '</h2>';
+        $html_nosotros .= '<p class="special-paragraph text-center text-xl-start font-roboto-regular col-11 tx-black mx-auto my-0">' . $row_datos_nosotros['texto'] . '</p>';
         $html_nosotros .= '</div>';
     }
 

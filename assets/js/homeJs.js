@@ -303,6 +303,104 @@ $(document).ready(function () {
         });
     });
 
+    $("#selmediopago").change(function() {
+        const medio = $("#selmediopago").val();
+
+        if(medio == "NA") {
+            $("#txtref").val("");
+            $("#txtvalorref").val("");
+            
+            $("#txtvalor").val("");
+
+            let texto = "Debe seleccionar un medio de pago.";
+            $('#medioalert').addClass('select-alert');
+            $("#pdesc").html(texto).css("color","red");
+            $("#alert").show();
+            marcarInputError(this.id);
+            agregarCampoError(this.id);
+            
+        }
+        else {
+            $('#medioalert').removeClass('select-alert');
+            $("#pdesc").html("");
+            $("#alert").hide();
+            marcarInputCorrecto(this.id);
+            quitarCampoError(this.id);
+        }
+        
+        mostrarSubmit(btnSubmit.id);
+    });
+
+    // Mostrar referencia o valor manual
+    $("input[name=opvalor]").click(function() {
+        // Limpieza inicial
+        $("#txtref").val("");
+        $("#txtvalorref").val("");
+        
+        $("#txtnumdoc").val("");
+        $("#txtanio").val("");
+        $("#txtvalor").val("");
+        $("#txtvalorrefman").val("");
+
+        marcarCamposObligatorios();
+
+        // Identificar radio btn
+        const btnSelecccionado = $('input:radio[name=opvalor]:checked').val();
+
+        if(btnSelecccionado == 0) {
+            $('#secreferencia').show();
+            $('#secvalman').hide();
+        }
+        
+        if(btnSelecccionado == 1) {
+            $('#secvalman').show();
+            $('#secreferencia').hide();
+        }
+
+        mostrarSubmit(btnSubmit.id);
+    });
+
+    // Se arma la referencia de pago
+    $("#selconcepto").change(function() {
+        const concepto = $("#selconcepto").val();
+       
+        if(concepto == "NA") {
+            $("#txtref").val("");
+            $("#txtvalorref").val("");
+            
+            $("#txtvalor").val("");
+            $("#txtvalorrefman").val("");
+
+            let texto = "Debe seleccionar un concepto de pago.";
+            $('#conceptoalert').addClass('select-alert');
+            $("#pdesc").html(texto).css("color","red");
+            $("#alert").show();
+            marcarInputError(this.id);
+            agregarCampoError(this.id);
+        }
+        else {
+            $('#conceptoalert').removeClass('select-alert');
+            $("#pdesc").html("");
+            $("#alert").hide();
+            marcarInputCorrecto(this.id);
+            quitarCampoError(this.id);
+            
+            const numeroDocumento = $("#txtnumdoc").val();
+            const anio = $("#txtanio").val();
+            const referencia_pago_manual = numeroDocumento + "-" + anio + "-" + concepto;
+            
+            // input readonly informativo en valor manual
+            $("#txtvalorrefman").val(referencia_pago_manual); 
+            
+            // input obligatorio en referencia de pago, cuando se ejecuta esta funcion este input esta esconido
+            $("#txtref").val(referencia_pago_manual); 
+            marcarInputCorrecto('txtref');
+            quitarCampoError('txtref');
+        }
+        
+        mostrarSubmit(btnSubmit.id);
+    });
+    
     mostrarSubmit(btnSubmit.id);
 });
 
