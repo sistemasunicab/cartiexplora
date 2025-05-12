@@ -19,11 +19,11 @@
     while ($row_datos_seccion = $res_seccion_dos->fetch_assoc()) {
         // Obtiene el titulo de la sección y lo renderiza
 
-        $html .= '<section class="my-5">';
-        $html .=    '<div class="container my-2">';
+        $html .= '<section class="my-2rem">';
+        $html .=    '<div class="container mb-2rem">';
         $html .=       '<div class="row">';
         $html .=           '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
-        $html .=               '<h2 class="text-center font-roboto-black tx-blue" id="ofertaAcademica">' . $row_datos_seccion['titulo'] . '</h2>';
+        $html .=               '<h2 class="text-center font-roboto-black tx-blue m-0" id="ofertaAcademica">' . $row_datos_seccion['titulo'] . '</h2>';
         $html .=           '</div>';
         $html .=       '</div>';
         $html .=    '</div>';
@@ -38,7 +38,7 @@
         $res_images = $mysqli1->query($sql_images);
         
         $html .=    '<div class="bg-light-gray-o26">';
-        $html .=        '<div class="container py-5">';
+        $html .=        '<div class="container py-2rem">';
         $html .=            '<div class="row justify-content-lg-between justify-content-center ">';
         
         // Renderiza las imágenes

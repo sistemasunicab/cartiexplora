@@ -29,7 +29,7 @@
 
     $html = '<section>';
     $html .= '<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">';
+                 <div class="carousel-indicators">';
 
     // Genera un indicador de carrusel por imagen
     // El primer indicador debe tener la clase "active" el resto no
@@ -40,8 +40,8 @@
             $html .= '<button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="' . $j . '" aria-label="Slide ' . ($j + 1) . '"></button>';
         }
     }
-    $html .= '</div>
-        <div class="carousel-inner">';
+    $html .=    '</div>
+            <div class="carousel-inner">';
 
     $primerItemCarrusel = true;
 
@@ -67,7 +67,7 @@
             $html .=           '<source '. $atributosEscritorio.' media="(min-width: 992px)">';
             $html .=           '<source  '.$atributosTabletaHorizontal.' media="(min-width: 768px)">';
             $html .=           '<source '.$atributosTabletaVertical.' media="(min-width: 576px)">';
-            $html .=           '<img '. $atributosMovil .' alt="Descripción de la imagen" class="img-fluid w-100">';
+            $html .=           '<img '. $atributosMovil .' alt="Imagen carrusel" class="img-fluid w-100">';
             $html .=        '</picture>';
             
             $html .=    '</a>';
@@ -81,7 +81,7 @@
             $html .=           '<source '. $atributosEscritorio.' media="(min-width: 992px)">';
             $html .=           '<source  '.$atributosTabletaHorizontal.' media="(min-width: 768px)">';
             $html .=           '<source '.$atributosTabletaVertical.' media="(min-width: 576px)">';
-            $html .=           '<img '. $atributosMovil .' alt="Descripción de la imagen" class="img-fluid w-100">';
+            $html .=           '<img '. $atributosMovil .' alt="Imagen carrusel" class="img-fluid w-100">';
             $html .=        '</picture>';
             $html .=    '</a>';
             $html .=    '<a href="' . $link_button . '" class="button-carousel button-absolute" style="' . $styles . '" role="button">' . $text_button . '</a>';

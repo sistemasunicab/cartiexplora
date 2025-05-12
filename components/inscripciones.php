@@ -42,15 +42,15 @@
 
     while ($row_datos_seccion = $res_seccion_inscripciones->fetch_assoc()) {
 
-        $html .= '<section class="container inscripciones-seccion" id="inscripcionesAbiertas">';
+        $html .= '<section class="container inscripciones-seccion my-2rem" id="inscripcionesAbiertas">';
         $html .=    '<div class="row">';
         $html .=        '<div class="col-lg-7 col-md-12 col-sm-12 col-12 d-flex align-items-lg-center justify-content-lg-start justify-content-center">';
         $html .=            '<div>';
-        $html .=                '<div class="my-5  text-lg-start text-md-center text-sm-center text-center">';
+        $html .=                '<div class="my-2rem text-lg-start text-md-center text-sm-center text-center">';
         $html .=                    '<h1 class="font-roboto-black">' . $row_datos_seccion['titulo'] . '</h1>';
         $html .=                    '<h1 class="font-roboto-light">' . $row_datos_seccion['subTitulo'] . '</h1>';
         $html .=                '</div>';
-        $html .=                '<div class="my-5 text-lg-start text-md-center text-sm-center text-center">';
+        $html .=                '<div class="my-2rem text-lg-start text-md-center text-sm-center text-center">';
         $html .=                    '<p class="m-0 font-roboto-bolditalic">' . $row_datos_seccion['texto'] . '</p>';
         $html .=                    '<p class="m-0 font-roboto-bolditalic">' . $parametros['telefono_admisiones'] . '</p>';
         $html .=                    '<p class="m-0 font-roboto-bolditalic">' . $parametros['correo_admisiones'] . '</p>';
@@ -62,7 +62,7 @@
         $html .=                '<div class="col-lg-1 col-md-1 col-sm-1 col-1 p-0"></div>';
         $html .=                '<div class="col-lg-10 col-md-10 col-sm-10 col-10">';
         $html .=                    '<form class="form-inscripciones row" id="formulario" name="formulario">';
-        $html .=                        '<h3 class="mb-2 pt-3 fw-bold text-center inscripciones-form-titulo">' . $parametros['titulo_form_inscripciones'] . '</h3>';
+        $html .=                        '<h3 class="py-3 fw-bold text-center inscripciones-form-titulo">' . $parametros['titulo_form_inscripciones'] . '</h3>';
         $html .=                        '<div class="col-lg-2 col-md-2 col-sm-2 col-2"></div>';
         $html .=                        '<div class="col-lg-8 col-md-8 col-sm-8 col-8">';
 

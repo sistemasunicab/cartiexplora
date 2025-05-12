@@ -34,6 +34,10 @@ p, label {
     font-size: 1.2rem;
 }
 
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
 /** Variables CSS **/
 :root {
     --roboto-black: 'Roboto-black', sans-serif;
@@ -286,8 +290,26 @@ p, label {
     margin-bottom: .3rem;
 }
 
-.margin-top-5rem {
-    margin-top: 5rem;
+.mt-2rem {
+    margin-top: 2rem;
+}
+
+.my-2rem {
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+}
+
+.mb-2rem {
+    margin-bottom: 2rem !important;
+}
+
+.py-2rem {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+
+.pb-2rem {
+    padding-bottom: 2rem !important;
 }
 
 .mr-10 {
@@ -552,10 +574,6 @@ ul {
     display: none;
 }
 
-.inscripciones-seccion {
-    margin: 10rem auto;
-}
-
 .form-container {
     position: relative;
 }
@@ -677,7 +695,7 @@ input[type="checkbox"] {
 
 .blog-separator {
     border: none;
-    border-top: 3px solid var(--medium-gray);
+    background-color: var(--light-gray);
     margin: 0 auto;
     width: 50%;
     height: 0;
@@ -725,7 +743,7 @@ input[type="checkbox"] {
 
 .blog-newsletter a {
     display: flex;
-    width: 10%;
+    width: 13%;
 }
 
 .blog-newsletter input {
@@ -785,7 +803,7 @@ input[type="checkbox"] {
     row-gap: 20rem;
     column-gap: 3rem;
     padding: 5rem 0;
-    margin: 18rem 0;
+    margin: 18rem 0 15rem 0;
 }
 
 .historia-info-main {
@@ -816,7 +834,8 @@ input[type="checkbox"] {
 }
 
 .historia-info-mainimg {
-    margin-bottom: -25rem;
+    filter: drop-shadow(1px 5px 15px rgba(62, 62, 62, .35)) !important;
+    margin-bottom: -20rem;
 }
 
 /** Ecosistema **/
@@ -833,7 +852,7 @@ input[type="checkbox"] {
     display: flex;
     align-items: center;
     font-family: 'Roboto-light';
-    min-height: 15rem;
+    min-height: 8rem;
 }
 
 .ecosistema-block p {
@@ -858,12 +877,7 @@ input[type="checkbox"] {
 }
 
 .ecosistema-block img {
-    height: 15rem;
-    width: 100%;
     box-shadow: 5px 15px 2cap rgba(0, 0, 0, 0.2);
-
-    object-fit: cover;
-    object-position: center;
 }
 
 /** Nuestro Modelo **/
@@ -1098,6 +1112,11 @@ input[type="checkbox"] {
 .principios-icon {
     width: auto;
     height: 5rem;
+    max-width: 5rem;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    object-fit: contain;
 }
 
 .value{
@@ -1114,14 +1133,17 @@ input[type="checkbox"] {
     box-shadow: var(--shadow-2);
 }
 
-.values-card p:after {
-    content: ""; 
-    position: absolute;
-    left: 5%;
-    bottom: 4%;
-    width: 58%; 
-    height: 2px;
+.principios-line {
+    margin: 1rem 0;
+    color: var(--orange);
     background-color: var(--orange);
+    border: 0;
+    width: 64%;
+    opacity: 1;
+}
+
+.principios-line:not([size]) {
+    height: 3px;
 }
 
 .hide {
@@ -1132,11 +1154,18 @@ input[type="checkbox"] {
     display: inline;
 }
 
+/* Inicio Nuestros Estudiantes */
+.grid-nuestros-estudiantes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
 
 /** busqueda Blog **/
 
 .blogsearch-main {
-    padding: 6rem 0;
+    padding: 3rem 0 1.5rem 0;
 }
 
 .blogsearch-link {
@@ -1148,7 +1177,7 @@ input[type="checkbox"] {
     padding: 1rem;
     color: #FFF;
 
-    font-size: 1.5rem;
+    font-size: 1rem;
     transition: color .4s ease;
 }
 
@@ -1395,9 +1424,16 @@ input[type="text"], .select, textarea {
     min-height: 35rem;
 }
 
+
 /** PAGOS **/
 .tx-red {
     color: red;
+}
+
+.pagos-title {
+    width: fit-content;
+    display: inline-block !important;
+    white-space: nowrap;
 }
 
 .tx-primary-blue {
@@ -1405,8 +1441,8 @@ input[type="text"], .select, textarea {
 }
 
 .pagos-icono {
-    max-width: 6rem;
-    max-height: 6rem;
+    max-width: 4rem;
+    max-height: 4rem;
 }
 
 .cards-icono {
@@ -1419,7 +1455,7 @@ input[type="text"], .select, textarea {
     font-family: var(--roboto-medium);
     color: white;
     width: 100%;
-    padding: 1rem 0;
+    padding: 1rem;
     background-color: var(--orange);
     border: none;
     font-size: 1.5rem;
@@ -1505,15 +1541,6 @@ input[type="text"], .select, textarea {
     box-shadow: inset 0px 3px 6px #0000001F, 0px 3px 6px #00000029;
 }
 
-/** Principios y valores iconos **/
-
-.principios-icon{ 
-    max-width: 5rem;
-    width: 100%;
-    margin: 0 auto;
-    display: block;
-}
-
 /* Pagina Evaluacion presaberes */
 
 .orange-btn-1 {
@@ -1562,6 +1589,7 @@ input[type="text"], .select, textarea {
 /** @media (max-width: 768px) | @media (max-width: 992px) **/
 
 /** Media Query 756 **/
+/*
 @media (max-width: 576px) {
     h1 {
         font-size: 2.8rem; 
@@ -1612,134 +1640,15 @@ input[type="text"], .select, textarea {
         }
      }
 
-     /* PRINCIPIOS Y VALORES MOVIL */
+     /* PRINCIPIOS Y VALORES MOVIL 
     .values-card p:after {
         bottom: 12%;
         width: 55%;
     }     
 }
+*/
 
-@media (max-width: 768px) {
-    .blog-img {
-        height: 14rem;
-        width: 100%;
-    
-        object-fit: cover;
-        object-position: center;
-    } 
-
-    .blog-newsletter a {
-        display: flex;
-        width: 35%;
-    }
-    
-    .blog-newsletter input {
-        width: 50%;
-    }
-
-    .button-absolute {
-        font-size: 3vw;  
-        padding: 2vw 2vw;  
-    }
-
-    .home-button-fixed {
-        position: sticky;
-        width: 100%;
-        display: grid;
-        align-items: center;
-        text-align: center;
-        grid-template-columns: 2fr 1fr 2fr;
-        border-radius: unset;
-        top: 0;
-        right: 0;
-        transform: unset;
-        z-index: 100;
-    }
-
-    .home-button-fixed a {
-        margin: 0;
-    }
-    .home-button-fixed a:last-of-type {
-        margin: 0;
-    }
-    /* Estilos base para cada elemento icono */
-    .button-move {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-basis: 2;
-    }
-
-    .button-move-icon{
-        display: inline-block;
-        max-width: 7vw;
-    }
-    
-    .button-move_content p {
-        display: none;
-    }
-
-    .button-move:hover .button-move_content p {
-        display: none;
-    }
-
-    .button-move_content {
-        display: flex;
-        flex-direction: column-reverse;
-        align-items: center;
-        justify-content: center;
-        gap: .6rem;
-        padding: .5rem;
-    }
-
-    .button-move:hover .button-move_content {
-        transform: unset;
-    }
-
-    /* DESCUBRE TUS HABILIDADES */
-    .line:not(:nth-child(6)):not(:nth-child(12))::after {
-        display: none;
-    }
- 
-    /* INSCRIPCIONES ABIERTAS */
-    .inscripciones-seccion {
-        margin: 3rem auto;
-    }
-
-    .ecosistema-block,
-    .ecosistema-block .d-flex {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .ecosistema-block p {
-        text-align: center;
-    }
-
-    .ecosistema-title {
-        text-align: center;
-        min-height: auto;
-        font-family: var(--roboto-bold);
-    }
-
-    .post-img img {
-        height: auto;
-    }
-
-    .little-paragraph-md {
-        font-size: 1.2rem;
-    }
-
-    .historia-info-img {
-        height: auto;
-        margin-top: 0;
-    }
-
-    .historia-info-mainimg {
-        margin-bottom: -15rem;
-    }
-}
-
+/* Cambios de mateo */
 @media (min-width: 768px) {
     .menu-item-text:hover {
         background-color: inherit;
@@ -1846,8 +1755,14 @@ input[type="text"], .select, textarea {
         max-width: 100px;
     }
 }
+@media (min-width: 1024px) {
+    .menu-item-text {
+        white-space: nowrap;
+        max-width: 200px;
+    }
+}
 
-/* A partir de 992*/
+/* A partir de 992
 @media (min-width: 992px) {
     .form-select-pagos-img {
         appearance: none !important;
@@ -1858,17 +1773,221 @@ input[type="text"], .select, textarea {
         min-height: 40px !important;
     }
 }
+*/
 
-/* Hasta 992 */
-@media (max-width: 992px)  {
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.8rem; 
+    }
+
+    h2 {
+        font-size: 2.4rem; 
+    }
+
+    h3 {
+        font-size: 2rem; 
+    }
+
+    h4 {
+        font-size: 1.8rem;
+    }
+
+    p, label {
+        font-size: 1.2rem; 
+    }
+
+    .special-paragraph {
+        font-size: 0.9rem; 
+    }
+
+    .little-paragraph {
+        font-size: 1rem; 
+    }
+
+    .blog-img {
+        height: 14rem;
+        width: 100%;
+    
+        object-fit: cover;
+        object-position: center;
+    } 
+
+    .blog-newsletter a {
+        display: flex;
+        width: 35%;
+    }
+    
+    .blog-newsletter input {
+        width: 50%;
+    }
+
+    .button-absolute {
+        font-size: 3vw;  
+        padding: 2vw 2vw;  
+    }
+
+    .home-button-fixed {
+        position: sticky;
+        width: 100%;
+        display: grid;
+        align-items: center;
+        text-align: center;
+        grid-template-columns: repeat(3,1fr);
+        border-radius: unset;
+        top: 0;
+        right: 0;
+        transform: unset;
+        z-index: 100;
+    }
+
+    .home-button-fixed a {
+        margin: 0;
+    }
+    .home-button-fixed a:last-of-type {
+        margin: 0;
+    }
+    /* Estilos base para cada elemento icono */
+    .button-move {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-basis: 2;
+    }
+
+    .button-move-icon{
+        display: inline-block;
+        max-width: 6vw;
+    }
+    
+    .button-move_content p {
+        display: none;
+    }
+
+    .button-move:hover .button-move_content p {
+        display: none;
+    }
+
+    .button-move_content {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+        gap: .6rem;
+        padding: .5rem;
+    }
+
+    .button-move:hover .button-move_content {
+        transform: unset;
+    }
+
+    /* DESCUBRE TUS HABILIDADES */
     .line:not(:nth-child(6)):not(:nth-child(12))::after {
         display: none;
     }
+
+    .ecosistema-block,
+    .ecosistema-block .d-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .ecosistema-block p {
+        text-align: center;
+    }
+
+    .ecosistema-title {
+        text-align: center;
+        font-family: var(--roboto-bold);
+        min-height: 0;
+    }
+
+    .post-img img {
+        height: auto;
+    }
+
+    .historia-info-img {
+        height: auto !important;
+        margin-top: 0 !important;
+    }
+
+    .historia-info-mainimg {
+        margin-bottom: -28rem;
+    }
+
+    .principios-line {
+        width: 50%;
+    }
+
+    .historia-imgcontainer {
+        margin: 0;
+        margin-bottom: 22rem;
+    }
+
+    .pagos-title {
+        white-space: normal;
+    }
+
 }
 
-@media (min-width: 1024px) {
-    .menu-item-text {
-        white-space: nowrap;
-        max-width: 200px;
+@media (min-width: 768px) and (max-width: 992px)  {
+
+    .button-absolute {
+        font-size: 2vw;  
+        padding: 2vw 2vw;  
+    }
+
+    .pagos-title {
+        white-space: normal;
+    }
+
+    .line:not(:nth-child(6)):not(:nth-child(12))::after {
+        display: none;
+    }
+
+    .principios-line {
+        width: 76%;
+    }
+
+    .historia-info-img {
+        height: auto !important;
+        margin-top: 0 !important;
+    }
+
+    .historia-info-mainimg {
+        margin-bottom: -25rem;
+    }
+
+    .ecosistema-block,
+    .ecosistema-block .d-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .ecosistema-block p {
+        text-align: center;
+    }
+
+    .ecosistema-title {
+        text-align: center;
+        font-family: var(--roboto-bold);
+    }
+
+    .historia-imgcontainer {
+        margin: 0;
+        margin-bottom: 20rem;
+    }
+
+    .little-paragraph-md {
+        font-size: 1.2rem;
+    }
+
+    .blog-newsletter a {
+        display: flex;
+        width: 20%;
+    }
+    
+    .blog-newsletter input {
+        width: 30%;
     }
 }
+
