@@ -66,7 +66,7 @@
 
     if ($html != '') {
         $html .= '
-          <section class="margin-top-5rem">
+          <section class="my-2rem">
                <div class="bg-bold-blue">
                     <div class="container">
                          <div class="blogsearch-main row justify-content-center">
@@ -75,7 +75,7 @@
         foreach ($links as $link) {
           $html .= '
                <div class="col-lg-3 col-md-7 col-sm-12 col-12 mb-4 d-flex justify-content-center">
-                    <a href="" class="blogsearch-link bg-orange w-100">'.$link["linkName"].'</a>
+                    <a href="" class="blogsearch-link bg-orange w-100 d-flex align-items-center justify-content-center">'.$link["linkName"].'</a>
                </div>
           ';
         }

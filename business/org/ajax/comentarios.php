@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!empty($mensaje) && !empty($email) && !empty($blogId) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
-        $res_sentecia = $mysqli1->query($sentencia . "118");
+        $res_sentecia = $mysqli1->query($sentencia . "117");
         while ($row_sentencia = $res_sentecia->fetch_assoc()) {
             $sql_form =  $row_sentencia['tablas'] . $row_sentencia['inserciones'];
         }

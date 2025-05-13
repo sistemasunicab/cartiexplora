@@ -2,13 +2,13 @@
     //-- Funciones --//
    function generarLineaTiempo($iconoLinea, $tituloLinea, $orientacion, $descripcionLinea) {
         $bloque = '
-        <div class="row my-5 mx-0">
-            <div class="col-4 d-flex '.FlexTitleLoader::setDirection($orientacion).' align-items-center">
+        <div class="row mb-5 mx-0">
+            <div class="col-lg-3 col-4 d-flex '.FlexTitleLoader::setDirection($orientacion).' align-items-center">
                 <img class="linea-tiempo-icono" src="../../../../cartiexplora/'.$iconoLinea.'" alt="">
-                <h4 class="text-center tx-orange font-roboto-black">'.$tituloLinea.'</h4>
+                <p class="text-center tx-orange font-roboto-black">'.$tituloLinea.'</p>
             </div>
 
-            <div class="col-8">
+            <div class="col-8 col-lg-9">
                 <p class="m-0">'.$descripcionLinea.'</p>
             </div>
         </div>
@@ -37,11 +37,11 @@
     while ($row_datos_seccion = $res_seccion_dos->fetch_assoc()) {
         // Obtiene el titulo de la sección y lo renderiza
         $html .= '
-        <main class="container margin-top-5rem">
+        <main class="container my-2rem">
 
             <div class="row">
-                <div class="col-lg-12 d-flex gap-5 justify-content-center mb-5">
-                    <h2 class="p-0 m-0 tx-blue font-roboto-black text-center">' . $row_datos_seccion['titulo'] . '</h2>
+                <div class="col-lg-12 d-flex gap-5 justify-content-center mb-2rem">
+                    <h3 class="p-0 m-0 tx-blue font-roboto-black text-center">' . $row_datos_seccion['titulo'] . '</h3>
                 </div>
             </div>
         ';
