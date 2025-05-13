@@ -92,7 +92,7 @@
 
         $html .=                            '<div class="row gap-2 my-2">';
         $html .=                               '<label for="' . $inscripciones_mensaje['campo'] . '" class="form-label text-capitalize">' . $inscripciones_mensaje['texto'] .' *</label>';
-        $html .=                               '<textarea rows="3" onkeyup="validarCampo(this,\''. $inscripciones_mensaje['texto'] .'\', \'texto\', 1, \'enviaMensaje\')" id="' . $inscripciones_mensaje['campo'] . '" name="' . $inscripciones_mensaje['campo'] . '" class="campoFormulario input-text" ' . $inscripciones_mensaje['obligatorio'] . ' ' . $inscripciones_mensaje['soloLectura'] . ' ' . $inscripciones_mensaje['habilitado'] . '></textarea>';
+        $html .=                               '<textarea rows="2" onkeyup="validarCampo(this,\''. $inscripciones_mensaje['texto'] .'\', \'texto\', 1, \'enviaMensaje\')" id="' . $inscripciones_mensaje['campo'] . '" name="' . $inscripciones_mensaje['campo'] . '" class="campoFormulario input-text" ' . $inscripciones_mensaje['obligatorio'] . ' ' . $inscripciones_mensaje['soloLectura'] . ' ' . $inscripciones_mensaje['habilitado'] . '></textarea>';
         $html .=                            '</div>';
 
         $html .=                            '<div class="row justify-content-center align-items-start my-4">';
