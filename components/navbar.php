@@ -39,12 +39,12 @@ if ($res_datos) {
             $html_base .= '<a>';
             $html_base .= htmlspecialchars($row_datos['menu']);
             $html_base .= '</a>';
-            $html_base .= '<i class="icon-row fas fa-chevron-down"></i>';
+            $html_base .= '<i class="icon-row fas fa-chevron-right p-0 mx-2 w-auto"></i>';
             $html_base .= '</div>';
         } else {
             $html_base .= '<p class="m-auto font-roboto-regular tx-white special-paragraph menu-item-text">';
             $html_base .= htmlspecialchars($row_datos['menu']);
-            $html_base .= '<i class="icon-row fas fa-chevron-down"></i>';
+            $html_base .= '<i class="icon-row fas fa-chevron-down p-0 mx-2 w-auto"></i>';
             $html_base .= '</p>';
         }
         $html_base .= '</div>';
