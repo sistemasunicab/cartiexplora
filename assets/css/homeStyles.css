@@ -834,7 +834,7 @@ input[type="checkbox"] {
 }
 
 .historia-info-mainimg {
-    filter: drop-shadow(1px 5px 15px rgba(62, 62, 62, .35)) !important;
+    filter: drop-shadow(1px 5px 15px rgba(62, 62, 62, .35));
     margin-bottom: -20rem;
 }
 
@@ -1912,6 +1912,7 @@ input[type="text"], .select, textarea {
 
     .historia-info-mainimg {
         margin-bottom: -28rem;
+        filter: none;
     }
 
     .principios-line {
@@ -1955,6 +1956,7 @@ input[type="text"], .select, textarea {
 
     .historia-info-mainimg {
         margin-bottom: -25rem;
+        filter: none;
     }
 
     .ecosistema-block,
@@ -1988,6 +1990,10 @@ input[type="text"], .select, textarea {
     
     .blog-newsletter input {
         width: 30%;
+    }
+
+    .blog-img {
+        width: 100%;
     }
 }
 
