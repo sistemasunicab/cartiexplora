@@ -550,7 +550,6 @@ ul {
 /* Inicio inscripciones abiertas */
 
 .notificacion-error {
-    position: absolute;
     padding: 10px;
     margin: 10px 0;
     border-radius: 5px;
@@ -560,8 +559,6 @@ ul {
 }
 
 .notificacion-success {
-    position: absolute;
-    left: 25%;
     padding: 10px;
     margin: 10px 0;
     border-radius: 5px;
@@ -600,6 +597,10 @@ ul {
 .form-text {
     margin: 0;
     font-size: 0.6rem;
+}
+
+.inscripciones-input {
+    height: 2rem;
 }
 
 input[type="checkbox"] {
@@ -937,25 +938,6 @@ input[type="checkbox"] {
 
 /* End About Us */
 
-/* Begin calendary */
-
-.border-radius-10 {
-    border-radius: 10px !important;
-}
-
-.border-radius-20 {
-    border-radius: 20px !important;
-}
-
-.btn-calendary {
-    padding-block: .5rem;
-    border-radius: 10px;
-    font-size: 1.5rem;
-    background: var(--orange);
-    color: var(--white);
-    font-family: var(--roboto-bold);
-}
-
 /* Inicio Calendario academico */
 
 /* Calendario */
@@ -977,6 +959,8 @@ input[type="checkbox"] {
     font-family: var(--roboto-bold);
 }
 
+/* Calendario academico */
+
 /* Calendario proximo evento*/
 
 /* Comunicados*/
@@ -986,6 +970,11 @@ input[type="checkbox"] {
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+.file-container {
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--medium-gray);
 }
 
 /* Fin calendario */
@@ -1003,41 +992,97 @@ input[type="checkbox"] {
 }
 
 .form-financial input{
-    text-align: center;
-    border: 3px solid #42C3AE;
-    border-radius: 10px;
-    padding: .5rem;
-    color: var(--medium-gray);
+    text-align: center !important;
+    border: 3px solid #42C3AE !important;
+    border-radius: 15px !important;
+    padding: .5rem !important;
+    color: var(--medium-gray) !important;
 }
 
 /* Inicio Certificados y papeles */
 
+.select-wrapper {
+    
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
 .display-options {
-    padding: 0;
-    margin: 0;
-    border: 0px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     background: var(--orange);
-}
-
-.display-options span {
-    font-size: 1.5rem;
+    height: 100%;
+    border: none;
+    text-align: left;
+    padding-left: 1rem;
     border-radius: 0.25rem;
-    background: var(--bold-blue);
-    color: #FFD156;
+    border: 3px solid #42C3AE !important;
 }
 
+.display-options option{
+    margin-block: 1rem;
+    background-color: var(--blue);
+    height: 100%;
+    border: none;
+    font-family: var(--roboto-regular);
+    font-size: 1rem;
+}
+.display-options option{
+    color: var(--white);
+}
+
+.display-options option:disabled{
+    color: var(--white);
+}
+
+.select-arrow {
+    background-color: var(--bold-blue);
+    color: #FFD156;
+    font-size: 1.5rem;
+    height: 100%;
+    display: flex;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    border-block: 3px solid #42C3AE !important;
+    border-right: 3px solid #42C3AE !important;
+    position: absolute;
+    right: 0;
+}
+
+.display-options.error{
+    background: #FBE5E7;
+    color: var(--medium-gray) !important;
+}
 
 .btn_displayed {
     height: 2.5rem;
 }
 
-.text-up-absolute{
-    position: absolute;
-    top:-50px;
-    margin: 0;
-    padding: 0;
-    font-size: 0.8rem;
+@media (min-width: 768px) {
+    .text-up-absolute{
+        position: absolute;
+        top:-90px;
+        margin: 0;
+        padding: 0;
+        font-size: 0.8rem;
+    }    
 }
+
+@media (min-width: 978px) {
+    .text-up-absolute{
+        position: absolute;
+        top:-50px;
+        margin: 0;
+        padding: 0;
+        font-size: 0.8rem;
+    }    
+}
+
 
 .text-area-input{
     padding: 0.25rem;
@@ -1586,67 +1631,9 @@ input[type="text"], .select, textarea {
 
 /** 0 - 768  | 768 - 992 | > 992 **/
 /** xs, sm  | md | > lg **/
-/** @media (max-width: 768px) | @media (max-width: 992px) **/
+/** @media (max-width: 768px) | @media (min-width: 768px) and (max-width: 992px) **/
 
 /** Media Query 756 **/
-/*
-@media (max-width: 576px) {
-    h1 {
-        font-size: 2.8rem; 
-    }
-
-    h2 {
-        font-size: 2.4rem; 
-    }
-
-    h3 {
-        font-size: 2rem; 
-    }
-
-    h4 {
-        font-size: 1.8rem;
-    }
-
-    p, label {
-        font-size: 1.2rem; 
-    }
-
-    .special-paragraph {
-        font-size: 0.9rem; 
-    }
-
-    .little-paragraph {
-        font-size: 1rem; 
-    }
-
-    .inscripciones-movil{
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh; 
-        overflow: auto;
-        z-index: 100;
-        margin: 0!important;
-        animation: moverDesdeDerecha 0.8s ease-out forwards;
-    }
-      
-    @keyframes moverDesdeDerecha {
-        from {
-          transform: translateX(900px);
-        }
-        to {
-          transform: translateX(0);
-        }
-     }
-
-     /* PRINCIPIOS Y VALORES MOVIL 
-    .values-card p:after {
-        bottom: 12%;
-        width: 55%;
-    }     
-}
-*/
 
 /* Cambios de mateo */
 @media (min-width: 768px) {
@@ -1761,19 +1748,6 @@ input[type="text"], .select, textarea {
         max-width: 200px;
     }
 }
-
-/* A partir de 992
-@media (min-width: 992px) {
-    .form-select-pagos-img {
-        appearance: none !important;
-        background-repeat: no-repeat;
-        background-position: right center;
-        background-size: contain;
-        background-origin: content-box;
-        min-height: 40px !important;
-    }
-}
-*/
 
 @media (max-width: 768px) {
     h1 {
@@ -1928,6 +1902,14 @@ input[type="text"], .select, textarea {
         white-space: normal;
     }
 
+    .form-label {
+        margin: 0.2rem 0;
+        font-size: 1rem;
+    }
+
+    .form-text {
+        font-size: 1rem;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 992px)  {
@@ -1995,5 +1977,15 @@ input[type="text"], .select, textarea {
     .blog-img {
         width: 100%;
     }
+
+    .form-label {
+        margin: 0.5rem 0;
+        font-size: 1.2rem;
+    }
+
+    .form-text {
+        font-size: 1.2rem;
+    }
+
 }
 
