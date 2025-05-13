@@ -68,7 +68,20 @@
             $html .=            '</div>';
             $html .=            '<div class="col-lg-1 d-lg-block d-none"></div>';
             $html .=            '<div class="col-lg-4 col-md-6 col-sm-6 col-6">';
-            $html .=                '<a href="'. $row_publicacion['linkLeer'] .'" class="d-inline-block publications-button bg-orange tx-white">Leer</a>';
+
+            $href = "";
+
+            if ($nivel == "raiz") {
+                $href .= $row_publicacion['linkLeer'];
+            } else if ($nivel == "uno") {
+                $href .= '../'. $row_publicacion['linkLeer'];
+            } else if ($nivel == "dos") {
+                $href .= '../../'. $row_publicacion['linkLeer'];
+            } else if ($nivel == "tres") {
+                $href .= '../../../'. $row_publicacion['linkLeer'];
+            }
+
+            $html .=                '<a href="'. $href .'" target="_blank" class="d-inline-block publications-button bg-orange tx-white">Leer</a>';
             $html .=            '</div>';
             $html .=            '<div class="col-lg-5 d-lg-block d-none"></div>';
             $html .=        '</div>';
