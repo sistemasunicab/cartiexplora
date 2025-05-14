@@ -102,9 +102,8 @@ INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones
 ('NO', '', 'SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 25 AND visible = 1 ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 26 AND visible = 1 ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 26 AND descripcion = |calendario| ', '', '', '', '', ''),
-
-('NO', '', 'SELECT * ', 'FROM tbl_opciones_estados_financieros ', 'WHERE nombre_padre = |Relación con la institución| ', '','','','', ''),
-('NO', '', 'SELECT * ', 'FROM tbl_opciones_estados_financieros ', 'WHERE nombre_padre = |Tipo de certificación| ', '','','','', ''),
+('NO', '', 'SELECT * ', 'FROM tbl_opciones_estados_financieros ', 'WHERE nombrePadre = |Relación con la institución| ', '','','','', ''),
+('NO', '', 'SELECT * ', 'FROM tbl_opciones_estados_financieros ', 'WHERE nombrePadre = |Tipo de certificación| ', '','','','', ''),
 
 ('NO', '', 'SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 27 AND visible = 1 ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 27 ', '', '', '', '', ''),
@@ -145,8 +144,7 @@ INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones
 INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
 ('NO', '', 'SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 36 AND visible = 1 ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 36', '', '', '', '', ''),
-('NO', '', 'SELECT * ', 'FROM tbl_textos ', 'WHERE id_seccion = 36', '', '', '', '', ''),
-('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 17 AND descripcion=|image-contact| ', '', '', '', '', '')
+('NO', '', 'SELECT * ', 'FROM tbl_textos ', 'WHERE id_seccion = 36', '', '', '', '', '')
 ;
 
 INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES 
@@ -173,6 +171,19 @@ INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones
 ('NO','','SELECT * ','FROM tbl_imagenes ','WHERE id_seccion = 40 ','','','','','');
 
 INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
-('NO','','SELECT * ','FROM tbl_circulares','','','','','',''), 
+('NO','','SELECT * ','FROM tbl_circulares','','','','','',''); 
+
+INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
+('NO', '', 'SELECT * ', 'FROM tbl_enlaces ', 'WHERE id_seccion = 7 ', '', '', '', '', '');
+
+INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
+('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 37 ', '', '', '', '', '');
+
+INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
+('NO', '', '', 'UPDATE tbl_blogs ', 'WHERE (id = ?) ', '', '', 'SET blogMeGusta = blogMeGusta + 1 ', '', ''),
+('NO', '', '', 'UPDATE tbl_blogs ', 'WHERE (id = ?) ', '', '', 'SET blogMeGusta = blogMeGusta - 1 ', '', '');
+
+INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
+('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 17 AND descripcion=|image-contact| ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_formularios ', 'WHERE id_seccion = 25 ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_formularios ', 'WHERE id_seccion = 26 ', '', '', '', '', '');

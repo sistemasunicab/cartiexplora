@@ -55,10 +55,10 @@
     while ($row_datos_seccion = $res_seccion_dos->fetch_assoc()) {
         // renderiza la seccion
         $html .= '
-          <section class ="container margin-top-5rem mb-5">
+          <section class ="container my-2rem">
                <div class="row">
                     <div class="col-lg-12">
-                         <h2 class="font-roboto-black text-center">'.$row_datos_seccion['titulo'].'</h2>
+                         <h3 class="font-roboto-black text-center">'.$row_datos_seccion['titulo'].'</h3>
                     </div>
                </div>';
     }

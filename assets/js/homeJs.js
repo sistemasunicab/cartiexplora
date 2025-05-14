@@ -104,7 +104,7 @@ $(document).ready(function () {
     $(".datos").hide();
     marcarCamposObligatorios();
     $("#alert").hide();
-    $("#divcargando").css({ display: 'none' });
+    $("#divcargando").css({display:'none'});
     let btnSubmit = document.querySelector('button[type="submit"]');
     let idSubmit = "#" + btnSubmit.id;
 
@@ -153,13 +153,13 @@ $(document).ready(function () {
         });
     });
 
-    $("#register_grado").change(function () {
+    $("#register_grado").change(function() {
         let gra = $("#register_grado").val();
-
-        if (gra == "NA") {
+        
+        if(gra == "NA") {
             //$(idSubmit).hide();
             let texto = "Debe seleccionar un grado para la matrícula";
-            $("#pdesc").html(texto).css("color", "red");
+            $("#pdesc").html(texto).css("color","red");
             $("#alert").show();
             marcarInputError(this.id);
             agregarCampoError(this.id);
@@ -173,16 +173,16 @@ $(document).ready(function () {
         }
         mostrarSubmit(btnSubmit.id);
     });
-
-    $("#register_tipo_documento").change(function () {
+    
+    $("#register_tipo_documento").change(function() {
         let td = $("#register_tipo_documento").val();
         let td_txt = $("#register_tipo_documento option:selected").text();
         $("#td_text").val(td_txt);
-
-        if (td == "NA") {
+        
+        if(td == "NA") {
             //$("#btnEnviar").hide();
             let texto = "Debe seleccionar un tipo de documento para la matrícula";
-            $("#pdesc").html(texto).css("color", "red");
+            $("#pdesc").html(texto).css("color","red");
             $("#alert").show();
             marcarInputError(this.id);
             agregarCampoError(this.id);
@@ -196,14 +196,14 @@ $(document).ready(function () {
         }
         mostrarSubmit(btnSubmit.id);
     });
-
-    $("#register_medio").change(function () {
+    
+    $("#register_medio").change(function() {
         let medio = $("#register_medio").val();
-
-        if (medio == "NA") {
+        
+        if(medio == "NA") {
             //$("#btnEnviar").hide();
             let texto = "Debe seleccionar un medio de llegada";
-            $("#pdesc").html(texto).css("color", "red");
+            $("#pdesc").html(texto).css("color","red");
             $("#alert").show();
             marcarInputError(this.id);
             agregarCampoError(this.id);
@@ -217,14 +217,14 @@ $(document).ready(function () {
         }
         mostrarSubmit(btnSubmit.id);
     });
-
-    $("#register_genero").change(function () {
+    
+    $("#register_genero").change(function() {
         let gen = $("#register_genero").val();
-
-        if (gen == "NA") {
+        
+        if(gen == "NA") {
             //$("#btnEnviar").hide();
             let texto = "Debe seleccionar un género para la matrícula";
-            $("#pdesc").html(texto).css("color", "red");
+            $("#pdesc").html(texto).css("color","red");
             $("#alert").show();
             marcarInputError(this.id);
             agregarCampoError(this.id);
@@ -238,14 +238,14 @@ $(document).ready(function () {
         }
         mostrarSubmit(btnSubmit.id);
     });
-
-    $("#parentesco_acudiente_1").change(function () {
+    
+    $("#parentesco_acudiente_1").change(function() {
         let parentesco = $("#parentesco_acudiente_1").val();
-
-        if (parentesco == "NA") {
+        
+        if(parentesco == "NA") {
             //$("#btnEnviar").hide();
             let texto = "Debe seleccionar un parentesco para el acudiente";
-            $("#pdesc").html(texto).css("color", "red");
+            $("#pdesc").html(texto).css("color","red");
             $("#alert").show();
             marcarInputError(this.id);
             agregarCampoError(this.id);
@@ -264,7 +264,7 @@ $(document).ready(function () {
         e.preventDefault();
 
         const urlParams = new URLSearchParams(window.location.search);
-        let blogId = parseInt(urlParams.get("blogId"));
+        let blogId =  parseInt(urlParams.get("blogId"));
 
         let email = $("#correo").val();
         let comentario = $("#comentario").val();
@@ -282,20 +282,20 @@ $(document).ready(function () {
             success: function (response) {
                 if (response.status === "success") {
                     $("#comentariosCampos")[0].reset();
-
+                    
                     const comment = $("#comentario-plantilla .comment-block").clone();
                     comment.addClass('order-first');
                     comment.find('.comentario').text(data.comentario);
                     comment.find('.correo').text(data.email);
-
+                    
                     const date = new Date();
                     const d = String(date.getDate()).padStart(2, '0');
                     const m = String(date.getMonth() + 1).padStart(2, '0'); // Los meses van de 0 a 11
                     const y = String(date.getFullYear()).slice(-2); // Últimos 2 dígitos del año
                     comment.find('.fecha').text(`${y}-${m}-${d}`);
-
+                    
                     $('#comentarios').append(comment);
-                }
+                }   
             },
             error: function (response) {
                 console.log(response)
@@ -436,7 +436,7 @@ let camposError = [];
 
 const marcarCamposObligatorios = () => {
     const elementosForm = document.querySelectorAll(".campoFormulario");
-
+    
     elementosForm.forEach((elemento) => {
         //if (elemento.tagName === "INPUT") {}
         if (elemento.hasAttribute("required") && (elemento.value == "" || elemento.value == "NA")) {
@@ -457,11 +457,11 @@ const mostrar_submit = () => {
     elementosForm.forEach((input) => {
         const campoObligatorio = input.getAttribute("required") === '' ? true : false;
 
-        if (campoObligatorio && input.value === '') {
+        if (campoObligatorio && input.value === ''){
             marcarInputError(input);
         }
 
-        if ((input.type != "submit" && !input.classList.contains("success")) || input.classList.contains("error")) {
+        if ((input.type != "submit" && !input.classList.contains("success")) ||input.classList.contains("error")) {
             todosValidos = false;
         }
     });
@@ -476,27 +476,28 @@ const mostrar_submit = () => {
 const mostrarSubmit = (botonSubmit) => {
     let control = 0;
     let idObjeto = "#" + botonSubmit;
-
+    
     camposError.forEach(campo => {
         marcarInputError(campo);
         control = 1;
-    });
+    }); 
 
-    if (control > 0) {
+    if(control > 0) {
         $(idObjeto).hide();
     }
     else {
         try {
             let email1 = document.getElementById("register_correoA");
             let email2 = document.getElementById("register_correoA1");
+            
             if (email1 && email2) {
-                if ($("#register_correoA").val() == $("#register_correoA1").val()) {
+                if($("#register_correoA").val() == $("#register_correoA1").val()) {
                     $(idObjeto).show();
                     $("#alert").hide();
                 }
                 else {
                     var texto = "El email y la confirmación del email del acudiente deben ser iguales";
-                    $("#pdesc").html(texto).css("color", "red");
+                    $("#pdesc").html(texto).css("color","red");
                     $(idObjeto).hide();
                     $("#alert").show();
                 }
@@ -506,7 +507,7 @@ const mostrarSubmit = (botonSubmit) => {
                 $("#alert").hide();
             }
         } catch (error) {
-
+            
         }
     }
 };
@@ -610,16 +611,16 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
     }
 
     if (texto != "") {
-        $("#pdesc").html(texto).css("color", "red");
+        $("#pdesc").html(texto).css("color","red");
         $("#alert").show();
     } else {
         $("#pdesc").html("");
         $("#alert").hide();
     }
-
+    
     if (controlSubmit == 1 && control == 0) {
         mostrarSubmit(botonSubmit);
-    }
+    }    
 };
 
 const agregarCampoError = (id) => {
@@ -633,21 +634,21 @@ const quitarCampoError = (id) => {
         let indice = camposError.indexOf(id);
         if (indice >= 0) {
             camposError.splice(indice, 1);
-        }
+        }        
     }
-    catch (e) { }
+    catch(e) {}
 }
 
 const valDocumentoEntrevista = (botonSubmit) => {
-    $("#divcargando").css({ display: 'block' });
-
+    $("#divcargando").css({display:'block'});
+    
     $(".datos").hide();
     $("#msgdocumento").html("");
     $("#estnuevo").val("NO");
     $("#btnEnviar").hide();
     $("#register_documentoe_f").val("");
     $("#alert").hide();
-
+    
     //Se limpian lo cuadros de texto
     $("#register_nombres").val("");
     $("#register_apellidos").val("");
@@ -661,7 +662,7 @@ const valDocumentoEntrevista = (botonSubmit) => {
     $("#activiadad_extra").val("");
     $("#register_genero").val("NA");
     $("#register_genero").change();
-
+    
     $("#register_nombreA").val("");
     $("#register_documentoA").val("");
     $("#register_direccionA").val("");
@@ -671,9 +672,9 @@ const valDocumentoEntrevista = (botonSubmit) => {
     $("#parentesco_acudiente_1").val("NA");
     $('#parentesco_acudiente_1').change();
     $("#register_ciudada").val("");
-
+    
     let doc = $("#register_documentoe").val();
-    let cifra = doc.substring(0, 1);
+    let cifra = doc.substring(0,1);
     //alert(cifra);
     if (doc == "0" || cifra == "0") {
         $("#msgdocumento").html("El documento no puede ser 0, o no puede empezar por 0");
@@ -683,67 +684,67 @@ const valDocumentoEntrevista = (botonSubmit) => {
     }
     else {
         $.ajax({
-            type: "POST",
-            url: "../../org/ajax/registro_matricula_0.php",
-            data: "documento=" + doc,
-            success: function (r) {
+            type:"POST",
+            url:"../../org/ajax/registro_matricula_0.php",
+            data:"documento=" + doc,
+            success:function(r) {
                 let res = JSON.parse(r);
                 let control_matricula = 0;
                 let r_est = res.estado;
-
+                
                 $("#register_estado").val(r_est);
-
+                
                 //Se valida si ya tiene un proceso de pre matrícula abierto
-                if (res.procesoAbierto == "SI") {
+                if(res.procesoAbierto == "SI") {
                     control_matricula = 1;
                     $("#pdesc").html("");
-                    if (res.programoEntrevista == "SI") {
+                    if(res.programoEntrevista == "SI") {
                         $("#msgdocumento").html("Este documento ya tiene un proceso de entrevista abierto. Verificar el email " + res.emailA + " para revisar la información que se envío de la entrevista.");
                     }
                     else {
                         $("#msgdocumento").html("Este documento ya tiene un proceso de entrevista abierto. Verificar el email " + res.emailA + " para revisar la información que se le enviará de la entrevista.");
-                    }
+                    }							
                 }
-
-                if (control_matricula == 0) {
+                
+                if(control_matricula == 0) {
                     $("#pdesc").html("");
-                    if (r_est == "activo") {
+                    if(r_est == "activo") {
                         let r_grado = res.grados[0].gra;
                         let r_idgrado = res.grados[0].id_gra;
-
+                        
                         $("#msgdocumento").html("Este documento se encuentra activo en el grado " + r_grado + ". El proceso de entrevista es solo para estudiantes nuevos.");
                     }
-                    else if (r_est == "solicitud" || r_est == "pre_solicitud") {
+                    else if(r_est == "solicitud" || r_est == "pre_solicitud") {
                         let r_grado = res.grados[0].gra;
                         let r_idgrado = res.grados[0].id_gra;
-
+                        
                         $("#msgdocumento").html("Este documento ya tiene una solicitud de matrícula en el grado " + r_grado + ". El proceso de entrevista es solo para estudiantes nuevos.");
                     }
-                    else if (r_est == "reprobado") {
+                    else if(r_est == "reprobado") {
                         let r_grado = res.grados[0].gra;
                         let r_idgrado = res.grados[0].id_gra;
-
+                        
                         $("#msgdocumento").html("Estudiante antiguo, el proceso de entrevista es solo para estudiantes nuevos.");
                     }
-                    else if (r_est == "aprobado") {
+                    else if(r_est == "aprobado") {
                         let r_grado = res.grados[0].gra;
                         let r_idgrado = res.grados[0].id_gra;
-
+                        
                         $("#msgdocumento").html("Estudiante antiguo, el proceso de entrevista es solo para estudiantes nuevos.");
                     }
-                    else if (r_est == "retirado") {
+                    else if(r_est == "retirado") {
                         $("#msgdocumento").html("Este documento se encuentra Retirado. Comunícate con Secretaría Académica.");
                     }
-                    else if (r_est == "nuevo") {
+                    else if(r_est == "nuevo") {
                         $("#estnuevo").val("SI");
                         $("#register_documentoe_f").val(doc);
                         $(".datos").show();
                         $(".btnContinuar").hide();
                         $("#btnEnviar").hide();
-                        $("#divcargando").css({ display: 'none' });
+                        $("#divcargando").css({display:'none'});
                         //mostrar_submit(botonSubmit);
                         $("#pdesc").html("");
-
+                        
                         //Se cargan los datos si existen
                         if (res.control_antiguos == "2") {
                             $("#register_nombres").val(res.nombres);
@@ -758,7 +759,7 @@ const valDocumentoEntrevista = (botonSubmit) => {
                             $("#activiadad_extra").val(res.actividad_extra);
                             $("#register_genero").val(res.genero);
                             $("#register_genero").change();
-
+                            
                             $("#register_nombreA").val(res.acudiente);
                             $("#register_documentoA").val(res.documento_responsable);
                             $("#register_direccionA").val(res.direccion);
@@ -768,24 +769,24 @@ const valDocumentoEntrevista = (botonSubmit) => {
                             $("#parentesco_acudiente_1").val(res.parentesco_acudiente_1);
                             $('#parentesco_acudiente_1').change();
                             $("#register_ciudada").val(res.ciudadA);
-
+                            
                             mostrarSubmit(botonSubmit);
                         }
-
+                        
                     }
-                    else if (r_est == "inactivo") {
+                    else if(r_est == "inactivo") {
                         $("#msgdocumento").html("Este documento se encuentra inactivo en este momento. Comunícate con Secretaría Académica.");
                     }
                     else {
                         $("#msgdocumento").html("No se pudo procesar la solicitud de matrícula para éste documento. Comunícate con Secretaría Académica.");
                     }
                 }
-
-                $("#divcargando").css({ display: 'none' });
+                
+                $("#divcargando").css({display:'none'});
             }
-        });
-    }
-
+        });				
+    }			
+    
 }
 
 const limpiar = () => {
@@ -795,7 +796,7 @@ const limpiar = () => {
     $(".btnContinuar").show();
     $("#btnEnviar").hide();
     $("#register_documentoe_f").val("");
-
+    
     //Se limpian lo cuadros de texto
     $("#register_nombres").val("");
     $("#register_apellidos").val("");
@@ -809,7 +810,7 @@ const limpiar = () => {
     $("#activiadad_extra").val("");
     $("#register_genero").val(0);
     $("#register_genero").change();
-
+    
     $("#register_nombreA").val("");
     $("#register_documentoA").val("");
     $("#register_direccionA").val("");
@@ -819,7 +820,7 @@ const limpiar = () => {
     $("#parentesco_acudiente_1").val("NA");
     $('#parentesco_acudiente_1').change();
     $("#register_ciudada").val("");
-
+    
     $("#pdesc").html("");
     $("#alert").hide();
 }
@@ -837,21 +838,6 @@ function restaurarImagenBlog(objeto, ruta) {
         imagen.src = ruta;
     }
 }
-
-function cambiarImagenBlog(objeto, ruta) {
-    const imagen = objeto.querySelector('img')
-    if (imagen) {
-        imagen.src = ruta;
-    }
-}
-
-function restaurarImagenBlog(objeto, ruta) {
-    const imagen = objeto.querySelector('img')
-    if (imagen) {
-        imagen.src = ruta;
-    }
-}
-
 
 /*Calendario*/
 

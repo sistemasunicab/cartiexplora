@@ -49,8 +49,8 @@
 
     while ($row_datos_seccion = $res_seccion_habilidades->fetch_assoc()) {
         // Obtiene el titulo de la sección y lo renderiza
-        $html .= '<section class="container mt-100">';
-        $html .=    '<div class="row my-5">';
+        $html .= '<section class="container my-2rem">';
+        $html .=    '<div class="row mb-2rem">';
         $html .=        '<div class="col-lg-12 col-md-12 col-sm-12 col-12 ">';
         $html .=            '<h2 class="text-center font-roboto-black tx-blue">' . "\n" . $row_datos_seccion['titulo'] . '</h2>' . "\n";
         $html .=        '</div>';
@@ -75,7 +75,7 @@
 
         $res_imagenes = $mysqli1->query($sql_imagenes);
 
-        $html .=    '<div class="row p-lg-0 p-md-0 p-sm-3 p-3 ">';
+        $html .=    '<div class="row p-lg-0 p-md-0 px-sm-3 px-3 ">';
 
         while ($row_imagenes = $res_imagenes->fetch_assoc()) {
             $html .=    '<div class="col-lg-2 col-md-4 col-sm-4 col-4 line">';

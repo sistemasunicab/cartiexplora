@@ -68,7 +68,6 @@ INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLe
 (39, 'btnpagar', 'submit', 'Realizar pago por ePayco', '', '', '', '')
 ;
 
-
 INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder)
 VALUES 
 (25, 'correo_estados_financieros', 'correo', 'correo', 'required', '', '', 'Usuario email'),

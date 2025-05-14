@@ -6,8 +6,8 @@
         $bloque = '
         <div class="col-lg-4 col-md-12 col-sm-12 col-12 ecosistema-block">
             <div class="d-flex '.FlexTitleLoader::setDirection($direccionTitulo).'">
-                <img src="../../../../cartiexplora/'.$rutaImagen.'" alt="" class="img-fluid w-100">
-                <h3 class="tx-orange ecosistema-title">'.$titulo.'</h3>
+                <img src="../../../../cartiexplora/'.$rutaImagen.'" alt="" class="img-fluid w-100 my-3">
+                <h4 class="tx-orange ecosistema-title">'.$titulo.'</h4>
             </div>
 
             <a href="#">Leer mas</a>
@@ -39,7 +39,7 @@
     $html = '';
     while ($row_datos_seccion = $res_seccion_dos->fetch_assoc()) {
         // renderiza la seccion
-        $html .= '<section class="container margin-top-5rem mb-5">';
+        $html .= '<section class="container my-2rem mb-5">';
     }
 
     // Obteniendo datos

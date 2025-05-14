@@ -36,7 +36,7 @@
      while($row_datos = $res_datos->fetch_assoc()){
           // Renderizando la seccion
           $html .= '
-          <section class="bg-blue">
+          <section class="bg-blue my-2rem">
                <div class="container py-5">
 
                     <div class="row">

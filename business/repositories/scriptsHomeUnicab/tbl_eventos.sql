@@ -15,7 +15,5 @@ CREATE TABLE tbl_eventos (
   tipo varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-INSERT INTO tbl_eventos (nombre, descripcion, fechaPublicacion, fecha, hora, id_administrador, estado, tipo)  VALUES 
-('Cierre primer periodo', 'Envío oportuno de actividades 20 de marzo', CURDATE(), '2025-04-04', '18:00', 18, 1, 'comienzo'),
-('Cierre segundo periodo', 'Envío oportuno de actividades 23 de mayo ', CURDATE(), '2025-06-06', '18:00', 18, 1, 'comienzo');
-
+INSERT INTO tbl_eventos (nombre, descripcion, fechaPublicacion, fecha, hora, id_administrador, estado, tipo)  
+VALUES ('Cierre primer periodo', 'Envío oportuno de actividades 20 de marzo', CURDATE(), '2025-04-04', '18:00', 18, 1, 'comienzo');

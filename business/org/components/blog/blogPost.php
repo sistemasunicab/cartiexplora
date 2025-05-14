@@ -42,6 +42,7 @@
               'descripcion' => $row_datos['descripcionPrincipal'], 
               'tituloBlog' => $row_datos['titulo'],
               'autor' => $row_datos['autor'],
+              'blogId' => $row_datos['id']
          ];
     }
 
@@ -106,7 +107,7 @@
                          <img src="../../../'.$iconos[1]['ruta'].'" alt="" class="img-fluid blog-page-btnicon m-0">
                     </a>
 
-                    <a href="">
+                    <a href="../../../business/org/pages/blogPost.php?blogId='.$lastBlog['blogId'].'#comentariosCampos">
                          <img src="../../../'.$iconos[2]['ruta'].'" alt="" class="img-fluid blog-page-btnicon m-0">
                     </a>
                </div>
