@@ -1,16 +1,16 @@
 <?php
 
-$numero_de_directorio = "55";//79
-$res_directorio = $mysqli1->query($sentencia . $numero_de_directorio);
-while ($row_directorio = $res_directorio->fetch_assoc()) {
-    $condiciones_directorio = str_replace('|', '\'', $row_directorio['condiciones']);
-    $sql_datos_directorio = $row_directorio['campos'] . $row_directorio['tablas'] . $condiciones_directorio;
+$numero_de_directorio="55";//79
+$res_directorio=$mysqli1->query($sentencia . $numero_de_directorio);
+while ($row_directorio=$res_directorio->fetch_assoc()) {
+    $condiciones_directorio=str_replace('|', '\'', $row_directorio['condiciones']);
+    $sql_datos_directorio=$row_directorio['campos'] . $row_directorio['tablas'] . $condiciones_directorio;
 }
 
-$res_datos_directorio = $mysqli1->query($sql_datos_directorio);
+$res_datos_directorio=$mysqli1->query($sql_datos_directorio);
 
-while ($row_datos_directorio = $res_datos_directorio->fetch_assoc()) {
-    $html_directorio = '<div class="col-9 my-2rem p-0 mx-auto d-flex flex-column">';
+while ($row_datos_directorio=$res_datos_directorio->fetch_assoc()) {
+    $html_directorio='<div class="col-9 my-2rem p-0 mx-auto d-flex flex-column">';
     $html_directorio .= '<div class="col-lg-10 col-md-10 col-sm-12 col-12 p-0 mx-auto d-flex flex-column mb-2rem">';
     $html_directorio .= '<div class="d-flex mb-2rem flex-row col-12">';
     $html_directorio .= '<h3 class="tx-blue font-roboto-light-title col-9">' . $row_datos_directorio['titulo'] . '</h3>';
@@ -18,53 +18,53 @@ while ($row_datos_directorio = $res_datos_directorio->fetch_assoc()) {
     $html_directorio .= '<div class="col-lg-8 col-md-8 col-sm-12 col-12 mx-auto d-flex flex-column">';
     $html_directorio .= '<h4 class="col-lg-8 col-md-12 col-sm-12 col-12 tx-orange font-roboto-light my-auto text-center mb-4">Escríbenos o Llámanos</h4>';
     $html_directorio .= '<div class="d-flex flex-column flex-md-row justify-content-between">';
-    $number_sentence_image = "60";//80
-    $res_sentence_image = $mysqli1->query($sentencia . $number_sentence_image);
+    $number_sentence_image="60";//80
+    $res_sentence_image=$mysqli1->query($sentencia . $number_sentence_image);
 
-    while ($row_sentence_image = $res_sentence_image->fetch_assoc()) {
-        $conditions_image = str_replace('|', '\'', $row_sentence_image['condiciones']);
-        $sql_data_image = $row_sentence_image['campos'] . $row_sentence_image['tablas'] . $conditions_image;
+    while ($row_sentence_image=$res_sentence_image->fetch_assoc()) {
+        $conditions_image=str_replace('|', '\'', $row_sentence_image['condiciones']);
+        $sql_data_image=$row_sentence_image['campos'] . $row_sentence_image['tablas'] . $conditions_image;
     }
 
-    $res_data_image = $mysqli1->query($sql_data_image);
-    while ($row_data_image = $res_data_image->fetch_assoc()) {
-        $ruta = htmlspecialchars($row_data_image['ruta']);
-        $alt = htmlspecialchars($row_data_image['textoAlterno'] ?? 'Imagen'); // Default alt text
+    $res_data_image=$mysqli1->query($sql_data_image);
+    while ($row_data_image=$res_data_image->fetch_assoc()) {
+        $ruta=htmlspecialchars($row_data_image['ruta']);
+        $alt=htmlspecialchars($row_data_image['textoAlterno'] ?? 'Imagen'); // Default alt text
 
         // Determine the correct path based on the $nivel variable
-        $image_path = '';
+        $image_path='';
         if ($nivel == "raiz") {
-            $image_path = $ruta;
+            $image_path=$ruta;
         } else if ($nivel == "uno") {
-            $image_path = '../' . $ruta;
+            $image_path='../' . $ruta;
         } else if ($nivel == "dos") {
-            $image_path = '../../' . $ruta;
+            $image_path='../../' . $ruta;
         } else if ($nivel == "tres") {
-            $image_path = '../../../' . $ruta;
+            $image_path='../../../' . $ruta;
         }
     }
-    $number_sentence_image = "114";
-    $res_sentence_image = $mysqli1->query($sentencia . $number_sentence_image);
+    $number_sentence_image="114";
+    $res_sentence_image=$mysqli1->query($sentencia . $number_sentence_image);
 
-    while ($row_sentence_image = $res_sentence_image->fetch_assoc()) {
-        $conditions_image = str_replace('|', '\'', $row_sentence_image['condiciones']);
-        $sql_data_image = $row_sentence_image['campos'] . $row_sentence_image['tablas'] . $conditions_image;
+    while ($row_sentence_image=$res_sentence_image->fetch_assoc()) {
+        $conditions_image=str_replace('|', '\'', $row_sentence_image['condiciones']);
+        $sql_data_image=$row_sentence_image['campos'] . $row_sentence_image['tablas'] . $conditions_image;
     }
-    $res_data_image = $mysqli1->query($sql_data_image);
-    while ($row_data_image = $res_data_image->fetch_assoc()) {
-        $ruta = htmlspecialchars($row_data_image['ruta']);
-        $alt = htmlspecialchars($row_data_image['textoAlterno'] ?? 'Imagen'); // Default alt text
+    $res_data_image=$mysqli1->query($sql_data_image);
+    while ($row_data_image=$res_data_image->fetch_assoc()) {
+        $ruta=htmlspecialchars($row_data_image['ruta']);
+        $alt=htmlspecialchars($row_data_image['textoAlterno'] ?? 'Imagen'); // Default alt text
 
         // Determine the correct path based on the $nivel variable
-        $image_path_contacto = '';
+        $image_path_contacto='';
         if ($nivel == "raiz") {
-            $image_path_contacto = $ruta;
+            $image_path_contacto=$ruta;
         } else if ($nivel == "uno") {
-            $image_path_contacto = '../' . $ruta;
+            $image_path_contacto='../' . $ruta;
         } else if ($nivel == "dos") {
-            $image_path_contacto = '../../' . $ruta;
+            $image_path_contacto='../../' . $ruta;
         } else if ($nivel == "tres") {
-            $image_path_contacto = '../../../' . $ruta;
+            $image_path_contacto='../../../' . $ruta;
         }
     }
     $html_directorio .= '<div class="position-relative h-auto my-auto d-inline-block col-lg-8 col-md-8 col-sm-12 col-12">';
@@ -76,36 +76,36 @@ while ($row_datos_directorio = $res_datos_directorio->fetch_assoc()) {
     $html_directorio .= '</div>';   
     $html_directorio .= '</div>';
     
-    $number_sentence_table = "61";//81
-    $res_sentence_table = $mysqli1->query($sentencia . $number_sentence_table);
+    $number_sentence_table="61";//81
+    $res_sentence_table=$mysqli1->query($sentencia . $number_sentence_table);
 
-    $icons = [];
+    $icons=[];
 
-    while ($row_sentence_table = $res_sentence_table->fetch_assoc()) {
-        $conditions_table = str_replace('|', '\'', $row_sentence_table['condiciones']);
-        $sql_data_table = $row_sentence_table['campos'] . $row_sentence_table['tablas'] . $conditions_table;
+    while ($row_sentence_table=$res_sentence_table->fetch_assoc()) {
+        $conditions_table=str_replace('|', '\'', $row_sentence_table['condiciones']);
+        $sql_data_table=$row_sentence_table['campos'] . $row_sentence_table['tablas'] . $conditions_table;
     }
 
     // Ejecutamos la consulta para obtener las imágenes de los encabezados
-    $res_icons = $mysqli1->query($sql_data_table);
+    $res_icons=$mysqli1->query($sql_data_table);
 
-    while ($row_icon = $res_icons->fetch_assoc()) {
+    while ($row_icon=$res_icons->fetch_assoc()) {
         // Determinar la ruta correcta de la imagen según el nivel
-        $ruta = htmlspecialchars($row_icon['ruta']);
-        $titulo = htmlspecialchars($row_icon['titulo']); // Nombre del encabezado
+        $ruta=htmlspecialchars($row_icon['ruta']);
+        $titulo=htmlspecialchars($row_icon['titulo']); // Nombre del encabezado
 
         if ($nivel == "raiz") {
-            $image_path = $ruta;
+            $image_path=$ruta;
         } else if ($nivel == "uno") {
-            $image_path = '../' . $ruta;
+            $image_path='../' . $ruta;
         } else if ($nivel == "dos") {
-            $image_path = '../../' . $ruta;
+            $image_path='../../' . $ruta;
         } else if ($nivel == "tres") {
-            $image_path = '../../../' . $ruta;
+            $image_path='../../../' . $ruta;
         }
 
         // Guardamos la información en un array asociativo
-        $icons[] = ['path' => $image_path, 'title' => $titulo];
+        $icons[]=['path' => $image_path, 'title' => $titulo];
     }
 
     // Aquí agregamos un div que manejará el overflow
@@ -127,7 +127,7 @@ while ($row_datos_directorio = $res_datos_directorio->fetch_assoc()) {
     $html_directorio .= '<tbody>';
 
     // Agregar 4 filas vacías
-    for ($i = 0; $i < 4; $i++) {
+    for ($i=0; $i < 4; $i++) {
         $html_directorio .= '<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>';
     }
 
@@ -135,30 +135,30 @@ while ($row_datos_directorio = $res_datos_directorio->fetch_assoc()) {
     $html_directorio .= '</table>';
     $html_directorio .= '</div>'; // Cierre del div de la tabla-responsive
 
-    $number_sentence_image = "104";
-    $res_sentence_image = $mysqli1->query($sentencia . $number_sentence_image);
+    $number_sentence_image="104";
+    $res_sentence_image=$mysqli1->query($sentencia . $number_sentence_image);
 
-    while ($row_sentence_image = $res_sentence_image->fetch_assoc()) {
-        $conditions_image = str_replace('|', '\'', $row_sentence_image['condiciones']);
-        $sql_data_image = $row_sentence_image['campos'] . $row_sentence_image['tablas'] . $conditions_image;
+    while ($row_sentence_image=$res_sentence_image->fetch_assoc()) {
+        $conditions_image=str_replace('|', '\'', $row_sentence_image['condiciones']);
+        $sql_data_image=$row_sentence_image['campos'] . $row_sentence_image['tablas'] . $conditions_image;
     }
 
-    $res_data_image = $mysqli1->query($sql_data_image);
+    $res_data_image=$mysqli1->query($sql_data_image);
 
-    while ($row_data_image = $res_data_image->fetch_assoc()) {
-        $ruta = htmlspecialchars($row_data_image['ruta']);
-        $alt = htmlspecialchars($row_data_image['textoAlterno'] ?? 'Imagen'); // Default alt text
-        $titulo = $row_data_image['titulo'] ; // Default description
+    while ($row_data_image=$res_data_image->fetch_assoc()) {
+        $ruta=htmlspecialchars($row_data_image['ruta']);
+        $alt=htmlspecialchars($row_data_image['textoAlterno'] ?? 'Imagen'); // Default alt text
+        $titulo=$row_data_image['titulo'] ; // Default description
         // Determine the correct path based on the $nivel variable
-        $image_path = '';
+        $image_path='';
         if ($nivel == "raiz") {
-            $image_path = $ruta;
+            $image_path=$ruta;
         } else if ($nivel == "uno") {
-            $image_path = '../' . $ruta;
+            $image_path='../' . $ruta;
         } else if ($nivel == "dos") {
-            $image_path = '../../' . $ruta;
+            $image_path='../../' . $ruta;
         } else if ($nivel == "tres") {
-            $image_path = '../../../' . $ruta;
+            $image_path='../../../' . $ruta;
         }
     }
 

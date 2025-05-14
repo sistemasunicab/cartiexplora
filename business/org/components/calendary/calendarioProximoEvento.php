@@ -1,30 +1,30 @@
 <?php
 
 // 1) CHECK IF THE SECTION IS VISIBLE (Sentence #47)
-$number_sentence_visible = "57";
-$res_sentence_visible = $mysqli1->query($sentencia . $number_sentence_visible);
+$number_sentence_visible="57";
+$res_sentence_visible=$mysqli1->query($sentencia . $number_sentence_visible);
 
-while ($row_sentence_visible = $res_sentence_visible->fetch_assoc()) {
-    $conditions_visible = str_replace('|', '\'', $row_sentence_visible['condiciones']);
-    $sql_data_visible = $row_sentence_visible['campos'] . $row_sentence_visible['tablas'] . $conditions_visible;
+while ($row_sentence_visible=$res_sentence_visible->fetch_assoc()) {
+    $conditions_visible=str_replace('|', '\'', $row_sentence_visible['condiciones']);
+    $sql_data_visible=$row_sentence_visible['campos'] . $row_sentence_visible['tablas'] . $conditions_visible;
 }
 
-$res_data_visible = $mysqli1->query($sql_data_visible);
+$res_data_visible=$mysqli1->query($sql_data_visible);
 
 // Only display content if the section is visible
-while ($row_data_visible = $res_data_visible->fetch_assoc()) {
+while ($row_data_visible=$res_data_visible->fetch_assoc()) {
 
     // 2) FETCH UPCOMING EVENTS (Sentence #51)
-    $number_sentence_events = "65";
-    $res_sentence_events = $mysqli1->query($sentencia . $number_sentence_events);
-    while ($row_sentence_events = $res_sentence_events->fetch_assoc()) {
-        $conditions_events = str_replace('|', '\'', $row_sentence_events['condiciones']);
-        $sql_data_events = $row_sentence_events['campos'] . $row_sentence_events['tablas'] . $conditions_events;
+    $number_sentence_events="65";
+    $res_sentence_events=$mysqli1->query($sentencia . $number_sentence_events);
+    while ($row_sentence_events=$res_sentence_events->fetch_assoc()) {
+        $conditions_events=str_replace('|', '\'', $row_sentence_events['condiciones']);
+        $sql_data_events=$row_sentence_events['campos'] . $row_sentence_events['tablas'] . $conditions_events;
     }
-    $res_data_events = $mysqli1->query($sql_data_events);
+    $res_data_events=$mysqli1->query($sql_data_events);
 
     // 2) Contenedor principal
-    $html_next_event = '<div class="next-events-container col-lg-8 col-md-8 col-sm-12 col-12 p-0 mx-auto my-2rem d-flex flex-column">';
+    $html_next_event='<div class="next-events-container col-lg-8 col-md-8 col-sm-12 col-12 p-0 mx-auto my-2rem d-flex flex-column">';
     $html_next_event .= '<div class="w-100 m-auto d-flex flex-column bg-bold-blue shadow">';
     $html_next_event .= '<div class="col-10 d-flex flex-column m-auto pt-5 pb-5">';
 
@@ -35,9 +35,9 @@ while ($row_data_visible = $res_data_visible->fetch_assoc()) {
         $html_next_event .= '<p class="tx-white text-center py-5">No hay eventos próximos</p>';
     } else {
         // Volcamos todos los rows a un array
-        $events = [];
-        while ($row = $res_data_events->fetch_assoc()) {
-            $events[] = $row;
+        $events=[];
+        while ($row=$res_data_events->fetch_assoc()) {
+            $events[]=$row;
         }
     
         // Iniciamos el carrusel
@@ -58,11 +58,11 @@ while ($row_data_visible = $res_data_visible->fetch_assoc()) {
         
         // Slides
         foreach ($events as $i => $row) {
-            $tituloEvento = htmlspecialchars($row['nombre']);
-            $fechaIso     = date('c', strtotime($row['fecha'] . ' ' . $row['hora']));
+            $tituloEvento=htmlspecialchars($row['nombre']);
+            $fechaIso    =date('c', strtotime($row['fecha'] . ' ' . $row['hora']));
             // aquí uso bien $row['texto']
-            $descEvento   = htmlspecialchars($row['descripcion']);
-            $idEvento     = 'evt' . ($row['id'] ?? rand(1000, 9999));
+            $descEvento  =htmlspecialchars($row['descripcion']);
+            $idEvento    ='evt' . ($row['id'] ?? rand(1000, 9999));
     
             $html_next_event .= '
             <div class="carousel-item' . ($i === 0 ? ' active' : '') . '">

@@ -1,46 +1,46 @@
 <?php
 
-$numero_de_certificaciones = "79";//74
-$res_certificaciones = $mysqli1->query($sentencia . $numero_de_certificaciones);
-while ($row_certificaciones = $res_certificaciones->fetch_assoc()) {
-    $condiciones_certificaciones = str_replace('|', '\'', $row_certificaciones['condiciones']);
-    $sql_datos_certificaciones = $row_certificaciones['campos'] . $row_certificaciones['tablas'] . $condiciones_certificaciones;
+$numero_de_certificaciones="79";//74
+$res_certificaciones=$mysqli1->query($sentencia . $numero_de_certificaciones);
+while ($row_certificaciones=$res_certificaciones->fetch_assoc()) {
+    $condiciones_certificaciones=str_replace('|', '\'', $row_certificaciones['condiciones']);
+    $sql_datos_certificaciones=$row_certificaciones['campos'] . $row_certificaciones['tablas'] . $condiciones_certificaciones;
 }
 
-$res_datos_certificaciones = $mysqli1->query($sql_datos_certificaciones);
+$res_datos_certificaciones=$mysqli1->query($sql_datos_certificaciones);
 
-while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
+while ($row_datos_certificaciones=$res_datos_certificaciones->fetch_assoc()) {
     if ($row_datos_certificaciones['visible'] != 1)
         continue;
 
-    $sentencia_formulario = "133";
-    $campos_formulario = [];
+    $sentencia_formulario="133";
+    $campos_formulario=[];
 
-    $res_sentecia = $mysqli1->query($sentencia . $sentencia_formulario);
-    while ($row_sentencia = $res_sentecia->fetch_assoc()) {
-        $sql_formulario = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
+    $res_sentecia=$mysqli1->query($sentencia . $sentencia_formulario);
+    while ($row_sentencia=$res_sentecia->fetch_assoc()) {
+        $sql_formulario=$row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
     }
 
-    $res_formulario = $mysqli1->query($sql_formulario);
+    $res_formulario=$mysqli1->query($sql_formulario);
 
-    while ($row_datos_form = $res_formulario->fetch_assoc()) {
-        $campos_formulario[] = $row_datos_form;
+    while ($row_datos_form=$res_formulario->fetch_assoc()) {
+        $campos_formulario[]=$row_datos_form;
     }
     
-    $nombre_certificaciones = array_shift($campos_formulario);
-    $identificacion_certificaciones = array_shift($campos_formulario);
-    $tipo_id_certificaciones = array_shift($campos_formulario);
-    $correo_certificaciones = array_shift($campos_formulario);
-    $telefono_certificaciones = array_shift($campos_formulario);
-    $grado_id_certificaciones = array_shift($campos_formulario);
-    $relacion_id_certificaciones = array_shift($campos_formulario);
-    $tipo_certificaciones = array_shift($campos_formulario);
-    $fecha_certificaciones = array_shift($campos_formulario);
-    $proposito_certificaciones = array_shift($campos_formulario);
-    $tratamiento_certificaciones = array_shift($campos_formulario);
-    $botton_certificaciones = array_shift($campos_formulario);
+    $nombre_certificaciones=array_shift($campos_formulario);
+    $identificacion_certificaciones=array_shift($campos_formulario);
+    $tipo_id_certificaciones=array_shift($campos_formulario);
+    $correo_certificaciones=array_shift($campos_formulario);
+    $telefono_certificaciones=array_shift($campos_formulario);
+    $grado_id_certificaciones=array_shift($campos_formulario);
+    $relacion_id_certificaciones=array_shift($campos_formulario);
+    $tipo_certificaciones=array_shift($campos_formulario);
+    $fecha_certificaciones=array_shift($campos_formulario);
+    $proposito_certificaciones=array_shift($campos_formulario);
+    $tratamiento_certificaciones=array_shift($campos_formulario);
+    $botton_certificaciones=array_shift($campos_formulario);
 
-    $html_certificaciones = '<div class="col-lg-9 col-md-9 col-sm-12 col-12 my-2rem p-0 mx-auto d-flex flex-column">';
+    $html_certificaciones='<div class="col-lg-9 col-md-9 col-sm-12 col-12 my-2rem p-0 mx-auto d-flex flex-column">';
     $html_certificaciones .= '<h3 class="col-lg-7 col-md-7 col-sm-10 col-10 mx-auto mx-md-0 tx-blue font-roboto-light-title my-0">' . $row_datos_certificaciones['titulo'] . '</h3>';
     // Primera fila
     $html_certificaciones .= '<form id="form_servicios" class="my-2rem form-financial d-flex flex-column">';
@@ -152,23 +152,23 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
     ';
 
     // --- Carga dinámica de opciones ---
-    $numero_opciones_dropdown = "81";
-    $res_opciones_dropdown = $mysqli1->query($sentencia . $numero_opciones_dropdown);
-    $sql_opciones_dropdown = '';
+    $numero_opciones_dropdown="81";
+    $res_opciones_dropdown=$mysqli1->query($sentencia . $numero_opciones_dropdown);
+    $sql_opciones_dropdown='';
 
-    while ($row_opciones = $res_opciones_dropdown->fetch_assoc()) {
-        $condiciones_opciones = str_replace('|', '\'', $row_opciones['condiciones']);
-        $sql_opciones_dropdown = $row_opciones['campos']
+    while ($row_opciones=$res_opciones_dropdown->fetch_assoc()) {
+        $condiciones_opciones=str_replace('|', '\'', $row_opciones['condiciones']);
+        $sql_opciones_dropdown=$row_opciones['campos']
             . $row_opciones['tablas']
             . $condiciones_opciones;
     }
 
     if (!empty($sql_opciones_dropdown)) {
-        $res_datos_opciones = $mysqli1->query($sql_opciones_dropdown);
-        while ($row = $res_datos_opciones->fetch_assoc()) {
+        $res_datos_opciones=$mysqli1->query($sql_opciones_dropdown);
+        while ($row=$res_datos_opciones->fetch_assoc()) {
             if ((int) $row['visible'] !== 1)
                 continue;
-            $valor = htmlspecialchars($row['valor'], ENT_QUOTES, 'UTF-8');
+            $valor=htmlspecialchars($row['valor'], ENT_QUOTES, 'UTF-8');
             $html_certificaciones .= '<option value="' . $valor . '">' . $valor . '</option>';
         }
     }
@@ -215,12 +215,12 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
     ';
 
     // --- Carga dinámica de opciones ---
-    $numero_opciones_dropdown = "82";
-    $res_opciones_dropdown = $mysqli1->query($sentencia . $numero_opciones_dropdown);
-    $sql_opciones_dropdown = '';
+    $numero_opciones_dropdown="82";
+    $res_opciones_dropdown=$mysqli1->query($sentencia . $numero_opciones_dropdown);
+    $sql_opciones_dropdown='';
 
-    while ($row_opciones = $res_opciones_dropdown->fetch_assoc()) {
-        $condiciones_opciones = str_replace('|', '\'', $row_opciones['condiciones']);
+    while ($row_opciones=$res_opciones_dropdown->fetch_assoc()) {
+        $condiciones_opciones=str_replace('|', '\'', $row_opciones['condiciones']);
         $sql_opciones_dropdown =
             $row_opciones['campos'] .
             $row_opciones['tablas'] .
@@ -228,11 +228,11 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
     }
 
     if (!empty($sql_opciones_dropdown)) {
-        $res_datos_opciones = $mysqli1->query($sql_opciones_dropdown);
-        while ($row = $res_datos_opciones->fetch_assoc()) {
+        $res_datos_opciones=$mysqli1->query($sql_opciones_dropdown);
+        while ($row=$res_datos_opciones->fetch_assoc()) {
             if ((int) $row['visible'] !== 1)
                 continue;
-            $valor = htmlspecialchars($row['valor'], ENT_QUOTES, 'UTF-8');
+            $valor=htmlspecialchars($row['valor'], ENT_QUOTES, 'UTF-8');
             $html_certificaciones .=
                 '<option value="' . $valor . '">' . $valor . '</option>';
         }
@@ -260,29 +260,29 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
 
     // Close dropdown "Tipo de certificacion"
 
-    $number_sentence_image = "80";//75
-    $res_sentence_image = $mysqli1->query($sentencia . $number_sentence_image);
+    $number_sentence_image="80";//75
+    $res_sentence_image=$mysqli1->query($sentencia . $number_sentence_image);
 
-    while ($row_sentence_image = $res_sentence_image->fetch_assoc()) {
-        $conditions_image = str_replace('|', '\'', $row_sentence_image['condiciones']);
-        $sql_data_image = $row_sentence_image['campos'] . $row_sentence_image['tablas'] . $conditions_image;
+    while ($row_sentence_image=$res_sentence_image->fetch_assoc()) {
+        $conditions_image=str_replace('|', '\'', $row_sentence_image['condiciones']);
+        $sql_data_image=$row_sentence_image['campos'] . $row_sentence_image['tablas'] . $conditions_image;
     }
-    $res_data_image = $mysqli1->query($sql_data_image);
+    $res_data_image=$mysqli1->query($sql_data_image);
 
-    while ($row_data_image = $res_data_image->fetch_assoc()) {
-        $ruta = htmlspecialchars($row_data_image['ruta']);
-        $alt = htmlspecialchars($row_data_image['textoAlterno'] ?? 'Imagen'); // Default alt text
+    while ($row_data_image=$res_data_image->fetch_assoc()) {
+        $ruta=htmlspecialchars($row_data_image['ruta']);
+        $alt=htmlspecialchars($row_data_image['textoAlterno'] ?? 'Imagen'); // Default alt text
 
         // Determine the correct path based on the $nivel variable
-        $image_path = '';
+        $image_path='';
         if ($nivel == "raiz") {
-            $image_path = $ruta;
+            $image_path=$ruta;
         } else if ($nivel == "uno") {
-            $image_path = '../' . $ruta;
+            $image_path='../' . $ruta;
         } else if ($nivel == "dos") {
-            $image_path = '../../' . $ruta;
+            $image_path='../../' . $ruta;
         } else if ($nivel == "tres") {
-            $image_path = '../../../' . $ruta;
+            $image_path='../../../' . $ruta;
         }
 
         $html_certificaciones .= '<div class="my-5 my-md-0 col-lg-2 col-md-2 col-sm-8 col-8 d-flex flex-column align-items-center text-center mx-auto position-relative">';
@@ -323,30 +323,30 @@ while ($row_datos_certificaciones = $res_datos_certificaciones->fetch_assoc()) {
         </label>
     </div>';
 
-    $number_sentence_image = "103";
-    $res_sentence_image = $mysqli1->query($sentencia . $number_sentence_image);
+    $number_sentence_image="103";
+    $res_sentence_image=$mysqli1->query($sentencia . $number_sentence_image);
 
-    while ($row_sentence_image = $res_sentence_image->fetch_assoc()) {
-        $conditions_image = str_replace('|', '\'', $row_sentence_image['condiciones']);
-        $sql_data_image = $row_sentence_image['campos'] . $row_sentence_image['tablas'] . $conditions_image;
+    while ($row_sentence_image=$res_sentence_image->fetch_assoc()) {
+        $conditions_image=str_replace('|', '\'', $row_sentence_image['condiciones']);
+        $sql_data_image=$row_sentence_image['campos'] . $row_sentence_image['tablas'] . $conditions_image;
     }
 
 
-    $res_data_image = $mysqli1->query($sql_data_image);
+    $res_data_image=$mysqli1->query($sql_data_image);
 
-    while ($row_data_image = $res_data_image->fetch_assoc()) {
-        $ruta = htmlspecialchars($row_data_image['ruta']);
-        $alt = htmlspecialchars($row_data_image['textoAlterno'] ?? 'Imagen');
+    while ($row_data_image=$res_data_image->fetch_assoc()) {
+        $ruta=htmlspecialchars($row_data_image['ruta']);
+        $alt=htmlspecialchars($row_data_image['textoAlterno'] ?? 'Imagen');
         // Determine the correct path based on the $nivel variable
-        $image_path = '';
+        $image_path='';
         if ($nivel == "raiz") {
-            $image_path = $ruta;
+            $image_path=$ruta;
         } else if ($nivel == "uno") {
-            $image_path = '../' . $ruta;
+            $image_path='../' . $ruta;
         } else if ($nivel == "dos") {
-            $image_path = '../../' . $ruta;
+            $image_path='../../' . $ruta;
         } else if ($nivel == "tres") {
-            $image_path = '../../../' . $ruta;
+            $image_path='../../../' . $ruta;
         }
     }
     $html_certificaciones .= '<button id="'.$botton_certificaciones['campo'].'" class="btn p-2 bg-orange col-lg-2 col-md-3 col-sm-4 col-4 mx-auto mt-3">';

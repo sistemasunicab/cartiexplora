@@ -1,79 +1,79 @@
 <?php
 
 // 1) VERIFICAR SI LA SECCIÓN ESTÁ VISIBLE (Sentencia #48)
-$number_sentence_visible = "58";
-$res_sentence_visible = $mysqli1->query($sentencia . $number_sentence_visible);
+$number_sentence_visible="58";
+$res_sentence_visible=$mysqli1->query($sentencia . $number_sentence_visible);
 
-while ($row_sentence_visible = $res_sentence_visible->fetch_assoc()) {
-    $conditions_visible = str_replace('|', '\'', $row_sentence_visible['condiciones']);
-    $sql_data_visible = $row_sentence_visible['campos'] . $row_sentence_visible['tablas'] . $conditions_visible;
+while ($row_sentence_visible=$res_sentence_visible->fetch_assoc()) {
+    $conditions_visible=str_replace('|', '\'', $row_sentence_visible['condiciones']);
+    $sql_data_visible=$row_sentence_visible['campos'] . $row_sentence_visible['tablas'] . $conditions_visible;
 }
-$res_data_visible = $mysqli1->query($sql_data_visible);
+$res_data_visible=$mysqli1->query($sql_data_visible);
 
 // SOLO MOSTRAR EL CONTENIDO SI LA SECCIÓN ESTÁ VISIBLE
-while ($row_data_visible = $res_data_visible->fetch_assoc()) {
+while ($row_data_visible=$res_data_visible->fetch_assoc()) {
 
     // 2) OBTENER LA IMAGEN DEL ÍCONO (Sentencia #50)
-    $number_sentence_icon = "64";
-    $res_sentence_icon = $mysqli1->query($sentencia . $number_sentence_icon);
+    $number_sentence_icon="64";
+    $res_sentence_icon=$mysqli1->query($sentencia . $number_sentence_icon);
 
-    while ($row_sentence_icon = $res_sentence_icon->fetch_assoc()) {
-        $conditions_icon = str_replace('|', '\'', $row_sentence_icon['condiciones']);
-        $sql_data_icon = $row_sentence_icon['campos'] . $row_sentence_icon['tablas'] . $conditions_icon;
+    while ($row_sentence_icon=$res_sentence_icon->fetch_assoc()) {
+        $conditions_icon=str_replace('|', '\'', $row_sentence_icon['condiciones']);
+        $sql_data_icon=$row_sentence_icon['campos'] . $row_sentence_icon['tablas'] . $conditions_icon;
     }
 
-    $res_data_icon = $mysqli1->query($sql_data_icon);
-    $icon_path = ''; // Ruta final del ícono
+    $res_data_icon=$mysqli1->query($sql_data_icon);
+    $icon_path=''; // Ruta final del ícono
 
-    while ($row_data_icon = $res_data_icon->fetch_assoc()) {
-        $rutaIcono = $row_data_icon['ruta'] ?? '';
+    while ($row_data_icon=$res_data_icon->fetch_assoc()) {
+        $rutaIcono=$row_data_icon['ruta'] ?? '';
         // Determina la ruta según la variable $nivel
         if ($nivel == "raiz") {
-            $icon_path = $rutaIcono;
+            $icon_path=$rutaIcono;
         } else if ($nivel == "uno") {
-            $icon_path = '../' . $rutaIcono;
+            $icon_path='../' . $rutaIcono;
         } else if ($nivel == "dos") {
-            $icon_path = '../../' . $rutaIcono;
+            $icon_path='../../' . $rutaIcono;
         } else if ($nivel == "tres") {
-            $icon_path = '../../../' . $rutaIcono;
+            $icon_path='../../../' . $rutaIcono;
         }
     }
 
     // 3) OBTENER LOS ARCHIVOS DE LA TABLA (Sentencia #52)
-    $number_sentence_files = "66";
-    $res_sentence_files = $mysqli1->query($sentencia . $number_sentence_files);
+    $number_sentence_files="66";
+    $res_sentence_files=$mysqli1->query($sentencia . $number_sentence_files);
 
-    while ($row_sentence_files = $res_sentence_files->fetch_assoc()) {
-        $conditions_files = str_replace('|', '\'', $row_sentence_files['condiciones']);
-        $sql_data_files = $row_sentence_files['campos'] . $row_sentence_files['tablas'] . $conditions_files;
+    while ($row_sentence_files=$res_sentence_files->fetch_assoc()) {
+        $conditions_files=str_replace('|', '\'', $row_sentence_files['condiciones']);
+        $sql_data_files=$row_sentence_files['campos'] . $row_sentence_files['tablas'] . $conditions_files;
     }
 
-    $res_data_files = $mysqli1->query($sql_data_files);
+    $res_data_files=$mysqli1->query($sql_data_files);
 
     // CONTENEDOR PRINCIPAL
-    $html_communication = '<div class="col-lg-7 col-md-7 col-sm-9 col-9 mx-auto my-2rem d-flex flex-column p-0">';
+    $html_communication='<div class="col-lg-7 col-md-7 col-sm-9 col-9 mx-auto my-2rem d-flex flex-column p-0">';
     $html_communication .= '    <div class="d-flex flex-column col-lg-10 col-md-10 col-sm-12 col-12 m-auto">';
 
     // TÍTULO DE LA SECCIÓN (POR EJEMPLO "COMUNICADOS")
     $html_communication .= '<h2 class="font-roboto-bold tx-blue m-auto">'. $row_data_visible['titulo']. '</h2>';
 
     // RECORRER CADA ARCHIVO DE LA TABLA
-    while ($row_data_files = $res_data_files->fetch_assoc()) {
+    while ($row_data_files=$res_data_files->fetch_assoc()) {
         // Información del archivo
-        $nombreArchivo = htmlspecialchars($row_data_files['nombrArchivo'] ?? 'Documento sin título');
-        $fechaArchivo = htmlspecialchars($row_data_files['fechaSubida'] ?? 'Fecha no disponible');
-        $rutaArchivo = $row_data_files['ruta'] ?? '';
+        $nombreArchivo=htmlspecialchars($row_data_files['nombrArchivo'] ?? 'Documento sin título');
+        $fechaArchivo=htmlspecialchars($row_data_files['fechaSubida'] ?? 'Fecha no disponible');
+        $rutaArchivo=$row_data_files['ruta'] ?? '';
 
         // Ajustar la ruta según el nivel
-        $archivo_path = '';
+        $archivo_path='';
         if ($nivel === 'raiz') {
-            $archivo_path = $rutaArchivo;
+            $archivo_path=$rutaArchivo;
         } else if ($nivel === 'uno') {
-            $archivo_path = '../' . $rutaArchivo;
+            $archivo_path='../' . $rutaArchivo;
         } else if ($nivel === 'dos') {
-            $archivo_path = '../../' . $rutaArchivo;
+            $archivo_path='../../' . $rutaArchivo;
         } else if ($nivel === 'tres') {
-            $archivo_path = '../../../' . $rutaArchivo;
+            $archivo_path='../../../' . $rutaArchivo;
         }
 
         // Estructura: Ícono + Texto + Botón
