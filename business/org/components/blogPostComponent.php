@@ -128,6 +128,17 @@
            $links[] = $row_datos;
       }  
 
+      // Obteniendo imagen like
+      $res_sentencia = $mysqli1->query($sentencia."132");
+      while($row_sentencia = $res_sentencia->fetch_assoc()){
+           $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']).$row_sentencia['ordenamientos'];
+      }  
+ 
+      $res_datos = $mysqli1->query($sql_datos);
+      while($row_datos = $res_datos->fetch_assoc()){
+           $imagenLike = $row_datos['ruta'];
+      }  
+
     if ($html != '') {
 
         $html .= ' 
@@ -165,7 +176,11 @@
                          </div>
 
                          <div class="col-lg-4 col-md-4 col-sm-12 col-12 d-flex justify-content-lg-end justify-content-center align-items-center gap-4 p-0">
-                              <a href="">
+                              <a href="" class="d-none" id="blog_dislikeBtn">
+                                   <img src="../../../'.$imagenLike.'" alt="" class="img-fluid blog-page-btnicon m-0">
+                              </a>
+                         
+                              <a href="" id="blog_likeBtn">
                                    <img src="../../../'.$iconos[1]['ruta'].'" alt="" class="img-fluid blog-page-btnicon m-0">
                               </a>
 

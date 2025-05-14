@@ -31,7 +31,7 @@
     while ($row_datos_seccion = $res_seccion_dos->fetch_assoc()) {
         // renderiza la seccion
         $html .= '
-          <main class="container margin-top-5rem mb-5">
+          <main class="container my-2rem">
                <div class="row justify-content-center align-items-center '.FlexTitleLoader::setDirection($datosImgTitulo[1]).' gap-4">
                     <div class="col-lg-2 col-md-2 col-sm-5 col-5">
                          <img '.ImageAttributeBuilder::BuildAttributes($nivel, $datosImgTitulo[0]).' alt="" class="img-fluid w-100">
