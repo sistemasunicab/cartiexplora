@@ -1,4 +1,5 @@
 <?php
+
 $numero_de_sentencia_info = "48";
 $res_sentencia_info = $mysqli1->query($sentencia . $numero_de_sentencia_info);
 while ($row_sentencia_info = $res_sentencia_info->fetch_assoc()) {

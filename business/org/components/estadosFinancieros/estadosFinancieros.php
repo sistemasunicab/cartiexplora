@@ -1,4 +1,5 @@
 <?php
+
 $numero_de_estados_financieros = "78";
 $res_estados_financieros = $mysqli1->query($sentencia . $numero_de_estados_financieros);
 while ($row_estados_financieros = $res_estados_financieros->fetch_assoc()) {

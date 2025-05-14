@@ -1,4 +1,5 @@
 <?php
+
 $numero_de_directorio = "55";//79
 $res_directorio = $mysqli1->query($sentencia . $numero_de_directorio);
 while ($row_directorio = $res_directorio->fetch_assoc()) {

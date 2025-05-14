@@ -1,4 +1,5 @@
 <?php
+
 $numero_de_certificaciones = "79";//74
 $res_certificaciones = $mysqli1->query($sentencia . $numero_de_certificaciones);
 while ($row_certificaciones = $res_certificaciones->fetch_assoc()) {

@@ -1,4 +1,5 @@
 <?php
+
 // 1) CHECK IF THE SECTION IS VISIBLE (Sentence #47)
 $number_sentence_visible = "57";
 $res_sentence_visible = $mysqli1->query($sentencia . $number_sentence_visible);

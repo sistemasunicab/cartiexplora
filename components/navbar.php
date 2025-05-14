@@ -1,4 +1,5 @@
 <?php
+
 //nivel de la carpeta desde donde se llama este componente (archivo index.php de la raíz)
 
 if ($nivel == 'raiz') {
