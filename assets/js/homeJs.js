@@ -838,3 +838,219 @@ function restaurarImagenBlog(objeto, ruta) {
         imagen.src = ruta;
     }
 }
+
+/*Calendario*/
+
+if (window.location.pathname.endsWith("calendario.php")) {
+    document.addEventListener("DOMContentLoaded", function () {
+        // Selecciona todos los contenedores de countdown
+        const countdowns = document.querySelectorAll(".countdown-container");
+
+        if (countdowns.length === 0) {
+            // Ningún evento, ya mostramos el mensaje en PHP
+            return;
+        }
+
+        countdowns.forEach(function (container) {
+            const targetDate = new Date(container.dataset.fecha).getTime();
+            const dayEl = container.querySelector(".countdown-day");
+            const hourEl = container.querySelector(".countdown-hour");
+            const minEl = container.querySelector(".countdown-min");
+            const secEl = container.querySelector(".countdown-sec");
+
+            const interval = setInterval(function () {
+                const now = Date.now();
+                const distance = targetDate - now;
+
+                if (distance <= 0) {
+                    clearInterval(interval);
+                    container.innerHTML = '<p class="tx-white">El evento ya ha pasado.</p>';
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                dayEl.textContent = days;
+                hourEl.textContent = hours;
+                minEl.textContent = minutes;
+                secEl.textContent = seconds;
+            }, 1000);
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Selecciona todos los botones con la clase .btn-route
+        const botonesVer = document.querySelectorAll('.btn-route');
+
+        botonesVer.forEach((boton) => {
+            boton.addEventListener('click', function () {
+                const rutaArchivo = this.getAttribute('data-ruta');
+                console.log(rutaArchivo);
+                // Crear un enlace invisible y forzar la descarga
+                const link = document.createElement('a');
+                link.href = rutaArchivo;
+                link.setAttribute('download', rutaArchivo.split('/').pop()); // Obtiene el nombre del archivo
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            });
+        });
+    });
+}
+
+/*Fin Calendario*/
+
+
+/* Estados Financieros */
+
+function validarSelect(elemento, descripcion, botonSubmit, otherInputId) {
+    const id = elemento.id;
+    const value = elemento.value;
+    const boton = document.getElementById(botonSubmit);
+    const idSubmit = "#" + botonSubmit;
+
+    // 1) Oculta el botón mientras validas
+    $(idSubmit).hide();
+
+    // 2) Si vienen el id de un "otro input", muéstralo o escóndelo
+    if (otherInputId) {
+        const otroInput = document.getElementById(otherInputId);
+        if (value === "Otro (especificar)") {
+            otroInput.style.display = 'block';
+            otroInput.required = true;
+            // dispara la validación si ya había texto
+            otroInput.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
+        } else {
+            otroInput.style.display = 'none';
+            otroInput.required = false;
+            otroInput.value = '';
+        }
+    }
+
+    // 3) Validación básica del select
+    if (!value) {
+        marcarInputError(id);
+        agregarCampoError(id);
+        $("#pdesc")
+            .html(`Debe seleccionar una opción en ${descripcion}`)
+            .css("color", "red");
+        $("#alert").show();
+    } else {
+        marcarInputCorrecto(id);
+        quitarCampoError(id);
+        $("#pdesc").html("");
+        $("#alert").hide();
+        mostrarSubmit(botonSubmit);
+    }
+}
+
+
+if (window.location.pathname.endsWith("estadosFinancieros.php")) {
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const form_info = $("#form_info");
+        const form_servicios = $("#form_servicios");
+
+        const reset_form_info = () => {
+            const inputs_info = form_info.find("input, select, textarea");
+            for (let i = 0; i < inputs_info.length; i++) {
+                const elemento = inputs_info[i];
+                marcarInputCorrecto(elemento.id);
+                quitarCampoError(elemento.id);
+            }
+        }
+
+        const reset_form_servicios = () => {
+            const inputs_servicios = form_servicios.find("input, select, textarea");
+            for (let i = 0; i < inputs_servicios.length; i++) {
+                const elemento = inputs_servicios[i];
+                marcarInputCorrecto(elemento.id);
+                quitarCampoError(elemento.id);
+            }
+        }
+
+
+        form_info.on("click", function (e) {
+            const id = "submit-estados-financieros";
+            const send_info = $("#" + id);
+            reset_form_servicios();
+            camposError = [];
+            send_info.hide();
+            const inputs_info = form_info.find("input, select, textarea");
+
+            for (let i = inputs_info.length - 1; i >= 0; i--) {
+                const elemento = inputs_info[i];
+                elemento.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
+            }
+            mostrarSubmit(id);
+        });
+
+        form_servicios.on("click", function (e) {
+            const id = "submit-certificaciones-papeles";
+            const send_servicios = $("#" + id);
+            reset_form_info();
+            camposError = [];
+            send_servicios.hide();
+            const inputs_servicios = form_servicios.find("input, select, textarea");
+
+            for (let i = inputs_servicios.length - 1; i >= 0; i--) {
+                const elemento = inputs_servicios[i];
+                elemento.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
+            }
+
+            mostrarSubmit(id);
+        });
+
+
+        form_info.on("submit", function (e) {
+            e.preventDefault();
+
+        });
+
+        form_servicios.on("submit", function (e) {
+            e.preventDefault();
+        });
+
+        const currentYear = new Date().getFullYear();
+        const startYear = 2010;
+        const endYear = 2030;
+
+        document.querySelectorAll(".year-trigger").forEach((imgEl) => {
+            const container = imgEl.closest("div");
+            const select = container.querySelector(".year-select");
+
+            // Rellenar el select solo si está vacío
+            if (select.options.length === 0) {
+                for (let year = startYear; year <= endYear; year++) {
+                    const option = document.createElement("option");
+                    option.value = year;
+                    option.textContent = year;
+
+                    if (year === currentYear) {
+                        option.selected = true;
+                    }
+
+                    select.appendChild(option);
+                }
+
+                new Choices(select, {
+                    searchEnabled: false,
+                    itemSelectText: '',
+                    shouldSort: false,
+                });
+            }
+
+            // Mostrar el selector al hacer clic en la imagen
+            imgEl.addEventListener("click", () => {
+                select.classList.remove("d-none");
+                select.focus();
+            });
+        });
+    });
+}
+
+/* Fin Estados Financieros */

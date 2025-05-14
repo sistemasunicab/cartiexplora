@@ -67,3 +67,39 @@ INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLe
 (39, 'txtvalorrefman', 'text', '', '', 'readonly', '', 'Referencia de pago'),
 (39, 'btnpagar', 'submit', 'Realizar pago por ePayco', '', '', '', '')
 ;
+
+INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder)
+VALUES 
+(25, 'correo_estados_financieros', 'correo', 'correo', 'required', '', '', 'Usuario email'),
+(25, 'password_estados_financieros', 'texto', 'contraseña', 'required', '', '', 'Password'),
+(25, 'submit-estados-financieros', 'submit', 'Solicitar', '', '', '', '');
+
+INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder)
+VALUES 
+-- Primera fila
+(26, 'nombre_certificaciones', 'texto', 'nombre', 'required', '', '', 'Nombre Completo'),
+(26, 'identificacion_certificaciones', 'numero', 'identificación', 'required', '', '', 'Número de identificación'),
+(26, 'tipo_id_certificaciones', 'texto', 'tipo', 'required', '', '', 'Seleccionar tipo'),
+
+-- Segunda fila
+(26, 'correo_certificaciones', 'correo', 'correo', 'required', '', '', 'Correo electrónico'),
+(26, 'telefono_certificaciones', 'numero', 'telefono', 'required', '', '', 'Número de teléfono'),
+(26, 'grado_id_certificaciones', 'texto', 'grado', 'required', '', '', 'Seleccionar grado'),
+
+-- Relación con la institución
+(26, 'relacion_certificaciones_select', 'texto', 'relación', 'required', '', '', 'Seleccionar relación con la institución'),
+
+-- Tipo de certificación
+(26, 'tipo_certificaciones_select', 'texto', 'tipo de certificación', 'required', '', '', 'Seleccionar tipo de certificación'),
+
+-- Fecha 
+(26, 'certificaciones_date', 'numero', 'fecha', 'required', '', '', 'Fecha'),
+
+-- Propósito
+(26, 'proposito_certificaciones', 'texto', 'propósito', 'required', '', '', 'Propósito del documento'),
+
+-- Tratamiento de datos
+(26, 'tratamiento_certificaciones', 'checkbox', 'tratamiento de datos', 'required', '', '', 'Acepto tratamiento de datos.'),
+
+-- Botón de envío
+(26, 'submit-certificaciones-papeles', 'submit', 'Solicitar', '', '', '', '');

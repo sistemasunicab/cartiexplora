@@ -1,4 +1,5 @@
 <?php
+
 $numero_de_sentencia_info = "48";
 $res_sentencia_info = $mysqli1->query($sentencia . $numero_de_sentencia_info);
 while ($row_sentencia_info = $res_sentencia_info->fetch_assoc()) {
@@ -11,7 +12,7 @@ $res_datos_info = $mysqli1->query($sql_datos_info);
 if ($res_datos_info->num_rows > 0) {
     $html_info = '';
 
-    $html_info = '<div class="space-between-about w-100 p-0">';
+    $html_info = '<div class="space-between-about w-100 p-0 my-2rem">';
     $html_info .= '<div class="d-flex flex-column flex-md-row justify-content-between col-10 mx-auto">';
 
     $numero_de_sentencia_info = "43";
@@ -45,8 +46,11 @@ if ($res_datos_info->num_rows > 0) {
         $html_info .= '<p class="about-line-left special-paragraph font-roboto-regular px-2 ps-3 position-relative">' . $descripcion . '</p>';
         $html_info .= '</div>';
         $html_info .= '</div>';
+        
     }
-    
+    $html_info .= '</div>';
+    $html_info .= '</div>';
+
 }
 ?>
 

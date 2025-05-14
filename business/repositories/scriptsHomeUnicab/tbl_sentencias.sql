@@ -84,7 +84,7 @@ INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones
 ('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 18 ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 19 ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 20 ', '', '', '', '', ''),
-('NO', '', 'SELECT * ', 'FROM tbl_eventos ', 'WHERE estado = 1 ', '', '', '', '', ''),
+('NO', '', 'SELECT * ', 'FROM tbl_eventos ', 'WHERE estado = 1 AND fecha > CURDATE() ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_archivos ', 'WHERE visible = 1 ', '', '', '', '', ''),
 
 ('NO', '', 'SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 21 AND visible = 1 ', '', '', '', '', ''),
@@ -101,7 +101,7 @@ INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones
 
 ('NO', '', 'SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 25 AND visible = 1 ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 26 AND visible = 1 ', '', '', '', '', ''),
-('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 26 ', '', '', '', '', ''),
+('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 26 AND descripcion = |calendario| ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_opciones_estados_financieros ', 'WHERE nombrePadre = |Relación con la institución| ', '','','','', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_opciones_estados_financieros ', 'WHERE nombrePadre = |Tipo de certificación| ', '','','','', ''),
 
@@ -182,3 +182,8 @@ INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones
 INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
 ('NO', '', '', 'UPDATE tbl_blogs ', 'WHERE (id = ?) ', '', '', 'SET blogMeGusta = blogMeGusta + 1 ', '', ''),
 ('NO', '', '', 'UPDATE tbl_blogs ', 'WHERE (id = ?) ', '', '', 'SET blogMeGusta = blogMeGusta - 1 ', '', '');
+
+INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
+('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 17 AND descripcion=|image-contact| ', '', '', '', '', ''),
+('NO', '', 'SELECT * ', 'FROM tbl_formularios ', 'WHERE id_seccion = 25 ', '', '', '', '', ''),
+('NO', '', 'SELECT * ', 'FROM tbl_formularios ', 'WHERE id_seccion = 26 ', '', '', '', '', '');
