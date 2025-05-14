@@ -101,6 +101,62 @@ const leerMasPrincipios = (id, boton) => {
 };
 
 $(document).ready(function () {
+    $("#blog_likeBtn").on("click", function(e) {
+        e.preventDefault();
+
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const data = {
+            id: parseInt(urlParams.get("blogId")) || parseInt($('#blogId').val()),
+            liked: 1
+        };
+
+        $.ajax({
+            url: "../../org/ajax/blogLikes.php",
+            type: "POST",
+            data: data,
+            success: function (response) {
+                if (response.status === "success") {
+                    $("#blog_dislikeBtn").toggleClass("d-none");
+                    $("#blog_likeBtn").toggleClass("d-none");
+                console.log(response)
+                }   
+            },
+            error: function (response) {
+                console.log(response)
+            },
+        });
+    });
+
+    $("#blog_dislikeBtn").on("click", function(e) {
+        e.preventDefault();
+
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const data = {
+            id: parseInt(urlParams.get("blogId")) || parseInt($('#blogId').val()),
+            liked: 0
+        };
+
+        $.ajax({
+            url: "../../org/ajax/blogLikes.php",
+            type: "POST",
+            data: data,
+            success: function (response) {
+                if (response.status === "success") {
+                    $("#blog_dislikeBtn").toggleClass("d-none");
+                    $("#blog_likeBtn").toggleClass("d-none");
+                console.log(response)
+                }   
+            },
+            error: function (response) {
+                console.log(response)
+            },
+        });
+    });
+});
+
+$(document).ready(function () {
     $(".datos").hide();
     marcarCamposObligatorios();
     $("#alert").hide();
@@ -399,61 +455,7 @@ $(document).ready(function () {
         }
         
         mostrarSubmit(btnSubmit.id);
-    });
-
-    $("#blog_likeBtn").on("click", function(e) {
-        e.preventDefault();
-
-        const urlParams = new URLSearchParams(window.location.search);
-
-        const data = {
-            id: parseInt(urlParams.get("blogId")) || parseInt($('#blogId').val()),
-            liked: 1
-        };
-
-        $.ajax({
-            url: "../../org/ajax/blogLikes.php",
-            type: "POST",
-            data: data,
-            success: function (response) {
-                if (response.status === "success") {
-                    $("#blog_dislikeBtn").toggleClass("d-none");
-                    $("#blog_likeBtn").toggleClass("d-none");
-                console.log(response)
-                }   
-            },
-            error: function (response) {
-                console.log(response)
-            },
-        });
-    });
-
-    $("#blog_dislikeBtn").on("click", function(e) {
-        e.preventDefault();
-
-        const urlParams = new URLSearchParams(window.location.search);
-
-        const data = {
-            id: parseInt(urlParams.get("blogId")) || parseInt($('#blogId').val()),
-            liked: 0
-        };
-
-        $.ajax({
-            url: "../../org/ajax/blogLikes.php",
-            type: "POST",
-            data: data,
-            success: function (response) {
-                if (response.status === "success") {
-                    $("#blog_dislikeBtn").toggleClass("d-none");
-                    $("#blog_likeBtn").toggleClass("d-none");
-                console.log(response)
-                }   
-            },
-            error: function (response) {
-                console.log(response)
-            },
-        });
-    });
+    });    
     
     mostrarSubmit(btnSubmit.id);
 });
