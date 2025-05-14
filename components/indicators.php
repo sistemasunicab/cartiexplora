@@ -5,7 +5,7 @@
 
      function crearIndicador($datos){
           $indicator = '                  
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-6 p-3 bg-white indicator '.FlexTitleLoader::setDirection($datos[2]).' "> <!-- Indicator -->
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-6 p-3 bg-white indicator mb-sm-4 mb-4 '.FlexTitleLoader::setDirection($datos[2]).' "> <!-- Indicator -->
                          <img src="'.$datos[0].'" alt="" class="indicator-img img-fluid">
                          
                          <div class="indicator-data">
@@ -62,12 +62,19 @@
      if ($html != '') {
 
           $html .= '
-               <div class="row justify-content-evenly gap-3">
+               <div class="row justify-content-center">
                ';
 
           // Renderizando los indicadores
+          $indicator = 0;
           foreach ($indicadoresDatos as $datos) {
+               $indicator++;
                $html .= crearIndicador($datos);
+               
+               if ($indicator < count($indicadoresDatos)) {
+                    $html .= '<div class="col-lg-1 col-md-1"></div>';
+               }
+
           }
 
           $html .= '        

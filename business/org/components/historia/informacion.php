@@ -67,20 +67,21 @@
         
         $html .= '
             </div>
+        </div>
 
+        </section>
+
+        <div class="container">
             <div class="row justify-content-center m-0">
-                <div class="col-lg-12 col-md-8 col-sm-12 col-12">
+                <div class="col-lg-12 col-md-8 col-sm-10 col-10">
                     <picture>
                         <source '.ImageAttributeBuilder::buildsrcset($nivel, $rutaImgHistoria).' media="(min-width: 992px)">
                         <source '.ImageAttributeBuilder::buildsrcset($nivel, $rutaImgHistoriaTabletas).' media="(min-width: 768px)">
                         <img class="img-fluid w-100 historia-info-mainimg" src="../../../'.$rutaImgHistoriaMovil.'" alt="">
                     </picture>
-
                 </div>
             </div>
         </div>
-
-        </section>
         ';
     }
 

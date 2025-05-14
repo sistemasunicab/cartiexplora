@@ -274,7 +274,9 @@
                                    <div class="col-lg-5 col-md-5 col-sm-11 col-11 p-0">
                                         <input onkeyup="validarCampo(this, \''.$correoCampo['texto'].'\', \'correo\', 1, \'send_blog_comment\')" type="' . $correoCampo['tipo'] . '" id="' . $correoCampo['campo'] . '" class="campoFormulario w-100 p-2" ' . $correoCampo['obligatorio'] . ' ' . $correoCampo['soloLectura'] . ' ' . $correoCampo['habilitado'] . ' placeholder="'.$correoCampo['placeHolder'].'">
                                    </div>
+                              </div>
                                    
+                              <div class="row m-0 gap-3 justify-content-center">
                                    <div class="col-lg-5 col-md-8 col-sm-12 col-12 p-0 d-flex">
                                         <input class="campoFormulario m-3" type="' . $aceptarDatosCampo['tipo'] . '" id="' . $aceptarDatosCampo['campo'] . '" name="' . $aceptarDatosCampo['campo'] . '" ' . $aceptarDatosCampo['obligatorio'] . ' ' . $aceptarDatosCampo['soloLectura'] . ' ' . $aceptarDatosCampo['habilitado'] . '>
                                         <p class="special-paragraph mx-3">'.$aceptarDatosCampo['texto'].' *</p>
@@ -283,7 +285,7 @@
 
                               <div class="row m-0 justify-content-center">
                                    <div class="col-lg-3 col-md-3 col-sm-8 col-8 p-0">
-                                        <button type="submit" id="send_blog_comment" class="border-none bg-green tx-white rounded-3 border-0 d-block w-100 p-3 font-roboto-black">'.$enviarBoton['texto'].'</button>
+                                        <button type="submit" id="send_blog_comment" class="border-none bg-green tx-white rounded-3 border-0 w-100 p-3 font-roboto-black">'.$enviarBoton['texto'].'</button>
                                    </div>
                               </div>
                          </form>
