@@ -154,6 +154,17 @@ $(document).ready(function () {
             },
         });
     });
+
+    $("#search").keyup(function(){
+    _this = this;
+    // Show only matching TR, hide rest of them
+    $.each($("#datos-empelados tbody tr"), function() {
+        if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+            $(this).hide();
+        else
+            $(this).show();
+        });
+    });
 });
 
 $(document).ready(function () {
@@ -896,7 +907,6 @@ function restaurarImagenBlog(objeto, ruta) {
 }
 
 /*Calendario*/
-
 if (window.location.pathname.endsWith("calendario.php")) {
     document.addEventListener("DOMContentLoaded", function () {
         // Selecciona todos los contenedores de countdown
@@ -956,12 +966,9 @@ if (window.location.pathname.endsWith("calendario.php")) {
         });
     });
 }
-
 /*Fin Calendario*/
 
-
 /* Estados Financieros */
-
 function validarSelect(elemento, descripcion, botonSubmit, otherInputId) {
     const id = elemento.id;
     const value = elemento.value;
@@ -1003,10 +1010,7 @@ function validarSelect(elemento, descripcion, botonSubmit, otherInputId) {
     }
 }
 
-
 if (window.location.pathname.endsWith("estadosFinancieros.php")) {
-
-
     document.addEventListener("DOMContentLoaded", function () {
         const form_info = $("#form_info");
         const form_servicios = $("#form_servicios");
@@ -1108,5 +1112,15 @@ if (window.location.pathname.endsWith("estadosFinancieros.php")) {
         });
     });
 }
-
 /* Fin Estados Financieros */
+
+function verInfografia(imagen) {
+    html_modal = '<img src="' + imagen + '" width="600px">';
+    //alert(html_modal);
+    
+    $("#divmodalimg").empty();
+    $("#divmodalimg").html(html_modal);
+    
+    $('#modal_img').modal('toggle');
+    $('#modal_img').modal('show');
+}
