@@ -13,7 +13,7 @@ CREATE TABLE tbl_parametros (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 INSERT INTO tbl_parametros (parametro, v1, v2, t1, t2, f1, f2, id_seccion) VALUES
-('telefono_admisiones', NULL, NULL, '300 815 6513', NULL, NULL, NULL, 10),
+('telefono_admisiones', NULL, NULL, '300 815 6531', NULL, NULL, NULL, 10),
 ('correo_admisiones', NULL, NULL, 'admisiones@unicab.org', NULL, NULL, NULL, 10),
 ('direccion_unicab', NULL, NULL, 'Calle 13a No. 16-60', NULL, NULL, NULL, 10),
 ('ubicacion_unicab', NULL, NULL, 'Sogamoso - Boyacá - Colombia', NULL, NULL, NULL, 10),
