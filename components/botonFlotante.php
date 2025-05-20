@@ -19,7 +19,7 @@
     $html = '';
     while ($row_datos_seccion = $res_seccion->fetch_assoc()) {
 
-        $html .= '<section class="bg-orange home-button-fixed px-md-2 py-md-4 p-3">';
+        $html .= '<section class="bg-orange home-button-fixed px-md-2 py-md-2 p-2">';
 
         $res_sentecia = $mysqli1->query($sentencia . "110");
         while ($row_sentencia = $res_sentecia->fetch_assoc()) {

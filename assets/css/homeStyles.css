@@ -3,18 +3,15 @@ body {
     font-family: var(--roboto-regular);
 }
 
-h1 {
-    /*75 px*/
+/* h1 {
     font-size: 4.4rem;
 }
 
 h2 {
-    /*60 px*/
     font-size: 3.8rem;
 }
 
 h3 {
-    /*40 px*/
     font-size: 2.5rem;
 }
 
@@ -32,7 +29,8 @@ p, label {
 
 .little-paragraph {
     font-size: 1.2rem;
-}
+} 
+*/
 
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
@@ -468,20 +466,28 @@ ul {
 
 /*Fin estilos NavBar*/
 
-/* Banner buttons */
+
+/* Banner Inicio */
+
+.carousel-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, .52);
+}
+
 .button-absolute {
     position: absolute;
-    padding: 1.2rem 1rem;
-    max-width: 19rem;
+    padding: 0.875rem 1.875rem;
     border: none;
     text-decoration: none;
     z-index: 10;
-    border-radius: 5px;
+    border-radius: 12px;
     color: var(--white);
-    text-transform: uppercase;
     text-align: center;
-    font-weight: bolder;
-    background-color: var(--blue);
+    font-family: var(--roboto-medium);
+    font-size: 1.875rem;
+    background-color: var(--orange);
     /* Añadir un color de fondo por defecto */
     transition: background-color 0.3s ease, transform 0.3s ease,
         box-shadow 0.3s ease;
@@ -497,28 +503,109 @@ ul {
     /* Añadir sombra */
 }
 
-/* Banner Carousel Section end */
+/* Banner final */
 
-/* Academic Offer Section */
+/* Oferta Academica */
 
-.academic-offer-img img {
+.section-oferta {
+    margin-top: 4rem;
+}
+
+.h2-oferta {
+    font-family: var(--roboto-black);
+    color: var(--blue);
+    font-size: 3.75rem;
+    text-align: center;
+    letter-spacing: 0.105rem;
+}
+
+.padding-oferta {
+    padding: 2rem 0;    
+}
+
+.h2-mb {
+    margin-bottom: 2rem;
+}
+
+.img-left-oferta {
+    padding-right: 5.9rem;
+}
+
+.img-center-oferta {
+    padding-left: 2.95rem;
+    padding-right: 2.95rem;
+}
+
+.img-right-oferta {
+    padding-left: 5.9rem;
+}
+
+.img-oferta {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.img-oferta img {
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-radius: 10px;
+    max-width: 17.18rem;
+    max-height: 22.31rem;
 }
 
-.academic-offer-img img:hover {
+.img-oferta img:hover {
     transform: scale(1.05) rotate(2deg);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 }
 
-/* Academic Offer Section end */
+/* Oferta Academica fin */
 
 /* Inicio Descubre tus Habilidades */
 
-.habilidades-img {
-    height: 6rem;
+.section-habilidades {
+    margin-top: 4rem;
+}
+
+.h2-habilidades {
+    font-family: var(--roboto-black);
+    color: var(--blue);
+    font-size: 3.75rem;
+    text-align: center;
+    letter-spacing: 0.105rem;
+}
+
+.h1-habilidades {
+    letter-spacing: 0.12rem;
+    text-align: center;
+    font-size: 4.37rem;
+    font-family: var(--roboto-light);
+}
+
+.h1-habilidades span {
+    font-family: var(--roboto-black);
+}
+
+.subtitulo-habilidades {
+    font-family: var(--roboto-regular);
+    font-size: 1.37rem;
+    letter-spacing: 0.03875rem;
+    text-align: center;
+}
+.subtitulo-hablidades-mb {
+    margin-bottom: 4rem;
+}
+
+.img-habilidades {
+    max-width: 7.625rem;
+    max-height: 7.625rem;
+    object-fit: contain;
+}
+
+.p-habilidades {
+    font-size: 1.375rem;
+    font-family: var(--roboto-regular);
 }
 
 .img-container {
@@ -533,7 +620,7 @@ ul {
     position: relative;
 }
 
-.line:not(:nth-child(6)):not(:nth-child(12))::after {
+.line::after {
     content: "";
     position: absolute;
     top: 40%;
@@ -545,9 +632,63 @@ ul {
     border-radius: 10%;
 }
 
+.line:nth-child(6n)::after {
+  content: none;
+}
+
 /* Fin Descubre tus Habilidades */
 
 /* Inicio inscripciones abiertas */
+
+.section-inscripciones {
+    /* margin-top: 20.19rem;  Espacio del equipo creativo*/
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+}
+
+.h1-inscripciones {
+    letter-spacing: 0.12rem;
+    text-align: left;
+    font-size: 4.37rem;
+    font-family: var(--roboto-black);
+}
+
+.h1-inscripciones-subtitulo {
+    letter-spacing: 0.12rem;
+    text-align: left;
+    font-size: 4.37rem;
+    font-family: var(--roboto-light);
+}
+
+.parametros-inscripciones {
+    font-size: 2.18rem;
+    font-family: var(--roboto-bolditalic);
+}
+
+.h3-inscripciones {
+    font-family: var(--roboto-bold);
+    font-size: 2.12rem;
+    color: white;
+    background-color: #28A745;
+    text-align: center;
+    padding: 1.3rem 0 .2rem 0;
+}
+
+input[type="text"].input-inscripciones {
+    height: 2rem;
+}
+
+input[type="text"].input-inscripciones, textarea.input-inscripciones {
+    padding: .5rem .5rem;
+    font-size: 1rem;
+    border-radius: 5px !important;
+    border-color: var(--green) !important;
+}
+
+input[type="checkbox"] {
+    margin-top: .5rem;
+    border-color: var(--green);
+}
 
 .notificacion-error {
     padding: 10px;
@@ -581,12 +722,6 @@ ul {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.inscripciones-form-titulo {
-    background-color: var(--green);
-    color: var(--white);
-    font-weight: 800;
-}
-
 .form-label {
     text-transform: uppercase;
     margin: 0.1rem 0;
@@ -594,18 +729,18 @@ ul {
     font-size: 0.6rem;
 }
 
+.form-label-inscripciones {
+    padding: .4rem 0;
+    font-size: .9rem;
+}
+
+
 .form-text {
     margin: 0;
-    font-size: 0.6rem;
+    font-size: 0.9rem;
+    color: #000;
 }
 
-.inscripciones-input {
-    height: 2rem;
-}
-
-input[type="checkbox"] {
-    border-color: var(--green);
-}
 
 .inscripciones-btn {
     all: unset;
@@ -622,11 +757,11 @@ input[type="checkbox"] {
 
 .inscripciones-btn {
     padding: .5rem 0;
-    background-color: var(--green);
+    background-color: #28A745;
     text-transform: uppercase;
     color: var(--white);
     border-radius: 2px;
-    border: 1px solid var(--green);
+    border: 1px solid #28A745;
     text-align: center;
     transition: background-color 0.3s;
 }
@@ -1305,7 +1440,7 @@ input[type="checkbox"] {
 }
 
 .error {
-    background: #FBE5E7;
+    background: #FFE0D9;
 }
 #alert {
     position: fixed;
@@ -1908,23 +2043,202 @@ input[type="text"], .select, textarea {
     }
 
     .form-text {
+        font-size: .8rem;
+    }
+
+    .form-label-inscripciones {
         font-size: 1rem;
     }
 }
 
 @media (min-width: 768px) and (max-width: 992px)  {
 
+    /* Banner inicio */
     .button-absolute {
         font-size: 2vw;  
         padding: 2vw 2vw;  
     }
+    /* Banner fin  */
+
+    /* Oferta Academica */
+    .section-oferta {
+        margin-top: 4.25rem;
+    }
+
+    .h2-oferta {
+
+        font-size: 2.5rem;
+        text-align: center;
+        letter-spacing: 0.025rem;
+    }
+
+    .h2-mb {
+        margin-bottom: 2rem;
+    }
+
+    .padding-oferta {
+        padding: 4.625rem 4.5rem;    
+    }
+
+    .img-left-oferta {
+        padding-right: 1.1rem;
+    }
+
+    .img-center-oferta {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .img-right-oferta {
+        padding-left: 1.1rem;
+    }
+
+    .img-oferta img {
+        text-align: center;
+        cursor: pointer;
+        max-width: 12.5rem;
+        max-height: 16.25rem;
+    }
+
+    /* Oferta Academica fin */
+
+    /* Inicio Descubre tus Habilidades */
+
+    .section-habilidades {
+        margin-top: 7.75rem;
+    }
+
+    .h2-habilidades {
+        font-size: 3.3125rem;
+        letter-spacing: 0.0925rem;
+    }
+
+    .h1-habilidades {
+        letter-spacing: 0.096rem;
+        font-size: 3.4375rem;
+    }
+
+    .subtitulo-habilidades {
+        font-size: 1.4375rem;
+        letter-spacing: 0.04rem;
+    }
+
+    .subtitulo-hablidades-mb {
+        margin-bottom: 7.4375rem;
+    }
+
+    .img-habilidades {
+        max-width: 9.6875rem;
+        max-height: 9.6875rem;
+    }
+
+    .p-habilidades {
+        font-size: 1.1875rem;
+    }
+
+    .img-container {
+        transition: transform 0.3s ease;
+    }
+
+    .img-container:hover {
+        transform: scale(1.2) rotate(2deg);
+    }
+
+    .line {
+        position: relative;
+    }
+
+    .line::after {
+        content: "";
+        position: absolute;
+        top: 40%;
+        right: 0;
+        width: 3px;
+        height: 25%;
+        background-color: var(--light-gray);
+        transform: translateY(-40%);
+        border-radius: 10%;
+    }
+
+    .line:nth-child(1n)::after {
+      content: none;
+    }
+
+    /* Fin Descubre tus Habilidades */
+
+    /* Inicio inscripciones abiertas */
+
+    .section-inscripciones {
+        margin-top: 7.25rem;
+        margin-bottom: 7.25rem;
+    }
+
+    .h1-inscripciones {
+        letter-spacing: 0.048rem;
+        font-size: 1.75rem;
+    }
+    
+    .h1-inscripciones-subtitulo {
+        letter-spacing: 0.048rem;
+        font-size: 1.75rem;
+    }
+    
+    .parametros-inscripciones {
+        font-size: 1.25rem;
+        text-align: center;
+    }
+
+    .h3-inscripciones {
+        font-size: 1.75rem;
+        padding: 1rem;
+    }
+
+    input[type="text"].input-inscripciones {
+        height: 2rem;
+    }
+
+    input[type="text"].input-inscripciones, textarea.input-inscripciones {
+        font-size: 0.875rem;
+    }
+
+    .notificacion-hidden {
+        display: none;
+    }
+
+    .form-container {
+        margin-top: 4rem;
+    }
+
+    .form-inscripciones {
+        font-size: 0.75rem;
+        border: 2px solid var(--green);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-label {
+        font-size: 0.875rem;
+    }
+
+    .form-label-inscripciones {
+        padding: .4rem 0;
+        font-size: .9rem;
+    }
+
+    .form-text {
+        margin: 0;
+        font-size: 0.9rem;
+        color: #000;
+    }
+
+    .inscripciones-btn {
+        padding: .5rem 0;
+        color: white;
+    }
+
+    /* Fin inscripciones abiertas */
 
     .pagos-title {
         white-space: normal;
-    }
-
-    .line:not(:nth-child(6)):not(:nth-child(12))::after {
-        display: none;
     }
 
     .principios-line {
@@ -1984,6 +2298,10 @@ input[type="text"], .select, textarea {
     }
 
     .form-text {
+        font-size: 1rem;
+    }
+
+    .form-label-inscripciones {
         font-size: 1.2rem;
     }
 

@@ -5,25 +5,25 @@
             return
                 '<a href="'.$enlace.'" class="img-container d-flex flex-column align-items-center gap-4 p-0 my-3">' . "\n" .
                      $imgHTML . "\n" .
-                     '<p class="text-center">' . $titulo . '</p>' . "\n" .
+                     '<p class="text-center p-habilidades">' . $titulo . '</p>' . "\n" .
                 '</a>' . "\n";
         } else if (strtolower($posicionTitulo) == 'derecha') {
             return
                 '<a href="'.$enlace.'" class="img-container d-flex align-items-center gap-4 p-0 mx-3">' . "\n" .
                      $imgHTML . "\n" .
-                     '<p>' . $titulo . '</p>' . "\n" .
+                     '<p class="p-habilidades">' . $titulo . '</p>' . "\n" .
                 '</a>' . "\n";
         } else if (strtolower($posicionTitulo) == 'izquierda') {
             return
                 '<a href="'.$enlace.'" class="img-container d-flex flex-row-reverse align-items-center gap-4 p-0 mx-3">' . "\n" .
                     $imgHTML . "\n" .
-                    '<p>' . $titulo . '</p>' . "\n" .
+                    '<p class="p-habilidades">' . $titulo . '</p>' . "\n" .
                 '</a>' . "\n";
         } else if (strtolower($posicionTitulo) == 'arriba') {
             return
                 '<a href="'.$enlace.'" class="img-container d-flex flex-column-reverse align-items-center gap-2 p-0 my-3">' . "\n" .
                     $imgHTML . "\n" .
-                    '<p class="text-center">' . $titulo . '</p>' . "\n" .
+                    '<p class="text-center p-habilidades">' . $titulo . '</p>' . "\n" .
                 '</a>' . "\n";
         }
         return '';
@@ -49,21 +49,25 @@
 
     while ($row_datos_seccion = $res_seccion_habilidades->fetch_assoc()) {
         // Obtiene el titulo de la sección y lo renderiza
-        $html .= '<section class="container my-2rem">';
-        $html .=    '<div class="row mb-2rem">';
+        $html .= '<section class="container section-habilidades">';
+        $html .=    '<div class="row">';
         $html .=        '<div class="col-lg-12 col-md-12 col-sm-12 col-12 ">';
-        $html .=            '<h2 class="text-center font-roboto-black tx-blue">' . "\n" . $row_datos_seccion['titulo'] . '</h2>' . "\n";
+        $html .=            '<h2 class="h2-habilidades">' . "\n" . $row_datos_seccion['titulo'] . '</h2>' . "\n";
         $html .=        '</div>';
+        $html .=    '</div>';
         
         //Obtener subtitulo
         $subtitulo = explode(" ", $row_datos_seccion['subTitulo']);
+        $html .=    '<div class="row">';
         $html .=        '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
-        $html .=            '<h1 class="text-center font-roboto-light">' . '<span class="font-roboto-black">' . $subtitulo[0] . '</span> ' . $subtitulo[1] . '</h1>' . "\n";
+        $html .=            '<h1 class="h1-habilidades">' . '<span>' . $subtitulo[0] . '</span> ' . $subtitulo[1] . '</h1>' . "\n";
         $html .=        '</div>';
-
+        $html .=    '</div>';
+        
         //texto de esta sección 
+        $html .=    '<div class="row subtitulo-hablidades-mb">';
         $html .=        '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
-        $html .=            '<p class="text-center font-roboto">' . $row_datos_seccion['texto'] . '</p>';
+        $html .=            '<p class="subtitulo-habilidades">' . $row_datos_seccion['texto'] . '</p>';
         $html .=        '</div>';
         $html .=    '</div>';
 
@@ -80,7 +84,7 @@
         while ($row_imagenes = $res_imagenes->fetch_assoc()) {
             $html .=    '<div class="col-lg-2 col-md-4 col-sm-4 col-4 line">';
             $attributes = ImageAttributeBuilder::buildAttributes($nivel, $row_imagenes['ruta'], $row_imagenes['descripcion'], $row_imagenes['rutaEncima']);
-            $html .= posicionTituloImagen('<img class="habilidades-img" ' . $attributes . '>', $row_imagenes['titulo'], $row_imagenes['posicionTitulo'], $row_imagenes['enlace']);
+            $html .= posicionTituloImagen('<img class="img-habilidades" ' . $attributes . '>', $row_imagenes['titulo'], $row_imagenes['posicionTitulo'], $row_imagenes['enlace']);
             $html .=    '</div>'; 
         }
 
