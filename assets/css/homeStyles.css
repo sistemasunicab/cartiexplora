@@ -488,19 +488,15 @@ ul {
     font-family: var(--roboto-medium);
     font-size: 1.875rem;
     background-color: var(--orange);
-    /* Añadir un color de fondo por defecto */
     transition: background-color 0.3s ease, transform 0.3s ease,
         box-shadow 0.3s ease;
-    /* Transiciones suaves */
 }
 
 .button-absolute:hover {
     transform: scale(1.05);
-    /* Transformación en lugar de scale */
     color: var(--white);
     background-color: var(--green) !important;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    /* Añadir sombra */
 }
 
 /* Banner final */
@@ -508,7 +504,8 @@ ul {
 /* Oferta Academica */
 
 .section-oferta {
-    margin-top: 4rem;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
 }
 
 .h2-oferta {
@@ -566,6 +563,7 @@ ul {
 
 .section-habilidades {
     margin-top: 4rem;
+    margin-bottom: 4rem;
 }
 
 .h2-habilidades {
@@ -593,6 +591,7 @@ ul {
     letter-spacing: 0.03875rem;
     text-align: center;
 }
+
 .subtitulo-hablidades-mb {
     margin-bottom: 4rem;
 }
@@ -627,7 +626,7 @@ ul {
     right: 0;
     width: 3px;
     height: 25%;
-    background-color: var(--light-gray);
+    background-color: #D2D3D5;
     transform: translateY(-40%);
     border-radius: 10%;
 }
@@ -642,8 +641,8 @@ ul {
 
 .section-inscripciones {
     /* margin-top: 20.19rem;  Espacio del equipo creativo*/
-    margin-top: 7rem;
-    margin-bottom: 7rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
 }
 
 .h1-inscripciones {
@@ -658,6 +657,7 @@ ul {
     text-align: left;
     font-size: 4.37rem;
     font-family: var(--roboto-light);
+    margin-bottom: 4.5rem;
 }
 
 .parametros-inscripciones {
@@ -712,7 +712,7 @@ input[type="checkbox"] {
     display: none;
 }
 
-.form-container {
+.form-inscripciones-container {
     position: relative;
 }
 
@@ -735,7 +735,7 @@ input[type="checkbox"] {
 }
 
 
-.form-text {
+.form-inscripciones-checkbox-tx {
     margin: 0;
     font-size: 0.9rem;
     color: #000;
@@ -1282,35 +1282,76 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 
-/** Principios y valores **/
+/** Principios y valores INICIO**/
 
 :root {
-    --shadow-1: 1px 7px 22px -3px rgba(0,0,0,0.48);
-    --shadow-2: 9px 9px 12px -3px rgba(0,0,0,0.45);
+    --shadow-2: 10px 10px 10px #00000040;
 }
 
-.principios-icon {
-    width: auto;
-    height: 5rem;
-    max-width: 5rem;
+.banner-principios {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.section-principios {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.h2-principios {
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    font-size: 3.75rem;
+}
+
+.p-principios {
+    font-size: 1.3125rem;
+    line-height: 1.9rem;
+}
+
+.grid-principios {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+    row-gap: 4rem;
+}
+
+.card-h4-principios {
+    font-family: var(--roboto-black);
+    font-size: 2.5rem;
+    letter-spacing: 0.07rem;
+
+}
+
+.icon-principios {
     width: 100%;
+    height: auto;
+    max-height: 5.625rem;
+    max-width: 5.625rem;
     margin: 0 auto;
     display: block;
     object-fit: contain;
 }
 
-.value{
+.card-principios {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.value:hover {
+.card-principios:hover {
     transform: scale(1.02);
 }
 
-.values-card{
-    position: relative;
-    padding: 2rem;
+.card-content-principios {
+    padding: 2.5rem 2rem;
+    font-size: 1.125rem;
+    letter-spacing: 0.019375rem;
+    line-height: 1.7;
     box-shadow: var(--shadow-2);
+}
+
+.card-content-principios p{
+    margin-bottom: 1.2rem;
 }
 
 .principios-line {
@@ -1326,13 +1367,24 @@ input[type="checkbox"] {
     height: 3px;
 }
 
-.hide {
+.btn-principios {
+    font-size: 1rem;
+    font-family: var(--roboto-bolditalic);
+    border-radius: 12px;
+    padding: 0.75rem;
+    background-color: var(--orange);
+    color: white;
+}
+
+.hide-principios {
     display: none;
 }
 
-.show {
+.show-principios {
     display: inline;
 }
+/** Principios y valores FIN **/
+
 
 /* Inicio Nuestros Estudiantes */
 .grid-nuestros-estudiantes {
@@ -1885,33 +1937,236 @@ input[type="text"], .select, textarea {
 }
 
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2.8rem; 
+
+    /* Banner inicio */
+    .button-absolute {
+        font-size: 3vw;  
+        padding: 2vw 2vw;  
+    }
+    /* Banner fin */
+
+    /* Oferta Academica */
+    .section-oferta {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
     }
 
-    h2 {
-        font-size: 2.4rem; 
+    .h2-oferta {
+        font-size: 1.562rem;
+        text-align: center;
+        letter-spacing: 0.015rem;
     }
 
-    h3 {
-        font-size: 2rem; 
+    .h2-mb {
+        margin-bottom: 1rem;
     }
 
-    h4 {
-        font-size: 1.8rem;
+    .padding-oferta {
+        padding: 4rem 2.5rem;    
     }
 
-    p, label {
-        font-size: 1.2rem; 
+    .img-left-oferta {
+        padding-right: 1rem;
+        padding-left: 0rem;
     }
 
-    .special-paragraph {
-        font-size: 0.9rem; 
+    .img-center-oferta {
+        padding: 0;
     }
 
-    .little-paragraph {
-        font-size: 1rem; 
+    .img-right-oferta {
+        margin-top: 3.1875rem;
+        padding: 0;
     }
+
+    .img-oferta img {
+        max-width: 8.4375rem;
+        max-height: 10.875rem;
+    }
+
+    /* Oferta Academica fin */
+
+    /* Inicio Descubre tus Habilidades */
+
+    .section-habilidades {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .h2-habilidades {
+        font-size: 1.3125rem;
+        letter-spacing: 0.0368rem;
+    }
+
+    .h1-habilidades {
+        font-size: 1.5rem;
+        letter-spacing: 0.041875rem;
+    }
+
+    .subtitulo-habilidades {
+        font-size: 0.5rem;
+        letter-spacing: 0.0137rem;
+    }
+
+    .subtitulo-hablidades-mb {
+        margin-bottom: 2rem;
+    }
+
+    .img-habilidades {
+        max-width: 4.125rem;
+        max-height: 4.125rem;
+    }
+
+    .p-habilidades {
+        font-size: 0.5625rem;
+    }
+
+    .line:nth-child(1n)::after {
+      content: none;
+    }
+
+    /* Fin Descubre tus Habilidades */
+
+    /* Inicio inscripciones abiertas */
+
+    .section-inscripciones {
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+    }
+
+    .h1-inscripciones {
+        letter-spacing: 0.048rem;
+        font-size: 1.75rem;
+        text-align: center;
+    }
+    
+    .h1-inscripciones-subtitulo {
+        letter-spacing: 0.048rem;
+        font-size: 1.75rem;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .parametros-inscripciones {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .h3-inscripciones {
+        font-size: 1.25rem;
+        padding: 1rem;
+    }
+
+    input[type="text"].input-inscripciones, textarea.input-inscripciones {
+        font-size: 0.625rem;
+    }
+
+    .form-inscripciones-container {
+        margin-top: 4rem;
+    }
+
+    .form-inscripciones {
+        font-size: 0.625rem;
+    }
+
+    .form-label-inscripciones {
+        padding: .1rem 0;
+        font-size: 0.625rem;
+    }
+
+    .form-inscripciones-checkbox-tx {
+        margin: 0;
+        font-size: 0.625rem;
+        color: #000;
+    }
+
+    .inscripciones-btn {
+        padding: 0.812rem 1.687rem;
+        font-size: 0.937rem;
+        color: white;
+    }
+
+    /* Fin inscripciones abiertas */
+
+    /** Principios y valores INICIO**/
+
+    .banner-principios {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .section-principios {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .h2-principios {
+        margin-bottom: 1rem;
+        font-size: 1.5625rem;
+    }
+
+    .p-principios {
+        font-size: 0.8125rem;
+        line-height: 1.2rem;
+    }
+
+    .grid-principios {
+        display: grid;
+        grid-template-columns: 1fr;
+        column-gap: 0rem;
+        row-gap: 2.5rem;
+        padding: 0 1rem;
+    }
+
+    .card-h4-principios {
+        font-family: var(--roboto-black);
+        font-size: 1.25rem;
+        letter-spacing: 0rem;
+        color: var(--orange);
+    }
+
+    .icon-principios {
+        max-height: 2.125rem;
+        max-width: 2.125rem;
+    }
+
+    .card-content-principios {
+        margin-top: 1rem;
+        padding: 1.125rem 2.25rem;
+        font-size: 0.8125rem;
+        line-height: 1.8;
+    }
+
+    .card-principios:nth-child(odd) .card-content-principios {
+        background-color: #0D3041;
+        color: white;
+    }
+
+    .card-content-principios p{
+        margin-bottom: 0rem;
+    }
+
+    .principios-line {
+        opacity: 0;
+    }
+
+    .btn-principios {
+       display: none;
+    }
+
+    .hide-principios {
+        display: inline;
+    }
+
+    .show-principios {
+        display: none;
+    }
+
+    #btn-principios-container {
+        display: none !important;
+    }
+
+    /** Principios y valores FIN **/
 
     .blog-img {
         height: 14rem;
@@ -1930,10 +2185,6 @@ input[type="text"], .select, textarea {
         width: 50%;
     }
 
-    .button-absolute {
-        font-size: 3vw;  
-        padding: 2vw 2vw;  
-    }
 
     .home-button-fixed {
         position: sticky;
@@ -1989,11 +2240,6 @@ input[type="text"], .select, textarea {
         transform: unset;
     }
 
-    /* DESCUBRE TUS HABILIDADES */
-    .line:not(:nth-child(6)):not(:nth-child(12))::after {
-        display: none;
-    }
-
     .ecosistema-block,
     .ecosistema-block .d-flex {
         flex-direction: column;
@@ -2036,19 +2282,6 @@ input[type="text"], .select, textarea {
     .pagos-title {
         white-space: normal;
     }
-
-    .form-label {
-        margin: 0.2rem 0;
-        font-size: 1rem;
-    }
-
-    .form-text {
-        font-size: .8rem;
-    }
-
-    .form-label-inscripciones {
-        font-size: 1rem;
-    }
 }
 
 @media (min-width: 768px) and (max-width: 992px)  {
@@ -2062,7 +2295,8 @@ input[type="text"], .select, textarea {
 
     /* Oferta Academica */
     .section-oferta {
-        margin-top: 4.25rem;
+        margin-top: 2rem;
+        margin-bottom: 4rem;
     }
 
     .h2-oferta {
@@ -2105,7 +2339,8 @@ input[type="text"], .select, textarea {
     /* Inicio Descubre tus Habilidades */
 
     .section-habilidades {
-        margin-top: 7.75rem;
+        margin-top: 4rem;
+        margin-bottom: 4rem;
     }
 
     .h2-habilidades {
@@ -2124,7 +2359,7 @@ input[type="text"], .select, textarea {
     }
 
     .subtitulo-hablidades-mb {
-        margin-bottom: 7.4375rem;
+        margin-bottom: 5rem;
     }
 
     .img-habilidades {
@@ -2169,18 +2404,21 @@ input[type="text"], .select, textarea {
     /* Inicio inscripciones abiertas */
 
     .section-inscripciones {
-        margin-top: 7.25rem;
-        margin-bottom: 7.25rem;
+        margin-top: 4rem;
+        margin-bottom: 4rem;
     }
 
     .h1-inscripciones {
         letter-spacing: 0.048rem;
         font-size: 1.75rem;
+        text-align: center;
     }
     
     .h1-inscripciones-subtitulo {
         letter-spacing: 0.048rem;
         font-size: 1.75rem;
+        text-align: center;
+        margin-bottom: 2rem;
     }
     
     .parametros-inscripciones {
@@ -2193,49 +2431,117 @@ input[type="text"], .select, textarea {
         padding: 1rem;
     }
 
-    input[type="text"].input-inscripciones {
-        height: 2rem;
-    }
-
     input[type="text"].input-inscripciones, textarea.input-inscripciones {
-        font-size: 0.875rem;
+        font-size: 1rem;
     }
 
-    .notificacion-hidden {
-        display: none;
-    }
-
-    .form-container {
+    .form-inscripciones-container {
         margin-top: 4rem;
     }
 
     .form-inscripciones {
         font-size: 0.75rem;
-        border: 2px solid var(--green);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .form-label {
-        font-size: 0.875rem;
     }
 
     .form-label-inscripciones {
-        padding: .4rem 0;
-        font-size: .9rem;
+        padding: .1rem 0;
+        font-size: 1rem;
     }
 
-    .form-text {
+    .form-inscripciones-checkbox-tx {
         margin: 0;
         font-size: 0.9rem;
         color: #000;
     }
 
     .inscripciones-btn {
-        padding: .5rem 0;
+        padding: 1.125rem 2rem;
+        font-size: 1.25rem;
         color: white;
     }
 
     /* Fin inscripciones abiertas */
+
+    /** Principios y valores INICIO**/
+
+    .banner-principios {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .section-principios {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .h2-principios {
+        color: var(--blue);
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        font-size: 2.5rem;
+    }
+
+    .p-principios {
+        font-size: 1rem;
+        line-height: 1.2rem;
+    }
+
+    .grid-principios {
+        display: grid;
+        grid-template-columns: 1fr;
+        column-gap: 0rem;
+        row-gap: 2.5rem;
+    }
+
+    .card-h4-principios {
+        font-family: var(--roboto-black);
+        font-size: 1.8125rem;
+        letter-spacing: 0rem;
+        color: var(--orange);
+    }
+
+    .icon-principios {
+        max-height: 4.5625rem;
+        max-width: 4.5625rem;
+    }
+
+    .card-content-principios {
+        margin-top: 1rem;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .card-principios:nth-child(odd) .card-content-principios {
+        background-color: #0D3041;
+        color: white;
+    }
+
+    .card-content-principios p{
+        margin-bottom: 0rem;
+    }
+
+    .principios-line {
+        opacity: 0;
+    }
+
+    .btn-principios {
+       display: none;
+    }
+
+    .hide-principios {
+        display: inline;
+    }
+
+    .show-principios {
+        display: none;
+    }
+
+    #btn-principios-container {
+        display: none !important;
+    }
+
+    /** Principios y valores FIN **/
 
     .pagos-title {
         white-space: normal;
@@ -2290,19 +2596,6 @@ input[type="text"], .select, textarea {
 
     .blog-img {
         width: 100%;
-    }
-
-    .form-label {
-        margin: 0.5rem 0;
-        font-size: 1.2rem;
-    }
-
-    .form-text {
-        font-size: 1rem;
-    }
-
-    .form-label-inscripciones {
-        font-size: 1.2rem;
     }
 
 }

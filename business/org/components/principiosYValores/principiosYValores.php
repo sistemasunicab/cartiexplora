@@ -1,7 +1,7 @@
 <?php
 
     function tratarTexto($texto){
-        $textoInsertarCienCaracteres = '<span class="show"> ...</span><span class="hide">';
+        $textoInsertarCienCaracteres = '<span class="show-principios"> ...</span><span class="hide-principios">';
         $textoInsertarFinalCadena = '</span>';
         $posicion = 350;
         $nuevaCadena = substr_replace($texto, $textoInsertarCienCaracteres, $posicion, 0);
@@ -13,37 +13,37 @@
         $title = '';
         if (strtolower($posicionTitulo) == 'abajo') {
             $title .= '<div class="row align-items-center justify-content-center my-2">';
-            $title .=    '<div class="col-4 col-lg-4 my-4">';
+            $title .=    '<div class="col-lg-12 col-md-12 col-sm-12 col-12 my-4">';
             $title .=        $imgHTML;
             $title .=    '</div>';
-            $title .=    '<div class="col-12 col-lg-12">';
-            $title .=        '<h4 class="font-roboto-black text-center">' . $titulo . '</h4>';
+            $title .=    '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
+            $title .=        '<h4 class="card-h4-principios text-center">' . $titulo . '</h4>';
             $title .=    '</div>';
             $title .= '</div>';
         } else if (strtolower($posicionTitulo) == 'derecha') {
             $title .= '<div class="row align-items-center justify-content-center my-2">';
-            $title .=     '<div class="col-3 col-lg-3">';
+            $title .=     '<div class="col-lg-4 col-md-2 col-sm-4 col-4">';
             $title .=         $imgHTML;
             $title .=     '</div>';
-            $title .=     '<div class="col-8 col-lg-8">';
-            $title .=         '<h4 class="font-roboto-black">' . $titulo . '</h4>';
+            $title .=     '<div class="col-lg-8 col-md-10 col-sm-8 col-8">';
+            $title .=         '<h4 class="card-h4-principios">' . $titulo . '</h4>';
             $title .=     '</div>';
             $title .= '</div>';
         } else if (strtolower($posicionTitulo) == 'izquierda') {
             $title .= '<div class="row align-items-center justify-content-center my-2">';
-            $title .=     '<div class="col-8 col-lg-8">';
-            $title .=         '<h4 class="font-roboto-black text-end">' . $titulo . '</h4>';
+            $title .=     '<div class="col-lg-8 col-md-10 col-sm-8 col-8">';
+            $title .=         '<h4 class="card-h4-principios text-end">' . $titulo . '</h4>';
             $title .=     '</div>';
-            $title .=     '<div class="col-3 col-lg-3">';
+            $title .=     '<div class="col-lg-4 col-md-2 col-sm-4 col-4">';
             $title .=         $imgHTML;
             $title .=     '</div>';
             $title .= '</div>';
         } else if (strtolower($posicionTitulo) == 'arriba') {
             $title .= '<div class="row align-items-center justify-content-center my-2">';
-            $title .=     '<div class="col-12 col-lg-12 my-4">';
-            $title .=         '<h4 class="font-roboto-black text-center">'. $titulo .'</h4>';
+            $title .=     '<div class="col-lg-12 col-md-12 col-sm-12 col-12 my-4">';
+            $title .=         '<h4 class="card-h4-principios text-center">'. $titulo .'</h4>';
             $title .=     '</div>';
-            $title .=     '<div class="col-4 col-lg-4">';
+            $title .=     '<div class="col-lg-12 col-md-12 col-sm-12 col-12 col-lg-4">';
             $title .=         $imgHTML;
             $title .=     '</div>';
             $title .= '</div>';
@@ -92,50 +92,62 @@
     $html = '';
     while ($row_sentencia = $res_seccion->fetch_assoc()) {
         $imagenBanner = array_shift($imagenes);
-        $html .= '<div class="container my-2rem">';
+        $atributosEscritorio = ImageAttributeBuilder::buildsrcset($nivel, $imagenBanner['ruta']);
+        $atributosTabletaVertical = ImageAttributeBuilder::buildsrcset($nivel, $imagenBanner['rutaTabletaVertical']);
+        $atributosTabletaHorizontal = ImageAttributeBuilder::buildsrcset($nivel, $imagenBanner['rutaTabletaHorizontal']);
+        $atributosMovil = ImageAttributeBuilder::buildAttributes($nivel, $imagenBanner['rutaMovil']);
+        //TODO: Faltan: Imagenes de escritorio, tablet y movil. a espera del equipo creativo.
+
+        $html .= '<div class="container banner-principios">';
         $html .=    '<div class="row">';
         $html .=        '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
-        $html .=            '<img '. ImageAttributeBuilder::buildAttributes($nivel, $imagenBanner['ruta'], $imagenBanner['descripcion']) .'" class="img-fluid w-100">';
+        $html .=            '<picture>';
+        $html .=               '<source '. $atributosEscritorio.' media="(min-width: 992px)">';
+        $html .=               '<source  '.$atributosTabletaHorizontal.' media="(min-width: 768px)">';
+        $html .=               '<source '.$atributosTabletaVertical.' media="(min-width: 576px)">';
+        $html .=               '<img '. $atributosMovil .' alt="Banner principios que nos guian" class="img-fluid w-100">';
+        $html .=            '</picture>';
         $html .=        '</div>';
         $html .=    '</div>';
         $html .= '</div>';
-        $html .= '<main class="container my-2rem">';
-        $html .=    '<div class="row mb-2rem">';
+        $html .= '<main class="container section-principios">';
+        $html .=    '<div class="row">';
         $html .=        '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
-        $html .=            '<h2 class="tx-blue font-roboto-light-title tx-uppercase">' . $row_sentencia['titulo'] . '</h2>';
+        $html .=            '<h2 class="font-roboto-light-title h2-principios">' . $row_sentencia['titulo'] . '</h2>';
         $html .=        '</div>';
         $html .=    '</div>';
         $html .=    '<div class="row">';
         $html .=        '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
-        $html .=            '<p>' . $row_sentencia['texto'] . '</p>';
+        $html .=            '<p class="p-principios">' . $row_sentencia['texto'] . '</p>';
         $html .=        '</div>';
         $html .=    '</div>';
         $html .= '</main>';
 
     
         $numeroCards = sizeof($imagenes);
-        $html .= '<section class="container my-2rem">';
-        $html .=    '<div class="row p-md-0 p-sm-3 pe-3">';
+
+
+        $html .= '<section class="container section-principios">';
+        $html .=    '<div class="row">';
+        $html .=        '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
+        $html .=            '<div class="grid-principios">';
         for ($i = 0; $i < $numeroCards; $i++) {
-            $html .=        '<div class="col-lg-5 col-md-12 col-sm-12 col-12 value mb-4">';
             if (strtolower($imagenes[$i]['titulo']) === strtolower($textos[$i]['identificacion'])) {
-                
-                $html .=             posicionTitulo('<img' . ImageAttributeBuilder::buildAttributes($nivel, $imagenes[$i]['ruta'], $imagenes[$i]['descripcion']) . ' class="principios-icon img-fluid">', $imagenes[$i]['titulo'], $imagenes[$i]['posicionTitulo']);
-                $html .=             '<div class="row">';
-                $html .=                 '<div class="values-card col-lg-12 col-md-12 col-sm-12 col-12" id="'.$imagenes[$i]['titulo']. '-'. $i .'">';
-                $html .=                     '<p class="special-paragraph text-lg-start mb-2rem">' . tratarTexto($textos[$i]['texto']) . '</p>';
-                $html .=                     '<div class="d-flex justify-content-between align-items-center">';
-                $html .=                         '<hr class="principios-line">';
-                $html .=                         '<a class="special-paragraph bg-orange tx-white p-3 rounded principios-button" role="button" onclick="leerMasPrincipios(\''.$imagenes[$i]['titulo']. '-'. $i .'\', this)">Leer más</a>';
-                $html .=                     '</div>';
-                $html .=                 '</div>';
+                $html .=         '<div class="card-principios">';
+                $html .=             posicionTitulo('<img' . ImageAttributeBuilder::buildAttributes($nivel, $imagenes[$i]['ruta'], $imagenes[$i]['descripcion']) . ' class="icon-principios img-fluid">', $imagenes[$i]['titulo'], $imagenes[$i]['posicionTitulo']);
+
+                $html .=             '<div class="card-content-principios" id="'.$imagenes[$i]['titulo']. '-'. $i .'">';
+                $html .=                '<p>' . tratarTexto($textos[$i]['texto']) . '</p>';
+                $html .=                '<div class="d-flex justify-content-between align-items-center" id="btn-principios-container">';
+                $html .=                    '<hr class="principios-line">';
+                $html .=                    '<a style="color: white" class="btn-principios" role="button" onclick="leerMasPrincipios(\''.$imagenes[$i]['titulo']. '-'. $i .'\', this)">Leer más</a>';
+                $html .=                '</div>';
                 $html .=             '</div>';
                 $html .=         '</div>';
-                if($i % 2 === 0){
-                    $html .=        '<div class="col-lg-2 d-lg-block d-none my-4"></div>';
-                }
             }
         }
+        $html .=            '</div>';
+        $html .=        '</div>';
         $html .=     '</div>';
         $html .= '</section>';
     }

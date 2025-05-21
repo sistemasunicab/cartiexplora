@@ -60,7 +60,7 @@
                 $html .=            '</div>';
                 $posicionImagen++;
             }else {
-                $html .=            '<div class="col-lg-4 col-md-4 col-sm-6 col-6 img-right-oferta text-center">';
+                $html .=            '<div class="col-lg-4 col-md-4 col-sm-12 col-12 img-right-oferta text-center">';
                 $html .=                '<a href="'.$row_images['enlace'].'" class="img-oferta">';
                 $html .=                    '<img ' . $attributes . ' class="img-fluid w-100" >';
                 $html .=                '</a>';

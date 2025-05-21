@@ -46,20 +46,18 @@
         $html .=    '<div class="row">';
         $html .=        '<div class="col-lg-7 col-md-12 col-sm-12 col-12 d-lg-flex align-items-lg-center justify-content-lg-start">';
         $html .=            '<div class="row">';
-        $html .=                '<div class="col-md-1 co-sm-1 col-1"></div>';
-        $html .=                '<div class="col-lg-12 col-md-5 col-sm-5 col-5">';
+        $html .=                '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
         $html .=                    '<h1 class="h1-inscripciones">' . $row_datos_seccion['titulo'] . '</h1>';
         $html .=                    '<h1 class="h1-inscripciones-subtitulo">' . $row_datos_seccion['subTitulo'] . '</h1>';
         $html .=                '</div>';
-        $html .=                '<div class="col-lg-12 col-md-5 col-sm-5 col-5">';
+        $html .=                '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
         $html .=                    '<p class="parametros-inscripciones">' . $row_datos_seccion['texto'] . '</p>';
         $html .=                    '<p class="parametros-inscripciones">' . $parametros['telefono_admisiones'] . '</p>';
         $html .=                    '<p class="parametros-inscripciones">' . $parametros['correo_admisiones'] . '</p>';
         $html .=                '</div>';
-        $html .=                '<div class="col-md-1 col-sm-1 col-1"></div>';
         $html .=            '</div>';
         $html .=        '</div>';
-        $html .=        '<div class="col-lg-5 col-md-12 col-sm-12 col-12 form-container">';
+        $html .=        '<div class="col-lg-5 col-md-12 col-sm-12 col-12 form-inscripciones-container">';
         $html .=            '<div class="row">';
         $html .=                '<div class="col-lg-1 col-md-1 col-sm-1 col-1 p-0"></div>';
         $html .=                '<div class="col-lg-10 col-md-10 col-sm-10 col-10">';
@@ -99,11 +97,11 @@
 
         $html .=                            '<div class="row justify-content-center align-items-start my-4">';
         $html .=                                '<input class="col-lg-2 col-2" type="' . $inscripciones_checkbox['tipo'] . '" id="' . $inscripciones_checkbox['campo'] . '" name="' . $inscripciones_checkbox['campo'] . '" ' . $inscripciones_checkbox['obligatorio'] . ' ' . $inscripciones_checkbox['soloLectura'] . ' ' . $inscripciones_checkbox['habilitado'] . '>';
-        $html .=                                '<p class="form-text col-lg-10 col-10">' . $parametros['checkbox_form_inscripciones'] . '</p>';
+        $html .=                                '<p class="form-inscripciones-checkbox-tx col-lg-10 col-10">' . $parametros['checkbox_form_inscripciones'] . '</p>';
         $html .=                            '</div>';
 
         $html .=                            '<div class="row justify-content-center align-items-start my-5">';
-        $html .=                                '<button type="submit" id="enviaMensaje" class="inscripciones-btn w-100 form-text"  >' . $inscripciones_enviar['texto'] . '</button>';
+        $html .=                                '<button type="submit" id="enviaMensaje" class="inscripciones-btn w-100"  >' . $inscripciones_enviar['texto'] . '</button>';
         $html .=                            '</div>';
 
         $html .=                        '</div>';

@@ -85,16 +85,16 @@ const descargarArchivo = (nivel, path, nombreNuevoArchivo, destino) => {
 };
 
 const leerMasPrincipios = (id, boton) => {
-    let tresPuntos = document.querySelector(`#${id} .show`);
-    let textoOculto = document.querySelector(`#${id} .hide`);
+    let tresPuntos = document.querySelector(`#${id} .show-principios`);
+    let textoOculto = document.querySelector(`#${id} .hide-principios`);
 
     //Oculta o Muestra tres puntos ...
-    tresPuntos.classList.toggle("show");
-    tresPuntos.classList.toggle("hide");
+    tresPuntos.classList.toggle("show-principios");
+    tresPuntos.classList.toggle("hide-principios");
 
     //Oculta o muestra el texto escondido
-    textoOculto.classList.toggle("hide");
-    textoOculto.classList.toggle("show");
+    textoOculto.classList.toggle("hide-principios");
+    textoOculto.classList.toggle("show-principios");
 
     boton.innerText =
         boton.innerText === "Leer más" ? "Leer menos" : "Leer más";
