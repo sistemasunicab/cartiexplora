@@ -27,7 +27,7 @@ const actualizarPorcentajesBotonBanner = () => {
         } else if (anchoActual >= 768) {
             boton.style.top = boton.dataset.originalTop;
             boton.style.left = boton.dataset.originalLeft;
-            boton.style.transform = "";
+            boton.style.transform = `translateX(-${boton.dataset.originalLeft})`;
         }
     });
 };

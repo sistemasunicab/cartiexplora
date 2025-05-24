@@ -37,7 +37,7 @@
         
         $res_images = $mysqli1->query($sql_images);
         
-        $html .=    '<div class="bg-light-gray-o26">';
+        $html .=    '<div class="fondo-oferta">';
         $html .=        '<div class="container padding-oferta">';
         $html .=            '<div class="row">';
         

@@ -20,11 +20,11 @@
         include('components/academicOffer.php');
         include('components/descubreHabilidades.php');
         include('components/inscripciones.php');
-        include('components/indicators.php');
-        include('components/meetcampus.php');
-        include('components/linksZone.php');
-        include('components/conectadosBlog.php');
-        include('components/footer.php');
+        //include('components/indicators.php');
+        //include('components/meetcampus.php');
+        //include('components/linksZone.php');
+        //include('components/conectadosBlog.php');
+        //include('components/footer.php');
         include('components/bookstoresMain.php');
     ?>  
 <body>

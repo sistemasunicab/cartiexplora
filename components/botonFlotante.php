@@ -19,7 +19,7 @@
     $html = '';
     while ($row_datos_seccion = $res_seccion->fetch_assoc()) {
 
-        $html .= '<section class="bg-orange home-button-fixed px-md-2 py-md-2 p-2">';
+        $html .= '<section class="home-button-fixed px-md-2 py-md-2 p-2">';
 
         $res_sentecia = $mysqli1->query($sentencia . "110");
         while ($row_sentencia = $res_sentecia->fetch_assoc()) {
@@ -35,7 +35,7 @@
         $whatsapp = array_shift($iconos);
         $html .=    '<a href="' . $whatsapp['enlace'] . '" class="button-move w-100" role="button" target="_blank">';
         $html .=       '<div class="button-move_content">';
-        $html .=           '<p class="special-paragraph"> <span class="button-fixed-text">' . $whatsapp['titulo'] . '</span></p>';
+        $html .=           '<p class="p-boton-flotante"> <span class="button-fixed-text">' . $whatsapp['titulo'] . '</span></p>';
         $html .=               '<img ' . ImageAttributeBuilder::buildAttributes($nivel, $whatsapp['ruta'], $whatsapp['descripcion']) . ' class="button-move-icon img-fluid">';
         $html .=       '</div>';
         $html .=    '</a>';
@@ -50,8 +50,8 @@
         $inscripcionesAbiertas = array_shift($iconos);
         $html .=    '<a href="' . $inscripcionesAbiertas['enlace'] . '" class="button-move w-100" role="button">';
         $html .=       '<div class="button-move_content">';
-        $html .=           '<p class="special-paragraph"> <span class="button-fixed-text">' . $inscripcionesAbiertas['titulo'] . '</span></p>';
-        $html .=               '<img ' . ImageAttributeBuilder::buildAttributes($nivel, $inscripcionesAbiertas['ruta'], $inscripcionesAbiertas['descripcion']) . ' class="button-move-icon img-fluid">';
+        $html .=           '<p class="p-boton-flotante"> <span class="button-fixed-text">' . $inscripcionesAbiertas['titulo'] . '</span></p>';
+        $html .=           '<img ' . ImageAttributeBuilder::buildAttributes($nivel, $inscripcionesAbiertas['ruta'], $inscripcionesAbiertas['descripcion']) . ' class="button-move-icon img-fluid">';
         $html .=       '</div>';
         $html .=    '</a>';
         $html .= '</section>';
@@ -64,7 +64,7 @@
         $html .=                '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d660.1120965263508!2d-72.93073875198606!3d5.720175396753541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e6a45d923d74d7b%3A0x1542d3785444bf06!2sCOLEGIO%20UNICAB%20VIRTUAL!5e0!3m2!1ses-419!2sco!4v1572036993671!5m2!1ses-419!2sco" width="500" height="500" frameborder="0" style="border:0;" allowfullscreen=""></iframe>';
         $html .=            '</div>';
         $html .=            '<div class="modal-footer">';
-        $html .=                '<button type="button" class="btn bg-orange tx-white font-roboto-bold" data-bs-dismiss="modal">Cerrar</button>';
+        $html .=                '<button type="button" class="btn close-btn-modal" data-bs-dismiss="modal">Cerrar</button>';
         $html .=            '</div>';
         $html .=        '</div>';
         $html .=    '</div>';
