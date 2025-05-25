@@ -49,7 +49,9 @@
         
             $html .= '<div class="col-lg-3 col-md-4 col-sm-4 col-4 row-margin-nuestros-estudiantes">';
             $html .=     '<a href="#zoom-imagen" class="item-nuestros-estudiantes' . $claseSeleccion . '">';
-            $html .=         '<img' . $atributosImagen . ' class="img-fluid w-100" draggable="false">';
+            $html .=        '<div>';
+            $html .=            '<img' . $atributosImagen . ' class="img-fluid w-100" draggable="false">';
+            $html .=        '</div>';
             $html .=     '</a>';
             $html .= '</div>';
         
@@ -64,11 +66,11 @@
         $html .=        '</div>'; // Cierra la fila
         $html .=    '</div>'; 
         $html .= '</main>';
-        $html .= '<section class="section-nuestros-estudiantes fondo-nuestros-estudiantes">';
+        $html .= '<section class="section-nuestros-estudiantes fondo-nuestros-estudiantes" id="zoom-imagen">';
         $html .=    '<div class="container">';
         $html .=        '<div class="row">';
         $html .=            '<div class="col-lg-2 col-md-1 col-sm-1 col-1 "></div>';
-        $html .=            '<div class="col-lg-8 col-md-10 col-sm-10 col-10" id="zoom-imagen">';
+        $html .=            '<div class="col-lg-8 col-md-10 col-sm-10 col-10 img-grande-nuestros-estudiantes">';
         $html .=                '<img id="imagen-grande-galeria" '. $imagenInicial .' class="img-fluid w-100" draggable="false">';
         $html .=            '</div>';
         $html .=            '<div class="col-lg-2 col-md-1 col-sm-1 col-1"></div>';

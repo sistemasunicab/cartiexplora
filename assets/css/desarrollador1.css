@@ -629,33 +629,47 @@ input[type="checkbox"] {
     margin-bottom: var(--m-escritorio);
 }
 
-.row-margin-nuestros-estudiantes:not(:nth-last-child(-n+4)) {
+.row-margin-nuestros-estudiantes:not(:nth-last-child(-n+5)) {
     margin-bottom: 1.65rem;
 }
 
-
 .item-nuestros-estudiantes {
-    display: block;
+    display: flex;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
+    justify-content: center;
+}
 
+.item-nuestros-estudiantes div {
+    max-width: 16.19rem;
+    max-height: 16.19rem;
 }
 
 .item-nuestros-estudiantes:hover {
     transform: scale(1.05);
 }
 
-.item-nuestros-estudiantes__seleccionado{
+.item-nuestros-estudiantes__seleccionado div{
     position: relative;
 }
 
-.item-nuestros-estudiantes__seleccionado::after{
+.item-nuestros-estudiantes__seleccionado div::after{
     content: '';
-    padding: 2rem;
     position: absolute;
     background-color: rgba(0, 0, 0, .5);
     inset: 0;
     z-index: 10;
+}
+
+.img-grande-nuestros-estudiantes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-grande-nuestros-estudiantes img{
+    max-width: 50.75rem;
+    max-height: 50.75rem;
 }
 
 /** Fin Nuestros Estudiantes */
@@ -1088,6 +1102,43 @@ input[type="checkbox"] {
 
     /** Fin inscripciones abiertas */
 
+    /** Inicio Nuestros Estudiantes */
+
+    .section-nuestros-estudiantes {
+        margin-top: var(--m-movil);
+        margin-bottom: var(--m-movil);
+    }
+
+    .fondo-nuestros-estudiantes {
+        padding: 5.13rem 0;
+    }
+
+    .h2-nuestros-estudiantes {
+        font-size: 2.50rem;
+        letter-spacing: 0.07rem;
+        line-height: 1;
+    }
+
+    .titulo-mb-nuestros-estudiantes {
+        margin-bottom: var(--m-movil);
+    }
+
+    .row-margin-nuestros-estudiantes:not(:nth-last-child(-n+5)) {
+        margin-bottom: 1.69rem;
+    }
+
+    .item-nuestros-estudiantes div {
+        max-width: 6.50rem;
+        max-height: 6.50rem;
+    }
+
+    .img-grande-nuestros-estudiantes img{
+        max-width: 18.94rem;
+        max-height: 18.94rem;
+    }
+
+    /** Fin Nuestros Estudiantes */
+
     /** Principios y valores INICIO**/
 
     .banner-principios {
@@ -1479,6 +1530,44 @@ input[type="checkbox"] {
     }
 
     /** Fin inscripciones abiertas */
+
+    /** Inicio Nuestros Estudiantes */
+
+    .section-nuestros-estudiantes {
+        margin-top: var(--m-tablet);
+        margin-bottom: var(--m-tablet);
+    }
+
+    .fondo-nuestros-estudiantes {
+        padding: 2.69rem 0;
+    }
+
+    .h2-nuestros-estudiantes {
+        font-size: 2.50rem;
+        letter-spacing: 0.07rem;
+        line-height: 1;
+    }
+
+    .titulo-mb-nuestros-estudiantes {
+        margin-bottom: var(--m-tablet);
+    }
+
+    .row-margin-nuestros-estudiantes:not(:nth-last-child(-n+5)) {
+        margin-bottom: 1.94rem;
+    }
+
+    .item-nuestros-estudiantes div {
+        max-width: 8.44rem;
+        max-height: 8.44rem;
+    }
+
+
+    .img-grande-nuestros-estudiantes img{
+        max-width: 24.13rem;
+        max-height: 24.13rem;
+    }
+
+    /** Fin Nuestros Estudiantes */
 
     /** Inicio Principios y valores */
 
