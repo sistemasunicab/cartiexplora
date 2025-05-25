@@ -37,14 +37,12 @@ window.addEventListener('resize', actualizarPorcentajesBotonBanner);
 
 /* Script Galeria Nuestros Estudiantes */
 const galeriaEstudiantes = () => {
-    const items = document.querySelectorAll(".galeria div .item");
+    const items = document.querySelectorAll(".galeria-nuestros-estudiantes div .item-nuestros-estudiantes");
 
     items.forEach((item) => {
         item.addEventListener("click", () => {
-            // Elimina la clase seleccionada de la imagen actualmente seleccionada
-            document
-                .querySelector(".item-seleccionado")
-                .classList.remove("item-seleccionado");
+            document.querySelector(".item-nuestros-estudiantes__seleccionado")
+                .classList.remove("item-nuestros-estudiantes__seleccionado");
 
             const itemImg = item.querySelector("img");
             const imgGrande = document.querySelector("#imagen-grande-galeria");
@@ -52,7 +50,7 @@ const galeriaEstudiantes = () => {
             imgGrande.src = itemImg.src;
             imgGrande.alt = itemImg.alt;
 
-            item.classList.add("item-seleccionado");
+            item.classList.add("item-nuestros-estudiantes__seleccionado");
         });
     });
 };

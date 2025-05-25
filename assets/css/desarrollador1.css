@@ -606,32 +606,50 @@ input[type="checkbox"] {
 
 /** Fin inscripciones abiertas */
 
+/** Inicio Nuestros Estudiantes */
 
-/** Nuestros Estudiantes **/
-
-/* Inicio Nuestros Estudiantes */
-.grid-nuestros-estudiantes {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+.section-nuestros-estudiantes {
+    margin-top: var(--m-escritorio);
+    margin-bottom: var(--m-escritorio);
 }
 
-.item {
+.fondo-nuestros-estudiantes {
+    background-color: var(--light-gray-o26);
+    padding: 2.88rem 0;
+}
+
+.h2-nuestros-estudiantes {
+    font-size: 3.75rem;
+    color: var(--blue);
+    letter-spacing: 0.10rem;
+    line-height: 1;
+}
+
+.titulo-mb-nuestros-estudiantes {
+    margin-bottom: var(--m-escritorio);
+}
+
+.row-margin-nuestros-estudiantes:not(:nth-last-child(-n+4)) {
+    margin-bottom: 1.65rem;
+}
+
+
+.item-nuestros-estudiantes {
     display: block;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
 
 }
 
-.item:hover {
+.item-nuestros-estudiantes:hover {
     transform: scale(1.05);
 }
 
-.item-seleccionado{
+.item-nuestros-estudiantes__seleccionado{
     position: relative;
 }
 
-.item-seleccionado::after{
+.item-nuestros-estudiantes__seleccionado::after{
     content: '';
     padding: 2rem;
     position: absolute;
@@ -639,6 +657,8 @@ input[type="checkbox"] {
     inset: 0;
     z-index: 10;
 }
+
+/** Fin Nuestros Estudiantes */
 
 /** Publicaciones académicas INICIO **/
 
