@@ -774,18 +774,18 @@ input[type="checkbox"] {
     display: inline;
 }
 
-/** Fin Principios y valores **/
+/** Fin Principios y valores */
 
-/** Publicaciones académicas INICIO **/
+/** Inicio Publicaciones académicas */
 
 .section-publicaciones {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin-top: var(--m-escritorio);
+    margin-bottom: var(--m-escritorio);
 }
 
 .margin-publicaciones {
-    margin-top: 4.3125rem;
-    margin-bottom: 4.3125rem;
+    margin-top: var(--m-escritorio);
+    margin-bottom: var(--m-escritorio);
 }
 
 .h2-publicaciones {
@@ -793,12 +793,14 @@ input[type="checkbox"] {
     font-size: 3.75rem;
     color: var(--blue);
     letter-spacing: 0.105rem;
+    line-height: 1;
 }
 
 .h4-publicaciones {
     font-family: var(--roboto-black);
     font-size: 2.5rem;
     letter-spacing: 0.07rem;
+    line-height: 1.2;
 }
 
 .img-publicaciones {
@@ -810,12 +812,16 @@ input[type="checkbox"] {
 
 .fecha-publicaciones {
     font-size: 1.25rem;
+    font-family: var(--roboto-bold);
     color: #707070;
     letter-spacing: 0.021rem;
+    line-height: 1.25;
 }
 
 .p-publicaciones {
-    font-size: 1.3125rem;
+    font-size: 1.313rem;
+    line-height: 1.3;
+    letter-spacing: 0.023rem;
 }
 
 .btn-my-publicaciones {
@@ -838,9 +844,21 @@ input[type="checkbox"] {
     max-height: 4.625rem;
 }
 
-/** Publicaciones académicas FIN **/
+/** Fin Publicaciones académicas */
 
-/** PAGOS **/
+/** Inicio Pagos **/
+
+.section-title-pagos {
+    margin-top: var(--m-escritorio);
+    margin-bottom: var(--m-escritorio);
+    background-color: var(--bold-blue);
+    color: var(--orange);
+}
+
+.h2-pagos {
+
+}
+
 .tx-red {
     color: red;
 }
@@ -855,7 +873,7 @@ input[type="checkbox"] {
     color: blue;
 }
 
-.pagos-icono {
+.icono-pagos {
     max-width: 4rem;
     max-height: 4rem;
 }
@@ -937,6 +955,8 @@ input[type="checkbox"] {
     border-radius: 0.25rem;
 }
 
+/** Inicio Pagos **/
+
 /** COSTOS **/
 .pdf-btn {
     max-width: 4.5rem;
@@ -950,6 +970,63 @@ input[type="checkbox"] {
 
 /** movil **/
 @media (max-width: 768px) {
+
+    /** Inicio Boton flotante */
+
+    .home-button-fixed {
+        position: sticky;
+        width: 100%;
+        display: grid;
+        align-items: center;
+        text-align: center;
+        grid-template-columns: repeat(3,1fr);
+        border-radius: unset;
+        top: 0;
+        right: 0;
+        transform: unset;
+        z-index: 100;
+    }
+
+    .home-button-fixed a {
+        margin: 0;
+    }
+    .home-button-fixed a:last-of-type {
+        margin: 0;
+    }
+
+    .button-move {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-basis: 2;
+    }
+
+    .button-move-icon{
+        display: inline-block;
+        max-width: 6vw;
+    }
+    
+    .button-move_content p {
+        display: none;
+    }
+
+    .button-move:hover .button-move_content p {
+        display: none;
+    }
+
+    .button-move_content {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+        gap: .6rem;
+        padding: .5rem;
+    }
+
+    .button-move:hover .button-move_content {
+        transform: unset;
+    }
+    /** Fin Boton flotante */
 
     /** Inicio Banner */
     .button-absolute {
@@ -1222,16 +1299,16 @@ input[type="checkbox"] {
 
     /** Fin Principios y valores */
 
-    /** Publicaciones académicas INICIO **/
+    /** Inicio Publicaciones académicas **/
 
     .section-publicaciones {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
+        margin-top: var(--m-movil);
+        margin-bottom: var(--m-movil);
     }
 
     .margin-publicaciones {
-        margin-top: 1.9375rem;
-        margin-bottom: 1.9375rem;
+        margin-top: var(--m-movil);
+        margin-bottom: var(--m-movil);
     }
 
     .h2-publicaciones {
@@ -1256,13 +1333,15 @@ input[type="checkbox"] {
     }
 
     .fecha-publicaciones {
-        font-size: 1rem;
+        font-size: 0.813rem;
         color: var(--orange);
         letter-spacing: 0.016rem;
+        line-height: 1.2;
     }
-
+    
     .p-publicaciones {
-        font-size: 1rem;
+        font-size: 0.813rem;
+        line-height: 1.2;
     }
 
     .btn-my-publicaciones {
@@ -1286,80 +1365,7 @@ input[type="checkbox"] {
         max-height: 2.4375rem;
     }
 
-    /** Publicaciones académicas FIN **/
-
-    .blog-img {
-        height: 14rem;
-        width: 100%;
-    
-        object-fit: cover;
-        object-position: center;
-    } 
-
-    .blog-newsletter a {
-        display: flex;
-        width: 35%;
-    }
-    
-    .blog-newsletter input {
-        width: 50%;
-    }
-
-    /** Inicio Boton flotante */
-    .home-button-fixed {
-        position: sticky;
-        width: 100%;
-        display: grid;
-        align-items: center;
-        text-align: center;
-        grid-template-columns: repeat(3,1fr);
-        border-radius: unset;
-        top: 0;
-        right: 0;
-        transform: unset;
-        z-index: 100;
-    }
-
-    .home-button-fixed a {
-        margin: 0;
-    }
-    .home-button-fixed a:last-of-type {
-        margin: 0;
-    }
-
-    .button-move {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-basis: 2;
-    }
-
-    .button-move-icon{
-        display: inline-block;
-        max-width: 6vw;
-    }
-    
-    .button-move_content p {
-        display: none;
-    }
-
-    .button-move:hover .button-move_content p {
-        display: none;
-    }
-
-    .button-move_content {
-        display: flex;
-        flex-direction: column-reverse;
-        align-items: center;
-        justify-content: center;
-        gap: .6rem;
-        padding: .5rem;
-    }
-
-    .button-move:hover .button-move_content {
-        transform: unset;
-    }
-    /** Fin Boton flotante */
+    /** Fin Publicaciones académicas FIN **/
 
     /** Inicio pagos */
     .pagos-title {
@@ -1661,13 +1667,13 @@ input[type="checkbox"] {
     /** Inicio Publicaciones académicas */
 
     .section-publicaciones {
-        margin-top: 4rem;
-        margin-bottom: 2rem;
+        margin-top: var(--m-tablet);
+        margin-bottom: var(--m-tablet);
     }
 
     .margin-publicaciones {
-        margin-top: 1.9375rem;
-        margin-bottom: 1.9375rem;
+        margin-top: var(--m-tablet);
+        margin-bottom: var(--m-tablet);
     }
 
     .h2-publicaciones {
@@ -1680,7 +1686,8 @@ input[type="checkbox"] {
     .h4-publicaciones {
         font-family: var(--roboto-black);
         font-size: 1rem;
-        letter-spacing: 0.0281rem;
+        letter-spacing: 0.028rem;
+        line-height: 1.2;
     }
 
     .img-publicaciones {
@@ -1695,14 +1702,16 @@ input[type="checkbox"] {
         font-size: 1rem;
         color: var(--orange);
         letter-spacing: 0.016rem;
+        line-height: 1.2;
     }
 
     .p-publicaciones {
         font-size: 1rem;
+        line-height: 1.2;
     }
 
     .btn-my-publicaciones {
-        margin-top: 1.5rem;
+        margin-top: 2rem;
         margin-bottom: 0;
     }
 
@@ -1726,10 +1735,6 @@ input[type="checkbox"] {
 
     .pagos-title {
         white-space: normal;
-    }
-
-    .principios-line {
-        width: 76%;
     }
 
 }

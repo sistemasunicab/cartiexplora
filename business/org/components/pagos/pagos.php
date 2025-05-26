@@ -96,11 +96,17 @@
         $txtvalorRefMan = array_shift($formItems);
         $btnPagar = array_shift($formItems);
 
-        $html .= '<section class="bg-bold-blue py-3 my-2rem">'.
+        $html .= '<section class="section-title-pagos">'.
                      '<div class="container">'.
-                         '<div class="flex-lg-row d-flex flex-column justify-content-center align-items-center gap-3">'.
-                                '<h2 class="tx-orange font-roboto-black pagos-title text-center">' . $tituloSeccionUno['titulo'] . '</h2>'.
-                                '<img ' . ImageAttributeBuilder::buildAttributes($nivel, $tituloSeccionUno['ruta'], $tituloSeccionUno['descripcion']) . ' class="img-fluid pagos-icono" >'.
+                         '<div class="row justify-content-center align-items-center">'.
+                                '<div class="col-lg-3"></div>'.
+                                '<div class="col-lg-5">' .
+                                '<h2 class="h2-pagos">' . $tituloSeccionUno['titulo'] . '</h2>'.
+                                '</div>'.
+                                '<div class="col-lg-2">' .
+                                    '<img class="img-fluid icono-pagos" ' . ImageAttributeBuilder::buildAttributes($nivel, $tituloSeccionUno['ruta'], $tituloSeccionUno['descripcion']) . '>'.
+                                '</div>'.
+                                '<div class="col-lg-2"></div>'.
                          '</div>'.
                      '</div>'.
                  '</section>';
