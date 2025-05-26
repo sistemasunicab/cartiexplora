@@ -30,13 +30,14 @@
             $title .=     '</div>';
             $title .= '</div>';
         } else if (strtolower($posicionTitulo) == 'izquierda') {
-            $title .= '<div class="row align-items-center justify-content-center my-2">';
-            $title .=     '<div class="col-lg-8 col-md-10 col-sm-8 col-8">';
-            $title .=         '<h4 class="card-h4-principios text-end">' . $titulo . '</h4>';
+            $title .= '<div class="row align-items-center my-2">';
+            $title .=     '<div class="col-lg-5 col-md-3 col-sm-4 col-4">';
+            $title .=         '<h4 class="card-h4-principios px-4">' . $titulo . '</h4>';
             $title .=     '</div>';
-            $title .=     '<div class="col-lg-4 col-md-2 col-sm-4 col-4">';
+            $title .=     '<div class="col-lg-2 col-md-2 col-sm-2 col-2">';
             $title .=         $imgHTML;
             $title .=     '</div>';
+            $title .=     '<div class="col-lg-5 col-md-7 col-sm-6 col-6"></div>';
             $title .= '</div>';
         } else if (strtolower($posicionTitulo) == 'arriba') {
             $title .= '<div class="row align-items-center justify-content-center my-2">';
@@ -129,25 +130,24 @@
 
         $html .= '<section class="container section-principios">';
         $html .=    '<div class="row">';
-        $html .=        '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
-        $html .=            '<div class="grid-principios">';
         for ($i = 0; $i < $numeroCards; $i++) {
             if (strtolower($imagenes[$i]['titulo']) === strtolower($textos[$i]['identificacion'])) {
-                $html .=         '<div class="card-principios">';
-                $html .=             posicionTitulo('<img' . ImageAttributeBuilder::buildAttributes($nivel, $imagenes[$i]['ruta'], $imagenes[$i]['descripcion']) . ' class="icon-principios img-fluid">', $imagenes[$i]['titulo'], $imagenes[$i]['posicionTitulo']);
 
-                $html .=             '<div class="card-content-principios" id="'.$imagenes[$i]['titulo']. '-'. $i .'">';
-                $html .=                '<p>' . tratarTexto($textos[$i]['texto']) . '</p>';
-                $html .=                '<div class="d-flex justify-content-between align-items-center" id="btn-principios-container">';
-                $html .=                    '<hr class="principios-line">';
-                $html .=                    '<a style="color: white" class="btn-principios" role="button" onclick="leerMasPrincipios(\''.$imagenes[$i]['titulo']. '-'. $i .'\', this)">Leer más</a>';
-                $html .=                '</div>';
-                $html .=             '</div>';
-                $html .=         '</div>';
+                $html .= '<div class="col-lg-6 col-md-12 col-sm-12 col-12 margin-card-principios">';
+                $html .=    '<div class="card-principios">';
+                $html .=        posicionTitulo('<img' . ImageAttributeBuilder::buildAttributes($nivel, $imagenes[$i]['ruta'], $imagenes[$i]['descripcion']) . ' class="icon-principios img-fluid">', $imagenes[$i]['titulo'], $imagenes[$i]['posicionTitulo']);
+                $html .=        '<div class="card-content-principios" id="'.$imagenes[$i]['titulo']. '-'. $i .'">';
+                $html .=           '<p>' . tratarTexto($textos[$i]['texto']) . '</p>';
+                $html .=           '<div class="d-flex justify-content-between align-items-center" id="btn-principios-container">';
+                $html .=               '<hr class="principios-line">';
+                $html .=               '<a style="color: white" class="btn-principios" role="button" onclick="leerMasPrincipios(\''.$imagenes[$i]['titulo']. '-'. $i .'\', this)">Leer más</a>';
+                $html .=           '</div>';
+                $html .=        '</div>';
+                $html .=    '</div>';
+                $html .= '</div>';
             }
         }
-        $html .=            '</div>';
-        $html .=        '</div>';
+        $html .=        '<div class="col-lg-6 margin-card-principios">';
         $html .=     '</div>';
         $html .= '</section>';
     }
