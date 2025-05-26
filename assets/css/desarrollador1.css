@@ -852,21 +852,157 @@ input[type="checkbox"] {
     margin-top: var(--m-escritorio);
     margin-bottom: var(--m-escritorio);
     background-color: var(--bold-blue);
-    color: var(--orange);
+    padding: 2.938rem 0;
+}
+
+.section-pagos {
+    margin-top: var(--m-escritorio);
+    margin-bottom: var(--m-escritorio);
 }
 
 .h2-pagos {
+    font-family: var(--roboto-black);
+    color: var(--orange);
+    font-size: 3.75rem;
+    text-align: center;
+}
 
+.h2-icon-pagos {
+    max-width: 7.688rem;
+    max-height: 7.688rem;
+}
+
+.columna-1-pagos {
+    padding-right: 8.33333333%!important;
+    padding-left: 0;
+}
+
+.columna-2-pagos {
+    padding-left: 4.166666665%;
+    padding-right: 4.166666665%;
+}
+
+.columna-3-pagos {
+    padding-left: 8.33333333%!important;
+    padding-right: 0;
+}
+
+.caja-social-pagos {
+    max-width: 24.875rem;
+    max-height: 5.625rem;
+}
+
+.mipagoamigo-pagos {
+    max-width: 20.938rem;
+    max-height: 8.938rem;
+    background-color: var(--bold-blue);
+    padding: 1.063rem;
+}
+
+.mipagoamigo-btn-pagos {
+    font-size: 1.563rem;
+    font-family: var(--roboto-medium);
+    padding: 1.125rem 3.25rem;
+    color: white;
+    background-color: var(--orange);
+    margin-top: 1.125rem;
+    border-radius: 12px;
+    box-shadow: inset 0px 3px 6px #0000001F, 0px 3px 6px #00000029;
+    border: none;
+}
+
+.title-instructivo-pagos {
+    font-size: 1.563rem;
+    font-family: var(--roboto-bolditalic);
+    line-height: 1.2;
+    letter-spacing: 0.044rem;
+    margin-bottom: 2.063rem;
+}
+
+.enlace-instructivo-pagos {
+    display: inline-block;
+    width: 100%;
+    height: 100%;    
+}
+
+.enlace-instructivo-pagos img{
+    max-width: 9.625rem;
+    max-height: 9.625rem;
+
+}
+
+.epayco-pagos {
+    max-width: 27.625rem;
+    max-height: 8.125rem;
+    margin-bottom: 4.188rem;
+    text-align: center;
+}
+
+.epayco-title-pagos {
+    font-size: 1.313rem;
+    text-transform: uppercase;
+    line-height: 1.3;
+    font-family: var(--roboto-bold);
+    text-align: center;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.023rem;
+}
+
+.epayco-subtitle-pagos {
+    font-size: 1.313rem;
+    text-transform: capitalize;
+    line-height: 1.3;
+    font-family: var(--roboto-bold);
+    text-align: center;
+    letter-spacing: 0.023rem;
+}
+
+.flecha-epayco-pagos {
+    max-width: 1.375rem;
+    max-height: 1.375rem;
+}
+
+.p-epayco-pagos {
+    font-size: 1.313rem;
+    line-height: 1.3;
+    font-family: var(--roboto-regular);
+    letter-spacing: 0.023rem;
+}
+
+.h3-pagos {
+    font-size: 2.5rem;
+    font-family: var(--roboto-black);
+    text-align: center;
+    letter-spacing: 0.07rem;
+    line-height: 1.2;
+    margin-bottom: 1.438rem;
+}
+
+.refpago-flechas-pagos {
+    max-width: 2.313rem;
+    max-height: 2.313rem;
+    transform: rotate(90deg);
+    margin-bottom: 1rem;
+}
+
+.subtitulo-refpago-pagos {
+    font-size: 1.313rem;
+    letter-spacing: 0.023rem;
+    font-family: var(--roboto-medium);
+    text-align: center;
+    color: #2A2A2A;
+    margin-bottom: 1rem;
+}
+
+.p-refpago-pagos {
+    font-size: 1.313rem;
+    letter-spacing: 0.023rem;
+    font-family: var(--roboto-medium);
+    color: #2A2A2A;
 }
 
 .tx-red {
     color: red;
-}
-
-.pagos-title {
-    width: fit-content;
-    display: inline-block !important;
-    white-space: nowrap;
 }
 
 .tx-primary-blue {
@@ -900,10 +1036,6 @@ input[type="checkbox"] {
     transform: scale(1.05);
     background-color: var(--green) !important;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-.flecha-icon{
-    width: 8%;
 }
 
 .inactivo {
@@ -955,7 +1087,7 @@ input[type="checkbox"] {
     border-radius: 0.25rem;
 }
 
-/** Inicio Pagos **/
+/** Fin Pagos **/
 
 /** COSTOS **/
 .pdf-btn {

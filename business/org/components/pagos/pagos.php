@@ -1,4 +1,51 @@
 <?php
+     function posicionTitulo($imgHTML, $titulo, $posicionTitulo)
+    {
+        $title = '';
+        if (strtolower($posicionTitulo) == 'abajo') {
+            $title .= '<div class="row align-items-center justify-content-center my-2">';
+            $title .=    '<div class="col-lg-12 col-md-12 col-sm-12 col-12 my-2 text-center">';
+            $title .=        $imgHTML;
+            $title .=    '</div>';
+            $title .=    '<div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center">';
+            $title .=        '<h2 class="h2-pagos">' . $titulo . '</h2>';
+            $title .=    '</div>';
+            $title .= '</div>';
+        } else if (strtolower($posicionTitulo) == 'derecha') {
+            $title .= '<div class="row align-items-center justify-content-center my-2">';
+            $title .=     '<div class="col-lg-1 col-md-1 col-sm-1 col-1"></div>';
+            $title .=     '<div class="col-lg-2 col-md-2 col-sm-2 col-2">';
+            $title .=         $imgHTML;
+            $title .=     '</div>';
+            $title .=     '<div class="col-lg-8 col-md-8 col-sm-8 col-8">';
+            $title .=         '<h2 class="h2-pagos">' . $titulo . '</h2>';
+            $title .=     '</div>';
+            $title .=     '<div class="col-lg-1 col-md-1 col-sm-1 col-1"></div>';
+            $title .= '</div>';
+        } else if (strtolower($posicionTitulo) == 'izquierda') {
+            $title .= '<div class="row align-items-center justify-content-center my-2">';
+            $title .=     '<div class="col-lg-1 col-md-1 col-sm-1 col-1"></div>';
+            $title .=     '<div class="col-lg-8 col-md-8 col-sm-8 col-8">';
+            $title .=         '<h2 class="h2-pagos">' . $titulo . '</h2>';
+            $title .=     '</div>';
+            $title .=     '<div class="col-lg-2 col-md-2 col-sm-2 col-2">';
+            $title .=         $imgHTML;
+            $title .=     '</div>';
+            $title .=     '<div class="col-lg-1 col-md-1 col-sm-1 col-1"></div>';
+            $title .= '</div>';
+        } else if (strtolower($posicionTitulo) == 'arriba') {
+            $title .= '<div class="row align-items-center justify-content-center my-2">';
+            $title .=    '<div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center">';
+            $title .=        '<h2 class="h2-pagos">' . $titulo . '</h2>';
+            $title .=    '</div>';
+            $title .=    '<div class="col-lg-12 col-md-12 col-sm-12 col-12 my-2 text-center">';
+            $title .=        $imgHTML;
+            $title .=    '</div>';
+            $title .= '</div>';
+        }
+        return $title;
+    }
+
     if ($nivel == "raiz") {
         require('business/repositories/1cc2s4Home.php');
     } else if ($nivel == "uno") {
@@ -78,7 +125,7 @@
         $flechaAmarilla = array_shift($imagenes);
         $conceptos = array_shift($textos);
         $descripciones = array_shift($textos);
-        $refernciaPago = array_shift($imagenes);
+    
         $nombreResponsable = array_shift($formItems);
         $identificacionResponsable = array_shift($formItems);
         $tratamientoDatos = array_shift($formItems);
@@ -90,6 +137,12 @@
         $consultarBtn = array_shift($formItems);
         $infoFinanciera = array_shift($textos);
         $titulosSeccionesPago = array_shift($textos);
+
+        $tituloReferenciaPago = array_shift($textos);
+        $identificacionRef = array_shift($textos);
+        $anio = array_shift($textos);
+        $conceptosRef = array_shift($textos);
+
         $txtNumDoc = array_shift($formItems);
         $txtAnio = array_shift($formItems);
         $txtValor = array_shift($formItems);
@@ -98,71 +151,89 @@
 
         $html .= '<section class="section-title-pagos">'.
                      '<div class="container">'.
-                         '<div class="row justify-content-center align-items-center">'.
-                                '<div class="col-lg-3"></div>'.
-                                '<div class="col-lg-5">' .
-                                '<h2 class="h2-pagos">' . $tituloSeccionUno['titulo'] . '</h2>'.
-                                '</div>'.
-                                '<div class="col-lg-2">' .
-                                    '<img class="img-fluid icono-pagos" ' . ImageAttributeBuilder::buildAttributes($nivel, $tituloSeccionUno['ruta'], $tituloSeccionUno['descripcion']) . '>'.
-                                '</div>'.
-                                '<div class="col-lg-2"></div>'.
-                         '</div>'.
+                        posicionTitulo('<img class="img-fluid h2-icon-pagos" ' . ImageAttributeBuilder::buildAttributes($nivel, $tituloSeccionUno['ruta'], $tituloSeccionUno['descripcion']) . '>', $tituloSeccionUno['titulo'], $tituloSeccionUno['posicionTitulo']) .
                      '</div>'.
                  '</section>';
 
-        $html .= '<section class="container my-2rem">'.
-                    '<div class="row align-items-center justify-content-between">'.
-                        '<div class="col-lg-3 col-md-5 col-sm-12 col-12 my-lg-0 my-2rem"><img class="img-fluid w-100" ' . ImageAttributeBuilder::buildAttributes($nivel, $imagenCajaSocial['ruta'], $imagenCajaSocial['descripcion']) . '></div>'.
-                        '<div class="col-lg-3 col-md-5 col-sm-12 col-12 text-center my-lg-0 my-2rem">'.
-                            '<div class="bg-bold-blue mb-1 p-4">'.
-                                '<img class="img-fluid w-100" ' . ImageAttributeBuilder::buildAttributes($nivel, $imagenPagoAmigo['ruta'], $imagenPagoAmigo['descripcion']) . '>'.
+        $html .= '<section class="container section-pagos">'.
+                    '<div class="row justify-content-center align-items-center">'.
+                        '<div class="col-lg-4 col-md-5 col-sm-12 col-12 columna-1-pagos"><img class="img-fluid w-100 caja-social-pagos" ' . ImageAttributeBuilder::buildAttributes($nivel, $imagenCajaSocial['ruta'], $imagenCajaSocial['descripcion']) . '></div>'.
+                        '<div class="col-lg-4 col-md-5 col-sm-12 col-12 columna-2-pagos">'.
+                            '<div class="d-flex justify-content-center">'.
+                                '<img class="mipagoamigo-pagos img-fluid w-100" ' . ImageAttributeBuilder::buildAttributes($nivel, $imagenPagoAmigo['ruta'], $imagenPagoAmigo['descripcion']) . '>'.
                             '</div>'.
-                            '<button id="' . $btnPagoAmigo['campo'] . '" type="' . $btnPagoAmigo['tipo'] . '" class="pagos-btn">' . $btnPagoAmigo['texto'] . '</button>'.
+                            '<button class="mipagoamigo-btn-pagos" id="' . $btnPagoAmigo['campo'] . '" type="' . $btnPagoAmigo['tipo'] . '">' . $btnPagoAmigo['texto'] . '</button>'.
                         '</div>'.
-                        '<div class="col-lg-3 col-md-12 col-sm-12 col-12 my-lg-0 my-2rem text-lg-start text-center">'.
-                            '<p class="font-roboto-bolditalic">' . $instructivoPago['titulo'] . '</p>'.
-                            '<a href="'. $instructivoPago['enlace'] .'"><img class="img-fluid w-50" ' . ImageAttributeBuilder::buildAttributes($nivel, $instructivoPago['ruta'], $instructivoPago['descripcion']) . '></a>'.
+                        '<div class="col-lg-4 col-md-12 col-sm-12 col-12 columna-3-pagos">'.
+                            '<p class="title-instructivo-pagos">' . $instructivoPago['titulo'] . '</p>'.
+                            '<a class="enlace-instructivo-pagos" href="'. $instructivoPago['enlace'] .'"><img class="img-fluid w-100" ' . ImageAttributeBuilder::buildAttributes($nivel, $instructivoPago['ruta'], $instructivoPago['descripcion']) . '></a>'.
                         '</div>'.
                     '</div>'.
                  '</section>';
     
-        $html .= '<section class="bg-bold-blue py-3 my-2rem">'.
+        $html .= '<section class="section-title-pagos">'.
                      '<div class="container">'.
-                         '<div class="d-flex flex-lg-row flex-column justify-content-center align-items-center gap-3">'.
-                                '<h2 class="tx-orange font-roboto-black d-inline-block text-center">' . $tituloSeccionDos['titulo'] . '</h2>'.
-                                '<img ' . ImageAttributeBuilder::buildAttributes($nivel, $tituloSeccionDos['ruta'], $tituloSeccionDos['descripcion']) . ' class="img-fluid pagos-icono" >'.
-                         '</div>'.
+                        posicionTitulo('<img class="img-fluid h2-icon-pagos" ' . ImageAttributeBuilder::buildAttributes($nivel, $tituloSeccionDos['ruta'], $tituloSeccionDos['descripcion']) . '>', $tituloSeccionDos['titulo'], $tituloSeccionDos['posicionTitulo']) .
                      '</div>'.
                  '</section>';
     
-        $html .= '<section class="container my-2rem">'.
-                     '<div class="row mb-2rem">'.
+        $html .= '<section class="container section-pagos">'.
+                     '<div class="row">'.
                          '<div class="col-lg-6 col-md-12 col-sm-12 col-12">'.
-                             '<img class="img-fluid w-100 mb-3" ' . ImageAttributeBuilder::buildAttributes($nivel, $epayco['ruta'], $epayco['descripcion']) . '>'.
-                             '<p class="text-uppercase text-center font-roboto-bold">' . $epayco['titulo'] . '</p>'.
-                             '<table>'.
-                                 '<thead>'.
-                                     '<tr>'.
-                                         '<th class="text-center font-roboto-black">' . $conceptos['identificacion'] . '</th>'.
-                                         '<th class="text-center font-roboto-black">' . $descripciones['identificacion'] . '</th>'.
+                             '<div class="d-flex justify-content-center align-items-center">'.
+                                '<img class="img-fluid w-100 epayco-pagos" ' . ImageAttributeBuilder::buildAttributes($nivel, $epayco['ruta'], $epayco['descripcion']) . '>'.
+                             '</div>'.
+                             '<p class="epayco-title-pagos">' . $epayco['titulo'] . '</p>'.
+                             '<table class="row">'.
+                                 '<thead class="col-lg-12 col-md-12 col-sm-12 col-12">'.
+                                     '<tr class="row">'.
+                                         '<th class=" col-lg-6 col-md-6 col-sm-6 col-6 epayco-subtitle-pagos">' . $conceptos['identificacion'] . '</th>'.
+                                         '<th class=" col-lg-6 col-md-6 col-sm-6 col-6 epayco-subtitle-pagos">' . $descripciones['identificacion'] . '</th>'.
                                          '</tr>'.
                                  '</thead>'.
-                                 '<tbody>';
+                                 '<tbody class="col-lg-12 col-md-12 col-sm-12 col-12">';
         $conceptos = explode("|", $conceptos['texto']);
         $descripciones = explode("|", $descripciones['texto']);
         for ($i = 0; $i < count($conceptos); $i++) {
-            $html .=                '<tr>'.
-                                        '<td class="text-start"><img class="img-fluid flecha-icon" ' . ImageAttributeBuilder::buildAttributes($nivel, $flechaAmarilla['ruta'], $flechaAmarilla['descripcion']) . '> ' . $conceptos[$i] . '</td>'.
-                                        '<td class="text-start">' . $descripciones[$i] . '</td>'.
+            $html .=                '<tr class="row">'.
+                                        '<td class=" col-lg-6 col-md-6 col-sm-6 col-6 p-epayco-pagos"><img class="img-fluid w-100 flecha-epayco-pagos" ' . ImageAttributeBuilder::buildAttributes($nivel, $flechaAmarilla['ruta'], $flechaAmarilla['descripcion']) . '> ' . $conceptos[$i] . '</td>'.
+                                        '<td class=" col-lg-6 col-md-6 col-sm-6 col-6 p-epayco-pagos">' . $descripciones[$i] . '</td>'.
                                     '</tr>';
         }
         $html .=               '</tbody>'.
                             '</table>'.
                         '</div>'.
-                        '<div class="col-lg-6 col-md-12 col-sm-12 col-12 my-lg-0 mt-2rem">'.
-                            '<h3 class="text-center font-roboto-black">' . $refernciaPago['titulo'] . '</h3>'.
-                            '<img class="img-fluid w-100" ' . ImageAttributeBuilder::buildAttributes($nivel, $refernciaPago['ruta'], $refernciaPago['descripcion']) . '>'.
+                        '<div class="col-lg-6 col-md-12 col-sm-12 col-12 my-lg-0">'.
+                            '<h3 class="h3-pagos">' . $tituloReferenciaPago['texto'] . '</h3>'.
+                            '<table class="row">'.
+                                '<thead class="col-lg-12 col-md-12 col-sm-12 col-12">'.
+                                     '<tr class="row">'.
+                                         '<th class="col-lg-4 col-md-4 col-sm-4 col-4 h3-pagos">' . $identificacionRef['identificacion'] . '</th>'.
+                                         '<th class="col-lg-1 col-md-1 col-sm-1 col-1 h3-pagos">-</th></th>'.
+                                         '<th class="col-lg-3 col-md-3 col-sm-3 col-3 h3-pagos">' . $anio['identificacion'] . '</th>'.
+                                         '<th class="col-lg-1 col-md-1 col-sm-1 col-1 h3-pagos">-</th>'.
+                                         '<th class="col-lg-3 col-md-3 col-sm-3 col-3 h3-pagos">' . $conceptosRef['identificacion'] . '</th>'.
+                                    '</tr>'.
+                                 '</thead>'.
+                                 '<tbody class="class="col-lg-12 col-md-12 col-sm-12 col-12">';
+        $html .=                    '<tr class="row">'.
+                                        '<td class="col-lg-4 col-md-4 col-sm-4 col-4"><div class="d-flex justify-content-center align-items-center"><img class="img-fluid refpago-flechas-pagos" ' . ImageAttributeBuilder::buildAttributes($nivel, $flechaAmarilla['ruta'], $flechaAmarilla['descripcion']) . '></div></td>'.
+                                        '<td class="col-lg-1 col-md-1 col-sm-1 col-1">  </td>'.
+                                        '<td class="col-lg-3 col-md-3 col-sm-3 col-3"><div class="d-flex justify-content-center align-items-center"><img class="img-fluid refpago-flechas-pagos" ' . ImageAttributeBuilder::buildAttributes($nivel, $flechaAmarilla['ruta'], $flechaAmarilla['descripcion']) . '></div></td>'.
+                                        '<td class="col-lg-1 col-md-1 col-sm-1 col-1">  </td>'.
+                                        '<td class="col-lg-3 col-md-3 col-sm-3 col-3"><div class="d-flex justify-content-center align-items-center"><img class="img-fluid refpago-flechas-pagos" ' . ImageAttributeBuilder::buildAttributes($nivel, $flechaAmarilla['ruta'], $flechaAmarilla['descripcion']) . '></div></td>'.
+                                    '</tr>';
+        $conceptosRef = explode("|", $conceptosRef['texto']);
+        for ($i = 0; $i < count($conceptosRef); $i++) {
+            $html .=                '<tr class="row">'.
+                                        '<td class="col-lg-4 col-md-4 col-sm-4 col-4 subtitulo-refpago-pagos">' . (($i === 0) ? $identificacionRef['texto'] : '') . '</td>'.
+                                        '<td class="col-lg-1 col-md-1 col-sm-1 col-1"></td>'.
+                                        '<td class="col-lg-3 col-md-3 col-sm-3 col-3 subtitulo-refpago-pagos">' . (($i === 0) ? $anio['texto'] : '') . '</td>'.
+                                        '<td class="col-lg-4 col-md-4 col-sm-4 col-4 '. (($i === 0) ?  'subtitulo-refpago-pagos':'p-refpago-pagos').'">' . $conceptosRef[$i] . '</td>'.
+                                    '</tr>';
+        }
+        $html .=               '</tbody>'.
+                            '</table>'.
                         '</div>'.
                     '</div>'.
                  '</section>'.
