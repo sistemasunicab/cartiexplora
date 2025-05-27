@@ -3,37 +3,65 @@ body {
     font-family: var(--roboto-regular);
 }
 
-/* h1 {
-    font-size: 4.4rem;
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
 }
 
-h2 {
-    font-size: 3.8rem;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-h3 {
-    font-size: 2.5rem;
+a:hover {
+    text-decoration: none;
+    color: inherit;
 }
 
-h4 {
-    font-size: 2.2rem;
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
-p, label {
-    font-size: 1.5rem;
+.error {
+    background: #FFE0D9;
 }
 
-.special-paragraph {
+#alert {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 5000;
+    height: auto;
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+
+#pdesc {
     font-size: 1rem;
 }
 
-.little-paragraph {
-    font-size: 1.2rem;
-} 
-*/
+#whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right:20px;
+}
 
-h1, h2, h3, h4, h5, h6, p {
-  margin: 0;
+svg {
+    width: 80px;
+    filter: drop-shadow(0 1px 4px rgba(0,0,0,.4));
+}
+
+circle {
+    fill: #25d366;
+}
+
+#svg_2 {
+    fill: #fff;
 }
 
 /** Variables CSS **/
@@ -60,6 +88,11 @@ h1, h2, h3, h4, h5, h6, p {
     --medium-gray: #4d4d4f;
     --light-gray: #d4cece;
     --light-gray-o26: #d4cece42;
+
+    /** Espaciado **/
+    --m-escritorio: 7.8rem;
+    --m-tablet: 5.1rem;
+    --m-movil: 3.3rem;
 }
 
 /*Font face*/
@@ -466,8 +499,86 @@ ul {
 
 /*Fin estilos NavBar*/
 
+/** Inicio btn flotante */
 
-/* Banner Inicio */
+.home-button-fixed {
+    position: fixed;
+    background-color: var(--orange);
+    top: 50%;
+    right: 1%;
+    border-radius: 10px;
+    transform: translateY(-50%);
+    width: 4rem;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.button-move {
+    display: inline-block;
+    text-align: center;
+}
+
+.button-move_content {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+    padding: .5rem;
+}
+
+.button-move:hover .button-move_content {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    gap: .6rem;
+    border-radius: 10px;
+    background-color: var(--orange);
+    transform: translateX(calc(-100% + 55px));
+}
+
+.button-move_content p {
+    margin: 0;
+    height: 0;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.button-move:hover .button-move_content p {
+    opacity: 1;
+    height: auto;
+    visibility: visible;
+    color: black;
+    font-size: 1rem;
+    font-family: var(--roboto-light);
+}
+
+.button-move-icon {
+    max-width: 1.88rem;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.close-btn-modal {
+    background-color: var(--orange);
+    color: white;
+    font-family: var(--roboto-bold);
+}
+
+.modal-body, .modal-body iframe {
+    width: 100%;
+    height: auto;
+    min-height: 35rem;
+}
+
+/** Fin boton flotante */
+
+/** Inicio Banner*/
 
 .carousel-item::after {
     content: "";
@@ -495,17 +606,21 @@ ul {
 .button-absolute:hover {
     transform: scale(1.05);
     color: var(--white);
-    background-color: var(--green) !important;
+    background-color: #FFD156 !important;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Banner final */
+/** Fin Banner  */
 
-/* Oferta Academica */
+/** Inicio Oferta Academica */
 
 .section-oferta {
-    margin-top: 2rem;
-    margin-bottom: 4rem;
+    margin-top: var(--m-escritorio);
+    margin-bottom: var(--m-escritorio);
+}
+
+.fondo-oferta {
+    background: var(--light-gray-o26);
 }
 
 .h2-oferta {
@@ -521,20 +636,22 @@ ul {
 }
 
 .h2-mb {
-    margin-bottom: 2rem;
+    margin-bottom: var(--m-escritorio);
 }
 
 .img-left-oferta {
-    padding-right: 5.9rem;
+    padding-left: 8.33333333%!important;
+    padding-right: 0;
 }
 
 .img-center-oferta {
-    padding-left: 2.95rem;
-    padding-right: 2.95rem;
+    padding-left: 4.166666665%;
+    padding-right: 4.166666665%;
 }
 
 .img-right-oferta {
-    padding-left: 5.9rem;
+    padding-right: 8.33333333%!important;
+    padding-left: 0;
 }
 
 .img-oferta {
@@ -547,6 +664,9 @@ ul {
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     max-width: 17.18rem;
     max-height: 22.31rem;
 }
@@ -557,13 +677,13 @@ ul {
     border-radius: 10px;
 }
 
-/* Oferta Academica fin */
+/** Fin Oferta Academica */
 
-/* Inicio Descubre tus Habilidades */
+/** Inicio Descubre tus Habilidades */
 
 .section-habilidades {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin-top: var(--m-escritorio);
+    margin-bottom: var(--m-escritorio);
 }
 
 .h2-habilidades {
@@ -593,7 +713,7 @@ ul {
 }
 
 .subtitulo-hablidades-mb {
-    margin-bottom: 4rem;
+    margin-bottom: var(--m-escritorio);
 }
 
 .img-habilidades {
@@ -635,14 +755,14 @@ ul {
   content: none;
 }
 
-/* Fin Descubre tus Habilidades */
+/** Fin Descubre tus Habilidades */
 
-/* Inicio inscripciones abiertas */
+/** Inicio inscripciones abiertas */
 
 .section-inscripciones {
     /* margin-top: 20.19rem;  Espacio del equipo creativo*/
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin-top: var(--m-escritorio);
+    margin-bottom: var(--m-escritorio);
 }
 
 .h1-inscripciones {
@@ -681,8 +801,8 @@ input[type="text"].input-inscripciones {
 input[type="text"].input-inscripciones, textarea.input-inscripciones {
     padding: .5rem .5rem;
     font-size: 1rem;
+    border: solid 2px var(--green) !important;
     border-radius: 5px !important;
-    border-color: var(--green) !important;
 }
 
 input[type="checkbox"] {
@@ -722,25 +842,16 @@ input[type="checkbox"] {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.form-label {
-    text-transform: uppercase;
-    margin: 0.1rem 0;
-    padding: 0;
-    font-size: 0.6rem;
-}
-
 .form-label-inscripciones {
     padding: .4rem 0;
     font-size: .9rem;
 }
-
 
 .form-inscripciones-checkbox-tx {
     margin: 0;
     font-size: 0.9rem;
     color: #000;
 }
-
 
 .inscripciones-btn {
     all: unset;
@@ -770,7 +881,7 @@ input[type="checkbox"] {
     background-color: #0ad310;
 }
 
-/* Fin inscripciones abiertas */
+/** Fin inscripciones abiertas */
 
 /* Indicators */
 
@@ -1244,94 +1355,122 @@ input[type="checkbox"] {
     width: auto;
 }
 
-/** Nuestros Estudiantes **/
+/** Inicio Nuestros Estudiantes */
 
-.item {
-    display: block;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-
+.section-nuestros-estudiantes {
+    margin-top: var(--m-escritorio);
+    margin-bottom: var(--m-escritorio);
 }
 
-.item:hover {
+.fondo-nuestros-estudiantes {
+    background-color: var(--light-gray-o26);
+    padding: 2.88rem 0;
+}
+
+.h2-nuestros-estudiantes {
+    font-size: 3.75rem;
+    color: var(--blue);
+    letter-spacing: 0.10rem;
+    line-height: 1;
+}
+
+.titulo-mb-nuestros-estudiantes {
+    margin-bottom: var(--m-escritorio);
+}
+
+.row-margin-nuestros-estudiantes:not(:nth-last-child(-n+5)) {
+    margin-bottom: 1.65rem;
+}
+
+.item-nuestros-estudiantes {
+    display: flex;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    justify-content: center;
+}
+
+.item-nuestros-estudiantes div {
+    max-width: 16.19rem;
+    max-height: 16.19rem;
+}
+
+.item-nuestros-estudiantes:hover {
     transform: scale(1.05);
 }
 
-.item-seleccionado{
+.item-nuestros-estudiantes__seleccionado div{
     position: relative;
 }
 
-.item-seleccionado::after{
+.item-nuestros-estudiantes__seleccionado div::after{
     content: '';
-    padding: 2rem;
     position: absolute;
     background-color: rgba(0, 0, 0, .5);
     inset: 0;
     z-index: 10;
 }
 
-/** Publicaciones académicas **/
-
-.publications-button {
-    padding: .8rem 1.5rem;
-    font-size: 2rem;
-    border-radius: 10px;
+.img-grande-nuestros-estudiantes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.download-button {
-    cursor: pointer;
+.img-grande-nuestros-estudiantes img{
+    max-width: 50.75rem;
+    max-height: 50.75rem;
 }
 
-/** Principios y valores INICIO**/
+/** Fin Nuestros Estudiantes */
+
+/** Inicio Principios y valores */
 
 :root {
     --shadow-2: 10px 10px 10px #00000040;
 }
 
 .banner-principios {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: var(--m-escritorio);
+    margin-bottom: var(--m-escritorio);
 }
 
 .section-principios {
-    margin-top: 2.5rem;
-    margin-bottom: 2.5rem;
+    margin-top: var(--m-escritorio);
+    margin-bottom: var(--m-escritorio);
 }
 
 .h2-principios {
     color: var(--blue);
     text-transform: uppercase;
-    margin-bottom: 2rem;
+    margin-bottom: var(--m-escritorio);
     font-size: 3.75rem;
+    line-height: 1;
 }
 
 .p-principios {
-    font-size: 1.3125rem;
-    line-height: 1.9rem;
-}
-
-.grid-principios {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 2rem;
-    row-gap: 4rem;
+    font-size: 1.31rem;
+    line-height: 1.19;
 }
 
 .card-h4-principios {
     font-family: var(--roboto-black);
-    font-size: 2.5rem;
+    font-size: 2.50rem;
     letter-spacing: 0.07rem;
-
+    line-height: 1.2;
 }
 
 .icon-principios {
     width: 100%;
-    height: auto;
-    max-height: 5.625rem;
-    max-width: 5.625rem;
+    height: 100%;
+    max-height: 5.63rem;
+    max-width: 5.63rem;
     margin: 0 auto;
     display: block;
-    object-fit: contain;
+    object-fit: cover;
+}
+
+.margin-card-principios:not(:nth-last-child(-n+2)) {
+    margin-bottom: var(--m-escritorio);
 }
 
 .card-principios {
@@ -1343,10 +1482,10 @@ input[type="checkbox"] {
 }
 
 .card-content-principios {
-    padding: 2.5rem 2rem;
-    font-size: 1.125rem;
-    letter-spacing: 0.019375rem;
-    line-height: 1.7;
+    padding: 0.81rem 2.50rem 2rem 2.50rem;
+    font-size: 1.13rem;
+    letter-spacing: 0.02rem;
+    line-height: 1.5;
     box-shadow: var(--shadow-2);
 }
 
@@ -1383,16 +1522,78 @@ input[type="checkbox"] {
 .show-principios {
     display: inline;
 }
-/** Principios y valores FIN **/
 
+/** Fin Principios y valores */
 
-/* Inicio Nuestros Estudiantes */
-.grid-nuestros-estudiantes {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+/** Inicio Publicaciones académicas */
+
+.section-publicaciones {
+    margin-top: var(--m-escritorio);
+    margin-bottom: var(--m-escritorio);
 }
 
+.margin-publicaciones {
+    margin-top: var(--m-escritorio);
+    margin-bottom: var(--m-escritorio);
+}
+
+.h2-publicaciones {
+    text-transform: uppercase;
+    font-size: 3.75rem;
+    color: var(--blue);
+    letter-spacing: 0.105rem;
+    line-height: 1;
+}
+
+.h4-publicaciones {
+    font-family: var(--roboto-black);
+    font-size: 2.5rem;
+    letter-spacing: 0.07rem;
+    line-height: 1.2;
+}
+
+.img-publicaciones {
+    max-height: 21.875rem;
+    max-width: 22.1875rem;
+    object-fit: contain;
+    margin-top: 2rem;
+}
+
+.fecha-publicaciones {
+    font-size: 1.25rem;
+    font-family: var(--roboto-bold);
+    color: #707070;
+    letter-spacing: 0.021rem;
+    line-height: 1.25;
+}
+
+.p-publicaciones {
+    font-size: 1.313rem;
+    line-height: 1.3;
+    letter-spacing: 0.023rem;
+}
+
+.btn-my-publicaciones {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.btn-publicaciones {
+    padding: 1.125rem 2.25rem;
+    font-size: 1.5625rem;
+    font-family: var(--roboto-bolditalic);
+    color: white;
+    border-radius: 12px;
+    background-color: var(--orange);
+}
+
+.download-button {
+    cursor: pointer;
+    max-width: 4.625rem;
+    max-height: 4.625rem;
+}
+
+/** Fin Publicaciones académicas */
 
 /** busqueda Blog **/
 
@@ -1587,100 +1788,274 @@ input[type="text"], .select, textarea {
 }
 /** Fin Formulario Entrevistas  */
 
-/* Inicio btn flotante */
-.home-button-fixed {
-    position: fixed;
-    top: 50%;
-    right: 1%;
-    border-radius: 10px;
-    transform: translateY(-50%);
-    width: 4rem;
-    z-index: 100;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+/** Inicio Pagos **/
+
+.section-title-pagos {
+    margin-top: var(--m-escritorio);
+    margin-bottom: var(--m-escritorio);
+    background-color: var(--bold-blue);
+    padding: 2.938rem 0;
 }
 
-.button-move {
-    display: inline-block;
+.section-pagos {
+    margin-top: var(--m-escritorio);
+    margin-bottom: var(--m-escritorio);
+}
+
+.section-mt-pagos {
+    margin-top: var(--m-escritorio);
+}
+
+.h2-pagos {
+    font-family: var(--roboto-black);
+    color: var(--orange);
+    font-size: 3.75rem;
     text-align: center;
 }
 
-.button-move_content {
-    display: block;
-    width: 100%;
-    border-radius: 10px;
-    padding: .5rem;
+.h2-icon-pagos {
+    max-width: 7.688rem;
+    max-height: 7.688rem;
 }
 
+.columna-1-pagos {
+    padding-right: 8.33333333%!important;
+    padding-left: 0;
+}
 
-.button-move:hover .button-move_content {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: center;
-    width: max-content;
-    gap: .6rem;
-    border-radius: 10px;
+.columna-2-pagos {
+    padding-left: 4.166666665%;
+    padding-right: 4.166666665%;
+}
+
+.columna-3-pagos {
+    padding-left: 8.33333333%!important;
+    padding-right: 0;
+}
+
+.caja-social-pagos {
+    max-width: 24.875rem;
+    max-height: 5.625rem;
+}
+
+.mipagoamigo-pagos {
+    max-width: 20.938rem;
+    max-height: 8.938rem;
+    background-color: var(--bold-blue);
+    padding: 1.063rem;
+}
+
+.mipagoamigo-btn-pagos {
+    font-size: 1.563rem;
+    font-family: var(--roboto-medium);
+    padding: 1.125rem 3.25rem;
+    color: white;
     background-color: var(--orange);
-    transform: translateX(calc(-100% + 55px));
+    margin-top: 1.125rem;
+    border-radius: 12px;
+    box-shadow: inset 0px 3px 6px #0000001F, 0px 3px 6px #00000029;
+    border: none;
 }
 
-.button-move_content p {
-    margin: 0;
-    height: 0;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
+.title-instructivo-pagos {
+    font-size: 1.563rem;
+    font-family: var(--roboto-bolditalic);
+    line-height: 1.2;
+    letter-spacing: 0.044rem;
+    margin-bottom: 2.063rem;
 }
 
-.button-move:hover .button-move_content p {
-    opacity: 1;
-    height: auto;
-    visibility: visible;
-    color: black;
-    font-weight: 700;
+.enlace-instructivo-pagos {
+    display: inline-block;
+    width: 100%;
+    height: 100%;    
 }
 
-.button-move-icon {
-    max-width: 2rem;
+.enlace-instructivo-pagos img{
+    max-width: 9.625rem;
+    max-height: 9.625rem;
     object-fit: contain;
-    width: 100%;
-    height: auto;
 }
 
-.modal-body, .modal-body iframe {
-    width: 100%;
-    height: auto;
-    min-height: 35rem;
+.epayco-pagos {
+    max-width: 27.625rem;
+    max-height: 8.125rem;
+    margin-bottom: 4.188rem;
+    text-align: center;
 }
 
+.epayco-title-pagos {
+    font-size: 1.313rem;
+    text-transform: uppercase;
+    line-height: 1.3;
+    font-family: var(--roboto-bold);
+    text-align: center;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.023rem;
+}
 
-/** PAGOS **/
+.epayco-subtitle-pagos {
+    font-size: 1.313rem;
+    text-transform: capitalize;
+    line-height: 1.3;
+    font-family: var(--roboto-bold);
+    text-align: center;
+    letter-spacing: 0.023rem;
+}
+
+.flecha-epayco-pagos {
+    max-width: 1.375rem;
+    max-height: 1.375rem;
+}
+
+.p-epayco-pagos {
+    font-size: 1.313rem;
+    line-height: 1.3;
+    text-align: start;
+    font-family: var(--roboto-regular);
+    letter-spacing: 0.023rem;
+}
+
+.h3-pagos {
+    font-size: 2.5rem;
+    font-family: var(--roboto-black);
+    text-align: center;
+    letter-spacing: 0.07rem;
+    line-height: 1.2;
+    margin-bottom: 1.438rem;
+}
+
+.refpago-flechas-pagos {
+    max-width: 2.313rem;
+    max-height: 2.313rem;
+    transform: rotate(90deg);
+    margin-bottom: 1rem;
+}
+
+.subtitulo-refpago-pagos {
+    font-size: 1.313rem;
+    letter-spacing: 0.023rem;
+    font-family: var(--roboto-medium);
+    text-align: center;
+    color: #2A2A2A;
+    margin-bottom: 1rem;
+}
+
+.p-refpago-pagos {
+    font-size: 1.313rem;
+    letter-spacing: 0.023rem;
+    font-family: var(--roboto-medium);
+    color: #2A2A2A;
+}
+
+.radio-btn-section-pagos {
+    padding: 2rem 0;
+    background-color: var(--bold-blue);
+    color: white;
+    font-size: 1.313rem;
+    font-family: var(--roboto-medium);
+    margin-bottom: var(--m-escritorio);
+}
+
+.bg-yellow {
+ background-color: #FFD156;
+}
+
+.datos-quienpaga-titulo-pagos {
+    background-color: var(--bold-blue);
+    padding: 1.063rem;
+    margin-left: 2rem;
+    color: white;
+    font-size: 1.563rem;
+    font-family: var(--roboto-bolditalic);
+    letter-spacing: 0.044rem;
+    line-height: 1.2;
+}
+
+.input-pagos {
+    margin: 2.25rem 0;
+    border: #42C3AE solid 4px;
+    border-radius: 10px;
+    padding: 1.375rem ;
+    font-size: 1.313rem;
+    font-family: var(--roboto-regular);
+}
+
+.cards-icon-container-pagos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards-icon-pagos{
+    max-height: 11.563rem;
+    max-width: 11.563rem;
+}
+
+.form-select-pagos {
+    display: block;
+    font-family: var(--roboto-medium);
+    width: 100%;
+    padding: 1.125rem;
+    font-size: 1.313rem;
+    line-height: 1.2;
+    color: var(--white);
+    background-color: var(--orange);
+    background-clip: padding-box;
+    border: 2px solid var(--orange);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 12px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-select-pagos option {
+    background-color: var(--blue);
+    font-family: var(--roboto-light);
+    color: var(--white);
+}
+
+.select-alert {
+    position: relative;
+    padding: .5rem .5rem;
+    background-color: #f8d7da;
+    border: 5px solid red;
+    border-radius: 12px;
+    width: 100%;
+}
+
 .tx-red {
     color: red;
+    font-size: 1.563rem;
 }
 
-.pagos-title {
-    width: fit-content;
-    display: inline-block !important;
-    white-space: nowrap;
+.tx-green {
+    color: var(--green);
 }
 
 .tx-primary-blue {
-    color: blue;
+    color: #0A2A31;
+    font-size: 1.563rem;
 }
 
-.pagos-icono {
-    max-width: 4rem;
-    max-height: 4rem;
+.titulo-secciones-pagos {
+    padding: 2rem;
+    color: white;
+    font-family: var(--roboto-bold);
+    background-color: var(--bold-blue);
+    text-align: center;
+    text-transform: uppercase;
 }
 
-.cards-icono {
-    max-width: 15rem;
-    max-height: 15rem;
-    object-fit: cover;
+.label-valor-manual-pagos {
+    font-size: 1.313rem;
+    font-family: var(--roboto-bold);
+    text-align: center;
+}
+
+.margin-valor-manual-pagos {
+    margin: 2.25rem 0;
 }
 
 .pagos-btn {
@@ -1701,10 +2076,6 @@ input[type="text"], .select, textarea {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.flecha-icon{
-    width: 8%;
-}
-
 .inactivo {
     background: lightgray;
     border: none;
@@ -1715,63 +2086,98 @@ input[type="text"], .select, textarea {
     transform: scale(1.5);
 }
 
-.form-select-pagos {
-    display: block;
+/** Fin Pagos **/
+
+/** Inicio Costos **/
+
+.section-titulo-costos {
+    padding: 3.25rem 0;
+    background-color: var(--bold-blue);
+    margin-top: var(--m-escritorio);
+    margin-bottom: var(--m-escritorio);
+}
+
+.section-costos {
+    margin-top: var(--m-escritorio);
+    margin-bottom: var(--m-escritorio);
+}
+
+.h2-costos {
+    color: var(--orange);
+    font-family: var(--roboto-black);
+    font-size: 3.75rem;
+    letter-spacing: 0.105rem;
+    text-align: center;
+}
+
+.icono-titulo-costos {
+    max-width: 7.688rem;
+    max-height: 7.688rem;
+}
+
+.subtitulo-costos {
+    text-align: center;
+    font-family: var(--roboto-black);
+    font-size: 2.5rem;
+    letter-spacing: 0.07rem;
+    line-height: 1.2;
+}
+
+.margin-circulares-costos {
+    margin: 4rem 0;
+}
+
+.titulo-circular-costos {
+    font-family: var(--roboto-bolditalic);
+    font-size: 1.563rem;
+    line-height: 1.2;
+    letter-spacing: 0.044rem;
+    text-align: center;
+}
+
+.pdf-btn-costos {
+    max-width: 4.625rem;
+    max-height: 4.625rem;
+    object-fit: contain;
     width: 100%;
-    padding: 0.75rem 0.75rem;
-    font-size: 1.2rem;
-    font-weight: 400;
-    line-height: 1.5;
+}
+
+.btn-circulares-costos {
     color: var(--white);
     background-color: var(--orange);
-    background-clip: padding-box;
-    border: 2px solid var(--orange);
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border-radius: 0.25rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    font-size: 1.563rem;
+    line-height: 1.2;
+    letter-spacing: 0.044rem;
+    font-family: var(--roboto-bolditalic);
+    text-align: center;
+    border-radius: 12px;
+    padding: 1.125rem 2.625rem;
+    box-shadow: inset 0px 3px 6px #0000001F, 0px 3px 6px #00000029;
 }
 
-.form-select-pagos option {
-    background-color: var(--blue);
-}
-
-.bg-yellow {
- background-color: #FFD156;
-}
-
-.check-pagos {
-    transform: scale(1.8);
-    margin: 0 1rem;
-}
-
-.select-alert {
-    position: relative;
-    padding: .5rem .5rem;
-    background-color: #f8d7da;
-    border: 5px solid red;
-    border-radius: 0.25rem;
-}
-
-/** COSTOS **/
-.pdf-btn {
-    max-width: 4.5rem;
-    width: 100%;
+.gif-container-costos {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
 }
 
 .ayuda-gif {
-    max-width: 18rem;
+    max-width: 24.875rem;
+    max-height: 24.875rem;
+    object-fit: cover;
     width: 100%;
+    height: 100%;
 }
 
-.btn:hover {
-    transform: scale(1.1);
+.texto-gif-costos {
+    font-size: 1.563rem;
+    line-height: 1.2;
+    letter-spacing: 0.044rem;
+    font-family: var(--roboto-bolditalic);
+    text-align: end;
 }
 
-.drop-shadow {
-    box-shadow: inset 0px 3px 6px #0000001F, 0px 3px 6px #00000029;
-}
+/** Fin Costos **/
 
 /* Pagina Evaluacion presaberes */
 
@@ -1938,17 +2344,75 @@ input[type="text"], .select, textarea {
 
 @media (max-width: 768px) {
 
-    /* Banner inicio */
-    .button-absolute {
-        font-size: 3vw;  
-        padding: 2vw 2vw;  
-    }
-    /* Banner fin */
+     /** Inicio Boton flotante */
 
-    /* Oferta Academica */
+    .home-button-fixed {
+        position: sticky;
+        width: 100%;
+        display: grid;
+        align-items: center;
+        text-align: center;
+        grid-template-columns: repeat(3,1fr);
+        border-radius: unset;
+        top: 0;
+        right: 0;
+        transform: unset;
+        z-index: 100;
+    }
+
+    .home-button-fixed a {
+        margin: 0;
+    }
+
+    .home-button-fixed a:last-of-type {
+        margin: 0;
+    }
+
+    .button-move {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-basis: 2;
+    }
+
+    .button-move-icon{
+        display: inline-block;
+        max-width: 6vw;
+    }
+    
+    .button-move_content p {
+        display: none;
+    }
+
+    .button-move:hover .button-move_content p {
+        display: none;
+    }
+
+    .button-move_content {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+        gap: .6rem;
+        padding: .5rem;
+    }
+
+    .button-move:hover .button-move_content {
+        transform: unset;
+    }
+    /** Fin Boton flotante */
+
+    /** Inicio Banner */
+    .button-absolute {
+        font-size: 4vw;  
+        padding: 2vw 4vw;  
+    }
+    /** Fin Banner*/
+
+    /** Inicio Oferta Academica */
     .section-oferta {
-        margin-top: 1rem;
-        margin-bottom: 2rem;
+        margin-top: var(--m-movil);
+        margin-bottom: var(--m-movil);
     }
 
     .h2-oferta {
@@ -1958,25 +2422,25 @@ input[type="text"], .select, textarea {
     }
 
     .h2-mb {
-        margin-bottom: 1rem;
+        margin-bottom: var(--m-movil);
     }
 
     .padding-oferta {
-        padding: 4rem 2.5rem;    
+        padding: 3.3rem 2.5rem;    
     }
 
     .img-left-oferta {
-        padding-right: 1rem;
-        padding-left: 0rem;
+        padding-right: 0rem!important;
+        padding-left: 0rem!important;
     }
 
     .img-center-oferta {
-        padding: 0;
+        padding: 0rem!important;
     }
 
     .img-right-oferta {
         margin-top: 3.1875rem;
-        padding: 0;
+        padding: 0rem!important;
     }
 
     .img-oferta img {
@@ -1984,13 +2448,13 @@ input[type="text"], .select, textarea {
         max-height: 10.875rem;
     }
 
-    /* Oferta Academica fin */
+    /** Fin Oferta Academica */
 
-    /* Inicio Descubre tus Habilidades */
+    /** Inicio Descubre tus Habilidades */
 
     .section-habilidades {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
+        margin-top: var(--m-movil);
+        margin-bottom: var(--m-movil);
     }
 
     .h2-habilidades {
@@ -2009,7 +2473,7 @@ input[type="text"], .select, textarea {
     }
 
     .subtitulo-hablidades-mb {
-        margin-bottom: 2rem;
+        margin-bottom: var(--m-movil);
     }
 
     .img-habilidades {
@@ -2025,13 +2489,13 @@ input[type="text"], .select, textarea {
       content: none;
     }
 
-    /* Fin Descubre tus Habilidades */
+    /** Fin Descubre tus Habilidades */
 
-    /* Inicio inscripciones abiertas */
+    /** Inicio inscripciones abiertas */
 
     .section-inscripciones {
-        margin-top: 4rem;
-        margin-bottom: 4rem;
+        margin-top: var(--m-movil);
+        margin-bottom: var(--m-movil);
     }
 
     .h1-inscripciones {
@@ -2086,58 +2550,100 @@ input[type="text"], .select, textarea {
         color: white;
     }
 
-    /* Fin inscripciones abiertas */
+    /** Fin inscripciones abiertas */
 
-    /** Principios y valores INICIO**/
+
+    /** Inicio Nuestros Estudiantes */
+
+    .section-nuestros-estudiantes {
+        margin-top: var(--m-movil);
+        margin-bottom: var(--m-movil);
+    }
+
+    .fondo-nuestros-estudiantes {
+        padding: 5.13rem 0;
+    }
+
+    .h2-nuestros-estudiantes {
+        font-size: 2.50rem;
+        letter-spacing: 0.07rem;
+        line-height: 1;
+    }
+
+    .titulo-mb-nuestros-estudiantes {
+        margin-bottom: var(--m-movil);
+    }
+
+    .row-margin-nuestros-estudiantes:not(:nth-last-child(-n+5)) {
+        margin-bottom: 1.69rem;
+    }
+
+    .item-nuestros-estudiantes div {
+        max-width: 6.50rem;
+        max-height: 6.50rem;
+    }
+
+    .img-grande-nuestros-estudiantes img{
+        max-width: 18.94rem;
+        max-height: 18.94rem;
+    }
+
+    /** Fin Nuestros Estudiantes */
+
+    /** Inicio Principios y valores */
 
     .banner-principios {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
+        margin-top: var(--m-movil);
+        margin-bottom: var(--m-movil);
+        max-width: 21.25rem;
+        max-height: 22.938rem;
     }
 
     .section-principios {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
+        margin-top: var(--m-movil);
+        margin-bottom: var(--m-movil);
     }
 
     .h2-principios {
-        margin-bottom: 1rem;
-        font-size: 1.5625rem;
+        margin-bottom: var(--m-movil);
+        font-size: 1.563rem;
+        padding: 0 1.469rem;
     }
 
     .p-principios {
-        font-size: 0.8125rem;
-        line-height: 1.2rem;
-    }
-
-    .grid-principios {
-        display: grid;
-        grid-template-columns: 1fr;
-        column-gap: 0rem;
-        row-gap: 2.5rem;
-        padding: 0 1rem;
+        font-size: 0.813rem;
+        line-height: 1.3;
+        font-family: var(--roboto-regular);
+        letter-spacing: 0.001rem;
+        padding: 0 1.469rem;
     }
 
     .card-h4-principios {
         font-family: var(--roboto-black);
         font-size: 1.25rem;
         letter-spacing: 0rem;
+        line-height: 1.35;
         color: var(--orange);
     }
 
     .icon-principios {
-        max-height: 2.125rem;
-        max-width: 2.125rem;
+        max-height: 3rem;
+        max-width: 3rem;
+    }
+
+    .margin-card-principios:not(:nth-last-child(-n+2)) {
+        margin-bottom: var(--m-movil);
     }
 
     .card-content-principios {
         margin-top: 1rem;
-        padding: 1.125rem 2.25rem;
-        font-size: 0.8125rem;
-        line-height: 1.8;
+        padding: 1.063rem 2.313rem;
+        font-size: 0.813rem;
+        line-height: 1.25;
+        letter-spacing: 0.001rem;
     }
 
-    .card-principios:nth-child(odd) .card-content-principios {
+    .margin-card-principios:nth-child(odd) .card-principios .card-content-principios {
         background-color: #0D3041;
         color: white;
     }
@@ -2166,7 +2672,358 @@ input[type="text"], .select, textarea {
         display: none !important;
     }
 
-    /** Principios y valores FIN **/
+    /** Fin Principios y valores */
+
+    /** Inicio Publicaciones académicas **/
+
+    .section-publicaciones {
+        margin-top: var(--m-movil);
+        margin-bottom: var(--m-movil);
+    }
+
+    .margin-publicaciones {
+        margin-top: var(--m-movil);
+        margin-bottom: var(--m-movil);
+    }
+
+    .h2-publicaciones {
+        text-transform: uppercase;
+        font-size: 2.5rem;
+        color: var(--blue);
+        letter-spacing: 0.07rem;
+    }
+
+    .h4-publicaciones {
+        font-family: var(--roboto-black);
+        font-size: 1rem;
+        letter-spacing: 0.0281rem;
+    }
+
+    .img-publicaciones {
+        max-height: 7.75rem;
+        max-width: 10.25rem;
+
+        margin-top: 1.1875rem;
+        margin-bottom: 1.1875rem;
+    }
+
+    .fecha-publicaciones {
+        font-size: 0.813rem;
+        color: var(--orange);
+        letter-spacing: 0.016rem;
+        line-height: 1.2;
+    }
+    
+    .p-publicaciones {
+        font-size: 0.813rem;
+        line-height: 1.2;
+    }
+
+    .btn-my-publicaciones {
+        margin-top: 1.5rem;
+        margin-bottom: 0;
+    }
+
+    .btn-publicaciones {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.8125rem;
+        font-family: var(--roboto-bolditalic);
+        color: white;
+        border-radius: 12px;
+        background-color: var(--orange);
+        box-shadow: inset 0px 3px 6px #0000001F, 0px 3px 6px #00000029;
+    }
+
+    .download-button {
+        cursor: pointer;
+        max-width: 2.4375rem;
+        max-height: 2.4375rem;
+    }
+
+    /** Fin Publicaciones académicas FIN **/
+
+    /** Inicio Pagos **/
+
+    .section-title-pagos {
+        margin-top: var(--m-movil);
+        margin-bottom: var(--m-movil);
+        padding: 2.875rem 0;
+    }
+
+    .section-pagos {
+        margin-top: var(--m-movil);
+        margin-bottom: var(--m-movil);
+    }
+
+    .section-mt-pagos {
+        margin-top: var(--m-movil);
+    }
+
+    .h2-pagos {
+        font-size: 1.813rem;
+        letter-spacing: 0.051rem;
+    }
+
+    .h2-icon-pagos {
+        max-width: 3.875rem;
+        max-height: 3.875rem;
+    }
+
+    .columna-1-pagos {
+        padding: 0 !important;
+    }
+    
+    .columna-2-pagos {
+        padding: 0 !important;
+    }
+    
+    .columna-3-pagos {
+        padding: 0 !important;
+        display: flex;
+        justify-content: center;
+        margin-top: 4rem;
+    }
+
+    .caja-social-pagos {
+        max-width: 10.125rem;
+        max-height: 2.313rem;
+    }
+
+    .mipagoamigo-pagos {
+        max-width: 7.063rem;
+        max-height: 4.438rem;
+        padding: 1rem;
+    }
+
+    .mipagoamigo-btn-pagos {
+        font-size: 0.75rem;
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+
+    .title-instructivo-pagos {
+        font-size: 0.813rem;
+        font-family: var(--roboto-italic);
+        margin-bottom: 1rem;
+        letter-spacing: 0.001rem;
+    }
+
+    .enlace-instructivo-pagos {
+        display: flex;
+        justify-content: center;
+        align-items: start;
+    }
+
+    .enlace-instructivo-pagos img{
+        max-width: 4.188rem;
+        max-height: 4.188rem;
+        object-fit: contain;
+    }
+
+    .epayco-pagos {
+        max-width: 13.188rem;
+        max-height: 4.063rem;
+        margin-bottom: 3rem;
+    }
+
+    .epayco-title-pagos {
+        font-size: 0.813rem;
+        line-height: 1.8;
+        margin-bottom: 1.2rem;
+        letter-spacing: 0.014rem;
+        font-family: var(--roboto-black);
+    }
+    
+    .epayco-subtitle-pagos {
+        font-size: 0.813rem;
+        line-height: 1.8;
+        letter-spacing: 0.014rem;
+        font-family: var(--roboto-black);
+    }
+
+    .flecha-epayco-pagos {
+        max-width: 0.75rem;
+        max-height: 0.75rem;
+    }
+
+    .p-epayco-pagos {
+        font-size: 0.813rem;
+        line-height: 1.8;
+        letter-spacing: 0.014rem;
+    }
+
+    .padding-x-movil-pagos {
+        padding: 0 2.688rem;
+    }
+
+    .h3-pagos {
+        font-size: 1rem;
+        letter-spacing: 0.017rem;
+        line-height: 1.5;
+    }
+
+    .refpago-flechas-pagos {
+        max-width: 1.25rem;
+        max-height: 1.25rem;
+    }
+
+    .subtitulo-refpago-pagos {
+        font-size: 0.813rem;
+        letter-spacing: 0.001rem;
+        line-height: 1.25;
+    }
+
+    .p-refpago-pagos {
+        font-size: 0.625rem;
+        letter-spacing: 0.0001rem;
+        line-height: 1.8;
+    }
+
+    .radio-btn-section-pagos {
+        padding: 1.5rem 0;
+        font-size: 1rem;
+        margin-bottom: var(--m-tablet);
+    }
+
+    .datos-quienpaga-titulo-pagos {
+        padding: 1rem 2rem;
+        margin-left: 4rem;
+        font-size: 0.875rem;
+        letter-spacing: 0.024rem;
+    }
+
+    .input-pagos {
+        margin: 2rem 0;
+        border: #42C3AE solid 1px;
+        border-radius: 14px;
+        padding: 0.813rem;
+        font-size: 0.813rem;
+        font-family: var(--roboto-regular);
+        box-shadow: 0px 3px 6px #00000029;
+    }
+
+    .cards-icon-container-pagos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    .form-select-pagos{
+        font-size: 1rem;
+    }
+
+    .cards-icon-pagos{
+        max-height: 4.625rem;
+        max-width: 4.625rem;
+    }
+
+    .tx-red {
+        font-size: 1rem;
+    }
+
+    .tx-primary-blue {
+        font-size: 1rem;
+    }
+
+    .titulo-secciones-pagos {
+        font-size: 1.125rem;
+    }
+
+    .label-valor-manual-pagos {
+        margin-top: 2rem;
+        font-size: 1rem;
+        font-family: var(--roboto-medium);
+    }
+
+    .margin-valor-manual-pagos {
+        margin: 2rem 0;
+    }
+
+    .pagos-btn {
+        font-size: 1rem;
+    }
+
+    .radio-btn {
+        transform: scale(1.2);
+    }
+
+    /** Fin Pagos **/
+
+    /** Inicio Costos **/
+
+    .section-titulo-costos {
+        padding: 2.063rem 0;
+        margin-top: var(--m-movil);
+        margin-bottom: var(--m-movil);
+    }
+    
+    .section-costos {
+        margin-top: var(--m-movil);
+        margin-bottom: var(--m-movil);
+    }
+    
+    .h2-costos {
+        font-size: 1.813rem;
+        letter-spacing: 0.051rem;
+    }
+    
+    .icono-titulo-costos {
+        max-width: 3.875rem;
+        max-height: 3.875rem;
+    }
+    
+    .subtitulo-costos {
+        font-family: var(--roboto-regular);
+        font-size: 0.813rem;
+        letter-spacing: 0.001rem;
+        line-height: 1.25;
+    }
+    
+    .margin-circulares-costos {
+        margin: 2rem 0;
+    }
+    
+    .titulo-circular-costos {
+        font-size: 0.813rem;
+        line-height: 1.2;
+        letter-spacing: 0.023rem;
+    }
+    
+    .pdf-btn-costos {
+        max-width: 2.438rem;
+        max-height: 2.438rem;
+    }
+    
+    .btn-circulares-costos {
+        font-size: 0.813rem;
+        line-height: 1.2;
+        letter-spacing: 0.023rem;
+        padding: 0.625rem 1.438rem;
+        box-shadow: inset 0px 3px 6px #0000001F, 0px 3px 6px #00000029;
+    }
+    
+    .gif-container-costos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ayuda-gif {
+        max-width: 13.625rem;
+        max-height: 13.625rem;
+    }
+    
+    .texto-gif-costos {
+        font-size: 1.25rem;
+        text-align: center;
+        color: var(--orange);
+        line-height: 1.35;
+        letter-spacing: 0rem;
+        text-shadow: 0px 3px 6px #00000029;
+    }    
+
+    /** Fin Costos **/
 
     .blog-img {
         height: 14rem;
@@ -2183,61 +3040,6 @@ input[type="text"], .select, textarea {
     
     .blog-newsletter input {
         width: 50%;
-    }
-
-
-    .home-button-fixed {
-        position: sticky;
-        width: 100%;
-        display: grid;
-        align-items: center;
-        text-align: center;
-        grid-template-columns: repeat(3,1fr);
-        border-radius: unset;
-        top: 0;
-        right: 0;
-        transform: unset;
-        z-index: 100;
-    }
-
-    .home-button-fixed a {
-        margin: 0;
-    }
-    .home-button-fixed a:last-of-type {
-        margin: 0;
-    }
-    /* Estilos base para cada elemento icono */
-    .button-move {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-basis: 2;
-    }
-
-    .button-move-icon{
-        display: inline-block;
-        max-width: 6vw;
-    }
-    
-    .button-move_content p {
-        display: none;
-    }
-
-    .button-move:hover .button-move_content p {
-        display: none;
-    }
-
-    .button-move_content {
-        display: flex;
-        flex-direction: column-reverse;
-        align-items: center;
-        justify-content: center;
-        gap: .6rem;
-        padding: .5rem;
-    }
-
-    .button-move:hover .button-move_content {
-        transform: unset;
     }
 
     .ecosistema-block,
@@ -2278,25 +3080,21 @@ input[type="text"], .select, textarea {
         margin: 0;
         margin-bottom: 100rem;
     }
-
-    .pagos-title {
-        white-space: normal;
-    }
 }
 
 @media (min-width: 768px) and (max-width: 992px)  {
 
-    /* Banner inicio */
+    /** Inicio Banner */
     .button-absolute {
         font-size: 2vw;  
         padding: 2vw 2vw;  
     }
-    /* Banner fin  */
+    /** Fin Banner */
 
-    /* Oferta Academica */
+    /** Inicio Oferta Academica */
     .section-oferta {
-        margin-top: 2rem;
-        margin-bottom: 4rem;
+        margin-top: var(--m-tablet);
+        margin-bottom: var(--m-tablet);
     }
 
     .h2-oferta {
@@ -2307,24 +3105,11 @@ input[type="text"], .select, textarea {
     }
 
     .h2-mb {
-        margin-bottom: 2rem;
+        margin-bottom: var(--m-tablet);
     }
 
     .padding-oferta {
         padding: 4.625rem 4.5rem;    
-    }
-
-    .img-left-oferta {
-        padding-right: 1.1rem;
-    }
-
-    .img-center-oferta {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-
-    .img-right-oferta {
-        padding-left: 1.1rem;
     }
 
     .img-oferta img {
@@ -2334,13 +3119,13 @@ input[type="text"], .select, textarea {
         max-height: 16.25rem;
     }
 
-    /* Oferta Academica fin */
+    /** Fin Oferta Academica*/
 
-    /* Inicio Descubre tus Habilidades */
+    /** Inicio Descubre tus Habilidades */
 
     .section-habilidades {
-        margin-top: 4rem;
-        margin-bottom: 4rem;
+        margin-top: var(--m-tablet);
+        margin-bottom: var(--m-tablet);
     }
 
     .h2-habilidades {
@@ -2359,7 +3144,7 @@ input[type="text"], .select, textarea {
     }
 
     .subtitulo-hablidades-mb {
-        margin-bottom: 5rem;
+        margin-bottom: var(--m-tablet);
     }
 
     .img-habilidades {
@@ -2399,13 +3184,13 @@ input[type="text"], .select, textarea {
       content: none;
     }
 
-    /* Fin Descubre tus Habilidades */
+    /** Fin Descubre tus Habilidades */
 
-    /* Inicio inscripciones abiertas */
+    /** Inicio inscripciones abiertas */
 
     .section-inscripciones {
-        margin-top: 4rem;
-        margin-bottom: 4rem;
+        margin-top: var(--m-tablet);
+        margin-bottom: var(--m-tablet);
     }
 
     .h1-inscripciones {
@@ -2460,43 +3245,81 @@ input[type="text"], .select, textarea {
         color: white;
     }
 
-    /* Fin inscripciones abiertas */
+    /** Fin inscripciones abiertas */
 
-    /** Principios y valores INICIO**/
+    /** Inicio Nuestros Estudiantes */
+
+    .section-nuestros-estudiantes {
+        margin-top: var(--m-tablet);
+        margin-bottom: var(--m-tablet);
+    }
+
+    .fondo-nuestros-estudiantes {
+        padding: 2.69rem 0;
+    }
+
+    .h2-nuestros-estudiantes {
+        font-size: 2.50rem;
+        letter-spacing: 0.07rem;
+        line-height: 1;
+    }
+
+    .titulo-mb-nuestros-estudiantes {
+        margin-bottom: var(--m-tablet);
+    }
+
+    .row-margin-nuestros-estudiantes:not(:nth-last-child(-n+5)) {
+        margin-bottom: 1.94rem;
+    }
+
+    .item-nuestros-estudiantes div {
+        max-width: 8.44rem;
+        max-height: 8.44rem;
+    }
+
+
+    .img-grande-nuestros-estudiantes img{
+        max-width: 24.13rem;
+        max-height: 24.13rem;
+    }
+
+    /** Fin Nuestros Estudiantes */
+
+    /** Inicio Principios y valores */
 
     .banner-principios {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
+        margin-top: var(--m-tablet);
+        margin-bottom: var(--m-tablet);
+        max-width: 21.25rem;
+        max-height: 22.94rem;
     }
 
     .section-principios {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
+        margin-top: var(--m-tablet);
+        margin-bottom: var(--m-tablet);
     }
 
     .h2-principios {
-        color: var(--blue);
-        text-transform: uppercase;
-        margin-bottom: 1rem;
-        font-size: 2.5rem;
+        margin-bottom: var(--m-tablet);
+        font-family: var(--roboto-regular);
+        font-size: 2.50rem;
+    }
+
+    .h2-principios b {
+        font-family: var(--roboto-black);
     }
 
     .p-principios {
         font-size: 1rem;
-        line-height: 1.2rem;
-    }
-
-    .grid-principios {
-        display: grid;
-        grid-template-columns: 1fr;
-        column-gap: 0rem;
-        row-gap: 2.5rem;
+        line-height: 1.25rem;
+        font-family: var(--roboto-regular);
     }
 
     .card-h4-principios {
         font-family: var(--roboto-black);
-        font-size: 1.8125rem;
+        font-size: 1.813rem;
         letter-spacing: 0rem;
+        line-height: 1.3;
         color: var(--orange);
     }
 
@@ -2505,14 +3328,19 @@ input[type="text"], .select, textarea {
         max-width: 4.5625rem;
     }
 
-    .card-content-principios {
-        margin-top: 1rem;
-        padding: 1rem 1.5rem;
-        font-size: 1rem;
-        line-height: 1.5;
+    .margin-card-principios:not(:nth-last-child(-n+2)) {
+        margin-bottom: var(--m-tablet);
     }
 
-    .card-principios:nth-child(odd) .card-content-principios {
+    .card-content-principios {
+        margin-top: 1rem;
+        padding: 2.625rem 5.063rem;
+        font-size: 1rem;
+        line-height: 1.25;
+        letter-spacing: 0.001rem;
+    }
+
+    .margin-card-principios:nth-child(odd) .card-principios .card-content-principios {
         background-color: #0D3041;
         color: white;
     }
@@ -2541,15 +3369,350 @@ input[type="text"], .select, textarea {
         display: none !important;
     }
 
-    /** Principios y valores FIN **/
+    /** Fin Principios y valores */
 
-    .pagos-title {
-        white-space: normal;
+    /** Inicio Publicaciones académicas */
+
+    .section-publicaciones {
+        margin-top: var(--m-tablet);
+        margin-bottom: var(--m-tablet);
     }
 
-    .principios-line {
-        width: 76%;
+    .margin-publicaciones {
+        margin-top: var(--m-tablet);
+        margin-bottom: var(--m-tablet);
     }
+
+    .h2-publicaciones {
+        text-transform: uppercase;
+        font-size: 2.5rem;
+        color: var(--blue);
+        letter-spacing: 0.07rem;
+    }
+
+    .h4-publicaciones {
+        font-family: var(--roboto-black);
+        font-size: 1rem;
+        letter-spacing: 0.028rem;
+        line-height: 1.2;
+    }
+
+    .img-publicaciones {
+        max-height: 7.75rem;
+        max-width: 10.25rem;
+
+        margin-top: 1.1875rem;
+        margin-bottom: 1.1875rem;
+    }
+
+    .fecha-publicaciones {
+        font-size: 1rem;
+        color: var(--orange);
+        letter-spacing: 0.016rem;
+        line-height: 1.2;
+    }
+
+    .p-publicaciones {
+        font-size: 1rem;
+        line-height: 1.2;
+    }
+
+    .btn-my-publicaciones {
+        margin-top: 2rem;
+        margin-bottom: 0;
+    }
+
+    .btn-publicaciones {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.8125rem;
+        font-family: var(--roboto-bolditalic);
+        color: white;
+        border-radius: 12px;
+        background-color: var(--orange);
+        box-shadow: inset 0px 3px 6px #0000001F, 0px 3px 6px #00000029;
+    }
+
+    .download-button {
+        cursor: pointer;
+        max-width: 2.4375rem;
+        max-height: 2.4375rem;
+    }
+
+    /** Fin Publicaciones académicas */
+
+    /** Inicio Pagos **/
+
+    .section-title-pagos {
+        margin-top: var(--m-tablet);
+        margin-bottom: var(--m-tablet);
+        padding: 3.25rem 0;
+    }
+
+    .section-pagos {
+        margin-top: var(--m-tablet);
+        margin-bottom: var(--m-tablet);
+    }
+
+    .section-mt-pagos {
+        margin-top: var(--m-tablet);
+    }
+
+    .h2-pagos {
+        font-size: 2.5rem;
+        text-align: center;
+        letter-spacing: 0.07rem;
+    }
+
+    .h2-icon-pagos {
+        max-width: 5.813rem;
+        max-height: 5.813rem;
+    }
+
+    .columna-1-pagos {
+        padding: 0 !important;
+    }
+    
+    .columna-2-pagos {
+        padding: 0 !important;
+    }
+    
+    .columna-3-pagos {
+        padding: 0 !important;
+        display: flex;
+        justify-content: center;
+        margin-top: 4rem;
+    }
+
+    .caja-social-pagos {
+        max-width: 12.625rem;
+        max-height: 2.875rem;
+    }
+
+    .mipagoamigo-pagos {
+        max-width: 9.688rem;
+        max-height: 6rem;
+        padding: 1.063rem;
+    }
+
+    .mipagoamigo-btn-pagos {
+        font-size: 1.125rem;
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+
+    .title-instructivo-pagos {
+        font-size: 1.125rem;
+    }
+
+    .enlace-instructivo-pagos img{
+        max-width: 9.375rem;
+        max-height: 7.938rem;
+        object-fit: contain;
+    }
+
+    .epayco-pagos {
+        max-width: 13.188rem;
+        max-height: 4.063rem;
+        margin-bottom: 3.25rem;
+    }
+
+    .epayco-title-pagos {
+        font-size: 0.813rem;
+        line-height: 1.8;
+        margin-bottom: 1.2rem;
+        letter-spacing: 0.014rem;
+    }
+
+    .epayco-subtitle-pagos {
+        font-size: 0.813rem;
+        line-height: 1.8;
+        letter-spacing: 0.014rem;
+    }
+
+    .flecha-epayco-pagos {
+        max-width: 0.75rem;
+        max-height: 0.75rem;
+    }
+
+    .p-epayco-pagos {
+        font-size: 0.813rem;
+        line-height: 1.8;
+        letter-spacing: 0.014rem;
+    }
+
+    .h3-pagos {
+        font-size: 1.375rem;
+        letter-spacing: 0.023rem;
+        line-height: 1.3;
+    }
+
+    .refpago-flechas-pagos {
+        max-width: 1.25rem;
+        max-height: 1.25rem;
+    }
+
+    .subtitulo-refpago-pagos {
+        font-size: 1rem;
+        letter-spacing: 0.001rem;
+        line-height: 1.25;
+    }
+
+    .p-refpago-pagos {
+        font-size: 0.625rem;
+        letter-spacing: 0.0001rem;
+        line-height: 1.8;
+    }
+
+    .radio-btn-section-pagos {
+        padding: 1.5rem 0;
+        font-size: 1rem;
+        margin-bottom: var(--m-tablet);
+    }
+
+    .datos-quienpaga-titulo-pagos {
+        padding: 1rem 2rem;
+        margin-left: 4rem;
+        font-size: 0.875rem;
+        letter-spacing: 0.024rem;
+    }
+
+    .input-pagos {
+        margin: 2rem 0;
+        border: #42C3AE solid 1px;
+        border-radius: 14px;
+        padding: 0.813rem;
+        font-size: 1rem;
+        font-family: var(--roboto-regular);
+        box-shadow: 0px 3px 6px #00000029;
+    }
+
+    .cards-icon-container-pagos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    .cards-icon-pagos{
+        max-height: 8.438rem;
+        max-width: 8.438rem;
+    }
+
+    .form-select-pagos {
+        max-width: 21.25rem;
+        padding: 1.125rem;
+        font-size: 1rem;
+        line-height: 1.2;
+    }
+
+    .select-alert {
+        max-width: 21.25rem;
+    }
+
+    .tx-red {
+        font-size: 1rem;
+    }
+
+    .tx-primary-blue {
+        font-size: 1rem;
+    }
+
+    .titulo-secciones-pagos {
+        font-size: 1.125rem;
+    }
+
+    .label-valor-manual-pagos {
+        margin-top: 2rem;
+        font-size: 1rem;
+        font-family: var(--roboto-medium);
+    }
+
+    .margin-valor-manual-pagos {
+        margin: 2rem 0;
+    }
+
+    .pagos-btn {
+        font-size: 1rem;
+    }
+
+    .radio-btn {
+        transform: scale(1.2);
+    }
+
+    /** Fin Pagos **/
+
+    /** Inicio Costos **/
+
+    .section-titulo-costos {
+        padding: 3.688rem 0;
+        margin-top: var(--m-tablet);
+        margin-bottom: var(--m-tablet);
+    }
+    
+    .section-costos {
+        margin-top: var(--m-tablet);
+        margin-bottom: var(--m-tablet);
+    }
+    
+    .h2-costos {
+        font-size: 2.5rem;
+        letter-spacing: 0.07rem;
+    }
+    
+    .icono-titulo-costos {
+        max-width: 5.813rem;
+        max-height: 5.813rem;
+    }
+    
+    .subtitulo-costos {
+        font-family: var(--roboto-regular);
+        font-size: 1rem;
+        letter-spacing: 0.001rem;
+        line-height: 1.25;
+    }
+    
+    .margin-circulares-costos {
+        margin: 2.5rem 0;
+    }
+    
+    .titulo-circular-costos {
+        font-size: 1rem;
+        line-height: 1.2;
+        letter-spacing: 0.028rem;
+    }
+    
+    .pdf-btn-costos {
+        max-width: 2.438rem;
+        max-height: 2.438rem;
+    }
+    
+    .btn-circulares-costos {
+        font-size: 0.813rem;
+        line-height: 1.2;
+        letter-spacing: 0.023rem;
+        padding: 0.625rem 1.438rem;
+        box-shadow: inset 0px 3px 6px #0000001F, 0px 3px 6px #00000029;
+    }
+    
+    .gif-container-costos {
+        padding: 0 2rem 0 0;
+    }
+
+    .ayuda-gif {
+        max-width: 18.813rem;
+        max-height: 18.813rem;
+        text-align: end;
+    }
+    
+    .texto-gif-costos {
+        font-size: 1.25rem;
+        color: var(--orange);
+        line-height: 1.35;
+        letter-spacing: 0rem;
+        text-shadow: 0px 3px 6px #00000029;
+    }    
+
+    /** Fin Costos **/
 
     .historia-info-img {
         height: auto !important;
