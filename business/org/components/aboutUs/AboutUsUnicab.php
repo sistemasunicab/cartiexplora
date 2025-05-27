@@ -1,82 +1,62 @@
-<style>
-
-</style>
 <?php
+// Usamos obtenerFilas para cargar los datos de la sección “Sobre Nosotros”
+$rowsTexto    = obtenerFilas($mysqli1, $sentencia, 44);
+$rowsImagenes = obtenerFilas($mysqli1, $sentencia, 39);
 
-$numero_de_sentencia_nosotros = "44";
-$res_sentencia_nosotros = $mysqli1->query($sentencia . $numero_de_sentencia_nosotros);
-while ($row_sentencia_nosotros = $res_sentencia_nosotros->fetch_assoc()) {
-    $condiciones_nosotros = str_replace('|', '\'', $row_sentencia_nosotros['condiciones']);
-    $sql_datos_nosotros = $row_sentencia_nosotros['campos'] . $row_sentencia_nosotros['tablas'] . $condiciones_nosotros;
-}
+$html_nosotros = '';
 
-$res_datos_nosotros = $mysqli1->query($sql_datos_nosotros);
+if (!empty($rowsTexto)) {
+    // Contenedor tipo row
+    $html_nosotros .= '<div class="row col-12 mx-auto p-0 m-0">';
 
-if ($res_datos_nosotros->num_rows > 0) {
-    $html_nosotros = '<div class="my-2rem w-100 p-0">';
-    $html_nosotros .= '<div class="d-flex flex-column flex-xl-row justify-content-between mx-auto col-10">';
+    // 1) Columnas de texto (sentencia 44)
+    foreach ($rowsTexto as $row) {
+        $titulo = $row['titulo'];
+        $texto  = $row['texto'];
 
-    while ($row_datos_nosotros = $res_datos_nosotros->fetch_assoc()) {
-        $html_nosotros .= '<div class="mx-auto mb-2rem col-12 col-xl-7">';
-        $html_nosotros .= '<h2 class="text-center text-xl-start font-roboto-light-title tx-blue mb-2rem">' . $row_datos_nosotros['titulo'] . '</h2>';
-        $html_nosotros .= '<p class="special-paragraph text-center text-xl-start font-roboto-regular col-11 tx-black mx-auto my-0">' . $row_datos_nosotros['texto'] . '</p>';
-        $html_nosotros .= '</div>';
+        $html_nosotros .= '
+            <div class="col-0 col-lg-1 p-0"></div>
+            <div class="col-10 col-lg-6 d-flex flex-column p-0 mx-auto mx-lg-0">
+                <h2-nosotros class="col-lg-11 col-12 font-roboto-light-title tx-blue text-start">'
+                    . $titulo .
+                '</h2-nosotros>
+                <p-nosotros class="col-lg-10 col-12 font-roboto-regular tx-black mt-ws b-5 text-start">'
+                    . $texto .
+                '</p-nosotros>
+            </div>';
     }
+    // 2) Columna de imágenes (sentencia 39)
+    if (!empty($rowsImagenes)) {
+        foreach ($rowsImagenes as $rowImg) {
+            $html_nosotros .= '<div class="col-10 col-lg-4 mt-ws mt-lg-0 mx-auto mx-lg-0 p-0 d-flex flex-column justify-content-end ">';
 
-    $numero_de_sentencia_nosotros = "39";
-    $res_sentencia_nosotros = $mysqli1->query($sentencia . $numero_de_sentencia_nosotros);
-    while ($row_sentencia_nosotros = $res_sentencia_nosotros->fetch_assoc()) {
-        $condiciones_nosotros = str_replace('|', '\'', $row_sentencia_nosotros['condiciones']);
-        $sql_datos_nosotros = $row_sentencia_nosotros['campos'] . $row_sentencia_nosotros['tablas'] . $condiciones_nosotros;
-    }
+            // Construimos atributos para cada versión de imagen
+            $attrEscritorio        = ImageAttributeBuilder::buildAttributes($nivel, $rowImg['ruta']);
+            $attrMovil             = ImageAttributeBuilder::buildAttributes($nivel, $rowImg['rutaMovil']);
+            $attrTabletaVertical   = ImageAttributeBuilder::buildAttributes($nivel, $rowImg['rutaTabletaVertical']);
+            $attrTabletaHorizontal = ImageAttributeBuilder::buildAttributes($nivel, $rowImg['rutaTabletaHorizontal']);
 
-    $res_datos_nosotros = $mysqli1->query($sql_datos_nosotros);
+            $imagenes = [
+                ['atributos' => $attrEscritorio,        'clases' => 'd-lg-inline d-none img-fluid w-100 mx-auto'],
+                ['atributos' => $attrMovil,             'clases' => 'd-inline d-sm-none d-md-none d-lg-none img-fluid w-100 mx-auto'],
+                ['atributos' => $attrTabletaVertical,   'clases' => 'd-sm-inline d-none d-md-none d-lg-none img-fluid w-100 mx-auto'],
+                ['atributos' => $attrTabletaHorizontal, 'clases' => 'd-md-inline d-none d-lg-none img-fluid w-100 mx-auto'],
+            ];
 
-    while ($row_datos_nosotros = $res_datos_nosotros->fetch_assoc()) {
-        $html_nosotros .= '<div class="mx-auto mt-auto col-10 col-xl-5">';
-
-        $atributosEscritorio = ImageAttributeBuilder::buildAttributes($nivel, $row_datos_nosotros['ruta']);
-        $atributosMovil = ImageAttributeBuilder::buildAttributes($nivel, $row_datos_nosotros['rutaMovil']);
-        $atributosTabletaVertical = ImageAttributeBuilder::buildAttributes($nivel, $row_datos_nosotros['rutaTabletaVertical']);
-        $atributosTabletaHorizontal = ImageAttributeBuilder::buildAttributes($nivel, $row_datos_nosotros['rutaTabletaHorizontal']);
-
-
-        $imagenes = [
-            [
-                'atributos' => $atributosEscritorio,
-                'clases'    => 'd-lg-inline d-md-none d-sm-none d-none img-fluid w-100'
-            ],
-            [
-                'atributos' => $atributosMovil,
-                'clases'    => 'd-lg-none d-md-none d-sm-none d-inline img-fluid w-100'
-            ],
-            [
-                'atributos' => $atributosTabletaVertical,
-                'clases'    => 'd-lg-none d-md-none d-sm-inline d-none img-fluid w-100'
-            ],
-            [
-                'atributos' => $atributosTabletaHorizontal,
-                'clases'    => 'd-lg-none d-md-inline d-sm-none d-none img-fluid w-100'
-            ]
-        ];
-
-        $altern = $row_datos_nosotros['textoAlterno'];
-        foreach ($imagenes as $img) {
-            $html_nosotros .= '<img ' . $img['atributos'] . ' class="' . $img['clases'] .'">';
+            foreach ($imagenes as $img) {
+                $html_nosotros .= '<img ' . $img['atributos'] . ' class="' . $img['clases'] . '">';
+            }
+            $html_nosotros .= '</div>';
         }
-        $html_nosotros .= '</div>';
+        $html_nosotros .= '<div class="col-0 col-lg-1 p-0"></div>';
     }
 
     $html_nosotros .= '</div>';
-    $html_nosotros .= '</div>';
-
 }
 ?>
 
-<div class="container-fluid m-0 p-0">
+<div class="container-fluid my-ws mx-0 p-0">
     <div class="row m-0 p-0">
-        <?php
-        echo $html_nosotros;
-        ?>
+        <?= $html_nosotros ?>
     </div>
 </div>

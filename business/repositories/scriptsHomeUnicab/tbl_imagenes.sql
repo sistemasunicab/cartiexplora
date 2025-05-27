@@ -194,5 +194,9 @@ UPDATE tbl_imagenes SET rutaMovil = 'assets/img/unicabHistoriaMovil.jpg' WHERE (
 UPDATE tbl_imagenes SET rutaTabletaVertical = 'assets/img/unicabHistoriaTablets.jpg' WHERE (id = 76);
 
 INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, rutaTabletaHorizontal, descripcion, titulo, posicionTitulo, rutaEncima, textoAlterno) VALUES
-(37, 'assets/img/liked.png', '', '', '', '', '', '', '', '');
+(37, 'assets/img/liked.png', '', '', '', '', '', '', '', ''),
+(10, 'assets/img/sumertic.png', '', '', '', 'aliados', 'Nuestros Aliados', '', '', ''),
+(10, 'assets/img/linkedin.svg', '', '', '', 'social-media', 'linkedin', '', '', ''),
+(10, 'assets/img/tiktok.svg', '', '', '', 'social-media', 'tiktok', '', '', '');
+
 

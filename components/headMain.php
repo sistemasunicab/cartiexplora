@@ -14,7 +14,7 @@
             //<!-- SELECT2 CSS -->
             echo '<link rel="stylesheet" href="assets/bookstores/select2/css/select2.css">';
             //<!-- HOME CSS -->
-            echo '<link rel="stylesheet" href="assets/css/homeStyles.css">';
+            echo '<link rel="stylesheet" href="assets/css/mateoStyles.css">';
             //<!-- SOLUTIONS CSS -->
             echo '<link rel="stylesheet" href="assets/css/solutionsStyles.css">';
             //<!-- CARTI CSS -->
@@ -37,7 +37,7 @@
             //<!-- SELECT2 CSS -->
             echo '<link rel="stylesheet" href="../assets/bookstores/select2/css/select2.css">';
             //<!-- HOME CSS -->
-            echo '<link rel="stylesheet" href="../assets/css/homeStyles.css">';
+            echo '<link rel="stylesheet" href="../assets/css/mateoStyles.css">';
             //<!-- SOLUTIONS CSS -->
             echo '<link rel="stylesheet" href="../assets/css/solutionsStyles.css">';
             //<!-- CARTI CSS -->
@@ -60,7 +60,7 @@
             //<!-- SELECT2 CSS -->
             echo '<link rel="stylesheet" href="../../assets/bookstores/select2/css/select2.css">';
             //<!-- HOME CSS -->
-            echo '<link rel="stylesheet" href="../../assets/css/homeStyles.css">';
+            echo '<link rel="stylesheet" href="../../assets/css/mateoStyles.css">';
             //<!-- SOLUTIONS CSS -->
             echo '<link rel="stylesheet" href="../../assets/css/solutionsStyles.css">';
             //<!-- CARTI CSS -->
@@ -83,7 +83,7 @@
             //<!-- SELECT2 CSS -->
             echo '<link rel="stylesheet" href="../../../assets/bookstores/select2/css/select2.css">';
             //<!-- HOME CSS -->
-            echo '<link rel="stylesheet" href="../../../assets/css/homeStyles.css">';
+            echo '<link rel="stylesheet" href="../../../assets/css/mateoStyles.css">';
             //<!-- SOLUTIONS CSS -->
             echo '<link rel="stylesheet" href="../../../assets/css/solutionsStyles.css">';
             //<!-- CARTI CSS -->

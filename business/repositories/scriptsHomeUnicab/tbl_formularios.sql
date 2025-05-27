@@ -71,7 +71,7 @@ INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLe
 INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder)
 VALUES 
 (25, 'correo_estados_financieros', 'correo', 'correo', 'required', '', '', 'Usuario email'),
-(25, 'password_estados_financieros', 'texto', 'contraseña', 'required', '', '', 'Password'),
+(25, 'password_estados_financieros', 'password', 'contraseña', 'required', '', '', 'Password'),
 (25, 'submit-estados-financieros', 'submit', 'Solicitar', '', '', '', '');
 
 INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder)
@@ -99,7 +99,7 @@ VALUES
 (26, 'proposito_certificaciones', 'texto', 'propósito', 'required', '', '', 'Propósito del documento'),
 
 -- Tratamiento de datos
-(26, 'tratamiento_certificaciones', 'checkbox', 'tratamiento de datos', 'required', '', '', 'Acepto tratamiento de datos.'),
+(26, 'tratamiento_certificaciones', 'checkbox', 'Acepto tratamiento de datos', 'required', '', '', 'Acepto tratamiento de datos.'),
 
 -- Botón de envío
 (26, 'submit-certificaciones-papeles', 'submit', 'Solicitar', '', '', '', '');

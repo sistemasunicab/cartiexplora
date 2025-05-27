@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function initDropdownHandlers() {
         resetStyles();
-        if (window.innerWidth > 768 && !isMobileDevice()) {
+        if (window.innerWidth > 992 && !isMobileDevice()) {
             const navItems = document.querySelectorAll('.nav-item');
 
             navItems.forEach(item => {
@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 }
                                 menuItem.classList.add('hover');
                                 dropdown_ourContainer.classList.add('hover');
-                                if (window.innerWidth < 768) dropdown_our.classList.remove('hover');
+                                if (window.innerWidth < 992) dropdown_our.classList.remove('hover');
                                 dropdown_our2.classList.add('hover');
                                 actualDisplayedDropdown2 = dropdown_our2;
                             }

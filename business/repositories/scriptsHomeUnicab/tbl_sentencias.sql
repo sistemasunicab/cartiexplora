@@ -55,8 +55,8 @@ INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones
 ('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 10 AND descripcion = |logo| ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_menus ', 'WHERE visible = 1 ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 10 AND descripcion = |social-media| ', '', '', '', '', ''),
-('NO', '', 'SELECT * ', 'FROM tbl_parametros ', 'WHERE id >= 8 AND id < 12 ', '', '', '', '', ''),
-('NO', '', 'SELECT * ', 'FROM tbl_parametros ', 'WHERE id >= 12 AND id <= 13 ', '', '', '', '', ''),
+('NO', '', 'SELECT * ', 'FROM tbl_parametros ', 'WHERE id >= 8 AND id < 14 ', '', '', '', '', ''),
+('NO', '', 'SELECT * ', 'FROM tbl_parametros ', 'WHERE id >= 14 AND id <= 15 ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 12 ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 13 ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 14 ', '', '', '', '', ''),
@@ -186,4 +186,5 @@ INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones
 INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
 ('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 17 AND descripcion=|image-contact| ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_formularios ', 'WHERE id_seccion = 25 ', '', '', '', '', ''),
-('NO', '', 'SELECT * ', 'FROM tbl_formularios ', 'WHERE id_seccion = 26 ', '', '', '', '', '');
+('NO', '', 'SELECT * ', 'FROM tbl_formularios ', 'WHERE id_seccion = 26 ', '', '', '', '', ''),
+('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 10 AND descripcion=|aliados| ', '', '', '', '', '');

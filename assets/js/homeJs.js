@@ -410,6 +410,7 @@ const reglasvalidacion = {
     correo: /^[_-\w.]+@[a-z]+\.[a-z\.]{2,7}$/,
     numero: /^[0-9]{1,}$/,
     fecha: /^[0-9]{4}-[0-1]{1}[0-9]{1}-[0-3]{1}[0-9]{1}$/,
+    password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/,
 };
 
 let camposError = [];
@@ -606,6 +607,17 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
                 marcarInputError(id);
                 agregarCampoError(id);
                 texto = "No es un patrón válido para " + descripcion;
+            }
+        } else if (reglaValidacion == "password") {
+            console.log(value);
+            if (reglasvalidacion.password.test(value)) {
+                marcarInputCorrecto(id);
+                quitarCampoError(id);
+            } else {
+                control = 1;
+                marcarInputError(id);
+                agregarCampoError(id);
+                texto = "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número.";
             }
         }
     }
