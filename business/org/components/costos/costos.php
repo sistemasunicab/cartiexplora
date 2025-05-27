@@ -96,10 +96,10 @@
         $res_circulares = $mysqli1->query($sql_circulares);
         while ($row_circulares = $res_circulares->fetch_assoc()) {
             $html .=    '<div class="row align-items-center justify-content-center margin-circulares-costos">';
-            $html .=        '<div class="col-lg-5 col-md-5 col-sm-5 col-5 text-lg-center text-start">';
+            $html .=        '<div class="col-lg-6 col-md-6 col-sm-6 col-6">';
             $html .=            '<p class="titulo-circular-costos">'. $row_circulares['titulo'] .'</p>';
             $html .=        '</div>';
-            $html .=        '<div class="col-lg-5 col-md-5 col-sm-5 col-5 text-center my-2">';
+            $html .=        '<div class="col-lg-6 col-md-6 col-sm-6 col-6 text-center">';
             $html .=            '<div class="row align-items-center">';
             $html .=                '<div class="col-lg-6 col-md-6 col-sm-6 col-6">';
             $html .=                    '<a onclick="descargarArchivo(\'' . $nivel . '\', \''. $row_circulares['ruta'] .'\', \''.$row_circulares['nombreArchivo'] . '\', \'' . $row_circulares['destino'] .'\')" class="download-button mx-3">';
@@ -120,8 +120,8 @@
 
         $gifAyuda = array_shift($imagenes);
         $html .= '<section class="container section-costos">';
-        $html .=    '<div class="row justify-content-end">';
-        $html .=        '<div class="col-lg-12 col-md-8 col-sm-8 col-8">';
+        $html .=    '<div class="ro6">';
+        $html .=        '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
         $html .=            '<div class="gif-container-costos">';
         $html .=                '<img ' . ImageAttributeBuilder::buildAttributes($nivel, $gifAyuda['ruta'], $gifAyuda['descripcion']) . ' class="img-fluid ayuda-gif">';
         $html .=                '<p class="texto-gif-costos">' . $gifAyuda['titulo'] . '</p>';
