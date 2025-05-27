@@ -156,12 +156,12 @@
 
         $html .= '<section class="container section-pagos">'.
                     '<div class="row justify-content-center align-items-center">'.
-                        '<div class="col-lg-4 col-md-6 col-sm-12 col-12 columna-1-pagos">' .
+                        '<div class="col-lg-4 col-md-6 col-sm-6 col-6 columna-1-pagos">' .
                             '<div class="d-flex justify-content-center">'.
                                 '<img class="img-fluid w-100 caja-social-pagos" ' . ImageAttributeBuilder::buildAttributes($nivel, $imagenCajaSocial['ruta'], $imagenCajaSocial['descripcion']) . '>'.
                             '</div>'.
                         '</div>'.
-                        '<div class="col-lg-4 col-md-6 col-sm-12 col-12 columna-2-pagos">'.
+                        '<div class="col-lg-4 col-md-6 col-sm-6 col-6 columna-2-pagos">'.
                             '<div class="d-flex justify-content-center">'.
                                 '<img class="mipagoamigo-pagos img-fluid w-100" ' . ImageAttributeBuilder::buildAttributes($nivel, $imagenPagoAmigo['ruta'], $imagenPagoAmigo['descripcion']) . '>'.
                             '</div>'.
@@ -186,7 +186,7 @@
     
         $html .= '<section class="container section-pagos">'.
                      '<div class="row">'.
-                         '<div class="col-lg-6 col-md-6 col-sm-12 col-12">'.
+                         '<div class="col-lg-6 col-md-6 col-sm-12 col-12 padding-x-movil-pagos">'.
                              '<div class="d-flex justify-content-center align-items-center">'.
                                 '<img class="img-fluid w-100 epayco-pagos" ' . ImageAttributeBuilder::buildAttributes($nivel, $epayco['ruta'], $epayco['descripcion']) . '>'.
                              '</div>'.
@@ -210,7 +210,7 @@
         $html .=               '</tbody>'.
                             '</table>'.
                         '</div>'.
-                        '<div class="col-lg-6 col-md-6 col-sm-12 col-12 my-lg-0">'.
+                        '<div class="col-lg-6 col-md-6 col-sm-12 col-12 my-md-0 my-5 padding-x-movil-pagos">'.
                             '<h3 class="h3-pagos">' . $tituloReferenciaPago['texto'] . '</h3>'.
                             '<table class="row">'.
                                 '<thead class="col-lg-12 col-md-12 col-sm-12 col-12">'.
@@ -282,15 +282,15 @@
         $html .=                 '</div>';
         $html .=             '</div>';
         $html .=         '</div>';
-        $html .=         '<div class="row section-pagos">'.
-                             '<div class="col-lg-12 col-md-12 col-sm-12 col-12 my-3">';
+        $html .=         '<div class="row my-4">'.
+                             '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
         if($infoFinanciera['identificacion'] === 'info financiera'){
             $html .=             $infoFinanciera['texto'];
         }
         $html .=             '</div>';
         $html .=         '</div>';
         $titulosSeccionesPago = explode("|", $titulosSeccionesPago['texto']);
-        $html .=         '<div id="secreferencia" class="row justify-content-center" style="display: none;">'.
+        $html .=         '<div id="secreferencia" class="row justify-content-center section-mt-pagos" style="display: none;">'.
                              '<div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-4">'.
                                  '<h3 class="titulo-secciones-pagos">'.$titulosSeccionesPago[0].'</h3>'.
                              '</div>'.
@@ -304,7 +304,7 @@
                                  '<button class="pagos-btn w-50 text-uppercase" onclick="" type="'.$consultarBtn['tipo'].'" id="'.$consultarBtn['campo'].'">'.$consultarBtn['texto'].'</button>'.
                              '</div>'.
                          '</div>'.
-                         '<div id="secvalman" class="row align-items-end" style="display: none;">'.
+                         '<div id="secvalman" class="row align-items-end section-mt-pagos" style="display: none;">'.
                              '<div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-4">'.
                                  '<h3 class="titulo-secciones-pagos">'.$titulosSeccionesPago[1].'</h3>'.
                              '</div>'.
