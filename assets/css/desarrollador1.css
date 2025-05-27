@@ -1145,16 +1145,96 @@ input[type="checkbox"] {
 
 /** Fin Pagos **/
 
-/** COSTOS **/
-.pdf-btn {
-    max-width: 4.5rem;
+/** Inicio Costos **/
+
+.section-titulo-costos {
+    padding: 3.25rem 0;
+    background-color: var(--bold-blue);
+    margin-top: var(--m-escritorio);
+    margin-bottom: var(--m-escritorio);
+}
+
+.section-costos {
+    margin-top: var(--m-escritorio);
+    margin-bottom: var(--m-escritorio);
+}
+
+.h2-costos {
+    color: var(--orange);
+    font-family: var(--roboto-black);
+    font-size: 3.75rem;
+    letter-spacing: 0.105rem;
+    text-align: center;
+}
+
+.icono-titulo-costos {
+    max-width: 7.688rem;
+    max-height: 7.688rem;
+}
+
+.subtitulo-costos {
+    text-align: center;
+    font-family: var(--roboto-black);
+    font-size: 2.5rem;
+    letter-spacing: 0.07rem;
+    line-height: 1.2;
+}
+
+.margin-circulares-costos {
+    margin: 4rem 0;
+}
+
+.titulo-circular-costos {
+    font-family: var(--roboto-bolditalic);
+    font-size: 1.563rem;
+    line-height: 1.2;
+    letter-spacing: 0.044rem;
+    text-align: center;
+}
+
+.pdf-btn-costos {
+    max-width: 4.625rem;
+    max-height: 4.625rem;
+    object-fit: contain;
     width: 100%;
 }
 
-.ayuda-gif {
-    max-width: 18rem;
-    width: 100%;
+.btn-circulares-costos {
+    color: var(--white);
+    background-color: var(--orange);
+    font-size: 1.563rem;
+    line-height: 1.2;
+    letter-spacing: 0.044rem;
+    font-family: var(--roboto-bolditalic);
+    text-align: center;
+    border-radius: 12px;
+    padding: 1.125rem 2.625rem;
+    box-shadow: inset 0px 3px 6px #0000001F, 0px 3px 6px #00000029;
 }
+
+.gif-container-costos {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.ayuda-gif {
+    max-width: 24.875rem;
+    max-height: 24.875rem;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.texto-gif-costos {
+    font-size: 1.563rem;
+    line-height: 1.2;
+    letter-spacing: 0.044rem;
+    font-family: var(--roboto-bolditalic);
+    text-align: end;
+}
+
+/** Fin Costos **/
 
 /** movil **/
 @media (max-width: 768px) {
@@ -2325,4 +2405,76 @@ input[type="checkbox"] {
 
     /** Fin Pagos **/
 
+    /** Inicio Costos **/
+
+    .section-titulo-costos {
+        padding: 3.688rem 0;
+        margin-top: var(--m-tablet);
+        margin-bottom: var(--m-tablet);
+    }
+    
+    .section-costos {
+        margin-top: var(--m-tablet);
+        margin-bottom: var(--m-tablet);
+    }
+    
+    .h2-costos {
+        font-size: 2.5rem;
+        letter-spacing: 0.07rem;
+    }
+    
+    .icono-titulo-costos {
+        max-width: 5.813rem;
+        max-height: 5.813rem;
+    }
+    
+    .subtitulo-costos {
+        font-family: var(--roboto-regular);
+        font-size: 1rem;
+        letter-spacing: 0.001rem;
+        line-height: 1.25;
+    }
+    
+    .margin-circulares-costos {
+        margin: 2.5rem 0;
+    }
+    
+    .titulo-circular-costos {
+        font-size: 1rem;
+        line-height: 1.2;
+        letter-spacing: 0.028rem;
+    }
+    
+    .pdf-btn-costos {
+        max-width: 2.438rem;
+        max-height: 2.438rem;
+    }
+    
+    .btn-circulares-costos {
+        font-size: 0.813rem;
+        line-height: 1.2;
+        letter-spacing: 0.023rem;
+        padding: 0.625rem 1.438rem;
+        box-shadow: inset 0px 3px 6px #0000001F, 0px 3px 6px #00000029;
+    }
+    
+    .gif-container-costos {
+        padding: 0 5rem 0 0;
+    }
+
+    .ayuda-gif {
+        max-width: 18.813rem;
+        max-height: 18.813rem;
+        text-align: end;
+    }
+    
+    .texto-gif-costos {
+        font-size: 1.25rem;
+        color: var(--orange);
+        line-height: 1.35;
+        letter-spacing: 0rem;
+        text-shadow: 0px 3px 6px #00000029;
+    }    
+
+    /** Fin Costos **/
 }

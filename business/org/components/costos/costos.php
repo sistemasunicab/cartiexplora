@@ -1,4 +1,51 @@
 <?php
+    function posicionTitulo($imgHTML, $titulo, $posicionTitulo)
+    {
+        $title = '';
+        if (strtolower($posicionTitulo) == 'abajo') {
+            $title .= '<div class="row align-items-center justify-content-center my-2">';
+            $title .=    '<div class="col-lg-12 col-md-12 col-sm-12 col-12 my-2 text-center">';
+            $title .=        $imgHTML;
+            $title .=    '</div>';
+            $title .=    '<div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center">';
+            $title .=        '<h2 class="h2-costos">' . $titulo . '</h2>';
+            $title .=    '</div>';
+            $title .= '</div>';
+        } else if (strtolower($posicionTitulo) == 'derecha') {
+            $title .= '<div class="row align-items-center justify-content-center my-2">';
+            $title .=     '<div class="col-lg-2 col-md-2 col-sm-2 col-2"></div>';
+            $title .=     '<div class="col-lg-3 col-md-3 col-sm-3 col-3">';
+            $title .=         $imgHTML;
+            $title .=     '</div>';
+            $title .=     '<div class="col-lg-5 col-md-5 col-sm-5 col-5">';
+            $title .=         '<h2 class="h2-costos">' . $titulo . '</h2>';
+            $title .=     '</div>';
+            $title .=     '<div class="col-lg-2 col-md-2 col-sm-2 col-2"></div>';
+            $title .= '</div>';
+        } else if (strtolower($posicionTitulo) == 'izquierda') {
+            $title .= '<div class="row align-items-center justify-content-center my-2">';
+            $title .=     '<div class="col-lg-2 col-md-2 col-sm-2 col-2"></div>';
+            $title .=     '<div class="col-lg-5 col-md-5 col-sm-5 col-5">';
+            $title .=         '<h2 class="h2-costos">' . $titulo . '</h2>';
+            $title .=     '</div>';
+            $title .=     '<div class="col-lg-3 col-md-3 col-sm-3 col-3">';
+            $title .=         $imgHTML;
+            $title .=     '</div>';
+            $title .=     '<div class="col-lg-2 col-md-2 col-sm-2 col-2"></div>';
+            $title .= '</div>';
+        } else if (strtolower($posicionTitulo) == 'arriba') {
+            $title .= '<div class="row align-items-center justify-content-center my-2">';
+            $title .=    '<div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center">';
+            $title .=        '<h2 class="h2-costos">' . $titulo . '</h2>';
+            $title .=    '</div>';
+            $title .=    '<div class="col-lg-12 col-md-12 col-sm-12 col-12 my-2 text-center">';
+            $title .=        $imgHTML;
+            $title .=    '</div>';
+            $title .= '</div>';
+        }
+        return $title;
+    }
+
     if ($nivel == "raiz") {
         require('business/repositories/1cc2s4Home.php');
     } else if ($nivel == "uno") {
@@ -28,19 +75,16 @@
         }
 
         $titulo = array_shift($imagenes);
-        $html .= '<section class="bg-bold-blue py-3 my-2rem">';
+        $html .= '<section class="section-titulo-costos">';
         $html .=    '<div class="container">';
-        $html .=        '<div class="d-flex flex-lg-row flex-column justify-content-center align-items-center gap-3">';
-        $html .=            '<h2 class="tx-orange font-roboto-black text-center">' . $titulo['titulo'] . '</h2>';
-        $html .=            '<img ' . ImageAttributeBuilder::buildAttributes($nivel, $titulo['ruta'], $titulo['descripcion']) . ' class="img-fluid pagos-icono">';
-        $html .=        '</div>';
+        $html .=        posicionTitulo('<img class="img-fluid w-100 icono-titulo-costos" ' . ImageAttributeBuilder::buildAttributes($nivel, $titulo['ruta'], $titulo['descripcion']) . '>', $titulo['titulo'] ,$titulo['posicionTitulo']);
         $html .=    '</div>';
         $html .= '</section>';
 
-        $html .= '<section class="container my-2rem">';
-        $html .=    '<div class="row mb-2rem">';
+        $html .= '<section class="container section-costos">';
+        $html .=    '<div class="row">';
         $html .=        '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
-        $html .=            '<h4 class="font-roboto-black text-center">' . $row_seccion['subTitulo'] . '</h4>';
+        $html .=            '<h4 class="subtitulo-costos">' . $row_seccion['subTitulo'] . '</h4>';
         $html .=        '</div>';
         $html .=    '</div>';
 
@@ -51,19 +95,19 @@
         }
         $res_circulares = $mysqli1->query($sql_circulares);
         while ($row_circulares = $res_circulares->fetch_assoc()) {
-            $html .=    '<div class="row align-items-center justify-content-center my-2rem">';
-            $html .=        '<div class="col-lg-5 col-md-5 col-sm-5 col-5 text-lg-center text-start my-2">';
-            $html .=            '<p class="font-roboto-bolditalic">'. $row_circulares['titulo'] .'</p>';
+            $html .=    '<div class="row align-items-center justify-content-center margin-circulares-costos">';
+            $html .=        '<div class="col-lg-5 col-md-5 col-sm-5 col-5 text-lg-center text-start">';
+            $html .=            '<p class="titulo-circular-costos">'. $row_circulares['titulo'] .'</p>';
             $html .=        '</div>';
             $html .=        '<div class="col-lg-5 col-md-5 col-sm-5 col-5 text-center my-2">';
             $html .=            '<div class="row align-items-center">';
-            $html .=                '<div class="col-6">';
+            $html .=                '<div class="col-lg-6 col-md-6 col-sm-6 col-6">';
             $html .=                    '<a onclick="descargarArchivo(\'' . $nivel . '\', \''. $row_circulares['ruta'] .'\', \''.$row_circulares['nombreArchivo'] . '\', \'' . $row_circulares['destino'] .'\')" class="download-button mx-3">';
-            $html .=                        '<img ' . ImageAttributeBuilder::buildAttributes($nivel, $iconoPDF['ruta'], $iconoPDF['descripcion']) . ' class="img-fluid pdf-btn">';
+            $html .=                        '<img ' . ImageAttributeBuilder::buildAttributes($nivel, $iconoPDF['ruta'], $iconoPDF['descripcion']) . ' class="img-fluid pdf-btn-costos">';
             $html .=                    '</a>';
             $html .=                '</div>';
-            $html .=                '<div class="col-6">';
-            $html .=                    '<a href="'.$row_circulares['linkLeer'].'" class="btn py-3 px-4 rounded bg-orange tx-white font-roboto-bolditalic drop-shadow">' . $iconoPDF['titulo'] . '</a>';
+            $html .=                '<div class="col-lg-6 col-md-6 col-sm-6 col-6">';
+            $html .=                    '<a href="'.$row_circulares['linkLeer'].'" class="btn-circulares-costos">' . $iconoPDF['titulo'] . '</a>';
             $html .=                '</div>';
             $html .=            '</div>';
             $html .=        '</div>';
@@ -75,11 +119,13 @@
 
 
         $gifAyuda = array_shift($imagenes);
-        $html .= '<section class="container my-2rem">';
-        $html .=    '<div class="row justify-content-lg-end justify-content-center">';
-        $html .=        '<div class="col-lg-12 col-md-8 col-sm-8 col-8 text-lg-end text-center">';
-        $html .=            '<img ' . ImageAttributeBuilder::buildAttributes($nivel, $gifAyuda['ruta'], $gifAyuda['descripcion']) . ' class="img-fluid ayuda-gif">';
-        $html .=            '<p class="font-roboto-bolditalic">' . $gifAyuda['titulo'] . '</p>';
+        $html .= '<section class="container section-costos">';
+        $html .=    '<div class="row justify-content-end">';
+        $html .=        '<div class="col-lg-12 col-md-8 col-sm-8 col-8">';
+        $html .=            '<div class="gif-container-costos">';
+        $html .=                '<img ' . ImageAttributeBuilder::buildAttributes($nivel, $gifAyuda['ruta'], $gifAyuda['descripcion']) . ' class="img-fluid ayuda-gif">';
+        $html .=                '<p class="texto-gif-costos">' . $gifAyuda['titulo'] . '</p>';
+        $html .=            '</div>';
         $html .=        '</div>';
         $html .=    '</div>';
         $html .= '</section>';
