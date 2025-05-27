@@ -1001,23 +1001,114 @@ input[type="checkbox"] {
     color: #2A2A2A;
 }
 
+.radio-btn-section-pagos {
+    padding: 2rem 0;
+    background-color: var(--bold-blue);
+    color: white;
+    font-size: 1.313rem;
+    font-family: var(--roboto-medium);
+    margin-bottom: var(--m-escritorio);
+}
+
+.bg-yellow {
+ background-color: #FFD156;
+}
+
+.datos-quienpaga-titulo-pagos {
+    background-color: var(--bold-blue);
+    padding: 1.063rem;
+    margin-left: 2rem;
+    color: white;
+    font-size: 1.563rem;
+    font-family: var(--roboto-bolditalic);
+    letter-spacing: 0.044rem;
+    line-height: 1.2;
+}
+
+.input-pagos {
+    margin: 2.25rem 0;
+    border: #42C3AE solid 4px;
+    border-radius: 10px;
+    padding: 1.375rem ;
+    font-size: 1.313rem;
+    font-family: var(--roboto-regular);
+}
+
+.cards-icon-container-pagos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards-icon-pagos{
+    max-height: 11.563rem;
+    max-width: 11.563rem;
+}
+
+.form-select-pagos {
+    display: block;
+    font-family: var(--roboto-medium);
+    width: 100%;
+    padding: 1.125rem;
+    font-size: 1.313rem;
+    line-height: 1.2;
+    color: var(--white);
+    background-color: var(--orange);
+    background-clip: padding-box;
+    border: 2px solid var(--orange);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 12px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-select-pagos option {
+    background-color: var(--blue);
+    font-family: var(--roboto-light);
+    color: var(--white);
+}
+
+.select-alert {
+    position: relative;
+    padding: .5rem .5rem;
+    background-color: #f8d7da;
+    border: 5px solid red;
+    border-radius: 12px;
+    width: 100%;
+}
+
 .tx-red {
     color: red;
+    font-size: 1.563rem;
+}
+
+.tx-green {
+    color: var(--green);
 }
 
 .tx-primary-blue {
-    color: blue;
+    color: #0A2A31;
+    font-size: 1.563rem;
 }
 
-.icono-pagos {
-    max-width: 4rem;
-    max-height: 4rem;
+.titulo-secciones-pagos {
+    padding: 2rem;
+    color: white;
+    font-family: var(--roboto-bold);
+    background-color: var(--bold-blue);
+    text-align: center;
+    text-transform: uppercase;
 }
 
-.cards-icono {
-    max-width: 15rem;
-    max-height: 15rem;
-    object-fit: cover;
+.label-valor-manual-pagos {
+    font-size: 1.313rem;
+    font-family: var(--roboto-bold);
+    text-align: center;
+}
+
+.margin-valor-manual-pagos {
+    margin: 2.25rem 0;
 }
 
 .pagos-btn {
@@ -1046,45 +1137,6 @@ input[type="checkbox"] {
 
 .radio-btn {
     transform: scale(1.5);
-}
-
-.form-select-pagos {
-    display: block;
-    width: 100%;
-    padding: 0.75rem 0.75rem;
-    font-size: 1.2rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: var(--white);
-    background-color: var(--orange);
-    background-clip: padding-box;
-    border: 2px solid var(--orange);
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border-radius: 0.25rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.form-select-pagos option {
-    background-color: var(--blue);
-}
-
-.bg-yellow {
- background-color: #FFD156;
-}
-
-.check-pagos {
-    transform: scale(1.8);
-    margin: 0 1rem;
-}
-
-.select-alert {
-    position: relative;
-    padding: .5rem .5rem;
-    background-color: #f8d7da;
-    border: 5px solid red;
-    border-radius: 0.25rem;
 }
 
 /** Fin Pagos **/

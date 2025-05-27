@@ -196,5 +196,7 @@ UPDATE tbl_imagenes SET rutaTabletaVertical = 'assets/img/unicabHistoriaTablets.
 INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, rutaTabletaHorizontal, descripcion, titulo, posicionTitulo, rutaEncima, textoAlterno) VALUES
 (37, 'assets/img/liked.png', '', '', '', '', '', '', '', '');
 
-DELETE FROM `u756063299_home_unicab`.`tbl_imagenes` WHERE (`id` = '142');
+DELETE FROM tbl_imagenes WHERE id = 142 AND ruta = 'assets/img/pagos/ref_pago.png';
+UPDATE bl_imagenes SET posicionTitulo = 'izquierda' WHERE (id = 139);
+UPDATE tbl_imagenes SET posicionTitulo = 'izquierda' WHERE (id = 135);
 
