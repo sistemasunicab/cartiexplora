@@ -11,9 +11,9 @@
 <body>
     <?php 
         $nivel = "tres";
-        //include('../../../components/navBar.php');
+        include('../../../components/navBar.php');
         include('../components/costos/costos.php');
-        //include('../../../components/footer.php');
+        include('../../../components/footer.php');
         include('../../../components/bookstoresMain.php');
     ?>  
 <body>
