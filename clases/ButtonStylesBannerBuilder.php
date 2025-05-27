@@ -27,6 +27,6 @@ class ButtonStylesBannerBuilder
         if($alpha > 1) $alpha = 1;
 
         return
-        'background: rgba(' . $color . ', ' . $alpha . '); top: ' . $top . '%; left: ' . $left . '%;';
+        'background: rgba(' . $color . ', ' . $alpha . '); top: ' . $top . '%; left: ' . $left . '%; transform: translateX(-'.$left.'%)';
     }
 }
