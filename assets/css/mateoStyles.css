@@ -1201,6 +1201,8 @@ p-financieros {
 }
 
 @media (max-width: 992px) {
+    /** nosotros **/
+    /** directorio **/
     h3-financieros {
         font-size: 2.5rem;           /* 40px / 16 */
         line-height: 2.5rem;         /* 40px / 16 */
