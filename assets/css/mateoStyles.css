@@ -491,12 +491,6 @@ ul {
     padding-right: 3rem !important;
 }
 
-@media (max-width: 992px) {
-    #menuDisplay li:last-child{
-        padding-right: 0rem !important;
-    }
-}
-
 .unicab-brand {
     width: max-content;
     height: max-content;
@@ -1242,6 +1236,10 @@ p-financieros {
 
     .mb-ws{
         margin-bottom: 5.1rem !important;
+    }
+
+    #menuDisplay li:last-child{
+        padding-right: 0rem !important;
     }
 
     /* Inicio Nosotros */
