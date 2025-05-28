@@ -4,7 +4,7 @@ $(function () {
 
 document.addEventListener("DOMContentLoaded", () => {
     galeriaEstudiantes();
-    actualizarPorcentajesBotonBanner();
+    // actualizarPorcentajesBotonBanner();
 });
 
 // const actualizarPorcentajesBotonBanner = () => {
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // };
 
 // Escuchamos el evento resize para ejecutar la verificación cada vez que cambie el ancho de la ventana
-window.addEventListener('resize', actualizarPorcentajesBotonBanner);
+// window.addEventListener('resize', actualizarPorcentajesBotonBanner);
 
 /* Script Galeria Nuestros Estudiantes */
 const galeriaEstudiantes = () => {
