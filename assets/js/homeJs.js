@@ -101,6 +101,73 @@ const leerMasPrincipios = (id, boton) => {
 };
 
 $(document).ready(function () {
+    $("#blog_likeBtn").on("click", function(e) {
+        e.preventDefault();
+
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const data = {
+            id: parseInt(urlParams.get("blogId")) || parseInt($('#blogId').val()),
+            liked: 1
+        };
+
+        $.ajax({
+            url: "../../org/ajax/blogLikes.php",
+            type: "POST",
+            data: data,
+            success: function (response) {
+                if (response.status === "success") {
+                    $("#blog_dislikeBtn").toggleClass("d-none");
+                    $("#blog_likeBtn").toggleClass("d-none");
+                console.log(response)
+                }   
+            },
+            error: function (response) {
+                console.log(response)
+            },
+        });
+    });
+
+    $("#blog_dislikeBtn").on("click", function(e) {
+        e.preventDefault();
+
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const data = {
+            id: parseInt(urlParams.get("blogId")) || parseInt($('#blogId').val()),
+            liked: 0
+        };
+
+        $.ajax({
+            url: "../../org/ajax/blogLikes.php",
+            type: "POST",
+            data: data,
+            success: function (response) {
+                if (response.status === "success") {
+                    $("#blog_dislikeBtn").toggleClass("d-none");
+                    $("#blog_likeBtn").toggleClass("d-none");
+                console.log(response)
+                }   
+            },
+            error: function (response) {
+                console.log(response)
+            },
+        });
+    });
+
+    $("#search").keyup(function(){
+    _this = this;
+    // Show only matching TR, hide rest of them
+    $.each($("#datos-empelados tbody tr"), function() {
+        if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+            $(this).hide();
+        else
+            $(this).show();
+        });
+    });
+});
+
+$(document).ready(function () {
     $(".datos").hide();
     marcarCamposObligatorios();
     $("#alert").hide();
@@ -399,7 +466,7 @@ $(document).ready(function () {
         }
         
         mostrarSubmit(btnSubmit.id);
-    });
+    });    
     
     mostrarSubmit(btnSubmit.id);
 });
@@ -852,7 +919,6 @@ function restaurarImagenBlog(objeto, ruta) {
 }
 
 /*Calendario*/
-
 if (window.location.pathname.endsWith("calendario.php")) {
     document.addEventListener("DOMContentLoaded", function () {
         // Selecciona todos los contenedores de countdown
@@ -912,12 +978,9 @@ if (window.location.pathname.endsWith("calendario.php")) {
         });
     });
 }
-
 /*Fin Calendario*/
 
-
 /* Estados Financieros */
-
 function validarSelect(elemento, descripcion, botonSubmit, otherInputId) {
     const id = elemento.id;
     const value = elemento.value;
@@ -959,10 +1022,7 @@ function validarSelect(elemento, descripcion, botonSubmit, otherInputId) {
     }
 }
 
-
 if (window.location.pathname.endsWith("estadosFinancieros.php")) {
-
-
     document.addEventListener("DOMContentLoaded", function () {
         const form_info = $("#form_info");
         const form_servicios = $("#form_servicios");
@@ -1064,5 +1124,15 @@ if (window.location.pathname.endsWith("estadosFinancieros.php")) {
         });
     });
 }
-
 /* Fin Estados Financieros */
+
+function verInfografia(imagen) {
+    html_modal = '<img src="' + imagen + '" width="600px">';
+    //alert(html_modal);
+    
+    $("#divmodalimg").empty();
+    $("#divmodalimg").html(html_modal);
+    
+    $('#modal_img').modal('toggle');
+    $('#modal_img').modal('show');
+}

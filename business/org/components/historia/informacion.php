@@ -39,6 +39,7 @@
     while($row_datos = $res_datos->fetch_assoc()){
         $rutaImgHistoria = $row_datos['ruta'];
         $rutaImgHistoriaMovil = $row_datos['rutaMovil'];
+        $rutaImgHistoriaTabletas = $row_datos['rutaTabletaVertical'];
     }
 
     if ($html != '') {
@@ -71,6 +72,7 @@
                 <div class="col-lg-12 col-md-8 col-sm-12 col-12">
                     <picture>
                         <source '.ImageAttributeBuilder::buildsrcset($nivel, $rutaImgHistoria).' media="(min-width: 992px)">
+                        <source '.ImageAttributeBuilder::buildsrcset($nivel, $rutaImgHistoriaTabletas).' media="(min-width: 768px)">
                         <img class="img-fluid w-100 historia-info-mainimg" src="../../../'.$rutaImgHistoriaMovil.'" alt="">
                     </picture>
 

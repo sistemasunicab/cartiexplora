@@ -271,7 +271,7 @@ foreach ($filasCertificaciones as $rowCert) {
                 name="' . $campo['campo'] . '"
             >
             <label
-                class="form-check-label d-flex align-items-center font-roboto-regular special-paragraph m-0"
+                class="form-check-label d-flex align-items-center font-roboto-regular m-0"
                 for="' . $campo['campo'] . '"
             >
                 ' . $campo['placeHolder'] . '
@@ -292,8 +292,8 @@ foreach ($filasCertificaciones as $rowCert) {
     $idBoton = $boton_certifications['campo'];
     $textoBoton = $boton_certifications['texto'];
     $html_certificaciones .= '
-        <button id="' . $idBoton . '" class="btn p-2 bg-orange col-lg-2 col-md-3 col-sm-4 col-4 mx-auto mt-3">
-            <div class="d-flex flex-row align-items-center justify-content-center">
+        <button id="' . $idBoton . '" class="btn-submit-financial btn p-2 bg-orange col-lg-2 col-md-3 col-sm-4 col-4 mx-auto mt-3">
+            <div class="d-flex flex-row align-items-center justify-content-center py-1 py-lg-2">
                 <p-financieros class="font-roboto-medium tx-white m-0 mx-2">' . $textoBoton . '</p-financieros>
                 <img src="' . $rutaBtn . '" alt="' . $altBtn . '" class="img-fluid" style="width:30px;">
             </div>

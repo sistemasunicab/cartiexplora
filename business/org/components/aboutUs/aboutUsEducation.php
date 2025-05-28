@@ -35,7 +35,7 @@ if (!empty($rowsTitulosEducacion)) {
 
             $html_educacion .= '
                 <div class="d-flex flex-row align-items-start gap-4 gap-lg-5">
-                    <img class="img-fluid col-1" src="' . $imgSrc . '" alt="' . $altern . '">
+                    <img class="img-fluid icon-education" src="' . $imgSrc . '" alt="' . $altern . '">
                     <div class="d-flex flex-column">
                         <h3-nosotros class="font-roboto-black">' . $titulo . '</h3-nosotros>
                         <p-nosotros-1 class="my-4">' . $descripcion . '</p-nosotros-1>

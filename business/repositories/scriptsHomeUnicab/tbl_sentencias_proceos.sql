@@ -45,5 +45,10 @@ INSERT INTO tbl_sentencias_procesos (nombre, utilizaJoin, campos, tablas, joinTa
 ('insert estudiantes', 'NO', '', 'INSERT INTO estudiantes ', '', '', '', '', '', '', '(apellidos, nombres, genero, tipo_documento, n_documento, ciudad, telefono_estudiante, actividad_extra, email_acudiente_1, acudiente_1, telefono_acudiente_1, parentesco_acudiente_1, fecha_datos, documento_responsable, a_matricula) VALUES (|_apellidos*|, |_nombres*|, |_genero*|, _tdoc*, |_documento*|, |_ciudadA*|, |_telefonoE*|, |_extra*|, |_emailA*|, |_nombreA*|, |_celA*|, |_parentesco1*|, |_fecha2*|, |_documentoA*|, _añoMatricula*) ')
 ;
 
+INSERT INTO tbl_sentencias_procesos (nombre, utilizaJoin, campos, tablas, joinTablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
+('consulta directorio', 'NO', 'SELECT e.id, e.nombres, e.apellidos, e.dependencia, e.email, e.celular, e.cargo, IFNULL(e.infografia, '''') infografia, 
+CASE e.perfil WHEN ''TU'' THEN ''SI'' WHEN ''SU'' THEN ''SI'' WHEN ''TU_AW'' THEN ''SI'' WHEN ''ST_PU'' THEN ''SI'' 
+WHEN ''AR'' THEN ''SI'' WHEN ''FI'' THEN ''SI'' WHEN ''PS'' THEN ''SI'' ELSE ''NO'' END perfil ', 'FROM tbl_empleados e ', '', 'WHERE e.estado = |_activo*| AND e.id != 18 ', '', 'ORDER BY e.id ASC ', '', '', '');
+
 
 

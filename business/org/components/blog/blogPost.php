@@ -21,7 +21,7 @@
     while ($row_datos_seccion = $res_seccion_dos->fetch_assoc()) {
         // renderiza la seccion
         $html .= '
-          <section class="bg-light-gray-o26 py-5 margin-top-5rem blogpost-section">
+          <section class="bg-light-gray-o26 py-5 my-2rem blogpost-section">
                <div class="container">
 
         ';
@@ -68,6 +68,17 @@
          $iconos[] = ["ruta" => $row_datos['ruta'], "titulo" => $row_datos['titulo'], "posicion" => $row_datos['posicionTitulo']];
     }   
 
+    // Obteniendo imagen like
+      $res_sentencia = $mysqli1->query($sentencia."132");
+      while($row_sentencia = $res_sentencia->fetch_assoc()){
+           $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']).$row_sentencia['ordenamientos'];
+      }  
+ 
+      $res_datos = $mysqli1->query($sql_datos);
+      while($row_datos = $res_datos->fetch_assoc()){
+           $imagenLike = $row_datos['ruta'];
+      }  
+
     if ($html != '') {
 
         $html .= ' 
@@ -97,13 +108,19 @@
 
           $html .= '
                <div class="col-lg-8 col-md-8 col-sm-12 col-12">
+                    <input type="hidden" id="blogId" value="'.$lastBlog['blogId'].'">
+
                     <h2 class="font-roboto-black tx-blue m-0">'.$lastBlog['tituloBlog'].'</h2>
                     <p class="font-roboto-bolditalic m-0">Por: '.$lastBlog['autor'].'</p>
                     <p class="special-paragraph m-0">'.$fechaFormateada.'</p>
                </div>
 
                <div class="col-lg-3 col-md-3 col-sm-12 col-12 justify-content-lg-end justify-content-center d-flex gap-4 p-0">
-                    <a href="">
+                    <a href="" class="d-none" id="blog_dislikeBtn">
+                         <img src="../../../'.$imagenLike.'" alt="" class="img-fluid blog-page-btnicon m-0">
+                    </a>
+               
+                    <a href="" id="blog_likeBtn">
                          <img src="../../../'.$iconos[1]['ruta'].'" alt="" class="img-fluid blog-page-btnicon m-0">
                     </a>
 

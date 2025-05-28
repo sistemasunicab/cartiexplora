@@ -1,13 +1,13 @@
-<?php 
- include('../../../clases/ImageAttributeBuilder.php');
- include('../../../clases/ButtonStylesBannerBuilder.php');
-?>
 <!DOCTYPE html>
 <html lang="en">
 <?php
     $nivel = "tres";
     $page_title = "Directorio institucional";
+    require('../../repositories/1cc2s4Org.php');
     include('../../../components/headMain.php');
+    include('../../../clases/GenerateQuery.php');
+    include('../../../clases/ImageAttributeBuilder.php');
+    include('../../../clases/ButtonStylesBannerBuilder.php');
     require_once __DIR__ . '/../../../components/auxiliares.php'; 
 ?>
 <body>

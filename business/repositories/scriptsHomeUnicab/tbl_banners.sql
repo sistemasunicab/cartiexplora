@@ -17,11 +17,6 @@ CREATE TABLE tbl_banners (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 INSERT INTO tbl_banners (visible, ruta, rutaMovil, rutaTabletaVertical, rutaTabletaHorizontal, textoBoton, linkImagen, linkBoton, color, transparencia, porcentajeTop, porcentajeLeft) VALUES
-(1, 'assets/img/banner.png', 'assets/img/banner.png', 'assets/img/banner.png', 'assets/img/banner.png', 'Agendar Entrevista', '', '', '51, 38, 21', '.5', '70', '70'),
-(1, 'assets/img/banner2x.jpg', 'assets/img/banner2x.jpg', 'assets/img/banner2x.jpg', 'assets/img/banner2x.jpg', 'Haz crecer tus ideas con tecnología. ¡Contáctanos!', '', 'business/solutions/pages/somos.php', '51, 38, 21', '.5', '70', '45'),
-(1, 'assets/img/estudia_con_nosotros_escritorio.jpg', 'assets/img/estudia_con_nosotros_movil.jpg', 'estudia_con_nosotros_movil.jpg', 'estudia_con_nosotros_tablet.jpg' ,'¡Inscríbete Hoy y Transforma tu Futuro!', '', '', '51, 38, 21', '.5', '70', '45');
-
-UPDATE tbl_banners SET rutaMovil = 'assets/img/banner2x_movil.png' WHERE (id = 2);
-UPDATE tbl_banners SET rutaTabletaVertical = 'assets/img/banner2x_movil.png' WHERE (id = 2);
-UPDATE tbl_banners SET rutaTabletaHorizontal = 'assets/img/banner2x_tablet.png' WHERE (id = 2);
-UPDATE tbl_banners SET rutaMovil = 'assets/img/banner_movil.jpg', rutaTabletaVertical = 'assets/img/banner_movil.jpg', rutaTabletaHorizontal = 'assets/img/banner_tableta.jpg' WHERE (id = 1);
+(1, 'assets/img/banner.png', 'assets/img/banner_movil.jpg', 'assets/img/banner_movil.jpg', 'assets/img/banner_tableta.jpg', 'Agendar Entrevista', '', '', '51, 38, 21', '.5', '70', '70'),
+(1, 'assets/img/banner2x.jpg', 'assets/img/banner2x_movil.png', 'assets/img/banner2x_movil.png', 'assets/img/banner2x_tablet.png', 'Haz crecer tus ideas con tecnología. ¡Contáctanos!', '', 'business/solutions/pages/somos.php', '51, 38, 21', '.5', '70', '45'),
+(1, 'assets/img/estudia_con_nosotros_escritorio.jpg', 'assets/img/estudia_con_nosotros_movil.jpg', 'assets/img/estudia_con_nosotros_movil.jpg', 'assets/img/estudia_con_nosotros_tablet.jpg' ,'¡Inscríbete Hoy y Transforma tu Futuro!', '', '', '51, 38, 21', '.5', '70', '45');

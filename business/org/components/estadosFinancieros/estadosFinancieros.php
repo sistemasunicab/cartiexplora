@@ -46,8 +46,8 @@ foreach ($datos_estados_financieros as $row_datos_estados_financieros) {
 
     $campo_final = $campos_formulario[count($campos_formulario) - 1];
 
-    $html_estados_financieros .= '<button id="' . $campo_final['campo'] . '" class="btn p-2 bg-orange col-lg-2 col-md-3 col-sm-4 col-4 mx-auto mt-3">';
-    $html_estados_financieros .= '<div class="d-flex flex-row align-items-center justify-content-center">';
+    $html_estados_financieros .= '<button id="' . $campo_final['campo'] . '" class="btn-submit-financial btn p-2 bg-orange col-lg-2 col-md-3 col-sm-4 col-4 mx-auto mt-3">';
+    $html_estados_financieros .= '<div class="d-flex flex-row align-items-center justify-content-center py-1 py-lg-2">';
     $html_estados_financieros .= '<p-financieros class="font-roboto-medium tx-white m-0 mx-2">' . $campo_final['texto'] . '</p-financieros>';
     $html_estados_financieros .= '<img src="' . $image_path . '" alt="Solicitar" width="30px">';
     $html_estados_financieros .= '</div>';

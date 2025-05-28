@@ -804,7 +804,7 @@ input[type="checkbox"] {
     row-gap: 20rem;
     column-gap: 3rem;
     padding: 5rem 0;
-    margin: 18rem 0 15rem 0;
+    margin: 18rem 0 0 0;
 }
 
 .historia-info-main {
@@ -836,7 +836,7 @@ input[type="checkbox"] {
 
 .historia-info-mainimg {
     filter: drop-shadow(1px 5px 15px rgba(62, 62, 62, .35));
-    margin-bottom: -20rem;
+    margin-top: -7rem;
 }
 
 /** Ecosistema **/
@@ -1885,7 +1885,8 @@ input[type="text"], .select, textarea {
     }
 
     .historia-info-mainimg {
-        margin-bottom: -28rem;
+        width: auto !important;
+        margin-top: -2rem;
         filter: none;
     }
 
@@ -1895,7 +1896,7 @@ input[type="text"], .select, textarea {
 
     .historia-imgcontainer {
         margin: 0;
-        margin-bottom: 22rem;
+        margin-bottom: 100rem;
     }
 
     .pagos-title {
@@ -1937,7 +1938,8 @@ input[type="text"], .select, textarea {
     }
 
     .historia-info-mainimg {
-        margin-bottom: -25rem;
+        width: auto !important;
+        margin-top: -2rem;
         filter: none;
     }
 
@@ -1958,7 +1960,6 @@ input[type="text"], .select, textarea {
 
     .historia-imgcontainer {
         margin: 0;
-        margin-bottom: 20rem;
     }
 
     .little-paragraph-md {

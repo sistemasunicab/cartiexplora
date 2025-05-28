@@ -838,6 +838,17 @@ p-nosotros-1 {
     letter-spacing: 0.0225rem; /* 0.36px / 16 */
 }
 
+.icon-education{
+    width: 60px;
+    height: auto;
+}
+
+.image-info-about-us{
+    width: 63px;
+    height: auto;
+    box-sizing: border-box;
+    margin-left: 1rem;
+}
 
 @media (max-width: 992px) {
 
@@ -869,6 +880,14 @@ p-nosotros-1 {
         font-size: 1rem;         /* 16px / 16 */
         line-height: 1.25rem;    /* 20px / 16 */
         letter-spacing: 0.00125rem; /* 0.02px / 16 */
+    }
+
+    .icon-education{
+        width: 40px;
+    }
+
+    .image-info-about-us{
+        width: 40px;
     }
 }
 
@@ -902,6 +921,14 @@ p-nosotros-1 {
         line-height: 1.125rem;  /* 18px / 16 */
         letter-spacing: 0.000625rem; /* 0.01px / 16 */
     }
+
+    .icon-education{
+        width: 30px;
+    }
+
+    .image-info-about-us{ 
+        width: 30px;
+    }
 }
 
 .about-line-left::before {
@@ -933,9 +960,9 @@ h4-directory {
 }
 
 p-directory{
-    font-size: 1.35rem;
-    line-height: 1.85rem;
-    letter-spacing: 0rem;
+    font-size: 2.5rem;        /* 40px / 16 */
+    line-height: 3rem;        /* 48px / 16 */
+    letter-spacing: 0.07rem;  /* 1.12px / 16 */
 }
 
 input.search {
@@ -943,6 +970,22 @@ input.search {
     line-height: 1.875rem;       /* 30px / 16 */
     letter-spacing: 0.04375rem;  /* 0.7px / 16 */
     opacity: 0.9;
+}
+
+.custom-table{
+    font-size: 1.125rem;       /* 18px / 16 */
+    line-height: 1.5rem;       /* 24px / 16 */
+    letter-spacing: 0rem;      /* 0px / 16 */
+}
+
+.logo-buscar{
+    width: 148px;
+    height: auto;
+}
+
+.img-horario{
+    width: 500px;
+    height: auto;
 }
 
 @media (max-width: 992px) {
@@ -970,11 +1013,21 @@ input.search {
         letter-spacing: 0.02625rem;   /* 0.42px / 16 */
         opacity: 0.9;
     }
+
+    .logo-buscar{
+        width: 104px;
+        height: auto;
+    }
+
+    .img-horario{
+        width: 390px;
+        height: auto;
+    }
 }
 
 @media (max-width: 768px) {
     h3-directory {
-        font-size: 2.5rem;           /* 40px / 16 */
+        font-size: 2.35rem;           /* 40px / 16 */
         line-height: 2.5rem;         /* 40px / 16 */
         letter-spacing: 0.07rem;     /* 1.12px / 16 */
     }
@@ -995,6 +1048,16 @@ input.search {
         font-size: 0.8125rem;         /* 13px / 16 */
         line-height: 0.9375rem;       /* 15px / 16 */
         letter-spacing: 0.0225rem;    /* 0.36px / 16 */
+    }
+
+    .logo-buscar{
+        width: 77px;
+        height: auto;
+    }
+
+    .img-horario{
+        width: 250px;
+        height: auto;
     }
 }
 
@@ -1203,7 +1266,7 @@ p-financieros {
 .form-financial input, .form-financial textarea{
     text-align: center !important;
     border: 3.3px solid #42C3AE !important;
-    border-radius: 5px !important;
+    border-radius: 8px !important;
     padding-inline: .5rem !important;
     padding-block: 1.35rem !important;
     color: var(--medium-gray) !important;
@@ -1238,7 +1301,7 @@ p-financieros {
     border: none;
     text-align: left;
     padding-inline: .5rem !important;
-    padding-block: 1rem !important;
+    padding-block: 1.35rem !important;
     border-radius: 0.25rem;
     font-size: 1.5625rem;        /* 25px / 16 */
     line-height: 1.875rem;       /* 30px / 16 */
@@ -1266,6 +1329,10 @@ p-financieros {
 
 .display-options option:disabled{
     color: var(--white);
+}
+
+.btn-submit-financial{
+    border-radius: 10px;
 }
 
 .select-arrow {

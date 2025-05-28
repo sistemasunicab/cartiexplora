@@ -43,7 +43,7 @@
           <main class="bg-bold-blue my-2rem">
                <div class="container py-5">
                     <div class="row justify-content-center">
-                         <div class="col-lg-1 col-md-3 col-sm-3 col-3 my-auto">
+                         <div class="col-lg-2 col-md-3 col-sm-3 col-3 my-auto">
                               <img class="img-fluid w-100" src="../../../'.$rutaIconoInicio.'" alt="">
                          </div>
 
