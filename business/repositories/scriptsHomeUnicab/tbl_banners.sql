@@ -22,7 +22,7 @@ CREATE TABLE tbl_banners (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 INSERT INTO tbl_banners (visible, tipo, ruta, rutaMovil, rutaTabletaVertical, rutaTabletaHorizontal, textoBoton, linkImagen, linkBoton, color, transparencia, porcentajeTop, porcentajeLeft, texto, porcentajeTopTexto, porcentajeLeftTexto, milisegundosSlide) VALUES
-(1, 'imagen', 'assets/img/banner.png', 'assets/img/banner_movil.jpg', 'assets/img/banner_movil.jpg', 'assets/img/banner_tableta.jpg', 'Agendar Entrevista', '', '', '254, 145, 0', '1', '60', '50', '', '', '', '2000'),
-(1, 'imagen', 'assets/img/banner2x.jpg', 'assets/img/banner2x_movil.png', 'assets/img/banner2x_movil.png', 'assets/img/banner2x_tablet.png', 'Haz crecer tus ideas con tecnología. ¡Contáctanos!', '', 'business/solutions/pages/somos.php', '254, 145, 0', '1', '60', '50', '', '', '', '2000'),
-(1, 'imagen', 'assets/img/estudia_con_nosotros_escritorio.jpg', 'assets/img/estudia_con_nosotros_movil.jpg', 'assets/img/estudia_con_nosotros_movil.jpg', 'assets/img/estudia_con_nosotros_tablet.jpg' ,'Descúbrelo aquí', '', '', '254, 145, 0', '1', '70','50', '<b>Haz crecer</b> tus ideas', '45', '50', '2000'),
+(1, 'imagen', 'assets/img/banner.png', 'assets/img/banner_movil.jpg', 'assets/img/banner_movil.jpg', 'assets/img/banner_tableta.jpg', 'Agendar Entrevista', '', '', '254, 145, 0', '1', '60', '50', '', '', '', '3000'),
+(1, 'imagen', 'assets/img/banner2x.jpg', 'assets/img/banner2x_movil.png', 'assets/img/banner2x_movil.png', 'assets/img/banner2x_tablet.png', 'Haz crecer tus ideas con tecnología. ¡Contáctanos!', '', 'business/solutions/pages/somos.php', '254, 145, 0', '1', '60', '50', '', '', '', '3000'),
+(1, 'imagen', 'assets/img/estudia_con_nosotros_escritorio.jpg', 'assets/img/estudia_con_nosotros_movil.jpg', 'assets/img/estudia_con_nosotros_movil.jpg', 'assets/img/estudia_con_nosotros_tablet.jpg' ,'Descúbrelo aquí', '', '', '254, 145, 0', '1', '70','50', '<b>Haz crecer</b> tus ideas', '45', '50', '3000'),
 (1, 'video', 'assets/media/media.mp4', 'assets/media/media.mp4', 'assets/media/media.mp4', 'assets/media/media.mp4' ,'', '', '', '', '', '','', '', '', '', '5000');
