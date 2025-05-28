@@ -68,9 +68,9 @@
         $link_image = $rows_items[$i]['linkImagen'];
         $link_button = $rows_items[$i]['linkBoton'];
         $text_button = $rows_items[$i]['textoBoton'];
-        // $text = $rows_items[$i]['texto'];
-        // $top_text = $rows_items[$i]['topTexto'];
-        // $left_text = $rows_items[$i]['leftTexto'];
+        $text = $rows_items[$i]['texto'];
+        $top_text = $rows_items[$i]['porcentajeTopTexto'];
+        $left_text = $rows_items[$i]['porcentajeLeftTexto'];
         $button_styles = ButtonStylesBannerBuilder::buildStyles($rows_items[$i]['color'], $rows_items[$i]['transparencia'], $rows_items[$i]['porcentajeTop'], $rows_items[$i]['porcentajeLeft']);
 
         $elemento = '';
@@ -112,6 +112,10 @@
             $html .= '<div class="carousel-item active" data-bs-interval="5000">';
             $html .=        $elemento;  
 
+            if ($text) {
+                $html .=    '<p class="texto-banner" style=" top: ' . $top_text . '%; left: ' . $left_text . '%; transform: translateX(-'.$left_text.'%)" >' . $text . '</p>';
+            }
+
             if   ($text_button){
                 $html .=    '<a href="' . $link_button . '" class="button-carousel button-absolute" style="' . $button_styles . '" role="button">' . $text_button . '</a>';
             }
@@ -121,6 +125,10 @@
         } else {
             $html .= '<div class="carousel-item" data-bs-interval="5000">';
             $html .=        $elemento;
+
+            if ($text) {
+                $html .=    '<p class="texto-banner" style=" top: ' . $top_text . '%; left: ' . $left_text . '%; transform: translateX(-'.$left_text.'%)" >' . $text . '</p>';
+            }
 
             if   ($text_button){
                 $html .=    '<a href="' . $link_button . '" class="button-carousel button-absolute" style="' . $button_styles . '" role="button">' . $text_button . '</a>';
