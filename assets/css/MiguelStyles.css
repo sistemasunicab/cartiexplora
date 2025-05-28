@@ -1,0 +1,2690 @@
+/**** INDICADORES HOME ****/
+.indicators-section {
+    margin-top: 7.8rem !important;
+}
+
+.indicator-title {
+    font-family: var(--roboto-light);
+    font-size: 2.50rem;
+
+    letter-spacing: 0.07rem;
+    line-height: 1.2;
+    color: white;
+    text-align: center;
+}
+
+/* Indicator Positions */
+.indicator-left {
+    padding-right: 8.33333333% !important;
+}
+
+.indicator-center {
+    padding-left: 4.166666666% !important;
+    padding-right: 4.166666666% !important;
+}
+
+.indicator-right {
+    padding-left: 8.33333333% !important;
+}
+
+/* Indicator styles */
+.indicator-main {
+    border-radius: 1.125rem;
+    background-color: white;
+    display: flex;
+    padding: .5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.indicator-main img {
+    width: 3.5rem;
+    height: 3.5rem;
+
+    margin-right: 1rem;
+    object-fit: contain;
+}
+
+.indicator-data h3 {
+    color: var(--blue);
+    
+    font-size: 2.50rem;
+    letter-spacing: 0.07rem;
+    line-height: 1.2;
+
+    font-family: var(--roboto-black);
+}
+
+.indicator-data p {
+    font-family: var(--roboto-light);
+    font-size: 1.00rem;
+
+    letter-spacing: 0.03rem;
+    line-height: 1.18;
+}
+/**** FIN INDICADORES HOME ****/
+
+/**** CONOCE NUESTRO CAMPUS HOME ****/
+.campus-section {
+    margin-top: 7.8rem !important;
+}
+
+/* Campus Positions */
+.campus-position-left {
+    padding-right: 8.33333333% !important;
+    padding-left: 0 !important;
+}
+
+.campus-position-center {
+    padding-left: 4.166666666% !important;
+    padding-right: 4.166666666% !important;
+}
+
+.campus-position-right {
+    padding-left: 8.33333333% !important;
+    padding-right: 0 !important;
+}
+
+/* Campus Styles */
+
+.campus-title {
+    font-size: 4.69rem;
+    letter-spacing: 0.13rem;
+    line-height: 1;
+
+    margin-bottom: 7.8rem;
+}
+
+.campus-p {
+    font-size: 1.38rem;
+    letter-spacing: 0.04rem;
+    line-height: 1.27;
+
+    font-family: var(--roboto-regular);
+}
+/**** CONOCE NUESTRO CAMPUS HOME FIN ****/
+
+/**** ZONA DE ENLACES HOME ****/
+.linksZone-section {
+    margin-top: 7.8rem;
+}
+
+.linksZone-title {
+    font-size: 3.75rem;
+    letter-spacing: 0.10rem;
+    line-height: 1;
+
+    color: var(--blue);
+    font-family: var(--roboto-black);
+    margin-bottom: 7.8rem;
+}
+
+.linksZone-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.linksZone-container img {
+    width: 1.94rem;
+    height: 1.94rem;
+
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.linksZone-container a {
+    display: flex;
+    font-size: 1.56rem;
+    letter-spacing: 0.04rem;
+    line-height: 1.2;
+
+    font-family: var(--roboto-bolditalic);
+    align-items: center;
+    margin-left: 1rem;
+    
+    transition: color .2s ease-in-out;
+}
+
+.linksZone-container:hover a {
+    color: var(--blue);
+}
+
+.linksZone-container:hover img {
+    transform: scale(1.05) rotate(5deg);
+}
+
+#linksCarousel_next,
+#linksCarousel_previous {
+     display: none;
+}
+/**** ZONA DE ENLACES HOME FIN ****/
+
+/**** NOTICIAS RECIENTES HOME ****/
+.noticias-section {
+    margin-top: 7.8rem;
+    margin-bottom: 7.8rem;
+}
+
+.noticias-mainTitle {
+    font-size: 2.50rem;
+    letter-spacing: 0.07rem;
+    line-height: 1.2;
+
+    font-family: var(--roboto-black);
+    text-align: center;
+
+    margin-bottom: 7.8rem;
+}
+
+/* Noticias Positions */
+.noticias-left {
+    padding-right: 8.33333333% !important;
+    padding-left: 0 !important;
+}
+
+.noticias-center {
+    padding-left: 4.166666666% !important;
+    padding-right: 4.166666666% !important;
+}
+
+.noticias-right {
+    padding-left: 8.33333333% !important;
+    padding-right: 0 !important;
+}
+
+/* Noticias styles */
+
+.noticias-hover {
+    transition: transform 0.3s ease;
+}
+
+.noticias-hover:hover {
+    transform: scale(1.05) rotate(3deg);
+}
+
+.noticias-hover:hover .noticias-img-effect::after {
+    opacity: 0;
+}
+
+.noticias-separator {
+    width: 65%;
+    height: 3px;
+    background-color: var(--light-gray);
+
+    border: none;
+    margin: 0 auto;
+}
+
+.noticias-img {
+    width: 100%;
+    height: 11.563rem;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+.noticias-img-effect {
+  position: relative;
+}
+
+.noticias-img-effect::after {
+    content: "";
+    inset: 0;
+
+    position: absolute;
+
+    mix-blend-mode: darken;
+    background-color: rgb(40, 167, 69);
+    opacity: .88;
+    z-index: 1;
+
+    transition: opacity .2s ease;
+}
+
+.noticias-container {
+    margin-top: -5rem;
+    padding: 0 1.4rem;
+    min-height: 10.326rem;
+}
+
+.noticias-box {
+    background-color: white;
+    box-shadow: 10px 10px 10px #00000029;
+    padding: .4rem;
+    position: relative;
+    min-height: 10.326rem;
+    z-index: 6;
+}
+
+.noticias-date {
+    font-size: 0.63rem;
+    font-family: var(--roboto-lightitalic);
+    letter-spacing: 0.02rem;
+    line-height: 3;
+}
+
+.noticias-title {
+    font-size: 1.56rem;
+    font-family: var(--roboto-bolditalic);
+    letter-spacing: 0.04rem;
+    line-height: 1.2;
+}
+
+.noticias-p {
+    font-size: 0.75rem;
+    font-family: var(--roboto-light);
+    line-height: 1.16;
+}
+
+.noticias-link {
+    font-size: 0.63rem;
+    font-family: var(--roboto-lightitalic);
+    letter-spacing: 0.02rem;
+    line-height: 3;
+}
+
+.noticias-littlebar {
+    background-color: var(--blue);
+    height: 2px !important;
+    border: none;
+    opacity: 1;
+    margin: -.3rem 0 0 0;
+    width: 0%;
+
+    transition: width .2s ease-in-out;
+}
+
+.noticias-link:hover + .noticias-littlebar {
+    width: 6%;
+}
+
+/* Newsletter */
+.noticias-newsletter-main {
+    box-shadow: 0px 3px 6px #00000029;
+}
+
+.noticias-newsletter-input {
+    width: 100%;
+    height: 3rem;
+    font-size: 1.13rem;
+    letter-spacing: 0.03rem;
+    line-height: 1.2;
+
+    font-family: var(--roboto-mediumitalic);
+
+    border: 1px solid #707070;
+    opacity: 1;
+
+    padding: 1rem;
+}
+
+.noticias-newsletter-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+
+    font-size: 0.75rem;
+    letter-spacing: 0.02rem;
+    line-height: 1.16;
+    
+    color: white;
+    font-family: var(--roboto-mediumitalic);
+}
+
+.noticias-newsletter-btn img {
+    width: 2rem;
+    height: 2rem;
+
+    object-fit: contain;
+    margin-right: .5rem;
+}
+
+.noticias-newsletter-p {
+    font-size: 0.94rem;
+    letter-spacing: 0.03rem;
+    line-height: 1.2;
+
+    color: #707070;
+    font-family: var(--roboto-lightitalic);
+    margin-top: 2rem;
+}
+/**** NOTICIAS RECIENTES HOME FIN ****/
+
+/**** HISTORIA Y LOGROS ALCANZADOS PAGINA ****/
+.historia-section {
+    margin-top: 7.8rem;
+}
+
+.historia-title {
+    font-size: 3.75rem;
+    padding: 0;
+    margin: 0 0 7.8rem 0;
+    letter-spacing: 0.10rem;
+    line-height: 1;
+
+    text-align: center;
+    font-family: var(--roboto-black);
+    color: var(--blue);
+}
+
+/* Linea de tiempo */
+.historia-lineaTiempo-card {
+    margin-bottom: 4rem;
+}
+
+.historia-lineaTiempo-title {
+    font-size: 2.5rem;
+    letter-spacing: 0.007rem;
+    font-family: var(--roboto-black);
+    color: var(--orange);
+    line-height: 1.2;
+}
+
+.historia-lineaTiempo-icon {
+    width: 3.25rem;
+    height: 3.25rem;
+
+    object-fit: contain;
+    filter: invert(50%) sepia(98%) saturate(1116%) hue-rotate(2deg) brightness(105%) contrast(102%);
+    margin-bottom: 1.8125rem;
+}
+
+.historia-lineaTiempo-p {
+    font-size: 1.375rem;
+    letter-spacing: 0.02rem;
+    font-family: var(--roboto-regular);
+    line-height: 1.22;
+}
+
+/* Imagenes - Informacion */
+.historia-informacion-section {
+    margin-top: 17.36rem;
+    height: 28rem;
+}
+
+.historia-informacion-imgs {
+    width: 24.625rem;
+    height: 24rem;
+    margin-top: -9.56rem;
+
+    object-fit: cover;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 6px solid #FFFFFF;
+    border-radius: 1.875rem 3.25rem;
+}
+
+.historia-informacion-main {
+    margin-top: -12rem;
+    filter: drop-shadow(0px 3px 6px #00000029);
+}
+
+/* Ecosistema */
+.historia-ecosistema-section {
+    margin-top: 7.8rem;
+    margin-bottom: 7.8rem;
+}
+
+/* Ecosistema Positions */
+.historia-ecosistema-left {
+    padding-right: 8.33333333% !important;
+    padding-left: 0 !important;
+}
+
+.historia-ecosistema-center {
+    padding-left: 4.166666666% !important;
+    padding-right: 4.166666666% !important;
+}
+
+.historia-ecosistema-right {
+    padding-left: 8.33333333% !important;
+    padding-right: 0 !important;
+}
+
+/* Ecosistema styles */
+
+.historia-ecosistema-title {
+    font-size: 2.5rem;
+    letter-spacing: .07rem;
+    line-height: 1.2;
+    font-family: var(--roboto-light);
+    min-height: 9rem;
+}
+
+.historia-ecosistema-p {
+    font-size: 1.13rem;
+    letter-spacing: .02rem;
+    line-height: 1.5;
+    font-family: var(--roboto-regular);
+}
+
+.historia-ecosistema-efecto {
+    mask-image: linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 40%);
+}
+
+.historia-ecosistema-logo {
+    box-shadow: 10px 10px 10px #00000029;
+    margin-top: .5rem;
+}
+
+.historia-ecosistema-seeMore {
+    display: block;
+    font-size: 0.63rem;
+    letter-spacing: 0.02rem;
+    line-height: 1.3;
+    font-family: var(--roboto-bolditalic);
+    text-align: center;
+
+    width: 4.2rem;
+    color: white;
+    background-color: var(--orange);
+    box-shadow: inset 0px 3px 6px #0000001F, 0px 3px 6px #00000029;
+    border-radius: 12px;
+    padding: .8rem .5rem;
+    margin: 1rem 0;
+
+    transition: background-color .15s ease-in-out;
+}
+
+.historia-ecosistema-seeMore:hover {
+    color: white;
+    background-color: var(--bold-blue);
+}
+
+.historia-ecosistema-separator {
+    height: 2px;
+    width: 100%;
+    border: none;
+    background-color: var(--orange);
+    margin-bottom: 1rem;
+    opacity: 1;
+}
+/**** HISTORIA Y LOGROS ALCANZADOS PAGINA FIN ****/
+
+/**** NUESTRO MODELO PEDAGOGICO PAGINA ****/
+.nuestroModelo-section {
+    margin-top: 7.8rem;
+}
+
+.nuestroModelo-title {
+    font-size: 4.88rem;
+    letter-spacing: 0.14rem;
+    line-height: 1.2;
+    font-family: var(--roboto-black);
+}
+
+.nuestroModelo-secondTitle {
+    font-size: 8.75rem;
+    letter-spacing: 0.24rem;
+    line-height: 1;
+    margin-bottom: 7.8rem;
+}
+
+.nuestroModelo-p {
+    font-size: 1.56rem;
+    letter-spacing: 0.03rem;
+    line-height: 1.6;
+    font-family: var(--roboto-regular);
+}
+
+.nuestroModelo-secondSection {
+    margin-top: 7.8rem;
+    margin-bottom: 7.8rem;
+}
+
+.nuestroModelo-icon {
+    width: 7rem;
+    height: 7rem;
+    object-fit: contain;
+
+}
+
+.nuestroModelo-item-p {
+    font-size: 2.19rem;
+    letter-spacing: 0.06rem;
+    line-height: 1.2;
+
+    font-family: var(--roboto-black);
+    color: var(--blue);
+}
+
+@keyframes appearModelo {
+    from {
+        opacity: 0;
+        transform: translateY(15%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+.nuestroModelo-item {
+    opacity: 0;
+    transform: translateY(15%);
+    transition: all .4s ease-out;
+}
+
+.nuestroModelo-item.visible {
+    animation: appearModelo .4s ease forwards;
+}
+
+/**** NUESTRO MODELO PEDAGOGICO PAGINA FIN ****/
+
+/**** CELEBRANDO LOGROS BLOG PAGINA ****/
+.logros-busqueda-section {
+    margin-top: 7.8rem;
+}
+
+/* sections Positions */
+.logros-busquedaSecciones-left {
+    padding-right: 8.33333333% !important;
+    padding-left: 0 !important;
+}
+
+.logros-busquedaSecciones-center {
+    padding-left: 4.166666666% !important;
+    padding-right: 4.166666666% !important;
+}
+
+.logros-busquedaSecciones-right {
+    padding-left: 8.33333333% !important;
+    padding-right: 0 !important;
+}
+
+/* styles */
+
+.logros-title {
+    font-size: 3.75rem;
+    letter-spacing: 0.10rem;
+    line-height: 1.3;
+    font-family: var(--roboto-light);
+    color: var(--blue);
+    margin-bottom: 7.8rem;
+}
+
+.logros-busqueda-link {
+    font-size: 1.56rem;
+    line-height: 1.2;
+    font-family: var(--roboto-medium);
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+
+    border-radius: 1rem;
+    transition: color .2s ease-in-out;
+}
+
+.logros-busqueda-barra[type="text"] {
+    border-radius: 10rem !important;
+    padding: 1rem 1.5rem;
+
+    border: none !important;
+    line-height: 0;
+    width: 100%;
+
+    font-size: 1.38rem;
+    letter-spacing: 0.04rem;
+    line-height: 1.2;
+    font-family: var(--roboto-regular);
+}
+
+.logros-busqueda-barra::placeholder {
+    color: #000;
+}
+
+.logros-busqueda-barra:focus {
+    outline: none;
+}
+
+.logros-noticias-section {
+    margin-top: 7.8rem;
+}
+
+.logros-noticias-title {
+    font-size: 2.5rem;
+    letter-spacing: 0.07rem;
+    line-height: 1.2;
+    font-family: var(--roboto-black);
+    margin-bottom: 7.8rem;
+}
+
+.logros-post-section {
+    margin-top: 7.8rem;
+    margin-bottom: 7.8rem;
+    background-color: var(--light-gray-o26);
+}
+
+.logros-post-icon {
+    width: 3.4rem;
+    height: 3.4rem;
+
+    object-fit: contain;
+}
+
+.logros-post-title {
+    font-size: 3.75rem;
+    letter-spacing: 0.10rem;
+    line-height: 1;
+    font-family: var(--roboto-black);
+    color: var(--blue);
+}
+
+.logros-post-publisher {
+    font-size: 1.56rem;
+    letter-spacing: 0.04rem;
+    line-height: 1.2;
+    font-family: var(--roboto-bolditalic);
+}
+
+.logros-post-date {
+    font-size: 1.31rem;
+    letter-spacing: 0.02rem;
+    line-height: 1.2;
+    font-family: var(--roboto-regular);
+    margin-bottom: 2rem;
+}
+
+.logros-post-img {
+    margin-bottom: 2rem;
+    width: 100%;
+    object-fit: cover;
+    height: 30rem;
+}
+
+.logros-post-text {
+    font-size: 1.31rem;
+    letter-spacing: 0.02rem;
+    line-height: 1.2;
+    font-family: var(--roboto-regular);
+}
+
+#comentariosCampos {
+    border: 2px solid var(--green);
+    border-radius: 0 0 0.50rem 0.50rem;
+}
+
+#comentariosCampos h4 {
+    background-color: var(--green);
+    color: white;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    text-align: center;
+    font-family: var(--roboto-bolditalic);
+    margin: 0;
+
+    font-size: 1.56rem;
+    letter-spacing: 0.04rem;
+    line-height: 1.2;
+}
+
+#comentariosCampos input {
+    font-size: 1rem;
+    letter-spacing: .03rem;
+    font-family: var(--roboto-regular);
+    line-height: 1.3;
+    border: 1px solid var(--green);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+#comentariosCampos input::placeholder {
+    font-family: var(--roboto-bold);
+}
+
+#comentariosCampos input[type="checkbox"] {
+    width: 1.2rem;
+}
+
+.comment-block hr {
+    margin: 0;
+    background-color: rgb(33 37 41);
+    opacity: .25;
+}
+
+#comentarios {
+    margin-bottom: 7.8rem;
+}
+
+.logros-aceptarDatos {
+    font-size: 0.75rem;
+    letter-spacing: 0;
+    line-height: 1.1;
+}
+
+#send_blog_comment {
+    font-size: 0.56rem;
+    letter-spacing: 0;
+    line-height: 1.1;
+}
+
+.logros-comentario {
+    font-size: 0.94rem;
+    letter-spacing: 0.01rem;
+    line-height: 1.8;
+    font-family: var(--roboto-regular);
+}
+
+.logros-correo {
+    font-size: 1.56rem;
+    letter-spacing: 0.04rem;
+    font-family: var(--roboto-bolditalic);
+}
+
+.logros-fecha {
+    font-size: 0.94rem;
+    letter-spacing: 0.02rem;
+    font-family: var(--roboto-lightitalic);
+}
+
+.logros-aside-boton {
+    background-color: var(--orange);
+    color: white;
+    font-family: var(--roboto-regular);
+    padding: .5rem;
+    border-radius: .3rem;
+
+    transition: color .2s ease;
+
+    text-align: center;
+    font-size: 1rem;
+    letter-spacing: .03rem;
+}
+
+.logros-aside-boton:hover {
+    color: var(--bold-blue);
+}
+
+.logros-aside-tituloseccion {
+    font-family: var(--roboto-bold);
+    font-size: 1.2rem;
+    letter-spacing: .03rem;
+}
+
+/**** CELEBRANDO LOGROS BLOG PAGINA FIN ****/
+
+/**** EVALUACION PRESABERES PAGINA ****/
+.presaberes-globalSection {
+    margin-top: 7.8rem;
+    margin-bottom: 7.8rem;
+}
+
+.presaberes-espacio-top {
+    margin-top: 7.8rem;
+}
+
+.presaberes-title {
+    font-size: 3.75rem;
+    letter-spacing: 0.10rem;
+    line-height: 1;
+    font-family: var(--roboto-black);
+    color: white;
+}
+
+.presaberes-subtitle {
+    font-size: 1.31rem;
+    letter-spacing: 0.02rem;
+    line-height: 1.2;
+    font-family: var(--roboto-regular);
+    color: white;
+}
+
+.presaberes-paso {
+    background-color: #FFD156;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.presaberes-paso h3 {
+    font-size: 1.56rem;
+    letter-spacing: .04rem;
+    line-height: 1.1;
+    font-family: var(--roboto-blackitalic);
+}
+
+.presaberes-paso-indicacion {
+    background-color: #16224F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.presaberes-paso-indicacion h3 {
+    font-size: 2.5rem;
+    letter-spacing: 0.07rem;
+    line-height: 1.2;
+    font-family: var(--roboto-black);
+    color: white;
+}
+
+.presaberes-paso-title {
+    font-size: 2.5rem;
+    letter-spacing: 0.07rem;
+    line-height: 1.2;
+    font-family: var(--roboto-light);
+}
+
+.presaberes-boton {
+    display: block;
+    width: 100%;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+
+    border-radius: 0.75rem;
+    background-color: var(--orange);
+    color: white;
+    
+    line-height: 1.2;
+    text-align: center;
+    font-size: 1.56rem;
+    letter-spacing: 0.04rem;
+    font-family: var(--roboto-bolditalic);
+
+    transition: color .2s ease;
+}
+
+.presaberes-boton:hover {
+    color: var(--bold-blue);
+}
+/**** EVALUACION PRESABERES PAGINA FIN ****/
+
+/** Moviles **/
+@media (max-width: 767px) {
+    /**** INDICADORES HOME ****/
+    .indicators-section {
+        margin-top: 3.3rem !important;
+    }
+
+    .indicator-title {
+        font-family: var(--roboto-light);
+        font-size: 0.75rem;
+
+        letter-spacing: 0.02rem;
+        line-height: 1.1;
+        color: white;
+        text-align: center;
+    }
+
+    /* Indicator Positions */
+    .indicator-left {
+        padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+        padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+        
+        margin-bottom: 1rem;
+    }
+
+    .indicator-center {
+        padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+        padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .indicator-right {
+        padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+        padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+
+        margin-top: 1rem;
+    }
+
+    /* Indicator styles */
+    .indicator-data h3 {
+        color: var(--blue);
+
+        font-size: 0.75rem;
+        letter-spacing: 0.02rem;
+        line-height: 1.1;
+
+        font-family: var(--roboto-black);
+    }
+
+    .indicator-data p {
+        font-family: var(--roboto-light);
+        font-size: 0.50rem;
+
+        letter-spacing: 0.01rem;
+        line-height: 1.1;
+    }
+
+    /**** FIN INDICADORES HOME ****/
+
+    /**** CONOCE NUESTRO CAMPUS HOME ****/
+    .campus-section {
+        margin-top: 3.3rem !important;
+    }
+
+    /* Campus Positions */
+    .campus-position-left {
+        padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+        padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+
+        margin-top: 1rem;
+    }
+
+    .campus-position-center {
+        padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+        padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .campus-position-right {
+        padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+        padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+
+        margin-bottom: 1rem;
+    }
+
+    /* Campus Styles */
+
+    .campus-title {
+        font-size: 1.31rem;
+        letter-spacing: 0.04rem;
+        line-height: 1;
+
+        margin-bottom: 3.3rem;
+    }
+
+    .campus-p {
+        font-size: 1rem;
+        letter-spacing: 0.02rem;
+        line-height: 1.27;
+
+        font-family: var(--roboto-regular);
+    }
+    /**** CONOCE NUESTRO CAMPUS HOME FIN ****/
+
+    /**** ZONA DE ENLACES HOME ****/
+    .linksZone-section {
+        margin-top: 3.3rem;
+    }
+
+    .linksZone-title {
+        font-size: 1.31rem;
+        letter-spacing: 0.04rem;
+        line-height: 1;
+
+        color: var(--blue);
+        font-family: var(--roboto-black);
+        margin-bottom: 3.3rem;
+    }
+
+    .linkCarousel-block {
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        margin-bottom: 0;
+    }
+
+    .linksZone-container img {
+        width: 2.19rem;
+        height: 2.19rem;
+
+        object-fit: contain;
+    }
+
+    .linksZone-container a {
+        font-size: 0.50rem;
+        letter-spacing: 0.01rem;
+        line-height: 1.2;
+        font-family: var(--roboto-bolditalic);
+
+        text-align: center;
+        margin-left: 0;
+    }
+
+    /* Links Carousel Phone & Tablets */
+
+    #linksCarousel {
+       mask-image: linear-gradient(to right, transparent 5%, #fff 10%, #fff 90%, transparent 95%);
+
+       overflow: hidden;
+       flex-wrap: nowrap;
+    }
+
+    #linksCarousel_next,
+    #linksCarousel_previous {
+        display: flex;
+        position: absolute;
+
+        height: 100%;
+        top: 0%;
+    }
+
+    #linksCarousel_next {
+        right: calc(1.5rem * 0.5);
+    }
+
+    #linksCarousel_previous {
+        left: calc(1.5rem * 0.5);
+    }
+
+    #linksCarousel_next::after {
+         content: "";
+         position: absolute;
+         padding: .5rem;
+         top: 50%;
+         left: 50%;
+         border-right: rgba(0, 0, 0, .5) solid 2px;
+         border-bottom: rgba(0, 0, 0, .5) solid 2px;
+         transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    #linksCarousel_previous::after {
+         content: "";
+         position: absolute;
+         padding: .5rem;
+         top: 50%;
+         left: 50%;
+         border-left: rgba(0, 0, 0, .5) solid 2px;
+         border-bottom: rgba(0, 0, 0, .5) solid 2px;
+         transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    /**** ZONA DE ENLACES HOME FIN ****/
+
+    /**** NOTICIAS RECIENTES HOME ****/
+    .noticias-section {
+        margin-top: 3.3rem;
+        margin-bottom: 3.3rem;
+    }
+
+    .noticias-mainTitle {
+        font-size: 0.69rem;
+        letter-spacing: 0.02rem;
+        line-height: 1.1;
+
+        font-family: var(--roboto-black);
+        text-align: center;
+
+        margin-bottom: 3.3rem;
+    }
+
+    /* Noticias Positions */
+    .noticias-left {
+        padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+        padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+
+        margin-top: 1rem;
+    }
+
+    .noticias-center {
+        padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+        padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .noticias-right {
+        padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+        padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+
+        margin-bottom: 1rem;
+    }
+
+    /* Noticias styles */
+
+    .noticias-separator {
+        width: 65%;
+        height: 3px;
+        background-color: #707070;
+
+        border: none;
+        margin: 0 auto;
+    }
+
+    .noticias-img {
+        width: 100%;
+        height: 12rem;
+
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    .noticias-container {
+        margin-top: 0;
+        padding: 0;
+        min-height: 10rem;
+    }
+
+    .noticias-box {
+        background-color: white;
+        box-shadow: 0.63rem 0.63rem 0.63rem #00000029;
+        padding: .4rem 1.4rem;
+        position: relative;
+        min-height: 10rem;
+        z-index: 6;
+    }
+
+    .noticias-date {
+        font-size: 0.19rem;
+        font-family: var(--roboto-lightitalic);
+        letter-spacing: 0.01rem;
+        line-height: 1.3;
+    }
+
+    .noticias-title {
+        font-size: 0.50rem;
+        font-family: var(--roboto-bolditalic);
+        letter-spacing: 0.01rem;
+        line-height: 1.2;
+    }
+
+    .noticias-p {
+        font-size: 0.56rem;
+        font-family: var(--roboto-light);
+        line-height: 1.2;
+    }
+
+    .noticias-link {
+        font-size: 0.25rem;
+        font-family: var(--roboto-lightitalic);
+        letter-spacing: 0.01rem;
+        line-height: 1;
+    }
+
+    .noticias-littlebar {
+        background-color: var(--blue);
+        height: 2px !important;
+        border: none;
+        opacity: 1;
+        margin: -.3rem 0 0 0;
+        width: 8%;
+
+        transition: width .2s ease-in-out;
+    }
+
+    /* Newsletter */
+    .noticias-newsletter-main {
+        box-shadow: 0px 3px 6px #00000029;
+    }
+
+    .noticias-newsletter-input {
+        width: 100%;
+        height: 3rem;
+        
+        font-size: 0.50rem;
+        letter-spacing: 0.01rem;
+        line-height: 1.2;
+
+        font-family: var(--roboto-mediumitalic);
+
+        border: 1px solid #707070;
+        opacity: 1;
+
+        padding: 1rem;
+    }
+
+    .noticias-newsletter-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+
+        font-size: 0.50rem;
+        letter-spacing: 0.01rem;
+        line-height: 1.2;
+
+        color: white;
+        font-family: var(--roboto-mediumitalic);
+    }
+
+    .noticias-newsletter-btn img {
+        width: 2rem;
+        height: 2rem;
+
+        object-fit: contain;
+        margin-right: .5rem;
+    }
+
+    .noticias-newsletter-p {
+        font-size: 0.50rem;
+        letter-spacing: 0.01rem;
+        line-height: 1.2;
+
+        color: #707070;
+        font-family: var(--roboto-lightitalic);
+        margin-top: 2rem;
+    }
+    /**** NOTICIAS RECIENTES HOME FIN ****/
+
+    /**** HISTORIA Y LOGROS ALCANZADOS PAGINA ****/
+    .historia-section {
+        margin-top: 3.3rem;
+    }
+
+    .historia-title {
+        font-size: 1.56rem;
+        margin: 0 0 3.3rem 0;
+        letter-spacing: 0.02rem;
+        line-height: 1;
+
+        font-family: var(--roboto-black);
+        color: var(--blue);
+    }
+
+    /* Linea de tiempo */
+    .historia-lineaTiempo-card {
+        margin-bottom: 2.5rem;
+    }
+
+    .historia-lineaTiempo-title {
+        font-size: 0.94rem;
+        letter-spacing: 0;
+        font-family: var(--roboto-black);
+        color: var(--orange);
+        line-height: 1.1;
+    }
+
+    .historia-lineaTiempo-icon {
+        width: 2.31rem;
+        height: 2.31rem;
+
+        margin-bottom: 1rem;
+    }
+
+    .historia-lineaTiempo-p {
+        font-size: 0.69rem;
+        letter-spacing: 0;
+        font-family: var(--roboto-regular);
+        line-height: 1.2;
+    }
+
+    /* Imagenes - Informacion */
+    .historia-informacion-section {
+        margin-top: 3.3rem;
+        height: auto;
+    }
+
+    .historia-informacion-container {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .historia-informacion-imgs {
+        width: 100%;
+        height: auto;
+        margin-top: 0;
+
+        object-fit: cover;
+        box-shadow: 0px 3px 3px #00000029;
+        border: 5px solid #FFFFFF;
+        border-radius: 1.7rem;
+    }
+
+    .historia-informacion-main {
+        margin-top: -2rem;
+        filter: drop-shadow(0px 3px 6px #00000029);
+    }
+
+    /* Ecosistema */
+    .historia-ecosistema-section {
+        margin-top: 3.3rem;
+        margin-bottom: 3.3rem;
+    }
+
+    /* Ecosistema Positions */
+    .historia-ecosistema-left {
+        padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+        padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+
+        margin-top: 1rem;
+    }
+
+    .historia-ecosistema-center {
+        padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+        padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .historia-ecosistema-right {
+        padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+        padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+
+        margin-bottom: 1rem;
+    }
+
+    /* Ecosistema styles */
+
+    .historia-ecosistema-title {
+        font-size: 1.25rem;
+        letter-spacing: 0;
+        line-height: 1.3;
+
+        text-align: center;
+        font-family: var(--roboto-bold);
+        min-height: auto;
+        order: -1;
+    }
+
+    .historia-ecosistema-p {
+        font-size: 0.69rem;
+        letter-spacing: 0;
+        line-height: 1.1;
+        font-family: var(--roboto-regular);
+    }
+
+    .historia-ecosistema-efecto {
+        mask-image: linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 40%);
+    }
+
+    .historia-ecosistema-logo {
+        box-shadow: 10px 10px 10px #00000029;
+        margin: 0 auto .5rem auto;
+    }
+
+    .historia-ecosistema-seeMore {
+        font-size: 0px;
+        letter-spacing: 0;
+
+        width: 2.2rem;
+        height: 2.2rem;
+        
+        color: transparent;
+        box-shadow: none;
+
+        border-radius: 100%;
+        margin: .5rem 0 0 auto;
+        position: relative;
+    }
+
+    .historia-ecosistema-seeMore::after {
+        content: "";
+
+        position: absolute;
+        padding: .5rem;
+
+        left: 50%;
+        top: 50%;
+        border-left: #fff 2px solid;
+        border-bottom: #fff 2px solid;
+
+        transition: transform .2s ease;
+        transform: translate(-50%, -70%) rotate(-45deg);
+    }
+
+    .historia-ecosistema-seeMore[data-texto-expandido="true"]::after {
+        transform: translate(-50%, -20%) rotate(135deg);
+    }
+
+    .historia-ecosistema-seeMore:hover {
+        color: transparent !important;
+        background-color: var(--orange) !important;
+    }
+
+    /**** HISTORIA Y LOGROS ALCANZADOS PAGINA FIN ****/
+
+    /**** NUESTRO MODELO PEDAGOGICO PAGINA ****/
+    .nuestroModelo-section {
+        margin-top: 3.3rem;
+    }
+
+    .nuestroModelo-title {
+        font-size: 1.25rem;
+        letter-spacing: 0;
+        line-height: 1.2;
+        font-family: var(--roboto-black);
+    }
+
+    .nuestroModelo-secondTitle {
+        font-size: 2.50rem;
+        letter-spacing: 0.07rem;
+        margin-bottom: 3.3rem;
+    }
+
+    .nuestroModelo-p {
+        font-size: 0.81rem;
+        letter-spacing: 0;
+        line-height: 1.2;
+        font-family: var(--roboto-regular);
+    }
+
+    .nuestroModelo-secondSection {
+        margin-top: 3.3rem;
+        margin-bottom: 3.3rem;
+    }
+
+    .nuestroModelo-icon {
+        width: 6.06rem;
+        height: 6.06rem;
+        object-fit: contain;
+    }
+
+    .nuestroModelo-item {
+        margin-bottom: 3rem;
+    }
+
+    .nuestroModelo-item-p {
+        font-size: 1.56rem;
+        letter-spacing: 0.02rem;
+        line-height: 1;
+        text-align: center;
+    }
+
+    /**** NUESTRO MODELO PEDAGOGICO PAGINA FIN ****/
+
+    /**** CELEBRANDO LOGROS BLOG PAGINA ****/
+    .logros-busqueda-section {
+        margin-top: 3.3rem;
+    }
+
+    /* sections Positions */
+    .logros-busquedaSecciones-left {
+        padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+        padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+
+        margin-top: 1rem !important;
+        margin-bottom: 0 !important;
+    }
+
+    .logros-busquedaSecciones-center {
+        padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+        padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+
+        margin-top: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .logros-busquedaSecciones-right {
+        padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+        padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+
+        margin-bottom: 1rem !important;
+        margin-top: 0 !important;
+    }
+
+    /* styles */
+
+    .logros-title {
+        font-size: 1.50rem;
+        letter-spacing: 0.04rem;
+        line-height: 1.2;
+        margin-top: 2rem;
+        margin-bottom: 3.3rem;
+    }
+
+    .logros-busqueda-link {
+        font-size: 1.25rem;
+        line-height: 1.2;
+
+        border-radius: .3rem;
+    }
+
+    .logros-busqueda-barra[type="text"] {
+        width: 100%;
+
+        font-size: 0.88rem;
+        letter-spacing: 0rem;
+        line-height: 1.1;
+        font-family: var(--roboto-regular);
+    }
+
+    .logros-busqueda-barra::placeholder {
+        color: #707070;
+    }
+
+    .logros-noticias-section {
+        margin-top: 3.3rem;
+    }
+
+    .logros-noticias-title {
+        font-size: 1.44rem;
+        letter-spacing: 0.04rem;
+        line-height: 1.2;
+        font-family: var(--roboto-black);
+        margin-bottom: 3.3rem;
+    }
+
+    .logros-noticias-separation {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .logros-noticias-separation:nth-child(1) {
+        margin-bottom: 1rem;
+    }
+
+    .logros-noticias-separation:nth-last-child {
+        margin-top: 1rem;
+    }
+
+    .logros-post-section {
+        margin-top: 3.3rem;
+        margin-bottom: 3.3rem;
+    }
+
+    .logros-post-icon {
+        width: 2.6rem;
+        height: 2.6rem;
+    }
+
+    .logros-post-title {
+        font-size: 1.88rem;
+        letter-spacing: 0.05rem;
+        line-height: 2;
+    }
+
+    .logros-post-publisher {
+        font-size: 0.75rem;
+        letter-spacing: 0.02rem;
+        line-height: 1.1;
+        font-family: var(--roboto-bolditalic);
+    }
+
+    .logros-post-date {
+        font-size: 0.81rem;
+        letter-spacing: 0;
+        line-height: 1.2;
+        margin-bottom: 2rem;
+    }
+
+    .logros-post-text {
+        font-size: 0.81rem;
+        letter-spacing: 0;
+        line-height: 1.2;
+    }
+
+    #comentariosCampos {
+        border: 2px solid var(--green);
+        border-radius: 0 0 0.50rem 0.50rem;
+    }
+
+    #comentariosCampos h4 {
+        background-color: var(--green);
+        color: white;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        text-align: center;
+        font-family: var(--roboto-bolditalic);
+        margin: 0;
+
+        font-size: 0.81rem;
+        letter-spacing: 0.02rem;
+        line-height: 1.2;
+    }
+
+    #comentariosCampos input {
+        font-size: 0.50rem;
+        letter-spacing: 0;
+        font-family: var(--roboto-regular);
+        line-height: 1.3;
+        border: 1px solid var(--green);
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    #comentariosCampos input::placeholder {
+        font-family: var(--roboto-bold);
+    }
+
+    #comentariosCampos input[type="checkbox"] {
+        width: 1.1rem;
+    }
+
+    .comment-block hr {
+        margin: 0;
+        background-color: rgb(33 37 41);
+        opacity: .25;
+    }
+
+    #comentarios {
+        margin-bottom: 3.3rem;
+    }
+
+    .logros-aceptarDatos {
+        font-size: 0.38rem;
+        letter-spacing: 0;
+        line-height: 1;
+    }
+
+    #send_blog_comment {
+        font-size: 0.94rem;
+        letter-spacing: 0.02rem;
+        line-height: 1.6;
+    }
+
+    .logros-comentario {
+        font-size: 0.75rem;
+        letter-spacing: 0;
+        line-height: 1.5;
+        font-family: var(--roboto-regular);
+    }
+
+    .logros-correo {
+        font-size: 0.75rem;
+        letter-spacing: 0.02rem;
+        line-height: 1.1;
+        font-family: var(--roboto-bolditalic);
+    }
+
+    .logros-fecha {
+        font-size: 0.31rem;
+        letter-spacing: 0.01rem;
+        line-height: 1.9;
+        font-family: var(--roboto-lightitalic);
+    }
+
+    .logros-aside-boton {
+        background-color: var(--orange);
+        color: white;
+        font-family: var(--roboto-regular);
+        padding: .5rem;
+        border-radius: .3rem;
+
+        transition: color .2s ease;
+
+        text-align: center;
+        font-size: .80rem;
+        letter-spacing: .02rem;
+    }
+
+    .logros-aside-boton:hover {
+        color: var(--bold-blue);
+    }
+
+    .logros-aside-tituloseccion {
+        font-family: var(--roboto-bold);
+        font-size: 1.2rem;
+        letter-spacing: .02rem;
+    }
+
+    /**** CELEBRANDO LOGROS BLOG PAGINA FIN ****/
+
+    /**** EVALUACION PRESABERES PAGINA ****/
+    .presaberes-globalSection {
+        margin-top: 3.3rem;
+        margin-bottom: 3.3rem;
+    }
+
+    .presaberes-espacio-top {
+        margin-top: 3.3rem;
+    }
+
+    .presaberes-title {
+        font-size: 1.25rem;
+        letter-spacing: 0;
+        line-height: 1.3;
+        font-family: var(--roboto-black);
+        color: white;
+    }
+
+    .presaberes-subtitle {
+        font-size: 0.56rem;
+        letter-spacing: 0.02rem;
+        line-height: 3;
+        font-family: var(--roboto-regular);
+        color: white;
+    }
+
+    .presaberes-paso h3 {
+        font-size: 1rem;
+        letter-spacing: .02rem;
+        line-height: 1;
+    }
+
+    .presaberes-paso-indicacion h3 {
+        font-size: 1.5rem;
+        letter-spacing: 0.04rem;
+        line-height: 1.2;
+    }
+
+    .presaberes-paso-title {
+        font-size: 1.5rem;
+        letter-spacing: 0.04rem;
+        line-height: 1.2;
+    }
+
+    .presaberes-boton {
+        display: block;
+        width: 100%;
+        padding-top: 1.2rem;
+        padding-bottom: 1.2rem;
+
+        border-radius: 0.75rem;
+        background-color: var(--orange);
+        color: white;
+        
+        line-height: 1.2;
+        text-align: center;
+        font-size: 1.25rem;
+        letter-spacing: 0;
+        font-family: var(--roboto-bolditalic);
+
+        transition: color .2s ease;
+    }
+
+    .presaberes-boton:hover {
+        color: var(--bold-blue);
+    }
+    /**** EVALUACION PRESABERES PAGINA FIN ****/
+}
+
+/** Tabletas **/
+@media (min-width: 768px) and (max-width: 991px)  {
+    /**** INDICADORES HOME ****/
+    .indicators-section {
+        margin-top: 5.1rem !important;
+    }
+
+    .indicator-title {
+        font-family: var(--roboto-light);
+        font-size: 1.50rem;
+
+        letter-spacing: 0.04rem;
+        line-height: 1.2;
+        color: white;
+        text-align: center;
+    }
+
+    /* Indicator Positions */
+    .indicator-left {
+        padding-left: 0 !important;
+        padding-right: 8.33333333% !important;
+        
+        margin: 0 !important;
+    }
+
+    .indicator-center {
+        padding-left: 4.166666666% !important;
+        padding-right: 4.166666666% !important;
+
+        margin: 0 !important;
+    }
+
+    .indicator-right {
+        padding-left: 8.33333333% !important;
+        padding-right: 0 !important;
+        
+        margin: 0 !important;
+    }
+
+    /* Indicator styles */
+    .indicator-data h3 {
+        color: var(--blue);
+
+        font-size: 1.06rem;
+        letter-spacing: 0.03rem;
+        line-height: 1.1;
+
+        font-family: var(--roboto-black);
+    }
+
+    .indicator-data p {
+        font-family: var(--roboto-light);
+        font-size: 0.69rem;
+
+        letter-spacing: 0.02rem;
+        line-height: 1.1;
+    }
+
+    /**** FIN INDICADORES HOME ****/
+
+    /**** CONOCE NUESTRO CAMPUS HOME ****/
+    .campus-section {
+        margin-top: 5.1rem !important;
+    }
+
+    /* Campus Positions */
+    .campus-position-left {
+        padding-left: 0 !important;
+        padding-right: 8.33333333% !important;
+        
+        margin: 0 !important;
+    }
+
+    .campus-position-center {
+        padding-left: 4.166666666% !important;
+        padding-right: 4.166666666% !important;
+
+        margin: 0 !important;
+    }
+
+    .campus-position-right {
+        padding-left: 8.33333333% !important;
+        padding-right: 0 !important;
+        
+        margin: 0 !important;
+    }
+
+    /* Campus Styles */
+
+    .campus-title {
+        font-size: 2.44rem;
+        letter-spacing: 0.04rem;
+        line-height: 1.1;
+
+        margin-bottom: 5.1rem;
+    }
+
+    .campus-p {
+        font-size: 1.2rem;
+        letter-spacing: 0.02rem;
+        line-height: 1.2;
+
+        font-family: var(--roboto-regular);
+    }
+    /**** CONOCE NUESTRO CAMPUS HOME FIN ****/
+
+    /**** ZONA DE ENLACES HOME ****/
+    .linksZone-section {
+        margin-top: 5.1rem;
+    }
+
+    .linksZone-title {
+        font-size: 2.44rem;
+        letter-spacing: 0.07rem;
+        line-height: 1;
+
+        color: var(--blue);
+        font-family: var(--roboto-black);
+        margin-bottom: 5.1rem;
+    }
+
+    .linkCarousel-block {
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        margin-bottom: 0;
+    }
+
+    .linksZone-container img {
+        width: 2.4rem;
+        height: 2.4rem;
+
+        object-fit: contain;
+    }
+
+    .linksZone-container a {
+        font-size: 0.81rem;
+        letter-spacing: 0.02rem;
+        line-height: 1.1;
+        font-family: var(--roboto-bolditalic);
+
+        text-align: center;
+        margin-left: 0;
+    }
+
+    /* Links Carousel Phone & Tablets */
+
+    #linksCarousel {
+       mask-image: linear-gradient(to right, transparent 5%, #fff 10%, #fff 90%, transparent 95%);
+
+       overflow: hidden;
+       flex-wrap: nowrap;
+    }
+
+    #linksCarousel_next,
+    #linksCarousel_previous {
+        display: flex;
+        position: absolute;
+
+        height: 100%;
+        top: 0%;
+    }
+
+    #linksCarousel_next {
+        right: calc(1.5rem * 0.5);
+    }
+
+    #linksCarousel_previous {
+        left: calc(1.5rem * 0.5);
+    }
+
+    #linksCarousel_next::after {
+         content: "";
+         position: absolute;
+         padding: .5rem;
+         top: 50%;
+         left: 50%;
+         border-right: rgba(0, 0, 0, .5) solid 2px;
+         border-bottom: rgba(0, 0, 0, .5) solid 2px;
+         transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    #linksCarousel_previous::after {
+         content: "";
+         position: absolute;
+         padding: .5rem;
+         top: 50%;
+         left: 50%;
+         border-left: rgba(0, 0, 0, .5) solid 2px;
+         border-bottom: rgba(0, 0, 0, .5) solid 2px;
+         transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    /**** ZONA DE ENLACES HOME FIN ****/
+
+    /**** NOTICIAS RECIENTES HOME ****/
+    .noticias-section {
+        margin-top: 5.1rem;
+        margin-bottom: 5.1rem;
+    }
+
+    .noticias-mainTitle {
+        font-size: 1.50rem;
+        letter-spacing: 0.04rem;
+        line-height: 1.2;
+
+        font-family: var(--roboto-black);
+        text-align: center;
+
+        margin-bottom: 5.1rem;
+    }
+
+    /* Noticias Positions */
+    .noticias-left {
+        padding-left: 0 !important;
+        padding-right: 8.33333333% !important;
+        
+        margin: 0 !important;
+    }
+
+    .noticias-center {
+        padding-left: 4.166666666% !important;
+        padding-right: 4.166666666% !important;
+    
+        margin: 0 !important;
+    }
+
+    .noticias-right {
+        padding-right: 0 !important;
+        padding-left: 8.33333333% !important;
+        
+        margin: 0 !important;
+    }
+
+
+    /* Noticias styles */
+    .noticias-img {
+        width: 100%;
+        height: 8rem;
+
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .noticias-img-effect {
+      position: relative;
+    }
+
+    .noticias-img-effect::after {
+        content: "";
+        inset: 0;
+
+        position: absolute;
+
+        mix-blend-mode: darken;
+        background-color: rgb(40, 167, 69);
+        opacity: .88;
+        z-index: 1;
+
+        transition: opacity .2s ease;
+    }
+
+    .noticias-container {
+        margin-top: -3rem;
+        padding: 0 1.4rem;
+        min-height: 7.50rem;
+    }
+
+    .noticias-box {
+        background-color: white;
+        box-shadow: 10px 10px 10px #00000029;
+        padding: .4rem;
+        position: relative;
+        min-height: 7.50rem;
+        z-index: 6;
+    }
+
+    .noticias-date {
+        font-size: 0.25rem;
+        font-family: var(--roboto-lightitalic);
+        letter-spacing: 0.01rem;
+        line-height: 1;
+    }
+
+    .noticias-title {
+        font-size: 0.63rem;
+        font-family: var(--roboto-bolditalic);
+        letter-spacing: 0.02rem;
+        line-height: 1.1;
+    }
+
+    .noticias-p {
+        font-size: 0.56rem;
+        font-family: var(--roboto-light);
+        line-height: 1.1;
+    }
+
+    .noticias-link {
+        font-size: 0.31rem;
+        font-family: var(--roboto-lightitalic);
+        letter-spacing: 0.01rem;
+        line-height: 1;
+    }
+
+    .noticias-littlebar {
+        background-color: var(--blue);
+        height: 2px !important;
+        border: none;
+        opacity: 1;
+        margin: -.3rem 0 0 0;
+        width: 18%;
+
+        transition: width .2s ease-in-out;
+    }
+
+    .noticias-link:hover + .noticias-littlebar {
+        width: 20%;
+    }
+
+    /* Newsletter */
+    .noticias-newsletter-main {
+        box-shadow: 0px 3px 6px #00000029;
+    }
+
+    .noticias-newsletter-input {
+        width: 100%;
+        height: 3rem;
+        font-size: 0.63rem;
+        letter-spacing: 0.02rem;
+        line-height: 1.1;
+
+        font-family: var(--roboto-mediumitalic);
+
+        border: 1px solid #707070;
+        opacity: 1;
+
+        padding: 1rem;
+    }
+
+    .noticias-newsletter-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+
+        font-size: 0.63rem;
+        letter-spacing: 0.02rem;
+        line-height: 1.1;
+
+        color: white;
+        font-family: var(--roboto-mediumitalic);
+    }
+
+    .noticias-newsletter-btn img {
+        width: 1.7rem;
+        height: 1.7rem;
+
+        object-fit: contain;
+        margin-right: .5rem;
+    }
+
+    .noticias-newsletter-p {
+        font-size: 0.63rem;
+        letter-spacing: 0.02rem;
+        line-height: 1.1;
+
+        color: #707070;
+        font-family: var(--roboto-lightitalic);
+        margin-top: 2rem;
+    }
+    /**** NOTICIAS RECIENTES HOME FIN ****/
+
+    /**** HISTORIA Y LOGROS ALCANZADOS PAGINA ****/
+    .historia-section {
+        margin-top: 5.1rem;
+    }
+
+    .historia-title {
+        font-size: 2.50rem;
+        margin: 0 0 5.1rem 0;
+        letter-spacing: 0.03rem;
+        line-height: 1;
+        font-family: var(--roboto-black);
+        color: var(--blue);
+    }
+
+    /* Linea de tiempo */
+    .historia-lineaTiempo-card {
+        margin-bottom: 3.3rem;
+    }
+
+    .historia-lineaTiempo-title {
+        font-size: 0.94rem;
+        letter-spacing: 0;
+        font-family: var(--roboto-black);
+        color: var(--orange);
+        line-height: 1.1;
+    }
+
+    .historia-lineaTiempo-icon {
+        width: 2.31rem;
+        height: 2.31rem;
+
+        margin-bottom: 1rem;
+    }
+
+    .historia-lineaTiempo-p {
+        font-size: 1.00rem;
+        letter-spacing: 0;
+        font-family: var(--roboto-regular);
+        line-height: 1.1;
+    }
+
+    /* Imagenes - Informacion */
+    .historia-informacion-section {
+        margin-top: 5.1rem;
+        height: auto;
+    }
+
+    .historia-informacion-container {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .historia-informacion-imgs {
+        width: 100%;
+        height: auto;
+        margin-top: 0;
+
+        object-fit: cover;
+        box-shadow: 0px 3px 3px #00000029;
+        border: 5px solid #FFFFFF;
+        border-radius: 1.7rem;
+    }
+
+    .historia-informacion-main {
+        margin-top: -2rem;
+        filter: drop-shadow(0px 3px 6px #00000029);
+    }
+
+    /* Ecosistema */
+    .historia-ecosistema-section {
+        margin-top: 5.1rem;
+        margin-bottom: 5.1rem;
+    }
+
+    /* Ecosistema Positions */
+    .historia-ecosistema-left {
+        padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+        padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+
+        margin-top: 1rem;
+    }
+
+    .historia-ecosistema-center {
+        padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+        padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .historia-ecosistema-right {
+        padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+        padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+
+        margin-bottom: 1rem;
+    }
+
+    /* Ecosistema styles */
+
+    .historia-ecosistema-title {
+        font-size: 1.25rem;
+        letter-spacing: 0;
+        line-height: 1.3;
+
+        text-align: center;
+        font-family: var(--roboto-bold);
+        min-height: auto;
+        order: -1;
+    }
+
+    .historia-ecosistema-p {
+        font-size: 1.00rem;
+        letter-spacing: 0;
+        line-height: 1.1;
+        font-family: var(--roboto-regular);
+    }
+
+    .historia-ecosistema-efecto {
+        mask-image: linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 40%);
+    }
+
+    .historia-ecosistema-logo {
+        box-shadow: 10px 10px 10px #00000029;
+        margin: 0 auto .5rem auto;
+    }
+
+    .historia-ecosistema-seeMore {
+        font-size: 0px;
+        letter-spacing: 0;
+
+        width: 2.2rem;
+        height: 2.2rem;
+        
+        color: transparent;
+        box-shadow: none;
+
+        border-radius: 100%;
+        margin: .5rem 0 0 auto;
+        position: relative;
+    }
+
+    .historia-ecosistema-seeMore::after {
+        content: "";
+
+        position: absolute;
+        padding: .5rem;
+
+        left: 50%;
+        top: 50%;
+        border-left: #fff 2px solid;
+        border-bottom: #fff 2px solid;
+
+        transition: transform .2s ease;
+        transform: translate(-50%, -70%) rotate(-45deg);
+    }
+
+    .historia-ecosistema-seeMore[data-texto-expandido="true"]::after {
+        transform: translate(-50%, -20%) rotate(135deg);
+    }
+
+    .historia-ecosistema-seeMore:hover {
+        color: transparent !important;
+        background-color: var(--orange) !important;
+    }
+
+    /**** HISTORIA Y LOGROS ALCANZADOS PAGINA FIN ****/
+
+    /**** NUESTRO MODELO PEDAGOGICO PAGINA ****/
+    .nuestroModelo-section {
+        margin-top: 5.1rem;
+    }
+
+    .nuestroModelo-title {
+        font-size: 1.38rem;
+        letter-spacing: 0;
+        line-height: 1.2;
+        font-family: var(--roboto-black);
+    }
+
+    .nuestroModelo-secondTitle {
+        font-size: 2.50rem;
+        letter-spacing: 0.07rem;
+        margin-bottom: 5.1rem;
+    }
+
+    .nuestroModelo-p {
+        font-size: 1rem;
+        letter-spacing: 0;
+        line-height: 1.2;
+        font-family: var(--roboto-regular);
+    }
+
+    .nuestroModelo-secondSection {
+        margin-top: 5.1rem;
+        margin-bottom: 5.1rem;
+    }
+
+    .nuestroModelo-icon {
+        width: 6.06rem;
+        height: 6.06rem;
+        object-fit: contain;
+    }
+
+    .nuestroModelo-item {
+        margin-bottom: 3rem;
+    }
+
+    .nuestroModelo-item-p {
+        font-size: 1.56rem;
+        letter-spacing: 0.02rem;
+        line-height: 1;
+        text-align: center;
+    }
+
+    /**** NUESTRO MODELO PEDAGOGICO PAGINA FIN ****/
+
+    /**** CELEBRANDO LOGROS BLOG PAGINA ****/
+    .logros-busqueda-section {
+        margin-top: 5.1rem;
+    }
+
+    /* Positions */
+    .logros-busquedaSecciones-left {
+        padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+        padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+
+        margin-bottom: 1rem;
+        margin-top: 0;
+    }
+
+    .logros-busquedaSecciones-center {
+        padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+        padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .logros-busquedaSecciones-right {
+        padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+        padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+
+        margin-top: 1rem;
+        margin-bottom: 0;
+    }
+
+    .logros-md-noticias-left {
+        padding-left: 0 !important;
+        padding-right: 8.33333333% !important;
+        
+        margin: 0 !important;
+    }
+
+    .logros-md-noticias-center {
+        padding-left: 4.166666666% !important;
+        padding-right: 4.166666666% !important;
+    
+        margin: 0 !important;
+    }
+
+    .logros-md-noticias-right {
+        padding-right: 0 !important;
+        padding-left: 8.33333333% !important;
+        
+        margin: 0 !important;
+    }
+
+    /* styles */
+
+    .logros-title {
+        font-size: 1.50rem;
+        letter-spacing: 0.04rem;
+        line-height: 1.3;
+        font-family: var(--roboto-light);
+        color: var(--blue);
+        margin-bottom: 5.1rem;
+    }
+
+    .logros-busqueda-link {
+        font-size: 1.25rem;
+        line-height: 1.2;
+        font-family: var(--roboto-medium);
+        color: white;
+        padding: 1rem 0;
+        text-align: center;
+
+        border-radius: .4rem;
+        transition: color .2s ease-in-out;
+    }
+
+    .logros-busqueda-barra[type="text"] {
+        border-radius: 10rem !important;
+        padding: 1rem 1.5rem;
+
+        border: none !important;
+        line-height: 0;
+        width: 100%;
+
+        font-size: 1.00rem;
+        letter-spacing: 0;
+        line-height: 1.1;
+        font-family: var(--roboto-regular);
+    }
+
+    .logros-busqueda-barra::placeholder {
+        color: #707070;
+    }
+
+    .logros-busqueda-barra:focus {
+        outline: none;
+    }
+
+    .logros-noticias-section {
+        margin-top: 5.1rem;
+    }
+
+    .logros-noticias-title {
+        font-size: 1.44rem;
+        letter-spacing: 0.04rem;
+        line-height: 1.2;
+        font-family: var(--roboto-black);
+        margin-bottom: 5.1rem;
+    }
+
+    .logros-post-section {
+        margin-top: 5.1rem;
+        margin-bottom: 5.1rem;
+        background-color: var(--light-gray-o26);
+    }
+
+    .logros-post-icon {
+        width: 3rem;
+        height: 3rem;
+
+        object-fit: contain;
+    }
+
+    .logros-post-title {
+        font-size: 1.88rem;
+        letter-spacing: 0.05rem;
+        line-height: 2;
+        font-family: var(--roboto-black);
+        color: var(--blue);
+    }
+
+    .logros-post-publisher {
+        font-size: 0.75rem;
+        letter-spacing: 0.02rem;
+        line-height: 1.1;
+        font-family: var(--roboto-bolditalic);
+    }
+
+    .logros-post-date {
+        font-size: 1rem;
+        letter-spacing: 0;
+        line-height: 1.1;
+        font-family: var(--roboto-regular);
+        margin-bottom: 2rem;
+    }
+
+    .logros-post-img {
+        margin-bottom: 2rem;
+        width: 100%;
+        object-fit: cover;
+        height: 30rem;
+    }
+
+    .logros-post-text {
+        font-size: 1rem;
+        letter-spacing: 0;
+        line-height: 1.1;
+        font-family: var(--roboto-regular);
+    }
+
+    #comentariosCampos {
+        border: 2px solid var(--green);
+        border-radius: 0 0 0.50rem 0.50rem;
+    }
+
+    #comentariosCampos h4 {
+        background-color: var(--green);
+        color: white;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        text-align: center;
+        font-family: var(--roboto-bolditalic);
+        margin: 0;
+
+        font-size: 0.81rem;
+        letter-spacing: 0.02rem;
+        line-height: 1.2;
+    }
+
+    #comentariosCampos input {
+        font-size: 0.50rem;
+        letter-spacing: 0;
+        font-family: var(--roboto-regular);
+        line-height: 1.3;
+        border: 1px solid var(--green);
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    #comentariosCampos input::placeholder {
+        font-family: var(--roboto-bold);
+    }
+
+    #comentariosCampos input[type="checkbox"] {
+        width: 1.1rem;
+    }
+
+    .comment-block hr {
+        margin: 0;
+        background-color: rgb(33 37 41);
+        opacity: .25;
+    }
+
+    #comentarios {
+        margin-bottom: 3.3rem;
+    }
+
+    .logros-aceptarDatos {
+        font-size: 0.38rem;
+        letter-spacing: 0;
+        line-height: 1;
+    }
+
+    #send_blog_comment {
+        font-size: 0.94rem;
+        letter-spacing: 0.02rem;
+        line-height: 1.6;
+    }
+
+    .logros-comentario {
+        font-size: 0.75rem;
+        letter-spacing: 0;
+        line-height: 1.5;
+        font-family: var(--roboto-regular);
+    }
+
+    .logros-correo {
+        font-size: 0.75rem;
+        letter-spacing: 0.02rem;
+        line-height: 1.1;
+        font-family: var(--roboto-bolditalic);
+    }
+
+    .logros-fecha {
+        font-size: 0.31rem;
+        letter-spacing: 0.01rem;
+        line-height: 1.9;
+        font-family: var(--roboto-lightitalic);
+    }
+
+    .logros-aside-boton {
+        background-color: var(--orange);
+        color: white;
+        font-family: var(--roboto-regular);
+        padding: .5rem;
+        border-radius: .3rem;
+
+        transition: color .2s ease;
+
+        text-align: center;
+        font-size: .80rem;
+        letter-spacing: 1.1;
+    }
+
+    .logros-aside-boton:hover {
+        color: var(--bold-blue);
+    }
+
+    .logros-aside-tituloseccion {
+        font-family: var(--roboto-bold);
+        font-size: 1.2rem;
+        letter-spacing: .02rem;
+    }
+
+    /**** CELEBRANDO LOGROS BLOG PAGINA FIN ****/
+
+    /**** EVALUACION PRESABERES PAGINA ****/
+    .presaberes-globalSection {
+        margin-top: 5.1rem;
+        margin-bottom: 5.1rem;
+    }
+
+    .presaberes-espacio-top {
+        margin-top: 5.1rem;
+    }
+
+    .presaberes-title {
+        font-size: 1.25rem;
+        letter-spacing: 0;
+        line-height: 1.3;
+        font-family: var(--roboto-black);
+        color: white;
+    }
+
+    .presaberes-subtitle {
+        font-size: 0.75rem;
+        letter-spacing: 0.02rem;
+        line-height: 3;
+        font-family: var(--roboto-regular);
+        color: white;
+    }
+
+    .presaberes-paso h3 {
+        font-size: 1rem;
+        letter-spacing: .02rem;
+        line-height: 1;
+    }
+
+    .presaberes-paso-indicacion h3 {
+        font-size: 1.5rem;
+        letter-spacing: 0.04rem;
+        line-height: 1.2;
+    }
+
+    .presaberes-paso-title {
+        font-size: 1.5rem;
+        letter-spacing: 0.04rem;
+        line-height: 1.2;
+    }
+
+    .presaberes-boton {
+        display: block;
+        width: 100%;
+        padding-top: 1.2rem;
+        padding-bottom: 1.2rem;
+
+        border-radius: 0.75rem;
+        background-color: var(--orange);
+        color: white;
+        
+        line-height: 1.2;
+        text-align: center;
+        font-size: 1.25rem;
+        letter-spacing: 0;
+        font-family: var(--roboto-bolditalic);
+
+        transition: color .2s ease;
+    }
+
+    .presaberes-boton:hover {
+        color: var(--bold-blue);
+    }
+
+    /**** EVALUACION PRESABERES PAGINA FIN ****/
+}
