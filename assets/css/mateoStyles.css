@@ -26,35 +26,7 @@ body {
     }
 }
 
-@media (max-width: 992px) {
-    .my-ws{
-        margin-top: 5.1rem !important;
-        margin-bottom: 5.1rem !important;
-    }
 
-    .mt-ws{
-        margin-top: 5.1rem !important;
-    }
-
-    .mb-ws{
-        margin-bottom: 5.1rem !important;
-    }
-}
-
-@media (max-width: 768px) {
-    .my-ws{
-        margin-top: 3.3rem !important;
-        margin-bottom: 3.3rem !important;
-    }
-
-    .mt-ws{
-        margin-top: 3.3rem !important;
-    }
-
-    .mb-ws{
-        margin-bottom: 3.3rem !important;
-    }
-}
 
 /** Variables CSS **/
 :root {
@@ -780,13 +752,7 @@ p4-footer {
     letter-spacing: 0.0225rem;
 }
 
-@media (max-width: 768px) {
-    p2-footer {
-        font-size: 0.75rem;
-        line-height: 1.4rem;
-        letter-spacing: 0.0225rem;
-    }
-}
+
 
 .image-footer img {
     max-height: 100%;
@@ -850,86 +816,6 @@ p-nosotros-1 {
     margin-left: 1rem;
 }
 
-@media (max-width: 992px) {
-
-    h1-nosotros {
-        font-size: 2.5rem;          /* 40px / 16 */
-        line-height: 2.5rem;        /* 40px / 16 */
-        letter-spacing: 0.025rem;   /* 0.4px / 16 */
-    }
-
-    h2-nosotros {
-        font-size: 2.5rem; /* 40px / 16 */
-        line-height: 2.5rem; /* 40px / 16 */
-        letter-spacing: 0.025rem; /* 0.4px / 16 */
-    }
-
-    h3-nosotros {
-        font-size: 1.25rem;        /* 20px / 16 */
-        line-height: 1.5rem;       /* 24px / 16 */
-        letter-spacing: 0.035rem;  /* 0.56px / 16 */
-    }
-
-    p-nosotros {
-        font-size: 1.375rem; /* 22px / 16 */
-        line-height: 1.875rem; /* 30px / 16 */
-        letter-spacing: 0.023125rem; /* 0.37px / 16 */    
-    }
-
-    p-nosotros-1 {
-        font-size: 1rem;         /* 16px / 16 */
-        line-height: 1.25rem;    /* 20px / 16 */
-        letter-spacing: 0.00125rem; /* 0.02px / 16 */
-    }
-
-    .icon-education{
-        width: 40px;
-    }
-
-    .image-info-about-us{
-        width: 40px;
-    }
-}
-
-@media (max-width: 768px) {
-
-    h1-nosotros {
-        font-size: 1.875rem;         /* 30px / 16 */
-        line-height: 2.5rem;         /* 40px / 16 */
-        letter-spacing: 0.01875rem;  /* 0.3px / 16 */
-    }
-    h2-nosotros {
-        font-size: 1.875rem; /* 30px / 16 */
-        line-height: 2.5rem; /* 40px / 16 */
-        letter-spacing: 0.01875rem; /* 0.3px / 16 */
-    }
-
-    h3-nosotros {
-        font-size: 1.25rem;       /* 20px / 16 */
-        line-height: 1.5rem;      /* 24px / 16 */
-        letter-spacing: 0.035rem; /* 0.56px / 16 */
-    }
-
-    p-nosotros {
-        font-size: 1rem; /* 16px / 16 */
-        line-height: 1.5rem; /* 24px / 16 */
-        letter-spacing: 0.016875rem; /* 0.27px / 16 */
-    }
-
-    p-nosotros-1 {
-        font-size: 0.8125rem;   /* 13px / 16 */
-        line-height: 1.125rem;  /* 18px / 16 */
-        letter-spacing: 0.000625rem; /* 0.01px / 16 */
-    }
-
-    .icon-education{
-        width: 30px;
-    }
-
-    .image-info-about-us{ 
-        width: 30px;
-    }
-}
 
 .about-line-left::before {
     content: '';
@@ -988,79 +874,6 @@ input.search {
     height: auto;
 }
 
-@media (max-width: 992px) {
-    h3-directory {
-        font-size: 2.5rem;           /* 40px / 16 */
-        line-height: 2.5rem;         /* 40px / 16 */
-        letter-spacing: 0.07rem;     /* 1.12px / 16 */
-    }
-
-    h4-directory {
-        font-size: 1.375rem;          /* 22px / 16 */
-        line-height: 1.6875rem;       /* 27px / 16 */
-        letter-spacing: 0.03875rem;   /* 0.62px / 16 */
-    }
-
-    p-directory {
-        font-size: 1.125rem;         /* 18px / 16 */
-        line-height: 1.4375rem;      /* 23px / 16 */
-        letter-spacing: 0.02875rem;  /* 0.46px / 16 */
-    }
-
-    input.search {
-        font-size: 0.9375rem;         /* 15px / 16 */
-        line-height: 1.125rem;        /* 18px / 16 */
-        letter-spacing: 0.02625rem;   /* 0.42px / 16 */
-        opacity: 0.9;
-    }
-
-    .logo-buscar{
-        width: 104px;
-        height: auto;
-    }
-
-    .img-horario{
-        width: 390px;
-        height: auto;
-    }
-}
-
-@media (max-width: 768px) {
-    h3-directory {
-        font-size: 2.35rem;           /* 40px / 16 */
-        line-height: 2.5rem;         /* 40px / 16 */
-        letter-spacing: 0.07rem;     /* 1.12px / 16 */
-    }
-
-    h4-directory {
-        font-size: 1.375rem;          /* 22px / 16 */
-        line-height: 1.6875rem;       /* 27px / 16 */
-        letter-spacing: 0.03875rem;   /* 0.62px / 16 */
-    }
-
-    p-directory {
-        font-size: 1rem;         /* 16px / 16 */
-        line-height: 1.25rem;    /* 20px / 16 */
-        letter-spacing: 0.0225rem; /* 0.36px / 16 */
-    }
-
-    input.search {
-        font-size: 0.8125rem;         /* 13px / 16 */
-        line-height: 0.9375rem;       /* 15px / 16 */
-        letter-spacing: 0.0225rem;    /* 0.36px / 16 */
-    }
-
-    .logo-buscar{
-        width: 77px;
-        height: auto;
-    }
-
-    .img-horario{
-        width: 250px;
-        height: auto;
-    }
-}
-
 /* Fin Institutional Directory */
 
 /* Inicio calendarioAcademico */
@@ -1087,60 +900,6 @@ p-calendario {
     font-size: 1.3125rem;        /* 21px / 16 */
     line-height: 1.6875rem;      /* 27px / 16 */
     letter-spacing: 0.036875rem; /* 0.59px / 16 */
-}
-
-@media (max-width: 992px) {
-
-    h2-calendario {
-        font-size: 2.5rem;          /* 40px / 16 */
-        line-height: 2.5rem;        /* 40px / 16 */
-        letter-spacing: 0.07rem;    /* 1.12px / 16 */
-    }
-
-    h3-calendario {
-        font-size: 1.375rem;         /* 22px / 16 */
-        line-height: 1.375rem;       /* 22px / 16 */
-        letter-spacing: 0.03875rem;  /* 0.62px / 16 */
-    }
-
-    h4-calendario {
-        font-size: 0.875rem;        /* 14px / 16 */
-        line-height: 1.0625rem;     /* 17px / 16 */
-        letter-spacing: 0.024375rem;/* 0.39px / 16 */
-    }
-
-    p-calendario {
-        font-size: 0.9375rem;        /* 15px / 16 */
-        line-height: 1.25rem;        /* 20px / 16 */
-        letter-spacing: 0.02625rem;  /* 0.42px / 16 */
-    }
-
-}
-@media (max-width: 768px) {
-    
-    h2-calendario {
-        font-size: 2.5rem;          /* 40px / 16 */
-        line-height: 2.5rem;        /* 40px / 16 */
-        letter-spacing: 0.07rem;    /* 1.12px / 16 */
-    }
-
-    h3-calendario {
-        font-size: 1.375rem;         /* 22px / 16 */
-        line-height: 1.375rem;       /* 22px / 16 */
-        letter-spacing: 0.03875rem;  /* 0.62px / 16 */
-    }
-
-    h4-calendario {
-        font-size: 0.875rem;        /* 14px / 16 */
-        line-height: 1.0625rem;     /* 17px / 16 */
-        letter-spacing: 0.024375rem;/* 0.39px / 16 */
-    }
-
-    p-calendario {
-        font-size: 0.9375rem;        /* 15px / 16 */
-        line-height: 1.25rem;        /* 20px / 16 */
-        letter-spacing: 0.02625rem;  /* 0.42px / 16 */
-    }
 }
 
 
@@ -1200,6 +959,7 @@ p-financieros {
     letter-spacing: 0.04375rem;  /* 0.7px / 16 */
 }
 
+<<<<<<< HEAD
 @media (max-width: 992px) {
     /** nosotros **/
     /** directorio **/
@@ -1256,6 +1016,8 @@ p-financieros {
     }
 }
 
+=======
+>>>>>>> cambiosResponsividadM
 .btn-financiero{
     border: none;
     background: #16224F;
@@ -1365,7 +1127,315 @@ p-financieros {
     height: 2.5rem;
 }
 
-@media (min-width: 992px) {
+
+/* Fin Certificados y papeles */
+
+@media (max-width: 767px) {
+
+    .my-ws{
+        margin-top: 3.3rem !important;
+        margin-bottom: 3.3rem !important;
+    }
+
+    .mt-ws{
+        margin-top: 3.3rem !important;
+    }
+
+    .mb-ws{
+        margin-bottom: 3.3rem !important;
+    }
+
+    /* Footer */
+    p2-footer {
+        font-size: 0.75rem;
+        line-height: 1.4rem;
+        letter-spacing: 0.0225rem;
+    }
+    /* Fin Footer */
+
+    /* Inicio Nosotros */
+
+    h1-nosotros {
+        font-size: 1.875rem;         /* 30px / 16 */
+        line-height: 2.5rem;         /* 40px / 16 */
+        letter-spacing: 0.01875rem;  /* 0.3px / 16 */
+    }
+    h2-nosotros {
+        font-size: 1.875rem; /* 30px / 16 */
+        line-height: 2.5rem; /* 40px / 16 */
+        letter-spacing: 0.01875rem; /* 0.3px / 16 */
+    }
+
+    h3-nosotros {
+        font-size: 1.25rem;       /* 20px / 16 */
+        line-height: 1.5rem;      /* 24px / 16 */
+        letter-spacing: 0.035rem; /* 0.56px / 16 */
+    }
+
+    p-nosotros {
+        font-size: 1rem; /* 16px / 16 */
+        line-height: 1.5rem; /* 24px / 16 */
+        letter-spacing: 0.016875rem; /* 0.27px / 16 */
+    }
+
+    p-nosotros-1 {
+        font-size: 0.8125rem;   /* 13px / 16 */
+        line-height: 1.125rem;  /* 18px / 16 */
+        letter-spacing: 0.000625rem; /* 0.01px / 16 */
+    }
+
+    .icon-education{
+        width: 30px;
+    }
+
+    .image-info-about-us{ 
+        width: 30px;
+    }
+
+    /* Fin Nosotros */
+
+    /* Institutional Directory */
+    h3-directory {
+        font-size: 2.35rem;           /* 40px / 16 */
+        line-height: 2.5rem;         /* 40px / 16 */
+        letter-spacing: 0.07rem;     /* 1.12px / 16 */
+    }
+
+    h4-directory {
+        font-size: 1.375rem;          /* 22px / 16 */
+        line-height: 1.6875rem;       /* 27px / 16 */
+        letter-spacing: 0.03875rem;   /* 0.62px / 16 */
+    }
+
+    p-directory {
+        font-size: 1rem;         /* 16px / 16 */
+        line-height: 1.25rem;    /* 20px / 16 */
+        letter-spacing: 0.0225rem; /* 0.36px / 16 */
+    }
+
+    input.search {
+        font-size: 0.8125rem;         /* 13px / 16 */
+        line-height: 0.9375rem;       /* 15px / 16 */
+        letter-spacing: 0.0225rem;    /* 0.36px / 16 */
+    }
+
+    .logo-buscar{
+        width: 77px;
+        height: auto;
+    }
+
+    .img-horario{
+        width: 250px;
+        height: auto;
+    }
+    /* Fin Institutional Directory */
+
+    /* Calendario academico */
+
+    h2-calendario {
+        font-size: 2.5rem;          /* 40px / 16 */
+        line-height: 2.5rem;        /* 40px / 16 */
+        letter-spacing: 0.07rem;    /* 1.12px / 16 */
+    }
+
+    h3-calendario {
+        font-size: 1.375rem;         /* 22px / 16 */
+        line-height: 1.375rem;       /* 22px / 16 */
+        letter-spacing: 0.03875rem;  /* 0.62px / 16 */
+    }
+
+    h4-calendario {
+        font-size: 0.875rem;        /* 14px / 16 */
+        line-height: 1.0625rem;     /* 17px / 16 */
+        letter-spacing: 0.024375rem;/* 0.39px / 16 */
+    }
+
+    p-calendario {
+        font-size: 0.9375rem;        /* 15px / 16 */
+        line-height: 1.25rem;        /* 20px / 16 */
+        letter-spacing: 0.02625rem;  /* 0.42px / 16 */
+    }
+
+    /* Fin Calendario academico */
+
+    /* Estados financieros */
+    h3-financieros {
+        font-size: 2.25rem;           /* 40px / 16 */
+        line-height: 2.25rem;         /* 40px / 16 */
+        letter-spacing: 0.07rem;     /* 1.12px / 16 */
+    }
+
+    p-financieros {
+        font-size: 1.0625rem;       /* 17px / 16 */
+        line-height: 1.25rem;       /* 20px / 16 */
+        letter-spacing: 0.03rem;    /* 0.48px / 16 */
+    }
+
+    .form-financial input, .form-financial textarea{
+        font-size: 1.25rem !important;        /* 20px / 16 */
+        line-height: 1.5rem !important;       /* 24px / 16 */
+        letter-spacing: 0.035rem !important;  /* 0.56px / 16 */
+    }
+
+    .display-options {
+        font-size: 1.25rem !important;        /* 20px / 16 */
+        line-height: 1.5rem !important;       /* 24px / 16 */
+        letter-spacing: 0.035rem !important;  /* 0.56px / 16 */
+    }
+
+    /* Fin Estados financieros */
+
+    
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .my-ws{
+        margin-top: 5.1rem !important;
+        margin-bottom: 5.1rem !important;
+    }
+
+    .mt-ws{
+        margin-top: 5.1rem !important;
+    }
+
+    .mb-ws{
+        margin-bottom: 5.1rem !important;
+    }
+
+    /* Inicio Nosotros */
+    h1-nosotros {
+        font-size: 2.5rem;          /* 40px / 16 */
+        line-height: 2.5rem;        /* 40px / 16 */
+        letter-spacing: 0.025rem;   /* 0.4px / 16 */
+    }
+
+    h2-nosotros {
+        font-size: 2.5rem; /* 40px / 16 */
+        line-height: 2.5rem; /* 40px / 16 */
+        letter-spacing: 0.025rem; /* 0.4px / 16 */
+    }
+
+    h3-nosotros {
+        font-size: 1.25rem;        /* 20px / 16 */
+        line-height: 1.5rem;       /* 24px / 16 */
+        letter-spacing: 0.035rem;  /* 0.56px / 16 */
+    }
+
+    p-nosotros {
+        font-size: 1.375rem; /* 22px / 16 */
+        line-height: 1.875rem; /* 30px / 16 */
+        letter-spacing: 0.023125rem; /* 0.37px / 16 */    
+    }
+
+    p-nosotros-1 {
+        font-size: 1rem;         /* 16px / 16 */
+        line-height: 1.25rem;    /* 20px / 16 */
+        letter-spacing: 0.00125rem; /* 0.02px / 16 */
+    }
+
+    .icon-education{
+        width: 40px;
+    }
+
+    .image-info-about-us{
+        width: 40px;
+    }
+    /* Fin Nosotros */
+
+    /* Institutional Directory */
+
+    h3-directory {
+        font-size: 2.5rem;           /* 40px / 16 */
+        line-height: 2.5rem;         /* 40px / 16 */
+        letter-spacing: 0.07rem;     /* 1.12px / 16 */
+    }
+
+    h4-directory {
+        font-size: 1.375rem;          /* 22px / 16 */
+        line-height: 1.6875rem;       /* 27px / 16 */
+        letter-spacing: 0.03875rem;   /* 0.62px / 16 */
+    }
+
+    p-directory {
+        font-size: 1.125rem;         /* 18px / 16 */
+        line-height: 1.4375rem;      /* 23px / 16 */
+        letter-spacing: 0.02875rem;  /* 0.46px / 16 */
+    }
+
+    input.search {
+        font-size: 0.9375rem;         /* 15px / 16 */
+        line-height: 1.125rem;        /* 18px / 16 */
+        letter-spacing: 0.02625rem;   /* 0.42px / 16 */
+        opacity: 0.9;
+    }
+
+    .logo-buscar{
+        width: 104px;
+        height: auto;
+    }
+
+    .img-horario{
+        width: 390px;
+        height: auto;
+    }
+    /* Fin Institutional Directory */
+
+
+    /* Calendario academico */
+
+    h2-calendario {
+        font-size: 2.5rem;          /* 40px / 16 */
+        line-height: 2.5rem;        /* 40px / 16 */
+        letter-spacing: 0.07rem;    /* 1.12px / 16 */
+    }
+
+    h3-calendario {
+        font-size: 1.375rem;         /* 22px / 16 */
+        line-height: 1.375rem;       /* 22px / 16 */
+        letter-spacing: 0.03875rem;  /* 0.62px / 16 */
+    }
+
+    h4-calendario {
+        font-size: 0.875rem;        /* 14px / 16 */
+        line-height: 1.0625rem;     /* 17px / 16 */
+        letter-spacing: 0.024375rem;/* 0.39px / 16 */
+    }
+
+    p-calendario {
+        font-size: 0.9375rem;        /* 15px / 16 */
+        line-height: 1.25rem;        /* 20px / 16 */
+        letter-spacing: 0.02625rem;  /* 0.42px / 16 */
+    }
+
+    /* Fin Calendario academico */
+
+    /* Certificados y papeles */
+
+    h3-financieros {
+        font-size: 2.5rem;           /* 40px / 16 */
+        line-height: 2.5rem;         /* 40px / 16 */
+        letter-spacing: 0.07rem;     /* 1.12px / 16 */
+    }
+
+    p-financieros {
+        font-size: 1.0625rem;       /* 17px / 16 */
+        line-height: 1.25rem;       /* 20px / 16 */
+        letter-spacing: 0.03rem;    /* 0.48px / 16 */
+    }
+
+    .form-financial input, .form-financial textarea{
+        font-size: 1.25rem !important;        /* 20px / 16 */
+        line-height: 1.5rem !important;       /* 24px / 16 */
+        letter-spacing: 0.035rem !important;  /* 0.56px / 16 */
+    }
+
+    .display-options {
+        font-size: 1.25rem !important;        /* 20px / 16 */
+        line-height: 1.5rem !important;       /* 24px / 16 */
+        letter-spacing: 0.035rem !important;  /* 0.56px / 16 */
+    }
+
     .text-up-absolute{
         position: absolute;
         top:-90px;
@@ -1373,20 +1443,20 @@ p-financieros {
         padding: 0;
         font-size: 0.8rem;
     }    
+
+    /* Fin Certificados y papeles */
 }
 
 @media (min-width: 1200px) {
+
+    /* Certificados y papeles */
     .text-up-absolute{
         position: absolute;
         top:-50px;
         margin: 0;
         padding: 0;
         font-size: 0.8rem;
-    }    
+    }   
+    /* Fin Certificados y papeles */
 }
-
-/* Fin Certificados y papeles */
-
-
-
 
