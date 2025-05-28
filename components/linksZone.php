@@ -3,12 +3,11 @@
      //-- Funciones --//
 
      function crearLink($datos, $links){
-          $direccion = FlexTitleLoader::setDirection($datos[2]);
           $link = '   
-                    <div class="col-lg-4 col-md-5 col-sm-5 col-5 linksZone-linkGlobal '.$direccion.'"> <!-- Link -->
-                         <img src="'.$datos[0].'" alt="" class="linksZone-img">
-                         <a href="'.$links[$datos[1]].'" class="font-roboto-bolditalic m-0 linksZone-a special-paragraph">'.$datos[1].'</a>
-                    </div> <!-- Link End -->
+                    <div class="col-lg-4 col-md-3 col-sm-6 col-6 linksZone-container linkCarousel-block"> <!-- Link -->
+                         <img src="'.$datos[0].'" alt="" class="img-fluid">
+                         <a href="'.$links[$datos[1]].'">'.$datos[1].'</a>
+                    </div>
           ';
 
           return $link;
@@ -32,15 +31,17 @@
 
           // Renderizando la seccion
           $html .= '
-          <section class="container my-2rem">
-
-               <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                         <h2 class="font-roboto-black text-center tx-blue mb-4">'.$row_datos['titulo'].'</h2>
+          <section class="linksZone-section">
+               <div class="container">
+                    <div class="row">
+                         <div class="col-lg-12">
+                              <h2 class="linksZone-title text-center">'.$row_datos['titulo'].'</h2>
+                         </div>
                     </div>
                </div>
-
-               <div class="row justify-content-evenly">
+          
+               <div class="container position-relative">
+                    <div class="row m-0" id="linksCarousel">
           ';
      }    
 
@@ -67,15 +68,24 @@
 
      // Verificando la visibilidad de la seccion
      if ($html != '') {
+          
 
           foreach($linksDatos as $datos) {
                $html .= crearLink($datos, $links);
           }
 
           $html .= '
+
                     </div>
-               </div>
+
+                    <a role="button" class="col-1" id="linksCarousel_next"></a>
+                    <a role="button" class="col-1" id="linksCarousel_previous"></a>
+               </div\>
           </section>
+          ';
+
+          $html .= '
+          
           ';
      }
 

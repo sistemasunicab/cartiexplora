@@ -4,10 +4,12 @@
 
      function generarItem($rutaIcono, $texto, $posicionTexto) {
           $item = '
-               <div class="col-lg-4 col-md-8 col-sm-12 col-12 modelo-item '.FlexTitleLoader::setDirection($posicionTexto).' align-items-center align-items-lg-start"> <!-- Item -->
-                    <img src="../../../../cartiexplora/'.$rutaIcono.'" alt="" class="mb-5">
-                    <p class="lh-1 font-roboto-black tx-blue text-lg-start text-center">'.$texto.'</p>
+               <div class="col-md-1 d-lg-none d-md-block"></div>
+               <div class="col-lg-4 col-md-10 d-flex '.FlexTitleLoader::setDirection($posicionTexto).' align-items-center align-items-lg-start nuestroModelo-item"> <!-- Item -->
+                    <img src="../../../../cartiexplora/'.$rutaIcono.'" alt="" class="mb-5 nuestroModelo-icon">
+                    <p class="lh-1 nuestroModelo-item-p">'.$texto.'</p>
                </div> <!-- Item End -->
+               <div class="col-md-1 d-lg-none d-md-block"></div>
           ';
 
           return $item;
@@ -38,11 +40,11 @@
           $subtitulo = substr($row_datos_seccion['subTitulo'], strpos($row_datos_seccion['subTitulo'], " ") + 1);
 
           $html .= '
-               <main class="container my-2rem">
-                    <div class="row m-0">
+               <main class="container nuestroModelo-section">
+                    <div class="row">
                          <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                              <h3 class="margin-bottom-2rem tx-orange font-roboto-black">'.$row_datos_seccion['titulo'].'</h3>
-                              <h2 class="margin-bottom-2rem tx-blue font-roboto-light"> <span class="font-roboto-black">'.$titulo.'</span> <br> '.$subtitulo.' </h2>
+                              <h2 class="nuestroModelo-title tx-orange font-roboto-black">'.$row_datos_seccion['titulo'].'</h2>
+                              <h2 class="nuestroModelo-secondTitle tx-blue font-roboto-light"> <span class="font-roboto-black">'.$titulo.'</span> <br> '.$subtitulo.' </h2>
                          </div>
                     </div>
           ';
@@ -65,20 +67,20 @@
           $modeloImg = array_shift($imagenes);
 
           $html .= '
-                    <div class="row '.FlexTitleLoader::setDirection($modeloImg[2]).' m-0">
-                         <div class="d-flex col-lg-6 col-md-12 col-sm-12 col-12 nuestro-modelo-img">
-                              <img class="img-fluid w-100 box-shadow-2rem my-5" src="../../../../cartiexplora/'.$modeloImg[0].'" alt="">
+                    <div class="row '.FlexTitleLoader::setDirection($modeloImg[2]).'">
+                         <div class="col-lg-6 col-md-12 col-sm-12 col-12 d-flex align-items-center">
+                              <img class="img-fluid w-100 box-shadow-2rem" src="../../../../cartiexplora/'.$modeloImg[0].'" alt="">
                          </div>
 
-                         <div class="col-lg-6 col-md-12 col-sm-12 col-12">
-                              <p class="special-paragraph">'.$descripcion.'</p>
+                         <div class="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-last order-first">
+                              <p class="nuestroModelo-p mb-3">'.$descripcion.'</p>
                          </div>
                     </div>
                </main>
 
-               <section class="my-2rem bg-light-gray-o26">
+               <section class="nuestroModelo-secondSection bg-light-gray-o26">
                     <div class="container">
-                         <div class="row justify-content-center align-items-center m-0">
+                         <div class="row py-5">
           ';
 
           foreach ($imagenes as $datos) {

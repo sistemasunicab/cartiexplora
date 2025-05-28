@@ -3,16 +3,18 @@
 
      //-- Funciones --//
 
-     function crearIndicador($datos){
-          $indicator = '                  
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-6 p-3 bg-white indicator mb-sm-4 mb-4 '.FlexTitleLoader::setDirection($datos[2]).' "> <!-- Indicator -->
-                         <img src="'.$datos[0].'" alt="" class="indicator-img img-fluid">
-                         
-                         <div class="indicator-data">
-                              <p class="font-roboto-light indicator-p m-0 p-0 lh-1 little-paragraph-md">'.$datos[1].'</p> 
-                              <h3 class="font-roboto-black p-0 m-0 lh-1 tx-blue">1000</h3>
+     function crearIndicador($datos, $posicion){
+          $indicator = '
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-12 '.$posicion.'">
+                         <div class="indicator-main '.FlexTitleLoader::setDirection($datos[2]).'">
+                              <img src="'.$datos[0].'">
+
+                              <div class="indicator-data">
+                                   <h3 class="lh-1 m-0">1000</h3>
+                                   <p>'.$datos[1].'</p>
+                              </div>
                          </div>
-                    </div> <!-- Indicator End -->
+                    </div>
           ';
 
           return $indicator;
@@ -36,12 +38,12 @@
      while($row_datos = $res_datos->fetch_assoc()){
           // Renderizando la seccion
           $html .= '
-          <section class="bg-blue my-2rem">
+          <section class="bg-blue indicators-section">
                <div class="container py-5">
 
                     <div class="row">
                          <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                              <h3 class="tx-white text-center font-roboto-light lh-1 mb-4">'.$row_datos['titulo'].'</h3>
+                              <h3 class="indicator-title mb-4">'.$row_datos['titulo'].'</h3>
                          </div>
                     </div>
           ';
@@ -62,23 +64,26 @@
      if ($html != '') {
 
           $html .= '
-               <div class="row justify-content-center">
+               <div class="row">
                ';
 
           // Renderizando los indicadores
           $indicator = 0;
           foreach ($indicadoresDatos as $datos) {
                $indicator++;
-               $html .= crearIndicador($datos);
+               $posicion = 'indicator-right';
                
-               if ($indicator < count($indicadoresDatos)) {
-                    $html .= '<div class="col-lg-1 col-md-1"></div>';
+               if ($indicator == 3) {
+                    $posicion = 'indicator-left';
+                    $indicator = 0;
+               }elseif ($indicator > 1) {
+                    $posicion = 'indicator-center';
                }
 
+               $html .= crearIndicador($datos, $posicion);
           }
 
-          $html .= '        
-                    </div>
+          $html .= '
                </div>
           </section>
           ';
