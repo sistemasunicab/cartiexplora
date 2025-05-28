@@ -65,12 +65,16 @@
     for ($i = 0; $i < sizeof($rows_items); $i++) {
         if ($rows_items[$i]['linkImagen'] == '') $link_image = '';
 
+        // Valor por defecto
+        $interval = '2000';
+
         $link_image = $rows_items[$i]['linkImagen'];
         $link_button = $rows_items[$i]['linkBoton'];
         $text_button = $rows_items[$i]['textoBoton'];
         $text = $rows_items[$i]['texto'];
         $top_text = $rows_items[$i]['porcentajeTopTexto'];
         $left_text = $rows_items[$i]['porcentajeLeftTexto'];
+        $interval = $rows_items[$i]['milisegundosSlide'];
         $button_styles = ButtonStylesBannerBuilder::buildStyles($rows_items[$i]['color'], $rows_items[$i]['transparencia'], $rows_items[$i]['porcentajeTop'], $rows_items[$i]['porcentajeLeft']);
 
         $elemento = '';
@@ -109,7 +113,7 @@
 
         // El primer item o div del carrusel debe tener la clase "active", el resto no.
         if ($primerItemCarrusel) {
-            $html .= '<div class="carousel-item active" data-bs-interval="5000">';
+            $html .= '<div class="carousel-item active" data-bs-interval="'.$interval.'">';
             $html .=        $elemento;  
 
             if ($text) {
@@ -123,7 +127,7 @@
             $html .= '</div>';
             $primerItemCarrusel = false;
         } else {
-            $html .= '<div class="carousel-item" data-bs-interval="5000">';
+            $html .= '<div class="carousel-item" data-bs-interval="'.$interval.'">';
             $html .=        $elemento;
 
             if ($text) {

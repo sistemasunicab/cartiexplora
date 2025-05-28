@@ -7,25 +7,25 @@ document.addEventListener("DOMContentLoaded", () => {
     actualizarPorcentajesBotonBanner();
 });
 
-const actualizarPorcentajesBotonBanner = () => {
-    const botones = document.querySelectorAll(
-        ".carousel-item .button-carousel"
-    );
+// const actualizarPorcentajesBotonBanner = () => {
+//     const botones = document.querySelectorAll(
+//         ".carousel-item .button-carousel"
+//     );
     
-    botones.forEach((boton) => {
-        // Almacena los valores originales solo una vez, si no están ya guardados
-        if (!boton.dataset.originalTop) {
-            boton.dataset.originalTop = boton.style.top;
-        }
-        if (!boton.dataset.originalLeft) {
-            boton.dataset.originalLeft = boton.style.left;
-        }
+//     botones.forEach((boton) => {
+//         // Almacena los valores originales solo una vez, si no están ya guardados
+//         if (!boton.dataset.originalTop) {
+//             boton.dataset.originalTop = boton.style.top;
+//         }
+//         if (!boton.dataset.originalLeft) {
+//             boton.dataset.originalLeft = boton.style.left;
+//         }
 
-        boton.style.top = boton.dataset.originalTop;
-        boton.style.left = boton.dataset.originalLeft;
-        boton.style.transform = `translateX(-${boton.dataset.originalLeft})`;
-    });
-};
+//         boton.style.top = boton.dataset.originalTop;
+//         boton.style.left = boton.dataset.originalLeft;
+//         boton.style.transform = `translateX(-${boton.dataset.originalLeft})`;
+//     });
+// };
 
 // Escuchamos el evento resize para ejecutar la verificación cada vez que cambie el ancho de la ventana
 window.addEventListener('resize', actualizarPorcentajesBotonBanner);
