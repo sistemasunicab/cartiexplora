@@ -23,7 +23,7 @@ if ($imagen_boton) {
 foreach ($datos_estados_financieros as $row_datos_estados_financieros) {
     $html_estados_financieros = '<div class="col-lg-9 col-md-12 col-sm-12 col-12 p-0 mx-auto d-flex flex-column">';
     $html_estados_financieros .= '<h3-financieros class="mx-auto col-lg-12 col-md-10 col-sm-10 col-10 tx-blue font-roboto-light-title mb-5">' . $row_datos_estados_financieros['titulo'] . '</h3-financieros>';
-    $html_estados_financieros .= '<div class="btn-financiero col-lg-3 col-md-12 col-sm-12 col-12 d-flex flex-row bg-blue p-0 m-0 mt-0 mb-5 my-lg-5">
+    $html_estados_financieros .= '<div class="btn-financiero col-lg-3 col-md-12 col-sm-12 col-12 d-flex flex-row bg-blue p-0 m-0 mt-0 mb-5 mt-lg-5">
                                 <div class="bg-orange m-0 p-0 col-2" style="height:100%;"></div>
                                 <p-financieros class="py-3 ps-2 ps-lg-3 col-10 font-roboto-bolditalic tx-white my-0">Solicitar información</p-financieros></div>';
     $html_estados_financieros .= '<form id="form_info" class="form-financial col-12 p-0 mx-auto d-flex flex-column">';

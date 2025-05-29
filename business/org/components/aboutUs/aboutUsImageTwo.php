@@ -24,14 +24,14 @@ if (!empty($filasNosotrosTitulo)) {
         $html_nosotrosImgDos .= '<div class="col-1"></div>';
         // Título en una fila completa centrada
         $html_nosotrosImgDos .= '
-            <div class="col-9 tx-blue font-roboto-light-title mb-lg-5 mb-md-3 mb-sm-3 mb-2">
+            <div class="col-9 tx-blue font-roboto-light-title mb-ws">
                 <h1-nosotros>' . $title . '</h1-nosotros>
             </div>';
 
         // Imágenes en una columna centrada
         $html_nosotrosImgDos .= '<div class="col-12 mx-auto p-0 d-flex flex-column align-items-center">';
         foreach ($imagenes as $img) {
-            $html_nosotrosImgDos .= '<img ' . $img['atributos'] . ' class="mt-4 ' . $img['clases'] . '">';
+            $html_nosotrosImgDos .= '<img ' . $img['atributos'] . ' class="' . $img['clases'] . '">';
         }
         $html_nosotrosImgDos .= '</div>';
     }

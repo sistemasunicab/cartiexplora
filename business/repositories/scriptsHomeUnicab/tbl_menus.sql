@@ -18,7 +18,7 @@ INSERT INTO tbl_menus (menu, nivel, padre, icono, linkNivelRaiz, linkNivelTres, 
 ('UNICAB Solutions', '' ,'', '', '', '', ''),
 ('Admisiones', '', '', '', '', '', ''),
 ('Aula Virtual', '', '', '', 'https://aulavirtual.unicab.org/login/', 'https://aulavirtual.unicab.org/login/', '_blank'),
-('Registro Académico', '', '', '', 'http://google.com', '', 'http://google.com'),
+('Registro Académico', '', '', '', 'http://google.com', 'http://google.com', '_blank'),
 ('Correo', '', '', '', 'https://mail.google.com/a/unicab.org/', 'https://mail.google.com/a/unicab.org/', '_blank'),
 
 ('Sobre Nosostros', 'raiz', '1', '', 'business/org/pages/sobreNosotros.php', '../../../business/org/pages/sobreNosotros.php',''),

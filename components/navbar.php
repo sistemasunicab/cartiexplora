@@ -70,10 +70,11 @@ if (empty($menuPrincipal) && $mysqli1->error) {
             $html_base .= '
                 <li class="nav-item bg-aquamarine h-100 py-2 mx-auto py-lg-0 mx-sm-0">
                     <div class="menu-item h-100 m-lg-auto px-lg-2 d-lg-flex">
-                        <div class="menu-item-text first-level-link font-roboto-regular tx-white m-auto"
-                             target="' . $destino . '"
-                             href="' . htmlspecialchars($linkURL, ENT_QUOTES, 'UTF-8') . '">
-                            <a class="a-nav" href="' . htmlspecialchars($linkURL, ENT_QUOTES, 'UTF-8') . '">
+                        <div class="menu-item-text first-level-link font-roboto-regular tx-white m-auto">
+                            <a 
+                                target="' . $destino . '"
+                                class="a-nav" 
+                                href="' . htmlspecialchars($linkURL, ENT_QUOTES, 'UTF-8') . '">
                                 ' . $menuText . '
                             </a>
                             <i class="icon-row fas fa-chevron-right w-auto p-0 mx-2"></i>
@@ -185,8 +186,7 @@ $ruta_logo = $logoRows[0]['ruta'] ?? '';
 
 // 3) Construir $html_logo con un solo bloque:
 $prefix     = $nivelMap[$nivel]['repo_prefix'];
-$logoWidth  = 52.8;
-$logoHeight = 46.2;
+$logoWidth  = 48;//37
 
 $html_logo = '
     <a class="unicab-brand" href="' . $prefix . 'index.php">
@@ -194,8 +194,7 @@ $html_logo = '
           src="' . rutaPorNivel($ruta_logo) . '" 
           alt="" 
           width="' . $logoWidth . '" 
-          height="' . $logoHeight . '" 
-          class="d-inline-block align-text-center"
+          class="h-auto d-inline-block align-text-center"
         >
     </a>';
 

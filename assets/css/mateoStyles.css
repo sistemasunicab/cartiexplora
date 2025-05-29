@@ -487,10 +487,6 @@ ul {
     letter-spacing: 0rem;
 }
 
-#menuDisplay li:last-child{
-    padding-right: 3rem !important;
-}
-
 .unicab-brand {
     width: max-content;
     height: max-content;
@@ -600,6 +596,9 @@ ul {
 
 
 @media (min-width: 992px) {
+    #menuDisplay li:last-child{
+        padding-right: 3rem !important;
+    }
     .menu-item-text:hover {
         background-color: inherit;
         color: var(--medium-gray) !important;

@@ -7,7 +7,7 @@
         $html_directorio .= '<div class="row d-flex flex-row col-12">';
         $html_directorio .= '<h3-directory class="tx-blue font-roboto-light-title col-lg-5 col-12">' . $row_datos_directorio['titulo'] . '</h3-directory>';
         $html_directorio .= '</div>';
-        $html_directorio .= '<div class="row col-lg-8 col-md-8 col-sm-12 col-12 mx-auto my-lg-5 my-4 d-flex flex-column">';
+        $html_directorio .= '<div class="row col-lg-8 col-md-8 col-sm-12 col-12 mx-auto mt-lg-5 mt-4 d-flex flex-column">';
         $html_directorio .= '<h4-directory class="col-lg-8 col-md-12 col-sm-12 col-12 tx-orange font-roboto-light my-auto text-center mb-2">Escríbenos o Llámanos</h4-directory>';
         $html_directorio .= '<div class="d-flex flex-column flex-lg-row justify-content-between">';
         $datosImagen = obtenerFilas($mysqli1, $sentencia, 60);
@@ -44,8 +44,8 @@
         }
 
         // Aquí agregamos un div que manejará el overflow
-        $html_directorio .= '<div class="custom-table table-responsive-lg my-lg-5 my-4">'; // Bootstrap tiene esta clase lista para ti
-        $html_directorio .= '<table id="datos-empelados" class="table table-bordered text-center">';
+        $html_directorio .= '<div class="custom-table table-responsive-lg mt-ws">'; // Bootstrap tiene esta clase lista para ti
+        $html_directorio .= '<table id="datos-empelados" class="table table-bordered text-center my-0">';
         $html_directorio .= '<thead class="bg-bold-blue text-white">';
         $html_directorio .= '<tr>';
 
@@ -116,7 +116,7 @@
             $titulo = $row_data_image['titulo'];
             $image_path = rutaPorNivel($ruta);
         }
-        $html_directorio .= '<div id="horarios" class="row col-10 mt-lg-5 mt-4 p-0 mx-auto d-flex flex-lg-row flex-column justify-content-between">';
+        $html_directorio .= '<div id="horarios" class="row col-10 mt-ws p-0 mx-auto d-flex flex-lg-row flex-column justify-content-between">';
         $html_directorio .= '<div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-md-0 mx-auto ms-lg-0 d-flex flex-column">';
         $html_directorio .= '<img src="' . $image_path . '" class="img-horario" alt="' . $alt . '">';
         $html_directorio .= '</div>';
