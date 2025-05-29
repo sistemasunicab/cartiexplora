@@ -200,3 +200,5 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, ruta
 (10, 'assets/img/tiktok.svg', '', '', '', 'social-media', 'tiktok', '', '', '');
 
 DELETE FROM tbl_imagenes WHERE id = 28;
+UPDATE tbl_imagenes SET ruta = 'assets/img/egresados1.png' WHERE id = 18;
+UPDATE tbl_imagenes SET ruta = 'assets/img/modeloPedagogico.gif' WHERE id = 82;

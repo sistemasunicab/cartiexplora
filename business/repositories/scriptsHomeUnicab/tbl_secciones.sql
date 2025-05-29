@@ -18,7 +18,7 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 ('indicadores', 1, 'home', 'Indicadores que hablan de nosotros', '', ''),
 ('conoceNuetroCampus', 1, 'home', 'Conoce', 'Nuestro Campus', 'CARTI EXPLORA es el Centro de Alto Rendimiento para el Talento y la Inteligencia, es el CAMPUS de UNICAB Corporación Educativa ubicado en el Municipio de Sogamoso para servir a estudiantes de la región, el departamento y el país a través de espacios de aprendizaje que como un laboratorio les permite a los estudiantes explorar su curiosidad, sus habilidades personales, de pensamiento,  interactuando directamente con el deporte, la naturaleza, el arte, la ciencia, la cultura, la tecnología, y estimulando la creatividad, la investigación y el desarrollo socioemocional de manera autónoma.'),
 ('zonaDeEnlaces', 1, 'home', 'Zona de Enlaces', '', ''),
-('blogConectados', 1, 'home', 'Noticias Destacadas', '', ''),
+('blogConectados', 1, 'home', 'Blog', '', ''),
 ('navBar', 1, 'home', '', '', ''),
 ('footer', 1,'home', '', '', ''),
 ('navBarSolutions', 1, 'home', '', '', ''),
@@ -64,3 +64,6 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 
 INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, texto) VALUES 
 ('costos', 1, 'admisiones', '', 'Consulta aquí los costos aprobados por la Secretaría de Educación de Sogamoso para el año 2025', '');
+
+UPDATE tbl_secciones SET titulo = 'Noticias Destacadas' WHERE id = 32;
+UPDATE tbl_secciones SET titulo = 'Noticias Destacadas' WHERE id = 8;
