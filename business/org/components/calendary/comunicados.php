@@ -20,10 +20,10 @@ if (!empty($rowsVisible)) {
 
         $html_communication  = '<div class="col-lg-7 col-md-7 col-sm-9 col-9 mx-auto d-flex flex-column p-0">';
         $html_communication .= '  <div class="d-flex flex-column col-lg-10 col-md-10 col-sm-12 col-12 m-auto">';
-        $html_communication .= '    <h2-calendario class="font-roboto-bold tx-blue m-auto mb-5">'
+        $html_communication .= '    <h2-calendario class="font-roboto-bold tx-blue m-auto mb-ws">'
                              . htmlspecialchars($row_data_visible['titulo'], ENT_QUOTES, 'UTF-8') .
                              '</h2-calendario>';
-
+        $html_communication .= '<div class="gap-lg-5 gap-4">';
         if (!empty($rowsFiles)) {
             foreach ($rowsFiles as $row_data_files) {
                 $nombreArchivo = htmlspecialchars($row_data_files['nombrArchivo'] ?? 'Documento sin título', ENT_QUOTES, 'UTF-8');
@@ -31,7 +31,7 @@ if (!empty($rowsVisible)) {
                 $rutaArchivo   = $row_data_files['ruta'] ?? '';
                 $archivo_path  = rutaPorNivel($rutaArchivo);
 
-                $html_communication .= '    <div class="row file-container d-flex align-items-center justify-content-between mt-5">';
+                $html_communication .= '    <div class="row file-container d-flex align-items-center justify-content-between">';
                 // Lado izquierdo: texto (nombre y fecha)
                 $html_communication .= '      <div class="col-7 d-flex flex-column text-start">';
                 $html_communication .= '        <p-calendario class="font-roboto-bold mb-0">' . $nombreArchivo . '</p-calendario>';
@@ -46,7 +46,7 @@ if (!empty($rowsVisible)) {
                 $html_communication .= '    </div>';
             }
         }
-
+        $html_communication .= '</div>';
         $html_communication .= '  </div>';
         $html_communication .= '</div>';
     }

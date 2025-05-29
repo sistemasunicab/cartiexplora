@@ -487,16 +487,6 @@ ul {
     letter-spacing: 0rem;
 }
 
-#menuDisplay li:last-child{
-    padding-right: 3rem !important;
-}
-
-@media (max-width: 992px) {
-    #menuDisplay li:last-child{
-        padding-right: 0rem !important;
-    }
-}
-
 .unicab-brand {
     width: max-content;
     height: max-content;
@@ -606,6 +596,9 @@ ul {
 
 
 @media (min-width: 992px) {
+    #menuDisplay li:last-child{
+        padding-right: 3rem !important;
+    }
     .menu-item-text:hover {
         background-color: inherit;
         color: var(--medium-gray) !important;
@@ -1301,6 +1294,10 @@ p-financieros {
 
     .mb-ws{
         margin-bottom: 5.1rem !important;
+    }
+
+    #menuDisplay li:last-child{
+        padding-right: 0rem !important;
     }
 
     /* Inicio Nosotros */
