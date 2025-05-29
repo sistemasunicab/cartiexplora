@@ -18,14 +18,14 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 ('indicadores', 1, 'home', 'Indicadores que hablan de nosotros', '', ''),
 ('conoceNuetroCampus', 1, 'home', 'Conoce', 'Nuestro Campus', 'CARTI EXPLORA es el Centro de Alto Rendimiento para el Talento y la Inteligencia, es el CAMPUS de UNICAB Corporación Educativa ubicado en el Municipio de Sogamoso para servir a estudiantes de la región, el departamento y el país a través de espacios de aprendizaje que como un laboratorio les permite a los estudiantes explorar su curiosidad, sus habilidades personales, de pensamiento,  interactuando directamente con el deporte, la naturaleza, el arte, la ciencia, la cultura, la tecnología, y estimulando la creatividad, la investigación y el desarrollo socioemocional de manera autónoma.'),
 ('zonaDeEnlaces', 1, 'home', 'Zona de Enlaces', '', ''),
-('blogConectados', 1, 'home', 'Blog', '', ''),
+('blogConectados', 1, 'home', 'Noticias Destacadas', '', ''),
 ('navBar', 1, 'home', '', '', ''),
 ('footer', 1,'home', '', '', ''),
 ('navBarSolutions', 1, 'home', '', '', ''),
 
 ('sobreNosotrosUnicab', 1,'sobreNosotros', '¿Qué es <b>UNICAB CORPORACIÓN EDUCATIVA?</b>', '', 'La UNIDAD DE CAPACITACIÓN EMPRESARIAL DE BOYACÁ “<b>UNICAB CORPORACIÓN EDUCATIVA</b>” es una institución sin ánimo de lucro, creada hace 23 años a través de la Secretaría de Participación Social de la Gobernación de Boyacá, que presta servicios de educación formal e informal con más de 23 años de experiencia y que cuenta con la siguiente estructura orgánica:'),
 ('sobreNosotrosImagenesUne', 1,'sobreNosotros', '', '', ''),
-('sobreNosotrosEducacionFormal', 1,'sobreNosotros', '<b>Colegio</b><br> UNICAB Virtual', '(Educación Formal)', ''),
+('sobreNosotrosEducacionFormal', 1,'sobreNosotros', '<b>Colegio</b><br> UNICAB Virtual ', '(Educación Formal)', ''),
 ('sobreNosotrosImagenesDos', 1,'sobreNosotros', '', '', ''),
 ('sobreNosotrosQuinesSomos', 1,'sobreNosotros', '', '', ''),
 ('directorioInstitucional', 1, '', '<b>DIRECTORIO</b> INSTITUCIONAL','',''),
@@ -48,4 +48,19 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 
 ('busqueda', 1, 'blog', '<span class="font-roboto-black">Celebrando Logros y</span><br>Compartiendo Experiencias', '', ''),
 ('noticias', 1,'blog', 'Noticias Destacadas', '', ''),
-('lastPost', 1, 'blog', '', '', '');
+('lastPost', 1, 'blog', '', '', ''),
+
+('entrevista', 1, 'admisiones', 'Admisiones', 'Entrevistas', ''),
+('botonFlotante', 1, 'home', '', '', ''),
+
+('resultadoPreAdmisiones', 1, 'admisiones', 'Admisiones', 'Resultado Pre Admisiones', '')
+;
+
+INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, texto) VALUES 
+('BlogPost', 1, 'blogpost', '', '', ''),
+('Presaberes', 1, 'presaberes', 'Evaluacion Presaberes', '(Se recomienda utilizar navegadores diferentes a Internet Explorer)', ''),
+('pagos', '1', 'admisiones', '', '', '')
+;
+
+INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, texto) VALUES 
+('costos', 1, 'admisiones', '', 'Consulta aquí los costos aprobados por la Secretaría de Educación de Sogamoso para el año 2025', '');
