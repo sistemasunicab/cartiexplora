@@ -16,13 +16,15 @@ INSERT INTO tbl_enlaces (id_seccion, identificacion, link) VALUES
 
 INSERT INTO tbl_enlaces (id_seccion, identificacion, link) VALUES 
 (7, 'Nuestros estudiantes', 'business/org/pages/nuestrosEstudiantes.php'),
-(7, 'Egresados', '#'),
+(7, 'Egresados', 'business/org/pages/egresados.php'),
 (7, 'Testimonios', '#'),
 (7, 'Calendario académico', 'business/org/pages/calendario.php'),
 (7, 'Manual de convivencia', '#'),
 (7, 'Biblioteca', 'https://unicab.org/biblioteca/Biblioteca_Unicab/'),
-(7, 'Entidades que nos vigilan', '#'),
+(7, 'Entidades que nos vigilan', '#footer_entidades'),
 (7, 'Evidencias de congresos y reconocimientos', '#'),
-(7, 'Padres de Familia: Horarios de atención', '#'),
-(7, 'Directorio', '#'),
-(7, 'Investigación', '#');
+(7, 'Horarios de atención', 'business/org/pages/directorioInstitucional.php#horarios'),
+(7, 'Directorio', 'business/org/pages/directorioInstitucional.php'),
+(7, 'Investigación', 'business/org/pages/publicacionesAcademicas.php');
+
+DELETE FROM tbl_enlaces WHERE id = 8;

@@ -1,35 +1,32 @@
 <!--// Blog //-->
 <?php
      //-- Funciones --//
-     
-     function construirAtributosBlog($rutaImagenNormal, $rutaImagenEncima) {
-          $atributos = '';
-
-          $rutaEncima = '|'.$rutaImagenEncima.'|';
-          $rutaNormal = '|'.$rutaImagenNormal.'|';
-
-          $atributos .= 'onmouseover="cambiarImagenBlog(this, '.str_replace('|', "'", $rutaEncima).')" ';
-          $atributos .= 'onmouseout="restaurarImagenBlog(this, '.str_replace('|', "'", $rutaNormal).')" ';
-
-          return $atributos;
-     }
-
-     function generarBlog($datos) {
+     function generarBlog($datos, $position) {
           $bloque = '
-          <div class="col-lg-2 col-md-4 col-sm-8 col-8 p-0 d-flex align-items-center flex-column transform-hover" '.construirAtributosBlog($datos['rutaImagen'], $datos['rutaImagenEncima']).' > <!-- Block start -->
-               <img src="'.$datos['rutaImagen'].'" alt="" class="blog-img box-shadow-o5rem">
-               
+               <div class="col-lg-4 col-md-4 col-sm-12 col-12 '.$position.'">
+                    <div class="noticias-hover">
+                         <div class="noticias-img-effect">
+                              <img src="'.$datos['rutaImagen'].'" class="noticias-img">
+                         </div>
 
-               <div class="p-3 bg-white box-shadow-o5rem blog-blocksize d-flex flex-column justify-content-between w-100">
-                    <div>
-                         <p class="little-paragraph m-0">'.$datos['fechaPublicacion'].'</p>
-                         <h4 class="font-roboto-bolditalic m-0">'.$datos['tituloBlog'].'</h4>
+                         <div class="noticias-container">
+                              <div class="noticias-box d-flex flex-column justify-content-between">
+                                   <div>
+                                        <p class="noticias-date lh-1">'.$datos['fechaPublicacion'].'</p>
+                                        <p class="noticias-title lh-1">'.$datos['tituloBlog'].'</p>
+                                   </div>     
+                                   
+                                   <p class="noticias-p lh-1">'.substr($datos['descripcion'], 0, 197).'...</p>
+                                   
+                                   <div>
+                                        <a href="business/org/pages/blog.php?blogId='.$datos['blogId'].'#blog_post" class="noticias-link lh-1">'.$datos['textoBoton'].'</a>
+                                        <hr class="noticias-littlebar">
+                                   </div>
+                              </div>
+                         </div>
                     </div>
-
-                    <p class="m-0 little-paragraph text-center">'.substr($datos['descripcion'], 0, 100).'</p>
-                    <a href="business/org/pages/blogPost.php?blogId='.urlencode($datos['blogId']).'" class="font-roboto-italic">'.$datos['textoBoton'].'</a> 
                </div>
-          </div> <!-- Block End -->';
+          ';
           
           return $bloque;
      }
@@ -54,7 +51,7 @@
 
           // Renderizando la seccion
           $html .= '
-          <section class="container my-2rem">
+          <section class="container noticias-section">
           ';
      }
 
@@ -81,7 +78,6 @@
      while($row_datos = $res_datos->fetch_assoc()){
           $blogs[] = [
                'rutaImagen' => $row_datos['imagen'],
-               'rutaImagenEncima' => $row_datos['imagenEncima'],
                'fechaPublicacion' => $row_datos['fechaPublicacion'],
                'descripcion' => $row_datos['descripcionPrincipal'], 
                'textoBoton' => $row_datos['textoBoton'],
@@ -105,48 +101,74 @@
      if ($html != '') {
           
           $html .= '
-          <div class="row gap-5">
+          <div class="row mb-4">
                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                    <hr class="blog-separator">
-               </div>
-          
-               <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                    <img src="'.$datosImagenes[0][0].'" alt="" class="img-fluid d-block mx-auto" style="width: 15rem;">
-               </div>
-
-               <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                    <h2 class="text-center font-roboto-black">'.$titulo.'</h2>    
+                    <hr class="noticias-separator" style="height: 3px;">
                </div>
           </div>
-               
-          <div class="row justify-content-lg-around justify-content-center my-4 gap-5">
+          
+          <div class="row mb-4">
+               <div class="col-lg-5 col-md-5 col-sm-3 col-3"></div>
+               <div class="col-lg-2 col-md-2 col-sm-6 col-6">
+                    <img src="'.$datosImagenes[0][0].'" alt="" class="img-fluid mx-auto">
+               </div>
+               <div class="col-lg-5 col-md-5 col-sm-3 col-3"></div>
+          </div>
+
+          <div class="row mb-4">
+               <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                    <h2 class="noticias-mainTitle">'.$titulo.'</h2>    
+               </div>
+          </div>
+
+          <div class="row my-4">
           ';
 
+          $blogActual = 0;
           foreach($blogs as $datosBlog) {
-               $html .= generarBlog($datosBlog);
+               $blogActual++;
+               $position = 'noticias-left';
+               if ($blogActual == 3) {
+                    $position = 'noticias-right';
+                    $blogActual = 0;
+               }elseif ($blogActual > 1) {
+                    $position = 'noticias-center';
+               }
+
+               $html .= generarBlog($datosBlog, $position);
           } 
 
           array_shift($datosImagenes);
           $direction = FlexTitleLoader::setDirection($datosImagenes[0][2]);
-
+          
           $html .= '
                </div>
-
-               <div class="row m-0">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-end p-0">
-                         <p class="text-start special-paragraph font-roboto-lightitalic m-0">'.$parametros[0]['t1'].'</p>
-                    </div>    
-               </div>
                
-               <div class="row justify-content-end m-0">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 p-0 d-flex justify-content-end blog-newsletter">
-                         <input type="email" placeholder="Ingresa tu correo" class="input-form-item"></input>
-
-                         <a href="#" class="blog-btn blog-subscribe '.$direction.'">
-                              <img src="'.$datosImagenes[0][0].'" alt="" class="img-fluid">
-                              <p class="font-roboto-mediumitalic special-paragraph m-0">'.$datosImagenes[0][3].'</p>
-                         </a>
+               <div class="row">
+                    <div class="col-lg-8 col-md-6 col-sm-1 col-1"></div>
+                    <div class="col-lg-4 col-md-6 col-sm-11 col-11">
+                         <p class="noticias-newsletter-p text-end w-100">'.$parametros[0]['t1'].'</p>
                     </div>
+               </div>
+
+               <div class="row">
+                    <div class="col-lg-8 col-md-6 col-sm-4 col-1"></div>
+                    <div class="col-lg-4 col-md-6 col-sm-8 col-11">
+                         <div class="row m-0 noticias-newsletter-main">
+                              <div class="col-8 p-0">
+                                   <input class="noticias-newsletter-input" placeholder="Ingresa tu correo">
+                              </div>
+
+                              <button class="col-4 bg-green noticias-newsletter-btn">
+                                   <img src="'.$datosImagenes[0][0].'">
+                                   '.$datosImagenes[0][3].'
+                              </button>
+                         </div>
+                    </div>
+               </div>
+          ';
+       
+          $html .= '
                </div>
           </section>
           ';

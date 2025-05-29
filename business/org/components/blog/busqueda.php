@@ -31,14 +31,20 @@
     while ($row_datos_seccion = $res_seccion_dos->fetch_assoc()) {
         // renderiza la seccion
         $html .= '
-          <main class="container my-2rem">
-               <div class="row justify-content-center align-items-center '.FlexTitleLoader::setDirection($datosImgTitulo[1]).' gap-4">
-                    <div class="col-lg-2 col-md-2 col-sm-5 col-5">
+          <main class="container logros-busqueda-section">
+               <div class="row">
+                    <div class="col-lg-5 col-md-4 col-sm-2 col-2"></div>
+                    <div class="col-lg-2 col-md-4 col-sm-8 col-8">
                          <img '.ImageAttributeBuilder::BuildAttributes($nivel, $datosImgTitulo[0]).' alt="" class="img-fluid w-100">
                     </div>
-                    <div class="col-lg-7 col-md-7 col-sm-12 col-12 d-flex gap-5 align-items-center">
-                         <h2 class="font-roboto-light tx-blue">'.$row_datos_seccion['titulo'].'</h2>
+                    <div class="col-lg-5 col-md-4 col-sm-2 col-2"></div>
+               </div>
+               <div class="row">
+                    <div class="col-lg-3 col-md-2"></div>
+                    <div class="col-lg-6 col-md-8 col-sm-12 col-12 d-flex gap-5 align-items-center">
+                         <h2 class="logros-title">'.$row_datos_seccion['titulo'].'</h2>
                     </div>
+                    <div class="col-lg-3 col-md-2"></div>
                </div>
           </main>';
     }
@@ -66,27 +72,42 @@
 
     if ($html != '') {
         $html .= '
-          <section class="my-2rem">
+          <section class="mt-4">
                <div class="bg-bold-blue">
-                    <div class="container">
-                         <div class="blogsearch-main row justify-content-center">
+                    <div class="container py-5">
+                         <div class="row mb-5">
                     '; 
 
+          $linkActual = 0;
         foreach ($links as $link) {
+          $linkActual++;
+          $position = 'logros-busquedaSecciones-right';
+
+          if ($linkActual == 3) {
+               $position = 'logros-busquedaSecciones-left';
+               $linkActual = 0;
+          }elseif ($linkActual > 1) {
+               $position = 'logros-busquedaSecciones-center';
+          }
+
           $html .= '
-               <div class="col-lg-3 col-md-7 col-sm-12 col-12 mb-4 d-flex justify-content-center">
-                    <a href="" class="blogsearch-link bg-orange w-100 d-flex align-items-center justify-content-center">'.$link["linkName"].'</a>
+               <div class="col-md-3 d-lg-none d-block"></div>
+               <div class="col-lg-4 col-md-6 col-sm-12 col-12 d-flex justify-content-center '.$position.'">
+                    <a href="" class="bg-orange w-100 logros-busqueda-link">'.$link["linkName"].'</a>
                </div>
+               <div class="col-md-3 d-lg-none d-block"></div>
           ';
         }
 
         $html .= '
                </div>
 
-          <div class="row pb-5">
-               <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex align-items-center justify-content-center">
-                    <input type="text" class="blogsearch-bar text-lg-start text-center" placeholder="'.$searchBar["placeholder"].'" id="searchbar-blog">
+          <div class="row mt-5">
+               <div class="col-lg-2 col-md-1 col-sm- col-1"></div>
+               <div class="col-lg-8 col-md-10 col-sm-10 col-10 d-flex p-0 align-items-center justify-content-center">
+                    <input type="text" class="logros-busqueda-barra text-lg-start text-center" placeholder="'.$searchBar["placeholder"].'" id="searchbar-blog">
                </div>
+               <div class="col-lg-2 col-md-1 col-sm-1 col-1"></div>
         ';
 
         $html .= '

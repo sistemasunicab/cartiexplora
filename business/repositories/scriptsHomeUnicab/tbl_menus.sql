@@ -55,6 +55,4 @@ INSERT INTO tbl_menus (menu, nivel, padre, icono, linkNivelRaiz, linkNivelTres, 
 ('Nuestros Estudiantes', 'raiz', '1', '', 'business/org/pages/nuestrosEstudiantes.php', '../../../business/org/pages/nuestrosEstudiantes.php', ''),
 ('Blog', 'raiz', '1', '', 'business/org/pages/blog.php', '../../../business/org/pages/blog.php', '');
 
-
-
-
+UPDATE tbl_menus SET menu = "Celebrando Logros" WHERE id = 35;
