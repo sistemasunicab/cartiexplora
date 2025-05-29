@@ -36,7 +36,7 @@
         $html .=        '<div class="col-lg-12 col-md-6 col-sm-12 col-12">';
         $html .=            '<h2 class="font-roboto-light-title h2-publicaciones">' . $row_sentencia['titulo'] . '</h2>';
         $html .=        '</div>';
-        $html .=        '<div class="col-lg-0 col-md-6 col-sm-0 col-0">';
+        $html .=        '<div class="col-lg-0 col-md-6 col-sm-0 col-0"></div>';
         $html .=    '</div>';
         
         

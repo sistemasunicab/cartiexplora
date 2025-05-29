@@ -3,7 +3,7 @@
     {
         if (strtolower($posicionTitulo) == 'abajo') {
             return
-                '<a href="'.$enlace.'" class="img-container d-flex flex-column align-items-center gap-4 p-0 my-3">' . "\n" .
+                '<a href="'.$enlace.'" class="img-container d-flex flex-column align-items-center gap-4 py-4">' . "\n" .
                      $imgHTML . "\n" .
                      '<p class="text-center p-habilidades">' . $titulo . '</p>' . "\n" .
                 '</a>' . "\n";
@@ -21,7 +21,7 @@
                 '</a>' . "\n";
         } else if (strtolower($posicionTitulo) == 'arriba') {
             return
-                '<a href="'.$enlace.'" class="img-container d-flex flex-column-reverse align-items-center gap-2 p-0 my-3">' . "\n" .
+                '<a href="'.$enlace.'" class="img-container d-flex flex-column-reverse align-items-center gap-2" py-2>' . "\n" .
                     $imgHTML . "\n" .
                     '<p class="text-center p-habilidades">' . $titulo . '</p>' . "\n" .
                 '</a>' . "\n";
@@ -79,7 +79,7 @@
 
         $res_imagenes = $mysqli1->query($sql_imagenes);
 
-        $html .=    '<div class="row p-lg-0 p-md-0 px-sm-3 px-3 ">';
+        $html .=    '<div class="row">';
 
         while ($row_imagenes = $res_imagenes->fetch_assoc()) {
             $html .=    '<div class="col-lg-2 col-md-4 col-sm-4 col-4 line">';

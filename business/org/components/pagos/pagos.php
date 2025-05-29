@@ -294,10 +294,10 @@
                              '<div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-4">'.
                                  '<h3 class="titulo-secciones-pagos">'.$titulosSeccionesPago[0].'</h3>'.
                              '</div>'.
-                             '<div class="col-lg-6 col-md-6 col-sm-12 col-12 text-center">'.
+                             '<div class="col-lg-6 col-md-6 col-sm-12 col-12 text-center form-block-pagos">'.
                                  '<input type="'. $txtRef['tipo'] .'" id="'. $txtRef['campo'] .'" placeholder="'. $txtRef['placeHolder'] .'" onkeyup="validarCampo(this, \'Referencia de pago\', \'texto1\', 1, \'btnpagar\'); validarConsulta();" class="form-control campoFormulario input-pagos" '. $txtRef['obligatorio'] .' '. $txtRef['soloLectura'] .' '. $txtRef['habilitado'] .'>'.
                              '</div>'.
-                             '<div class="col-lg-6 col-md-6 col-sm-12 col-12">'.
+                             '<div class="col-lg-6 col-md-6 col-sm-12 col-12 form-block-pagos">'.
                                  '<input type="'. $txtValorRef['tipo'] .'" id="'. $txtValorRef['campo'] .'" class="inactivo form-control input-pagos" placeholder="'. $txtValorRef['placeHolder'] .'" '. $txtValorRef['obligatorio'] .' '. $txtValorRef['soloLectura'] .' '. $txtValorRef['habilitado'] .'>'.
                              '</div>'.
                              '<div class="col-lg-12 col-md-12 col-sm-12 col-12 my-2 text-center">'.
@@ -308,19 +308,19 @@
                              '<div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-4">'.
                                  '<h3 class="titulo-secciones-pagos">'.$titulosSeccionesPago[1].'</h3>'.
                              '</div>'.
-                             '<div class="col-lg-6 col-md-6 col-sm-12 col-12 text-center">'.
+                             '<div class="col-lg-6 col-md-6 col-sm-12 col-12 text-center form-block-pagos">'.
                                  '<label class="label-valor-manual-pagos" for="'. $txtNumDoc['campo'] .'">Documento estudiante</label>'.
                                  '<input type="'. $txtNumDoc['tipo'] .'" id="'. $txtNumDoc['campo'] .'" placeholder="'. $txtNumDoc['placeHolder'] .'" onkeyup="validarCampo(this, \'Documento estudiante\', \'numero\', 1, \'btnpagar\');" class="form-control campoFormulario input-pagos" '. $txtNumDoc['obligatorio'] .' '. $txtNumDoc['soloLectura'] .' '. $txtNumDoc['habilitado'] .'>'.
                              '</div>'.
-                             '<div class="col-lg-6 col-md-6 col-sm-12 col-12 text-center">'.
+                             '<div class="col-lg-6 col-md-6 col-sm-12 col-12 text-center form-block-pagos">'.
                                  '<label class="label-valor-manual-pagos" for="'. $txtAnio['campo'] .'">Año</label>'.
                                  '<input type="'. $txtAnio['tipo'] .'" id="'. $txtAnio['campo'] .'" placeholder="'. $txtAnio['placeHolder'] .'" onkeyup="validarCampo(this, \'Año\', \'numero\', 1, \'btnpagar\');" class="form-control campoFormulario input-pagos" '. $txtAnio['obligatorio'] .' '. $txtAnio['soloLectura'] .' '. $txtAnio['habilitado'] .'>'.
                              '</div>'.
-                             '<div class="col-lg-6 col-md-6 col-sm-12 col-12 text-center">'.
+                             '<div class="col-lg-6 col-md-6 col-sm-12 col-12 text-center form-block-pagos">'.
                                  '<label class="label-valor-manual-pagos" for="'.$txtValor['campo'].'">Ingrese valor a pagar</label>'.
                                  '<input type="'.$txtValor['tipo'].'" id="'.$txtValor['campo'].'" placeholder="'.$txtValor['placeHolder'].'" onkeyup="validarCampo(this, \'Valor a pagar\', \'numero\', 1, \'btnpagar\');" class="form-control campoFormulario input-pagos" '.$txtValor['obligatorio'].' '.$txtValor['soloLectura'].' '.$txtValor['habilitado'].'>'.
                              '</div>'.
-                             '<div class="col-lg-6 col-md-6 col-sm-12 col-12 text-center">'.
+                             '<div class="col-lg-6 col-md-6 col-sm-12 col-12 text-center form-block-pagos">'.
                                   '<div class="margin-valor-manual-pagos">'.
                                     '<div id="conceptoalert" class="form-group select-alert">'.
                                         '<select id="selconcepto" name="selconcepto" class="form-select-pagos campoFormulario font-roboto-medium" required>'.
