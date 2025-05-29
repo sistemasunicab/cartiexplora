@@ -200,3 +200,8 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, ruta
 (10, 'assets/img/tiktok.svg', '', '', '', 'social-media', 'tiktok', '', '', '');
 
 
+DELETE FROM tbl_imagenes WHERE id = 142 AND ruta = 'assets/img/pagos/ref_pago.png';
+UPDATE tbl_imagenes SET posicionTitulo = 'izquierda' WHERE (id = 139);
+UPDATE tbl_imagenes SET posicionTitulo = 'izquierda' WHERE (id = 135);
+UPDATE tbl_imagenes SET rutaMovil = 'assets/img/bannerPrincipios.png', rutaTabletaVertical = 'assets/img/bannerPrincipios.png', rutaTabletaHorizontal = 'assets/img/bannerPrincipios.png' WHERE (id = 97);
+

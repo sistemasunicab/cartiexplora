@@ -4,47 +4,40 @@ $(function () {
 
 document.addEventListener("DOMContentLoaded", () => {
     galeriaEstudiantes();
-    actualizarPorcentajesBotonBanner();
+    // actualizarPorcentajesBotonBanner();
 });
 
-const actualizarPorcentajesBotonBanner = () => {
-    const botones = document.querySelectorAll(
-        ".carousel-item .button-carousel"
-    );
-    const anchoActual = window.innerWidth;
-    botones.forEach((boton) => {
-        // Almacena los valores originales solo una vez, si no están ya guardados
-        if (!boton.dataset.originalTop) {
-            boton.dataset.originalTop = boton.style.top;
-        }
-        if (!boton.dataset.originalLeft) {
-            boton.dataset.originalLeft = boton.style.left;
-        }
-        if (anchoActual < 768) {
-            boton.style.top = "50%";
-            boton.style.left = "50%";
-            boton.style.transform = "translate(-50%, -50%)";
-        } else if (anchoActual >= 768) {
-            boton.style.top = boton.dataset.originalTop;
-            boton.style.left = boton.dataset.originalLeft;
-            boton.style.transform = "";
-        }
-    });
-};
+// const actualizarPorcentajesBotonBanner = () => {
+//     const botones = document.querySelectorAll(
+//         ".carousel-item .button-carousel"
+//     );
+    
+//     botones.forEach((boton) => {
+//         // Almacena los valores originales solo una vez, si no están ya guardados
+//         if (!boton.dataset.originalTop) {
+//             boton.dataset.originalTop = boton.style.top;
+//         }
+//         if (!boton.dataset.originalLeft) {
+//             boton.dataset.originalLeft = boton.style.left;
+//         }
+
+//         boton.style.top = boton.dataset.originalTop;
+//         boton.style.left = boton.dataset.originalLeft;
+//         boton.style.transform = `translateX(-${boton.dataset.originalLeft})`;
+//     });
+// };
 
 // Escuchamos el evento resize para ejecutar la verificación cada vez que cambie el ancho de la ventana
-window.addEventListener('resize', actualizarPorcentajesBotonBanner);
+// window.addEventListener('resize', actualizarPorcentajesBotonBanner);
 
 /* Script Galeria Nuestros Estudiantes */
 const galeriaEstudiantes = () => {
-    const items = document.querySelectorAll(".galeria div .item");
+    const items = document.querySelectorAll(".galeria-nuestros-estudiantes div .item-nuestros-estudiantes");
 
     items.forEach((item) => {
         item.addEventListener("click", () => {
-            // Elimina la clase seleccionada de la imagen actualmente seleccionada
-            document
-                .querySelector(".item-seleccionado")
-                .classList.remove("item-seleccionado");
+            document.querySelector(".item-nuestros-estudiantes__seleccionado")
+                .classList.remove("item-nuestros-estudiantes__seleccionado");
 
             const itemImg = item.querySelector("img");
             const imgGrande = document.querySelector("#imagen-grande-galeria");
@@ -52,7 +45,7 @@ const galeriaEstudiantes = () => {
             imgGrande.src = itemImg.src;
             imgGrande.alt = itemImg.alt;
 
-            item.classList.add("item-seleccionado");
+            item.classList.add("item-nuestros-estudiantes__seleccionado");
         });
     });
 };
@@ -85,16 +78,16 @@ const descargarArchivo = (nivel, path, nombreNuevoArchivo, destino) => {
 };
 
 const leerMasPrincipios = (id, boton) => {
-    let tresPuntos = document.querySelector(`#${id} .show`);
-    let textoOculto = document.querySelector(`#${id} .hide`);
+    let tresPuntos = document.querySelector(`#${id} .show-principios`);
+    let textoOculto = document.querySelector(`#${id} .hide-principios`);
 
     //Oculta o Muestra tres puntos ...
-    tresPuntos.classList.toggle("show");
-    tresPuntos.classList.toggle("hide");
+    tresPuntos.classList.toggle("show-principios");
+    tresPuntos.classList.toggle("hide-principios");
 
     //Oculta o muestra el texto escondido
-    textoOculto.classList.toggle("hide");
-    textoOculto.classList.toggle("show");
+    textoOculto.classList.toggle("hide-principios");
+    textoOculto.classList.toggle("show-principios");
 
     boton.innerText =
         boton.innerText === "Leer más" ? "Leer menos" : "Leer más";
