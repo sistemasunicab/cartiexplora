@@ -1133,7 +1133,7 @@ input[type="checkbox"] {
 .datos-quienpaga-titulo-pagos {
     background-color: var(--bold-blue);
     padding: 1.063rem;
-    margin-left: 2rem;
+    margin-left: 4rem;
     color: white;
     font-size: 1.563rem;
     font-family: var(--roboto-bolditalic);
