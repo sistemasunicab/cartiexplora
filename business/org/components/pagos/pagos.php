@@ -245,7 +245,7 @@
                     '</div>'.
                  '</section>'.
                  '<section class="container section-pagos">'.
-                     '<form action="" id="pagosform">'.
+                     '<div id="pagosform">'.
                          '<div class="row radio-btn-section-pagos">'.
                             '<div class="col-lg-6 col-md-12 col-sm-12 col-12 my-lg-0 my-4 text-lg-center text-start">'.
                                 '<input type="'. $radioReferencia['tipo'] .'" id="'.$radioReferencia['campo'].'" name="opvalor" value="0" class="mx-3 radio-btn">'.
@@ -338,10 +338,10 @@
                          '</div>'.
                          '<div class="row">'.
                              '<div class="col-lg-12 col-md-12 col-sm-12 col-12 my-2 text-center">'.
-                                 '<button id="'.$btnPagar['campo'].'" type="'.$btnPagar['tipo'].'" class="pagos-btn w-50 bg-green text-uppercase" onclick="">'.$btnPagar['texto'].'</button>'.
+                                 '<button id="'.$btnPagar['campo'].'" type="'.$btnPagar['tipo'].'" class="pagos-btn w-50" onclick="">'.$btnPagar['texto'].'</button>'.
                              '</div>'.
                          '</div>'.
-                     '</form>'.
+                     '</div>'.
                  '</section>'.
                  '<div id="alert" style="margin-left: 2rem;">'.
                      '<p><i class="fa fa-warning"></i><span>: </span><label id="pdesc"></label>'.
