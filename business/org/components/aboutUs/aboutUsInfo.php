@@ -32,9 +32,7 @@ if (!empty($filasInfoCheck)) {
 ?>
 
 <div class="container-fluid my-ws mx-0 p-0">
-    <div class="row m-0 p-0">
-        <?php
-        echo $html_info ?? '';
-        ?>
-    </div>
+    <?php
+    echo $html_info ?? '';
+    ?>
 </div>

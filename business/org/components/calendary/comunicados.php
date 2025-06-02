@@ -23,7 +23,7 @@ if (!empty($rowsVisible)) {
         $html_communication .= '    <h2-calendario class="font-roboto-bold tx-blue m-auto mb-ws">'
                              . htmlspecialchars($row_data_visible['titulo'], ENT_QUOTES, 'UTF-8') .
                              '</h2-calendario>';
-        $html_communication .= '<div class="gap-lg-5 gap-4">';
+        $html_communication .= '<div class="d-flex flex-column gap-lg-5 gap-4">';
         if (!empty($rowsFiles)) {
             foreach ($rowsFiles as $row_data_files) {
                 $nombreArchivo = htmlspecialchars($row_data_files['nombrArchivo'] ?? 'Documento sin título', ENT_QUOTES, 'UTF-8');

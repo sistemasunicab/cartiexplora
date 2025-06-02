@@ -8,7 +8,7 @@ $rowsContenidoEducacion = obtenerFilas($mysqli1, $sentencia, 41);
 if (!empty($rowsTitulosEducacion)) {
     $html_educacion .= '<div class="row col-12 mx-auto p-0 m-0">';
     
-    $html_educacion .= '<div class="col-0 col-lg-1"></div>';
+    $html_educacion .= '<div class="col-0 col-lg-1 p-0 m-0"></div>';
     // Columna izquierda: títulos
     $html_educacion .= '<div class="col-10 col-lg-4 d-flex flex-column p-0 gap-5 mx-auto mx-lg-0">';
     foreach ($rowsTitulosEducacion as $row) {
@@ -16,7 +16,7 @@ if (!empty($rowsTitulosEducacion)) {
         $subTitulo = $row['subTitulo'];
 
         $html_educacion .= '
-            <div class="mx-auto mx-lg-0 mt-lg-20 text-center text-lg-start mb-lg-3 mb-ws d-flex flex-column gap-3">
+            <div class="mt-lg-20 mb-lg-3 mb-ws d-flex flex-column gap-3 ms-lg-0 ms-4">
                 <h2-nosotros class="tx-blue font-roboto-light-title">' . $titulo . '</h2-nosotros>
                 <h3-nosotros class="tx-black font-roboto-bold">' . $subTitulo . '</h3-nosotros>
             </div>';
@@ -44,7 +44,7 @@ if (!empty($rowsTitulosEducacion)) {
         }
 
         $html_educacion .= '</div>';
-        $html_educacion .= '<div class="col-0 col-lg-1"></div>';
+        $html_educacion .= '<div class="col-0 col-lg-1 p-0 m-0"></div>';
     }
 
     $html_educacion .= '</div>'; // Cierra row
@@ -52,7 +52,5 @@ if (!empty($rowsTitulosEducacion)) {
 ?>
 
 <div class="container-fluid my-ws mx-0 p-0">
-   <div class="row m-0 p-0">
-      <?= $html_educacion ?>
-   </div>
+    <?= $html_educacion ?>
 </div>

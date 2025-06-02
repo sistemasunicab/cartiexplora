@@ -6,21 +6,21 @@ body {
     overflow-x: hidden;
 }
 
-.my-ws{
+.my-ws {
     margin-top: 7.8rem !important;
     margin-bottom: 7.8rem !important;
 }
 
-.mt-ws{
+.mt-ws {
     margin-top: 7.8rem !important;
 }
 
-.mb-ws{
+.mb-ws {
     margin-bottom: 7.8rem !important;
 }
 
 @media (min-width: 992px) {
-    .my-lg-0{
+    .my-lg-0 {
         margin-top: 0 !important;
         margin-bottom: 0 !important;
     }
@@ -330,19 +330,19 @@ body {
     .mr-md-10 {
         margin-right: 6rem !important;
     }
-    
+
     .ml-md-10 {
         margin-left: 6rem !important;
     }
-    
+
     .mb-md-10 {
         margin-bottom: 6rem !important;
     }
-    
+
     .mt-md-10 {
         margin-top: 6rem !important;
     }
-    
+
     .my-md-10 {
         margin-bottom: 6rem !important;
         margin-top: 6rem !important;
@@ -352,28 +352,28 @@ body {
         margin-left: 6rem !important;
         margin-right: 6rem !important;
     }
-    
+
     .mt-md-20 {
         margin-top: 12rem !important;
     }
-    
+
     .mb-md-20 {
         margin-bottom: 12rem !important;
     }
-    
+
     .mr-md-20 {
         margin-right: 12rem !important;
     }
-    
+
     .ml-md-20 {
         margin-left: 12rem !important;
     }
-    
+
     .my-md-20 {
         margin-bottom: 12rem !important;
         margin-top: 12rem !important;
     }
-    
+
     .mx-md-20 {
         margin-left: 12rem !important;
         margin-right: 12rem !important;
@@ -384,19 +384,19 @@ body {
     .mr-lg-10 {
         margin-right: 6rem !important;
     }
-    
+
     .ml-lg-10 {
         margin-left: 6rem !important;
     }
-    
+
     .mb-lg-10 {
         margin-bottom: 6rem !important;
     }
-    
+
     .mt-lg-10 {
         margin-top: 6rem !important;
     }
-    
+
     .my-lg-10 {
         margin-bottom: 6rem !important;
         margin-top: 6rem !important;
@@ -406,28 +406,28 @@ body {
         margin-left: 6rem !important;
         margin-right: 6rem !important;
     }
-    
+
     .mt-lg-20 {
         margin-top: 12rem !important;
     }
-    
+
     .mb-lg-20 {
         margin-bottom: 12rem !important;
     }
-    
+
     .mr-lg-20 {
         margin-right: 12rem !important;
     }
-    
+
     .ml-lg-20 {
         margin-left: 12rem !important;
     }
-    
+
     .my-lg-20 {
         margin-bottom: 12rem !important;
         margin-top: 12rem !important;
     }
-    
+
     .mx-lg-20 {
         margin-left: 12rem !important;
         margin-right: 12rem !important;
@@ -456,8 +456,9 @@ ul {
 
 
 .error {
-    background: #FBE5E7;
+    background: #FBE5E7 !important;
 }
+
 #alert {
     position: fixed;
     bottom: 0;
@@ -471,6 +472,7 @@ ul {
     border: 1px solid transparent;
     border-radius: 0.25rem;
 }
+
 #pdesc {
     font-size: 1rem;
 }
@@ -481,7 +483,8 @@ ul {
 
 /* NavBar */
 
-.a-nav, .p-nav{
+.a-nav,
+.p-nav {
     font-size: 1rem;
     line-height: 1.2rem;
     letter-spacing: 0rem;
@@ -509,7 +512,7 @@ ul {
     display: block !important;
 }
 
-.menu-item-text{
+.menu-item-text {
     text-align: center;
     width: 90%;
     padding: 0.5em;
@@ -535,7 +538,7 @@ ul {
     cursor: pointer;
 }
 
-.menu-item-text.hover svg{
+.menu-item-text.hover svg {
     transform: rotate(180deg);
 }
 
@@ -596,29 +599,31 @@ ul {
 
 
 @media (min-width: 992px) {
-    #menuDisplay li:last-child{
+    #menuDisplay li:last-child {
         padding-right: 3rem !important;
     }
+
     .menu-item-text:hover {
         background-color: inherit;
         color: var(--medium-gray) !important;
         cursor: pointer;
     }
-    
+
     .menu-item-text.hover {
         background-color: inherit;
         color: var(--medium-gray) !important;
         cursor: pointer;
     }
-    
+
     .dropdown_our-item {
         border-bottom: 2px solid rgba(86, 190, 243, 0.97);
     }
+
     #menuDisplay {
         background-color: inherit;
     }
 
-    .menu-item-text{
+    .menu-item-text {
         width: fit-content;
     }
 
@@ -693,7 +698,7 @@ ul {
         box-sizing: border-box;
     }
 
-    .mt-md-10{
+    .mt-md-10 {
         margin-top: 6rem !important;
     }
 
@@ -705,6 +710,7 @@ ul {
         max-width: 200px;
     }
 }
+
 /* Fin navBar */
 
 /* Footer */
@@ -768,41 +774,56 @@ p4-footer {
 /* Inicio aboutUs */
 
 h1-nosotros {
-    font-size: 4.6875rem;      /* 75px / 16 */
-    line-height: 4.6875rem;    /* 75px / 16 */
-    letter-spacing: 0.13125rem; /* 2.1px / 16 */
+    font-size: 4.6875rem;
+    /* 75px / 16 */
+    line-height: 4.6875rem;
+    /* 75px / 16 */
+    letter-spacing: 0.13125rem;
+    /* 2.1px / 16 */
 }
 
 h2-nosotros {
-    font-size: 3.75rem;         /* 60px */
-    line-height: 3.75rem;       /* 60px */
-    letter-spacing: 0.105rem;   /* 1.68px */
+    font-size: 3.75rem;
+    /* 60px */
+    line-height: 3.75rem;
+    /* 60px */
+    letter-spacing: 0.105rem;
+    /* 1.68px */
 }
 
 h3-nosotros {
-    font-size: 2.5rem;        /* 40px / 16 */
-    line-height: 3rem;        /* 48px / 16 */
-    letter-spacing: 0.07rem;  /* 1.12px / 16 */
+    font-size: 2.5rem;
+    /* 40px / 16 */
+    line-height: 3rem;
+    /* 48px / 16 */
+    letter-spacing: 0.07rem;
+    /* 1.12px / 16 */
 }
 
 p-nosotros {
-    font-size: 1.3125rem; /* 21px */
-    line-height: 2.1875rem; /* 35px */
-    letter-spacing: 0.0225rem; /* 0.36px */
-}
-  
-p-nosotros-1 {
-    font-size: 1.3125rem; /* 21px / 16 */
-    line-height: 1.5625rem; /* 25px / 16 */
-    letter-spacing: 0.0225rem; /* 0.36px / 16 */
+    font-size: 1.3125rem;
+    /* 21px */
+    line-height: 2.1875rem;
+    /* 35px */
+    letter-spacing: 0.0225rem;
+    /* 0.36px */
 }
 
-.icon-education{
+p-nosotros-1 {
+    font-size: 1.3125rem;
+    /* 21px / 16 */
+    line-height: 1.5625rem;
+    /* 25px / 16 */
+    letter-spacing: 0.0225rem;
+    /* 0.36px / 16 */
+}
+
+.icon-education {
     width: 60px;
     height: auto;
 }
 
-.image-info-about-us{
+.image-info-about-us {
     width: 63px;
     height: auto;
     box-sizing: border-box;
@@ -827,43 +848,58 @@ p-nosotros-1 {
 /* Inicio Institutional Directory */
 
 h3-directory {
-    font-size: 3.125rem;         /* 50px / 16 */
-    line-height: 3.75rem;        /* 60px / 16 */
-    letter-spacing: 0.0875rem;   /* 1.4px / 16 */
+    font-size: 3.125rem;
+    /* 50px / 16 */
+    line-height: 3.75rem;
+    /* 60px / 16 */
+    letter-spacing: 0.0875rem;
+    /* 1.4px / 16 */
 }
 
 h4-directory {
-    font-size: 2.5rem;            /* 40px / 16 */
-    line-height: 3rem;            /* 48px / 16 */
-    letter-spacing: 0.07rem;      /* 1.12px / 16 */
+    font-size: 2.5rem;
+    /* 40px / 16 */
+    line-height: 3rem;
+    /* 48px / 16 */
+    letter-spacing: 0.07rem;
+    /* 1.12px / 16 */
 }
 
-p-directory{
-    font-size: 2.5rem;        /* 40px / 16 */
-    line-height: 3rem;        /* 48px / 16 */
-    letter-spacing: 0.07rem;  /* 1.12px / 16 */
+p-directory {
+    font-size: 2.5rem;
+    /* 40px / 16 */
+    line-height: 3rem;
+    /* 48px / 16 */
+    letter-spacing: 0.07rem;
+    /* 1.12px / 16 */
 }
 
 input.search {
-    font-size: 1.5625rem;        /* 25px / 16 */
-    line-height: 1.875rem;       /* 30px / 16 */
-    letter-spacing: 0.04375rem;  /* 0.7px / 16 */
+    font-size: 1.5625rem;
+    /* 25px / 16 */
+    line-height: 1.875rem;
+    /* 30px / 16 */
+    letter-spacing: 0.04375rem;
+    /* 0.7px / 16 */
     opacity: 0.9;
 }
 
-.custom-table{
-    font-size: 1.125rem;       /* 18px / 16 */
-    line-height: 1.5rem;       /* 24px / 16 */
-    letter-spacing: 0rem;      /* 0px / 16 */
+.custom-table {
+    font-size: 1.125rem;
+    /* 18px / 16 */
+    line-height: 1.5rem;
+    /* 24px / 16 */
+    letter-spacing: 0rem;
+    /* 0px / 16 */
 }
 
-.logo-buscar{
-    width: 148px;
+.logo-buscar {
+    max-width: 148px;
     height: auto;
 }
 
-.img-horario{
-    width: 500px;
+.img-horario {
+    max-width: 500px;
     height: auto;
 }
 
@@ -872,27 +908,39 @@ input.search {
 /* Inicio calendarioAcademico */
 
 h2-calendario {
-    font-size: 3.75rem;         /* 60px / 16 */
-    line-height: 3.75rem;       /* 60px / 16 */
-    letter-spacing: 0.105rem;   /* 1.68px / 16 */
+    font-size: 3.75rem;
+    /* 60px / 16 */
+    line-height: 3.75rem;
+    /* 60px / 16 */
+    letter-spacing: 0.105rem;
+    /* 1.68px / 16 */
 }
 
 h3-calendario {
-    font-size: 3.5625rem;        /* 57px / 16 */
-    line-height: 3.5625rem;      /* 57px / 16 */
-    letter-spacing: 0.1rem;      /* 1.6px / 16 */
+    font-size: 3.5625rem;
+    /* 57px / 16 */
+    line-height: 3.5625rem;
+    /* 57px / 16 */
+    letter-spacing: 0.1rem;
+    /* 1.6px / 16 */
 }
 
 h4-calendario {
-    font-size: 2.375rem;        /* 38px / 16 */
-    line-height: 2.875rem;      /* 46px / 16 */
-    letter-spacing: 0.06625rem; /* 1.06px / 16 */
+    font-size: 2.375rem;
+    /* 38px / 16 */
+    line-height: 2.875rem;
+    /* 46px / 16 */
+    letter-spacing: 0.06625rem;
+    /* 1.06px / 16 */
 }
 
 p-calendario {
-    font-size: 1.3125rem;        /* 21px / 16 */
-    line-height: 1.6875rem;      /* 27px / 16 */
-    letter-spacing: 0.036875rem; /* 0.59px / 16 */
+    font-size: 1.3125rem;
+    /* 21px / 16 */
+    line-height: 1.6875rem;
+    /* 27px / 16 */
+    letter-spacing: 0.036875rem;
+    /* 0.59px / 16 */
 }
 
 
@@ -914,7 +962,7 @@ p-calendario {
 }
 
 .calendary-event {
-    aspect-ratio: 1 / 1; 
+    aspect-ratio: 1 / 1;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -929,58 +977,60 @@ p-calendario {
 /* Fin calendarioAcademico */
 
 /* Estados financieros */
-.btn-financiero{
+.btn-financiero {
     border: none;
     background: #16224F;
 }
 
-.btn-financiero div{
+.btn-financiero div {
     background: #FFD156;
 }
 
 /* Inicio Certificados y papeles */
 
 h3-financieros {
-    font-size: 3.75rem;         /* 60px / 16 */
-    line-height: 3.75rem;       /* 60px / 16 */
-    letter-spacing: 0.105rem;   /* 1.68px / 16 */
+    font-size: 3.75rem;
+    /* 60px / 16 */
+    line-height: 3.75rem;
+    /* 60px / 16 */
+    letter-spacing: 0.105rem;
+    /* 1.68px / 16 */
 }
 
 p-financieros {
-    font-size: 1.5625rem;        /* 25px / 16 */
-    line-height: 1.875rem;       /* 30px / 16 */
-    letter-spacing: 0.04375rem;  /* 0.7px / 16 */
+    font-size: 1.5625rem;
+    /* 25px / 16 */
+    line-height: 1.875rem;
+    /* 30px / 16 */
+    letter-spacing: 0.04375rem;
+    /* 0.7px / 16 */
 }
 
-.btn-financiero{
+.btn-financiero {
     border: none;
     background: #16224F;
 }
 
-.btn-financiero div{
+.btn-financiero div {
     background: #FFD156;
 }
 
-.form-financial input, .form-financial textarea{
-    text-align: center !important;
-    border: 3.3px solid #42C3AE !important;
-    border-radius: 8px !important;
-    padding-inline: .5rem !important;
-    padding-block: 1.35rem !important;
+.form-financial input,
+.form-financial textarea {
+    box-sizing: border-box;
+    border: 2px solid #42C3AE !important;
+    border-radius: 5px !important;
     color: var(--medium-gray) !important;
-    font-size: 1.5625rem;        /* 25px / 16 */
-    line-height: 1.875rem;       /* 30px / 16 */
-    letter-spacing: 0.04375rem;  /* 0.7px / 16 */
 }
 
-.form-financial input:focus, .form-financial textarea:focus{
+.form-financial input:focus,
+.form-financial textarea:focus {
     outline: none;
-    border: 3.4px solid #42C3AE !important;
     box-shadow: 0 0 10px 0 rgba(66, 195, 174, 0.5);
 }
 
 
-.form-financial #tratamiento_certificaciones{
+.form-financial #tratamiento_certificaciones {
     padding: .5rem !important;
 }
 
@@ -990,7 +1040,10 @@ p-financieros {
     align-items: center;
 }
 
-.display-options {
+/* “Select” personalizado: ocultamos completamente la flecha nativa */
+.select-wrapper .display-options {
+    white-space: nowrap;
+    overflow: hidden;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -998,62 +1051,87 @@ p-financieros {
     height: 100%;
     border: none;
     text-align: left;
-    padding-inline: .5rem !important;
-    padding-block: 1.35rem !important;
     border-radius: 0.25rem;
-    font-size: 1.5625rem;        /* 25px / 16 */
-    line-height: 1.875rem;       /* 30px / 16 */
-    letter-spacing: 0.04375rem;  /* 0.7px / 16 */
-    /* border: 3px solid #42C3AE !important; */
+    padding: 0.5rem 1rem;
+    /* ajusta un poco el padding si quieres */
+    color: var(--white);
+    cursor: pointer;
 }
 
-.display-options:focus{
+/* Cuando está enfocado (por validación, por ejemplo) */
+.select-wrapper .display-options:focus {
     outline: none;
     box-shadow: 0 0 10px 0 rgba(66, 195, 174, 0.5);
 }
 
-.display-options option{
-    margin-block: 1rem;
-    background-color: var(--blue);
-    height: 100%;
-    border: none;
-    font-family: var(--roboto-regular);
-    font-size: 1rem;
+.select-wrapper .selected-value {
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
 }
 
-.display-options option{
-    color: var(--white);
-}
-
-.display-options option:disabled{
-    color: var(--white);
-}
-
-.btn-submit-financial{
-    border-radius: 10px;
-}
-
-.select-arrow {
+/* Flecha que aparece a la derecha (la sustituye por completo a la nativa) */
+.select-wrapper .select-arrow {
     background-color: var(--bold-blue);
     color: #FFD156;
     font-size: 1.5rem;
     height: 100%;
     display: flex;
-    border: none;
     align-items: center;
     justify-content: center;
     border-top-right-radius: 0.25rem;
     border-bottom-right-radius: 0.25rem;
-    /*
-    border-block: 3px solid #42C3AE !important;
-    border-right: 3px solid #42C3AE !important;
-    */
     position: absolute;
     right: 0;
+    top: 0;
+    padding: 0 0.5rem;
+    pointer-events: none;
+    /* para que el click pase al “trigger” */
+    user-select: none;
 }
 
-.display-options.error{
-    background: #FBE5E7;
+/* Reglas para las opciones cuando se despliega el dropdown */
+.custom-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--orange);
+    border-top: none;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    max-height: 0;
+    overflow-y: auto;
+    transition: max-height 0.3s ease;
+    z-index: 99;
+}
+
+/* Cuando abrimos (añadimos clase .open a .custom-select), expandimos */
+.custom-select.open .custom-options {
+    max-height: 200px;
+    /* o lo que necesites para que quepan 4–5 ítems */
+}
+
+/* Cada opción interna */
+.custom-option {
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    color: var(--white);
+    font-family: var(--roboto-regular);
+    font-size: 1rem;
+    background-color: var(--blue);
+}
+
+.custom-option:hover {
+    background-color: #3a5d8f;
+    /* un tono ligeramente diferente cuando haga hover */
+}
+
+.select-wrapper.error {
+    border-radius: 0.25rem;
+}
+
+.select-wrapper.error .display-options {
+    background: #FBE5E7 !important;
     color: var(--medium-gray) !important;
 }
 
@@ -1061,21 +1139,30 @@ p-financieros {
     height: 2.5rem;
 }
 
+.text-up-absolute {
+    position: absolute;
+    top: -60px;
+    margin: 0;
+    padding: 0;
+    font-size: 0.8rem;
+}
+
+
 
 /* Fin Certificados y papeles */
 
 @media (max-width: 767px) {
 
-    .my-ws{
+    .my-ws {
         margin-top: 3.3rem !important;
         margin-bottom: 3.3rem !important;
     }
 
-    .mt-ws{
+    .mt-ws {
         margin-top: 3.3rem !important;
     }
 
-    .mb-ws{
+    .mb-ws {
         margin-bottom: 3.3rem !important;
     }
 
@@ -1085,44 +1172,61 @@ p-financieros {
         line-height: 1.4rem;
         letter-spacing: 0.0225rem;
     }
+
     /* Fin Footer */
 
     /* Inicio Nosotros */
 
     h1-nosotros {
-        font-size: 1.875rem;         /* 30px / 16 */
-        line-height: 2.5rem;         /* 40px / 16 */
-        letter-spacing: 0.01875rem;  /* 0.3px / 16 */
+        font-size: 1.875rem;
+        /* 30px / 16 */
+        line-height: 2.5rem;
+        /* 40px / 16 */
+        letter-spacing: 0.01875rem;
+        /* 0.3px / 16 */
     }
+
     h2-nosotros {
-        font-size: 1.875rem; /* 30px / 16 */
-        line-height: 2.5rem; /* 40px / 16 */
-        letter-spacing: 0.01875rem; /* 0.3px / 16 */
+        font-size: 1.875rem;
+        /* 30px / 16 */
+        line-height: 2.5rem;
+        /* 40px / 16 */
+        letter-spacing: 0.01875rem;
+        /* 0.3px / 16 */
     }
 
     h3-nosotros {
-        font-size: 1.25rem;       /* 20px / 16 */
-        line-height: 1.5rem;      /* 24px / 16 */
-        letter-spacing: 0.035rem; /* 0.56px / 16 */
+        font-size: 1.25rem;
+        /* 20px / 16 */
+        line-height: 1.5rem;
+        /* 24px / 16 */
+        letter-spacing: 0.035rem;
+        /* 0.56px / 16 */
     }
 
     p-nosotros {
-        font-size: 1rem; /* 16px / 16 */
-        line-height: 1.5rem; /* 24px / 16 */
-        letter-spacing: 0.016875rem; /* 0.27px / 16 */
+        font-size: 1rem;
+        /* 16px / 16 */
+        line-height: 1.5rem;
+        /* 24px / 16 */
+        letter-spacing: 0.016875rem;
+        /* 0.27px / 16 */
     }
 
     p-nosotros-1 {
-        font-size: 0.8125rem;   /* 13px / 16 */
-        line-height: 1.125rem;  /* 18px / 16 */
-        letter-spacing: 0.000625rem; /* 0.01px / 16 */
+        font-size: 0.8125rem;
+        /* 13px / 16 */
+        line-height: 1.125rem;
+        /* 18px / 16 */
+        letter-spacing: 0.000625rem;
+        /* 0.01px / 16 */
     }
 
-    .icon-education{
+    .icon-education {
         width: 30px;
     }
 
-    .image-info-about-us{ 
+    .image-info-about-us {
         width: 30px;
     }
 
@@ -1130,220 +1234,288 @@ p-financieros {
 
     /* Institutional Directory */
     h3-directory {
-        font-size: 2.35rem;           /* 40px / 16 */
-        line-height: 2.5rem;         /* 40px / 16 */
-        letter-spacing: 0.07rem;     /* 1.12px / 16 */
+        font-size: 2.35rem;
+        /* 40px / 16 */
+        line-height: 2.5rem;
+        /* 40px / 16 */
+        letter-spacing: 0.07rem;
+        /* 1.12px / 16 */
     }
 
     h4-directory {
-        font-size: 1.375rem;          /* 22px / 16 */
-        line-height: 1.6875rem;       /* 27px / 16 */
-        letter-spacing: 0.03875rem;   /* 0.62px / 16 */
+        font-size: 1.375rem;
+        /* 22px / 16 */
+        line-height: 1.6875rem;
+        /* 27px / 16 */
+        letter-spacing: 0.03875rem;
+        /* 0.62px / 16 */
     }
 
     p-directory {
-        font-size: 1rem;         /* 16px / 16 */
-        line-height: 1.25rem;    /* 20px / 16 */
-        letter-spacing: 0.0225rem; /* 0.36px / 16 */
+        font-size: 1rem;
+        /* 16px / 16 */
+        line-height: 1.25rem;
+        /* 20px / 16 */
+        letter-spacing: 0.0225rem;
+        /* 0.36px / 16 */
     }
 
     input.search {
-        font-size: 0.8125rem;         /* 13px / 16 */
-        line-height: 0.9375rem;       /* 15px / 16 */
-        letter-spacing: 0.0225rem;    /* 0.36px / 16 */
+        font-size: 0.8125rem;
+        /* 13px / 16 */
+        line-height: 0.9375rem;
+        /* 15px / 16 */
+        letter-spacing: 0.0225rem;
+        /* 0.36px / 16 */
     }
 
-    .logo-buscar{
-        width: 77px;
+    .logo-buscar {
+        max-width: 77px;
         height: auto;
     }
 
-    .img-horario{
-        width: 250px;
+    .img-horario {
+        max-width: 250px;
         height: auto;
     }
+
     /* Fin Institutional Directory */
 
     /* Calendario academico */
 
     h2-calendario {
-        font-size: 2.5rem;          /* 40px / 16 */
-        line-height: 2.5rem;        /* 40px / 16 */
-        letter-spacing: 0.07rem;    /* 1.12px / 16 */
+        font-size: 2.5rem;
+        /* 40px / 16 */
+        line-height: 2.5rem;
+        /* 40px / 16 */
+        letter-spacing: 0.07rem;
+        /* 1.12px / 16 */
     }
 
     h3-calendario {
-        font-size: 1.375rem;         /* 22px / 16 */
-        line-height: 1.375rem;       /* 22px / 16 */
-        letter-spacing: 0.03875rem;  /* 0.62px / 16 */
+        font-size: 1.375rem;
+        /* 22px / 16 */
+        line-height: 1.375rem;
+        /* 22px / 16 */
+        letter-spacing: 0.03875rem;
+        /* 0.62px / 16 */
     }
 
     h4-calendario {
-        font-size: 0.875rem;        /* 14px / 16 */
-        line-height: 1.0625rem;     /* 17px / 16 */
-        letter-spacing: 0.024375rem;/* 0.39px / 16 */
+        font-size: 0.875rem;
+        /* 14px / 16 */
+        line-height: 1.0625rem;
+        /* 17px / 16 */
+        letter-spacing: 0.024375rem;
+        /* 0.39px / 16 */
     }
 
     p-calendario {
-        font-size: 0.9375rem;        /* 15px / 16 */
-        line-height: 1.25rem;        /* 20px / 16 */
-        letter-spacing: 0.02625rem;  /* 0.42px / 16 */
+        font-size: 0.9375rem;
+        /* 15px / 16 */
+        line-height: 1.25rem;
+        /* 20px / 16 */
+        letter-spacing: 0.02625rem;
+        /* 0.42px / 16 */
     }
 
     /* Fin Calendario academico */
 
     /* Estados financieros */
     h3-financieros {
-        font-size: 2.25rem;           /* 40px / 16 */
-        line-height: 2.25rem;         /* 40px / 16 */
-        letter-spacing: 0.07rem;     /* 1.12px / 16 */
+        font-size: 2.25rem;
+        /* 40px / 16 */
+        line-height: 2.25rem;
+        /* 40px / 16 */
+        letter-spacing: 0.07rem;
+        /* 1.12px / 16 */
     }
 
     p-financieros {
-        font-size: 1.0625rem;       /* 17px / 16 */
-        line-height: 1.25rem;       /* 20px / 16 */
-        letter-spacing: 0.03rem;    /* 0.48px / 16 */
+        font-size: 1.0625rem;
+        /* 17px / 16 */
+        line-height: 1.25rem;
+        /* 20px / 16 */
+        letter-spacing: 0.03rem;
+        /* 0.48px / 16 */
     }
 
-    .form-financial input, .form-financial textarea{
-        font-size: 1.25rem !important;        /* 20px / 16 */
-        line-height: 1.5rem !important;       /* 24px / 16 */
-        letter-spacing: 0.035rem !important;  /* 0.56px / 16 */
-    }
-
-    .display-options {
-        font-size: 1.25rem !important;        /* 20px / 16 */
-        line-height: 1.5rem !important;       /* 24px / 16 */
-        letter-spacing: 0.035rem !important;  /* 0.56px / 16 */
+    .text-up-absolute {
+        position: absolute;
+        top: 0px;
+        margin: 0;
+        padding: 0;
+        font-size: 0.8rem;
     }
 
     /* Fin Estados financieros */
 
-    
+
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
 
-    .my-ws{
+    .my-ws {
         margin-top: 5.1rem !important;
         margin-bottom: 5.1rem !important;
     }
 
-    .mt-ws{
+    .mt-ws {
         margin-top: 5.1rem !important;
     }
 
-    .mb-ws{
+    .mb-ws {
         margin-bottom: 5.1rem !important;
     }
 
-    #menuDisplay li:last-child{
+    #menuDisplay li:last-child {
         padding-right: 0rem !important;
     }
 
     /* Inicio Nosotros */
     h1-nosotros {
-        font-size: 2.5rem;          /* 40px / 16 */
-        line-height: 2.5rem;        /* 40px / 16 */
-        letter-spacing: 0.025rem;   /* 0.4px / 16 */
+        font-size: 2.5rem;
+        /* 40px / 16 */
+        line-height: 2.5rem;
+        /* 40px / 16 */
+        letter-spacing: 0.025rem;
+        /* 0.4px / 16 */
     }
 
     h2-nosotros {
-        font-size: 2.5rem; /* 40px / 16 */
-        line-height: 2.5rem; /* 40px / 16 */
-        letter-spacing: 0.025rem; /* 0.4px / 16 */
+        font-size: 2.5rem;
+        /* 40px / 16 */
+        line-height: 2.5rem;
+        /* 40px / 16 */
+        letter-spacing: 0.025rem;
+        /* 0.4px / 16 */
     }
 
     h3-nosotros {
-        font-size: 1.25rem;        /* 20px / 16 */
-        line-height: 1.5rem;       /* 24px / 16 */
-        letter-spacing: 0.035rem;  /* 0.56px / 16 */
+        font-size: 1.25rem;
+        /* 20px / 16 */
+        line-height: 1.5rem;
+        /* 24px / 16 */
+        letter-spacing: 0.035rem;
+        /* 0.56px / 16 */
     }
 
     p-nosotros {
-        font-size: 1.375rem; /* 22px / 16 */
-        line-height: 1.875rem; /* 30px / 16 */
-        letter-spacing: 0.023125rem; /* 0.37px / 16 */    
+        font-size: 1.375rem;
+        /* 22px / 16 */
+        line-height: 1.875rem;
+        /* 30px / 16 */
+        letter-spacing: 0.023125rem;
+        /* 0.37px / 16 */
     }
 
     p-nosotros-1 {
-        font-size: 1rem;         /* 16px / 16 */
-        line-height: 1.25rem;    /* 20px / 16 */
-        letter-spacing: 0.00125rem; /* 0.02px / 16 */
+        font-size: 1rem;
+        /* 16px / 16 */
+        line-height: 1.25rem;
+        /* 20px / 16 */
+        letter-spacing: 0.00125rem;
+        /* 0.02px / 16 */
     }
 
-    .icon-education{
+    .icon-education {
         width: 40px;
     }
 
-    .image-info-about-us{
+    .image-info-about-us {
         width: 40px;
     }
+
     /* Fin Nosotros */
 
     /* Institutional Directory */
 
     h3-directory {
-        font-size: 2.5rem;           /* 40px / 16 */
-        line-height: 2.5rem;         /* 40px / 16 */
-        letter-spacing: 0.07rem;     /* 1.12px / 16 */
+        font-size: 2.5rem;
+        /* 40px / 16 */
+        line-height: 2.5rem;
+        /* 40px / 16 */
+        letter-spacing: 0.07rem;
+        /* 1.12px / 16 */
     }
 
     h4-directory {
-        font-size: 1.375rem;          /* 22px / 16 */
-        line-height: 1.6875rem;       /* 27px / 16 */
-        letter-spacing: 0.03875rem;   /* 0.62px / 16 */
+        font-size: 1.375rem;
+        /* 22px / 16 */
+        line-height: 1.6875rem;
+        /* 27px / 16 */
+        letter-spacing: 0.03875rem;
+        /* 0.62px / 16 */
     }
 
     p-directory {
-        font-size: 1.125rem;         /* 18px / 16 */
-        line-height: 1.4375rem;      /* 23px / 16 */
-        letter-spacing: 0.02875rem;  /* 0.46px / 16 */
+        font-size: 1.125rem;
+        /* 18px / 16 */
+        line-height: 1.4375rem;
+        /* 23px / 16 */
+        letter-spacing: 0.02875rem;
+        /* 0.46px / 16 */
     }
 
     input.search {
-        font-size: 0.9375rem;         /* 15px / 16 */
-        line-height: 1.125rem;        /* 18px / 16 */
-        letter-spacing: 0.02625rem;   /* 0.42px / 16 */
+        font-size: 0.9375rem;
+        /* 15px / 16 */
+        line-height: 1.125rem;
+        /* 18px / 16 */
+        letter-spacing: 0.02625rem;
+        /* 0.42px / 16 */
         opacity: 0.9;
     }
 
-    .logo-buscar{
-        width: 104px;
+    .logo-buscar {
+        max-width: 104px;
         height: auto;
     }
 
-    .img-horario{
-        width: 390px;
+    .img-horario {
+        max-width: 390px;
         height: auto;
     }
+
     /* Fin Institutional Directory */
 
 
     /* Calendario academico */
 
     h2-calendario {
-        font-size: 2.5rem;          /* 40px / 16 */
-        line-height: 2.5rem;        /* 40px / 16 */
-        letter-spacing: 0.07rem;    /* 1.12px / 16 */
+        font-size: 2.5rem;
+        /* 40px / 16 */
+        line-height: 2.5rem;
+        /* 40px / 16 */
+        letter-spacing: 0.07rem;
+        /* 1.12px / 16 */
     }
 
     h3-calendario {
-        font-size: 1.375rem;         /* 22px / 16 */
-        line-height: 1.375rem;       /* 22px / 16 */
-        letter-spacing: 0.03875rem;  /* 0.62px / 16 */
+        font-size: 1.375rem;
+        /* 22px / 16 */
+        line-height: 1.375rem;
+        /* 22px / 16 */
+        letter-spacing: 0.03875rem;
+        /* 0.62px / 16 */
     }
 
     h4-calendario {
-        font-size: 0.875rem;        /* 14px / 16 */
-        line-height: 1.0625rem;     /* 17px / 16 */
-        letter-spacing: 0.024375rem;/* 0.39px / 16 */
+        font-size: 0.875rem;
+        /* 14px / 16 */
+        line-height: 1.0625rem;
+        /* 17px / 16 */
+        letter-spacing: 0.024375rem;
+        /* 0.39px / 16 */
     }
 
     p-calendario {
-        font-size: 0.9375rem;        /* 15px / 16 */
-        line-height: 1.25rem;        /* 20px / 16 */
-        letter-spacing: 0.02625rem;  /* 0.42px / 16 */
+        font-size: 0.9375rem;
+        /* 15px / 16 */
+        line-height: 1.25rem;
+        /* 20px / 16 */
+        letter-spacing: 0.02625rem;
+        /* 0.42px / 16 */
     }
 
     /* Fin Calendario academico */
@@ -1351,50 +1523,44 @@ p-financieros {
     /* Certificados y papeles */
 
     h3-financieros {
-        font-size: 2.5rem;           /* 40px / 16 */
-        line-height: 2.5rem;         /* 40px / 16 */
-        letter-spacing: 0.07rem;     /* 1.12px / 16 */
+        font-size: 2.5rem;
+        /* 40px / 16 */
+        line-height: 2.5rem;
+        /* 40px / 16 */
+        letter-spacing: 0.07rem;
+        /* 1.12px / 16 */
     }
 
     p-financieros {
-        font-size: 1.0625rem;       /* 17px / 16 */
-        line-height: 1.25rem;       /* 20px / 16 */
-        letter-spacing: 0.03rem;    /* 0.48px / 16 */
+        font-size: 1.0625rem;
+        /* 17px / 16 */
+        line-height: 1.25rem;
+        /* 20px / 16 */
+        letter-spacing: 0.03rem;
+        /* 0.48px / 16 */
     }
 
-    .form-financial input, .form-financial textarea{
-        font-size: 1.25rem !important;        /* 20px / 16 */
-        line-height: 1.5rem !important;       /* 24px / 16 */
-        letter-spacing: 0.035rem !important;  /* 0.56px / 16 */
-    }
-
-    .display-options {
-        font-size: 1.25rem !important;        /* 20px / 16 */
-        line-height: 1.5rem !important;       /* 24px / 16 */
-        letter-spacing: 0.035rem !important;  /* 0.56px / 16 */
-    }
-
-    .text-up-absolute{
+    .text-up-absolute {
         position: absolute;
-        top:-90px;
+        top: 0px;
         margin: 0;
         padding: 0;
         font-size: 0.8rem;
-    }    
+    }
 
     /* Fin Certificados y papeles */
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 992px) and (max-width: 1399px) {
 
     /* Certificados y papeles */
-    .text-up-absolute{
+    .text-up-absolute {
         position: absolute;
-        top:-50px;
+        top: -80px;
         margin: 0;
         padding: 0;
         font-size: 0.8rem;
-    }   
+    }
+
     /* Fin Certificados y papeles */
 }
-

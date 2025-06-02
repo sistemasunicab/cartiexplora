@@ -6,29 +6,38 @@ $rowsImagenes = obtenerFilas($mysqli1, $sentencia, 39);
 $html_nosotros = '';
 
 if (!empty($rowsTexto)) {
-    // Contenedor tipo row
-    $html_nosotros .= '<div class="row col-12 mx-auto p-0 m-0">';
 
+    
     // 1) Columnas de texto (sentencia 44)
     foreach ($rowsTexto as $row) {
         $titulo = $row['titulo'];
         $texto  = $row['texto'];
-
-        $html_nosotros .= '
-            <div class="col-0 col-lg-1 p-0"></div>
-            <div class="col-10 col-lg-6 d-flex flex-column p-0 mx-auto mx-lg-0">
-                <h2-nosotros class="col-lg-11 col-12 font-roboto-light-title tx-blue text-start">'
-                    . $titulo .
-                '</h2-nosotros>
-                <p-nosotros class="col-lg-10 col-12 font-roboto-regular tx-black mt-ws b-5 text-start">'
-                    . $texto .
-                '</p-nosotros>
-            </div>';
+        $html_row_one = '<div class="row col-12 mx-auto p-0 m-0">';
+        $html_row_one .= '<div class="col-lg-1 col-1 p-0"></div>';
+        $html_row_one .= '<div class="col-lg-6 col-10 p-0">';
+        $html_row_one .= '  <h2-nosotros class="font-roboto-light-title tx-blue text-start">'
+                            . $titulo .
+                            '</h2-nosotros>';
+        $html_row_one .= '</div>';
+        $html_row_one .= '<div class="col-lg-5 col-1 p-0"></div>';
+        $html_row_one .= '</div>';
+            
+        $html_row_two = '<div class="row col-12 p-0 m-0">';
+        $html_row_two .= '<div class="col-lg-1 col-1 p-0"></div>';
+        $html_row_two .= '<div class="col-lg-6 col-10 p-0 mt-ws mb-lg-0 mb-5">';
+        $html_row_two .= '<div class="col-lg-11 col-12 p-0">';
+        $html_row_two .=    '<p-nosotros class="font-roboto-regular tx-black">'
+                                . $texto .
+                            '</p-nosotros>';
+        $html_row_two .= '</div>';
+        $html_row_two .= '</div>';
+        $html_row_two .= '<div class="d-lg-none col-1 p-0"></div>';
     }
     // 2) Columna de imágenes (sentencia 39)
     if (!empty($rowsImagenes)) {
         foreach ($rowsImagenes as $rowImg) {
-            $html_nosotros .= '<div class="col-10 col-lg-4 mt-ws mt-lg-0 mx-auto mx-lg-0 p-0 d-flex flex-column justify-content-end ">';
+            $html_row_two .= '<div class="d-lg-none col-1 p-0"></div>';
+            $html_row_two .= '<div class="col-lg-4 col-10 p-0 d-flex flex-column justify-content-end ">';
 
             // Construimos atributos para cada versión de imagen
             $attrEscritorio        = ImageAttributeBuilder::buildAttributes($nivel, $rowImg['ruta']);
@@ -44,19 +53,19 @@ if (!empty($rowsTexto)) {
             ];
 
             foreach ($imagenes as $img) {
-                $html_nosotros .= '<img ' . $img['atributos'] . ' class="' . $img['clases'] . '">';
+                $html_row_two .= '<img ' . $img['atributos'] . ' class="' . $img['clases'] . '">';
             }
-            $html_nosotros .= '</div>';
+            $html_row_two .= '</div>';
         }
-        $html_nosotros .= '<div class="col-0 col-lg-1 p-0"></div>';
     }
+    $html_row_two .= '<div class="col-lg-1 col-1 p-0"></div>';
+    $html_row_two .= '</div>';
 
-    $html_nosotros .= '</div>';
+    $html_nosotros .= $html_row_one;
+    $html_nosotros .= $html_row_two;
 }
 ?>
 
 <div class="container-fluid my-ws mx-0 p-0">
-    <div class="row m-0 p-0">
-        <?= $html_nosotros ?>
-    </div>
+    <?= $html_nosotros ?>
 </div>

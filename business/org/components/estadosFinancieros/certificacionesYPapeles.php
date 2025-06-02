@@ -12,7 +12,7 @@ foreach ($filasCertificaciones as $rowCert) {
 
     // 2) Cargar campos del formulario (sentencia 137)
     $camposForm = obtenerFilas($mysqli1, $sentencia, 137);
-
+    
     // Extraer cada campo en variables
     $nombre_certifications             = array_shift($camposForm);
     $identificacion_certifications     = array_shift($camposForm);
@@ -29,240 +29,333 @@ foreach ($filasCertificaciones as $rowCert) {
 
     // 3) Título de la sección
     $titulo = $rowCert['titulo'];
-    $html_certificaciones .= '
-    <div class="col-lg-9 col-md-12 col-sm-12 col-12 p-0 mx-auto d-flex flex-column">
-        <h3-financieros class="col-lg-8 col-md-10 col-sm-10 col-10 mx-auto mx-lg-0 tx-blue font-roboto-light-title my-0">'
-            . $titulo .
-        '</h3-financieros>
-        <form id="form_servicios" class="my-5 form-financial d-flex flex-column">
 
-            <!-- Primera fila: Nombre, Identificación, Tipo ID -->
-            <div class="my-2 d-flex flex-column flex-lg-row justify-content-between">';
+    /* Row one */
 
+    $html_row_one = '<div class="col-12 row p-0 m-0 mb-5 ">';
+    $html_row_one .= '<div class="col-lg-1 col-md-1 col-sm-1 col-1 p-0"></div>';
+    $html_row_one .= '<div class="col-lg-7 col-md-7 col-sm-7 col-7 p-0">';
+    $html_row_one .= '<h3-financieros class="tx-blue font-roboto-light-title">' . $titulo . '</h3-financieros>';
+    $html_row_one .= '</div>';
+    $html_row_one .= '<div class="col-lg-2 col-md-4 col-sm-4 col-4 p-0"></div>';
+    $html_row_one .= '</div>';
+
+
+    /* Row two */
+
+    $html_row_two = '<div class="row p-0 m-0 my-lg-5 my-4">';
+    $html_row_two .= '<div class="col-lg-1 col-md-1 col-sm-1 col-1 p-0"></div>';
+
+    $html_row_two .= '<div class="row col-lg-10 col-md-12 col-sm-12 col-12 p-0 m-0">';
+    $html_row_two .= '<div class="d-lg-none col-md-3 col-sm-1 col-1 p-0"></div>';
     // Input: Nombre
     $campo = $nombre_certifications;
-    $type = ($campo['texto'] === 'contraseña') ? 'password' : 'text';
-    $html_certificaciones .= '
-                <input
-                    onkeyup="validarCampo(this,\'' . $campo['texto'] . '\', \'' . $campo['tipo'] . '\', 1, \'' . $boton_certifications['campo'] . '\')"
-                    ' . $campo['obligatorio'] . '
-                    id="' . $campo['campo'] . '"
-                    name="' . $campo['campo'] . '"
-                    type="' . $type . '"
-                    class="col-lg-4 col-md-6 col-sm-9 col-9 mx-auto ms-lg-0 font-roboto-bolditalic my-2"
-                    placeholder="' . $campo['placeHolder'] . '"
-                    autocomplete="name"
-                >';
+    $html_row_two .= '<div class="col-lg-5 col-md-6 col-sm-10 col-10 p-0 m-0">';
+    $html_row_two .= '
+                <div class="col-lg-11 col-12 p-0 m-0 mb-lg-0 mb-4">
+                    <input
+                        onkeyup="validarCampo(this,\'' . $campo['texto'] . '\', \'' . $campo['tipo'] . '\', 1, \'' . $boton_certifications['campo'] . '\')"
+                        ' . $campo['obligatorio'] . '
+                        id="' . $campo['campo'] . '"
+                        name="' . $campo['campo'] . '"
+                        type="' . $campo['tipo'] . '"
+                        class="form-control text-center font-roboto-bolditalic"
+                        placeholder="' . $campo['placeHolder'] . '"
+                        autocomplete="name"
+                    >
+                </div>';
+    $html_row_two .= '</div>';
+    $html_row_two .= '<div class="d-lg-none col-md-3 col-sm-1 col-1 p-0"></div>';
 
     // Input: Identificación
     $campo = $identificacion_certifications;
-    $html_certificaciones .= '
-                <input
-                    onkeyup="validarCampo(this,\'' . $campo['texto'] . '\', \'' . $campo['tipo'] . '\', 1, \'' . $boton_certifications['campo'] . '\')"
-                    ' . $campo['obligatorio'] . '
-                    id="' . $campo['campo'] . '"
-                    name="' . $campo['campo'] . '"
-                    type="text"
-                    class="col-lg-4 col-md-6 col-sm-9 col-9 mx-auto ms-lg-0 font-roboto-bolditalic my-2"
-                    placeholder="' . $campo['placeHolder'] . '"
-                    autocomplete="off"
-                >';
-
+    $html_row_two .= '<div class="d-lg-none col-md-3 col-sm-1 col-1 p-0"></div>';
+    $html_row_two .= '<div class="col-lg-5 col-md-6 col-sm-10 col-10 p-0 m-0">';
+    $html_row_two .= '
+                <div class="col-lg-11 col-12 p-0 m-0 mb-lg-0 mb-4">
+                    <input
+                        onkeyup="validarCampo(this,\'' . $campo['texto'] . '\', \'' . $campo['tipo'] . '\', 1, \'' . $boton_certifications['campo'] . '\')"
+                        ' . $campo['obligatorio'] . '
+                        id="' . $campo['campo'] . '"
+                        name="' . $campo['campo'] . '"
+                        type="text"
+                        class="form-control text-center font-roboto-bolditalic"
+                        placeholder="' . $campo['placeHolder'] . '"
+                        autocomplete="off"
+                    >
+                </div>';
+    $html_row_two .= '</div>';
+    $html_row_two .= '<div class="d-lg-none col-md-3 col-sm-1 col-1 p-0"></div>';
     // Dropdown: Tipo ID (opciones fijas)
     $campo = $tipo_id_certifications;
-    $html_certificaciones .= '
-                <div class="select-wrapper col-lg-3 col-md-4 col-sm-4 col-4 mx-auto my-2">
-                    <select
-                        onkeyup="validarSelect(this,\'' . $campo['texto'] . '\', \'' . $boton_certifications['campo'] . '\', \'\')"
+    $html_row_two .= '<div class="d-lg-none col-md-5 col-sm-4 col-4 p-0"></div>';
+    $html_row_two .= '<div class="col-lg-2 col-md-2 col-sm-4 col-4 p-0 m-0">';
+    $html_row_two .= '
+                    <div 
                         id="' . $campo['campo'] . '"
-                        name="' . $campo['campo'] . '"
-                        class="col-12 p-2 display-options little-financieros font-roboto-italic tx-white"
-                    >
-                        <option value="" disabled selected>' . $campo['placeHolder'] . '</option>
-                        <option value="Estudiante">Estudiante</option>
-                        <option value="Docente">Docente</option>
-                        <option value="Administrativo">Administrativo</option>
-                        <option value="Otro">Otro</option>
-                    </select>
-                    <div class="select-arrow col-3">▼</div>
-                </div>';
-    $html_certificaciones .= '
-            </div> <!-- / Primera fila -->
+                        data-value=""
+                        data-descripcion="' . $campo['texto'] . '"
+                        data-btn_submit="' . $boton_certifications['campo'] . '" 
+                        class="select-wrapper custom-select col-12 h-100">
+                        <div     
+                        class="col-12 display-options font-roboto-italic tx-white" 
+                        data-placeholder="' . $campo['placeHolder'] . '"
+                        >
+                        <span class="selected-value">' . $campo['placeHolder'] . '</span>
+                        <i class="select-arrow">▼</i>
+                        </div>
+                        <div class="custom-options">
+                        <div class="custom-option" data-value="">'
+                            . $campo['placeHolder'] .
+                        '</div>
+                        <div class="custom-option" data-value="Estudiante">Estudiante</div>
+                        <div class="custom-option" data-value="Docente">Docente</div>
+                        <div class="custom-option" data-value="Administrativo">Administrativo</div>
+                        </div>
+                    </div>';
 
-            <!-- Segunda fila: Correo, Teléfono, Grado -->
-            <div class="my-2 d-flex flex-column flex-lg-row justify-content-between">';
+    $html_row_two .= '</div>';
+    $html_row_two .= '<div class="d-lg-none col-md-5 col-sm-4 col-4 p-0"></div>';
+    $html_row_two .= '</div>';
+    $html_row_two .= '<div class="col-lg-1 col-md-1 col-sm-1 col-1 p-0"></div>';
+    $html_row_two .= '</div>';
 
+    /* Row three */
+
+    $html_row_three = '<div class="row p-0 m-0 my-lg-5 my-4">';
+    $html_row_three .= '<div class="col-lg-1 col-md-1 col-sm-1 col-1 p-0"></div>';
+    $html_row_three .= '<div class="row col-lg-10 col-md-12 col-sm-12 col-12 p-0 m-0">';
     // Input: Correo
     $campo = $correo_certifications;
-    $html_certificaciones .= '
-                <input
-                    onkeyup="validarCampo(this,\'' . $campo['texto'] . '\', \'' . $campo['tipo'] . '\', 1, \'' . $boton_certifications['campo'] . '\')"
-                    ' . $campo['obligatorio'] . '
-                    id="' . $campo['campo'] . '"
-                    name="' . $campo['campo'] . '"
-                    type="text"
-                    class="col-lg-4 col-md-6 col-sm-9 col-9 mx-auto ms-lg-0 font-roboto-bolditalic my-2"
-                    placeholder="' . $campo['placeHolder'] . '"
-                    autocomplete="email"
-                >';
-
-    // Input: Teléfono
-    $campo = $telefono_certifications;
-    $html_certificaciones .= '
-                <input
-                    onkeyup="validarCampo(this,\'' . $campo['texto'] . '\', \'' . $campo['tipo'] . '\', 1, \'' . $boton_certifications['campo'] . '\')"
-                    ' . $campo['obligatorio'] . '
-                    id="' . $campo['campo'] . '"
-                    name="' . $campo['campo'] . '"
-                    type="text"
-                    class="col-lg-4 col-md-6 col-sm-9 col-9 mx-auto ms-lg-0 font-roboto-bolditalic my-2"
-                    placeholder="' . $campo['placeHolder'] . '"
-                    autocomplete="tel"
-                >';
-
-    // Dropdown: Grado
-    $campo = $grado_id_certifications;
-    $html_certificaciones .= '
-                <div class="select-wrapper col-lg-3 col-md-4 col-sm-4 col-4 mx-auto my-2">
-                    <select
-                        onkeyup="validarSelect(this,\'' . $campo['texto'] . '\', \'' . $boton_certifications['campo'] . '\', \'\')"
+    $html_row_three .= '<div class="d-lg-none col-md-3 col-sm-1 col-1 p-0"></div>';
+    $html_row_three .= '<div class="col-lg-5 col-md-6 col-sm-10 col-10 p-0 m-0">';
+    $html_row_three .= '
+                <div class="col-lg-11 col-12 p-0 m-0 mb-lg-0 mb-4">
+                    <input
+                        onkeyup="validarCampo(this,\'' . $campo['texto'] . '\', \'' . $campo['tipo'] . '\', 1, \'' . $boton_certifications['campo'] . '\')"
+                        ' . $campo['obligatorio'] . '
                         id="' . $campo['campo'] . '"
                         name="' . $campo['campo'] . '"
-                        class="col-12 p-2 display-options little-financieros font-roboto-italic tx-white"
+                        type="text"
+                        class="form-control text-center font-roboto-bolditalic"
+                        placeholder="' . $campo['placeHolder'] . '"
+                        autocomplete="email"
                     >
-                        <option value="" disabled selected>' . $campo['placeHolder'] . '</option>
-                        <option value="Primaria">Primaria</option>
-                        <option value="Secundaria">Secundaria</option>
-                        <option value="Universitario">Universitario</option>
-                        <option value="Otro">Otro</option>
-                    </select>
-                    <div class="select-arrow col-3">▼</div>
                 </div>';
-
-    $html_certificaciones .= '
-            </div> <!-- / Segunda fila -->
-
-            <!-- Tercera fila: Relación con la institución -->
-            <div class="col-lg-4 col-md-6 col-sm-9 col-9 mx-lg-0 mx-auto my-5">
-                <div class="col-12 select-wrapper">
-                    <select
-                        onkeyup="validarSelect(this,\'' . $relacion_id_certifications['texto'] . '\', \'' . $boton_certifications['campo'] . '\', \'relacion_cert_otro\')"
-                        id="' . $relacion_id_certifications['campo'] . '"
-                        name="' . $relacion_id_certifications['campo'] . '"
-                        class="col-12 p-2 display-options little-financieros font-roboto-italic tx-white"
+    $html_row_three .= '</div>';
+    $html_row_three .= '<div class="d-lg-none col-md-3 col-sm-1 col-1 p-0"></div>';
+    // Input: Teléfono
+    $campo = $telefono_certifications;
+    $html_row_three .= '<div class="d-lg-none col-md-3 col-sm-1 col-1 p-0"></div>';
+    $html_row_three .= '<div class="col-lg-5 col-md-6 col-sm-10 col-10 p-0 m-0">';
+    $html_row_three .= '    
+                <div class="col-lg-11 col-12 p-0 m-0 mb-lg-0 mb-4">
+                    <input
+                        onkeyup="validarCampo(this,\'' . $campo['texto'] . '\', \'' . $campo['tipo'] . '\', 1, \'' . $boton_certifications['campo'] . '\')"
+                        ' . $campo['obligatorio'] . '
+                        id="' . $campo['campo'] . '"
+                        name="' . $campo['campo'] . '"
+                        type="text"
+                        class="form-control text-center font-roboto-bolditalic"
+                        placeholder="' . $campo['placeHolder'] . '"
+                        autocomplete="tel"
                     >
-                        <option value="" disabled selected>' . $relacion_id_certifications['placeHolder'] . '</option>';
+                </div>';
+    $html_row_three .= '</div>';
+    $html_row_three .= '<div class="d-lg-none col-md-3 col-sm-1 col-1 p-0"></div>';
+    // Dropdown: Grado
+    $campo = $grado_id_certifications;
+    $html_row_three .= '<div class="d-lg-none col-md-5 col-sm-4 col-4 p-0"></div>';
+    $html_row_three .= '<div class="col-lg-2 col-md-2 col-sm-4 col-4 p-0 m-0">';
+    $html_row_three .= '
+    <div 
+        id="' . $campo['campo'] . '"
+        data-value=""
+        data-descripcion="' . $campo['texto'] . '"
+        data-btn_submit="' . $boton_certifications['campo'] . '" 
+        class="select-wrapper custom-select col-12 h-100"
+    >
+        <div 
+            class="col-12 display-options font-roboto-italic tx-white" 
+            data-placeholder="' . $campo['placeHolder'] . '"
+            tabindex="0"
+        >
+            <span class="selected-value">' . $campo['placeHolder'] . '</span>
+            <i class="select-arrow">▼</i>
+        </div>
+        <div class="custom-options">
+            <div class="custom-option" data-value="">' . $campo['placeHolder'] . '</div>
+            <div class="custom-option" data-value="Primaria">Primaria</div>
+            <div class="custom-option" data-value="Secundaria">Secundaria</div>
+            <div class="custom-option" data-value="Universitario">Universitario</div>
+        </div>
+    </div>';
+
+    $html_row_three .= '</div>';
+    $html_row_three .= '<div class="d-lg-none col-md-5 col-sm-4 col-4 p-0"></div>';
+    $html_row_three .= '</div>';
+    $html_row_three .= '<div class="col-lg-1 col-md-1 col-sm-1 col-1 p-0"></div>';
+    $html_row_three .= '</div>';
+
+    /* Row four */
+
+    $html_row_four = '<div class="row p-0 m-0 my-lg-5 my-4">';
+    $html_row_four .= '<div class="col-lg-1 col-md-1 col-sm-1 col-1 p-0"></div>';
+    $html_row_four .= '<div class="row col-lg-10 col-md-12 col-sm-12 col-12 p-0 m-0">';
+    $html_row_four .= '<div class="d-lg-none col-md-2 col-sm-1 col-1 p-0 m-0">';
+    $html_row_four .= '</div>';
+    $html_row_four .= '<div class="col-lg-5 col-md-8 col-sm-10 col-10 p-0 m-0">';
+    $html_row_four .= '
+    <div 
+        id="' . $relacion_id_certifications['campo'] . '"
+        data-value=""
+        data-descripcion="' . $relacion_id_certifications['texto'] . '"
+        data-btn_submit="' . $boton_certifications['campo'] . '" 
+        class="col-lg-11 col-12 select-wrapper custom-select h-100"
+    >
+        <div 
+            class="col-12 p-2 display-options little-financieros font-roboto-italic tx-white" 
+            data-placeholder="' . $relacion_id_certifications['placeHolder'] . '"
+            tabindex="0"
+        >
+            <span class="selected-value">' . $relacion_id_certifications['placeHolder'] . '</span>
+            <i class="select-arrow">▼</i>
+        </div>
+        <div class="custom-options">
+            <div class="custom-option" data-value="">' . $relacion_id_certifications['placeHolder'] . '</div>';
 
     // Opciones dinámicas para “Relación con la institución” (sentencia 81)
     $opcionesRelacion = obtenerFilas($mysqli1, $sentencia, 81);
     foreach ($opcionesRelacion as $opt) {
-        if ((int)$opt['visible'] !== 1) {
+        if ((int) $opt['visible'] !== 1) {
             continue;
         }
         $valor = $opt['valor'];
-        $html_certificaciones .= '<option value="' . $valor . '">' . $valor . '</option>';
+        $html_row_four .= '
+            <div class="custom-option" data-value="' . $valor . '">' . $valor . '</div>';
     }
 
-    $html_certificaciones .= '
-                    </select>
-                    <div class="select-arrow col-3">▼</div>
-                </div>
-                <!-- Input “Otro” oculto -->
-                <input
-                    onkeyup="validarCampo(this, \'relacion_cert_otro\', \'texto\', 1, \'' . htmlspecialchars($boton_certifications['campo'], ENT_QUOTES, 'UTF-8') . '\')"
-                    id="relacion_cert_otro"
-                    name="relacion_otro"
-                    type="text"
-                    class="col-12 mt-2 other-input"
-                    placeholder="Especificar"
-                    style="display: none;"
-                    autocomplete="off"
-                >
-            </div>
-            <!-- / Relación con la institución -->
+    $html_row_four .= '
+        </div>
+    </div>';
 
-            <div class="btn-financiero col-lg-3 col-md-12 col-sm-12 col-12 d-flex flex-row bg-blue p-0 m-0 my-2">
-                <div class="bg-orange m-0 p-0 col-2" style="height:100%;"></div>
-                <p-financieros class="py-3 ps-2 ps-lg-3 col-10 font-roboto-bolditalic tx-white my-1">
-                    Detalles de la Solicitud
-                </p-financieros>
-            </div>
+    $html_row_four .= '</div>';
+    $html_row_four .= '<div class="col-lg-2 col-md-2 col-sm-1 col-1 p-0 m-0">';
+    $html_row_four .= '</div>';
+    $html_row_four .= '</div>';
+    $html_row_four .= '<div class="col-lg-1 col-md-1 col-sm-1 col-1 p-0"></div>';
+    $html_row_four .= '</div>';
 
-            <div class="mt-5 d-flex flex-column flex-lg-row col-12 position-relative">
+    /* Row five */
 
-                <!-- Cuarta fila: Tipo de certificación -->
-                <div class="col-lg-4 col-md-6 col-sm-9 col-9 mx-lg-0 mx-auto my-2">
-                    <div class="col-12 select-wrapper">
-                        <select
-                            onkeyup="validarSelect(this,\'' . $tipo_certifications['texto'] . '\', \'' . $boton_certifications['campo'] . '\', \'tipo_cert_otro\')"
-                            id="' . $tipo_certifications['campo'] . '"
-                            name="' . $tipo_certifications['campo'] . '"
-                            class="col-12 p-2 display-options little-financieros font-roboto-italic tx-white"
-                        >
-                            <option value="" disabled selected>' . $tipo_certifications['placeHolder'] . '</option>';
+    $html_row_five = '<div class="row p-0 m-0 my-lg-5 my-4">';
+    $html_row_five .= '<div class="col-lg-1 col-md-1 col-sm-1 col-1 p-0"></div>';
+    $html_row_five .= '<div class="btn-financiero d-flex flex-row col-lg-3 col-md-12 col-sm-12 col-12 p-0">';
+    $html_row_five .= '<div class="bg-orange m-0 p-0 col-2"></div>';
+    $html_row_five .= '<p class="py-3 ps-2 ps-lg-3 col-10 font-roboto-bolditalic tx-white m-0">
+                            Detalles de la Solicitud
+                        </p>';
+    $html_row_five .= '</div>';
+    $html_row_five .= '<div class="col-lg-1 col-md-1 col-sm-1 col-1 p-0"></div>';
+    $html_row_five .= '</div>';
+
+    /* Row six */
+
+    $html_row_six = '<div class="row p-0 m-0 my-lg-5 my-4">';
+    $html_row_six .= '<div class="col-lg-1 col-md-1 col-sm-1 col-1 p-0"></div>';
+    $html_row_six .= '<div class="row col-lg-10 col-md-12 col-sm-12 col-12 p-0 m-0">';
+    $html_row_six .= '<div class="d-lg-none col-md-2 col-sm-1 col-1 p-0 m-0"></div>';
+    $html_row_six .= '<div class="col-lg-5 col-md-8 col-sm-10 col-10 p-0 m-0 mb-lg-0 mb-4">';
+    $html_row_six .= '
+    <div 
+        id="' . $tipo_certifications['campo'] . '"
+        data-value=""
+        data-descripcion="' . $tipo_certifications['texto'] . '"
+        data-btn_submit="' . $boton_certifications['campo'] . '"
+        class="col-lg-11 col-12 select-wrapper custom-select"
+    >
+        <div 
+            class="col-12 p-2 display-options little-financieros font-roboto-italic tx-white" 
+            data-placeholder="' . $tipo_certifications['placeHolder'] . '"
+            tabindex="0"
+        >
+            <span class="selected-value">' . $tipo_certifications['placeHolder'] . '</span>
+            <i class="select-arrow">▼</i>
+        </div>
+        <div class="custom-options">
+            <div class="custom-option" data-value="">' . $tipo_certifications['placeHolder'] . '</div>';
 
     // Opciones dinámicas para “Tipo de certificación” (sentencia 82)
     $opcionesTipo = obtenerFilas($mysqli1, $sentencia, 82);
     foreach ($opcionesTipo as $opt) {
-        if ((int)$opt['visible'] !== 1) {
+        if ((int) $opt['visible'] !== 1) {
             continue;
         }
         $valor = $opt['valor'];
-        $html_certificaciones .= '<option value="' . $valor . '">' . $valor . '</option>';
+        $html_row_six .= '
+            <div class="custom-option" data-value="' . $valor . '">' . $valor . '</div>';
     }
 
-    $html_certificaciones .= '
-                        </select>
-                        <div class="select-arrow col-3">▼</div>
-                    </div>
-                    <!-- Input “Otro” oculto -->
-                    <input
-                        onkeyup="validarCampo(this, \'tipo_cert_otro\', \'texto\', 1, \'' . $boton_certifications['campo'] . '\')"
-                        id="tipo_cert_otro"
-                        name="cert_otro"
-                        type="text"
-                        class="col-12 mt-2 other-input"
-                        placeholder="Especificar"
-                        style="display: none;"
-                        autocomplete="off"
-                    >
-                </div>';
-            
-    // Imagen de años (sentencia 80)
-    $anosData = obtenerFilas($mysqli1, $sentencia, 80);
-    $row_ano = $anosData[0] ?? [];
-    if (!empty($row_ano)) {
-        $ruta_ano = rutaPorNivel($row_ano['ruta']);
-        $alt_ano = $row_ano['textoAlterno'] ?? 'Año';
-        $titulo_ano = $row_ano['titulo'];
+    $html_row_six .= '
+        </div>
+    </div>';
 
-        $html_certificaciones .= '
-                <div class="my-5 my-lg-0 col-lg-2 col-md-8 col-sm-8 col-8 d-flex flex-column align-items-center text-center mx-auto position-relative">
-                    <p-financieros class="text-up-absolute font-roboto-bolditalic">' . $titulo_ano . '</p-financieros>
-                    <img src="' . $ruta_ano . '" alt="' . $alt_ano . '" class="img-fluid year-trigger" style="width:80px; cursor:pointer;">
-                    <select id="certificaciones_date" required class="year-select mt-2 d-none"></select>
-                </div>';
-    }
-
-    // Proposito (texto)
+    $html_row_six .= '</div>';
+    $html_row_six .= '<div class="d-lg-none col-md-2 col-sm-1 col-1 p-0 m-0"></div>';
+    $html_row_six .= '<div class="d-lg-none col-md-4 col-sm-3 col-3 p-0 m-0"></div>';
+    $html_row_six .= '<div class="col-lg-2 col-md-4 col-sm-6 col-6 p-0 m-0 mb-lg-0 mb-4 d-flex flex-column align-items-center justify-content-center position-relative">';
+        // Imagen de años (sentencia 80)
+        $anosData = obtenerFilas($mysqli1, $sentencia, 80);
+        $row_ano = $anosData[0] ?? [];
+        if (!empty($row_ano)) {
+            $ruta_ano = rutaPorNivel($row_ano['ruta']);
+            $alt_ano = $row_ano['textoAlterno'] ?? 'Año';
+            $titulo_ano = $row_ano['titulo'];
+    
+            $html_row_six .= '
+                        <p-financieros class="text-center text-up-absolute font-roboto-bolditalic">' . $titulo_ano . '</p-financieros>
+                        <img src="' . $ruta_ano . '" alt="' . $alt_ano . '" class="img-fluid year-trigger mt-lg-0 mt-5" style="width:80px; cursor:pointer;">
+                        <select id="certificaciones_date" required class="year-select mt-2 d-none"></select>';
+        }
+    
+    $html_row_six .= '</div>';
+    $html_row_six .= '<div class="d-lg-none col-md-4 col-sm-3 col-3 p-0 m-0"></div>';
+    $html_row_six .= '<div class="d-lg-none col-md-2 col-sm-1 col-1 p-0 m-0"></div>';
+    $html_row_six .= '<div class="col-lg-5 col-md-8 col-sm-10 col-10 p-0 m-0 mb-lg-0 mb-4">';
     $campo = $proposito_certifications;
-    $html_certificaciones .= '
-            <textarea
-                onkeyup="validarCampo(this,\'' . $campo['texto'] . '\', \'' . $campo['tipo'] . '\', 1, \'' . $boton_certifications['campo'] . '\')"
-                id="' . $campo['campo'] . '"
-                ' . $campo['obligatorio'] . '
-                name="' . $campo['campo'] . '"
-                class="text-area-input col-lg-4 col-md-4 col-sm-10 col-10 mx-auto mx-lg-0 font-roboto-bolditalic"
-                placeholder="' . $campo['placeHolder'] . '"
-                rows="4"
-                autocomplete="off"
-            ></textarea>
-        </div>';
+    $html_row_six .= '
+                <div class="row p-0 m-0">
+                    <div class="col-lg-1 col-0 p-0 m-0"></div>
+                    <div class="col-lg-11 col-12 p-0 m-0">
+                        <textarea
+                            onkeyup="validarCampo(this,\'' . $campo['texto'] . '\', \'' . $campo['tipo'] . '\', 1, \'' . $boton_certifications['campo'] . '\')"
+                            id="' . $campo['campo'] . '"
+                            ' . $campo['obligatorio'] . '
+                            name="' . $campo['campo'] . '"
+                            class="form-control text-area-input font-roboto-bolditalic"
+                            placeholder="' . $campo['placeHolder'] . '"
+                            rows="4"
+                            autocomplete="off"
+                        ></textarea>
+                    </div>
+                </div>';
+    $html_row_six .= '</div>';
+    $html_row_six .= '<div class="d-lg-none col-md-2 col-sm-1 col-1 p-0 m-0"></div>';
+    $html_row_six .= '</div>';
+    $html_row_six .= '<div class="col-lg-1 col-md-1 col-sm-1 col-1 p-0"></div>';
+    $html_row_six .= '</div>';
 
+    /* Row seven */
+
+    $html_row_seven = '<div class="row p-0 m-0 my-lg-5 my-4">';
+    $html_row_seven .= '<div class="col-lg-1 col-md-1 col-sm-1 col-1 p-0"></div>';
+    $html_row_seven .= '<div class="row col-lg-10 col-md-10 col-sm-10 col-10 p-0 m-0">';
+    $html_row_seven .= '<div class="d-lg-none col-md-2 col-sm-1 col-1 p-0 m-0"></div>';
+    $html_row_seven .= '<div class="col-lg-5 col-md-8 col-sm-10 col-10 p-0 m-0 d-lg-block d-flex align-items-center justify-content-center">';
     // Check “Tratamiento”
     $campo = $tratamiento_certifications;
-    $html_certificaciones .= '
-        <div class="my-4 my-lg-3 mx-auto mx-lg-0 form-check d-flex align-items-center gap-2">
+    $html_row_seven .= '
+        <div class="form-check d-flex align-items-center gap-2">
             <input
                 ' . $campo['obligatorio'] . '
                 class="form-check-input"
@@ -277,7 +370,12 @@ foreach ($filasCertificaciones as $rowCert) {
                 ' . $campo['placeHolder'] . '
             </label>
         </div>';
-
+    $html_row_seven .= '</div>';
+    $html_row_seven .= '<div class="col-lg-7 col-md-2 col-sm-1 col-1 p-0 m-0">';
+    $html_row_seven .= '</div>';
+    $html_row_seven .= '</div>';
+    $html_row_seven .= '<div class="col-lg-1 col-md-1 col-sm-1 col-1 p-0"></div>';
+    $html_row_seven .= '</div>';
 
     $imagen_data = obtenerFilas($mysqli1, $sentencia, 103);
     // Botón final (imagen de “Solicitud” - sentencia 103)
@@ -291,24 +389,38 @@ foreach ($filasCertificaciones as $rowCert) {
     }
     $idBoton = $boton_certifications['campo'];
     $textoBoton = $boton_certifications['texto'];
-    $html_certificaciones .= '
-        <button id="' . $idBoton . '" class="btn-submit-financial btn p-2 bg-orange col-lg-2 col-md-3 col-sm-4 col-4 mx-auto mt-3">
-            <div class="d-flex flex-row align-items-center justify-content-center py-1 py-lg-2">
-                <p-financieros class="font-roboto-medium tx-white m-0 mx-2">' . $textoBoton . '</p-financieros>
-                <img src="' . $rutaBtn . '" alt="' . $altBtn . '" class="img-fluid" style="width:30px;">
-            </div>
-        </button>
-    </form>
-</div>';
-} // end foreach
 
+    /* Row eight */
+
+    $html_row_eight = '<div class="row p-0 m-0 mt-lg-5 mt-4">';
+    $html_row_eight .= '<div class="col-lg-5 col-md-5 col-sm-4 col-4 p-0"></div>';
+    $html_row_eight .= '<div class="col-lg-2 col-md-2 col-sm-4 col-4 p-0">';
+    $html_row_eight .= '<button id="' . $idBoton . '" class="form-control col-12 btn-submit-financial btn bg-orange align-items-center justify-content-center gap-2">';
+    $html_row_eight .= '<p class="font-roboto-medium tx-white m-0 p-0">' . $textoBoton . '</p>';
+    $html_row_eight .= '<img src="' . $rutaBtn . '" alt="' . $altBtn . '" class="img-fluid" style="width:30px;">';
+    $html_row_eight .= '</button>';
+    $html_row_eight .= '</div>';
+    $html_row_eight .= '<div class="col-lg-5 col-md-5 col-sm-4 col-4 p-0"></div>';
+    $html_row_eight .= '</div>';
+    
+
+    $html_certificaciones = $html_row_one;
+    $html_certificaciones .= '<form id="form_servicios" class="form-financial p-0">';
+    $html_certificaciones .= $html_row_two;
+    $html_certificaciones .= $html_row_three;
+    $html_certificaciones .= $html_row_four;
+    $html_certificaciones .= $html_row_five;
+    $html_certificaciones .= $html_row_six;
+    $html_certificaciones .= $html_row_seven;
+    $html_certificaciones .= $html_row_eight;
+    $html_certificaciones .= '</form>';
+
+} 
 ?>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
 
 <div class="container-fluid my-ws mx-0 p-0" id="certificaciones">
-    <div class="row m-0 p-0">
-        <?= $html_certificaciones ?>
-    </div>
+    <?= $html_certificaciones ?>
 </div>
