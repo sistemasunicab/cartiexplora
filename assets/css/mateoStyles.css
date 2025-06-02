@@ -1147,6 +1147,15 @@ p-financieros {
     font-size: 0.8rem;
 }
 
+.btn-submit-financial {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background-color: var(--orange) !important;
+}
+
 
 
 /* Fin Certificados y papeles */

@@ -66,7 +66,7 @@ foreach ($datos_estados_financieros as $row_datos_estados_financieros) {
     $html_row_three .= '<div class="row p-0 m-0">';
     $html_row_three .= '<div class="col-lg-5 col-md-5 col-sm-4 col-4 p-0"></div>';
     $html_row_three .= '<div class="col-lg-2 col-md-2 col-sm-4 col-4 p-0">';
-    $html_row_three .= '<button id="' . $campo_final['campo'] . '" class="form-control col-12 btn-submit-financial btn bg-orange align-items-center justify-content-center gap-2">';
+    $html_row_three .= '<button id="' . $campo_final['campo'] . '" class="form-control col-12 btn-submit-financial btn">';
     $html_row_three .= '<p class="font-roboto-medium tx-white m-0 p-0">' . $campo_final['texto'] . '</p>';
     $html_row_three .= '<img src="' . $image_path . '" alt="Solicitar" width="30px">';
     $html_row_three .= '</button>';

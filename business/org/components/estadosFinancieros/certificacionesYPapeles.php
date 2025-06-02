@@ -395,7 +395,7 @@ foreach ($filasCertificaciones as $rowCert) {
     $html_row_eight = '<div class="row p-0 m-0 mt-lg-5 mt-4">';
     $html_row_eight .= '<div class="col-lg-5 col-md-5 col-sm-4 col-4 p-0"></div>';
     $html_row_eight .= '<div class="col-lg-2 col-md-2 col-sm-4 col-4 p-0">';
-    $html_row_eight .= '<button id="' . $idBoton . '" class="form-control col-12 btn-submit-financial btn bg-orange align-items-center justify-content-center gap-2">';
+    $html_row_eight .= '<button id="' . $idBoton . '" class="form-control col-12 btn-submit-financial btn">';
     $html_row_eight .= '<p class="font-roboto-medium tx-white m-0 p-0">' . $textoBoton . '</p>';
     $html_row_eight .= '<img src="' . $rutaBtn . '" alt="' . $altBtn . '" class="img-fluid" style="width:30px;">';
     $html_row_eight .= '</button>';
