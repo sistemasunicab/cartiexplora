@@ -147,6 +147,8 @@
         $txtValor = array_shift($formItems);
         $txtvalorRefMan = array_shift($formItems);
         $btnPagar = array_shift($formItems);
+        $selectMedioPago = array_shift($formItems);
+        $selectConceptoPago = array_shift($formItems);
 
         $html .= '<section class="section-title-pagos">'.
                      '<div class="container">'.
@@ -283,16 +285,18 @@
                            '</div>'.
                          '</div>'.
                          '<div class="col-lg-4 col-md-12 col-sm-12 col-12">'.
-                             '<div class="d-flex justify-content-center align-items-center">'.
-                               '<div id="medioalert" class="form-group select-alert">'.
-                                   '<select id="selmediopago" name="selmediopago" class="form-select-pagos campoFormulario" required>'.
-                                       '<option value="NA">Seleccione el medio de pago</option>';
+                                '<div id="' . $selectMedioPago['campo'] . '" class="select-wrapper custom-select campoFormulario form-select-pagos" data-btn-submit="'.$btnPagar['campo'].'" data-value="NA" data-texto="'.$selectMedioPago['texto'].'" '.$selectMedioPago['obligatorio'].'>'.
+                                    '<div class="display-options">'.
+                                        '<span class="selected-value">' . $selectMedioPago['placeHolder'] . '</span>'.
+                                    '</div>'.
+                                    '<div class="custom-options">'.
+                                            '<div class="custom-option" data-value="NA">' . $selectMedioPago['placeHolder'] . '</div>';
+                                        
         for ($i = 0; $i < count($formasPago); $i++) {
-            $html .=                         '<option value="'.$formasPago[$i]['valor'].'">'.$formasPago[$i]['texto'].'</option>';
+            $html .=                         '<div class="custom-option" data-value="'.$formasPago[$i]['valor'].'">'.$formasPago[$i]['texto'].'</div>';
         }
-        $html .=                   '</select>';
+        $html .=                    '</div>';
         $html .=                '</div>';
-        $html .=             '</div>';
         $html .=         '</div>';
         $html .=      '</div>';
         $html .=      '<div class="row my-4">'.
@@ -305,8 +309,8 @@
         $html .= '</section>';
         $titulosSeccionesPago = explode("|", $titulosSeccionesPago['texto']);
 
-        $html .= '<section id="secreferencia" class="container" style="display: none;>'.
-                         '<div  class="row section-pagos">'.
+        $html .= '<section id="secreferencia" class="container" style="display: none;">'.
+                         '<div  class="row section-mt-pagos">'.
                              '<div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-4">'.
                                  '<h3 class="titulo-secciones-pagos">'.$titulosSeccionesPago[0].'</h3>'.
                              '</div>'.
@@ -329,7 +333,7 @@
 
                  '<section id="secvalman" class="container section-pagos" style="display: none;">'.
                          '<div class="row section-mt-pagos">'.
-                             '<div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-4">'.
+                             '<div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-2">'.
                                  '<h3 class="titulo-secciones-pagos">'.$titulosSeccionesPago[1].'</h3>'.
                              '</div>'.
                          '</div>'.
@@ -349,23 +353,31 @@
                                  '<input type="'.$txtValor['tipo'].'" id="'.$txtValor['campo'].'" placeholder="'.$txtValor['placeHolder'].'" onkeyup="validarCampo(this, \'Valor a pagar\', \'numero\', 1, \'btnpagar\');" class="form-control campoFormulario input-pagos" '.$txtValor['obligatorio'].' '.$txtValor['soloLectura'].' '.$txtValor['habilitado'].'>'.
                              '</div>'.
                              '<div class="col-lg-6 col-md-6 col-sm-12 col-12 text-center form-block-pagos">'.
-                                '<select id="selconcepto" name="selconcepto" class="form-select-pagos campoFormulario font-roboto-medium" required>'.
-                                    '<option value="NA">Seleccione concepto de pago</option>';
-        for ($i=0; $i < count($conceptosPago); $i++) { 
-            $html .=                '<option value="'.$conceptosPago[$i]['valor'].'">'.$conceptosPago[$i]['texto'].'</option>';
+                                '<div class="d-flex align-items-center h-100">' .
+                                    '<div id="' . $selectConceptoPago['campo'] . '" class="select-wrapper custom-select campoFormulario form-select-pagos" data-btn-submit="'.$btnPagar['campo'].'" data-value="NA" data-texto="'.$selectConceptoPago['texto'].'" '.$selectConceptoPago['obligatorio'].'>'.
+                                        '<div class="display-options">'.
+                                            '<span class="selected-value">' . $selectConceptoPago['placeHolder'] . '</span>'.
+                                        '</div>'.
+                                        '<div class="custom-options">'.
+                                                '<div class="custom-option" data-value="NA">' . $selectConceptoPago['placeHolder'] . '</div>';
+                                        
+        for ($i = 0; $i < count($conceptosPago); $i++) { 
+            $html .=                    '<div class="custom-option" data-value="'.$conceptosPago[$i]['valor'].'">'.$conceptosPago[$i]['texto'].'</div>';
         }
-        $html .=                '</select>'.
+        $html .=                        '</div>';
+        $html .=                    '</div>';
+        $html .=                '</div>' .
                             '</div>'.
                          '</div>'.
                          '<div class="row">'.
-                             '<div class="col-lg-12 col-md-12 col-sm-12 col-12">'.
+                             '<div class="col-lg-12 col-md-12 col-sm-12 col-12 form-block-pagos">'.
                                  '<input type="'. $txtvalorRefMan['tipo'] .'" id="'. $txtvalorRefMan['campo'] .'" class="inactivo form-control text-center input-pagos" placeholder="'. $txtvalorRefMan['placeHolder'] .'" '. $txtvalorRefMan['obligatorio'] .' '. $txtvalorRefMan['soloLectura'] .' '. $txtvalorRefMan['habilitado'] .'>'.
                              '</div>'.
                          '</div>'.
                  '</section>'.
-                 '<section class="container">'.
+                 '<section class="container section-pagos">'.
                     '<div class="row">'.
-                        '<div class="col-lg-12 col-md-12 col-sm-12 col-12 my-2 text-center">'.
+                        '<div class="col-lg-12 col-md-12 col-sm-12 col-12 my-2 text-center form-block-pagos">'.
                             '<button id="'.$btnPagar['campo'].'" type="'.$btnPagar['tipo'].'" class="pagos-btn w-50" onclick="">'.$btnPagar['texto'].'</button>'.
                         '</div>'.
                     '</div>'.
