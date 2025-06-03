@@ -36,7 +36,7 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, ruta
 (3, 'assets/img/Grupo_granja.png', '', '', '', 'granja', 'Granja', 'abajo', '', ''),
 (5, 'assets/img/estudiantes.png', '', '', '', 'estudiantes', 'Estudiantes', 'derecha', '', ''),
 (5, 'assets/img/graduados.png', '', '', '', 'graduados', 'Graduados', 'derecha', '', ''),
-(5, 'assets/img/egresados.png', '', '', '', 'egresados', 'Egresados', 'derecha', '', ''),
+(5, 'assets/img/egresados1.png', '', '', '', 'egresados', 'Egresados', 'derecha', '', ''),
 (6, 'assets/img/cc1.png', '', '', '', 'cc1', '', '', '', ''),
 (6, 'assets/img/cc2.png', '', '', '', 'cc2', '', '', '', ''),
 (6, 'assets/img/cc3.png', '', '', '', 'cc3', '', '', '', ''),
@@ -48,7 +48,7 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, ruta
 (7, 'assets/img/evidencias.png', '', '', '', 'evidencias', 'Evidencias de congresos y reconocimientos', 'derecha', '', ''),
 (7, 'assets/img/testimonios.png', '', '', '', 'testimonios', 'Testimonios', 'derecha', '', ''),
 (7, 'assets/img/biblioteca.png', '', '', '', 'biblioteca', 'Biblioteca', 'derecha', '', ''),
-(7, 'assets/img/atencion.png', '', '', '', 'atencion', 'Padres de Familia: Horarios de atención', 'derecha', '', ''),
+(7, 'assets/img/atencion.png', '', '', '', 'atencion', 'Horarios de atención', 'derecha', '', ''),
 (7, 'assets/img/directorio.png', '', '', '', 'directorio', 'Directorio', 'derecha', '', ''),
 (7, 'assets/img/investigacion.png', '', '', '', 'investigacion', 'Investigación', 'derecha', '', ''),
 (8, 'assets/img/conectados.png', '', '', '', 'conectados', '', '', '', ''),
@@ -104,7 +104,7 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, ruta
 (23, 'assets/img/EquipoSistemas.jpg', '', '', '', '', 'Equipo de Sistemas', 'arriba', '', ''),
 (23, 'assets/img/EquipoCorreccion.jpg', '', '', '', '', 'Equipo de Corrección de Estilo', 'arriba', '', ''),
 (23, 'assets/img/EquipoMaestros.png', '', '', '', '', 'Grupo Cuerpo de Maestros', 'arriba', '', ''),
-(24, 'assets/img/ModeloPedagogico.png', '', '', '', '', '', 'izquierda', '', ''),
+(24, 'assets/img/modeloPedagogico.gif', '', '', '', '', '', 'izquierda', '', ''),
 (24, 'assets/img/think.svg', '', '', '', '', 'Potencialización de las habilidades individuales de los estudiantes.', 'abajo', '', ''),
 (24, 'assets/img/elearning.svg', '', '', '', '', 'Fortalecimiento de principios y valores basados en la autonomía del estudiante.', 'abajo', '', ''),
 (24, 'assets/img/audiobook.svg', '', '', '', '', 'Desarrollo del pensamiento creativo del estudiante.', 'abajo', '', ''),
@@ -200,3 +200,12 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, ruta
 (10, 'assets/img/tiktok.svg', '', '', '', 'social-media', 'tiktok', '', '', '');
 
 
+DELETE FROM tbl_imagenes WHERE id = 142 AND ruta = 'assets/img/pagos/ref_pago.png';
+UPDATE tbl_imagenes SET posicionTitulo = 'izquierda' WHERE (id = 139);
+UPDATE tbl_imagenes SET posicionTitulo = 'izquierda' WHERE (id = 135);
+UPDATE tbl_imagenes SET rutaMovil = 'assets/img/bannerPrincipios.png', rutaTabletaVertical = 'assets/img/bannerPrincipios.png', rutaTabletaHorizontal = 'assets/img/bannerPrincipios.png' WHERE (id = 97);
+
+
+DELETE FROM tbl_imagenes WHERE id = 28 AND ruta = 'assets/img/testimonios.png';
+UPDATE tbl_imagenes SET ruta = 'assets/img/egresados1.png' WHERE id = 18;
+UPDATE tbl_imagenes SET ruta = 'assets/img/modeloPedagogico.gif' WHERE id = 82;

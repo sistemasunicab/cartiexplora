@@ -4,47 +4,40 @@ $(function () {
 
 document.addEventListener("DOMContentLoaded", () => {
     galeriaEstudiantes();
-    actualizarPorcentajesBotonBanner();
+    // actualizarPorcentajesBotonBanner();
 });
 
-const actualizarPorcentajesBotonBanner = () => {
-    const botones = document.querySelectorAll(
-        ".carousel-item .button-carousel"
-    );
-    const anchoActual = window.innerWidth;
-    botones.forEach((boton) => {
-        // Almacena los valores originales solo una vez, si no están ya guardados
-        if (!boton.dataset.originalTop) {
-            boton.dataset.originalTop = boton.style.top;
-        }
-        if (!boton.dataset.originalLeft) {
-            boton.dataset.originalLeft = boton.style.left;
-        }
-        if (anchoActual < 768) {
-            boton.style.top = "50%";
-            boton.style.left = "50%";
-            boton.style.transform = "translate(-50%, -50%)";
-        } else if (anchoActual >= 768) {
-            boton.style.top = boton.dataset.originalTop;
-            boton.style.left = boton.dataset.originalLeft;
-            boton.style.transform = "";
-        }
-    });
-};
+// const actualizarPorcentajesBotonBanner = () => {
+//     const botones = document.querySelectorAll(
+//         ".carousel-item .button-carousel"
+//     );
+    
+//     botones.forEach((boton) => {
+//         // Almacena los valores originales solo una vez, si no están ya guardados
+//         if (!boton.dataset.originalTop) {
+//             boton.dataset.originalTop = boton.style.top;
+//         }
+//         if (!boton.dataset.originalLeft) {
+//             boton.dataset.originalLeft = boton.style.left;
+//         }
+
+//         boton.style.top = boton.dataset.originalTop;
+//         boton.style.left = boton.dataset.originalLeft;
+//         boton.style.transform = `translateX(-${boton.dataset.originalLeft})`;
+//     });
+// };
 
 // Escuchamos el evento resize para ejecutar la verificación cada vez que cambie el ancho de la ventana
-window.addEventListener('resize', actualizarPorcentajesBotonBanner);
+// window.addEventListener('resize', actualizarPorcentajesBotonBanner);
 
 /* Script Galeria Nuestros Estudiantes */
 const galeriaEstudiantes = () => {
-    const items = document.querySelectorAll(".galeria div .item");
+    const items = document.querySelectorAll(".galeria-nuestros-estudiantes div .item-nuestros-estudiantes");
 
     items.forEach((item) => {
         item.addEventListener("click", () => {
-            // Elimina la clase seleccionada de la imagen actualmente seleccionada
-            document
-                .querySelector(".item-seleccionado")
-                .classList.remove("item-seleccionado");
+            document.querySelector(".item-nuestros-estudiantes__seleccionado")
+                .classList.remove("item-nuestros-estudiantes__seleccionado");
 
             const itemImg = item.querySelector("img");
             const imgGrande = document.querySelector("#imagen-grande-galeria");
@@ -52,7 +45,7 @@ const galeriaEstudiantes = () => {
             imgGrande.src = itemImg.src;
             imgGrande.alt = itemImg.alt;
 
-            item.classList.add("item-seleccionado");
+            item.classList.add("item-nuestros-estudiantes__seleccionado");
         });
     });
 };
@@ -85,16 +78,16 @@ const descargarArchivo = (nivel, path, nombreNuevoArchivo, destino) => {
 };
 
 const leerMasPrincipios = (id, boton) => {
-    let tresPuntos = document.querySelector(`#${id} .show`);
-    let textoOculto = document.querySelector(`#${id} .hide`);
+    let tresPuntos = document.querySelector(`#${id} .show-principios`);
+    let textoOculto = document.querySelector(`#${id} .hide-principios`);
 
     //Oculta o Muestra tres puntos ...
-    tresPuntos.classList.toggle("show");
-    tresPuntos.classList.toggle("hide");
+    tresPuntos.classList.toggle("show-principios");
+    tresPuntos.classList.toggle("hide-principios");
 
     //Oculta o muestra el texto escondido
-    textoOculto.classList.toggle("hide");
-    textoOculto.classList.toggle("show");
+    textoOculto.classList.toggle("hide-principios");
+    textoOculto.classList.toggle("show-principios");
 
     boton.innerText =
         boton.innerText === "Leer más" ? "Leer menos" : "Leer más";
@@ -1175,3 +1168,223 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+/**  Zona de enlaces Inicio **/
+
+// Variables
+let originalOrder = null; 
+let linksStarted = false;
+let listenersAttached = false;
+let autoplay = null;
+
+// Funciones
+function loadCarousel() {
+    //-- Variables --//
+    const slider = document.getElementById('linksCarousel');
+    const moveCount = 1;
+
+    //-- Checkings --//
+    if (slider == null) { return; } 
+
+    // Checks if the size changed, and if it is more than 992 breakpoint, returns to normal.
+    if (window.innerWidth > 992 && linksStarted === true) {
+        console.log('Zona de enlaces: Carousel Desactivado.');
+        clearInterval(autoplay);
+        linksStarted = false;
+
+        originalOrder.forEach(function(link) {
+            link.style.transition = 'none';
+            link.style.transform = 'none';
+            slider.appendChild(link);
+        });
+    }
+
+    // Basic check for window / device checking.
+    if (window.innerWidth >= 992 || linksStarted === true) { return; }     
+
+    //-- Funciones --//
+    function Next() {
+        Array.from(slider.children).forEach(function(link) {
+            link.style.transition = 'transform .35s ease';
+            link.style.transform = `translateX(-${link.offsetWidth}px)`;
+        });
+
+        setTimeout(function() {
+            Array.from(slider.children).forEach(function(link) {
+                 link.style.transition = 'none';
+            link.style.transform = `translateX(0px)`;
+            });
+            void slider.offsetWidth;
+
+            for (let i = 0; i < moveCount; i++) {
+                 const first = slider.children[0];
+                 slider.appendChild(first);
+            }
+        }, 350);
+    }
+
+    function Previous() {
+        for (let i = 0; i < moveCount; i++) {
+            const last = slider.children[slider.children.length - 1];
+            slider.insertBefore(last, slider.firstChild);
+        }
+        void slider.offsetWidth;
+
+        Array.from(slider.children).forEach(function(link) {
+            link.style.transition = 'none';
+            link.style.transform = `translateX(-${link.offsetWidth}px)`;
+        });
+
+        Array.from(slider.children).forEach(function(link) {
+            link.style.transition = 'transform .35s ease';
+            link.style.transform = `translateX(0px)`;
+        });
+    }
+
+    function Reset() {
+        clearInterval(autoplay);
+        autoplay = setInterval(Next, 3000);
+    }
+
+    //-- Codigo --//
+    console.log('Zona de enlaces: Carousel Iniciado');
+     
+    linksStarted = true;
+    originalOrder = Array.from(slider.children);
+    autoplay = setInterval(Next, 3000);
+
+    if (!listenersAttached) {
+        document.querySelector('#linksCarousel_next').addEventListener('click', function() {
+            Next();
+            Reset();
+        });
+
+        document.querySelector('#linksCarousel_previous').addEventListener('click', function() {
+            Previous();
+            Reset();
+        });
+
+        listenersAttached = true;
+    }
+}
+
+// Listeners
+document.addEventListener('DOMContentLoaded', loadCarousel);
+window.addEventListener('resize', loadCarousel)
+
+/** Zona de enlaces Fin **/
+
+/** Ecosistema Inicio **/
+
+function displayEcosistema(id, btn) {
+    let tresPuntos = document.querySelector(`#${id} [data-tipo="dots"]`);
+    let textoOculto = document.querySelector(`#${id} [data-tipo="text"]`);
+    let textoCompleto = document.querySelector(`#${id}`);
+
+    if (btn.dataset.textoExpandido === 'false') {
+        btn.dataset.textoExpandido = 'true';
+        btn.innerText = "Leer menos";
+        
+        tresPuntos.classList.toggle("d-none");
+        textoOculto.classList.toggle("d-none");
+        textoCompleto.classList.toggle("historia-ecosistema-efecto");
+    } else if (btn.dataset.textoExpandido === 'true') {
+        btn.dataset.textoExpandido = 'false';
+        btn.innerText = "Leer más";
+        
+        tresPuntos.classList.toggle("d-none");
+        textoOculto.classList.toggle("d-none");
+        textoCompleto.classList.toggle("historia-ecosistema-efecto");
+    }
+}
+
+/** Ecosistema Fin **/
+
+/** Modelo Pedagogico Inicio **/
+
+document.addEventListener("DOMContentLoaded", function () {
+  const elements = document.querySelectorAll(".nuestroModelo-item");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.5 });
+
+  elements.forEach(el => observer.observe(el));
+});
+
+/** Modelo Pedagogico Fin **/
+
+/** Celebrando logros y experiencias Inicio **/
+
+$(document).ready(function() {
+    $("a[data-button-blog]").on("click", function(e) {
+        e.preventDefault();
+
+        const data = { 
+            id: $(this).data('blogId') 
+        };
+    
+        $.ajax({
+            url: "../../org/ajax/blogSetManager.php",
+            type: "POST",
+            data: data,
+            success: function (response) {
+                if (response.status === "success") {
+                    console.log("Success blog update");
+                    document.getElementById('blog_post').scrollIntoView({ behavior: 'smooth' });
+                    window.history.replaceState(null, '', window.location.pathname);
+                    
+                    $("#blog_dislikeBtn").addClass("d-none");
+                    $("#blog_likeBtn").removeClass("d-none");
+                    
+                    $('#comentarios').children().each(function() {
+                        $(this).remove();
+                    });
+
+                    $('#blog_post').data('blogId', response.id);
+                    $('#blog_post').attr('data-blog-id', response.id);
+
+                    const fecha = new Date(response.fecha);
+                    const opciones = { 
+                      weekday: 'long',
+                      day: 'numeric',
+                      month: 'long',
+                      year: 'numeric'
+                    };
+
+                    const formatoFecha = new Intl.DateTimeFormat('es-ES', opciones).format(fecha);
+                    $('#blogDate').text(formatoFecha);
+
+                    $('#blogTitle').text(response.titulo);
+                    $('#blogPublisher').text("Por: "+response.autor);
+                    $('#blogImage').attr('src', '../../../'+response.imagen);
+                    $('#content').html(response.descripcion);
+
+                    response.comentarios.reverse().forEach(function(comentario) {
+                        const comment = $("#comentario-plantilla .comment-block").clone();
+                        comment.find('.logros-comentario').text(comentario.comentario);
+                        comment.find('.logros-correo').text(comentario.correo);
+                        
+                        const fechaOriginal = comentario.fecha;
+                        const fecha = new Date(fechaOriginal);
+                        const fechaFormateada = fecha.toISOString().slice(2, 10); // "yy-mm-dd"
+                        comment.find('.logros-fecha').text(fechaFormateada);
+
+                        $('#comentarios').append('<div class="col-lg-2 col-md-2"></div>')
+                        $('#comentarios').append(comment);
+                        $('#comentarios').append('<div class="col-lg-2 col-md-2"></div>')
+                    });
+                }   
+            },
+            error: function (response) {
+                console.log(response);
+            },
+        });  
+    })
+});
+
+/** Celebrando logros y experiencias Fin **/

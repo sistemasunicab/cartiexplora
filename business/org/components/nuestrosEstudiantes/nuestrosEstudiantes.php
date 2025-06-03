@@ -21,10 +21,10 @@
     $html = '';
 
     while ($row_datos_seccion = $res_seccion->fetch_assoc()) {
-        $html .= '<main class="container my-2rem">';
-        $html .=    '<div class="row mb-2rem">';
+        $html .= '<main class="container section-nuestros-estudiantes">';
+        $html .=    '<div class="row titulo-mb-nuestros-estudiantes">';
         $html .=        '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
-        $html .=            '<h2 class="tx-blue lh-1 font-roboto-light-title">'. $row_datos_seccion['titulo'] .'</h2>';
+        $html .=            '<h2 class="h2-nuestros-estudiantes font-roboto-light-title">'. $row_datos_seccion['titulo'] .'</h2>';
         $html .=        '</div>';
         $html .=    '</div>';
 
@@ -35,33 +35,42 @@
         }
         $res_imagenes = $mysqli1->query($sql_imagenes);
         
-        $primeraImagen = true;
-        $html .=    '<div class="grid-nuestros-estudiantes galeria">';
-        while ($row_imagenes = $res_imagenes->fetch_assoc()) {
-            if($primeraImagen){
-                $html .= '<div>';
-                $html .=    '<a href="#zoom-imagen" class="item item-seleccionado">';
-                $html .=        '<img'. ImageAttributeBuilder::buildAttributes($nivel, $row_imagenes['ruta'],$row_imagenes['descripcion']) .' class="img-fluid w-100" draggable="false">';
-                $html .=    '</a>';
-                $html .= '</div>';
-                $imagenInicial = ImageAttributeBuilder::buildAttributes($nivel, $row_imagenes['ruta'],$row_imagenes['descripcion']);
-                $primeraImagen = false;
-            }else{
-                $html .= '<div>';
-                $html .=     '<a href="#zoom-imagen" class="item">';
-                $html .=         '<img'. ImageAttributeBuilder::buildAttributes($nivel, $row_imagenes['ruta'],$row_imagenes['descripcion']) .' class="img-fluid w-100" draggable="false">';
-                $html .=     '</a>';
-                $html .= '</div>';
-            }
-        }
+        // Variables de control
+        $esPrimeraImagen = true;
+        $imagenesEnFila = 0;
+        $totalRecorridas = 0;
 
-        $html .=    '</div>';
+        $html .=    '<div class="galeria-nuestros-estudiantes">';
+        $html .=        '<div class="row">';
+        while ($filaImagen = $res_imagenes->fetch_assoc()) {
+    
+            $claseSeleccion = $esPrimeraImagen ? ' item-nuestros-estudiantes__seleccionado' : '';
+            $atributosImagen = ImageAttributeBuilder::buildAttributes($nivel, $filaImagen['ruta'], $filaImagen['descripcion']);
+        
+            $html .= '<div class="col-lg-3 col-md-4 col-sm-4 col-4 row-margin-nuestros-estudiantes">';
+            $html .=     '<a href="#zoom-imagen" class="item-nuestros-estudiantes' . $claseSeleccion . '">';
+            $html .=        '<div>';
+            $html .=            '<img' . $atributosImagen . ' class="img-fluid w-100" draggable="false">';
+            $html .=        '</div>';
+            $html .=     '</a>';
+            $html .= '</div>';
+        
+            if ($esPrimeraImagen) {
+                $imagenInicial = $atributosImagen;
+                $esPrimeraImagen = false;
+            }
+
+        }
+        
+        $html .=            '<div class="d-lg-none col-md-4 col-sm-4 col-4"></div>';
+        $html .=        '</div>'; // Cierra la fila
+        $html .=    '</div>'; 
         $html .= '</main>';
-        $html .= '<section class="bg-light-gray-o26">';
+        $html .= '<section class="section-nuestros-estudiantes fondo-nuestros-estudiantes" id="zoom-imagen">';
         $html .=    '<div class="container">';
         $html .=        '<div class="row">';
         $html .=            '<div class="col-lg-2 col-md-1 col-sm-1 col-1 "></div>';
-        $html .=            '<div class="col-lg-8 col-md-10 col-sm-10 col-10 p-5 py-2rem" id="zoom-imagen">';
+        $html .=            '<div class="col-lg-8 col-md-10 col-sm-10 col-10 img-grande-nuestros-estudiantes">';
         $html .=                '<img id="imagen-grande-galeria" '. $imagenInicial .' class="img-fluid w-100" draggable="false">';
         $html .=            '</div>';
         $html .=            '<div class="col-lg-2 col-md-1 col-sm-1 col-1"></div>';

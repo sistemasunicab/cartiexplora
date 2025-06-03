@@ -17,7 +17,7 @@
     
     $html = '';
     while ($row_datos_seccion = $res_seccion_dos->fetch_assoc()) {
-        $html .= '<section class="bg-bold-blue historia-imgcontainer">';
+        $html .= '<section class="bg-bold-blue historia-informacion-section">';
     }
 
     $res_sentencia = $mysqli1->query($sentencia."73");
@@ -44,8 +44,8 @@
 
     if ($html != '') {
         $html .= '
-        <div class="container">
-            <div class="row justify-content-between m-0">
+        <div class="container historia-informacion-container">
+            <div class="row">
         ';
         
         $count = 0;
@@ -58,7 +58,7 @@
 
             $html .= '
             <div class="col-lg-4 '.$mobileCol.' mb-4">
-                <img class="img-fluid w-100 p-0 historia-info-img" src="../../../../cartiexplora/'.$imgRuta.'" alt="">
+                <img class="img-fluid w-100 p-0 historia-informacion-imgs" src="../../../../cartiexplora/'.$imgRuta.'" alt="">
             </div>
             
             ';
@@ -67,20 +67,23 @@
         
         $html .= '
             </div>
-
-            <div class="row justify-content-center m-0">
-                <div class="col-lg-12 col-md-8 col-sm-12 col-12">
-                    <picture>
-                        <source '.ImageAttributeBuilder::buildsrcset($nivel, $rutaImgHistoria).' media="(min-width: 992px)">
-                        <source '.ImageAttributeBuilder::buildsrcset($nivel, $rutaImgHistoriaTabletas).' media="(min-width: 768px)">
-                        <img class="img-fluid w-100 historia-info-mainimg" src="../../../'.$rutaImgHistoriaMovil.'" alt="">
-                    </picture>
-
-                </div>
-            </div>
         </div>
 
         </section>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-sm-2 col-2 d-lg-none d-block"></div>
+                <div class="col-lg-12 col-md-8 col-sm-8 col-8">
+                    <picture>
+                        <source '.ImageAttributeBuilder::buildsrcset($nivel, $rutaImgHistoria).' media="(min-width: 992px)">
+                        <source '.ImageAttributeBuilder::buildsrcset($nivel, $rutaImgHistoriaTabletas).' media="(min-width: 768px)">
+                        <img class="img-fluid w-100 historia-informacion-main" src="../../../'.$rutaImgHistoriaMovil.'" alt="">
+                    </picture>
+                </div>
+                <div class="col-md-2 col-sm-2 col-2 d-lg-none d-block"></div>
+            </div>
+        </div>
         ';
     }
 

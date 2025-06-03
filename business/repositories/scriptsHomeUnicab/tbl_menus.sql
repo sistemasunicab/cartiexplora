@@ -18,7 +18,7 @@ INSERT INTO tbl_menus (menu, nivel, padre, icono, linkNivelRaiz, linkNivelTres, 
 ('UNICAB Solutions', '' ,'', '', '', '', ''),
 ('Admisiones', '', '', '', '', '', ''),
 ('Aula Virtual', '', '', '', 'https://aulavirtual.unicab.org/login/', 'https://aulavirtual.unicab.org/login/', '_blank'),
-('Registro Académico', '', '', '', 'http://google.com', 'http://google.com', '_blank'),
+('Registro Académico', '', '', '', 'https://unicab.org/login_registro.php', 'https://unicab.org/login_registro.php', '_blank'),
 ('Correo', '', '', '', 'https://mail.google.com/a/unicab.org/', 'https://mail.google.com/a/unicab.org/', '_blank'),
 
 ('Sobre Nosostros', 'raiz', '1', '', 'business/org/pages/sobreNosotros.php', '../../../business/org/pages/sobreNosotros.php',''),
@@ -55,6 +55,4 @@ INSERT INTO tbl_menus (menu, nivel, padre, icono, linkNivelRaiz, linkNivelTres, 
 ('Nuestros Estudiantes', 'raiz', '1', '', 'business/org/pages/nuestrosEstudiantes.php', '../../../business/org/pages/nuestrosEstudiantes.php', ''),
 ('Blog', 'raiz', '1', '', 'business/org/pages/blog.php', '../../../business/org/pages/blog.php', '');
 
-
-
-
+UPDATE tbl_menus SET menu = "Celebrando Logros" WHERE id = 35;

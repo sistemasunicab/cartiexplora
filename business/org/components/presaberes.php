@@ -40,18 +40,19 @@
 
         // renderiza la seccion
         $html .= '
-          <main class="bg-bold-blue my-2rem">
+          <main class="bg-bold-blue presaberes-globalSection">
                <div class="container py-5">
-                    <div class="row justify-content-center">
-                         <div class="col-lg-2 col-md-3 col-sm-3 col-3 my-auto">
-                              <img class="img-fluid w-100" src="../../../'.$rutaIconoInicio.'" alt="">
+                    <div class="row">
+                         <div class="col-lg-1 col-md-5 col-sm-4 col-4"></div>
+                         <div class="col-lg-2 col-md-2 col-sm-4 col-4 d-flex justify-content-center align-items-center">
+                              <img class="img-fluid w-75 d-block my-auto" src="../../../'.$rutaIconoInicio.'" alt="">
                          </div>
-
-                         <div class="col-lg-7 col-md-12 col-sm-12 col-12 d-flex '.FlexTitleLoader::setDirection($posicionTitulo).' align-items-center">
-                              <h3 class="font-roboto-black tx-white text-lg-start text-center d-block w-100">'.$row_datos_seccion['titulo'].'</h3>
-                              <p class="font-roboto tx-white text-lg-start text-center d-block w-100">'.$row_datos_seccion['subTitulo'].'</p>
-                              <a class="orange-btn-1" href="">Iniciar</a>
+                         <div class="col-lg-1 col-md-5 col-sm-4 col-4"></div>
+                         <div class="col-lg-8 col-md-12 col-sm-12 col-12 d-flex '.FlexTitleLoader::setDirection($posicionTitulo).' justify-content-center">
+                              <h3 class="presaberes-title text-lg-start text-center">'.$row_datos_seccion['titulo'].'</h3>
+                              <p class="presaberes-subtitle text-lg-start text-center">'.$row_datos_seccion['subTitulo'].'</p>
                          </div>
+                         <div class="col-lg-1"></div>
                     </div>
                </div>
           </main>
@@ -59,27 +60,41 @@
     }
 
     if ($html != '') {
-
      $html .= '
-     <section class="container my-2rem">
-          <div class="row">
-               <div class="col-lg-2 col-md-2 col-sm-12 col-12 bg-orange py-3 d-flex align-items-center">
-                    <h4 class="tx-bold-blue text-center m-0 font-roboto-bolditalic w-100">PASO1</h4>
-               </div>
+     <section class="presaberes-globalSection">
+          <div class="container-lg">
+               <div class="row">
+                    <div class="col-lg-2 col-md-2 py-3 presaberes-paso">
+                         <h3 class="text-center">PASO1</h3>
+                    </div>
 
-               <div class="col-lg-10 col-md-10 col-sm-12 col-12 bg-bold-blue py-3">
-                    <h3 class="tx-white m-0 font-roboto-black text-center">Informacion del estudiante</h3>
+                    <div class="col-lg-10 col-md-10 py-3 presaberes-paso-indicacion">
+                         <h3 class="text-center">Informacion del estudiante</h3>
+                    </div>
                </div>
           </div>
 
-          <div class="row align-items-center flex-column gap-4">
-               <div class="col-lg-12 col-md-12 col-sm-12 col-12 my-2rem">
-                    <h3 class="tx-bold-blue m-0 font-roboto-light text-center">Numero de documento de identidad del estudiante (sin puntos)</h3>
+          <div class="container">
+               <div class="row">
+                    <div class="col-lg-12 my-2rem">
+                         <h3 class="presaberes-paso-title text-center">Numero de documento de identidad del estudiante (sin puntos)</h3>
+                    </div>
                </div>
 
-               <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex flex-column align-items-center gap-4">
-                    <input type="text" class="w-100 p-3">
-                    <a class="orange-btn-1" href="">Iniciar</a>
+               <div class="row">
+                    <div class="col-lg-3 col-md-3"></div>
+                    <div class="col-lg-6 col-md-6 mb-4">
+                         <input type="text" class="w-100 p-3">
+                    </div>
+                    <div class="col-lg-3 col-md-3"></div>
+               </div>
+
+               <div class="row">
+                    <div class="col-lg-5 col-md-4"></div>
+                    <div class="col-lg-2 col-md-4">
+                         <a class="presaberes-boton" href="">Iniciar</a>
+                    </div>
+                    <div class="col-lg-5 col-md-4"></div>
                </div>
           </div>
      </section>

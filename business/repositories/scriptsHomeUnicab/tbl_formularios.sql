@@ -103,3 +103,5 @@ VALUES
 
 -- Botón de envío
 (26, 'submit-certificaciones-papeles', 'submit', 'Solicitar', '', '', '', '');
+
+DELETE FROM tbl_formularios WHERE id = 36 AND campo = 'tratamiento_datos';

@@ -64,3 +64,6 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 
 INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, texto) VALUES 
 ('costos', 1, 'admisiones', '', 'Consulta aquí los costos aprobados por la Secretaría de Educación de Sogamoso para el año 2025', '');
+
+UPDATE tbl_secciones SET titulo = 'Noticias Destacadas' WHERE id = 32;
+UPDATE tbl_secciones SET titulo = 'Noticias Destacadas' WHERE id = 8;
