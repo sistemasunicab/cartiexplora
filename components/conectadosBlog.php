@@ -14,11 +14,11 @@
                                    <div>
                                         <p class="noticias-date lh-1">'.$datos['fechaPublicacion'].'</p>
                                         <p class="noticias-title lh-1">'.$datos['tituloBlog'].'</p>
+                                        <p class="noticias-p lh-1 mt-3">'.substr($datos['descripcion'], 0, 197).'...</p>
                                    </div>     
                                    
-                                   <p class="noticias-p lh-1">'.substr($datos['descripcion'], 0, 197).'...</p>
                                    
-                                   <div>
+                                   <div class="mt-lg-0 mt-md-0 mt-sm-2 mt-3">
                                         <a href="business/org/pages/blog.php?blogId='.$datos['blogId'].'#blog_post" class="noticias-link lh-1">'.$datos['textoBoton'].'</a>
                                         <hr class="noticias-littlebar">
                                    </div>

@@ -13,7 +13,7 @@
     function generarEcosistema($rutaImagen, $titulo, $direccionTitulo, $texto, $posicion, $id) {
         $bloque = '
         <div class="col-md-2 col-sm-1 col-1 d-lg-none d-md-block"></div>
-        <div class="col-lg-4 col-md-8 col-sm-10 col-10 '.$posicion.' mb-4" >
+        <div class="col-lg-4 col-md-8 col-sm-10 col-10 '.$posicion.' historia-ecosistema-card">
             <div>
                 <div class="d-flex '.FlexTitleLoader::setDirection($direccionTitulo).'">
                     <img src="../../../../cartiexplora/'.$rutaImagen.'" alt="" class="img-fluid w-75 historia-ecosistema-logo">

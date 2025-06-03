@@ -259,13 +259,13 @@
                          foreach ($newestBlogs as $blog) {
                               $html .= '<div class="d-flex flex-column">';
                               $blogFecha = new DateTime($blog['fechaPublicacion']);
-                              $format = new IntlDateFormatter("es_ES", IntlDateFormatter::FULL, IntlDateFormatter::NONE);
-                              $blogActualFecha = $formatter->format($fecha);
+                              $fechaFormatter = new IntlDateFormatter("es_ES", IntlDateFormatter::FULL, IntlDateFormatter::NONE);
+                              $blogActualFecha = $fechaFormatter->format($blogFecha);
 
                               $html .= '<p class="noticias-date font-roboto-bold m-0">'.$blogActualFecha.'</p>';
                               $html .= '
                                    <div class="row mx-0 justify-content-between align-items-center mb-3">
-                                        <p class="noticias-title col-7">'.$blog['tituloBlog'].'</p>
+                                        <p class="noticias-title col-7 p-0">'.$blog['tituloBlog'].'</p>
                                         <a href="../../../business/org/pages/blog.php?blogId='.urlencode($blog['blogId']).'#blog_post" class="col-4 logros-aside-boton font-roboto-bolditalic py-2 m-0">'.$blog['textoBoton'].'</a>
                                    </div>
                                    <img src="../../../'.$blog['imagenPrincipal'].'" alt="" class="img-fluid w-100">
