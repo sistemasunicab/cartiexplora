@@ -129,7 +129,7 @@ foreach ($smFooter as $imagen) {
     $linkClean   = $imagen['link'];
 
     $hmtl_social_media .= '
-        <a class="mt-2 mb-3 mx-2 mx-md-3" href="' . $linkClean . '" target="_blank">
+        <a class="mt-2 mb-3 mx-2 mx-md-3 mx-lg-2 mx-xl-3" href="' . $linkClean . '" target="_blank">
             <img style="height:25px" 
                  src="' . $rutaImg . '" 
                  alt="' . $tituloClean . '">

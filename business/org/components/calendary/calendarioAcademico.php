@@ -42,6 +42,7 @@
                     $html_row_two .= '<button '
                                     . 'class="mx-lg-0 mx-auto btn shadow h-auto tx-color-wh btn-calendary fw-semibold" '
                                     . 'style="width:200px;"'
+                                    . 'onclick="window.location.href=\'./entrevista.php\';"'
                                     . '>'
                                     . 'Ver'
                                     . '</button>';

@@ -819,12 +819,12 @@ p-nosotros-1 {
 }
 
 .icon-education {
-    width: 60px;
+    max-width: 60px;
     height: auto;
 }
 
 .image-info-about-us {
-    width: 63px;
+    max-width: 63px;
     height: auto;
     box-sizing: border-box;
     margin-left: 1rem;
@@ -1154,6 +1154,7 @@ p-financieros {
     justify-content: center;
     gap: 1rem;
     background-color: var(--orange) !important;
+    width: fit-content !important;
 }
 
 
@@ -1232,11 +1233,11 @@ p-financieros {
     }
 
     .icon-education {
-        width: 30px;
+        max-width: 30px;
     }
 
     .image-info-about-us {
-        width: 30px;
+        max-width: 30px;
     }
 
     /* Fin Nosotros */
@@ -1428,11 +1429,11 @@ p-financieros {
     }
 
     .icon-education {
-        width: 40px;
+        max-width: 40px;
     }
 
     .image-info-about-us {
-        width: 40px;
+        max-width: 40px;
     }
 
     /* Fin Nosotros */
@@ -1562,14 +1563,234 @@ p-financieros {
 
 @media (min-width: 992px) and (max-width: 1399px) {
 
-    /* Certificados y papeles */
+    /* Footer */
+
+    h5-footer {
+        font-size: 1.44rem;
+        /* 1.8rem * 0.8 */
+        line-height: 1.72rem;
+        /* 2.15rem * 0.8 */
+        letter-spacing: 0.0404rem;
+        /* 0.0505rem * 0.8 */
+    }
+
+    p-footer {
+        font-size: 1.2rem;
+        /* 1.5rem * 0.8 */
+        line-height: 1.72rem;
+        /* 2.15rem * 0.8 */
+        letter-spacing: 0.0336rem;
+        /* 0.042rem * 0.8 */
+    }
+
+    p1-footer {
+        font-size: 1rem;
+        /* 1.25rem * 0.8 */
+        line-height: 1.2rem;
+        /* 1.5rem * 0.8 */
+        letter-spacing: 0.028rem;
+        /* 0.035rem * 0.8 */
+    }
+
+    p2-footer {
+        font-size: 0.8rem;
+        /* 1rem * 0.8 */
+        line-height: 1.12rem;
+        /* 1.4rem * 0.8 */
+        letter-spacing: 0.018rem;
+        /* 0.0225rem * 0.8 */
+    }
+
+    p3-footer {
+        font-size: 1.08rem;
+        /* 1.35rem * 0.8 */
+        line-height: 1.32rem;
+        /* 1.65rem * 0.8 */
+        letter-spacing: 0.0304rem;
+        /* 0.038rem * 0.8 */
+    }
+
+    p4-footer {
+        font-size: 0.64rem;
+        /* 0.8rem * 0.8 */
+        line-height: 0.92rem;
+        /* 1.15rem * 0.8 */
+        letter-spacing: 0.018rem;
+        /* 0.0225rem * 0.8 */
+    }
+
+    /* Fin footer */
+
+    /* Inicio aboutUs */
+
+    h1-nosotros {
+        font-size: 3.75rem;
+        /* 75px * 0.8 / 16 */
+        line-height: 3.75rem;
+        /* 75px * 0.8 / 16 */
+        letter-spacing: 0.105rem;
+        /* 2.1px * 0.8 / 16 */
+    }
+
+    h2-nosotros {
+        font-size: 3rem;
+        /* 60px * 0.8 / 16 */
+        line-height: 3rem;
+        /* 60px * 0.8 / 16 */
+        letter-spacing: 0.084rem;
+        /* 1.68px * 0.8 / 16 */
+    }
+
+    h3-nosotros {
+        font-size: 2rem;
+        /* 40px * 0.8 / 16 */
+        line-height: 2.4rem;
+        /* 48px * 0.8 / 16 */
+        letter-spacing: 0.056rem;
+        /* 1.12px * 0.8 / 16 */
+    }
+
+    p-nosotros {
+        font-size: 1.05rem;
+        /* 21px * 0.8 / 16 */
+        line-height: 1.75rem;
+        /* 35px * 0.8 / 16 */
+        letter-spacing: 0.018rem;
+        /* 0.36px * 0.8 / 16 */
+    }
+
+    p-nosotros-1 {
+        font-size: 1.05rem;
+        /* 21px * 0.8 / 16 */
+        line-height: 1.25rem;
+        /* 25px * 0.8 / 16 */
+        letter-spacing: 0.018rem;
+        /* 0.36px * 0.8 / 16 */
+    }
+
+    /* Fin aboutUs */
+
+    /* Inicio Institutional Directory */
+
+    h3-directory {
+        font-size: 2.5rem;
+        /* 50px * 0.8 / 16 */
+        line-height: 3rem;
+        /* 60px * 0.8 / 16 */
+        letter-spacing: 0.07rem;
+        /* 1.4px * 0.8 / 16 */
+    }
+
+    h4-directory {
+        font-size: 2rem;
+        /* 40px * 0.8 / 16 */
+        line-height: 2.4rem;
+        /* 48px * 0.8 / 16 */
+        letter-spacing: 0.056rem;
+        /* 1.12px * 0.8 / 16 */
+    }
+
+    p-directory {
+        font-size: 2rem;
+        /* 40px * 0.8 / 16 */
+        line-height: 2.4rem;
+        /* 48px * 0.8 / 16 */
+        letter-spacing: 0.056rem;
+        /* 1.12px * 0.8 / 16 */
+    }
+
+    input.search {
+        font-size: 1.25rem;
+        /* 25px * 0.8 / 16 */
+        line-height: 1.5rem;
+        /* 30px * 0.8 / 16 */
+        letter-spacing: 0.035rem;
+        /* 0.7px * 0.8 / 16 */
+        opacity: 0.9;
+    }
+
+    .custom-table {
+        font-size: 0.9rem;
+        /* 18px * 0.8 / 16 */
+        line-height: 1.2rem;
+        /* 24px * 0.8 / 16 */
+        letter-spacing: 0rem;
+        /* 0px * 0.8 / 16 */
+    }
+
+    /* Fin Institutional Directory */
+
+    /* Inicio calendarioAcademico */
+
+    h2-calendario {
+        font-size: 3rem;
+        /* 60px * 0.8 / 16 */
+        line-height: 3rem;
+        /* 60px * 0.8 / 16 */
+        letter-spacing: 0.084rem;
+        /* 1.68px * 0.8 / 16 */
+    }
+
+    h3-calendario {
+        font-size: 2.85rem;
+        /* 57px * 0.8 / 16 */
+        line-height: 2.85rem;
+        /* 57px * 0.8 / 16 */
+        letter-spacing: 0.08rem;
+        /* 1.6px * 0.8 / 16 */
+    }
+
+    h4-calendario {
+        font-size: 1.9rem;
+        /* 38px * 0.8 / 16 */
+        line-height: 2.3rem;
+        /* 46px * 0.8 / 16 */
+        letter-spacing: 0.053rem;
+        /* 1.06px * 0.8 / 16 */
+    }
+
+    p-calendario {
+        font-size: 1.05rem;
+        /* 21px * 0.8 / 16 */
+        line-height: 1.35rem;
+        /* 27px * 0.8 / 16 */
+        letter-spacing: 0.0295rem;
+        /* 0.59px * 0.8 / 16 */
+    }
+
+    /* Fin calendarioAcademico */
+
+    /* Estados financieros */
+
+    /* Inicio Certificados y papeles */
+
+    h3-financieros {
+        font-size: 3rem;
+        /* 60px * 0.8 / 16 */
+        line-height: 3rem;
+        /* 60px * 0.8 / 16 */
+        letter-spacing: 0.084rem;
+        /* 1.68px * 0.8 / 16 */
+    }
+
+    p-financieros {
+        font-size: 1.25rem;
+        /* 25px * 0.8 / 16 */
+        line-height: 1.5rem;
+        /* 30px * 0.8 / 16 */
+        letter-spacing: 0.035rem;
+        /* 0.7px * 0.8 / 16 */
+    }
+
     .text-up-absolute {
         position: absolute;
         top: -80px;
         margin: 0;
         padding: 0;
-        font-size: 0.8rem;
+        font-size: 0.64rem;
+        /* 0.8rem * 0.8 */
     }
 
     /* Fin Certificados y papeles */
+
 }

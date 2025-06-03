@@ -199,7 +199,7 @@ foreach ($filasCertificaciones as $rowCert) {
 
     /* Row four */
 
-    $html_row_four = '<div class="row p-0 m-0 my-lg-5 my-4">';
+    $html_row_four = '<div class="row p-0 m-0 my-5">';
     $html_row_four .= '<div class="col-lg-1 col-md-1 col-sm-1 col-1 p-0"></div>';
     $html_row_four .= '<div class="row col-lg-10 col-md-12 col-sm-12 col-12 p-0 m-0">';
     $html_row_four .= '<div class="d-lg-none col-md-2 col-sm-1 col-1 p-0 m-0">';
@@ -248,7 +248,7 @@ foreach ($filasCertificaciones as $rowCert) {
 
     /* Row five */
 
-    $html_row_five = '<div class="row p-0 m-0 my-lg-5 my-4">';
+    $html_row_five = '<div class="row p-0 m-0 my-lg-5 my-5">';
     $html_row_five .= '<div class="col-lg-1 col-md-1 col-sm-1 col-1 p-0"></div>';
     $html_row_five .= '<div class="btn-financiero d-flex flex-row col-lg-3 col-md-12 col-sm-12 col-12 p-0">';
     $html_row_five .= '<div class="bg-orange m-0 p-0 col-2"></div>';
@@ -265,7 +265,7 @@ foreach ($filasCertificaciones as $rowCert) {
     $html_row_six .= '<div class="col-lg-1 col-md-1 col-sm-1 col-1 p-0"></div>';
     $html_row_six .= '<div class="row col-lg-10 col-md-12 col-sm-12 col-12 p-0 m-0">';
     $html_row_six .= '<div class="d-lg-none col-md-2 col-sm-1 col-1 p-0 m-0"></div>';
-    $html_row_six .= '<div class="col-lg-5 col-md-8 col-sm-10 col-10 p-0 m-0 mb-lg-0 mb-4">';
+    $html_row_six .= '<div class="col-lg-5 col-md-8 col-sm-10 col-10 p-0 m-0 mb-lg-0 mb-5">';
     $html_row_six .= '
     <div 
         id="' . $tipo_certifications['campo'] . '"
@@ -394,8 +394,8 @@ foreach ($filasCertificaciones as $rowCert) {
 
     $html_row_eight = '<div class="row p-0 m-0 mt-lg-5 mt-4">';
     $html_row_eight .= '<div class="col-lg-5 col-md-5 col-sm-4 col-4 p-0"></div>';
-    $html_row_eight .= '<div class="col-lg-2 col-md-2 col-sm-4 col-4 p-0">';
-    $html_row_eight .= '<button id="' . $idBoton . '" class="form-control col-12 btn-submit-financial btn">';
+    $html_row_eight .= '<div class="col-lg-2 col-md-2 col-sm-4 col-4 p-0 d-flex">';
+    $html_row_eight .= '<button id="' . $idBoton . '" class="form-control btn-submit-financial btn mx-auto">';
     $html_row_eight .= '<p class="font-roboto-medium tx-white m-0 p-0">' . $textoBoton . '</p>';
     $html_row_eight .= '<img src="' . $rutaBtn . '" alt="' . $altBtn . '" class="img-fluid" style="width:30px;">';
     $html_row_eight .= '</button>';

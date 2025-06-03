@@ -10,7 +10,7 @@ if (!empty($rowsTitulosEducacion)) {
     
     $html_educacion .= '<div class="col-0 col-lg-1 p-0 m-0"></div>';
     // Columna izquierda: títulos
-    $html_educacion .= '<div class="col-10 col-lg-4 d-flex flex-column p-0 gap-5 mx-auto mx-lg-0">';
+    $html_educacion .= '<div class="col-10 col-lg-3 d-flex flex-column p-0 gap-5 mx-auto mx-lg-0">';
     foreach ($rowsTitulosEducacion as $row) {
         $titulo    = $row['titulo'];
         $subTitulo = $row['subTitulo'];
@@ -25,6 +25,7 @@ if (!empty($rowsTitulosEducacion)) {
 
     // Columna derecha: íconos, textos y descripciones (solo si hay contenido)
     if (!empty($rowsContenidoEducacion)) {
+        $html_educacion .= '<div class="col-lg-1 col-0 p-0"></div>';
         $html_educacion .= '<div class="col-10 col-lg-6 d-flex flex-column gap-lg-5 gap-4 mt-0 p-0 mx-auto mx-lg-0">';
 
         foreach ($rowsContenidoEducacion as $row) {

@@ -38,8 +38,8 @@ if (!empty($rowsVisible)) {
                 $html_communication .= '        <p-calendario class="font-roboto-bold mb-0">' . $fechaArchivo . '</p-calendario>';
                 $html_communication .= '      </div>';
                 // Lado derecho: ícono + botón
-                $html_communication .= '      <div class="col-5 d-flex flex-md-row flex-column align-items-end">';
-                $html_communication .= '        <img src="' . $icon_path . '" alt="PDF" class="fluid-img mx-auto col-lg-3 col-md-4 col-sm-5 col-4 my-auto mb-md-auto mb-3 mb-md-0 me-md-3">';
+                $html_communication .= '      <div class="col-5 d-flex flex-lg-row flex-column align-items-end">';
+                $html_communication .= '        <img src="' . $icon_path . '" alt="PDF" class="fluid-img mx-auto col-lg-3 col-md-4 col-sm-5 col-4 my-auto mb-lg-auto mb-3 mb-lg-0 me-lg-3">';
                 $html_communication .= '        <button class="my-auto mx-auto btn shadow h-auto tx-color-wh btn-calendary fw-semibold btn-route" '
                                       . 'style="width:100px;" data-ruta="' . $archivo_path . '">Ver</button>';
                 $html_communication .= '      </div>';
