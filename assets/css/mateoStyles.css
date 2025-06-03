@@ -19,14 +19,6 @@ body {
     margin-bottom: 7.8rem !important;
 }
 
-@media (min-width: 992px) {
-    .my-lg-0 {
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-    }
-}
-
-
 
 /** Variables CSS **/
 :root {
@@ -272,167 +264,6 @@ body {
     font-weight: bold;
 }
 
-/* Custom Margin */
-
-.mr-10 {
-    margin-right: 6rem;
-}
-
-.ml-10 {
-    margin-left: 6rem;
-}
-
-.mb-10 {
-    margin-bottom: 6rem;
-}
-
-.mt-10 {
-    margin-top: 6rem;
-}
-
-.my-10 {
-    margin-bottom: 6rem;
-    margin-top: 6rem;
-}
-
-.mx-10 {
-    margin-left: 6rem;
-    margin-right: 6rem;
-}
-
-.mt-20 {
-    margin-top: 12rem;
-}
-
-.mb-20 {
-    margin-bottom: 12rem;
-}
-
-.mr-20 {
-    margin-right: 12rem;
-}
-
-.ml-20 {
-    margin-left: 12rem;
-}
-
-.my-20 {
-    margin-bottom: 12rem;
-    margin-top: 12rem;
-}
-
-.mx-20 {
-    margin-left: 12rem;
-    margin-right: 12rem;
-}
-
-@media (min-width: 768px) {
-    .mr-md-10 {
-        margin-right: 6rem !important;
-    }
-
-    .ml-md-10 {
-        margin-left: 6rem !important;
-    }
-
-    .mb-md-10 {
-        margin-bottom: 6rem !important;
-    }
-
-    .mt-md-10 {
-        margin-top: 6rem !important;
-    }
-
-    .my-md-10 {
-        margin-bottom: 6rem !important;
-        margin-top: 6rem !important;
-    }
-
-    .mx-md-10 {
-        margin-left: 6rem !important;
-        margin-right: 6rem !important;
-    }
-
-    .mt-md-20 {
-        margin-top: 12rem !important;
-    }
-
-    .mb-md-20 {
-        margin-bottom: 12rem !important;
-    }
-
-    .mr-md-20 {
-        margin-right: 12rem !important;
-    }
-
-    .ml-md-20 {
-        margin-left: 12rem !important;
-    }
-
-    .my-md-20 {
-        margin-bottom: 12rem !important;
-        margin-top: 12rem !important;
-    }
-
-    .mx-md-20 {
-        margin-left: 12rem !important;
-        margin-right: 12rem !important;
-    }
-}
-
-@media (min-width: 992px) {
-    .mr-lg-10 {
-        margin-right: 6rem !important;
-    }
-
-    .ml-lg-10 {
-        margin-left: 6rem !important;
-    }
-
-    .mb-lg-10 {
-        margin-bottom: 6rem !important;
-    }
-
-    .mt-lg-10 {
-        margin-top: 6rem !important;
-    }
-
-    .my-lg-10 {
-        margin-bottom: 6rem !important;
-        margin-top: 6rem !important;
-    }
-
-    .mx-lg-10 {
-        margin-left: 6rem !important;
-        margin-right: 6rem !important;
-    }
-
-    .mt-lg-20 {
-        margin-top: 12rem !important;
-    }
-
-    .mb-lg-20 {
-        margin-bottom: 12rem !important;
-    }
-
-    .mr-lg-20 {
-        margin-right: 12rem !important;
-    }
-
-    .ml-lg-20 {
-        margin-left: 12rem !important;
-    }
-
-    .my-lg-20 {
-        margin-bottom: 12rem !important;
-        margin-top: 12rem !important;
-    }
-
-    .mx-lg-20 {
-        margin-left: 12rem !important;
-        margin-right: 12rem !important;
-    }
-}
 
 a {
     text-decoration: none;
@@ -599,6 +430,12 @@ ul {
 
 
 @media (min-width: 992px) {
+
+    .my-lg-0 {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+    
     #menuDisplay li:last-child {
         padding-right: 3rem !important;
     }
@@ -700,6 +537,9 @@ ul {
 
     .mt-md-10 {
         margin-top: 6rem !important;
+    }
+    .mt-lg-20 {
+        margin-top: 12rem !important;
     }
 
 }
