@@ -2020,10 +2020,10 @@ p-financieros {
 
 /** Inicio Banner */
 
-.carousel-item {
+.carousel-item.banner-home-item {
     height: 41.813rem;
     width: 100%;
-    background-color: rgb(46, 155, 206);
+    background-color: rgb(54, 54, 54);
 }
 
 .img-banner {
@@ -2033,7 +2033,7 @@ p-financieros {
     display: block;
 }
 
-.carousel-item::after {
+.carousel-item.banner-home-item::after {
     content: "";
     position: absolute;
     inset: 0;
