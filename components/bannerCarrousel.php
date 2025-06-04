@@ -113,7 +113,7 @@
 
         // El primer item o div del carrusel debe tener la clase "active", el resto no.
         if ($primerItemCarrusel) {
-            $html .= '<div class="carousel-item active" data-bs-interval="'.$interval.'">';
+            $html .= '<div class="carousel-item banner-home-item active" data-bs-interval="'.$interval.'">';
             $html .=        $elemento;  
 
             if ($text) {
@@ -127,7 +127,7 @@
             $html .= '</div>';
             $primerItemCarrusel = false;
         } else {
-            $html .= '<div class="carousel-item" data-bs-interval="'.$interval.'">';
+            $html .= '<div class="carousel-item banner-home-item" data-bs-interval="'.$interval.'">';
             $html .=        $elemento;
 
             if ($text) {
