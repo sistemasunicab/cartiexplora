@@ -222,6 +222,112 @@ circle {
     font-family: var(--roboto-thinitalic);
 }
 
+/** Inicio select */
+
+ .select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* “Select” personalizado: ocultamos completamente la flecha nativa */
+.select-wrapper .display-options {
+    white-space: nowrap;
+    overflow: hidden;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: var(--orange);
+    height: 100%;
+    width: 100%;
+    border: none;
+    text-align: left;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    /* ajusta un poco el padding si quieres */
+    color: var(--white);
+    cursor: pointer;
+}
+
+/* Cuando está enfocado (por validación, por ejemplo) */
+.select-wrapper .display-options:focus {
+    outline: none;
+    box-shadow: 0 0 10px 0 rgba(66, 195, 174, 0.5);
+}
+
+.select-wrapper .selected-value {
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+
+/* Flecha que aparece a la derecha (la sustituye por completo a la nativa) */
+.select-wrapper .select-arrow {
+    background-color: var(--bold-blue);
+    color: #FFD156;
+    font-size: 1.5rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0 0.5rem;
+    pointer-events: none;
+    /* para que el click pase al “trigger” */
+    user-select: none;
+}
+
+/* Reglas para las opciones cuando se despliega el dropdown */
+.custom-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--orange);
+    border-top: none;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    max-height: 0;
+    overflow-y: auto;
+    transition: max-height 0.3s ease;
+    z-index: 99;
+}
+
+/* Cuando abrimos (añadimos clase .open a .custom-select), expandimos */
+.custom-select.open .custom-options {
+    max-height: 200px;
+    /* o lo que necesites para que quepan 4–5 ítems */
+}
+
+/* Cada opción interna */
+.custom-option {
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    color: var(--white);
+    font-family: var(--roboto-regular);
+    font-size: 1rem;
+    background-color: var(--blue);
+}
+
+.custom-option:hover {
+    background-color: #3a5d8f;
+    /* un tono ligeramente diferente cuando haga hover */
+}
+
+.select-wrapper.error {
+    border-radius: 0.25rem;
+}
+
+.select-wrapper.error .display-options {
+    background: #FBE5E7 !important;
+    color: var(--medium-gray) !important;
+}
+
+/** Fin select */
+
 /** Inicio btn flotante */
 
 .home-button-fixed {
@@ -301,7 +407,20 @@ circle {
 
 /** Fin boton flotante */
 
-/** Inicio Banner*/
+/** Inicio Banner */
+
+.carousel-item {
+    height: 41.813rem;
+    width: 100%;
+    background-color: rgb(46, 155, 206);
+}
+
+.img-banner {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
 
 .carousel-item::after {
     content: "";
@@ -428,7 +547,7 @@ circle {
     object-fit: contain;
     display: block;    
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    background-color: #000;
+    background-color: #810b0b;
 }
 
 .video-desktop {
@@ -1016,7 +1135,8 @@ input[type="checkbox"] {
 .mipagoamigo-btn-pagos {
     font-size: 1.563rem;
     font-family: var(--roboto-medium);
-    padding: 1.125rem 3.25rem;
+    padding: 1.125rem 0.2rem;
+    width: 100%;
     color: white;
     background-color: var(--orange);
     margin-top: 1.125rem;
@@ -1082,6 +1202,7 @@ input[type="checkbox"] {
     text-align: start;
     font-family: var(--roboto-regular);
     letter-spacing: 0.023rem;
+    padding: 0 1rem;
 }
 
 .h3-pagos {
@@ -1110,11 +1231,23 @@ input[type="checkbox"] {
 }
 
 .p-refpago-pagos {
-    font-size: 1.313rem;
+    font-size: 1.1rem;
     letter-spacing: 0.023rem;
     text-align: start;
     font-family: var(--roboto-medium);
     color: #2A2A2A;
+}
+
+.td-20-pagos {
+    width: 20%;
+}
+
+.td-40-pagos {
+    width: 40%;
+}
+
+.table-pagos {
+    width: 100%;
 }
 
 .radio-btn-section-pagos {
@@ -1141,9 +1274,18 @@ input[type="checkbox"] {
     line-height: 1.2;
 }
 
+.input-responsable-pagos {
+    margin: 2.25rem 0;
+    border: #42C3AE solid 2px;
+    border-radius: 10px;
+    padding: 1rem ;
+    font-size: 1.313rem;
+    font-family: var(--roboto-regular);
+}
+
 .input-pagos {
     margin: 2.25rem 0;
-    border: #42C3AE solid 4px;
+    border: #42C3AE solid 2px;
     border-radius: 10px;
     padding: 1rem ;
     font-size: 1.313rem;
@@ -1165,33 +1307,33 @@ input[type="checkbox"] {
     display: block;
     font-family: var(--roboto-medium);
     width: 100%;
+    background-color: var(--orange);
+    background-clip: padding-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 12px !important;
+}
+
+.form-select-pagos .selected-value{
     padding: 1.125rem;
     font-size: 1.313rem;
     line-height: 1.2;
     color: var(--white);
-    background-color: var(--orange);
-    background-clip: padding-box;
-    border: 2px solid var(--orange);
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border-radius: 12px;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.form-select-pagos option {
+.form-select-pagos.error .selected-value {
+    color: #999999;
+}
+
+.form-select-pagos.error .display-options {
+    background-color: #FFE0D9!important;
+}
+
+.form-select-pagos .custom-option {
     background-color: var(--blue);
     font-family: var(--roboto-light);
     color: var(--white);
-}
-
-.select-alert {
-    position: relative;
-    padding: .5rem .5rem;
-    background-color: #f8d7da;
-    border: 5px solid red;
-    border-radius: 12px;
-    width: 100%;
 }
 
 .tx-red {
@@ -1415,6 +1557,17 @@ input[type="checkbox"] {
     /** Fin Boton flotante */
 
     /** Inicio Banner */
+
+    .carousel-item {
+        height: 31.688rem;
+        background-color: black;
+    }
+
+    .img-banner {
+        width: auto;
+        height: 100%;
+        object-fit: contain;
+    }
 
     .button-absolute {
         font-size: 4vw;  
@@ -1660,7 +1813,7 @@ input[type="checkbox"] {
         max-width: 3rem;
     }
 
-    .margin-card-principios:not(:nth-last-child(-n+2)) {
+    .margin-card-principios:not(:nth-last-child(-n+1)) {
         margin-bottom: var(--m-movil);
     }
 
@@ -1921,8 +2074,18 @@ input[type="checkbox"] {
         letter-spacing: 0.024rem;
     }
 
-    .input-pagos {
+    .input-responsable-pagos {
         margin: 2rem 0;
+        border: #42C3AE solid 1px;
+        border-radius: 14px;
+        padding: 0.813rem;
+        font-size: 0.813rem;
+        font-family: var(--roboto-regular);
+        box-shadow: 0px 3px 6px #00000029;
+    }
+
+    .input-pagos {
+        margin: .5rem 0;
         border: #42C3AE solid 1px;
         border-radius: 14px;
         padding: 0.813rem;
@@ -1938,8 +2101,10 @@ input[type="checkbox"] {
         margin-bottom: 2rem;
     }
 
-    .form-select-pagos{
+    .form-select-pagos .selected-value{
         font-size: 1rem;
+        line-height: 1.2;
+        color: var(--white);
     }
 
     .cards-icon-pagos{
@@ -1960,7 +2125,7 @@ input[type="checkbox"] {
     }
 
     .label-valor-manual-pagos {
-        margin-top: 2rem;
+        margin-top: .5rem;
         font-size: 1rem;
         font-family: var(--roboto-medium);
     }
@@ -1977,10 +2142,10 @@ input[type="checkbox"] {
         transform: scale(1.2);
     }
 
-    /* .form-block-pagos {
+    .form-block-pagos {
         margin-top: var(--m-movil);
         margin-bottom: var(--m-movil);
-    } */
+    }
 
     /** Fin Pagos **/
 
@@ -2064,6 +2229,17 @@ input[type="checkbox"] {
 @media (min-width: 768px) and (max-width: 991px)  {
 
     /** Inicio Banner */
+
+    .carousel-item {
+        height: 25.313rem;
+        background-color: black;
+    }
+
+    .img-banner {
+        width: auto;
+        height: 100%;
+        object-fit: contain;
+    }
 
     .button-absolute {
         font-size: 2vw;  
@@ -2325,7 +2501,7 @@ input[type="checkbox"] {
         max-width: 4.5625rem;
     }
 
-    .margin-card-principios:not(:nth-last-child(-n+2)) {
+    .margin-card-principios:not(:nth-last-child(-n+1)) {
         margin-bottom: var(--m-tablet);
     }
 
@@ -2573,6 +2749,17 @@ input[type="checkbox"] {
         letter-spacing: 0.024rem;
     }
 
+    .input-responsable-pagos {
+        margin: 2rem auto;
+        border: #42C3AE solid 1px;
+        border-radius: 14px;
+        padding: 0.813rem;
+        font-size: 1rem;
+        width: 50%;
+        font-family: var(--roboto-regular);
+        box-shadow: 0px 3px 6px #00000029;
+    }
+
     .input-pagos {
         margin: 2rem 0;
         border: #42C3AE solid 1px;
@@ -2597,13 +2784,15 @@ input[type="checkbox"] {
 
     .form-select-pagos {
         max-width: 21.25rem;
+        line-height: 1.2;
+        margin: 1rem auto;  
+    }
+
+    .form-select-pagos .selected-value{
         padding: 1.125rem;
         font-size: 1rem;
         line-height: 1.2;
-    }
-
-    .select-alert {
-        max-width: 21.25rem;
+        color: var(--white);
     }
 
     .tx-red {

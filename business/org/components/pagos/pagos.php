@@ -147,6 +147,8 @@
         $txtValor = array_shift($formItems);
         $txtvalorRefMan = array_shift($formItems);
         $btnPagar = array_shift($formItems);
+        $selectMedioPago = array_shift($formItems);
+        $selectConceptoPago = array_shift($formItems);
 
         $html .= '<section class="section-title-pagos">'.
                      '<div class="container">'.
@@ -190,158 +192,195 @@
                              '<div class="d-flex justify-content-center align-items-center">'.
                                 '<img class="img-fluid w-100 epayco-pagos" ' . ImageAttributeBuilder::buildAttributes($nivel, $epayco['ruta'], $epayco['descripcion']) . '>'.
                              '</div>'.
-                             '<p class="epayco-title-pagos">' . $epayco['titulo'] . '</p>'.
-                             '<table class="row">'.
-                                 '<thead class="col-lg-12 col-md-12 col-sm-12 col-12">'.
-                                     '<tr class="row">'.
-                                         '<th class=" col-lg-6 col-md-6 col-sm-6 col-6 epayco-subtitle-pagos">' . $conceptos['identificacion'] . '</th>'.
-                                         '<th class=" col-lg-6 col-md-6 col-sm-6 col-6 epayco-subtitle-pagos">' . $descripciones['identificacion'] . '</th>'.
-                                         '</tr>'.
+                             '<div class="d-flex justify-content-center align-items-center">'.
+                                '<p class="epayco-title-pagos">' . $epayco['titulo'] . '</p>'.
+                             '</div>'.
+                             '<table class="table-pagos">'.
+                                 '<thead>'.
+                                     '<tr>'.
+                                         '<th class="epayco-subtitle-pagos">' . $conceptos['identificacion'] . '</th>'.
+                                         '<th class="epayco-subtitle-pagos">' . $descripciones['identificacion'] . '</th>'.
+                                     '</tr>'.
                                  '</thead>'.
-                                 '<tbody class="col-lg-12 col-md-12 col-sm-12 col-12">';
+                                 '<tbody>';
         $conceptos = explode("|", $conceptos['texto']);
         $descripciones = explode("|", $descripciones['texto']);
         for ($i = 0; $i < count($conceptos); $i++) {
-            $html .=                '<tr class="row">'.
-                                        '<td class=" col-lg-6 col-md-6 col-sm-6 col-6 p-epayco-pagos"><img class="img-fluid w-100 flecha-epayco-pagos" ' . ImageAttributeBuilder::buildAttributes($nivel, $flechaAmarilla['ruta'], $flechaAmarilla['descripcion']) . '> ' . $conceptos[$i] . '</td>'.
-                                        '<td class=" col-lg-6 col-md-6 col-sm-6 col-6 p-epayco-pagos">' . $descripciones[$i] . '</td>'.
+            $html .=                '<tr>'.
+                                        '<td class="p-epayco-pagos"><img class="img-fluid w-100 flecha-epayco-pagos" ' . ImageAttributeBuilder::buildAttributes($nivel, $flechaAmarilla['ruta'], $flechaAmarilla['descripcion']) . '> ' . $conceptos[$i] . '</td>'.
+                                        '<td class="p-epayco-pagos">' . $descripciones[$i] . '</td>'.
                                     '</tr>';
         }
+
         $html .=               '</tbody>'.
                             '</table>'.
                         '</div>'.
+
                         '<div class="col-lg-6 col-md-6 col-sm-12 col-12 my-md-0 my-5 padding-x-movil-pagos">'.
                             '<h3 class="h3-pagos">' . $tituloReferenciaPago['texto'] . '</h3>'.
-                            '<table class="row">'.
-                                '<thead class="col-lg-12 col-md-12 col-sm-12 col-12">'.
-                                     '<tr class="row">'.
-                                         '<th class="col-lg-4 col-md-4 col-sm-4 col-4 h3-pagos">' . $identificacionRef['identificacion'] . '</th>'.
-                                         '<th class="col-lg-1 col-md-1 col-sm-1 col-1 h3-pagos">-</th></th>'.
-                                         '<th class="col-lg-3 col-md-3 col-sm-3 col-3 h3-pagos">' . $anio['identificacion'] . '</th>'.
-                                         '<th class="col-lg-1 col-md-1 col-sm-1 col-1 h3-pagos">-</th>'.
-                                         '<th class="col-lg-3 col-md-3 col-sm-3 col-3 h3-pagos">' . $conceptosRef['identificacion'] . '</th>'.
-                                    '</tr>'.
-                                 '</thead>'.
-                                 '<tbody class="class="col-lg-12 col-md-12 col-sm-12 col-12">';
-        $html .=                    '<tr class="row">'.
-                                        '<td class="col-lg-4 col-md-4 col-sm-4 col-4"><div class="d-flex justify-content-center align-items-center"><img class="img-fluid refpago-flechas-pagos" ' . ImageAttributeBuilder::buildAttributes($nivel, $flechaAmarilla['ruta'], $flechaAmarilla['descripcion']) . '></div></td>'.
-                                        '<td class="col-lg-1 col-md-1 col-sm-1 col-1">  </td>'.
-                                        '<td class="col-lg-3 col-md-3 col-sm-3 col-3"><div class="d-flex justify-content-center align-items-center"><img class="img-fluid refpago-flechas-pagos" ' . ImageAttributeBuilder::buildAttributes($nivel, $flechaAmarilla['ruta'], $flechaAmarilla['descripcion']) . '></div></td>'.
-                                        '<td class="col-lg-1 col-md-1 col-sm-1 col-1">  </td>'.
-                                        '<td class="col-lg-3 col-md-3 col-sm-3 col-3"><div class="d-flex justify-content-center align-items-center"><img class="img-fluid refpago-flechas-pagos" ' . ImageAttributeBuilder::buildAttributes($nivel, $flechaAmarilla['ruta'], $flechaAmarilla['descripcion']) . '></div></td>'.
-                                    '</tr>';
-        $conceptosRef = explode("|", $conceptosRef['texto']);
-        for ($i = 0; $i < count($conceptosRef); $i++) {
-            $html .=                '<tr class="row">'.
-                                        '<td class="col-lg-4 col-md-4 col-sm-4 col-4 subtitulo-refpago-pagos">' . (($i === 0) ? $identificacionRef['texto'] : '') . '</td>'.
-                                        '<td class="col-lg-1 col-md-1 col-sm-1 col-1"></td>'.
-                                        '<td class="col-lg-3 col-md-3 col-sm-3 col-3 subtitulo-refpago-pagos">' . (($i === 0) ? $anio['texto'] : '') . '</td>'.
-                                        '<td class="col-lg-4 col-md-4 col-sm-4 col-4 '. (($i === 0) ?  'subtitulo-refpago-pagos':'p-refpago-pagos').'">' . $conceptosRef[$i] . '</td>'.
-                                    '</tr>';
+                            '<div class="row">'.
+                                '<div class="col-lg-12 col-md-12 col-sm-12 col-12">'.
+                                    '<table class="table-pagos">'.
+                                        '<thead>'.
+                                             '<tr>'.
+                                                 '<th class="h3-pagos">' . $identificacionRef['identificacion'] . '</th>'.
+                                                 '<th class="h3-pagos">' . $anio['identificacion'] . '</th>'.
+                                                 '<th class="h3-pagos">' . $conceptosRef['identificacion'] . '</th>'.
+                                            '</tr>'.
+                                         '</thead>'.
+                                         '<tbody class="class="col-lg-12 col-md-12 col-sm-12 col-12">';
+        $html .=                            '<tr>'.
+                                                '<td><div class="d-flex justify-content-center align-items-center"><img class="img-fluid refpago-flechas-pagos" ' . ImageAttributeBuilder::buildAttributes($nivel, $flechaAmarilla['ruta'], $flechaAmarilla['descripcion']) . '></div></td>'.
+                                                '<td><div class="d-flex justify-content-center align-items-center"><img class="img-fluid refpago-flechas-pagos" ' . ImageAttributeBuilder::buildAttributes($nivel, $flechaAmarilla['ruta'], $flechaAmarilla['descripcion']) . '></div></td>'.
+                                                '<td><div class="d-flex justify-content-center align-items-center"><img class="img-fluid refpago-flechas-pagos" ' . ImageAttributeBuilder::buildAttributes($nivel, $flechaAmarilla['ruta'], $flechaAmarilla['descripcion']) . '></div></td>'.
+                                            '</tr>';
+
+        $conceptos = explode("|", $conceptosRef['texto']);
+        foreach ($conceptos as $i => $concepto) {
+            $html .= '<tr>';
+        
+            if ($i === 0) {
+                $html .= 
+                    '<td class="subtitulo-refpago-pagos">' . $identificacionRef['texto'] . '</td>' .
+                    '<td class="subtitulo-refpago-pagos">' . $anio['texto'] . '</td>' .
+                    '<td class="subtitulo-refpago-pagos">' . $concepto . '</td>';
+            } else {
+                $html .= 
+                    '<td class="td-40-pagos"></td>' .
+                    '<td class="td-20-pagos"></td>' .
+                    '<td class="td-40-pagos p-refpago-pagos">' . $concepto . '</td>';
+            }
+        
+            $html .= '</tr>';
         }
-        $html .=               '</tbody>'.
-                            '</table>'.
+        $html .=                      '</tbody>'.
+                                   '</table>'.
+                                '</div>'.
+                            '</div>'.
                         '</div>'.
                     '</div>'.
                  '</section>'.
                  '<section class="container section-pagos">'.
-                     '<div id="pagosform">'.
-                         '<div class="row radio-btn-section-pagos">'.
-                            '<div class="col-lg-6 col-md-12 col-sm-12 col-12 my-lg-0 my-4 text-lg-center text-start">'.
-                                '<input type="'. $radioReferencia['tipo'] .'" id="'.$radioReferencia['campo'].'" name="opvalor" value="0" class="mx-3 radio-btn">'.
-                                '<label for="'.$radioReferencia['campo'].'" class="font-roboto-black">'.$radioReferencia['texto'].'</label>'.
-                            '</div>'.
-                            '<div class="col-lg-6 col-md-12 col-sm-12 col-12 my-lg-0 my-4 text-lg-center text-start">'.
-                                '<input type="'. $radioManual['tipo'] .'" id="'. $radioManual['campo'] .'" name="opvalor" value="1" class="mx-3 radio-btn">'.
-                                '<label for="'. $radioManual['campo'] .'" class="font-roboto-black">'. $radioManual['texto'] .'</label>'.
-                            '</div>'.
+                    '<div class="row radio-btn-section-pagos">'.
+                       '<div class="col-lg-6 col-md-12 col-sm-12 col-12 my-lg-0 my-4 text-lg-center text-start">'.
+                           '<input type="'. $radioReferencia['tipo'] .'" id="'.$radioReferencia['campo'].'" name="opvalor" value="0" class="mx-3 radio-btn">'.
+                           '<label for="'.$radioReferencia['campo'].'" class="font-roboto-black">'.$radioReferencia['texto'].'</label>'.
+                       '</div>'.
+                       '<div class="col-lg-6 col-md-12 col-sm-12 col-12 my-lg-0 my-4 text-lg-center text-start">'.
+                           '<input type="'. $radioManual['tipo'] .'" id="'. $radioManual['campo'] .'" name="opvalor" value="1" class="mx-3 radio-btn">'.
+                           '<label for="'. $radioManual['campo'] .'" class="font-roboto-black">'. $radioManual['texto'] .'</label>'.
+                       '</div>'.
+                    '</div>'.
+                     '<div class="row justify-content-center align-items-center section-pagos">'.
+                         '<div class="col-lg-4 col-md-12 col-sm-12 col-12">'.
+                             '<div class="bg-yellow">'.
+                                  '<p class="datos-quienpaga-titulo-pagos">'.$nombreResponsable['texto'].'</p>'.
+                             '</div>'.
+                             '<input class="input-responsable-pagos form-control campoFormulario" type="' . $nombreResponsable['tipo'] . '" id="' . $nombreResponsable['campo'] . '" placeholder="' . $nombreResponsable['placeHolder'] . '" onkeyup="validarCampo(this, \'(Nombre de quien paga)\', \'texto\', 1, \'btnpagar\');" ' . $nombreResponsable['obligatorio'] . ' ' . $nombreResponsable['soloLectura'] . ' ' . $nombreResponsable['habilitado'] . '>'.
+                             '<input class="input-responsable-pagos form-control campoFormulario" type="' . $identificacionResponsable['tipo'] . '" id="' . $identificacionResponsable['campo'] . '" placeholder="' . $identificacionResponsable['placeHolder'] . '" onkeyup="validarCampo(this, \'(Número de identificación)\', \'numero\', 1, \'btnpagar\');" ' . $identificacionResponsable['obligatorio'] . ' ' . $identificacionResponsable['soloLectura'] . ' ' . $identificacionResponsable['habilitado'] . '>'.
                          '</div>'.
-                          '<div class="row justify-content-center align-items-center section-pagos">'.
-                              '<div class="col-lg-4 col-md-12 col-sm-12 col-12">'.
-                                  '<div class="bg-yellow">'.
-                                       '<p class="datos-quienpaga-titulo-pagos">'.$nombreResponsable['texto'].'</p>'.
-                                  '</div>'.
-                                  '<input class="input-pagos form-control campoFormulario" type="' . $nombreResponsable['tipo'] . '" id="' . $nombreResponsable['campo'] . '" placeholder="' . $nombreResponsable['placeHolder'] . '" onkeyup="validarCampo(this, \'(Nombre de quien paga)\', \'texto\', 1, \'btnpagar\');" ' . $nombreResponsable['obligatorio'] . ' ' . $nombreResponsable['soloLectura'] . ' ' . $nombreResponsable['habilitado'] . '>'.
-                                  '<input class="input-pagos form-control campoFormulario" type="' . $identificacionResponsable['tipo'] . '" id="' . $identificacionResponsable['campo'] . '" placeholder="' . $identificacionResponsable['placeHolder'] . '" onkeyup="validarCampo(this, \'(Número de identificación)\', \'numero\', 1, \'btnpagar\');" ' . $identificacionResponsable['obligatorio'] . ' ' . $identificacionResponsable['soloLectura'] . ' ' . $identificacionResponsable['habilitado'] . '>'.
-                              '</div>'.
-                              '<div class="col-lg-4 col-md-6 col-sm-12 col-12">'.
-                                '<div class="cards-icon-container-pagos">'.
-                                  '<img class="img-fluid w-100 cards-icon-pagos" '. ImageAttributeBuilder::buildAttributes($nivel, $cardsImg['ruta'], $cardsImg['descripcion']) .' >'.
-                                '</div>'.
-                              '</div>'.
-                              '<div class="col-lg-4 col-md-12 col-sm-12 col-12">'.
-                                  '<div class="d-flex justify-content-center align-items-center">'.
-                                    '<div id="medioalert" class="form-group select-alert">'.
-                                        '<select id="selmediopago" name="selmediopago" class="form-select-pagos campoFormulario" required>'.
-                                            '<option value="NA">Seleccione el medio de pago</option>';
+                         '<div class="col-lg-4 col-md-6 col-sm-12 col-12">'.
+                           '<div class="cards-icon-container-pagos">'.
+                             '<img class="img-fluid w-100 cards-icon-pagos" '. ImageAttributeBuilder::buildAttributes($nivel, $cardsImg['ruta'], $cardsImg['descripcion']) .' >'.
+                           '</div>'.
+                         '</div>'.
+                         '<div class="col-lg-4 col-md-12 col-sm-12 col-12">'.
+                                '<div id="' . $selectMedioPago['campo'] . '" class="select-wrapper custom-select campoFormulario form-select-pagos" data-btn-submit="'.$btnPagar['campo'].'" data-value="NA" data-texto="'.$selectMedioPago['texto'].'" '.$selectMedioPago['obligatorio'].'>'.
+                                    '<div class="display-options">'.
+                                        '<span class="selected-value">' . $selectMedioPago['placeHolder'] . '</span>'.
+                                    '</div>'.
+                                    '<div class="custom-options">'.
+                                            '<div class="custom-option" data-value="NA">' . $selectMedioPago['placeHolder'] . '</div>';
+                                        
         for ($i = 0; $i < count($formasPago); $i++) {
-            $html .=                         '<option value="'.$formasPago[$i]['valor'].'">'.$formasPago[$i]['texto'].'</option>';
+            $html .=                         '<div class="custom-option" data-value="'.$formasPago[$i]['valor'].'">'.$formasPago[$i]['texto'].'</div>';
         }
-        $html .=                        '</select>';
         $html .=                    '</div>';
-        $html .=                 '</div>';
-        $html .=             '</div>';
+        $html .=                '</div>';
         $html .=         '</div>';
-        $html .=         '<div class="row my-4">'.
-                             '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
+        $html .=      '</div>';
+        $html .=      '<div class="row my-4">'.
+                        '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
         if($infoFinanciera['identificacion'] === 'info financiera'){
             $html .=             $infoFinanciera['texto'];
         }
-        $html .=             '</div>';
-        $html .=         '</div>';
+        $html .=        '</div>';
+        $html .=      '</div>';
+        $html .= '</section>';
         $titulosSeccionesPago = explode("|", $titulosSeccionesPago['texto']);
-        $html .=         '<div id="secreferencia" class="row justify-content-center section-mt-pagos" style="display: none;">'.
+
+        $html .= '<section id="secreferencia" class="container section-mt-pagos" style="display: none;">'.
+                         '<div  class="row section-mt-pagos">'.
                              '<div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-4">'.
                                  '<h3 class="titulo-secciones-pagos">'.$titulosSeccionesPago[0].'</h3>'.
                              '</div>'.
-                             '<div class="col-lg-6 col-md-6 col-sm-12 col-12 text-center form-block-pagos">'.
+                         '</div>'.
+                         '<div class="row form-block-pagos">'.
+                             '<div class="col-lg-6 col-md-6 col-sm-12 col-12 text-center">'.
                                  '<input type="'. $txtRef['tipo'] .'" id="'. $txtRef['campo'] .'" placeholder="'. $txtRef['placeHolder'] .'" onkeyup="validarCampo(this, \'Referencia de pago\', \'texto1\', 1, \'btnpagar\'); validarConsulta();" class="form-control campoFormulario input-pagos" '. $txtRef['obligatorio'] .' '. $txtRef['soloLectura'] .' '. $txtRef['habilitado'] .'>'.
                              '</div>'.
-                             '<div class="col-lg-6 col-md-6 col-sm-12 col-12 form-block-pagos">'.
+                             '<div class="col-lg-6 col-md-6 col-sm-12 col-12">'.
                                  '<input type="'. $txtValorRef['tipo'] .'" id="'. $txtValorRef['campo'] .'" class="inactivo form-control input-pagos" placeholder="'. $txtValorRef['placeHolder'] .'" '. $txtValorRef['obligatorio'] .' '. $txtValorRef['soloLectura'] .' '. $txtValorRef['habilitado'] .'>'.
                              '</div>'.
+                         '</div>'.
+                         '<div class="row my-5">'.
                              '<div class="col-lg-12 col-md-12 col-sm-12 col-12 my-2 text-center">'.
                                  '<button class="pagos-btn w-50 text-uppercase" onclick="" type="'.$consultarBtn['tipo'].'" id="'.$consultarBtn['campo'].'">'.$consultarBtn['texto'].'</button>'.
                              '</div>'.
                          '</div>'.
-                         '<div id="secvalman" class="row align-items-end section-mt-pagos" style="display: none;">'.
-                             '<div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-4">'.
+                 '</section>'.
+
+
+                 '<section id="secvalman" class="container section-mt-pagos" style="display: none;">'.
+                         '<div class="row section-mt-pagos">'.
+                             '<div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-2">'.
                                  '<h3 class="titulo-secciones-pagos">'.$titulosSeccionesPago[1].'</h3>'.
                              '</div>'.
-                             '<div class="col-lg-6 col-md-6 col-sm-12 col-12 text-center form-block-pagos">'.
+                         '</div>'.
+                         '<div class="row">'.
+                             '<div class="col-lg-6 col-md-6 col-sm-12 col-12 text-center my-3">'.
                                  '<label class="label-valor-manual-pagos" for="'. $txtNumDoc['campo'] .'">Documento estudiante</label>'.
                                  '<input type="'. $txtNumDoc['tipo'] .'" id="'. $txtNumDoc['campo'] .'" placeholder="'. $txtNumDoc['placeHolder'] .'" onkeyup="validarCampo(this, \'Documento estudiante\', \'numero\', 1, \'btnpagar\');" class="form-control campoFormulario input-pagos" '. $txtNumDoc['obligatorio'] .' '. $txtNumDoc['soloLectura'] .' '. $txtNumDoc['habilitado'] .'>'.
                              '</div>'.
-                             '<div class="col-lg-6 col-md-6 col-sm-12 col-12 text-center form-block-pagos">'.
+                             '<div class="col-lg-6 col-md-6 col-sm-12 col-12 text-center my-3">'.
                                  '<label class="label-valor-manual-pagos" for="'. $txtAnio['campo'] .'">Año</label>'.
                                  '<input type="'. $txtAnio['tipo'] .'" id="'. $txtAnio['campo'] .'" placeholder="'. $txtAnio['placeHolder'] .'" onkeyup="validarCampo(this, \'Año\', \'numero\', 1, \'btnpagar\');" class="form-control campoFormulario input-pagos" '. $txtAnio['obligatorio'] .' '. $txtAnio['soloLectura'] .' '. $txtAnio['habilitado'] .'>'.
                              '</div>'.
-                             '<div class="col-lg-6 col-md-6 col-sm-12 col-12 text-center form-block-pagos">'.
+                         '</div>'.
+                         '<div class="row">'.
+                             '<div class="col-lg-6 col-md-6 col-sm-12 col-12 text-center my-3">'.
                                  '<label class="label-valor-manual-pagos" for="'.$txtValor['campo'].'">Ingrese valor a pagar</label>'.
                                  '<input type="'.$txtValor['tipo'].'" id="'.$txtValor['campo'].'" placeholder="'.$txtValor['placeHolder'].'" onkeyup="validarCampo(this, \'Valor a pagar\', \'numero\', 1, \'btnpagar\');" class="form-control campoFormulario input-pagos" '.$txtValor['obligatorio'].' '.$txtValor['soloLectura'].' '.$txtValor['habilitado'].'>'.
                              '</div>'.
-                             '<div class="col-lg-6 col-md-6 col-sm-12 col-12 text-center form-block-pagos">'.
-                                  '<div class="margin-valor-manual-pagos">'.
-                                    '<div id="conceptoalert" class="form-group select-alert">'.
-                                        '<select id="selconcepto" name="selconcepto" class="form-select-pagos campoFormulario font-roboto-medium" required>'.
-                                            '<option value="NA">Seleccione concepto de pago</option>';
-        for ($i=0; $i < count($conceptosPago); $i++) { 
-            $html .=                         '<option value="'.$conceptosPago[$i]['valor'].'">'.$conceptosPago[$i]['texto'].'</option>';
+                             '<div class="col-lg-6 col-md-6 col-sm-12 col-12 text-center my-3">'.
+                                '<div class="d-flex align-items-center h-100">' .
+                                    '<div id="' . $selectConceptoPago['campo'] . '" class="select-wrapper custom-select campoFormulario form-select-pagos" data-btn-submit="'.$btnPagar['campo'].'" data-value="NA" data-texto="'.$selectConceptoPago['texto'].'" '.$selectConceptoPago['obligatorio'].'>'.
+                                        '<div class="display-options">'.
+                                            '<span class="selected-value">' . $selectConceptoPago['placeHolder'] . '</span>'.
+                                        '</div>'.
+                                        '<div class="custom-options">'.
+                                                '<div class="custom-option" data-value="NA">' . $selectConceptoPago['placeHolder'] . '</div>';
+                                        
+        for ($i = 0; $i < count($conceptosPago); $i++) { 
+            $html .=                    '<div class="custom-option" data-value="'.$conceptosPago[$i]['valor'].'">'.$conceptosPago[$i]['texto'].'</div>';
         }
-        $html .=                        '</select>'.
-                                    '</div>'.
-                                  '</div>'.
-                             '</div>'.
+        $html .=                        '</div>';
+        $html .=                    '</div>';
+        $html .=                '</div>' .
+                            '</div>'.
+                         '</div>'.
+                         '<div class="row form-block-pagos">'.
                              '<div class="col-lg-12 col-md-12 col-sm-12 col-12">'.
                                  '<input type="'. $txtvalorRefMan['tipo'] .'" id="'. $txtvalorRefMan['campo'] .'" class="inactivo form-control text-center input-pagos" placeholder="'. $txtvalorRefMan['placeHolder'] .'" '. $txtvalorRefMan['obligatorio'] .' '. $txtvalorRefMan['soloLectura'] .' '. $txtvalorRefMan['habilitado'] .'>'.
                              '</div>'.
                          '</div>'.
-                         '<div class="row">'.
-                             '<div class="col-lg-12 col-md-12 col-sm-12 col-12 my-2 text-center">'.
-                                 '<button id="'.$btnPagar['campo'].'" type="'.$btnPagar['tipo'].'" class="pagos-btn w-50" onclick="">'.$btnPagar['texto'].'</button>'.
-                             '</div>'.
-                         '</div>'.
-                     '</div>'.
+                 '</section>'.
+                 '<section class="container section-pagos">'.
+                    '<div class="row form-block-pagos">'.
+                        '<div class="col-lg-12 col-md-12 col-sm-12 col-12 my-2 text-center">'.
+                            '<button id="'.$btnPagar['campo'].'" type="'.$btnPagar['tipo'].'" class="pagos-btn w-50" onclick="">'.$btnPagar['texto'].'</button>'.
+                        '</div>'.
+                    '</div>'.
                  '</section>'.
                  '<div id="alert" style="margin-left: 2rem;">'.
                      '<p><i class="fa fa-warning"></i><span>: </span><label id="pdesc"></label>'.
