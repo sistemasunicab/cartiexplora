@@ -93,21 +93,16 @@ foreach ($filasCertificaciones as $rowCert) {
     $html_row_two .= '
                     <div 
                         id="' . $campo['campo'] . '"
-                        data-value=""
-                        data-descripcion="' . $campo['texto'] . '"
+                        data-value="NA"
+                        data-texto="Debes seleccionar un valor en ' . $campo['texto'] . '"
                         data-btn_submit="' . $boton_certifications['campo'] . '" 
                         class="select-wrapper custom-select col-12 h-100">
-                        <div     
-                        class="col-12 display-options font-roboto-italic tx-white" 
-                        data-placeholder="' . $campo['placeHolder'] . '"
-                        >
-                        <span class="selected-value">' . $campo['placeHolder'] . '</span>
-                        <i class="select-arrow">▼</i>
+                        <div class="col-12 display-options font-roboto-italic tx-white" data-placeholder="' . $campo['placeHolder'] . '">
+                            <span class="selected-value">' . $campo['placeHolder'] . '</span>
+                            <i class="select-arrow">▼</i>
                         </div>
                         <div class="custom-options">
-                        <div class="custom-option" data-value="">'
-                            . $campo['placeHolder'] .
-                        '</div>
+                        <div class="custom-option" data-value="NA">'. $campo['placeHolder'] . '</div>
                         <div class="custom-option" data-value="Estudiante">Estudiante</div>
                         <div class="custom-option" data-value="Docente">Docente</div>
                         <div class="custom-option" data-value="Administrativo">Administrativo</div>
@@ -170,8 +165,8 @@ foreach ($filasCertificaciones as $rowCert) {
     $html_row_three .= '
     <div 
         id="' . $campo['campo'] . '"
-        data-value=""
-        data-descripcion="' . $campo['texto'] . '"
+        data-value="NA"
+        data-texto="Debes seleccionar un valor en ' . $campo['texto'] . '"
         data-btn_submit="' . $boton_certifications['campo'] . '" 
         class="select-wrapper custom-select col-12 h-100"
     >
@@ -184,7 +179,7 @@ foreach ($filasCertificaciones as $rowCert) {
             <i class="select-arrow">▼</i>
         </div>
         <div class="custom-options">
-            <div class="custom-option" data-value="">' . $campo['placeHolder'] . '</div>
+            <div class="custom-option" data-value="NA">' . $campo['placeHolder'] . '</div>
             <div class="custom-option" data-value="Primaria">Primaria</div>
             <div class="custom-option" data-value="Secundaria">Secundaria</div>
             <div class="custom-option" data-value="Universitario">Universitario</div>
@@ -208,8 +203,8 @@ foreach ($filasCertificaciones as $rowCert) {
     $html_row_four .= '
     <div 
         id="' . $relacion_id_certifications['campo'] . '"
-        data-value=""
-        data-descripcion="' . $relacion_id_certifications['texto'] . '"
+        data-value="NA"
+        data-texto="Debes seleccionar un valor en ' . $relacion_id_certifications['texto'] . '"
         data-btn_submit="' . $boton_certifications['campo'] . '" 
         class="col-lg-11 col-12 select-wrapper custom-select h-100"
     >
@@ -222,7 +217,7 @@ foreach ($filasCertificaciones as $rowCert) {
             <i class="select-arrow">▼</i>
         </div>
         <div class="custom-options">
-            <div class="custom-option" data-value="">' . $relacion_id_certifications['placeHolder'] . '</div>';
+            <div class="custom-option" data-value="NA">' . $relacion_id_certifications['placeHolder'] . '</div>';
 
     // Opciones dinámicas para “Relación con la institución” (sentencia 81)
     $opcionesRelacion = obtenerFilas($mysqli1, $sentencia, 81);
@@ -269,8 +264,8 @@ foreach ($filasCertificaciones as $rowCert) {
     $html_row_six .= '
     <div 
         id="' . $tipo_certifications['campo'] . '"
-        data-value=""
-        data-descripcion="' . $tipo_certifications['texto'] . '"
+        data-value="NA"
+        data-texto="Debes seleccionar un valor en ' . $tipo_certifications['texto'] . '"
         data-btn_submit="' . $boton_certifications['campo'] . '"
         class="col-lg-11 col-12 select-wrapper custom-select"
     >
@@ -283,7 +278,7 @@ foreach ($filasCertificaciones as $rowCert) {
             <i class="select-arrow">▼</i>
         </div>
         <div class="custom-options">
-            <div class="custom-option" data-value="">' . $tipo_certifications['placeHolder'] . '</div>';
+            <div class="custom-option" data-value="NA">' . $tipo_certifications['placeHolder'] . '</div>';
 
     // Opciones dinámicas para “Tipo de certificación” (sentencia 82)
     $opcionesTipo = obtenerFilas($mysqli1, $sentencia, 82);

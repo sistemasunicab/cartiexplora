@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //     const botones = document.querySelectorAll(
 //         ".carousel-item .button-carousel"
 //     );
-    
+
 //     botones.forEach((boton) => {
 //         // Almacena los valores originales solo una vez, si no están ya guardados
 //         if (!boton.dataset.originalTop) {
@@ -973,28 +973,6 @@ if (window.location.pathname.endsWith("calendario.php")) {
 
 /* Estados Financieros */
 
-function validarSelectPersonalizado(elemento, descripcion, botonSubmit) {
-    const id = elemento.id;
-    const value = elemento.getAttribute('data-value');
-    const idSubmit = "#" + botonSubmit;
-    $(idSubmit).hide();
-
-    if (!value) {
-        marcarInputError(id);
-        agregarCampoError(id);
-        $("#pdesc")
-            .html(`Debe seleccionar una opción en ${descripcion}`)
-            .css("color", "red");
-        $("#alert").show();
-    } else {
-        marcarInputCorrecto(id);
-        quitarCampoError(id);
-        $("#pdesc").html("");
-        $("#alert").hide();
-        mostrarSubmit(botonSubmit);
-    }
-}
-
 if (window.location.pathname.endsWith("estadosFinancieros.php")) {
     document.addEventListener("DOMContentLoaded", function () {
         const form_info = $("#form_info");
@@ -1058,9 +1036,9 @@ if (window.location.pathname.endsWith("estadosFinancieros.php")) {
 
             const selects = form_servicios.find(".custom-select");
             for (let i = 0; i < selects.length; i++) {
-                const wrapper      = selects[i];
-                const descripcion  = wrapper.getAttribute("data-descripcion");
-                const idBoton      = wrapper.getAttribute("data-btn_submit");
+                const wrapper = selects[i];
+                const descripcion = wrapper.getAttribute("data-texto");
+                const idBoton = wrapper.getAttribute("data-btn_submit");
                 validarSelectPersonalizado(wrapper, descripcion, idBoton);
 
             }
@@ -1126,12 +1104,45 @@ function verInfografia(imagen) {
     $('#modal_img').modal('show');
 }
 
+
+function validarSelectPersonalizado(elemento, descripcion, botonSubmit) {
+    const id = elemento.id;
+    const value = elemento.getAttribute('data-value');
+    const idSubmit = "#" + botonSubmit;
+    $(idSubmit).hide();
+
+    if (value == "NA") {
+        marcarInputError(id);
+        agregarCampoError(id);
+        $("#pdesc")
+            .html(`${descripcion}`)
+            .css("color", "red");
+        $("#alert").show();
+    } else {
+        marcarInputCorrecto(id);
+        quitarCampoError(id);
+        $("#pdesc").html("");
+        $("#alert").hide();
+        mostrarSubmit(botonSubmit);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
+
+    let btnSubmit = document.querySelector('button[type="submit"]');
+    if (!btnSubmit) {
+        console.error("btn submit no encontrado");
+    }
+
     document.querySelectorAll('.custom-select').forEach(function (wrapper) {
         const triggerDiv = wrapper.querySelector('.display-options');
         const optionsContainer = wrapper.querySelector('.custom-options');
         const optionsList = wrapper.querySelectorAll('.custom-option');
         const selectedSpan = wrapper.querySelector('.selected-value');
+
+        if (selectedSpan.dataset.value == "NA") {
+            wrapper.classList.add('error');
+        }
 
         triggerDiv.addEventListener('click', function (e) {
             //e.stopPropagation();
@@ -1144,18 +1155,30 @@ document.addEventListener('DOMContentLoaded', function () {
         optionsList.forEach(function (optionEl) {
             optionEl.addEventListener('click', function (e) {
                 e.stopPropagation();
-                const valor = optionEl.getAttribute('data-value');
-                const texto = optionEl.textContent;
-
-                wrapper.setAttribute('data-value', valor);
-
-                selectedSpan.textContent = texto;
+                wrapper.dataset.value = optionEl.dataset.value;
+                selectedSpan.textContent = optionEl.textContent;
 
                 wrapper.classList.remove('open');
 
-                const descripcion = wrapper.getAttribute('data-descripcion');
-                const idBoton = wrapper.getAttribute('data-btn_submit');
-                validarSelectPersonalizado(wrapper, descripcion, idBoton);
+                if (wrapper.dataset.value == "NA") {
+
+                    let texto = wrapper.dataset.texto;
+                    $('#medioalert').addClass('select-alert');
+                    $("#pdesc").html(texto).css("color", "red");
+                    $("#alert").show();
+                    marcarInputError(wrapper.id);
+                    agregarCampoError(wrapper.id);
+
+                }
+                else {
+                    $("#pdesc").html("");
+                    $("#alert").hide();
+                    marcarInputCorrecto(wrapper.id);
+                    quitarCampoError(wrapper.id);
+                }
+
+                mostrarSubmit(wrapper.dataset.btnSubmit);
+
             });
         });
     });
@@ -1172,7 +1195,7 @@ document.addEventListener('DOMContentLoaded', function () {
 /**  Zona de enlaces Inicio **/
 
 // Variables
-let originalOrder = null; 
+let originalOrder = null;
 let linksStarted = false;
 let listenersAttached = false;
 let autoplay = null;
@@ -1184,7 +1207,7 @@ function loadCarousel() {
     const moveCount = 1;
 
     //-- Checkings --//
-    if (slider == null) { return; } 
+    if (slider == null) { return; }
 
     // Checks if the size changed, and if it is more than 992 breakpoint, returns to normal.
     if (window.innerWidth > 992 && linksStarted === true) {
@@ -1192,7 +1215,7 @@ function loadCarousel() {
         clearInterval(autoplay);
         linksStarted = false;
 
-        originalOrder.forEach(function(link) {
+        originalOrder.forEach(function (link) {
             link.style.transition = 'none';
             link.style.transform = 'none';
             slider.appendChild(link);
@@ -1200,25 +1223,25 @@ function loadCarousel() {
     }
 
     // Basic check for window / device checking.
-    if (window.innerWidth >= 992 || linksStarted === true) { return; }     
+    if (window.innerWidth >= 992 || linksStarted === true) { return; }
 
     //-- Funciones --//
     function Next() {
-        Array.from(slider.children).forEach(function(link) {
+        Array.from(slider.children).forEach(function (link) {
             link.style.transition = 'transform .35s ease';
             link.style.transform = `translateX(-${link.offsetWidth}px)`;
         });
 
-        setTimeout(function() {
-            Array.from(slider.children).forEach(function(link) {
-                 link.style.transition = 'none';
-            link.style.transform = `translateX(0px)`;
+        setTimeout(function () {
+            Array.from(slider.children).forEach(function (link) {
+                link.style.transition = 'none';
+                link.style.transform = `translateX(0px)`;
             });
             void slider.offsetWidth;
 
             for (let i = 0; i < moveCount; i++) {
-                 const first = slider.children[0];
-                 slider.appendChild(first);
+                const first = slider.children[0];
+                slider.appendChild(first);
             }
         }, 350);
     }
@@ -1230,12 +1253,12 @@ function loadCarousel() {
         }
         void slider.offsetWidth;
 
-        Array.from(slider.children).forEach(function(link) {
+        Array.from(slider.children).forEach(function (link) {
             link.style.transition = 'none';
             link.style.transform = `translateX(-${link.offsetWidth}px)`;
         });
 
-        Array.from(slider.children).forEach(function(link) {
+        Array.from(slider.children).forEach(function (link) {
             link.style.transition = 'transform .35s ease';
             link.style.transform = `translateX(0px)`;
         });
@@ -1248,18 +1271,18 @@ function loadCarousel() {
 
     //-- Codigo --//
     console.log('Zona de enlaces: Carousel Iniciado');
-     
+
     linksStarted = true;
     originalOrder = Array.from(slider.children);
     autoplay = setInterval(Next, 3000);
 
     if (!listenersAttached) {
-        document.querySelector('#linksCarousel_next').addEventListener('click', function() {
+        document.querySelector('#linksCarousel_next').addEventListener('click', function () {
             Next();
             Reset();
         });
 
-        document.querySelector('#linksCarousel_previous').addEventListener('click', function() {
+        document.querySelector('#linksCarousel_previous').addEventListener('click', function () {
             Previous();
             Reset();
         });
@@ -1284,14 +1307,14 @@ function displayEcosistema(id, btn) {
     if (btn.dataset.textoExpandido === 'false') {
         btn.dataset.textoExpandido = 'true';
         btn.innerText = "Leer menos";
-        
+
         tresPuntos.classList.toggle("d-none");
         textoOculto.classList.toggle("d-none");
         textoCompleto.classList.toggle("historia-ecosistema-efecto");
     } else if (btn.dataset.textoExpandido === 'true') {
         btn.dataset.textoExpandido = 'false';
         btn.innerText = "Leer más";
-        
+
         tresPuntos.classList.toggle("d-none");
         textoOculto.classList.toggle("d-none");
         textoCompleto.classList.toggle("historia-ecosistema-efecto");
@@ -1303,31 +1326,31 @@ function displayEcosistema(id, btn) {
 /** Modelo Pedagogico Inicio **/
 
 document.addEventListener("DOMContentLoaded", function () {
-  const elements = document.querySelectorAll(".nuestroModelo-item");
+    const elements = document.querySelectorAll(".nuestroModelo-item");
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  }, { threshold: 0.5 });
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+        });
+    }, { threshold: 0.5 });
 
-  elements.forEach(el => observer.observe(el));
+    elements.forEach(el => observer.observe(el));
 });
 
 /** Modelo Pedagogico Fin **/
 
 /** Celebrando logros y experiencias Inicio **/
 
-$(document).ready(function() {
-    $("a[data-button-blog]").on("click", function(e) {
+$(document).ready(function () {
+    $("a[data-button-blog]").on("click", function (e) {
         e.preventDefault();
 
-        const data = { 
-            id: $(this).data('blogId') 
+        const data = {
+            id: $(this).data('blogId')
         };
-    
+
         $.ajax({
             url: "../../org/ajax/blogSetManager.php",
             type: "POST",
@@ -1337,11 +1360,11 @@ $(document).ready(function() {
                     console.log("Success blog update");
                     document.getElementById('blog_post').scrollIntoView({ behavior: 'smooth' });
                     window.history.replaceState(null, '', window.location.pathname);
-                    
+
                     $("#blog_dislikeBtn").addClass("d-none");
                     $("#blog_likeBtn").removeClass("d-none");
-                    
-                    $('#comentarios').children().each(function() {
+
+                    $('#comentarios').children().each(function () {
                         $(this).remove();
                     });
 
@@ -1349,26 +1372,26 @@ $(document).ready(function() {
                     $('#blog_post').attr('data-blog-id', response.id);
 
                     const fecha = new Date(response.fecha);
-                    const opciones = { 
-                      weekday: 'long',
-                      day: 'numeric',
-                      month: 'long',
-                      year: 'numeric'
+                    const opciones = {
+                        weekday: 'long',
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric'
                     };
 
                     const formatoFecha = new Intl.DateTimeFormat('es-ES', opciones).format(fecha);
                     $('#blogDate').text(formatoFecha);
 
                     $('#blogTitle').text(response.titulo);
-                    $('#blogPublisher').text("Por: "+response.autor);
-                    $('#blogImage').attr('src', '../../../'+response.imagen);
+                    $('#blogPublisher').text("Por: " + response.autor);
+                    $('#blogImage').attr('src', '../../../' + response.imagen);
                     $('#content').html(response.descripcion);
 
-                    response.comentarios.reverse().forEach(function(comentario) {
+                    response.comentarios.reverse().forEach(function (comentario) {
                         const comment = $("#comentario-plantilla .comment-block").clone();
                         comment.find('.logros-comentario').text(comentario.comentario);
                         comment.find('.logros-correo').text(comentario.correo);
-                        
+
                         const fechaOriginal = comentario.fecha;
                         const fecha = new Date(fechaOriginal);
                         const fechaFormateada = fecha.toISOString().slice(2, 10); // "yy-mm-dd"
@@ -1378,12 +1401,12 @@ $(document).ready(function() {
                         $('#comentarios').append(comment);
                         $('#comentarios').append('<div class="col-lg-2 col-md-2"></div>')
                     });
-                }   
+                }
             },
             error: function (response) {
                 console.log(response);
             },
-        });  
+        });
     })
 });
 
