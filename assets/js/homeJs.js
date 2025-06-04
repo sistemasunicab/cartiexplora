@@ -100,7 +100,7 @@ $(document).ready(function () {
         const urlParams = new URLSearchParams(window.location.search);
 
         const data = {
-            id: parseInt(urlParams.get("blogId")) || parseInt($('#blogId').val()),
+            id: parseInt(urlParams.get("blogId")) || parseInt($('#blog_post').data('blogId')),
             liked: 1
         };
 
@@ -127,7 +127,7 @@ $(document).ready(function () {
         const urlParams = new URLSearchParams(window.location.search);
 
         const data = {
-            id: parseInt(urlParams.get("blogId")) || parseInt($('#blogId').val()),
+            id: parseInt(urlParams.get("blogId")) || parseInt($('#blog_post').data('blogId')),
             liked: 0
         };
 
@@ -324,7 +324,7 @@ $(document).ready(function () {
         e.preventDefault();
 
         const urlParams = new URLSearchParams(window.location.search);
-        let blogId =  parseInt(urlParams.get("blogId"));
+        let blogId =  parseInt(urlParams.get("blogId")) || parseInt($('#blog_post').data('blogId'));
 
         let email = $("#correo").val();
         let comentario = $("#comentario").val();
@@ -345,16 +345,18 @@ $(document).ready(function () {
                     
                     const comment = $("#comentario-plantilla .comment-block").clone();
                     comment.addClass('order-first');
-                    comment.find('.comentario').text(data.comentario);
-                    comment.find('.correo').text(data.email);
+                    comment.find('.logros-comentario').text(data.comentario);
+                    comment.find('.logros-correo').text(data.email);
                     
                     const date = new Date();
                     const d = String(date.getDate()).padStart(2, '0');
-                    const m = String(date.getMonth() + 1).padStart(2, '0'); // Los meses van de 0 a 11
-                    const y = String(date.getFullYear()).slice(-2); // Últimos 2 dígitos del año
+                    const m = String(date.getMonth() + 1).padStart(2, '0');
+                    const y = String(date.getFullYear()).slice(-2);
                     comment.find('.fecha').text(`${y}-${m}-${d}`);
-                    
+
+                    $('#comentarios').append('<div class="col-lg-2 col-md-2 order-first"></div>')
                     $('#comentarios').append(comment);
+                    $('#comentarios').append('<div class="col-lg-2 col-md-2 order-first"></div>')
                 }   
             },
             error: function (response) {
@@ -363,32 +365,15 @@ $(document).ready(function () {
         });
     });
 
-    $("#selmediopago").change(function() {
-        const medio = $("#selmediopago").val();
+    $("#selmediopago .custom-option").change(function() {
+        const medio = document.querySelector("#selmediopago");
 
-        if(medio == "NA") {
+        if(medio.dataset.value == "NA") {
             $("#txtref").val("");
             $("#txtvalorref").val("");
             
             $("#txtvalor").val("");
-
-            let texto = "Debe seleccionar un medio de pago.";
-            $('#medioalert').addClass('select-alert');
-            $("#pdesc").html(texto).css("color","red");
-            $("#alert").show();
-            marcarInputError(this.id);
-            agregarCampoError(this.id);
-            
         }
-        else {
-            $('#medioalert').removeClass('select-alert');
-            $("#pdesc").html("");
-            $("#alert").hide();
-            marcarInputCorrecto(this.id);
-            quitarCampoError(this.id);
-        }
-        
-        mostrarSubmit(btnSubmit.id);
     });
 
     // Mostrar referencia o valor manual
@@ -421,33 +406,20 @@ $(document).ready(function () {
     });
 
     // Se arma la referencia de pago
-    $("#selconcepto").change(function() {
-        const concepto = $("#selconcepto").val();
+    $("#selconcepto .custom-option").click(function() {
+        const concepto = document.querySelector("#selconcepto");
        
-        if(concepto == "NA") {
+        if(concepto.dataset.value == "NA") {
             $("#txtref").val("");
             $("#txtvalorref").val("");
-            
-            $("#txtvalor").val("");
+            form-block-pagos
             $("#txtvalorrefman").val("");
-
-            let texto = "Debe seleccionar un concepto de pago.";
-            $('#conceptoalert').addClass('select-alert');
-            $("#pdesc").html(texto).css("color","red");
-            $("#alert").show();
-            marcarInputError(this.id);
-            agregarCampoError(this.id);
         }
         else {
-            $('#conceptoalert').removeClass('select-alert');
-            $("#pdesc").html("");
-            $("#alert").hide();
-            marcarInputCorrecto(this.id);
-            quitarCampoError(this.id);
-            
+
             const numeroDocumento = $("#txtnumdoc").val();
             const anio = $("#txtanio").val();
-            const referencia_pago_manual = numeroDocumento + "-" + anio + "-" + concepto;
+            const referencia_pago_manual = numeroDocumento + "-" + anio + "-" + concepto.dataset.value;
             
             // input readonly informativo en valor manual
             $("#txtvalorrefman").val(referencia_pago_manual); 
@@ -500,7 +472,7 @@ const marcarCamposObligatorios = () => {
     
     elementosForm.forEach((elemento) => {
         //if (elemento.tagName === "INPUT") {}
-        if (elemento.hasAttribute("required") && (elemento.value == "" || elemento.value == "NA")) {
+        if (elemento.hasAttribute("required") && (elemento.value == "" || elemento.value == "NA" || elemento.dataset.value == "NA")) {
             marcarInputError(elemento.id);
             agregarCampoError(elemento.id);
         }
@@ -1747,15 +1719,11 @@ $(document).ready(function() {
                     $('#blog_post').data('blogId', response.id);
                     $('#blog_post').attr('data-blog-id', response.id);
 
-                    const fecha = new Date(response.fecha);
-                    const opciones = { 
-                      weekday: 'long',
-                      day: 'numeric',
-                      month: 'long',
-                      year: 'numeric'
-                    };
+                    const partes = response.fecha.split("-");
+                    const fecha = new Date(partes[0], partes[1] - 1, partes[2]); // Año, mes (0-indexado), día
 
-                    const formatoFecha = new Intl.DateTimeFormat('es-ES', opciones).format(fecha);
+                    const opciones = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+                    const formatoFecha = fecha.toLocaleDateString('es-ES', opciones);
                     $('#blogDate').text(formatoFecha);
 
                     $('#blogTitle').text(response.titulo);
