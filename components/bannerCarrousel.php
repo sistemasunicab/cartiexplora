@@ -44,8 +44,8 @@
         $rows_items[] = $row_imagen;
     }
 
-    $html = '<section>';
-    $html .= '<div id="carouselExampleAutoplaying" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+    $html = '<div id="carouselExampleAutoplaying" class="carousel slide carousel-fade" data-bs-ride="carousel">
                  <div class="carousel-indicators">';
 
     // Genera un indicador de carrusel por imagen
@@ -58,7 +58,7 @@
         }
     }
     $html .=    '</div>
-            <div class="carousel-inner">';
+            <div class="carousel-inner" data-bs-pause="hover">';
 
     $primerItemCarrusel = true;
 
@@ -152,7 +152,6 @@
     $html .=            '<span class="visually-hidden">Next</span>';
     $html .=        '</button>';
     $html .=    '</div>';
-    $html .= '</section>';
 
     echo $html;
 ?>
