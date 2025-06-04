@@ -76,15 +76,15 @@
 
           <div class="container">
                <div class="row">
-                    <div class="col-lg-12 my-2rem">
+                    <div class="col-lg-12 presaberes-espacio-top">
                          <h3 class="presaberes-paso-title text-center">Numero de documento de identidad del estudiante (sin puntos)</h3>
                     </div>
                </div>
 
-               <div class="row">
+               <div class="row presaberes-espacio-top">
                     <div class="col-lg-3 col-md-3"></div>
                     <div class="col-lg-6 col-md-6 mb-4">
-                         <input type="text" class="w-100 p-3">
+                         <input id="documentoIdentidad" type="text" class="w-100 p-3">
                     </div>
                     <div class="col-lg-3 col-md-3"></div>
                </div>
