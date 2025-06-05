@@ -41,6 +41,10 @@
      $parametros = [];
 
      while($row_datos = $res_datos->fetch_assoc()){
+          if ($row_datos['identificacion'] == 'indicacion') {
+               $indicaciones[] = $row_datos['texto'];
+          }
+
           $parametros[$row_datos['identificacion']] = $row_datos['texto'];
      }
 
@@ -108,6 +112,59 @@
                               <div class="col-lg-5 col-md-4"></div>
                          </div>
                     </form>
+               </div>
+          </section>
+
+          
+          ';
+
+          // Obteniendo los parametros necesarios.
+          $res_sentencia = $mysqli1->query($sentencia."151");
+          while($row_sentencia = $res_sentencia->fetch_assoc()){
+               $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']).$row_sentencia['ordenamientos'];
+          }  
+
+          $res_datos = $mysqli1->query($sql_datos);
+
+          while($row_datos = $res_datos->fetch_assoc()){
+               if ($row_datos['identificacion'] == 'titulo') {
+                    $tituloPreEvaluacion = $row_datos['texto'];
+               }
+          }
+
+        $html .= '
+          <section class="presaberes-globalSection">
+               <div class="container">
+                    <div class="row">
+                         <div class="col-lg-2 col-md-2 col-sm-0 col-0"></div>
+                         <div class="col-lg-8 col-md-8 col-sm-12 col-12">
+                              <p class="presaberes-main-title">'.$tituloPreEvaluacion.' 9°</p>
+                         </div>
+                         <div class="col-lg-2 col-md-2 col-sm-0 col-0"></div>
+                    </div>';
+
+          foreach ($indicaciones as $texto) {
+               $html .= '
+                    <div class="row">
+                         <div class="col-lg-2 col-md-2 col-sm-0 col-0"></div>
+                         <div class="col-lg-8 col-md-8 col-sm-12 col-12">
+                              <p class="presaberes-main-descripcion">'.$texto.'</p>
+                         </div>
+                         <div class="col-lg-2 col-md-2 col-sm-0 col-0"></div>
+                    </div>';
+          }
+
+          $html .= '
+               </div>
+
+               <div class="container">
+                    <div class="row">
+                         <div class="col-lg-5 col-md-4"></div>
+                         <div class="col-lg-2 col-md-4">
+                              <button class="presaberes-boton border-0" type="submit">Iniciar</button>
+                         </div>
+                         <div class="col-lg-5 col-md-4"></div>
+                    </div>
                </div>
           </section>
           ';
