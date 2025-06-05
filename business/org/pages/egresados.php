@@ -7,7 +7,7 @@
 <html lang="en">
 <?php 
     $nivel = "tres";
-    $page_title = "Egresados UNICAB";
+    $page_title = "Promocion 2024 UNICAB";
     include('../../../components/headMain.php');
 ?>
 <body>
@@ -15,6 +15,11 @@
         $nivel = "tres";
         include('../../../components/navBar.php');
         
+        include('../components/egresados/egresadosOnce.php');
+        include('../components/egresados/egresadosCiclos.php');
+        include('../components/egresados/egresadosNoveno.php');
+        include('../components/egresados/egresadosQuinto.php');
+
         include('../../../components/footer.php');
         include('../../../components/bookstoresMain.php');
     ?>  
