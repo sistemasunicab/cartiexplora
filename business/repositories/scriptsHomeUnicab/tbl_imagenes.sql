@@ -209,3 +209,21 @@ UPDATE tbl_imagenes SET rutaMovil = 'assets/img/bannerPrincipios.png', rutaTable
 DELETE FROM tbl_imagenes WHERE id = 28 AND ruta = 'assets/img/testimonios.png';
 UPDATE tbl_imagenes SET ruta = 'assets/img/egresados1.png' WHERE id = 18;
 UPDATE tbl_imagenes SET ruta = 'assets/img/modeloPedagogico.gif' WHERE id = 82;
+
+INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, rutaTabletaHorizontal, descripcion, titulo, posicionTitulo, rutaEncima, textoAlterno) VALUES
+(42, 'assets/img/egresadosOnce.png', '', '', '', '', '', '', '', ''),
+(42, 'assets/img/egresadosOnce_1.png', '', '', '', '', '', '', '', ''),
+(42, 'assets/img/egresadosOnce_profesores.png', '', '', '', '', '', '', '', ''),
+(42, 'assets/img/egresadosOnce_2.png', '', '', '', '', '', '', '', ''),
+(43, 'assets/img/egresadosCiclos.png', '', '', '', '', '', '', '', ''),
+(43, 'assets/img/egresadosCiclos_1.png', '', '', '', '', '', '', '', ''),
+(43, 'assets/img/egresadosCiclos_2.png', '', '', '', '', '', '', '', ''),
+(43, 'assets/img/egresadosCiclos_3.png', '', '', '', '', '', '', '', ''),
+(44, 'assets/img/graduadosNoveno.png', '', '', '', '', '', '', '', ''),
+(44, 'assets/img/graduadosNoveno_1.png', '', '', '', '', '', '', '', ''),
+(44, 'assets/img/graduadosNoveno_2.png', '', '', '', '', '', '', '', ''),
+(44, 'assets/img/graduadosNoveno_3.png', '', '', '', '', '', '', '', ''),
+(45, 'assets/img/graduadosQuinto.png', '', '', '', '', '', '', '', ''),
+(45, 'assets/img/graduadosQuinto_1.png', '', '', '', '', '', '', '', ''),
+(45, 'assets/img/graduadosQuinto_2.png', '', '', '', '', '', '', '', ''),
+(45, 'assets/img/graduadosQuinto_3.png', '', '', '', '', '', '', '', '');

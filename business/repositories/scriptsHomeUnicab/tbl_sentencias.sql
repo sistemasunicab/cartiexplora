@@ -188,3 +188,21 @@ INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones
 ('NO', '', 'SELECT * ', 'FROM tbl_formularios ', 'WHERE id_seccion = 25 ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_formularios ', 'WHERE id_seccion = 26 ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 10 AND descripcion=|aliados| ', '', '', '', '', '');
+
+INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
+('NO', '', 'SELECT * ', 'FROM tbl_parametros ', 'WHERE id_seccion = 5 ', '', '', '', '', '')
+;
+
+INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
+('NO', '', 'SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 41 AND visible = 1 ', '', '', '', '', ''),
+('NO', '', 'SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 42 AND visible = 1 ', '', '', '', '', ''),
+('NO', '', 'SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 43 AND visible = 1 ', '', '', '', '', ''),
+('NO', '', 'SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 44 AND visible = 1 ', '', '', '', '', ''),
+('NO', '', 'SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 45 AND visible = 1 ', '', '', '', '', '');
+
+INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
+('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 42 ', '', '', '', '', ''),
+('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 43 ', '', '', '', '', ''),
+('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 44 ', '', '', '', '', ''),
+('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 45 ', '', '', '', '', '')
+;

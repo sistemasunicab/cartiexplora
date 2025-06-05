@@ -67,3 +67,11 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 
 UPDATE tbl_secciones SET titulo = 'Noticias Destacadas' WHERE id = 32;
 UPDATE tbl_secciones SET titulo = 'Noticias Destacadas' WHERE id = 8;
+
+INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, texto) VALUES 
+('promo2024', 1, 'egresados', 'Momentos que marcan', 'Promoción 2024', ''),
+('egresadosOnce', 1, 'egresados', 'Nuestro orgullo, Egresados', 'Grado ONCE', 'Nuestros estudiantes de grado once se despiden como egresados de UNICAB en la promoción 2024. Han culminado exitosamente su formación académica en modalidad virtual, consolidando competencias clave para la educación superior y la vida profesional. Este logro refleja el esfuerzo, la disciplina y la calidad educativa que caracteriza nuestro modelo pedagógico.'),
+('egresadosCiclos', 1, 'egresados', 'Educación que transforma vidas', 'CICLOS', 'En UNICAB celebramos la promoción de estudiantes adultos, muchos de ellos campesinos, que retomaron sus estudios a través de la educación virtual. Con esfuerzo y constancia, vencieron barreras y demostraron que nunca es tarde para aprender. Hoy se gradúan como ejemplo de superación y esperanza para sus familias y comunidades.'),
+('graduadosNoveno', 1, 'egresados', 'Un Paso Más en el Camino', 'Grado NOVENO', 'La promoción de grado noveno en UNICAB representa un momento clave en la trayectoria educativa virtual. Nuestros estudiantes finalizan una fase esencial de su formación escolar, avanzando hacia nuevas responsabilidades académicas. Este grupo se destaca por su compromiso, autonomía y preparación para los desafíos del nivel medio académico.'),
+('graduadosQuinto', 1, 'egresados', 'Nuestros Valientes de Primaria', 'Grado QUINTO', 'Celebramos la promoción escolar de nuestros estudiantes de grado quinto en UNICAB, quienes culminan con orgullo su ciclo de primaria virtual. Esta etapa marca el cierre de una valiosa formación académica básica y el inicio de un nuevo camino en la educación secundaria. Su proceso ha estado lleno de aprendizajes, desarrollo de habilidades y crecimiento personal.')
+;
