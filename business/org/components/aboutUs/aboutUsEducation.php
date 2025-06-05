@@ -35,9 +35,9 @@ if (!empty($rowsTitulosEducacion)) {
             $imgSrc      = rutaPorNivel($row['ruta']);
 
             $html_educacion .= '
-                <div class="d-flex flex-row align-items-start gap-4 gap-lg-5">
-                    <img class="img-fluid icon-education" src="' . $imgSrc . '" alt="' . $altern . '">
-                    <div class="d-flex flex-column">
+                <div class="row d-flex flex-row align-items-start">
+                    <img class="col-2 img-fluid icon-education p-0 m-0" src="' . $imgSrc . '" alt="' . $altern . '">
+                    <div class="col-10 d-flex flex-column p-0 m-0 ps-4 ps-lg-5">
                         <h3-nosotros class="font-roboto-black">' . $titulo . '</h3-nosotros>
                         <p-nosotros-1 class="mt-4">' . $descripcion . '</p-nosotros-1>
                     </div>
