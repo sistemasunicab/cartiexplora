@@ -53,53 +53,49 @@
           $html .= '
           <section class="container noticias-section">
           ';
-     }
-
-     // Obteniendo los iconos de los links
-     $res_sentencia = $mysqli1->query($sentencia."23");
-     while($row_sentencia = $res_sentencia->fetch_assoc()){
-          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
-     }  
-
-     $res_datos = $mysqli1->query($sql_datos);
-     while($row_datos = $res_datos->fetch_assoc()){
-          $datosImagenes[] = [$row_datos['ruta'], $row_datos['titulo'], $row_datos['posicionTitulo'], $row_datos['descripcion']];
-     }   
-     
-     // Obteniendo los ultimos 3 blogs
-     $res_sentencia = $mysqli1->query($sentencia."27");
-     while($row_sentencia = $res_sentencia->fetch_assoc()){
-          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']).$row_sentencia['ordenamientos'];
-     }  
-
-     $res_datos = $mysqli1->query($sql_datos);
-     $blogs = [];
-
-     while($row_datos = $res_datos->fetch_assoc()){
-          $blogs[] = [
-               'rutaImagen' => $row_datos['imagen'],
-               'fechaPublicacion' => $row_datos['fechaPublicacion'],
-               'descripcion' => $row_datos['descripcionPrincipal'], 
-               'textoBoton' => $row_datos['textoBoton'],
-               'tituloBlog' => $row_datos['titulo'],
-               'blogId' => $row_datos['id']
-          ];
-     }   
-
-     // Obteniendo los parametros necesarios
-     $res_sentencia = $mysqli1->query($sentencia."28");
-     while($row_sentencia = $res_sentencia->fetch_assoc()){
-          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
-     }  
-
-     $res_datos = $mysqli1->query($sql_datos);
-     while($row_datos = $res_datos->fetch_assoc()){
-          $parametros[] = $row_datos;
-     }   
-     
-     // Verificando la visibilidad de la seccion
-     if ($html != '') {
           
+          // Obteniendo los iconos de los links
+          $res_sentencia = $mysqli1->query($sentencia."23");
+          while($row_sentencia = $res_sentencia->fetch_assoc()){
+               $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
+          }  
+
+          $res_datos = $mysqli1->query($sql_datos);
+          while($row_datos = $res_datos->fetch_assoc()){
+               $datosImagenes[] = [$row_datos['ruta'], $row_datos['titulo'], $row_datos['posicionTitulo'], $row_datos['descripcion']];
+          }   
+
+          // Obteniendo los ultimos 3 blogs
+          $res_sentencia = $mysqli1->query($sentencia."27");
+          while($row_sentencia = $res_sentencia->fetch_assoc()){
+               $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']).$row_sentencia['ordenamientos'];
+          }  
+
+          $res_datos = $mysqli1->query($sql_datos);
+          $blogs = [];
+
+          while($row_datos = $res_datos->fetch_assoc()){
+               $blogs[] = [
+                    'rutaImagen' => $row_datos['imagen'],
+                    'fechaPublicacion' => $row_datos['fechaPublicacion'],
+                    'descripcion' => $row_datos['descripcionPrincipal'], 
+                    'textoBoton' => $row_datos['textoBoton'],
+                    'tituloBlog' => $row_datos['titulo'],
+                    'blogId' => $row_datos['id']
+               ];
+          }   
+
+          // Obteniendo los parametros necesarios
+          $res_sentencia = $mysqli1->query($sentencia."28");
+          while($row_sentencia = $res_sentencia->fetch_assoc()){
+               $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
+          }  
+
+          $res_datos = $mysqli1->query($sql_datos);
+          while($row_datos = $res_datos->fetch_assoc()){
+               $parametros[] = $row_datos;
+          }
+
           $html .= '
           <div class="row mb-4">
                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
@@ -141,6 +137,19 @@
           array_shift($datosImagenes);
           $direction = FlexTitleLoader::setDirection($datosImagenes[0][2]);
           
+          // Obteniendo el formulario
+          $res_sentencia = $mysqli1->query($sentencia."152");
+          while($row_sentencia = $res_sentencia->fetch_assoc()){
+               $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']).$row_sentencia['ordenamientos'];
+          }  
+     
+          $res_datos = $mysqli1->query($sql_datos);
+          while($row_datos = $res_datos->fetch_assoc()){
+               $camposNewsletter[] = $row_datos;
+          }
+
+          $correoCampo = array_shift($camposNewsletter);
+
           $html .= '
                </div>
                
@@ -154,16 +163,25 @@
                <div class="row">
                     <div class="col-lg-8 col-md-6 col-sm-4 col-1"></div>
                     <div class="col-lg-4 col-md-6 col-sm-8 col-11">
-                         <div class="row m-0 noticias-newsletter-main">
-                              <div class="col-8 p-0">
-                                   <input class="noticias-newsletter-input" placeholder="Ingresa tu correo">
+                         <form id="newsletterForm">
+                              <div class="row m-0 noticias-newsletter-main">
+                                   <div class="col-8 p-0">
+                                        <input onkeyup="validarCampoNewsletter(this, \''.$correoCampo['texto'].'\', \'correo\', 1, \'registerNewsletter\', \'newsletterForm\')" type="' . $correoCampo['tipo'] . '" id="' . $correoCampo['campo'] . '" class="campoFormulario noticias-newsletter-input" ' . $correoCampo['obligatorio'] . ' ' . $correoCampo['soloLectura'] . ' ' . $correoCampo['habilitado'] . ' placeholder="'.$correoCampo['placeHolder'].'">
+                                   </div>
+                                   
+                                   <button type="submit" id="registerNewsletter" class="col-4 noticias-newsletter-btn" style="display: none;">
+                                        <img src="'.$datosImagenes[0][0].'">
+                                        '.$datosImagenes[0][3].'
+                                   </button>
                               </div>
+                         </form>
+                    </div>
+               </div>
 
-                              <button class="col-4 bg-green noticias-newsletter-btn">
-                                   <img src="'.$datosImagenes[0][0].'">
-                                   '.$datosImagenes[0][3].'
-                              </button>
-                         </div>
+               <div class="row">
+                    <div class="col-lg-8 col-md-6 col-sm-1 col-1"></div>
+                    <div class="col-lg-4 col-md-6 col-sm-11 col-11">
+                         <p class="noticias-newsletter-response d-none" data-response-type="success" id="newsletter-response"></p>
                     </div>
                </div>
           ';
@@ -172,7 +190,7 @@
                </div>
           </section>
           ';
+          
+          echo $html;
      }
-
-     echo $html;
 ?>
