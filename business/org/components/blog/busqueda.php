@@ -103,10 +103,18 @@
                </div>
 
           <div class="row mt-5">
-               <div class="col-lg-2 col-md-1 col-sm- col-1"></div>
+               <div class="col-lg-2 col-md-1 col-sm-1 col-1"></div>
                <div class="col-lg-8 col-md-10 col-sm-10 col-10 d-flex p-0 align-items-center justify-content-center">
                     <input type="text" class="logros-busqueda-barra text-lg-start text-center" placeholder="'.$searchBar["placeholder"].'" id="searchbar-blog">
                </div>
+               <div class="col-lg-2 col-md-1 col-sm-1 col-1"></div>
+
+               <div class="col-lg-2 col-md-1 col-sm-1 col-1"></div>
+
+               <div id="search-results" class="col-lg-8 col-md-10 col-sm-10 col-10">
+                    <ul class="search-engine"></ul>
+               </div>
+
                <div class="col-lg-2 col-md-1 col-sm-1 col-1"></div>
         ';
 
