@@ -115,15 +115,16 @@
      }
 
      // Obteniendo los parametros necesarios
-     $res_sentencia = $mysqli1->query($sentencia."28");//28
+     $res_sentencia = $mysqli1->query($sentencia."28");
      while($row_sentencia = $res_sentencia->fetch_assoc()){
           $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
      }  
 
+     $parametros = [];
      $res_datos = $mysqli1->query($sql_datos);
      while($row_datos = $res_datos->fetch_assoc()){
-          $parametros[] = $row_datos;
-     }   
+          array_push($parametros, $row_datos['t1']);
+     }
 
      // Obteniendo los iconos necesarios
      $res_sentencia = $mysqli1->query($sentencia."102");//48
@@ -192,6 +193,8 @@
      }
 
      $correoCampo = array_shift($camposNewsletter);
+     $texto1 = array_shift($parametros);
+     $textoUnsubscribe = array_shift($parametros);
 
     if ($html != '') {
 
@@ -199,7 +202,7 @@
                <div class="row">
                     <div class="col-lg-8 col-md-6 col-sm-5 col-2"></div>
                     <div class="col-lg-4 col-md-6 col-sm-7 col-10">
-                         <p class="noticias-newsletter-p text-end w-100">'.$parametros[0]['t1'].'</p>
+                         <p class="noticias-newsletter-p text-end w-100">'.$texto1.'</p>
                     </div>
                </div>
 
@@ -218,6 +221,13 @@
                                    </button>
                               </div>
                          </form>
+                    </div>
+               </div>
+
+               <div class="row">
+                    <div class="col-lg-8 col-md-6 col-sm-1 col-1"></div>
+                    <div class="col-lg-4 col-md-6 col-sm-11 col-11">
+                         <a role="button" id="unsubscribe-newsletter" class="d-block m-0 mt-2 noticias-newsletter-p text-end w-100 tx-blue logros-unsubscribe">'.$textoUnsubscribe.'</a>
                     </div>
                </div>
 

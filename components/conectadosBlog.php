@@ -53,6 +53,18 @@
           $html .= '
           <section class="container noticias-section">
           ';
+
+          // Obteniendo los parametros necesarios
+          $res_sentencia = $mysqli1->query($sentencia."28");
+          while($row_sentencia = $res_sentencia->fetch_assoc()){
+               $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
+          }  
+          $parametros = [];
+
+          $res_datos = $mysqli1->query($sql_datos);
+          while($row_datos = $res_datos->fetch_assoc()){
+               array_push($parametros, $row_datos['t1']);
+          }
           
           // Obteniendo los iconos de los links
           $res_sentencia = $mysqli1->query($sentencia."23");
@@ -84,17 +96,6 @@
                     'blogId' => $row_datos['id']
                ];
           }   
-
-          // Obteniendo los parametros necesarios
-          $res_sentencia = $mysqli1->query($sentencia."28");
-          while($row_sentencia = $res_sentencia->fetch_assoc()){
-               $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
-          }  
-
-          $res_datos = $mysqli1->query($sql_datos);
-          while($row_datos = $res_datos->fetch_assoc()){
-               $parametros[] = $row_datos;
-          }
 
           $html .= '
           <div class="row mb-4">
@@ -149,6 +150,8 @@
           }
 
           $correoCampo = array_shift($camposNewsletter);
+          $texto1 = array_shift($parametros);
+          $textoUnsubscribe = array_shift($parametros);
 
           $html .= '
                </div>
@@ -156,14 +159,14 @@
                <div class="row">
                     <div class="col-lg-8 col-md-6 col-sm-1 col-1"></div>
                     <div class="col-lg-4 col-md-6 col-sm-11 col-11">
-                         <p class="noticias-newsletter-p text-end w-100">'.$parametros[0]['t1'].'</p>
+                         <p class="noticias-newsletter-p text-end w-100">'.$texto1.'</p>
                     </div>
                </div>
 
                <div class="row">
                     <div class="col-lg-8 col-md-6 col-sm-4 col-1"></div>
                     <div class="col-lg-4 col-md-6 col-sm-8 col-11">
-                         <form id="newsletterForm">
+                         <form id="newsletterForm" data-new-form>
                               <div class="row m-0 noticias-newsletter-main">
                                    <div class="col-8 p-0">
                                         <input onkeyup="validarCampoNewsletter(this, \''.$correoCampo['texto'].'\', \'correo\', 1, \'registerNewsletter\', \'newsletterForm\')" type="' . $correoCampo['tipo'] . '" id="' . $correoCampo['campo'] . '" class="campoFormulario noticias-newsletter-input" ' . $correoCampo['obligatorio'] . ' ' . $correoCampo['soloLectura'] . ' ' . $correoCampo['habilitado'] . ' placeholder="'.$correoCampo['placeHolder'].'">
@@ -181,11 +184,18 @@
                <div class="row">
                     <div class="col-lg-8 col-md-6 col-sm-1 col-1"></div>
                     <div class="col-lg-4 col-md-6 col-sm-11 col-11">
+                         <a role="button" id="unsubscribe-newsletter" class="d-block m-0 mt-2 noticias-newsletter-p text-end w-100 tx-blue logros-unsubscribe">'.$textoUnsubscribe.'</a>
+                    </div>
+               </div>
+               
+               <div class="row">
+                    <div class="col-lg-8 col-md-6 col-sm-1 col-1"></div>
+                    <div class="col-lg-4 col-md-6 col-sm-11 col-11">
                          <p class="noticias-newsletter-response d-none" data-response-type="success" id="newsletter-response"></p>
                     </div>
                </div>
           ';
-       
+
           $html .= '
                </div>
           </section>

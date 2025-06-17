@@ -52,7 +52,7 @@
     while ($row_datos_seccion = $res_seccion_dos->fetch_assoc()) {
         // renderiza la seccion
         $html .= '
-          <section class="container logros-noticias-section">
+          <section class="container logros-noticias-section" id="noticias-recientes">
                <div class="row">
                     <div class="col-lg-12">
                          <h3 class="logros-noticias-title text-center">'.$row_datos_seccion['titulo'].'</h3>
@@ -79,6 +79,20 @@
                'blogId' => $row_datos['id']
           ];
      }
+
+     // Obteniendo textos
+     $res_sentencia = $mysqli1->query($sentencia."163");//45
+     while($row_sentencia = $res_sentencia->fetch_assoc()){
+          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
+     }  
+
+     $datosTextos = [];
+     $res_datos = $mysqli1->query($sql_datos);
+     while($row_datos = $res_datos->fetch_assoc()){
+          array_push($datosTextos, $row_datos['texto']);
+     }
+
+     $resultadosBusqueda = array_shift($datosTextos);
 
     if ($html != '') {
         $html .= '<div class="row">'; 
@@ -107,6 +121,18 @@
 
         $html .= '
                </div>
+          </section>
+        ';
+
+        $html .= '
+          <section class="container logros-noticias-section d-none" id="resultados-busqueda-blog">
+               <div class="row">
+                    <div class="col-lg-12">
+                         <h3 class="logros-noticias-title text-center" id="titulo-busqueda">'.$resultadosBusqueda.'</h3>
+                    </div>
+               </div>
+               
+               <div class="row" id="resultados"></div>
           </section>
         ';
     }

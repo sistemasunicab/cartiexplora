@@ -259,6 +259,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ]);
             }
         }
+    } elseif ($suscripcion == 'false' && !empty($correo) && filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+        
+        // Verificando si existe el correo ya en base de datos.
+        $sentencia_verificacion = $mysqli1->query($sentencia."159");
+        while($row_sentencia = $sentencia_verificacion->fetch_assoc()){
+             $datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('?', '\''.$correo.'\'', $row_sentencia['condiciones']);
+        }  
+
+        $respuesta = $mysqli1->query($datos);
+        if ($respuesta && $respuesta->num_rows > 0) {
+            while($row_datos = $respuesta->fetch_assoc()){
+                $correoId = $row_datos['id'];
+                $correo = $row_datos['correo'];
+            }   
+
+            $res_sentecia = $mysqli1->query($sentencia . "153");
+            while ($row_sentencia = $res_sentecia->fetch_assoc()) {
+                $sql_form = $row_sentencia['campos'].$row_sentencia['tablas'].$row_sentencia['condiciones'];
+            }
+
+            $sentencia = $mysqli1->prepare($sql_form);
+            $sentencia->bind_param("ss", $correoId, $correo);
+            $sentencia->execute();
+
+            echo json_encode([
+                'status' => 'success',
+                'message' => "Correo desuscrito con éxito."
+            ]);
+        }
+
     } else {
         http_response_code(400); // Código HTTP 400 (Bad Request)
         echo json_encode([
