@@ -40,11 +40,11 @@
                     <div class="col-lg-5 col-md-4 col-sm-2 col-2"></div>
                </div>
                <div class="row">
-                    <div class="col-lg-3 col-md-2"></div>
-                    <div class="col-lg-6 col-md-8 col-sm-12 col-12 d-flex gap-5 align-items-center">
-                         <h2 class="logros-title">'.$row_datos_seccion['titulo'].'</h2>
+                    <div class="col-lg-1 col-md-2"></div>
+                    <div class="col-lg-10 col-md-8 col-sm-12 col-12 d-flex gap-5 align-items-center">
+                         <h2 class="logros-title mx-auto">'.$row_datos_seccion['titulo'].'</h2>
                     </div>
-                    <div class="col-lg-3 col-md-2"></div>
+                    <div class="col-lg-1 col-md-2"></div>
                </div>
           </main>';
     }
@@ -93,7 +93,7 @@
           $html .= '
                <div class="col-md-3 d-lg-none d-block"></div>
                <div class="col-lg-4 col-md-6 col-sm-12 col-12 d-flex justify-content-center '.$position.'">
-                    <a href="" class="bg-orange w-100 logros-busqueda-link">'.$link["linkName"].'</a>
+                    <a href="" class="bg-orange w-100 d-flex justify-content-center align-items-center logros-busqueda-link">'.$link["linkName"].'</a>
                </div>
                <div class="col-md-3 d-lg-none d-block"></div>
           ';
@@ -103,10 +103,18 @@
                </div>
 
           <div class="row mt-5">
-               <div class="col-lg-2 col-md-1 col-sm- col-1"></div>
+               <div class="col-lg-2 col-md-1 col-sm-1 col-1"></div>
                <div class="col-lg-8 col-md-10 col-sm-10 col-10 d-flex p-0 align-items-center justify-content-center">
                     <input type="text" class="logros-busqueda-barra text-lg-start text-center" placeholder="'.$searchBar["placeholder"].'" id="searchbar-blog">
                </div>
+               <div class="col-lg-2 col-md-1 col-sm-1 col-1"></div>
+
+               <div class="col-lg-2 col-md-1 col-sm-1 col-1"></div>
+
+               <div id="search-results" class="col-lg-8 col-md-10 col-sm-10 col-10">
+                    <ul class="search-engine"></ul>
+               </div>
+
                <div class="col-lg-2 col-md-1 col-sm-1 col-1"></div>
         ';
 

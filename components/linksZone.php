@@ -4,7 +4,7 @@
 
      function crearLink($datos, $links){
           $link = '   
-                    <div class="col-lg-4 col-md-3 col-sm-6 col-6 linksZone-container linkCarousel-block"> <!-- Link -->
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-6 linksZone-container linkCarousel-block"> <!-- Link -->
                          <img src="'.$datos[0].'" alt="" class="img-fluid">
                          <a href="'.$links[$datos[1]].'">'.$datos[1].'</a>
                     </div>
@@ -40,8 +40,11 @@
                     </div>
                </div>
           
-               <div class="container position-relative">
-                    <div class="row m-0" id="linksCarousel">
+               <div class="container">
+                    <div class="row">
+                         <div class="col-lg-0 col-md-1 col-sm-0 col-0"></div>
+                         <div class="col-lg-12 col-md-10 col-sm-12 col-12 position-relative">
+                              <div class="row m-0" id="linksCarousel">
           ';
      }    
 
@@ -75,17 +78,15 @@
           }
 
           $html .= '
+                         </div>
 
+                         <a role="button" class="col-1" id="linksCarousel_next"></a>
+                         <a role="button" class="col-1" id="linksCarousel_previous"></a>
                     </div>
 
-                    <a role="button" class="col-1" id="linksCarousel_next"></a>
-                    <a role="button" class="col-1" id="linksCarousel_previous"></a>
-               </div\>
+                    <div class="col-lg-0 col-md-1 col-sm-0 col-0"></div>
+               </div>
           </section>
-          ';
-
-          $html .= '
-          
           ';
      }
 

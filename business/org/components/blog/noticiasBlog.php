@@ -13,11 +13,11 @@
                                    <div>
                                         <p class="noticias-date lh-1">'.$datos['fechaPublicacion'].'</p>
                                         <p class="noticias-title lh-1">'.$datos['tituloBlog'].'</p>
+                                        <p class="noticias-p lh-1 mt-3">'.substr($datos['descripcion'], 0, 157).'...</p>
                                    </div>     
                                    
-                                   <p class="noticias-p lh-1">'.substr($datos['descripcion'], 0, 157).'...</p>
                                    
-                                   <div>
+                                   <div class="mt-lg-0 mt-md-0 mt-sm-2 mt-3">
                                         <a role="button" data-button-blog data-blog-id="'.$datos['blogId'].'" class="noticias-link lh-1">'.$datos['textoBoton'].'</a>
                                         <hr class="noticias-littlebar">
                                    </div>
@@ -52,7 +52,7 @@
     while ($row_datos_seccion = $res_seccion_dos->fetch_assoc()) {
         // renderiza la seccion
         $html .= '
-          <section class="container logros-noticias-section">
+          <section class="container logros-noticias-section" id="noticias-recientes">
                <div class="row">
                     <div class="col-lg-12">
                          <h3 class="logros-noticias-title text-center">'.$row_datos_seccion['titulo'].'</h3>
@@ -79,6 +79,20 @@
                'blogId' => $row_datos['id']
           ];
      }
+
+     // Obteniendo textos
+     $res_sentencia = $mysqli1->query($sentencia."163");//45
+     while($row_sentencia = $res_sentencia->fetch_assoc()){
+          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
+     }  
+
+     $datosTextos = [];
+     $res_datos = $mysqli1->query($sql_datos);
+     while($row_datos = $res_datos->fetch_assoc()){
+          array_push($datosTextos, $row_datos['texto']);
+     }
+
+     $resultadosBusqueda = array_shift($datosTextos);
 
     if ($html != '') {
         $html .= '<div class="row">'; 
@@ -107,6 +121,18 @@
 
         $html .= '
                </div>
+          </section>
+        ';
+
+        $html .= '
+          <section class="container logros-noticias-section d-none" id="resultados-busqueda-blog">
+               <div class="row">
+                    <div class="col-lg-12">
+                         <h3 class="logros-noticias-title text-center" id="titulo-busqueda">'.$resultadosBusqueda.'</h3>
+                    </div>
+               </div>
+               
+               <div class="row" id="resultados"></div>
           </section>
         ';
     }
