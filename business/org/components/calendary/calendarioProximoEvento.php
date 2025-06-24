@@ -9,29 +9,26 @@ if (!empty($rowsVisible)) {
         // 2) Obtenemos los eventos próximos (sentencia #65)
         $rowsEvents = obtenerFilas($mysqli1, $sentencia, 65);
 
-        // Contenedor principal
-        $html_next_event  = '<div class="next-events-container col-lg-8 col-md-12 col-sm-12 col-12 p-0 mx-auto d-flex flex-column">';
-        $html_next_event .= '  <div class="w-100 m-auto d-flex flex-column bg-bold-blue shadow">';
-        $html_next_event .= '    <div class="col-10 d-flex flex-column m-auto pt-5 pb-5">';
-
-        // Título fijo
-        $html_next_event .= '      <h4-calendario class="mb-3 font-roboto-bold tx-white">'
+        $html_row_one = '<div class="row m-0 p-0">';
+        $html_row_one .= '<div class="col-lg-2 col-0 p-0 m-0"></div>';
+        $html_row_one .= '<div class="col-lg-8 col-md-12 col-sm-12 col-12 m-0 p-0 bg-bold-blue shadow">';
+        $html_row_one .= '<div class="col-10 d-flex flex-column m-auto pt-5 pb-5">';
+        $html_row_one .= '<h4-calendario class="mb-3 font-roboto-bold tx-white">'
                           . $row_data_visible['titulo'] .
                           '</h4-calendario>';
-
         if (empty($rowsEvents)) {
-            $html_next_event .= '      <p-calendario class="tx-white text-center py-5">No hay eventos próximos</p-calendario>';
+          $html_row_one .= '<p-calendario class="tx-white text-center py-5">No hay eventos próximos</p-calendario>';
         } else {
             // Iniciamos el carrusel
-            $html_next_event .= '
+            $html_row_one .= '
             <div id="eventCarousel" class="carousel slide" data-bs-ride="carousel">
               <ol class="carousel-indicators">';
             foreach ($rowsEvents as $i => $_) {
-                $html_next_event .= '
+                $html_row_one .= '
                 <li data-bs-target="#eventCarousel" data-bs-slide-to="' . $i . '"'
                                   . ($i === 0 ? ' class="active"' : '') . '></li>';
             }
-            $html_next_event .= '
+            $html_row_one .= '
               </ol>
               <div class="mb-5 carousel-inner">';
 
@@ -42,7 +39,7 @@ if (!empty($rowsVisible)) {
                 $descEvento   = $row['descripcion'];
                 $idEvento     = 'evt' . ($row['id'] ?? rand(1000, 9999));
 
-                $html_next_event .= '
+                $html_row_one .= '
                 <div class="carousel-item' . ($i === 0 ? ' active' : '') . '">
                   <div class="d-flex flex-column event-item mb-4">
                     <h3-calendario class="font-roboto-bold tx-orange mb-2">'
@@ -53,8 +50,8 @@ if (!empty($rowsVisible)) {
                     '</p-calendario>
                     <div class="countdown-container d-flex gap-3 justify-content-center 
                                 font-roboto-bold my-2 fs-5"
-                         data-fecha="' . $fechaIso . '"
-                         id="countdown-' . $idEvento . '">
+                        data-fecha="' . $fechaIso . '"
+                        id="countdown-' . $idEvento . '">
                       <div class="calendary-event col-2 bg-white tx-orange d-flex border-radius-20">
                         <h3-calendario class="m-0 countdown-day">0</h3-calendario>
                       </div>
@@ -73,20 +70,33 @@ if (!empty($rowsVisible)) {
             }
 
             // Cerramos carrusel (sin botones prev/next)
-            $html_next_event .= '
+            $html_row_one .= '
               </div>
             </div>';
         }
+        $html_row_one .= '</div>';
+        $html_row_one .= '</div>';
+        $html_row_one .= '<div class="col-lg-2 col-0 p-0 m-0"></div>';
+        $html_row_one .= '</div>';
 
-        $html_next_event .= '    </div>'; // cierra col-10
-        $html_next_event .= '  </div>';   // cierra bg-bold-blue
-        $html_next_event .= '  <button class="mx-auto mx-0 ms-lg-auto me-lg-5 mt-4 btn shadow h-auto tx-white btn-calendary fw-semibold" style="width:250px;">Más información</button>';
-        $html_next_event .= '</div>';     // cierra next-events-container
+        $html_row_two = '<div class="row m-0 p-0">';
+        $html_row_two .= '<div class="col-lg-2 col-0 p-0 m-0"></div>';
+        $html_row_two .= '<div class="col-lg-8 col-12 m-0 p-0 d-flex justify-content-lg-end ">';
+        $html_row_two .= '<button 
+                            class="mx-auto mx-lg-0 ms-lg-auto me-lg-5 mt-4 btn shadow h-auto tx-white btn-calendary fw-semibold" 
+                            style="width:250px;"
+                            onclick="window.location.href=\'./entrevista.php\';">Más información</button>';
+        $html_row_two .= '</div>';
+        $html_row_two .= '<div class="col-lg-2 col-0 p-0 m-0"></div>';
+        $html_row_two .= '</div>';
+
+        $html_next_event = $html_row_one;
+        $html_next_event .= $html_row_two;
+
+       
     }
 }
 ?>
 <div class="container-fluid my-ws mx-0 p-0">
-    <div class="row m-0 p-0">
-        <?= $html_next_event ?>
-    </div>
+    <?= $html_next_event ?>
 </div>

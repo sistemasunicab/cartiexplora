@@ -61,7 +61,7 @@ if (empty($menuPrincipal) && $mysqli1->error) {
 } else {
     foreach ($menuPrincipal as $rowMenu) {
         $idItem   = $rowMenu['id'];
-        $menuText = htmlspecialchars($rowMenu['menu'], ENT_QUOTES, 'UTF-8');
+        $menuText = $rowMenu['menu'];
         $destino  = $rowMenu['destino'];
         $linkURL  = $rowMenu[$levelSelect];
 
@@ -74,7 +74,7 @@ if (empty($menuPrincipal) && $mysqli1->error) {
                             <a 
                                 target="' . $destino . '"
                                 class="a-nav" 
-                                href="' . htmlspecialchars($linkURL, ENT_QUOTES, 'UTF-8') . '">
+                                href="' . $linkURL . '">
                                 ' . $menuText . '
                             </a>
                             <i class="icon-row fas fa-chevron-right w-auto p-0 mx-2"></i>
@@ -204,7 +204,7 @@ $html_logo = '
     <div class="row m-0 p-0">
         <nav class="navbar main-nav bg-orange col-12 h-lg-70 p-0">
             <div class="col-12 col-lg-12 h-100 m-auto p-0 d-lg-flex justify-content-between text-start">
-                <div class="m-auto mx-lg-0 ms-lg-5 p-3 p-lg-0 d-flex flex-row justify-content-between">
+                <div class="m-auto mx-lg-0 ms-lg-5 p-3 p-lg-0 d-flex flex-row justify-content-between align-items-center">
                     <?= $html_logo ?>
 
                     <button class="navbar-toggler d-lg-none" type="button" id="menu-button">

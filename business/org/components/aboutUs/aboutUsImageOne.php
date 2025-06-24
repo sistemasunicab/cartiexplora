@@ -20,7 +20,7 @@ if (!empty($rowsCheck)) {
         $altText    = $rowImg['textoAlterno'];
 
         $html_nosotrosImgUno .= '
-                <div class="d-flex flex-column p-lg-0 col-lg-4 col-md-6 col-sm-6 col-6">
+                <div class="d-flex flex-column p-lg-0 col-lg-4 col-md-6 col-sm-6 col-6 mx-auto">
                     <img 
                         class="' . $baseClass . '" 
                         src="'   . $path_image  . '" 

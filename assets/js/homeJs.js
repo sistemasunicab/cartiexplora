@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //     const botones = document.querySelectorAll(
 //         ".carousel-item .button-carousel"
 //     );
-    
+
 //     botones.forEach((boton) => {
 //         // Almacena los valores originales solo una vez, si no están ya guardados
 //         if (!boton.dataset.originalTop) {
@@ -94,7 +94,7 @@ const leerMasPrincipios = (id, boton) => {
 };
 
 $(document).ready(function () {
-    $("#blog_likeBtn").on("click", function(e) {
+    $("#blog_likeBtn").on("click", function (e) {
         e.preventDefault();
 
         const urlParams = new URLSearchParams(window.location.search);
@@ -112,8 +112,8 @@ $(document).ready(function () {
                 if (response.status === "success") {
                     $("#blog_dislikeBtn").toggleClass("d-none");
                     $("#blog_likeBtn").toggleClass("d-none");
-                console.log(response)
-                }   
+                    console.log(response)
+                }
             },
             error: function (response) {
                 console.log(response)
@@ -121,7 +121,7 @@ $(document).ready(function () {
         });
     });
 
-    $("#blog_dislikeBtn").on("click", function(e) {
+    $("#blog_dislikeBtn").on("click", function (e) {
         e.preventDefault();
 
         const urlParams = new URLSearchParams(window.location.search);
@@ -139,8 +139,8 @@ $(document).ready(function () {
                 if (response.status === "success") {
                     $("#blog_dislikeBtn").toggleClass("d-none");
                     $("#blog_likeBtn").toggleClass("d-none");
-                console.log(response)
-                }   
+                    console.log(response)
+                }
             },
             error: function (response) {
                 console.log(response)
@@ -148,14 +148,14 @@ $(document).ready(function () {
         });
     });
 
-    $("#search").keyup(function(){
-    _this = this;
-    // Show only matching TR, hide rest of them
-    $.each($("#datos-empelados tbody tr"), function() {
-        if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
-            $(this).hide();
-        else
-            $(this).show();
+    $("#search").keyup(function () {
+        _this = this;
+        // Show only matching TR, hide rest of them
+        $.each($("#datos-empelados tbody tr"), function () {
+            if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                $(this).hide();
+            else
+                $(this).show();
         });
     });
 });
@@ -164,7 +164,7 @@ $(document).ready(function () {
     $(".datos").hide();
     marcarCamposObligatorios();
     $("#alert").hide();
-    $("#divcargando").css({display:'none'});
+    $("#divcargando").css({ display: 'none' });
     let btnSubmit = document.querySelector('button[type="submit"]');
     let idSubmit = "#" + btnSubmit.id;
 
@@ -213,13 +213,13 @@ $(document).ready(function () {
         });
     });
 
-    $("#register_grado").change(function() {
+    $("#register_grado").change(function () {
         let gra = $("#register_grado").val();
-        
-        if(gra == "NA") {
+
+        if (gra == "NA") {
             //$(idSubmit).hide();
             let texto = "Debe seleccionar un grado para la matrícula";
-            $("#pdesc").html(texto).css("color","red");
+            $("#pdesc").html(texto).css("color", "red");
             $("#alert").show();
             marcarInputError(this.id);
             agregarCampoError(this.id);
@@ -233,16 +233,16 @@ $(document).ready(function () {
         }
         mostrarSubmit(btnSubmit.id);
     });
-    
-    $("#register_tipo_documento").change(function() {
+
+    $("#register_tipo_documento").change(function () {
         let td = $("#register_tipo_documento").val();
         let td_txt = $("#register_tipo_documento option:selected").text();
         $("#td_text").val(td_txt);
-        
-        if(td == "NA") {
+
+        if (td == "NA") {
             //$("#btnEnviar").hide();
             let texto = "Debe seleccionar un tipo de documento para la matrícula";
-            $("#pdesc").html(texto).css("color","red");
+            $("#pdesc").html(texto).css("color", "red");
             $("#alert").show();
             marcarInputError(this.id);
             agregarCampoError(this.id);
@@ -256,14 +256,14 @@ $(document).ready(function () {
         }
         mostrarSubmit(btnSubmit.id);
     });
-    
-    $("#register_medio").change(function() {
+
+    $("#register_medio").change(function () {
         let medio = $("#register_medio").val();
-        
-        if(medio == "NA") {
+
+        if (medio == "NA") {
             //$("#btnEnviar").hide();
             let texto = "Debe seleccionar un medio de llegada";
-            $("#pdesc").html(texto).css("color","red");
+            $("#pdesc").html(texto).css("color", "red");
             $("#alert").show();
             marcarInputError(this.id);
             agregarCampoError(this.id);
@@ -277,14 +277,14 @@ $(document).ready(function () {
         }
         mostrarSubmit(btnSubmit.id);
     });
-    
-    $("#register_genero").change(function() {
+
+    $("#register_genero").change(function () {
         let gen = $("#register_genero").val();
-        
-        if(gen == "NA") {
+
+        if (gen == "NA") {
             //$("#btnEnviar").hide();
             let texto = "Debe seleccionar un género para la matrícula";
-            $("#pdesc").html(texto).css("color","red");
+            $("#pdesc").html(texto).css("color", "red");
             $("#alert").show();
             marcarInputError(this.id);
             agregarCampoError(this.id);
@@ -298,14 +298,14 @@ $(document).ready(function () {
         }
         mostrarSubmit(btnSubmit.id);
     });
-    
-    $("#parentesco_acudiente_1").change(function() {
+
+    $("#parentesco_acudiente_1").change(function () {
         let parentesco = $("#parentesco_acudiente_1").val();
-        
-        if(parentesco == "NA") {
+
+        if (parentesco == "NA") {
             //$("#btnEnviar").hide();
             let texto = "Debe seleccionar un parentesco para el acudiente";
-            $("#pdesc").html(texto).css("color","red");
+            $("#pdesc").html(texto).css("color", "red");
             $("#alert").show();
             marcarInputError(this.id);
             agregarCampoError(this.id);
@@ -342,7 +342,7 @@ $(document).ready(function () {
             success: function (response) {
                 if (response.status === "success") {
                     $("#comentariosCampos")[0].reset();
-                    
+
                     const comment = $("#comentario-plantilla .comment-block").clone();
                     comment.addClass('order-first');
                     comment.find('.logros-comentario').text(data.comentario);
@@ -371,17 +371,17 @@ $(document).ready(function () {
         if(medio.dataset.value == "NA") {
             $("#txtref").val("");
             $("#txtvalorref").val("");
-            
+
             $("#txtvalor").val("");
         }
     });
 
     // Mostrar referencia o valor manual
-    $("input[name=opvalor]").click(function() {
+    $("input[name=opvalor]").click(function () {
         // Limpieza inicial
         $("#txtref").val("");
         $("#txtvalorref").val("");
-        
+
         $("#txtnumdoc").val("");
         $("#txtanio").val("");
         $("#txtvalor").val("");
@@ -392,12 +392,12 @@ $(document).ready(function () {
         // Identificar radio btn
         const btnSelecccionado = $('input:radio[name=opvalor]:checked').val();
 
-        if(btnSelecccionado == 0) {
+        if (btnSelecccionado == 0) {
             $('#secreferencia').show();
             $('#secvalman').hide();
         }
-        
-        if(btnSelecccionado == 1) {
+
+        if (btnSelecccionado == 1) {
             $('#secvalman').show();
             $('#secreferencia').hide();
         }
@@ -422,14 +422,14 @@ $(document).ready(function () {
             const referencia_pago_manual = numeroDocumento + "-" + anio + "-" + concepto.dataset.value;
             
             // input readonly informativo en valor manual
-            $("#txtvalorrefman").val(referencia_pago_manual); 
-            
+            $("#txtvalorrefman").val(referencia_pago_manual);
+
             // input obligatorio en referencia de pago, cuando se ejecuta esta funcion este input esta esconido
-            $("#txtref").val(referencia_pago_manual); 
+            $("#txtref").val(referencia_pago_manual);
             marcarInputCorrecto('txtref');
             quitarCampoError('txtref');
         }
-        
+
         mostrarSubmit(btnSubmit.id);
     });
 
@@ -525,7 +525,7 @@ let camposError = [];
 
 const marcarCamposObligatorios = () => {
     const elementosForm = document.querySelectorAll(".campoFormulario");
-    
+
     elementosForm.forEach((elemento) => {
         //if (elemento.tagName === "INPUT") {}
         if (elemento.hasAttribute("required") && (elemento.value == "" || elemento.value == "NA" || elemento.dataset.value == "NA")) {
@@ -546,11 +546,11 @@ const mostrar_submit = () => {
     elementosForm.forEach((input) => {
         const campoObligatorio = input.getAttribute("required") === '' ? true : false;
 
-        if (campoObligatorio && input.value === ''){
+        if (campoObligatorio && input.value === '') {
             marcarInputError(input);
         }
 
-        if ((input.type != "submit" && !input.classList.contains("success")) ||input.classList.contains("error")) {
+        if ((input.type != "submit" && !input.classList.contains("success")) || input.classList.contains("error")) {
             todosValidos = false;
         }
     });
@@ -565,28 +565,28 @@ const mostrar_submit = () => {
 const mostrarSubmit = (botonSubmit) => {
     let control = 0;
     let idObjeto = "#" + botonSubmit;
-    
+
     camposError.forEach(campo => {
         marcarInputError(campo);
         control = 1;
-    }); 
+    });
 
-    if(control > 0) {
+    if (control > 0) {
         $(idObjeto).hide();
     }
     else {
         try {
             let email1 = document.getElementById("register_correoA");
             let email2 = document.getElementById("register_correoA1");
-            
+
             if (email1 && email2) {
-                if($("#register_correoA").val() == $("#register_correoA1").val()) {
+                if ($("#register_correoA").val() == $("#register_correoA1").val()) {
                     $(idObjeto).show();
                     $("#alert").hide();
                 }
                 else {
                     var texto = "El email y la confirmación del email del acudiente deben ser iguales";
-                    $("#pdesc").html(texto).css("color","red");
+                    $("#pdesc").html(texto).css("color", "red");
                     $(idObjeto).hide();
                     $("#alert").show();
                 }
@@ -596,7 +596,7 @@ const mostrarSubmit = (botonSubmit) => {
                 $("#alert").hide();
             }
         } catch (error) {
-            
+
         }
     }
 };
@@ -697,7 +697,6 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
                 texto = "No es un patrón válido para " + descripcion;
             }
         } else if (reglaValidacion == "password") {
-            console.log(value);
             if (reglasvalidacion.password.test(value)) {
                 marcarInputCorrecto(id);
                 quitarCampoError(id);
@@ -711,16 +710,16 @@ const validarCampo = (input, descripcion, reglaValidacion, controlSubmit, botonS
     }
 
     if (texto != "") {
-        $("#pdesc").html(texto).css("color","red");
+        $("#pdesc").html(texto).css("color", "red");
         $("#alert").show();
     } else {
         $("#pdesc").html("");
         $("#alert").hide();
     }
-    
+
     if (controlSubmit == 1 && control == 0) {
         mostrarSubmit(botonSubmit);
-    }    
+    }
 };
 
 const agregarCampoError = (id) => {
@@ -734,21 +733,21 @@ const quitarCampoError = (id) => {
         let indice = camposError.indexOf(id);
         if (indice >= 0) {
             camposError.splice(indice, 1);
-        }        
+        }
     }
-    catch(e) {}
+    catch (e) { }
 }
 
 const valDocumentoEntrevista = (botonSubmit) => {
-    $("#divcargando").css({display:'block'});
-    
+    $("#divcargando").css({ display: 'block' });
+
     $(".datos").hide();
     $("#msgdocumento").html("");
     $("#estnuevo").val("NO");
     $("#btnEnviar").hide();
     $("#register_documentoe_f").val("");
     $("#alert").hide();
-    
+
     //Se limpian lo cuadros de texto
     $("#register_nombres").val("");
     $("#register_apellidos").val("");
@@ -762,7 +761,7 @@ const valDocumentoEntrevista = (botonSubmit) => {
     $("#activiadad_extra").val("");
     $("#register_genero").val("NA");
     $("#register_genero").change();
-    
+
     $("#register_nombreA").val("");
     $("#register_documentoA").val("");
     $("#register_direccionA").val("");
@@ -772,9 +771,9 @@ const valDocumentoEntrevista = (botonSubmit) => {
     $("#parentesco_acudiente_1").val("NA");
     $('#parentesco_acudiente_1').change();
     $("#register_ciudada").val("");
-    
+
     let doc = $("#register_documentoe").val();
-    let cifra = doc.substring(0,1);
+    let cifra = doc.substring(0, 1);
     //alert(cifra);
     if (doc == "0" || cifra == "0") {
         $("#msgdocumento").html("El documento no puede ser 0, o no puede empezar por 0");
@@ -784,67 +783,67 @@ const valDocumentoEntrevista = (botonSubmit) => {
     }
     else {
         $.ajax({
-            type:"POST",
-            url:"../../org/ajax/registro_matricula_0.php",
-            data:"documento=" + doc,
-            success:function(r) {
+            type: "POST",
+            url: "../../org/ajax/registro_matricula_0.php",
+            data: "documento=" + doc,
+            success: function (r) {
                 let res = JSON.parse(r);
                 let control_matricula = 0;
                 let r_est = res.estado;
-                
+
                 $("#register_estado").val(r_est);
-                
+
                 //Se valida si ya tiene un proceso de pre matrícula abierto
-                if(res.procesoAbierto == "SI") {
+                if (res.procesoAbierto == "SI") {
                     control_matricula = 1;
                     $("#pdesc").html("");
-                    if(res.programoEntrevista == "SI") {
+                    if (res.programoEntrevista == "SI") {
                         $("#msgdocumento").html("Este documento ya tiene un proceso de entrevista abierto. Verificar el email " + res.emailA + " para revisar la información que se envío de la entrevista.");
                     }
                     else {
                         $("#msgdocumento").html("Este documento ya tiene un proceso de entrevista abierto. Verificar el email " + res.emailA + " para revisar la información que se le enviará de la entrevista.");
-                    }							
+                    }
                 }
-                
-                if(control_matricula == 0) {
+
+                if (control_matricula == 0) {
                     $("#pdesc").html("");
-                    if(r_est == "activo") {
+                    if (r_est == "activo") {
                         let r_grado = res.grados[0].gra;
                         let r_idgrado = res.grados[0].id_gra;
-                        
+
                         $("#msgdocumento").html("Este documento se encuentra activo en el grado " + r_grado + ". El proceso de entrevista es solo para estudiantes nuevos.");
                     }
-                    else if(r_est == "solicitud" || r_est == "pre_solicitud") {
+                    else if (r_est == "solicitud" || r_est == "pre_solicitud") {
                         let r_grado = res.grados[0].gra;
                         let r_idgrado = res.grados[0].id_gra;
-                        
+
                         $("#msgdocumento").html("Este documento ya tiene una solicitud de matrícula en el grado " + r_grado + ". El proceso de entrevista es solo para estudiantes nuevos.");
                     }
-                    else if(r_est == "reprobado") {
+                    else if (r_est == "reprobado") {
                         let r_grado = res.grados[0].gra;
                         let r_idgrado = res.grados[0].id_gra;
-                        
+
                         $("#msgdocumento").html("Estudiante antiguo, el proceso de entrevista es solo para estudiantes nuevos.");
                     }
-                    else if(r_est == "aprobado") {
+                    else if (r_est == "aprobado") {
                         let r_grado = res.grados[0].gra;
                         let r_idgrado = res.grados[0].id_gra;
-                        
+
                         $("#msgdocumento").html("Estudiante antiguo, el proceso de entrevista es solo para estudiantes nuevos.");
                     }
-                    else if(r_est == "retirado") {
+                    else if (r_est == "retirado") {
                         $("#msgdocumento").html("Este documento se encuentra Retirado. Comunícate con Secretaría Académica.");
                     }
-                    else if(r_est == "nuevo") {
+                    else if (r_est == "nuevo") {
                         $("#estnuevo").val("SI");
                         $("#register_documentoe_f").val(doc);
                         $(".datos").show();
                         $(".btnContinuar").hide();
                         $("#btnEnviar").hide();
-                        $("#divcargando").css({display:'none'});
+                        $("#divcargando").css({ display: 'none' });
                         //mostrar_submit(botonSubmit);
                         $("#pdesc").html("");
-                        
+
                         //Se cargan los datos si existen
                         if (res.control_antiguos == "2") {
                             $("#register_nombres").val(res.nombres);
@@ -859,7 +858,7 @@ const valDocumentoEntrevista = (botonSubmit) => {
                             $("#activiadad_extra").val(res.actividad_extra);
                             $("#register_genero").val(res.genero);
                             $("#register_genero").change();
-                            
+
                             $("#register_nombreA").val(res.acudiente);
                             $("#register_documentoA").val(res.documento_responsable);
                             $("#register_direccionA").val(res.direccion);
@@ -869,24 +868,24 @@ const valDocumentoEntrevista = (botonSubmit) => {
                             $("#parentesco_acudiente_1").val(res.parentesco_acudiente_1);
                             $('#parentesco_acudiente_1').change();
                             $("#register_ciudada").val(res.ciudadA);
-                            
+
                             mostrarSubmit(botonSubmit);
                         }
-                        
+
                     }
-                    else if(r_est == "inactivo") {
+                    else if (r_est == "inactivo") {
                         $("#msgdocumento").html("Este documento se encuentra inactivo en este momento. Comunícate con Secretaría Académica.");
                     }
                     else {
                         $("#msgdocumento").html("No se pudo procesar la solicitud de matrícula para éste documento. Comunícate con Secretaría Académica.");
                     }
                 }
-                
-                $("#divcargando").css({display:'none'});
+
+                $("#divcargando").css({ display: 'none' });
             }
-        });				
-    }			
-    
+        });
+    }
+
 }
 
 const limpiar = () => {
@@ -896,7 +895,7 @@ const limpiar = () => {
     $(".btnContinuar").show();
     $("#btnEnviar").hide();
     $("#register_documentoe_f").val("");
-    
+
     //Se limpian lo cuadros de texto
     $("#register_nombres").val("");
     $("#register_apellidos").val("");
@@ -910,7 +909,7 @@ const limpiar = () => {
     $("#activiadad_extra").val("");
     $("#register_genero").val(0);
     $("#register_genero").change();
-    
+
     $("#register_nombreA").val("");
     $("#register_documentoA").val("");
     $("#register_direccionA").val("");
@@ -920,7 +919,7 @@ const limpiar = () => {
     $("#parentesco_acudiente_1").val("NA");
     $('#parentesco_acudiente_1').change();
     $("#register_ciudada").val("");
-    
+
     $("#pdesc").html("");
     $("#alert").hide();
 }
@@ -987,7 +986,6 @@ if (window.location.pathname.endsWith("calendario.php")) {
         botonesVer.forEach((boton) => {
             boton.addEventListener('click', function () {
                 const rutaArchivo = this.getAttribute('data-ruta');
-                console.log(rutaArchivo);
                 // Crear un enlace invisible y forzar la descarga
                 const link = document.createElement('a');
                 link.href = rutaArchivo;
@@ -1002,46 +1000,6 @@ if (window.location.pathname.endsWith("calendario.php")) {
 /*Fin Calendario*/
 
 /* Estados Financieros */
-function validarSelect(elemento, descripcion, botonSubmit, otherInputId) {
-    const id = elemento.id;
-    const value = elemento.value;
-    const boton = document.getElementById(botonSubmit);
-    const idSubmit = "#" + botonSubmit;
-
-    // 1) Oculta el botón mientras validas
-    $(idSubmit).hide();
-
-    // 2) Si vienen el id de un "otro input", muéstralo o escóndelo
-    if (otherInputId) {
-        const otroInput = document.getElementById(otherInputId);
-        if (value === "Otro (especificar)") {
-            otroInput.style.display = 'block';
-            otroInput.required = true;
-            // dispara la validación si ya había texto
-            otroInput.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
-        } else {
-            otroInput.style.display = 'none';
-            otroInput.required = false;
-            otroInput.value = '';
-        }
-    }
-
-    // 3) Validación básica del select
-    if (!value) {
-        marcarInputError(id);
-        agregarCampoError(id);
-        $("#pdesc")
-            .html(`Debe seleccionar una opción en ${descripcion}`)
-            .css("color", "red");
-        $("#alert").show();
-    } else {
-        marcarInputCorrecto(id);
-        quitarCampoError(id);
-        $("#pdesc").html("");
-        $("#alert").hide();
-        mostrarSubmit(botonSubmit);
-    }
-}
 
 if (window.location.pathname.endsWith("estadosFinancieros.php")) {
     document.addEventListener("DOMContentLoaded", function () {
@@ -1049,7 +1007,7 @@ if (window.location.pathname.endsWith("estadosFinancieros.php")) {
         const form_servicios = $("#form_servicios");
 
         const reset_form_info = () => {
-            const inputs_info = form_info.find("input, select, textarea");
+            const inputs_info = form_info.find("input, textarea");
             for (let i = 0; i < inputs_info.length; i++) {
                 const elemento = inputs_info[i];
                 marcarInputCorrecto(elemento.id);
@@ -1058,11 +1016,17 @@ if (window.location.pathname.endsWith("estadosFinancieros.php")) {
         }
 
         const reset_form_servicios = () => {
-            const inputs_servicios = form_servicios.find("input, select, textarea");
+            const inputs_servicios = form_servicios.find("input, textarea");
             for (let i = 0; i < inputs_servicios.length; i++) {
                 const elemento = inputs_servicios[i];
                 marcarInputCorrecto(elemento.id);
                 quitarCampoError(elemento.id);
+            }
+            const selects = form_servicios.find(".custom-select");
+            for (let i = 0; i < selects.length; i++) {
+                const wrapper = selects[i];
+                marcarInputCorrecto(wrapper.id);
+                quitarCampoError(wrapper.id);
             }
         }
 
@@ -1073,13 +1037,14 @@ if (window.location.pathname.endsWith("estadosFinancieros.php")) {
             reset_form_servicios();
             camposError = [];
             send_info.hide();
-            const inputs_info = form_info.find("input, select, textarea");
+            const inputs_info = form_info.find("input, textarea");
 
             for (let i = inputs_info.length - 1; i >= 0; i--) {
                 const elemento = inputs_info[i];
                 elemento.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
             }
             mostrarSubmit(id);
+
         });
 
         form_servicios.on("click", function (e) {
@@ -1088,7 +1053,7 @@ if (window.location.pathname.endsWith("estadosFinancieros.php")) {
             reset_form_info();
             camposError = [];
             send_servicios.hide();
-            const inputs_servicios = form_servicios.find("input, select, textarea");
+            const inputs_servicios = form_servicios.find("input, textarea");
 
             for (let i = inputs_servicios.length - 1; i >= 0; i--) {
                 const elemento = inputs_servicios[i];
@@ -1096,6 +1061,15 @@ if (window.location.pathname.endsWith("estadosFinancieros.php")) {
             }
 
             mostrarSubmit(id);
+
+            const selects = form_servicios.find(".custom-select");
+            for (let i = 0; i < selects.length; i++) {
+                const wrapper = selects[i];
+                const descripcion = wrapper.getAttribute("data-texto");
+                const idBoton = wrapper.getAttribute("data-btn_submit");
+                validarSelectPersonalizado(wrapper, descripcion, idBoton);
+
+            }
         });
 
 
@@ -1150,107 +1124,26 @@ if (window.location.pathname.endsWith("estadosFinancieros.php")) {
 function verInfografia(imagen) {
     html_modal = '<img src="' + imagen + '" width="600px">';
     //alert(html_modal);
-    
+
     $("#divmodalimg").empty();
     $("#divmodalimg").html(html_modal);
-    
+
     $('#modal_img').modal('toggle');
     $('#modal_img').modal('show');
 }
 
-/*Calendario*/
-if (window.location.pathname.endsWith("calendario.php")) {
-    document.addEventListener("DOMContentLoaded", function () {
-        // Selecciona todos los contenedores de countdown
-        const countdowns = document.querySelectorAll(".countdown-container");
 
-        if (countdowns.length === 0) {
-            // Ningún evento, ya mostramos el mensaje en PHP
-            return;
-        }
-
-        countdowns.forEach(function (container) {
-            const targetDate = new Date(container.dataset.fecha).getTime();
-            const dayEl = container.querySelector(".countdown-day");
-            const hourEl = container.querySelector(".countdown-hour");
-            const minEl = container.querySelector(".countdown-min");
-            const secEl = container.querySelector(".countdown-sec");
-
-            const interval = setInterval(function () {
-                const now = Date.now();
-                const distance = targetDate - now;
-
-                if (distance <= 0) {
-                    clearInterval(interval);
-                    container.innerHTML = '<p class="tx-white">El evento ya ha pasado.</p>';
-                    return;
-                }
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                dayEl.textContent = days;
-                hourEl.textContent = hours;
-                minEl.textContent = minutes;
-                secEl.textContent = seconds;
-            }, 1000);
-        });
-    });
-
-    document.addEventListener("DOMContentLoaded", function () {
-        // Selecciona todos los botones con la clase .btn-route
-        const botonesVer = document.querySelectorAll('.btn-route');
-
-        botonesVer.forEach((boton) => {
-            boton.addEventListener('click', function () {
-                const rutaArchivo = this.getAttribute('data-ruta');
-                console.log(rutaArchivo);
-                // Crear un enlace invisible y forzar la descarga
-                const link = document.createElement('a');
-                link.href = rutaArchivo;
-                link.setAttribute('download', rutaArchivo.split('/').pop()); // Obtiene el nombre del archivo
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            });
-        });
-    });
-}
-/*Fin Calendario*/
-
-/* Estados Financieros */
-function validarSelect(elemento, descripcion, botonSubmit, otherInputId) {
+function validarSelectPersonalizado(elemento, descripcion, botonSubmit) {
     const id = elemento.id;
-    const value = elemento.value;
-    const boton = document.getElementById(botonSubmit);
+    const value = elemento.getAttribute('data-value');
     const idSubmit = "#" + botonSubmit;
-
-    // 1) Oculta el botón mientras validas
     $(idSubmit).hide();
 
-    // 2) Si vienen el id de un "otro input", muéstralo o escóndelo
-    if (otherInputId) {
-        const otroInput = document.getElementById(otherInputId);
-        if (value === "Otro (especificar)") {
-            otroInput.style.display = 'block';
-            otroInput.required = true;
-            // dispara la validación si ya había texto
-            otroInput.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
-        } else {
-            otroInput.style.display = 'none';
-            otroInput.required = false;
-            otroInput.value = '';
-        }
-    }
-
-    // 3) Validación básica del select
-    if (!value) {
+    if (value == "NA") {
         marcarInputError(id);
         agregarCampoError(id);
         $("#pdesc")
-            .html(`Debe seleccionar una opción en ${descripcion}`)
+            .html(`${descripcion}`)
             .css("color", "red");
         $("#alert").show();
     } else {
@@ -1262,344 +1155,75 @@ function validarSelect(elemento, descripcion, botonSubmit, otherInputId) {
     }
 }
 
-if (window.location.pathname.endsWith("estadosFinancieros.php")) {
-    document.addEventListener("DOMContentLoaded", function () {
-        const form_info = $("#form_info");
-        const form_servicios = $("#form_servicios");
+document.addEventListener('DOMContentLoaded', function () {
 
-        const reset_form_info = () => {
-            const inputs_info = form_info.find("input, select, textarea");
-            for (let i = 0; i < inputs_info.length; i++) {
-                const elemento = inputs_info[i];
-                marcarInputCorrecto(elemento.id);
-                quitarCampoError(elemento.id);
-            }
-        }
-
-        const reset_form_servicios = () => {
-            const inputs_servicios = form_servicios.find("input, select, textarea");
-            for (let i = 0; i < inputs_servicios.length; i++) {
-                const elemento = inputs_servicios[i];
-                marcarInputCorrecto(elemento.id);
-                quitarCampoError(elemento.id);
-            }
-        }
-
-
-        form_info.on("click", function (e) {
-            const id = "submit-estados-financieros";
-            const send_info = $("#" + id);
-            reset_form_servicios();
-            camposError = [];
-            send_info.hide();
-            const inputs_info = form_info.find("input, select, textarea");
-
-            for (let i = inputs_info.length - 1; i >= 0; i--) {
-                const elemento = inputs_info[i];
-                elemento.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
-            }
-            mostrarSubmit(id);
-        });
-
-        form_servicios.on("click", function (e) {
-            const id = "submit-certificaciones-papeles";
-            const send_servicios = $("#" + id);
-            reset_form_info();
-            camposError = [];
-            send_servicios.hide();
-            const inputs_servicios = form_servicios.find("input, select, textarea");
-
-            for (let i = inputs_servicios.length - 1; i >= 0; i--) {
-                const elemento = inputs_servicios[i];
-                elemento.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
-            }
-
-            mostrarSubmit(id);
-        });
-
-
-        form_info.on("submit", function (e) {
-            e.preventDefault();
-
-        });
-
-        form_servicios.on("submit", function (e) {
-            e.preventDefault();
-        });
-
-        const currentYear = new Date().getFullYear();
-        const startYear = 2010;
-        const endYear = 2030;
-
-        document.querySelectorAll(".year-trigger").forEach((imgEl) => {
-            const container = imgEl.closest("div");
-            const select = container.querySelector(".year-select");
-
-            // Rellenar el select solo si está vacío
-            if (select.options.length === 0) {
-                for (let year = startYear; year <= endYear; year++) {
-                    const option = document.createElement("option");
-                    option.value = year;
-                    option.textContent = year;
-
-                    if (year === currentYear) {
-                        option.selected = true;
-                    }
-
-                    select.appendChild(option);
-                }
-
-                new Choices(select, {
-                    searchEnabled: false,
-                    itemSelectText: '',
-                    shouldSort: false,
-                });
-            }
-
-            // Mostrar el selector al hacer clic en la imagen
-            imgEl.addEventListener("click", () => {
-                select.classList.remove("d-none");
-                select.focus();
-            });
-        });
-    });
-}
-/* Fin Estados Financieros */
-
-function verInfografia(imagen) {
-    html_modal = '<img src="' + imagen + '" width="600px">';
-    //alert(html_modal);
-    
-    $("#divmodalimg").empty();
-    $("#divmodalimg").html(html_modal);
-    
-    $('#modal_img').modal('toggle');
-    $('#modal_img').modal('show');
-}
-
-/*Calendario*/
-if (window.location.pathname.endsWith("calendario.php")) {
-    document.addEventListener("DOMContentLoaded", function () {
-        // Selecciona todos los contenedores de countdown
-        const countdowns = document.querySelectorAll(".countdown-container");
-
-        if (countdowns.length === 0) {
-            // Ningún evento, ya mostramos el mensaje en PHP
-            return;
-        }
-
-        countdowns.forEach(function (container) {
-            const targetDate = new Date(container.dataset.fecha).getTime();
-            const dayEl = container.querySelector(".countdown-day");
-            const hourEl = container.querySelector(".countdown-hour");
-            const minEl = container.querySelector(".countdown-min");
-            const secEl = container.querySelector(".countdown-sec");
-
-            const interval = setInterval(function () {
-                const now = Date.now();
-                const distance = targetDate - now;
-
-                if (distance <= 0) {
-                    clearInterval(interval);
-                    container.innerHTML = '<p class="tx-white">El evento ya ha pasado.</p>';
-                    return;
-                }
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                dayEl.textContent = days;
-                hourEl.textContent = hours;
-                minEl.textContent = minutes;
-                secEl.textContent = seconds;
-            }, 1000);
-        });
-    });
-
-    document.addEventListener("DOMContentLoaded", function () {
-        // Selecciona todos los botones con la clase .btn-route
-        const botonesVer = document.querySelectorAll('.btn-route');
-
-        botonesVer.forEach((boton) => {
-            boton.addEventListener('click', function () {
-                const rutaArchivo = this.getAttribute('data-ruta');
-                console.log(rutaArchivo);
-                // Crear un enlace invisible y forzar la descarga
-                const link = document.createElement('a');
-                link.href = rutaArchivo;
-                link.setAttribute('download', rutaArchivo.split('/').pop()); // Obtiene el nombre del archivo
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            });
-        });
-    });
-}
-/*Fin Calendario*/
-
-/* Estados Financieros */
-function validarSelect(elemento, descripcion, botonSubmit, otherInputId) {
-    const id = elemento.id;
-    const value = elemento.value;
-    const boton = document.getElementById(botonSubmit);
-    const idSubmit = "#" + botonSubmit;
-
-    // 1) Oculta el botón mientras validas
-    $(idSubmit).hide();
-
-    // 2) Si vienen el id de un "otro input", muéstralo o escóndelo
-    if (otherInputId) {
-        const otroInput = document.getElementById(otherInputId);
-        if (value === "Otro (especificar)") {
-            otroInput.style.display = 'block';
-            otroInput.required = true;
-            // dispara la validación si ya había texto
-            otroInput.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
-        } else {
-            otroInput.style.display = 'none';
-            otroInput.required = false;
-            otroInput.value = '';
-        }
+    let btnSubmit = document.querySelector('button[type="submit"]');
+    if (!btnSubmit) {
+        console.error("btn submit no encontrado");
     }
 
-    // 3) Validación básica del select
-    if (!value) {
-        marcarInputError(id);
-        agregarCampoError(id);
-        $("#pdesc")
-            .html(`Debe seleccionar una opción en ${descripcion}`)
-            .css("color", "red");
-        $("#alert").show();
-    } else {
-        marcarInputCorrecto(id);
-        quitarCampoError(id);
-        $("#pdesc").html("");
-        $("#alert").hide();
-        mostrarSubmit(botonSubmit);
-    }
-}
+    document.querySelectorAll('.custom-select').forEach(function (wrapper) {
+        const triggerDiv = wrapper.querySelector('.display-options');
+        const optionsContainer = wrapper.querySelector('.custom-options');
+        const optionsList = wrapper.querySelectorAll('.custom-option');
+        const selectedSpan = wrapper.querySelector('.selected-value');
 
-if (window.location.pathname.endsWith("estadosFinancieros.php")) {
-    document.addEventListener("DOMContentLoaded", function () {
-        const form_info = $("#form_info");
-        const form_servicios = $("#form_servicios");
-
-        const reset_form_info = () => {
-            const inputs_info = form_info.find("input, select, textarea");
-            for (let i = 0; i < inputs_info.length; i++) {
-                const elemento = inputs_info[i];
-                marcarInputCorrecto(elemento.id);
-                quitarCampoError(elemento.id);
-            }
+        if (selectedSpan.dataset.value == "NA") {
+            wrapper.classList.add('error');
         }
 
-        const reset_form_servicios = () => {
-            const inputs_servicios = form_servicios.find("input, select, textarea");
-            for (let i = 0; i < inputs_servicios.length; i++) {
-                const elemento = inputs_servicios[i];
-                marcarInputCorrecto(elemento.id);
-                quitarCampoError(elemento.id);
-            }
-        }
-
-
-        form_info.on("click", function (e) {
-            const id = "submit-estados-financieros";
-            const send_info = $("#" + id);
-            reset_form_servicios();
-            camposError = [];
-            send_info.hide();
-            const inputs_info = form_info.find("input, select, textarea");
-
-            for (let i = inputs_info.length - 1; i >= 0; i--) {
-                const elemento = inputs_info[i];
-                elemento.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
-            }
-            mostrarSubmit(id);
+        triggerDiv.addEventListener('click', function (e) {
+            //e.stopPropagation();
+            document.querySelectorAll('.custom-select.open').forEach(function (other) {
+                if (other !== wrapper) other.classList.remove('open');
+            });
+            wrapper.classList.toggle('open');
         });
 
-        form_servicios.on("click", function (e) {
-            const id = "submit-certificaciones-papeles";
-            const send_servicios = $("#" + id);
-            reset_form_info();
-            camposError = [];
-            send_servicios.hide();
-            const inputs_servicios = form_servicios.find("input, select, textarea");
+        optionsList.forEach(function (optionEl) {
+            optionEl.addEventListener('click', function (e) {
+                e.stopPropagation();
+                wrapper.dataset.value = optionEl.dataset.value;
+                selectedSpan.textContent = optionEl.textContent;
 
-            for (let i = inputs_servicios.length - 1; i >= 0; i--) {
-                const elemento = inputs_servicios[i];
-                elemento.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
-            }
+                wrapper.classList.remove('open');
 
-            mostrarSubmit(id);
-        });
+                if (wrapper.dataset.value == "NA") {
 
+                    let texto = wrapper.dataset.texto;
+                    $('#medioalert').addClass('select-alert');
+                    $("#pdesc").html(texto).css("color", "red");
+                    $("#alert").show();
+                    marcarInputError(wrapper.id);
+                    agregarCampoError(wrapper.id);
 
-        form_info.on("submit", function (e) {
-            e.preventDefault();
-
-        });
-
-        form_servicios.on("submit", function (e) {
-            e.preventDefault();
-        });
-
-        const currentYear = new Date().getFullYear();
-        const startYear = 2010;
-        const endYear = 2030;
-
-        document.querySelectorAll(".year-trigger").forEach((imgEl) => {
-            const container = imgEl.closest("div");
-            const select = container.querySelector(".year-select");
-
-            // Rellenar el select solo si está vacío
-            if (select.options.length === 0) {
-                for (let year = startYear; year <= endYear; year++) {
-                    const option = document.createElement("option");
-                    option.value = year;
-                    option.textContent = year;
-
-                    if (year === currentYear) {
-                        option.selected = true;
-                    }
-
-                    select.appendChild(option);
+                }
+                else {
+                    $("#pdesc").html("");
+                    $("#alert").hide();
+                    marcarInputCorrecto(wrapper.id);
+                    quitarCampoError(wrapper.id);
                 }
 
-                new Choices(select, {
-                    searchEnabled: false,
-                    itemSelectText: '',
-                    shouldSort: false,
-                });
-            }
+                mostrarSubmit(wrapper.dataset.btnSubmit);
 
-            // Mostrar el selector al hacer clic en la imagen
-            imgEl.addEventListener("click", () => {
-                select.classList.remove("d-none");
-                select.focus();
             });
         });
     });
-}
-/* Fin Estados Financieros */
 
-function verInfografia(imagen) {
-    html_modal = '<img src="' + imagen + '" width="600px">';
-    //alert(html_modal);
-    
-    $("#divmodalimg").empty();
-    $("#divmodalimg").html(html_modal);
-    
-    $('#modal_img').modal('toggle');
-    $('#modal_img').modal('show');
-}
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('.custom-select')) {
+            document.querySelectorAll('.custom-select.open').forEach(function (opened) {
+                opened.classList.remove('open');
+            });
+        }
+    });
+});
 
 /**  Zona de enlaces Inicio **/
 
 // Variables
-let originalOrder = null; 
+let originalOrder = null;
 let linksStarted = false;
 let listenersAttached = false;
 let autoplay = null;
@@ -1611,7 +1235,7 @@ function loadCarousel() {
     const moveCount = 1;
 
     //-- Checkings --//
-    if (slider == null) { return; } 
+    if (slider == null) { return; }
 
     // Checks if the size changed, and if it is more than 992 breakpoint, returns to normal.
     if (window.innerWidth > 991 && linksStarted === true) {
@@ -1619,7 +1243,7 @@ function loadCarousel() {
         clearInterval(autoplay);
         linksStarted = false;
 
-        originalOrder.forEach(function(link) {
+        originalOrder.forEach(function (link) {
             link.style.transition = 'none';
             link.style.transform = 'none';
             slider.appendChild(link);
@@ -1627,25 +1251,25 @@ function loadCarousel() {
     }
 
     // Basic check for window / device checking.
-    if (window.innerWidth >= 992 || linksStarted === true) { return; }     
+    if (window.innerWidth >= 992 || linksStarted === true) { return; }
 
     //-- Funciones --//
     function Next() {
-        Array.from(slider.children).forEach(function(link) {
+        Array.from(slider.children).forEach(function (link) {
             link.style.transition = 'transform .35s ease';
             link.style.transform = `translateX(-${link.offsetWidth}px)`;
         });
 
-        setTimeout(function() {
-            Array.from(slider.children).forEach(function(link) {
-                 link.style.transition = 'none';
-            link.style.transform = `translateX(0px)`;
+        setTimeout(function () {
+            Array.from(slider.children).forEach(function (link) {
+                link.style.transition = 'none';
+                link.style.transform = `translateX(0px)`;
             });
             void slider.offsetWidth;
 
             for (let i = 0; i < moveCount; i++) {
-                 const first = slider.children[0];
-                 slider.appendChild(first);
+                const first = slider.children[0];
+                slider.appendChild(first);
             }
         }, 350);
     }
@@ -1657,12 +1281,12 @@ function loadCarousel() {
         }
         void slider.offsetWidth;
 
-        Array.from(slider.children).forEach(function(link) {
+        Array.from(slider.children).forEach(function (link) {
             link.style.transition = 'none';
             link.style.transform = `translateX(-${link.offsetWidth}px)`;
         });
 
-        Array.from(slider.children).forEach(function(link) {
+        Array.from(slider.children).forEach(function (link) {
             link.style.transition = 'transform .35s ease';
             link.style.transform = `translateX(0px)`;
         });
@@ -1675,18 +1299,18 @@ function loadCarousel() {
 
     //-- Codigo --//
     console.log('Zona de enlaces: Carousel Iniciado');
-     
+
     linksStarted = true;
     originalOrder = Array.from(slider.children);
     autoplay = setInterval(Next, 3000);
 
     if (!listenersAttached) {
-        document.querySelector('#linksCarousel_next').addEventListener('click', function() {
+        document.querySelector('#linksCarousel_next').addEventListener('click', function () {
             Next();
             Reset();
         });
 
-        document.querySelector('#linksCarousel_previous').addEventListener('click', function() {
+        document.querySelector('#linksCarousel_previous').addEventListener('click', function () {
             Previous();
             Reset();
         });
@@ -1711,14 +1335,14 @@ function displayEcosistema(id, btn) {
     if (btn.dataset.textoExpandido === 'false') {
         btn.dataset.textoExpandido = 'true';
         btn.innerText = "Leer menos";
-        
+
         tresPuntos.classList.toggle("d-none");
         textoOculto.classList.toggle("d-none");
         textoCompleto.classList.toggle("historia-ecosistema-efecto");
     } else if (btn.dataset.textoExpandido === 'true') {
         btn.dataset.textoExpandido = 'false';
         btn.innerText = "Leer más";
-        
+
         tresPuntos.classList.toggle("d-none");
         textoOculto.classList.toggle("d-none");
         textoCompleto.classList.toggle("historia-ecosistema-efecto");
@@ -1730,17 +1354,17 @@ function displayEcosistema(id, btn) {
 /** Modelo Pedagogico Inicio **/
 
 document.addEventListener("DOMContentLoaded", function () {
-  const elements = document.querySelectorAll(".nuestroModelo-item");
+    const elements = document.querySelectorAll(".nuestroModelo-item");
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  }, { threshold: 0.5 });
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+        });
+    }, { threshold: 0.5 });
 
-  elements.forEach(el => observer.observe(el));
+    elements.forEach(el => observer.observe(el));
 });
 
 /** Modelo Pedagogico Fin **/

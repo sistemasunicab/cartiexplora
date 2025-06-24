@@ -2,7 +2,6 @@
 $filasNosotrosTitulo = obtenerFilas($mysqli1, $sentencia, 47);
 
 if (!empty($filasNosotrosTitulo)) {
-    $html_nosotrosImgDos = '<div class="row col-12 mx-auto p-0 m-0">';
 
     $filasNosotrosImagenes = obtenerFilas($mysqli1, $sentencia, 42);
 
@@ -20,19 +19,24 @@ if (!empty($filasNosotrosTitulo)) {
         ];
 
         $title = $row['titulo'];
-        
-        $html_nosotrosImgDos .= '<div class="col-1"></div>';
+        $html_nosotrosImgDos = '<div class="row col-12 mx-auto p-0 m-0">';
+        $html_nosotrosImgDos .= '<div class="col-1 p-0 m-0"></div>';
         // Título en una fila completa centrada
         $html_nosotrosImgDos .= '
-            <div class="col-9 tx-blue font-roboto-light-title mb-ws">
+            <div class="col-9 tx-blue font-roboto-light-title mb-ws p-0 m-0">
                 <h1-nosotros>' . $title . '</h1-nosotros>
             </div>';
 
+        $html_nosotrosImgDos .= '<div class="col-2 p-0 m-0"></div>';
+        $html_nosotrosImgDos .= '</div>';
+
+        $html_nosotrosImgDos .= '<div class="row col-12 mx-auto p-0 m-0">';
         // Imágenes en una columna centrada
         $html_nosotrosImgDos .= '<div class="col-12 mx-auto p-0 d-flex flex-column align-items-center">';
         foreach ($imagenes as $img) {
             $html_nosotrosImgDos .= '<img ' . $img['atributos'] . ' class="' . $img['clases'] . '">';
         }
+        $html_nosotrosImgDos .= '</div>';
         $html_nosotrosImgDos .= '</div>';
     }
 
@@ -41,7 +45,5 @@ if (!empty($filasNosotrosTitulo)) {
 ?>
 
 <div class="container-fluid my-ws mx-0 p-0">
-    <div class="row m-0 p-0">
-        <?= $html_nosotrosImgDos?>
-    </div>
+    <?= $html_nosotrosImgDos?>
 </div>

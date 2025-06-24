@@ -23,7 +23,7 @@ if (!empty($rowsVisible)) {
         $html_communication .= '    <h2-calendario class="font-roboto-bold tx-blue m-auto mb-ws">'
                              . htmlspecialchars($row_data_visible['titulo'], ENT_QUOTES, 'UTF-8') .
                              '</h2-calendario>';
-        $html_communication .= '<div class="gap-lg-5 gap-4">';
+        $html_communication .= '<div class="d-flex flex-column gap-lg-5 gap-4">';
         if (!empty($rowsFiles)) {
             foreach ($rowsFiles as $row_data_files) {
                 $nombreArchivo = htmlspecialchars($row_data_files['nombrArchivo'] ?? 'Documento sin título', ENT_QUOTES, 'UTF-8');
@@ -38,8 +38,8 @@ if (!empty($rowsVisible)) {
                 $html_communication .= '        <p-calendario class="font-roboto-bold mb-0">' . $fechaArchivo . '</p-calendario>';
                 $html_communication .= '      </div>';
                 // Lado derecho: ícono + botón
-                $html_communication .= '      <div class="col-5 d-flex flex-md-row flex-column align-items-end">';
-                $html_communication .= '        <img src="' . $icon_path . '" alt="PDF" class="fluid-img mx-auto col-lg-3 col-md-4 col-sm-5 col-4 my-auto mb-md-auto mb-3 mb-md-0 me-md-3">';
+                $html_communication .= '      <div class="col-5 d-flex flex-lg-row flex-column align-items-end">';
+                $html_communication .= '        <img src="' . $icon_path . '" alt="PDF" class="fluid-img mx-auto col-lg-3 col-md-4 col-sm-5 col-4 my-auto mb-lg-auto mb-3 mb-lg-0 me-lg-3">';
                 $html_communication .= '        <button class="my-auto mx-auto btn shadow h-auto tx-color-wh btn-calendary fw-semibold btn-route" '
                                       . 'style="width:100px;" data-ruta="' . $archivo_path . '">Ver</button>';
                 $html_communication .= '      </div>';

@@ -12,8 +12,6 @@ INSERT INTO tbl_opciones_estados_financieros(nombrePadre, valor, visible) VALUES
 ('Relación con la institución', 'Exalumno', 1),
 ('Relación con la institución', 'Padre de familia', 1),
 ('Relación con la institución', 'Maestro mediador', 1),
-('Relación con la institución', 'Otro (especificar)', 1),
 ('Tipo de certificación', 'Certificado de estudios', 1),
 ('Tipo de certificación', 'Boletín de notas', 1),
-('Tipo de certificación', 'Constancia de matrícula', 1),
-('Tipo de certificación', 'Otro (especificar)', 1);
+('Tipo de certificación', 'Constancia de matrícula', 1);
