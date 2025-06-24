@@ -68,3 +68,24 @@ INSERT INTO tbl_textos (id_seccion, paginaPadre, identificacion, texto ) VALUES
 (39, 'pagos', '2025', 'Año'),
 (39, 'pagos', 'ocp', 'Descripción del concepto de pago|<b>ocp</b> otros cobros periodicos|<b>pm6</b> pensión mes 6|<b>m</b> matrícula|<b>p</b> póliza|<b>dg</b> derechos de grado|<b>pp</b> primer pago|<b>mocp</b> matrícula y otros cobros periódicos')
 ;
+
+INSERT INTO tbl_textos (id_seccion, paginaPadre, identificacion, texto ) VALUES 
+(38, 'presaberes', 'paso', 'PASO1'),
+(38, 'presaberes', 'paso_indicacion', 'Informacion del estudiante'),
+(38, 'presaberes', 'paso_descripcion', 'Numero de documento de identidad del estudiante (sin puntos)'),
+(38, 'presaberes', 'indicacion', 'El propósito de ésta evaluación es validar los conocimientos mínimos requeridos.'),
+(38, 'presaberes', 'indicacion', 'Al concluir la evaluación, encontraras un <b class="font-roboto-bold">resumen del resultado y una puntuación en porcentaje.</b> Si esta puntuación <b class="font-roboto-bold">es superior al 80%</b> el estudiante aprueba la evaluación.'),
+(38, 'presaberes', 'indicacion', '<b class="font-roboto-bold">Cada pregunta tiene un sólo intento </b>. La evaluación consta de <b class="font-roboto-bold">90 preguntas.</b>'),
+(46, 'presaberes_principal', 'indicacion', 'Vas a encontrar preguntas de varios temas.'),
+(46, 'presaberes_principal', 'indicacion', 'Una vez más te recordamos que al concluir la evaluación, encontraras un <b class="font-roboto-bold">resumen del resultado y una puntuación en porcentaje</b>. Si esta puntuación <b class="font-roboto-bold">es superior al 80%</b> el estudiante aprueba la evaluación.'),
+(46, 'presaberes_principal', 'titulo', 'Bienvenido a esta evaluacion de conocimientos para el Grado: '),
+(47, 'newsletter', '', 'Publicaciones educativas y reflexiones digitales'),
+(47, 'newsletter', '', 'Noticias y novedades institucionales'),
+(47, 'newsletter', '', 'Eventos, experiencias y celebraciones'),
+(47, 'newsletter', '', 'Recomendaciones y herramientas útiles'),
+(47, 'newsletter', '', 'Agrega este correo a tus contactos para no perderte ninguna entrada.'),
+(47, 'newsletter', '', 'Eres parte de un ecosistema donde la educación vibra contigo.<br><strong>Eres UNICAB.</strong>'),
+(47, 'newsletter', '', 'unicab.org'),
+(47, 'newsletter', '', 'Cancela tu suscripcion haciendo <a href="?" style="color:rgb(46, 136, 255);">click aqui.</a>'),
+(47, 'newsletter', '', '¡Gracias por suscribirte al blog Conectados de UNICAB!')
+;

@@ -110,3 +110,6 @@ INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLe
 (39, 'selmediopago', 'select', 'Debe seleccionar un medio de pago.', 'required', '', '', 'Seleccione medio de pago'),
 (39, 'selconcepto', 'select', 'Debe seleccionar un concepto de pago.', 'required', '', '', 'Seleccione concepto de pago')
 ;
+
+INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder) VALUES
+(8, 'correoNewsletter', 'text', 'Correo', 'required', '', '', 'Ingresa tu correo');

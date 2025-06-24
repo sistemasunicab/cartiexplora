@@ -75,3 +75,8 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 ('graduadosNoveno', 1, 'egresados', 'Un Paso Más en el Camino', 'Grado NOVENO', 'La promoción de grado noveno en UNICAB representa un momento clave en la trayectoria educativa virtual. Nuestros estudiantes finalizan una fase esencial de su formación escolar, avanzando hacia nuevas responsabilidades académicas. Este grupo se destaca por su compromiso, autonomía y preparación para los desafíos del nivel medio académico.'),
 ('graduadosQuinto', 1, 'egresados', 'Nuestros Valientes de Primaria', 'Grado QUINTO', 'Celebramos la promoción escolar de nuestros estudiantes de grado quinto en UNICAB, quienes culminan con orgullo su ciclo de primaria virtual. Esta etapa marca el cierre de una valiosa formación académica básica y el inicio de un nuevo camino en la educación secundaria. Su proceso ha estado lleno de aprendizajes, desarrollo de habilidades y crecimiento personal.')
 ;
+
+INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, texto) VALUES 
+('presaberes_principal', 1, 'presaberes', 'BIENVENIDO', '', ''),
+('newsletterInscrito', 1, 'correo', 'Ya haces parte de <strong style="color:#FF9805;">Conectados</strong>,<br>el blog oficial de UNICAB', '¡Gracias por suscribirte!', 'Desde ahora estarás al tanto de:')
+;

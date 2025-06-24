@@ -28,3 +28,8 @@ INSERT INTO tbl_enlaces (id_seccion, identificacion, link) VALUES
 (7, 'Investigación', 'business/org/pages/publicacionesAcademicas.php');
 
 DELETE FROM tbl_enlaces WHERE id = 8;
+
+INSERT INTO tbl_enlaces (id_seccion, identificacion, link) VALUES 
+(47, '', 'unicab.org'),
+(47, '', 'http://localhost/cartiexplora?unsubscribeNewsletter=') -- TODO: Cambiar URL por el de la pagina en produccion
+;

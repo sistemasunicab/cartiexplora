@@ -431,7 +431,63 @@ $(document).ready(function () {
         }
         
         mostrarSubmit(btnSubmit.id);
-    });    
+    });
+
+    /* Newsletter */
+    $('#newsletterForm').on("submit", function (e) {
+        e.preventDefault();
+        const data = {
+            correo: $('#correoNewsletter').val(),
+            suscripcion: true,
+        };
+
+        $('#registerNewsletter').hide();
+        $.ajax({
+            url: "/cartiexplora/ajax/newsletterManager.php",
+            type: "POST",
+            data: data,
+            success: function (response) {
+                if (response.status === "error") {
+                    $('#registerNewsletter').show();
+
+                    $("#newsletter-response").data('responseType', 'error');
+                    $("#newsletter-response").attr('data-response-type', 'error');
+                    $("#newsletter-response").removeClass("d-none");
+                    $("#newsletter-response").text(response.message);
+
+                    setTimeout(() => {
+                        $("#newsletter-response").addClass("d-none");
+                    }, 5000)
+                } else if (response.status === "success") {
+                    $("#newsletterForm")[0].reset();
+
+                    $("#newsletter-response").data('responseType', 'success')
+                    $("#newsletter-response").attr('data-response-type', 'success')
+                    $("#newsletter-response").removeClass("d-none")
+                    $("#newsletter-response").text(response.message);
+                    
+                    setTimeout(() => {
+                        $("#newsletter-response").addClass("d-none");
+                    }, 5000)
+                }   
+            },
+            error: function (r) {
+                console.log(r);
+                
+                $('#registerNewsletter').show();
+
+                $("#newsletter-response").data('responseType', 'error');
+                $("#newsletter-response").attr('data-response-type', 'error');
+                $("#newsletter-response").removeClass("d-none");
+
+                $("#newsletter-response").text("Ha ocurrido un error, intentelo mas tarde.");
+
+                setTimeout(() => {
+                    $("#newsletter-response").addClass("d-none");
+                }, 5000)
+            },
+        });
+    });
     
     mostrarSubmit(btnSubmit.id);
 });
@@ -1558,7 +1614,7 @@ function loadCarousel() {
     if (slider == null) { return; } 
 
     // Checks if the size changed, and if it is more than 992 breakpoint, returns to normal.
-    if (window.innerWidth > 992 && linksStarted === true) {
+    if (window.innerWidth > 991 && linksStarted === true) {
         console.log('Zona de enlaces: Carousel Desactivado.');
         clearInterval(autoplay);
         linksStarted = false;
@@ -1691,6 +1747,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /** Celebrando logros y experiencias Inicio **/
 
+const updateBlog = function(response) {
+    console.log("Success blog update");
+    document.getElementById('blog_post').scrollIntoView({ behavior: 'smooth' });
+    window.history.replaceState(null, '', window.location.pathname);
+
+    $("#blog_dislikeBtn").addClass("d-none");
+    $("#blog_likeBtn").removeClass("d-none");
+
+    $('#comentarios').children().each(function() {
+        $(this).remove();
+    });
+
+    $('#blog_post').data('blogId', response.id);
+    $('#blog_post').attr('data-blog-id', response.id);
+
+    const partes = response.fecha.split("-");
+    const fecha = new Date(partes[0], partes[1] - 1, partes[2]); // Año, mes (0-indexado), día
+
+    const opciones = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+    const formatoFecha = fecha.toLocaleDateString('es-ES', opciones);
+    $('#blogDate').text(formatoFecha);
+
+    $('#blogTitle').text(response.titulo);
+    $('#blogPublisher').text("Por: "+response.autor);
+    $('#blogImage').attr('src', '../../../'+response.imagen);
+    $('#content').html(response.descripcion);
+
+    response.comentarios.reverse().forEach(function(comentario) {
+        const comment = $("#comentario-plantilla .comment-block").clone();
+        comment.find('.logros-comentario').text(comentario.comentario);
+        comment.find('.logros-correo').text(comentario.correo);
+
+        const fechaOriginal = comentario.fecha;
+        const fecha = new Date(fechaOriginal);
+        const fechaFormateada = fecha.toISOString().slice(2, 10); // "yy-mm-dd"
+        comment.find('.logros-fecha').text(fechaFormateada);
+
+        $('#comentarios').append('<div class="col-lg-2 col-md-2"></div>')
+        $('#comentarios').append(comment);
+        $('#comentarios').append('<div class="col-lg-2 col-md-2"></div>')
+    });
+} 
+
 $(document).ready(function() {
     $("a[data-button-blog]").on("click", function(e) {
         e.preventDefault();
@@ -1705,53 +1804,214 @@ $(document).ready(function() {
             data: data,
             success: function (response) {
                 if (response.status === "success") {
-                    console.log("Success blog update");
-                    document.getElementById('blog_post').scrollIntoView({ behavior: 'smooth' });
-                    window.history.replaceState(null, '', window.location.pathname);
-                    
-                    $("#blog_dislikeBtn").addClass("d-none");
-                    $("#blog_likeBtn").removeClass("d-none");
-                    
-                    $('#comentarios').children().each(function() {
-                        $(this).remove();
-                    });
-
-                    $('#blog_post').data('blogId', response.id);
-                    $('#blog_post').attr('data-blog-id', response.id);
-
-                    const partes = response.fecha.split("-");
-                    const fecha = new Date(partes[0], partes[1] - 1, partes[2]); // Año, mes (0-indexado), día
-
-                    const opciones = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
-                    const formatoFecha = fecha.toLocaleDateString('es-ES', opciones);
-                    $('#blogDate').text(formatoFecha);
-
-                    $('#blogTitle').text(response.titulo);
-                    $('#blogPublisher').text("Por: "+response.autor);
-                    $('#blogImage').attr('src', '../../../'+response.imagen);
-                    $('#content').html(response.descripcion);
-
-                    response.comentarios.reverse().forEach(function(comentario) {
-                        const comment = $("#comentario-plantilla .comment-block").clone();
-                        comment.find('.logros-comentario').text(comentario.comentario);
-                        comment.find('.logros-correo').text(comentario.correo);
-                        
-                        const fechaOriginal = comentario.fecha;
-                        const fecha = new Date(fechaOriginal);
-                        const fechaFormateada = fecha.toISOString().slice(2, 10); // "yy-mm-dd"
-                        comment.find('.logros-fecha').text(fechaFormateada);
-
-                        $('#comentarios').append('<div class="col-lg-2 col-md-2"></div>')
-                        $('#comentarios').append(comment);
-                        $('#comentarios').append('<div class="col-lg-2 col-md-2"></div>')
-                    });
+                    updateBlog(response);
                 }   
             },
             error: function (response) {
                 console.log(response);
             },
         });  
-    })
+    });
+
+    $(document).on("click", '.blogsearch-result', function(e) {
+        e.preventDefault();
+        console.log('doing thing');
+
+        const data = { 
+            id: $(this).data('blogId') 
+        };
+    
+        $.ajax({
+            url: "../../org/ajax/blogSetManager.php",
+            type: "POST",
+            data: data,
+            success: function (response) {
+                if (response.status === "success") {
+                    
+                    updateBlog(response);
+                    $('#searchbar-blog').val('');
+                    $("#search-results .search-engine").empty();
+                }   
+            },
+            error: function (response) {
+                console.log(response);
+            },
+        });  
+    });
+
+    $('#searchbar-blog').on('input', function() {
+        var value = $(this).val();
+
+        if (value != "") {
+            $.ajax({
+                url: "../../org/ajax/blogSearchEngine.php",
+                type: "POST",
+                data: {input: value},
+                success: function (response) {
+                    if (response.status === "success") {
+                        $("#search-results").removeClass("d-none"); 
+                        console.log("search completed");
+
+                        $('#search-results .search-engine').html(response.searchData)
+                    }   
+                },  
+                error: function (response) {
+                    $("#search-results").addClass("d-none");    
+                    console.log(response);
+                },
+            });  
+        } else {
+            $("#search-results .search-engine").empty();
+        }
+    });
 });
+
+const mostrarSubmitNewsletter = (botonSubmit, nombreFormulario) => {
+    let control = 0;
+    let controlPrueba = 0;
+    let idObjeto = "#" + botonSubmit;
+    
+    camposError.forEach(campo => {
+        marcarInputError(campo);
+        control = 1;
+    }); 
+
+    if (nombreFormulario == 'newsletterForm') {
+        let campoCorreoNewsletter = camposError.includes('correoNewsletter');
+        
+        if (campoCorreoNewsletter) {
+            return;
+        } else {
+            control = 0;
+        }
+    }
+
+    if(control > 0) {
+        $(idObjeto).hide();
+    }
+    else {
+        try {
+            let email1 = document.getElementById("register_correoA");
+            let email2 = document.getElementById("register_correoA1");
+            
+            if (email1 && email2) {
+                if($("#register_correoA").val() == $("#register_correoA1").val()) {
+                    $(idObjeto).show();
+                    $("#alert").hide();
+                }
+                else {
+                    var texto = "El email y la confirmación del email del acudiente deben ser iguales";
+                    $("#pdesc").html(texto).css("color","red");
+                    $(idObjeto).hide();
+                    $("#alert").show();
+                }
+            }
+            else {
+                $(idObjeto).show();
+                $("#alert").hide();
+            }
+        } catch (error) {
+            
+        }
+    }
+};
+
+const validarCampoNewsletter = (input, descripcion, reglaValidacion, controlSubmit, botonSubmit, nombreFormulario) => {
+    let { id, name, value } = input;
+    const campoObligatorio = input.getAttribute("required") === '' ? true : false;
+    let control = 0;
+    let texto = "";
+    let idSubmit = "#" + botonSubmit;
+    $(idSubmit).hide();
+
+    if ((value.trim() === "" || value.trim() === '') && campoObligatorio) {
+        control = 1;
+        marcarInputError(id);
+        agregarCampoError(id);
+        texto = "El campo " + descripcion + " se debe llenar";
+    } else {
+        marcarInputCorrecto(id);
+        quitarCampoError(id);
+    }
+
+    if (control == 0) {
+        if (reglaValidacion == "numero") {
+            if (reglasvalidacion.numero.test(value)) {
+                marcarInputCorrecto(id);
+                quitarCampoError(id);
+            } else {
+                control = 1;
+                marcarInputError(id);
+                agregarCampoError(id);
+                texto = "Ingrese sólamente números para " + descripcion;
+            }
+        } else if (reglaValidacion == "texto") {
+            if (value.match(reglasvalidacion.texto)) {
+                control = 1;
+                marcarInputError(id);
+                agregarCampoError(id);
+                texto = "Ha ingresado alguno de los siguientes caracteres no válidos para " + descripcion + ": ";
+                texto += "- _ \' \" < > ~ ^ * $ ! ¡ # % & ¿ ? /= + , ; : ( ) { } [ ] \\";
+            } else {
+                marcarInputCorrecto(id);
+                quitarCampoError(id);
+            }
+        } else if (reglaValidacion == "texto1") {
+            if (value.match(reglasvalidacion.texto1)) {
+                control = 1;
+                marcarInputError(id);
+                agregarCampoError(id);
+                texto = "Ha ingresado alguno de los siguientes caracteres no válidos para " + descripcion + ": ";
+                texto += "_ \' \" < > ~ ^ * $ ! ¡ # % & ¿ ? /= + , ; : ( ) { } [ ] \\";
+            } else {
+                marcarInputCorrecto(id);
+                quitarCampoError(id);
+            }
+        } else if (reglaValidacion == "correo") {
+            if (reglasvalidacion.correo.test(value)) {
+                marcarInputCorrecto(id);
+                quitarCampoError(id);
+            } else {
+                control = 1;
+                marcarInputError(id);
+                agregarCampoError(id);
+                texto = "No es un patrón de correo válido para " + descripcion;
+            }
+        } else if (reglaValidacion == "fecha") {
+            if (reglasvalidacion.fecha.test(value)) {
+                marcarInputCorrecto(id);
+                quitarCampoError(id);
+            } else {
+                control = 1;
+                marcarInputError(id);
+                agregarCampoError(id);
+                texto = "No es un patrón válido para " + descripcion;
+            }
+        } else if (reglaValidacion == "password") {
+            console.log(value);
+            if (reglasvalidacion.password.test(value)) {
+                marcarInputCorrecto(id);
+                quitarCampoError(id);
+            } else {
+                control = 1;
+                marcarInputError(id);
+                agregarCampoError(id);
+                texto = "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número.";
+            }
+        }
+    }
+
+    if (texto != "") {
+        $("#pdesc").html(texto).css("color","red");
+        $("#alert").show();
+    } else {
+        $("#pdesc").html("");
+        $("#alert").hide();
+    }
+    
+    if (controlSubmit == 1 && control == 0) {
+        mostrarSubmitNewsletter(botonSubmit, nombreFormulario);
+    }    
+};
 
 /** Celebrando logros y experiencias Fin **/

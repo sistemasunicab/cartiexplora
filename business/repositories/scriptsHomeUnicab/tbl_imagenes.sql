@@ -227,3 +227,12 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, ruta
 (45, 'assets/img/graduadosQuinto_1.png', '', '', '', '', '', '', '', ''),
 (45, 'assets/img/graduadosQuinto_2.png', '', '', '', '', '', '', '', ''),
 (45, 'assets/img/graduadosQuinto_3.png', '', '', '', '', '', '', '', '');
+
+INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, rutaTabletaHorizontal, descripcion, titulo, posicionTitulo, enlace, rutaEncima, textoAlterno) VALUES
+(47, 'assets/img/logoUnicabNewsletter.png', '', '', '', '', '', '', '', '', ''),
+(47, 'assets/img/newsletterInscrito.png', '', '', '', '', '', '', '', '', ''),
+(47, 'assets/img/newsletterPublicacionesIcon.png', '', '', '', '', '', '', '', '', ''),
+(47, 'assets/img/newsletterNoticiasIcon.png', '', '', '', '', '', '', '', '', ''),
+(47, 'assets/img/newsletterEventosIcon.png', '', '', '', '', '', '', '', '', ''),
+(47, 'assets/img/newsletterHerramientasIcon.png', '', '', '', '', '', '', '', '', '')
+;
