@@ -13,25 +13,25 @@
             $title .= '</div>';
         } else if (strtolower($posicionTitulo) == 'derecha') {
             $title .= '<div class="row align-items-center justify-content-center my-2">';
-            $title .=     '<div class="col-lg-2 col-md-2 col-sm-2 col-2"></div>';
-            $title .=     '<div class="col-lg-3 col-md-3 col-sm-3 col-3">';
+            $title .=     '<div class="col-lg-3 col-md-3 col-sm-2 col-2"></div>';
+            $title .=     '<div class="col-lg-2 col-md-2 col-sm-3 col-3">';
             $title .=         $imgHTML;
             $title .=     '</div>';
-            $title .=     '<div class="col-lg-5 col-md-5 col-sm-5 col-5">';
+            $title .=     '<div class="col-lg-3 col-md-3 col-sm-4 col-4">';
             $title .=         '<h2 class="h2-costos">' . $titulo . '</h2>';
             $title .=     '</div>';
-            $title .=     '<div class="col-lg-2 col-md-2 col-sm-2 col-2"></div>';
+            $title .=     '<div class="col-lg-4 col-md-4 col-sm-3 col-3"></div>';
             $title .= '</div>';
         } else if (strtolower($posicionTitulo) == 'izquierda') {
             $title .= '<div class="row align-items-center justify-content-center my-2">';
-            $title .=     '<div class="col-lg-2 col-md-2 col-sm-2 col-2"></div>';
-            $title .=     '<div class="col-lg-5 col-md-5 col-sm-5 col-5">';
+            $title .=     '<div class="col-lg-4 col-md-4 col-sm-3 col-3"></div>';
+            $title .=     '<div class="col-lg-3 col-md-3 col-sm-4 col-4">';
             $title .=         '<h2 class="h2-costos">' . $titulo . '</h2>';
             $title .=     '</div>';
-            $title .=     '<div class="col-lg-3 col-md-3 col-sm-3 col-3">';
+            $title .=     '<div class="col-lg-2 col-md-2 col-sm-3 col-3">';
             $title .=         $imgHTML;
             $title .=     '</div>';
-            $title .=     '<div class="col-lg-2 col-md-2 col-sm-2 col-2"></div>';
+            $title .=     '<div class="col-lg-3 col-md-3 col-sm-2 col-2"></div>';
             $title .= '</div>';
         } else if (strtolower($posicionTitulo) == 'arriba') {
             $title .= '<div class="row align-items-center justify-content-center my-2">';

@@ -126,29 +126,60 @@
 
     
         $numeroCards = sizeof($imagenes);
-
+        $numeroColumnas = 2;
+        $cantidadFilaActual = 1;
 
         $html .= '<section class="container section-principios">';
-        $html .=    '<div class="row">';
+
         for ($i = 0; $i < $numeroCards; $i++) {
             if (strtolower($imagenes[$i]['titulo']) === strtolower($textos[$i]['identificacion'])) {
-
+                // Si estamos en el primer elemento de una nueva fila, abrimos <div class="row">
+                if ($cantidadFilaActual === 1) {
+                    $html .= '<div class="row section-principios">';
+                }
+            
                 $html .= '<div class="col-lg-6 col-md-12 col-sm-12 col-12 margin-card-principios">';
-                $html .=    '<div class="card-principios">';
-                $html .=        posicionTitulo('<img' . ImageAttributeBuilder::buildAttributes($nivel, $imagenes[$i]['ruta'], $imagenes[$i]['descripcion']) . ' class="icon-principios img-fluid">', $imagenes[$i]['titulo'], $imagenes[$i]['posicionTitulo']);
-                $html .=        '<div class="card-content-principios" id="'.$imagenes[$i]['titulo']. '-'. $i .'">';
-                $html .=           '<p>' . tratarTexto($textos[$i]['texto']) . '</p>';
-                $html .=           '<div class="d-flex justify-content-between align-items-center" id="btn-principios-container">';
-                $html .=               '<hr class="principios-line">';
-                $html .=               '<a style="color: white" class="btn-principios" role="button" onclick="leerMasPrincipios(\''.$imagenes[$i]['titulo']. '-'. $i .'\', this)">Leer más</a>';
-                $html .=           '</div>';
-                $html .=        '</div>';
-                $html .=    '</div>';
+                $html .=     '<div class="card-principios">';
+                $html .=         posicionTitulo(
+                                        '<img' . ImageAttributeBuilder::buildAttributes(
+                                                        $nivel,
+                                                        $imagenes[$i]['ruta'],
+                                                        $imagenes[$i]['descripcion']
+                                                    ) . ' class="icon-principios img-fluid">',
+                                        $imagenes[$i]['titulo'],
+                                        $imagenes[$i]['posicionTitulo']
+                                    );
+                $html .=         '<div class="card-content-principios" id="' . $imagenes[$i]['titulo'] . '-' . $i . '">';
+                $html .=             '<p>' . tratarTexto($textos[$i]['texto']) . '</p>';
+                $html .=             '<div class="d-flex justify-content-between align-items-center" id="btn-principios-container">';
+                $html .=                 '<hr class="principios-line">';
+                $html .=                 '<a style="color: white" class="btn-principios" role="button" '
+                             . 'onclick="leerMasPrincipios(\'' . $imagenes[$i]['titulo'] . '-' . $i . '\', this)">Leer más</a>';
+                $html .=             '</div>';
+                $html .=         '</div>';
+                $html .=     '</div>';
                 $html .= '</div>';
+                                
+                $cantidadFilaActual++;
+                                
+                
+                if ($cantidadFilaActual === $numeroColumnas + 1) {
+                    $html .= '</div>';
+                    $cantidadFilaActual = 1;         // volvemos a empezar en la siguiente fila
+                }
             }
         }
-        $html .=        '<div class="col-lg-6 margin-card-principios">';
-        $html .=     '</div>';
-        $html .= '</section>';
+
+        // Si al terminar el bucle queda una fila incompleta (p. ej. sólo 1 card en una fila de 2 columnas), añadimos columnas vacías y cerramos la fila
+        if ($cantidadFilaActual > 1 && $cantidadFilaActual <= $numeroColumnas) {
+            // ponemos tantas columnas vacías como hagan falta para llegar a $numeroColumnas
+            $columasRelleno = $numeroColumnas - ($cantidadFilaActual - 1);
+            for ($j = 0; $j < $columasRelleno; $j++) {
+                $html .= '<div class="col-lg-6"></div>';
+            }
+            $html .= '</div>';  // Cerramos la fila pendiente
+        }
+
+        $html .= '</section>';   
     }
     echo $html;

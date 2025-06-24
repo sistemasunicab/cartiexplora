@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Select Personalizado (varios)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #f4f4f4;
+    }
+
+
+    .select-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    /* “Select” personalizado: ocultamos completamente la flecha nativa */
+    .select-wrapper .display-options {
+      white-space: nowrap;
+      overflow: hidden;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background: var(--orange);
+      height: 100%;
+      width: 100%;
+      border: none;
+      text-align: left;
+      border-radius: 0.25rem;
+      padding: 0.5rem 1rem;
+      /* ajusta un poco el padding si quieres */
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    /* Cuando está enfocado (por validación, por ejemplo) */
+    .select-wrapper .display-options:focus {
+      outline: none;
+      box-shadow: 0 0 10px 0 rgba(66, 195, 174, 0.5);
+    }
+
+    .select-wrapper .selected-value {
+      border-top-left-radius: 0.25rem;
+      border-bottom-left-radius: 0.25rem;
+    }
+
+    /* Flecha que aparece a la derecha (la sustituye por completo a la nativa) */
+    .select-wrapper .select-arrow {
+      background-color: var(--bold-blue);
+      color: #FFD156;
+      font-size: 1.5rem;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top-right-radius: 0.25rem;
+      border-bottom-right-radius: 0.25rem;
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 0 0.5rem;
+      pointer-events: none;
+      /* para que el click pase al “trigger” */
+      user-select: none;
+    }
+
+    /* Reglas para las opciones cuando se despliega el dropdown */
+    .custom-options {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--orange);
+      border-top: none;
+      border-radius: 0.25rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      max-height: 0;
+      overflow-y: auto;
+      transition: max-height 0.3s ease;
+      z-index: 99;
+    }
+
+    /* Cuando abrimos (añadimos clase .open a .custom-select), expandimos */
+    .custom-select.open .custom-options {
+      max-height: 200px;
+      /* o lo que necesites para que quepan 4–5 ítems */
+    }
+
+    /* Cada opción interna */
+    .custom-option {
+      padding: 0.8rem 1rem;
+      cursor: pointer;
+      color: var(--white);
+      font-family: var(--roboto-regular);
+      font-size: 1rem;
+      background-color: var(--blue);
+    }
+
+    .custom-option:hover {
+      background-color: #3a5d8f;
+      /* un tono ligeramente diferente cuando haga hover */
+    }
+
+    .select-wrapper.error {
+      border-radius: 0.25rem;
+    }
+
+    .select-wrapper.error .display-options {
+      background: #FBE5E7 !important;
+      color: var(--medium-gray) !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="idDelSelect" class="select-wrapper custom-select campoFormulario"
+    data-btn-submit="idBtnSubmit" data-value="NA" data-texto="Texto del alert en caso de error" required>
+    <div class="display-options">
+      <span class="selected-value">Placeholder del campo</span>
+    </div>
+    <div class="custom-options">'.
+      <div class="custom-option" data-value="NA">Placeholder del campo</div>
+      <div class="custom-option" data-value="valor">texto</div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      let btnSubmit = document.querySelector('button[type="submit"]');
+      if (!btnSubmit) {
+        console.error("btn submit no encontrado");
+      }
+
+      document.querySelectorAll('.custom-select').forEach(function (wrapper) {
+        const triggerDiv = wrapper.querySelector('.display-options');
+        const optionsContainer = wrapper.querySelector('.custom-options');
+        const optionsList = wrapper.querySelectorAll('.custom-option');
+        const selectedSpan = wrapper.querySelector('.selected-value');
+
+        if (selectedSpan.dataset.value == "NA") {
+          wrapper.classList.add('error');
+        }
+
+        triggerDiv.addEventListener('click', function (e) {
+          //e.stopPropagation();
+          document.querySelectorAll('.custom-select.open').forEach(function (other) {
+            if (other !== wrapper) other.classList.remove('open');
+          });
+          wrapper.classList.toggle('open');
+        });
+
+        optionsList.forEach(function (optionEl) {
+          optionEl.addEventListener('click', function (e) {
+            e.stopPropagation();
+            wrapper.dataset.value = optionEl.dataset.value;
+            selectedSpan.textContent = optionEl.textContent;
+
+            wrapper.classList.remove('open');
+
+            if (wrapper.dataset.value == "NA") {
+
+              let texto = wrapper.dataset.texto;
+              $('#medioalert').addClass('select-alert');
+              $("#pdesc").html(texto).css("color", "red");
+              $("#alert").show();
+              marcarInputError(wrapper.id);
+              agregarCampoError(wrapper.id);
+
+            }
+            else {
+              $("#pdesc").html("");
+              $("#alert").hide();
+              marcarInputCorrecto(wrapper.id);
+              quitarCampoError(wrapper.id);
+            }
+
+            mostrarSubmit(wrapper.dataset.btnSubmit);
+
+          });
+        });
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!e.target.closest('.custom-select')) {
+          document.querySelectorAll('.custom-select.open').forEach(function (opened) {
+            opened.classList.remove('open');
+          });
+        }
+      });
+    });
+
+  </script>
+</body>
+
+</html>

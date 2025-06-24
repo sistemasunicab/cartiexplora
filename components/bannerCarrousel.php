@@ -44,8 +44,8 @@
         $rows_items[] = $row_imagen;
     }
 
-    $html = '<section>';
-    $html .= '<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+
+    $html = '<div id="carouselExampleAutoplaying" class="carousel slide carousel-fade" data-bs-ride="carousel">
                  <div class="carousel-indicators">';
 
     // Genera un indicador de carrusel por imagen
@@ -58,7 +58,7 @@
         }
     }
     $html .=    '</div>
-            <div class="carousel-inner">';
+            <div class="carousel-inner" data-bs-pause="hover">';
 
     $primerItemCarrusel = true;
 
@@ -101,19 +101,19 @@
             $atributosTabletaHorizontal = ImageAttributeBuilder::buildsrcset($nivel, $rows_items[$i]['rutaTabletaHorizontal']);
             $atributosMovil = ImageAttributeBuilder::buildAttributes($nivel, $rows_items[$i]['rutaMovil']);
 
-            $elemento .=    '<a href="' . $link_image . '">';
+            $elemento .=    '<div class="d-flex align-items-center justify-content-center w-100 h-100">';
             $elemento .=        '<picture>';
             $elemento .=           '<source '. $atributosEscritorio.' media="(min-width: 992px)">';
             $elemento .=           '<source  '.$atributosTabletaHorizontal.' media="(min-width: 768px)">';
             $elemento .=           '<source '.$atributosTabletaVertical.' media="(min-width: 576px)">';
-            $elemento .=           '<img '. $atributosMovil .' alt="Imagen carrusel" class="img-fluid w-100">';
+            $elemento .=           '<img '. $atributosMovil .' alt="Imagen carrusel" class="img-banner">';
             $elemento .=        '</picture>';
-            $elemento .=    '</a>';
+            $elemento .=    '</div>';
         }
 
         // El primer item o div del carrusel debe tener la clase "active", el resto no.
         if ($primerItemCarrusel) {
-            $html .= '<div class="carousel-item active" data-bs-interval="'.$interval.'">';
+            $html .= '<div class="carousel-item banner-home-item active" data-bs-interval="'.$interval.'">';
             $html .=        $elemento;  
 
             if ($text) {
@@ -127,7 +127,7 @@
             $html .= '</div>';
             $primerItemCarrusel = false;
         } else {
-            $html .= '<div class="carousel-item" data-bs-interval="'.$interval.'">';
+            $html .= '<div class="carousel-item banner-home-item" data-bs-interval="'.$interval.'">';
             $html .=        $elemento;
 
             if ($text) {
@@ -152,7 +152,6 @@
     $html .=            '<span class="visually-hidden">Next</span>';
     $html .=        '</button>';
     $html .=    '</div>';
-    $html .= '</section>';
 
     echo $html;
 ?>
