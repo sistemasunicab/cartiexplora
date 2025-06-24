@@ -4425,14 +4425,17 @@ input[type="checkbox"] {
     /** Inicio Banner */
 
     .carousel-item.banner-home-item {
-        height: 31.688rem;
+        /*height: 31.688rem;*/
+        width: 100%;
         background-color: #D4CECE;
     }
 
     .img-banner {
-        width: auto;
-        height: 100%;
-        object-fit: contain;
+        /*width: auto;
+        height: 100%;*/
+        height: auto;
+        width: 100%;
+        /*object-fit: contain;*/
     }
 
     .button-absolute {
@@ -6269,13 +6272,16 @@ input[type="checkbox"] {
     /** Inicio Banner */
 
     .carousel-item.banner-home-item {
-        height: 25.313rem;
+        /*height: 25.313rem;*/
+        width: 100%;
         background-color: #D4CECE;
     }
 
     .img-banner {
-        width: auto;
-        height: 100%;
+        /*width: auto;
+        height: 100%;*/
+        height: auto;
+        width: 100%;
         object-fit: contain;
     }
 
