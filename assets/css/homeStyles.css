@@ -4420,9 +4420,9 @@ input[type="checkbox"] {
 
     /** Inicio Banner */
 
-    .carousel-item {
+    .carousel-item.banner-home-item {
         height: 31.688rem;
-        background-color: black;
+        background-color: #D4CECE;
     }
 
     .img-banner {
@@ -6264,9 +6264,9 @@ input[type="checkbox"] {
 
     /** Inicio Banner */
 
-    .carousel-item {
+    .carousel-item.banner-home-item {
         height: 25.313rem;
-        background-color: black;
+        background-color: #D4CECE;
     }
 
     .img-banner {
