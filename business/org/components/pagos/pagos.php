@@ -276,7 +276,9 @@
                              '<div class="bg-yellow">'.
                                   '<p class="datos-quienpaga-titulo-pagos">'.$nombreResponsable['texto'].'</p>'.
                              '</div>'.
+                             '<label class="label-datos-pago" for="'. $nombreResponsable['campo'] .'">Nombre</label>'.
                              '<input class="input-responsable-pagos form-control campoFormulario" type="' . $nombreResponsable['tipo'] . '" id="' . $nombreResponsable['campo'] . '" placeholder="' . $nombreResponsable['placeHolder'] . '" onkeyup="validarCampo(this, \'(Nombre de quien paga)\', \'texto\', 1, \'btnpagar\');" ' . $nombreResponsable['obligatorio'] . ' ' . $nombreResponsable['soloLectura'] . ' ' . $nombreResponsable['habilitado'] . '>'.
+                             '<label class="label-datos-pago" for="'. $identificacionResponsable['campo'] .'">Número de documento</label>'.
                              '<input class="input-responsable-pagos form-control campoFormulario" type="' . $identificacionResponsable['tipo'] . '" id="' . $identificacionResponsable['campo'] . '" placeholder="' . $identificacionResponsable['placeHolder'] . '" onkeyup="validarCampo(this, \'(Número de identificación)\', \'numero\', 1, \'btnpagar\');" ' . $identificacionResponsable['obligatorio'] . ' ' . $identificacionResponsable['soloLectura'] . ' ' . $identificacionResponsable['habilitado'] . '>'.
                          '</div>'.
                          '<div class="col-lg-4 col-md-6 col-sm-12 col-12">'.
