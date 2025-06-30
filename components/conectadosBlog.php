@@ -150,8 +150,11 @@
           }
 
           $correoCampo = array_shift($camposNewsletter);
+          $campoCancelarSuscripcion = array_shift($camposNewsletter);
+          $cancelarSuscripcionBoton = array_shift($camposNewsletter);
           $texto1 = array_shift($parametros);
           $textoUnsubscribe = array_shift($parametros);
+          $textoCajaUnsubscribe = array_shift($parametros);
 
           $html .= '
                </div>
@@ -165,11 +168,17 @@
 
                <div class="row">
                     <div class="col-lg-8 col-md-6 col-sm-4 col-1"></div>
-                    <div class="col-lg-4 col-md-6 col-sm-8 col-11">
-                         <form id="newsletterForm" data-new-form>
+                    <div class="col-lg-4 col-md-6 col-sm-8 col-11" id="newsletterBox">
+                         <form 
+                              id="newsletterForm" 
+                              data-form-instance 
+                              data-form-configuracion=\'{
+                                 "botonSubmit": "registerNewsletter"
+                              }\'
+                         >
                               <div class="row m-0 noticias-newsletter-main">
                                    <div class="col-8 p-0">
-                                        <input onkeyup="validarCampoNewsletter(this, \''.$correoCampo['texto'].'\', \'correo\', 1, \'registerNewsletter\', \'newsletterForm\')" type="' . $correoCampo['tipo'] . '" id="' . $correoCampo['campo'] . '" class="campoFormulario noticias-newsletter-input" ' . $correoCampo['obligatorio'] . ' ' . $correoCampo['soloLectura'] . ' ' . $correoCampo['habilitado'] . ' placeholder="'.$correoCampo['placeHolder'].'">
+                                        <input data-descripcion="'.$correoCampo['texto'].'" data-regla-validacion="correo" data-control-submit="1" type="' . $correoCampo['tipo'] . '" id="' . $correoCampo['campo'] . '" class="noticias-newsletter-input" ' . $correoCampo['obligatorio'] . ' ' . $correoCampo['soloLectura'] . ' ' . $correoCampo['habilitado'] . ' placeholder="'.$correoCampo['placeHolder'].'">
                                    </div>
                                    
                                    <button type="submit" id="registerNewsletter" class="col-4 noticias-newsletter-btn" style="display: none;">
@@ -198,9 +207,109 @@
 
           $html .= '
                </div>
+
+               <div class="container newsletter-unsubscribe" style="display: none;" id="newsletter-cancelarSuscripcion">
+                    <div class="row">
+                         <div class="col-lg-3 col-md-3 col-sm-2 col-2"></div>
+
+                         <div class="col-lg-6 col-md-6 col-sm-8 col-8 unsubscribe-container">
+                              <p>'.$textoCajaUnsubscribe.'</p>
+
+                              <form 
+                                   id="newsletterUnsubscribeForm" 
+                                   data-form-instance 
+                                   data-form-configuracion=\'{
+                                      "botonSubmit": "unsubscribeNewsletterButton"
+                                   }\'
+                              >
+                                   <input data-descripcion="'.$campoCancelarSuscripcion['texto'].'" data-regla-validacion="correo" data-control-submit="1" type="' . $campoCancelarSuscripcion['tipo'] . '" id="' . $campoCancelarSuscripcion['campo'] . '" ' . $campoCancelarSuscripcion['obligatorio'] . ' ' . $campoCancelarSuscripcion['soloLectura'] . ' ' . $campoCancelarSuscripcion['habilitado'] . ' placeholder="'.$campoCancelarSuscripcion['placeHolder'].'">
+
+                                   <button type="' . $cancelarSuscripcionBoton['tipo'] . '" id="unsubscribeNewsletterButton" class="unsubscribe-button" style="display: none;">
+                                        '.$cancelarSuscripcionBoton['texto'].'
+                                   </button>
+                              </form>
+
+                              <p class="noticias-newsletter-response d-none" data-response-type="success" id="unsubscribe-newsletter-response"></p>
+                         </div>
+
+                         <div class="col-lg-3 col-md-3 col-sm-2 col-2"></div>
+                    </div>
+               </div>
           </section>
           ';
           
+          // Backup previo a la clase
+
+          //$html .= '
+          //     </div>
+          //     
+          //     <div class="row">
+          //          <div class="col-lg-8 col-md-6 col-sm-1 col-1"></div>
+          //          <div class="col-lg-4 col-md-6 col-sm-11 col-11">
+          //               <p class="noticias-newsletter-p text-end w-100">'.$texto1.'</p>
+          //          </div>
+          //     </div>
+//
+          //     <div class="row">
+          //          <div class="col-lg-8 col-md-6 col-sm-4 col-1"></div>
+          //          <div class="col-lg-4 col-md-6 col-sm-8 col-11">
+          //               <form id="newsletterForm">
+          //                    <div class="row m-0 noticias-newsletter-main">
+          //                         <div class="col-8 p-0">
+          //                              <input onkeyup="validarCampoNewsletter(this, \''.$correoCampo['texto'].'\', \'correo\', 1, \'registerNewsletter\', \'newsletterForm\')" type="' . $correoCampo['tipo'] . '" id="' . $correoCampo['campo'] . '" class="campoFormulario noticias-newsletter-input" ' . $correoCampo['obligatorio'] . ' ' . $correoCampo['soloLectura'] . ' ' . $correoCampo['habilitado'] . ' placeholder="'.$correoCampo['placeHolder'].'">
+          //                         </div>
+          //                         
+          //                         <button type="submit" id="registerNewsletter" class="col-4 noticias-newsletter-btn" style="display: none;">
+          //                              <img src="'.$datosImagenes[0][0].'">
+          //                              '.$datosImagenes[0][3].'
+          //                         </button>
+          //                    </div>
+          //               </form>
+          //          </div>
+          //     </div>
+//
+          //     <div class="row">
+          //          <div class="col-lg-8 col-md-6 col-sm-1 col-1"></div>
+          //          <div class="col-lg-4 col-md-6 col-sm-11 col-11">
+          //               <a role="button" id="unsubscribe-newsletter" class="d-block m-0 mt-2 noticias-newsletter-p text-end w-100 tx-blue logros-unsubscribe">'.$textoUnsubscribe.'</a>
+          //          </div>
+          //     </div>
+          //     
+          //     <div class="row">
+          //          <div class="col-lg-8 col-md-6 col-sm-1 col-1"></div>
+          //          <div class="col-lg-4 col-md-6 col-sm-11 col-11">
+          //               <p class="noticias-newsletter-response d-none" data-response-type="success" id="newsletter-response"></p>
+          //          </div>
+          //     </div>
+          //';
+//
+          //$html .= '
+          //     </div>
+//
+          //     <div class="container newsletter-unsubscribe" style="display: none;" id="newsletter-cancelarSuscripcion">
+          //          <div class="row">
+          //               <div class="col-lg-3 col-md-3 col-sm-2 col-2"></div>
+//
+          //               <div class="col-lg-6 col-md-6 col-sm-8 col-8 unsubscribe-container">
+          //                    <p>'.$textoCajaUnsubscribe.'</p>
+//
+          //                    <form id="newsletterUnsubscribeForm">
+          //                         <input onkeyup="validarCampoNewsletter(this, \''.$campoCancelarSuscripcion['texto'].'\', \'correo\', 1, \'unsubscribeNewsletterButton\', \'newsletterUnsubscribeForm\')" type="' . $campoCancelarSuscripcion['tipo'] . '" id="' . $campoCancelarSuscripcion['campo'] . '" class="campoFormulario" ' . $campoCancelarSuscripcion['obligatorio'] . ' ' . $campoCancelarSuscripcion['soloLectura'] . ' ' . $campoCancelarSuscripcion['habilitado'] . ' placeholder="'.$campoCancelarSuscripcion['placeHolder'].'">
+//
+          //                         <button type="' . $cancelarSuscripcionBoton['tipo'] . '" id="unsubscribeNewsletterButton" class="unsubscribe-button" style="display: none;">
+          //                              '.$cancelarSuscripcionBoton['texto'].'
+          //                         </button>
+          //                    </form>
+//
+          //                    <p class="noticias-newsletter-response d-none" data-response-type="success" id="unsubscribe-newsletter-response"></p>
+          //               </div>
+//
+          //               <div class="col-lg-3 col-md-3 col-sm-2 col-2"></div>
+          //          </div>
+          //     </div>
+          //</section>
+          //';
+//
           echo $html;
      }
 ?>

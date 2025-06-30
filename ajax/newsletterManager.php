@@ -216,7 +216,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                             </div>
 
                                                             <div>
-                                                                '.str_replace('?', $enlaceCancelarSuscripcion.$correo, array_shift($textosNewsletter)).'
+                                                                '.str_replace('?', $enlaceCancelarSuscripcion, array_shift($textosNewsletter)).'
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -271,21 +271,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($respuesta && $respuesta->num_rows > 0) {
             while($row_datos = $respuesta->fetch_assoc()){
                 $correoId = $row_datos['id'];
-                $correo = $row_datos['correo'];
+                $correoFinal = $row_datos['correo'];
             }   
 
-            $res_sentecia = $mysqli1->query($sentencia . "153");
+            $res_sentecia = $mysqli1->query($sentencia . "162");
             while ($row_sentencia = $res_sentecia->fetch_assoc()) {
                 $sql_form = $row_sentencia['campos'].$row_sentencia['tablas'].$row_sentencia['condiciones'];
             }
 
             $sentencia = $mysqli1->prepare($sql_form);
-            $sentencia->bind_param("ss", $correoId, $correo);
+            $sentencia->bind_param("ss", $correoId, $correoFinal);
             $sentencia->execute();
 
             echo json_encode([
                 'status' => 'success',
-                'message' => "Correo desuscrito con éxito."
+                'message' => "Suscripcion cancelada con exito."
+            ]);
+        } else {
+            echo json_encode([
+                'status' => 'error',
+                'message' => "El correo no esta registrado."
             ]);
         }
 

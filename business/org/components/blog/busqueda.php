@@ -50,16 +50,6 @@
     }
 
     // Obteniendo datos
-    $res_sentencia = $mysqli1->query($sentencia."97");//42
-    while($row_sentencia = $res_sentencia->fetch_assoc()){
-         $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
-    }  
-
-    $res_datos = $mysqli1->query($sql_datos);
-    while($row_datos = $res_datos->fetch_assoc()){
-         $links[] = ["linkName" => $row_datos['texto']];
-    }
-
     $res_sentencia = $mysqli1->query($sentencia."96");//43
     while($row_sentencia = $res_sentencia->fetch_assoc()){
          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
@@ -70,6 +60,22 @@
          $searchBar = ["placeholder" => $row_datos['texto']];
     }
 
+     // parametros de seccion 37 (actual)
+     $res_sentencia = $mysqli1->query($sentencia."164");
+     while($row_sentencia = $res_sentencia->fetch_assoc()){
+          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
+     }  
+
+     $botonesBusqueda = [];
+     $res_datos = $mysqli1->query($sql_datos);
+     while($row_datos = $res_datos->fetch_assoc()){
+          $botonesBusqueda[] = [
+               "textoBoton" => $row_datos['t1'],
+               "categoriaBoton" => $row_datos['v1']
+          ];
+     }
+
+
     if ($html != '') {
         $html .= '
           <section class="mt-4">
@@ -79,7 +85,7 @@
                     '; 
 
           $linkActual = 0;
-        foreach ($links as $link) {
+        foreach ($botonesBusqueda as $link) {
           $linkActual++;
           $position = 'logros-busquedaSecciones-right';
 
@@ -93,7 +99,7 @@
           $html .= '
                <div class="col-md-3 d-lg-none d-block"></div>
                <div class="col-lg-4 col-md-6 col-sm-12 col-12 d-flex justify-content-center '.$position.'">
-                    <a href="" class="bg-orange w-100 d-flex justify-content-center align-items-center logros-busqueda-link">'.$link["linkName"].'</a>
+                    <a role="button" data-categoria-boton data-categoria="'.$link["categoriaBoton"].'" class="bg-orange w-100 d-flex justify-content-center align-items-center logros-busqueda-link">'.$link["textoBoton"].'</a>
                </div>
                <div class="col-md-3 d-lg-none d-block"></div>
           ';

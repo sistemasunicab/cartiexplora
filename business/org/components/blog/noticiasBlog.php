@@ -93,6 +93,7 @@
      }
 
      $resultadosBusqueda = array_shift($datosTextos);
+     $resultadosCategoria = array_shift($datosTextos);
 
     if ($html != '') {
         $html .= '<div class="row">'; 
@@ -129,6 +130,7 @@
                <div class="row">
                     <div class="col-lg-12">
                          <h3 class="logros-noticias-title text-center" id="titulo-busqueda">'.$resultadosBusqueda.'</h3>
+                         <h3 class="logros-noticias-title text-center d-none" id="titulo-busquedaCategorias">'.$resultadosCategoria.'</h3>
                     </div>
                </div>
                
