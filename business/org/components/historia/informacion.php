@@ -58,7 +58,7 @@
 
             $html .= '
             <div class="col-lg-4 '.$mobileCol.' mb-4">
-                <img class="img-fluid w-100 p-0 historia-informacion-imgs" src="../../../../cartiexplora/'.$imgRuta.'" alt="">
+                <img class="img-fluid w-100 p-0 historia-informacion-imgs" src="../../../'.$imgRuta.'" alt="">
             </div>
             
             ';

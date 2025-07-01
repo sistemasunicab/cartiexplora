@@ -4,7 +4,7 @@
         $bloque = '
         <div class="row '.$cardClase.'">
             <div class="col-lg-3 col-md-3 col-sm-4 col-4 d-flex '.FlexTitleLoader::setDirection($orientacion).' align-items-center">
-                <img class="historia-lineaTiempo-icon" src="../../../../cartiexplora/'.$iconoLinea.'" alt="">
+                <img class="historia-lineaTiempo-icon" src="../../../'.$iconoLinea.'" alt="">
                 <p class="historia-lineaTiempo-title">'.$tituloLinea.'</p>
             </div>
 
