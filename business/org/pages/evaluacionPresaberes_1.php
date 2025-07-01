@@ -924,7 +924,6 @@
         	/*$sql_idpen = "SELECT id_materia FROM ".$tabla_preguntas." WHERE id = $array_final[$i]";*/
             $sentenciaFinal = $sentencia2."'consulta pensamiento'";
             $valores = [
-                '_tabla*' => $tabla_preguntas,
                 '_id*' => $array_final[$i]
             ];
             $sql_idpen = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
@@ -940,7 +939,7 @@
             $valores = [
                 '_idgrado*' => $idgrado,
                 '_idpen*' => $idpen,
-                '_idpregunta*' => $$array_final[$i],
+                '_idpregunta*' => $array_final[$i],
                 '_a*' => $fanio,
                 '_documento*' => $documento,
                 '_respuesta*' => 'NA',
