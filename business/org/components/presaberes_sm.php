@@ -157,7 +157,7 @@
                               <div class="col-lg-8 col-md-8 col-sm-12 col-12">
                                    <div class="row">
                                         <div class="col-1">
-                                             <p class="presaberes-main-descripcion"><i class="fa fa-chevron-right"></i></p>
+                                             <p class="presaberes-main-descripcionzz"><i class="fa fa-chevron-right"></i></p>
                                         </div>
                                         <div class="col-11">
                                              <p id="ct_preg_sf" class="presaberes-main-descripcion">'.$texto.'</p>

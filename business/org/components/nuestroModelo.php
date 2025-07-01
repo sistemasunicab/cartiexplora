@@ -6,7 +6,7 @@
           $item = '
                <div class="col-md-1 d-lg-none d-md-block"></div>
                <div class="col-lg-4 col-md-10 d-flex '.FlexTitleLoader::setDirection($posicionTexto).' align-items-center align-items-lg-start nuestroModelo-item"> <!-- Item -->
-                    <img src="../../../../cartiexplora/'.$rutaIcono.'" alt="" class="mb-5 nuestroModelo-icon">
+                    <img src="../../../'.$rutaIcono.'" alt="" class="mb-5 nuestroModelo-icon">
                     <p class="lh-1 nuestroModelo-item-p">'.$texto.'</p>
                </div> <!-- Item End -->
                <div class="col-md-1 d-lg-none d-md-block"></div>
@@ -88,7 +88,7 @@
                               <p class="nuestroModelo-p mb-3">'.$descripcion.'</p>
                          </div>
                          <div class="col-lg-5 col-md-5 col-sm-12 col-12 align-items-center">
-                              <img class="img-fluid w-100 box-shadow-2rem" src="../../../../cartiexplora/'.$modeloImg[0].'" alt="">
+                              <img class="img-fluid w-100 box-shadow-2rem" src="../../../'.$modeloImg[0].'" alt="">
                          </div>
 
                     </div>

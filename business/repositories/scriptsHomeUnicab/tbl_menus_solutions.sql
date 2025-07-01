@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS tbl_menus_solutions;
+
 CREATE TABLE tbl_menus_solutions (
   id int(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   menu varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
