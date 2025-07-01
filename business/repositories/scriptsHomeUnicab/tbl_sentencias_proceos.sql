@@ -98,11 +98,11 @@ INSERT INTO tbl_sentencias_procesos (nombre, utilizaJoin, campos, tablas, joinTa
 ('conteos no', 'NO', 'SELECT COUNT(1) ct_no, identificacion ', 'FROM tbl_respuestas ', '', 'WHERE resultado = |_resultado*| AND identificacion = |_documento*| AND a = _a* ', 'GROUP BY identificacion ', '', '', '', ''),
 ('conteos na', 'NO', 'SELECT COUNT(1) ct_na, identificacion ', 'FROM tbl_respuestas ', '', 'WHERE resultado = |_resultado*| AND identificacion = |_documento*| AND a = _a* ', 'GROUP BY identificacion ', '', '', '', ''),
 ('valida si hay registros en tbl_respuestas', 'NO', 'SELECT COUNT(1) ct ', 'FROM tbl_respuestas ', '', 'WHERE identificacion = |_documento*| AND a = _a* ', '', '', '', '', ''),
-('consulta pensamiento', 'NO', 'SELECT id_materia ', 'FROM |_tabla*| ', '', 'WHERE id = _id* ', '', '', '', '', '')
+('consulta pensamiento', 'NO', 'SELECT id_materia ', 'FROM tbl_pregunta ', '', 'WHERE id = _id* ', '', '', '', '', '')
 ;
 
 INSERT INTO tbl_sentencias_procesos (nombre, utilizaJoin, campos, tablas, joinTablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
-('insert tbl_respuestas', 'NO', '', 'INSERT tbl_respuestas ', '', '', '', '', '', '', '(id_grado, id_materia, id_pregunta, a, identificacion, respuesta, resultado, estado) VALUES (_idgrado*, _idpen*, _idpregunta*, _a*, |_documento*|, |_respuesta*|, |_resultado*|, |_estado*|)'),
+('insert tbl_respuestas', 'NO', '', 'INSERT INTO tbl_respuestas ', '', '', '', '', '', '', '(id_grado, id_materia, id_pregunta, a, identificacion, respuesta, resultado, estado) VALUES (_idgrado*, _idpen*, _idpregunta*, _a*, |_documento*|, |_respuesta*|, |_resultado*|, |_estado*|)'),
 ('valida respuestas na', 'NO', 'SELECT * ', 'FROM tbl_respuestas ', '', 'WHERE resultado = |_resultado*| AND identificacion = |_documento*| AND a = _a* ', '', '', '', '', ''),
 ('actualizar respuesta presaberes', 'NO', '', 'UPDATE tbl_respuestas ', '', 'WHERE id_pregunta = _idpreg* AND identificacion = |_documento*| AND a = _a* ', '', '', 'SET respuesta = |_respuesta*|, resultado = |_resultado*| ', '', ''),
 ('nombre estudiante', 'NO', 'SELECT e.id, e.nombres, e.apellidos ', 'FROM estudiantes e ', '', 'WHERE e.n_documento = |_documento*| ', '', '', '', '', ''),
@@ -132,6 +132,10 @@ INSERT INTO tbl_sentencias_procesos (nombre, utilizaJoin, campos, tablas, joinTa
 ('valida preguntas grado', 'NO', 'SELECT g.id, g.grado ', 'FROM estudiantes e, matricula m, grados g ', '', 'WHERE e.id = m.id_estudiante AND m.id_grado = g.id AND e.n_documento = |_documento*| AND m.n_matricula like _a* AND m.estado IN (|_estado*|, |_estado1*|) ', '', '', '', '', ''),
 ('estudiantes activos', 'NO', 'SELECT COUNT(1) ct ', 'FROM matricula ', '', 'WHERE n_matricula like _a* and estado = |_estado*| ', '', '', '', '', ''),
 ('autorizados para estados financieros', 'NO', 'SELECT * ', 'FROM tbl_empleados ', '', 'WHERE email = |_usuario*| AND n_documento = |_pass*| AND estado = |_estado*| ', '', '', '', '', '')
+;
+
+INSERT INTO tbl_sentencias_procesos (nombre, utilizaJoin, campos, tablas, joinTablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
+('grado documento', 'NO', 'SELECT e.id, e.nombres, e.apellidos, m.id_grado, g.grado ', 'FROM estudiantes e, matricula m, grados g ', '', 'WHERE e.id = m.id_estudiante AND m.id_grado = g.id AND e.n_documento = |_documento*| AND m.estado IN (|_estado*|, |_estado1*|) AND m.n_matricula like _a* ', '', '', '', '', '')
 ;
 
 
