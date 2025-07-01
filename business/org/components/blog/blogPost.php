@@ -296,16 +296,14 @@
           </div>
                
           <div class="row pb-5">
-               <div class="col-md-1 d-lg-none d-block"></div>
-               <div class="col-lg-8 col-md-10 col-sm-12 col-12">
+               <div class="col-lg-8 col-md-8 col-sm-12 col-12">
                     <img src="'.$showBlog['imagenPrincipal'].'" id="blogImage" alt="" class="logros-post-img">
                     <p class="logros-post-text" id="content">'.$showBlog['descripcion'].'</p><br>
                     <p>'.$showBlog['descripcion2'].'</p>
                </div>
-               <div class="col-md-1 d-lg-none d-block"></div>
-
-               <div class="col-md-2 d-lg-none d-block order-lg-last order-first"></div>
-               <aside class="col-lg-4 col-md-8 col-sm-12 col-12 d-flex flex-column gap-5 ps-lg-5 order-lg-last order-first mb-lg-0 mb-5">
+               
+               <div class="d-lg-none d-md-none d-block order-last"></div>
+               <aside class="col-lg-4 col-md-4 col-sm-12 col-12 flex-column gap-5 ps-lg-5 order-last mb-lg-0 mb-5 d-flex d-md-flex d-sm-none d-none">
                     <div class="d-flex flex-column align-items-center bg-white px-3 py-4">
                          <p class="font-roboto-bold d-block">Siguenos en Facebook</p>
                          <iframe name="f68d834d7301a08bb" width="1000px" height="1000px" data-testid="fb:page Facebook Social Plugin" title="fb:page Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v5.0/plugins/page.php?adapt_container_width=true&amp;app_id=&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df61df77fa7a2c9a63%26domain%3Dunicab.org%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Funicab.org%252Ffec1659497d47cfb9%26relation%3Dparent.parent&amp;container_width=260&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Funicabvir%2F&amp;locale=es_LA&amp;sdk=joey&amp;show_facepile=false&amp;small_header=false&amp;tabs=timeline&amp;width=" style="border: none; visibility: visible; width: 260px; height: 500px;" class=""></iframe>
@@ -349,7 +347,7 @@
                $html .= '</div>
                     </div>
                </aside>
-               <div class="col-md-2 d-lg-none d-block order-lg-last order-first"></div>
+               <div class="d-lg-none d-md-none d-block order-last"></div>
           ';
 
           $enviarBoton = array_shift($camposComentar);
