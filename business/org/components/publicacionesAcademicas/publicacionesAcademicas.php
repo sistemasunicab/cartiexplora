@@ -24,18 +24,19 @@
     $res_icono = $mysqli1->query($sql_icono);
 
     while ($row_sentencia = $res_icono->fetch_assoc()) {
-        $iconoPdf = '<img ' . ImageAttributeBuilder::buildAttributes($nivel, $row_sentencia['ruta'], $row_sentencia['descripcion']) . ' class="img-fluid w-100">'; 
+        $iconoPdf = '<img ' . ImageAttributeBuilder::buildAttributes($nivel, $row_sentencia['ruta'], $row_sentencia['descripcion']) . ' class="img-fluid pdf-btn">'; 
     }
 
     $html = '';
     // Obtiene la sección y la muestra
     while ($row_sentencia = $res_seccion->fetch_assoc()) {
         
-        $html .= '<main class="container my-5">';
-        $html .=    '<div class="row my-5">';
-        $html .=        '<div class="col-lg-12">';
-        $html .=            '<h2 class="tx-blue font-roboto-light-title tx-uppercase">' . $row_sentencia['titulo'] . '</h2>';
+        $html .= '<main class="container section-publicaciones">';
+        $html .=    '<div class="row">';
+        $html .=        '<div class="col-lg-12 col-md-6 col-sm-12 col-12">';
+        $html .=            '<h2 class="font-roboto-light-title h2-publicaciones">' . $row_sentencia['titulo'] . '</h2>';
         $html .=        '</div>';
+        $html .=        '<div class="col-lg-0 col-md-6 col-sm-0 col-0"></div>';
         $html .=    '</div>';
         
         
@@ -48,25 +49,42 @@
         while ($row_publicacion = $res_publicaciones->fetch_assoc()) {
             $date = new DateTime($row_publicacion['fechaSubida']);
             
-            $html .= '<div class="row my-5">';
-            $html .=    '<div class="col-lg-5">';
-            $html .=        '<h4 class="font-roboto-black mb-5">'. $row_publicacion['titulo'] .'</h4>';
-            $html .=        '<img '.ImageAttributeBuilder::buildAttributes($nivel, $row_publicacion['rutaImagen'], $row_publicacion['descripcionImagen']).' class="img-fluid w-75">';
+            $html .= '<div class="row margin-publicaciones">';
+            $html .=    '<div class="col-lg-5 col-md-12 col-sm-12 col-12">';
+            $html .=        '<h4 class="h4-publicaciones">'. $row_publicacion['titulo'] .'</h4>';
+            $html .=        '<div class="row justify-content-evenly align-items-center">';
+            $html .=            '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
+            $html .=                '<img '.ImageAttributeBuilder::buildAttributes($nivel, $row_publicacion['rutaImagen'], $row_publicacion['descripcionImagen']).' class="img-fluid img-publicaciones">';
+            $html .=            '</div>';
+            $html .=        '</div>';
             $html .=    '</div>';
-            $html .=    '<div class="col-lg-7">';
-            $html .=        '<p class="special-paragraph">Publicación: '.$date->format('m/Y'). '</p>';
-            $html .=        '<p>'. $row_publicacion['texto'] . '</p>';
-            $html .=        '<div class="row align-items-center my-5">';
-            $html .=            '<div class="col-lg-2">';
-            $html .=                '<a onclick="descargarArchivo(\'' . $nivel . '\', \''. $row_publicacion['ruta'] .'\', \''.$row_publicacion['nombreArchivo'] . '\', \'' . $row_publicacion['destino'] .'\')" class="download-button">';
+            $html .=    '<div class="col-lg-7 col-md-12 col-sm-12 col-12">';
+            $html .=        '<span class="fecha-publicaciones">Publicación: '.$date->format('m/Y'). '</span>';
+            $html .=        '<p class="p-publicaciones">'. $row_publicacion['texto'] . '</p>';
+            $html .=        '<div class="row align-items-center btn-my-publicaciones">';
+            $html .=            '<div class="col-lg-2 col-md-2 col-sm-4 col-4 text-center">';
+            $html .=                '<a href="'.$row_publicacion['ruta'].'" class="d-inline-block download-button">';
             $html .=                    $iconoPdf;
             $html .=                '</a>';
             $html .=            '</div>';
-            $html .=            '<div class="col-lg-1"></div>';
-            $html .=            '<div class="col-lg-4">';
-            $html .=                '<a href="'. $row_publicacion['linkLeer'] .'" class="publications-button bg-orange tx-white">Leer</a>';
+            $html .=            '<div class="col-lg-1 d-lg-block d-md-none col-sm-1 col-1 "></div>';
+            $html .=            '<div class="col-lg-4 col-md-10 col-sm-4 col-4">';
+
+            $href = "";
+
+            /*if ($nivel == "raiz") {
+                $href .= $row_publicacion['linkLeer'];
+            } else if ($nivel == "uno") {
+                $href .= '../'. $row_publicacion['linkLeer'];
+            } else if ($nivel == "dos") {
+                $href .= '../../'. $row_publicacion['linkLeer'];
+            } else if ($nivel == "tres") {
+                $href .= '../../../'. $row_publicacion['linkLeer'];
+            }*/
+
+            $html .=                '<a href="'.$row_publicacion['ruta'].'" target="_blank" class="btn-publicaciones">Leer</a>';
             $html .=            '</div>';
-            $html .=            '<div class="col-lg-5"></div>';
+            $html .=            '<div class="col-lg-5 d-lg-block d-md-none col-sm-5 col-5"></div>';
             $html .=        '</div>';
             $html .=    '</div>';
             $html .= '</div>';

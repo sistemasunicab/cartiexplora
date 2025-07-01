@@ -1,52 +1,42 @@
 <?php
-$numero_de_sentencia_nosotros = "45";
-$res_sentencia_nosotros = $mysqli1->query($sentencia . $numero_de_sentencia_nosotros);
-while ($row_sentencia_nosotros = $res_sentencia_nosotros->fetch_assoc()) {
-    $condiciones_nosotros = str_replace('|', '\'', $row_sentencia_nosotros['condiciones']);
-    $sql_datos_nosotros = $row_sentencia_nosotros['campos'] . $row_sentencia_nosotros['tablas'] . $condiciones_nosotros;
-}
+// 1) Comprobamos si hay filas para la sección “Sobre Nosotros” (sentencia 45)
+$rowsCheck = obtenerFilas($mysqli1, $sentencia, 45);
 
-$res_datos_nosotros = $mysqli1->query($sql_datos_nosotros);
+$html_nosotrosImgUno = '';
+if (!empty($rowsCheck)) {
+    $html_nosotrosImgUno .= '
+        <div class="bg-light-gray-o26 space-between-about p-0 d-flex justify-content-center align-items-center">
+            <div class="col-12 col-md-8 col-lg-12 p-0 d-flex flex-wrap flex-lg-nowrap justify-content-between align-items-center my-ws my-lg-0">';
+            
+    // 2) Obtenemos las imágenes (sentencia 40)
+    $rowsImages = obtenerFilas($mysqli1, $sentencia, 40);
 
-if (mysqli_num_rows($res_datos_nosotros) > 0) {
-    $html_nosotrosImgUno = '<div class="space-between-about w-100 p-0 d-flex justify-content-center align-items-center">';
-    $html_nosotrosImgUno .= '<div class="d-flex w-100 justify-contetn-between align-items-center">';
+    // Definimos una única clase base que se aplica a cada <img>
+    $baseClass = 'img-fluid p-2 p-md-3 p-lg-0';
 
-    $numero_de_sentencia_nosotros = "40";
-    $res_sentencia_nosotros = $mysqli1->query($sentencia . $numero_de_sentencia_nosotros);
-    while ($row_sentencia_nosotros = $res_sentencia_nosotros->fetch_assoc()) {
-        $condiciones_nosotros = str_replace('|', '\'', $row_sentencia_nosotros['condiciones']);
-        $sql_datos_nosotros = $row_sentencia_nosotros['campos'] . $row_sentencia_nosotros['tablas'] . $condiciones_nosotros;
+    // 3) Recorremos cada fila y construimos el <img>
+    foreach ($rowsImages as $rowImg) {
+        $path_image = rutaPorNivel($rowImg['ruta']);
+        $altText    = $rowImg['textoAlterno'];
+
+        $html_nosotrosImgUno .= '
+                <div class="d-flex flex-column p-lg-0 col-lg-4 col-md-6 col-sm-6 col-6 mx-auto">
+                    <img 
+                        class="' . $baseClass . '" 
+                        src="'   . $path_image  . '" 
+                        alt="'   . $altText    . '"
+                    >
+                </div>';
     }
 
-    $res_datos_nosotros = $mysqli1->query($sql_datos_nosotros);
-
-    while ($row_datos_nosotros = $res_datos_nosotros->fetch_assoc()) {
-        $path = $row_datos_nosotros['ruta'];
-        $altern = $row_datos_nosotros['textoAlterno'];
-        $path_image = '';
-        if ($nivel == "raiz") {
-            $path_image = $path;
-        } else if ($nivel == "uno") {
-            $path_image = '../' . $path;
-        } else if ($nivel == "dos") {
-            $path_image = '../../' . $path;
-        } else if ($nivel == "tres") {
-            $path_image = '../../../' . $path;
-        }
-        $html_nosotrosImgUno .= '<img class="col-4 h-auto d-block" src="' . $path_image . '" alt="' . $altern . '">';
-    }
-
-    $html_nosotrosImgUno .= '</div>';
-    $html_nosotrosImgUno .= '</div>';
-
+    $html_nosotrosImgUno .= '
+            </div>
+        </div>';
 }
 ?>
 
-<div class="container-fluid m-0 p-0">
+<div class="container-fluid my-ws mx-0 p-0">
     <div class="row m-0 p-0">
-        <?php 
-            echo $html_nosotrosImgUno;
-        ?>
+        <?= $html_nosotrosImgUno ?>
     </div>
 </div>

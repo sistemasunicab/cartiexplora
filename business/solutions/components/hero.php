@@ -7,13 +7,16 @@
     //Obtener imagen
     $res_sentecia = $mysqli1->query($sentencia . "8");
     while ($row_sentencia = $res_sentecia->fetch_assoc()) {
-        $sql_imagen_hero = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
+        $sql_imagenes_hero = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
     }
     
-    $res_sentencia_imagen = $mysqli1->query($sql_imagen_hero);
+    $res_sentencia_imagenes = $mysqli1->query($sql_imagenes_hero);
 
-    while($row_imagen_hero = $res_sentencia_imagen->fetch_assoc()){
-        $imagen_hero = $row_imagen_hero['ruta'];
+    while($row_imagenes_hero = $res_sentencia_imagenes->fetch_assoc()){
+
+        // 0 -> Imagen escritorio - tableta horizontal
+        // 1 -> Imagen movil - tableta vertical
+        $imagenes_hero[] = $row_imagenes_hero;
     }
 
     //Obtener slogan
@@ -35,24 +38,46 @@
     }
     $res_seccion_hero = $mysqli1->query($sql_seccion_hero);
 
+    $imagenHorizontal = array_shift($imagenes_hero);
+    $imagenVertical = array_shift($imagenes_hero);
+
+    $imagenes = [
+        // Escritorio - Tableta Horizontal
+        [
+            'atributos' => ImageAttributeBuilder::buildAttributes($nivel, $imagenHorizontal['ruta'], $imagenHorizontal['descripcion']),
+            'clases'    => 'd-lg-inline d-md-inline d-sm-none d-none img-fluid w-100'
+        ],
+        //Movil - Tableta Vertical
+        [
+            'atributos' => ImageAttributeBuilder::buildAttributes($nivel, $imagenVertical['ruta'], $imagenVertical['descripcion']),
+            'clases'    => 'd-lg-none d-md-none d-sm-inline d-inline img-fluid w-100'
+        ]
+    ];
+
     while($row_datos_seccion = $res_seccion_hero->fetch_assoc()){
 
-        $html .= '<section class="row justify-content-center">';
-        $html .=    '<div class="col-lg-12">';
-        $html .=       '<img '.ImageAttributeBuilder::buildAttributes($nivel, $imagen_hero, 'hero-img').' class="img-fluid w-100">';
+        $html .= '<div class="w-100">';
+
+        foreach ($imagenes as $img) {
+            $html .= '<img ' . $img['atributos'] . ' class="' . $img['clases'] . '">';
+        }
+
+        $html .= '</div>';
+        $html .= '<section class="container">';
+        $html .=    '<div class="row justify-content-center">';
+        $html .=       '<div class="col-lg-7 col-md-8 col-sm-10 col-11 hero-card">';
+        $html .=          '<h2 class="font-roboto-light-title">'.$row_datos_seccion['titulo'].'</h2>';
+        $html .=       '</div>'; 
         $html .=    '</div>';
-        $html .=    '<div class="col-lg-6 hero-card">';
-        $html .=       '<h2 class="font-roboto-light-title">'.$row_datos_seccion['titulo'].'</h2>';
-        $html .=    '</div>'; 
         $html .= '</section>';
         $html .= '<section class="container my-4">' ;
         $html .=    '<div class="row">';
-        $html .=        '<div class="col-lg-12">';
+        $html .=        '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
         $html .=            '<p class="text-center font-roboto">' ; 
         $html .=                $row_datos_seccion['texto'] ; 
         $html .=            '</p>'; 
         $html .=        '</div>';
-        $html .=        '<div class="col-lg-12">';
+        $html .=        '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
         $html .=            '<p class="text-center font-roboto-italic tx-orange">'; 
         $html .=                $slogan ; 
         $html .=            '</p>' ; 

@@ -6,7 +6,7 @@
 <html lang="en">
 <?php
     $nivel = "tres";
-    $page_title = "Sobre Nosotros";
+    $page_title = "Estados financieros";
     include('../../../components/headMain.php');
 ?>
 <body>
@@ -15,7 +15,7 @@
         $nivel = "tres";
         include('../../../components/navBar.php');
         include('../components/estadosFinancieros/estadosFinancieros.php');
-        include('../components/estadosFinancieros/certificacionesYPapeles.php');
+        //include('../components/estadosFinancieros/certificacionesYPapeles.php');
         include('../../../components/footer.php');
         include('../../../components/bookstoresMain.php');
     ?>

@@ -4,10 +4,12 @@
 
      function generarItem($rutaIcono, $texto, $posicionTexto) {
           $item = '
-               <div class="col-lg-4 modelo-item '.FlexTitleLoader::setDirection($posicionTexto).'"> <!-- Item -->
-                    <img src="../../../../cartiexplora/'.$rutaIcono.'" alt="" class="mb-5">
-                    <p class="lh-1 font-roboto-black tx-blue">'.$texto.'</p>
+               <div class="col-md-1 d-lg-none d-md-block"></div>
+               <div class="col-lg-4 col-md-10 d-flex '.FlexTitleLoader::setDirection($posicionTexto).' align-items-center align-items-lg-start nuestroModelo-item"> <!-- Item -->
+                    <img src="../../../../cartiexplora/'.$rutaIcono.'" alt="" class="mb-5 nuestroModelo-icon">
+                    <p class="lh-1 nuestroModelo-item-p">'.$texto.'</p>
                </div> <!-- Item End -->
+               <div class="col-md-1 d-lg-none d-md-block"></div>
           ';
 
           return $item;
@@ -38,11 +40,11 @@
           $subtitulo = substr($row_datos_seccion['subTitulo'], strpos($row_datos_seccion['subTitulo'], " ") + 1);
 
           $html .= '
-               <main class="container margin-top-5rem mb-5">
+               <main class="container nuestroModelo-section">
                     <div class="row">
-                         <div class="col-lg-12">
-                              <h2 class="text-center text-lg-start margin-bottom-2rem tx-orange font-roboto-black">'.$row_datos_seccion['titulo'].'</h2>
-                              <h1 class="text-center text-lg-start margin-bottom-2rem tx-blue font-roboto-light"> <span class="font-roboto-black">'.$titulo.'</span> <br> '.$subtitulo.' </h1>
+                         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                              <h2 class="nuestroModelo-title tx-orange font-roboto-black">'.$row_datos_seccion['titulo'].'</h2>
+                              <h2 class="nuestroModelo-secondTitle tx-blue font-roboto-light"> <span class="font-roboto-black">'.$titulo.'</span> <br> '.$subtitulo.' </h2>
                          </div>
                     </div>
           ';
@@ -62,24 +64,40 @@
     }
 
     if ($html != '') {
-          $html .= '
-                    <div class="row '.FlexTitleLoader::setDirection($imagenes[0][2]).'">
-                         <div class="col-lg-6 nuestro-modelo-img">
-                              <img class="img-fluid w-100" src="../../../../cartiexplora/'.$imagenes[0][0].'" alt="">
+          $modeloImg = array_shift($imagenes);
+
+          /*$html .= '
+                    <div class="row '.FlexTitleLoader::setDirection($modeloImg[2]).'">
+                         <div class="col-lg-5 col-md-5 col-sm-12 col-12 align-items-center">
+                              <img class="img-fluid w-100 box-shadow-2rem" src="../../../../cartiexplora/'.$modeloImg[0].'" alt="">
                          </div>
 
-                         <div class="col-lg-6">
-                              <p class="special-paragraph">'.$descripcion.'</p>
+                         <div class="col-lg-7 col-md-7 col-sm-12 col-12 order-lg-last order-first">
+                              <p class="nuestroModelo-p mb-3">'.$descripcion.'</p>
                          </div>
                     </div>
                </main>
 
-               <section class="margin-top-5rem mb-5 bg-light-gray-o26">
+               <section class="nuestroModelo-secondSection bg-light-gray-o26">
                     <div class="container">
-                         <div class="row justify-content-center align-items-center m-0">
-          ';
+                         <div class="row py-5">
+          ';*/
+          $html .= '
+                    <div class="row">                         
+                         <div class="col-lg-7 col-md-7 col-sm-12 col-12">
+                              <p class="nuestroModelo-p mb-3">'.$descripcion.'</p>
+                         </div>
+                         <div class="col-lg-5 col-md-5 col-sm-12 col-12 align-items-center">
+                              <img class="img-fluid w-100 box-shadow-2rem" src="../../../../cartiexplora/'.$modeloImg[0].'" alt="">
+                         </div>
 
-          unset($imagenes[0]);
+                    </div>
+               </main>
+
+               <section class="nuestroModelo-secondSection bg-light-gray-o26">
+                    <div class="container">
+                         <div class="row py-5">
+          ';
 
           foreach ($imagenes as $datos) {
                $html .= generarItem($datos[0], $datos[1], $datos[2]);

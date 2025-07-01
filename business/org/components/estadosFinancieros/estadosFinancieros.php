@@ -1,37 +1,91 @@
 <?php
-$numero_de_estados_financieros = "73";
-$res_estados_financieros = $mysqli1->query($sentencia . $numero_de_estados_financieros);
-while ($row_estados_financieros = $res_estados_financieros->fetch_assoc()) {
-    $condiciones_estados_financieros = str_replace('|', '\'', $row_estados_financieros['condiciones']);
-    $sql_datos_estados_financieros = $row_estados_financieros['campos'] . $row_estados_financieros['tablas'] . $condiciones_estados_financieros;
+$numero_de_estados_financieros = 78;
+$sentencia_formulario = 136;
+$number_sentence_image = 103;
+
+// Obtener datos de estados financieros
+$datos_estados_financieros = obtenerFilas($mysqli1, $sentencia, $numero_de_estados_financieros);
+
+// Obtener campos del formulario
+$campos_formulario = obtenerFilas($mysqli1, $sentencia, $sentencia_formulario);
+
+// Obtener imagen del botón
+$imagenes = obtenerFilas($mysqli1, $sentencia, $number_sentence_image);
+$imagen_boton = $imagenes[0] ?? null;
+$image_path = '';
+if ($imagen_boton) {
+    $ruta = $imagen_boton['ruta'];
+    $image_path = rutaPorNivel($ruta);
+    $alt = $imagen_boton['textoAlterno'] ?? 'Imagen';
 }
 
-$res_datos_estados_financieros = $mysqli1->query($sql_datos_estados_financieros);
+// Construcción del HTML
+foreach ($datos_estados_financieros as $row_datos_estados_financieros) {
+    $html_row_one = '<div class="row p-0 m-0">';
+    $html_row_one .= '<div class="col-lg-1 col-md-1 col-sm-1 col-1 p-0"></div>';
+    $html_row_one .= '<div class="col-lg-10 col-md-7 col-sm-7 col-7 p-0">';
+    $html_row_one .= '<h3-financieros class="tx-blue font-roboto-light-title">' . $row_datos_estados_financieros['titulo'] . '</h3-financieros>';
+    $html_row_one .= '</div>';
+    $html_row_one .= '<div class="col-lg-1 col-md-4 col-sm-4 col-4 p-0"></div>';
+    $html_row_one .= '</div>';
 
-while ($row_datos_estados_financieros = $res_datos_estados_financieros->fetch_assoc()) {
-    $html_estados_financieros = '<div class="col-9 my-5 p-0 mx-auto d-flex flex-column">';
-    $html_estados_financieros .= '<h3 class="tx-blue font-roboto-light-title">' . $row_datos_estados_financieros['titulo'] . '</h3>';
-    $html_estados_financieros .= '<div class="btn-financiero col-3 d-flex flex-row bg-blue p-0 m-0 my-5">
-                                <div class="bg-orange m-0 p-0 col-2" style="height:100%;"></div>
-                                <p class="special-paragraph py-1 col-10 font-roboto-italic tx-white text-center my-1">Solicitar información</p></div> ';
-    $html_estados_financieros .= '<div class="form-financial col-12 p-0 mx-auto d-flex flex-column">';
-    $html_estados_financieros .= '<input type="text" class="text-center font-roboto-bolditalic col-6 mx-auto my-2" placeholder="Usuario email">';
-    $html_estados_financieros .= '<input type="password" class="text-center font-roboto-bolditalic col-6 mx-auto my-2" placeholder="Password">';
-    $html_estados_financieros .= '<button class="btn p-2 bg-orange col-2 mx-auto d-flex flex-row align-items-center justify-content-center mt-3">';
-    $html_estados_financieros .= '<p class="special-paragraph font-roboto-medium tx-white m-0 mx-2">Solicitar</p>';
-    $html_estados_financieros .= '<span class="icono-envio">✈️</span>';
-    $html_estados_financieros .= '</button>';
-    $html_estados_financieros .= '</div>';
+    $html_row_two = '<div class="row p-0 mx-0 my-5">';
+    $html_row_two .= '<div class="col-lg-1 col-md-0 col-sm-0 col-0 p-0"></div>';
+    $html_row_two .= '<div class="btn-financiero d-flex flex-row col-lg-3 col-md-12 col-sm-12 col-12 p-0">';
+    $html_row_two .= '<div class="col-2 p-0 m-0 bg-orange"></div>';
+    $html_row_two .= '<p class="p-3 font-roboto-bolditalic tx-white m-0 p-0">Solicitar información</p>';
+    $html_row_two .= '</div>';
+    $html_row_two .= '<div class="col-lg-8 col-md-0 col-sm-0 col-0 p-0"></div>';
+    $html_row_two .= '</div>';
 
-    $html_estados_financieros .= '</div>';
+    $html_row_three = '<div class="row p-0 m-0">';
+    $html_row_three .= '<form id="form_info" class="form-financial p-0" action="../ajax/login_estados1.php" method="POST">';
+    $campo_final = $campos_formulario[count($campos_formulario) - 1];
+    for ($i = 0; $i < count($campos_formulario) - 1; $i++) {
+        $campo = $campos_formulario[$i];
+        $type = ($campo['texto'] === 'contraseña') ? 'password' : 'text';
+        $is_last_field = $i < count($campos_formulario) - 1;
+        $html_row_three .= '<div class="row mx-0 ' . ($is_last_field ? "mb-4" : "") . '">';
+        $html_row_three .= '<div class="col-lg-4 col-md-3 col-sm-1 col-1 p-0"></div>';
+        $html_row_three .= '<div class="col-lg-4 col-md-6 col-sm-10 col-10 p-0 font-roboto-bolditalic">';
+        $html_row_three .= '
+        <input
+            onkeyup="validarCampo(this,\'' . $campo['texto'] . '\', \'' . $campo['tipo'] . '\', 1, \'' . $campo_final['campo'] . '\')"
+            ' . $campo['obligatorio'] . '
+            id="' . $campo['campo'] . '"
+            name="' . $campo['texto'] . '"
+            type="' . $type . '"
+            class="form-control text-center"
+            placeholder="' . $campo['placeHolder'] . '"
+        >';
+        $html_row_three .= '</div>';
+        $html_row_three .= '<div class="col-lg-4 col-md-3 col-sm-1 col-1 p-0"></div>';
+        $html_row_three .= '</div>';
+    }
 
+    $html_row_three .= '<div class="row p-0 m-0">';
+    $html_row_three .= '<div class="col-lg-5 col-md-5 col-sm-4 col-4 p-0"></div>';
+    $html_row_three .= '<div class="col-lg-2 col-md-2 col-sm-4 col-4 p-0 d-flex">';
+    $html_row_three .= '<button id="' . $campo_final['campo'] . '" type="submit" class="form-control btn-submit-financial btn mx-auto px-lg-4 px-md-3 px-sm-3 px-3">';
+    $html_row_three .= '<p class="font-roboto-medium tx-white m-0 p-0">' . $campo_final['texto'] . '</p>';
+    $html_row_three .= '<img src="' . $image_path . '" alt="Solicitar" width="30px">';
+    $html_row_three .= '</button>';
+    $html_row_three .= '</div>';
+    $html_row_three .= '<div class="col-lg-5 col-md-5 col-sm-4 col-4 p-0"></div>';
+    $html_row_three .= '</div>';
+    $html_row_three .= '</form>';
+    $html_row_three .= '</div>';
+
+    $html_estados_financieros = $html_row_one;
+    $html_estados_financieros .= $html_row_two;
+    $html_estados_financieros .= $html_row_three;
+    
+    $html_estados_financieros .= '<div id="alert" style="margin-left: .5rem;">
+        <p-financieros><i class="fa fa-warning"></i><span>: </span><label id="pdesc"></label>
+        <input type="text" class="alert" style="width: 20px; border: none; background: transparent; color: transparent" id="txtvacio" value="0"></p-financieros>
+    </div>';
 }
 ?>
-
-<div class="container-fluid m-0 p-0">
-    <div class="row m-0 p-0">
-        <?php
-        echo $html_estados_financieros;
-        ?>
-    </div>
+<div class="container-fluid my-ws mx-0 p-0">
+    <?php echo $html_estados_financieros; ?>
 </div>

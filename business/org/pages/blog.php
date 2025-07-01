@@ -7,7 +7,7 @@
 <html lang="en">
 <?php 
     $nivel = "tres";
-    $page_title = "Blog UNICAB";
+    $page_title = "Compartiendo Logros UNICAB";
     include('../../../components/headMain.php');
 ?>
 <body>

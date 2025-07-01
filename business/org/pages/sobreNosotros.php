@@ -8,6 +8,7 @@
     $nivel = "tres";
     $page_title = "Sobre Nosotros";
     include('../../../components/headMain.php');
+    require_once __DIR__ . '/../../../components/auxiliares.php'; 
 ?>
 <body>
     

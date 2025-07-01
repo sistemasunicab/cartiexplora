@@ -42,14 +42,14 @@
                             if ($row_sentencia['condicionesAgrupaciones'] != "") {
                                 //Se valida si tiene ordenamientos
                                 if ($row_sentencia['ordenamientos'] != "") {
-                                    $sql_datos = $row_sentencia['campos']
+                                    $sql_datos = str_replace('|', '\'', $row_sentencia['campos'])
                                     .$row_sentencia['joinTablas']
                                     .str_replace('|', '\'', $row_sentencia['condiciones'])
                                     .$row_sentencia['agrupaciones']
                                     .$row_sentencia['condicionesAgrupaciones']
                                     .$row_sentencia['ordenamientos'];
                                 } else {
-                                    $sql_datos = $row_sentencia['campos']
+                                    $sql_datos = str_replace('|', '\'', $row_sentencia['campos'])
                                     .$row_sentencia['joinTablas']
                                     .str_replace('|', '\'', $row_sentencia['condiciones'])
                                     .$row_sentencia['agrupaciones']
@@ -58,25 +58,25 @@
                             } else {
                                 //Se valida si tiene ordenamientos
                                 if ($row_sentencia['ordenamientos'] != "") {
-                                    $sql_datos = $row_sentencia['campos']
+                                    $sql_datos = str_replace('|', '\'', $row_sentencia['campos'])
                                     .$row_sentencia['joinTablas']
                                     .str_replace('|', '\'', $row_sentencia['condiciones'])
                                     .$row_sentencia['agrupaciones']
                                     .$row_sentencia['ordenamientos'];
                                 } else {
-                                    $sql_datos = $row_sentencia['campos']
+                                    $sql_datos = str_replace('|', '\'', $row_sentencia['campos'])
                                     .$row_sentencia['joinTablas']
                                     .str_replace('|', '\'', $row_sentencia['condiciones'])
                                     .$row_sentencia['agrupaciones'];
                                 }
                             }
                         } else if ($row_sentencia['ordenamientos'] != "") { //Se valida si tiene ordenamientos
-                            $sql_datos = $row_sentencia['campos']
+                            $sql_datos = str_replace('|', '\'', $row_sentencia['campos'])
                             .$row_sentencia['joinTablas']
                             .str_replace('|', '\'', $row_sentencia['condiciones'])
                             .$row_sentencia['ordenamientos'];
                         } else {
-                            $sql_datos = $row_sentencia['campos']
+                            $sql_datos = str_replace('|', '\'', $row_sentencia['campos'])
                             .$row_sentencia['joinTablas']
                             .str_replace('|', '\'', $row_sentencia['condiciones']);
                         }
@@ -87,14 +87,14 @@
                             if ($row_sentencia['condicionesAgrupaciones'] != "") {
                                 //Se valida si tiene ordenamientos
                                 if ($row_sentencia['ordenamientos'] != "") {
-                                    $sql_datos = $row_sentencia['campos']
+                                    $sql_datos = str_replace('|', '\'', $row_sentencia['campos'])
                                     .str_replace('|', '\'', $row_sentencia['tablas'])
                                     .str_replace('|', '\'', $row_sentencia['condiciones'])
                                     .$row_sentencia['agrupaciones']
                                     .$row_sentencia['condicionesAgrupaciones']
                                     .$row_sentencia['ordenamientos'];
                                 } else {
-                                    $sql_datos = $row_sentencia['campos']
+                                    $sql_datos = str_replace('|', '\'', $row_sentencia['campos'])
                                     .str_replace('|', '\'', $row_sentencia['tablas'])
                                     .str_replace('|', '\'', $row_sentencia['condiciones'])
                                     .$row_sentencia['agrupaciones']
@@ -103,25 +103,25 @@
                             } else {
                                 //Se valida si tiene ordenamientos
                                 if ($row_sentencia['ordenamientos'] != "") {
-                                    $sql_datos = $row_sentencia['campos']
+                                    $sql_datos = str_replace('|', '\'', $row_sentencia['campos'])
                                     .str_replace('|', '\'', $row_sentencia['tablas'])
                                     .str_replace('|', '\'', $row_sentencia['condiciones'])
                                     .$row_sentencia['agrupaciones']
                                     .$row_sentencia['ordenamientos'];
                                 } else {
-                                    $sql_datos = $row_sentencia['campos']
+                                    $sql_datos = str_replace('|', '\'', $row_sentencia['campos'])
                                     .str_replace('|', '\'', $row_sentencia['tablas'])
                                     .str_replace('|', '\'', $row_sentencia['condiciones'])
                                     .$row_sentencia['agrupaciones'];
                                 }
                             }
                         } else if ($row_sentencia['ordenamientos'] != "") { //Se valida si tiene ordenamientos
-                            $sql_datos = $row_sentencia['campos']
+                            $sql_datos = str_replace('|', '\'', $row_sentencia['campos'])
                             .str_replace('|', '\'', $row_sentencia['tablas'])
                             .str_replace('|', '\'', $row_sentencia['condiciones'])
                             .$row_sentencia['ordenamientos'];
                         } else {
-                            $sql_datos = $row_sentencia['campos']
+                            $sql_datos = str_replace('|', '\'', $row_sentencia['campos'])
                             .str_replace('|', '\'', $row_sentencia['tablas'])
                             .str_replace('|', '\'', $row_sentencia['condiciones']);
                         }
