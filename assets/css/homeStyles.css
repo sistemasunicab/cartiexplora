@@ -4370,6 +4370,13 @@ input[type="text"], .select, textarea {
         line-height: 1.2;
     }
 
+    .logros-post-img {
+        margin-bottom: 2rem;
+        width: 100%;
+        object-fit: contain;
+        height: auto;
+    }
+
     #comentariosCampos {
         border: 2px solid var(--green);
         border-radius: 0 0 0.50rem 0.50rem;
@@ -6386,6 +6393,13 @@ input[type="text"], .select, textarea {
         letter-spacing: 0;
         line-height: 1.1;
         font-family: var(--roboto-regular);
+    }
+
+    .logros-post-img {
+        margin-bottom: 2rem;
+        width: 100%;
+        object-fit: contain;
+        height: auto;
     }
 
     #comentariosCampos {

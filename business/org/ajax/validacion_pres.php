@@ -1,6 +1,6 @@
 <?php
 	//require("registro/docenteunicab/updreg/1cc3s4db.php");
-	//http://localhost:90/cartiexplora/business/org/ajax/validacion_pres.php?documento=1076742600
+	//http://localhost:90/cartiexplora/business/org/ajax/validacion_pres.php?documento=1099213997
 	
 	include('../../../clases/GenerateQuery.php');
 
