@@ -28,18 +28,21 @@
     $fanio=date("Y");
 
     //Se consulta el grado del documento
-    /*$sql = "SELECT e.*, g.grado 
-    FROM estudiantes_eval_admision e, grados g 
-    WHERE e.id_grado = g.id AND e.n_documento = '$documento'";*/
-    $sentenciaFinal = $sentencia2."'nombre y grado presaberes'";
+    /*$sql = "SELECT e.id, e.nombres, e.apellidos, m.id_grado, g.grado 
+    FROM estudiantes e, matricula m, grados g 
+    WHERE e.id = m.id_estudiante AND m.id_grado = g.id AND e.n_documento = '$documento' AND m.estado IN ('solicitud', 'activo') AND m.n_matricula like '%$fanio%'";*/
+    $sentenciaFinal = $sentencia2."'grado documento'";
 	$valores = [
-		'_documento*' => $documento
+		'_documento*' => $documento,
+		'_estado*' => 'solicitud',
+		'_estado1*' => 'activo',
+		'_a*' => '\'%'.$fanio.'%\'',
 	];
 	$sql = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
 	
 	$peticion = $mysqli2->query($sql);
 	while($row_pet = $peticion->fetch_assoc()) {
-	    $nombre_completo = $row_pet['nombre'];
+	    $nombre_completo = $row_pet['nombres']." ".$row_pet['apellidos'];
 	    $grado = $row_pet['grado'];
 	}
 

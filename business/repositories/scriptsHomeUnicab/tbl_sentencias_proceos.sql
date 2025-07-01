@@ -134,6 +134,10 @@ INSERT INTO tbl_sentencias_procesos (nombre, utilizaJoin, campos, tablas, joinTa
 ('autorizados para estados financieros', 'NO', 'SELECT * ', 'FROM tbl_empleados ', '', 'WHERE email = |_usuario*| AND n_documento = |_pass*| AND estado = |_estado*| ', '', '', '', '', '')
 ;
 
+INSERT INTO tbl_sentencias_procesos (nombre, utilizaJoin, campos, tablas, joinTablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
+('grado documento', 'NO', 'SELECT e.id, e.nombres, e.apellidos, m.id_grado, g.grado ', 'estudiantes e, matricula m, grados g ', '', 'WHERE e.id = m.id_estudiante AND m.id_grado = g.id AND e.n_documento = |_documento*| AND m.estado IN (|_estado*|, |_estado1*|) AND m.n_matricula like _a* ', '', '', '', '', '')
+;
+
 
 
 
