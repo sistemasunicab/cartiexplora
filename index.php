@@ -9,6 +9,7 @@
 <?php 
     $nivel = "raiz";
     $page_title = "Home UNICAB";
+    include('components/bookstoresMain.php');
     include('components/headMain.php');
 ?>
 <body>
@@ -25,8 +26,7 @@
         include('components/meetcampus.php');
         include('components/linksZone.php');
         include('components/conectadosBlog.php');
-        include('components/footer.php');
-        include('components/bookstoresMain.php');
+        include('components/footer.php');        
     ?>  
 <body>
     

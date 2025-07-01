@@ -1,5 +1,7 @@
 <?php
     if ($nivel == "raiz") {
+        //<!-- Jquery JS  -->
+        echo '<script src="assets/bookstores/jquery-3.7.1.min.js"></script>';
         //<!-- BOOTSTRAP JS -->
         echo '<script src="assets/bookstores/bootstrap/js/bootstrap.bundle.js"></script>';
         //<!-- FONTAWESOME JS -->
@@ -14,6 +16,8 @@
         echo '<script type="text/javascript" src="assets/bookstores/smartmenus/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.js"></script>';
     }
     else if ($nivel == "uno") {
+        //<!-- Jquery JS  -->
+        echo '<script src="../assets/bookstores/jquery-3.7.1.min.js"></script>';
         //<!-- BOOTSTRAP JS -->
         echo '<script src="../assets/bookstores/bootstrap/js/bootstrap.bundle.js"></script>';
         //<!-- FONTAWESOME JS -->
@@ -28,6 +32,8 @@
         echo '<script type="text/javascript" src="../assets/bookstores/smartmenus/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.js"></script>';
     }        
     else if ($nivel == "dos") {
+        //<!-- Jquery JS  -->
+        echo '<script src="../../assets/bookstores/jquery-3.7.1.min.js"></script>';
         //<!-- BOOTSTRAP JS -->
         echo '<script src="../../assets/bookstores/bootstrap/js/bootstrap.bundle.js"></script>';
         //<!-- FONTAWESOME JS -->
@@ -42,6 +48,8 @@
         echo '<script type="text/javascript" src="../../assets/bookstores/smartmenus/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.js"></script>';
     }        
     else if ($nivel == "tres") {
+        //<!-- Jquery JS  -->
+        echo '<script src="../../../assets/bookstores/jquery-3.7.1.min.js"></script>';
         //<!-- BOOTSTRAP JS -->
         echo '<script src="../../../assets/bookstores/bootstrap/js/bootstrap.bundle.js"></script>';
         //<!-- FONTAWESOME JS -->

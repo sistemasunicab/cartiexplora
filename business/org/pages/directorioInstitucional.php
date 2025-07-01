@@ -15,7 +15,8 @@
     <?php 
         $nivel = "tres";
         include('../../../components/navBar.php');
-        include('../components/institutionalDirectory/directory.php'); 
+        include('../components/institutionalDirectory/directory.php');
+        //include('../components/institutionalDirectory/directory_old.php');
         include('../../../components/footer.php');
         include('../../../components/bookstoresMain.php');
     ?>

@@ -7,7 +7,7 @@
      $mesLetra=date("M");
      $fanio=date("Y");
 
-     function formatearIndicador($numero) {
+     /*function formatearIndicador($numero) {
          // A partir de 1millón se añade "M" de sufijo
          if ($numero >= 1_000_000) {
              $reducido = $numero / 1_000_000;
@@ -45,7 +45,7 @@
          }
 
          return $formato . $sufijo;
-     }
+     }*/
 
      function crearIndicador($datos, $posicion, $valor){
           $indicator = '
@@ -54,7 +54,7 @@
                               <img src="'.$datos[0].'">
 
                               <div class="indicator-data">
-                                   <h3 class="lh-1 m-0">'.formatearIndicador($valor).'</h3>
+                                   <h3 class="lh-1 m-0">'.$valor.'</h3>
                                    <p>'.$datos[1].'</p>
                               </div>
                          </div>
