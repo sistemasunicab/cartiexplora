@@ -17,7 +17,7 @@ CREATE TABLE tbl_eventos (
 
 INSERT INTO tbl_eventos (nombre, descripcion, fechaPublicacion, fecha, hora, id_administrador, estado, tipo)  
 VALUES ('Cierre primer periodo', 'Envío oportuno de actividades 20 de marzo', CURDATE(), '2025-04-04', '18:00', 18, 0, 'comienzo'),
-VALUES ('Cierre segundo periodo', 'Envío oportuno de actividades 23 de mayo', CURDATE(), '2025-06-08', '18:00', 18, 0, 'comienzo'),
-VALUES ('Cierre tercer periodo', 'Envío oportuno de actividades 8 de agosto', CURDATE(), '2025-08-22', '18:00', 18, 1, 'comienzo'),
-VALUES ('Cierre cuarto periodo', 'Envío oportuno de actividades 31 de octubre', CURDATE(), '2025-11-14', '18:00', 18, 1, 'comienzo')
+('Cierre segundo periodo', 'Envío oportuno de actividades 23 de mayo', CURDATE(), '2025-06-08', '18:00', 18, 0, 'comienzo'),
+('Cierre tercer periodo', 'Envío oportuno de actividades 8 de agosto', CURDATE(), '2025-08-22', '18:00', 18, 1, 'comienzo'),
+('Cierre cuarto periodo', 'Envío oportuno de actividades 31 de octubre', CURDATE(), '2025-11-14', '18:00', 18, 1, 'comienzo')
 ;
