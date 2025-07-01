@@ -16,7 +16,7 @@
         <div class="col-lg-4 col-md-8 col-sm-10 col-10 '.$posicion.' historia-ecosistema-card">
             <div>
                 <div class="d-flex '.FlexTitleLoader::setDirection($direccionTitulo).'">
-                    <img src="../../../../cartiexplora/'.$rutaImagen.'" alt="" class="img-fluid w-75 historia-ecosistema-logo">
+                    <img src="../../../'.$rutaImagen.'" alt="" class="img-fluid w-75 historia-ecosistema-logo">
                     <h4 class="tx-orange historia-ecosistema-title">'.$titulo.'</h4>
                 </div>
 

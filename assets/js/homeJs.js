@@ -1208,6 +1208,14 @@ $(document).ready(function() {
         }
     });
 
+    $('#searchbar-blog').on('focus', function() {
+        $("#search-results").removeClass("d-none");   
+    });
+
+    $('#searchbar-blog').on('blur', function() {
+        $("#search-results").addClass("d-none");   
+    });
+
     const textoBusqueda = $('#titulo-busqueda').text()
     $(document).on("click", '[data-see-more-blogs]', function(e) {
         e.preventDefault();
