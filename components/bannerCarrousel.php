@@ -84,6 +84,7 @@
             $rutaTabletaHorizontal = añadirNivelARuta($nivel, $rows_items[$i]['rutaTabletaHorizontal']);
             $rutaMovil = añadirNivelARuta($nivel, $rows_items[$i]['rutaMovil']);
 
+            $elemento .=    '<div class="d-flex align-items-center justify-content-center w-100 h-100">';
             $elemento .=        '<video class="video-mobile" autoplay muted loop playsinline>';
             $elemento .=           '<source '.$rutaMovil.' type="video/mp4">';
             $elemento .=        '</video>';
@@ -93,6 +94,7 @@
             $elemento .=        '<video class="video-desktop" autoplay muted loop playsinline>';
             $elemento .=           '<source '. $rutaEscritorio .' type="video/mp4">';
             $elemento .=        '</video>';
+            $elemento .=    '</div>';
 
         } else if($rows_items[$i]['tipo'] === 'imagen'){
 

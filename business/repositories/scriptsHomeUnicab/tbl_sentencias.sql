@@ -171,10 +171,10 @@ INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones
 ('NO','','SELECT * ','FROM tbl_imagenes ','WHERE id_seccion = 40 ','','','','','');
 
 INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
-('NO','','SELECT * ','FROM tbl_circulares','','','','','',''); 
+('NO','','SELECT * ','FROM tbl_circulares ','WHERE id_seccion = 40 ','','','','',''); 
 
 INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
-('NO', '', 'SELECT * ', 'FROM tbl_enlaces ', 'WHERE id_seccion = 7 ', '', '', '', '', '');
+('NO', '', 'SELECT * ', 'FROM tbl_enlaces ', 'WHERE id_seccion = 7 AND visible = 1 ', '', '', '', '', '');
 
 INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
 ('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 37 ', '', '', '', '', '');
@@ -212,12 +212,33 @@ INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones
 ('NO', '', 'SELECT * ', 'FROM tbl_textos ', 'WHERE id_seccion = 46', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_formularios ', 'WHERE id_seccion = 8', '', '', '', '', ''),
 ('NO', '', '', 'INSERT INTO tbl_registrados_newsletter ', '', '', '', '', '', '(correo) VALUES (?) '),
-('NO', '', 'SELECT * ', 'FROM tbl_blogs ', 'WHERE LOWER(descripcionPrincipal) LIKE |?| OR LOWER(titulo) LIKE |?| LIMIT 5', '', '', '', '', ''),
+('NO', '', 'SELECT * ', 'FROM tbl_blogs ', 'WHERE LOWER(descripcionPrincipal) LIKE |?| OR LOWER(titulo) LIKE |?| OR LOWER(descripcionSecundaria) LIKE |?| LIMIT 5 ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 47 AND visible = 1 ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 48 AND visible = 1 ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_textos ', 'WHERE id_seccion = 47', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 47', '', '', '', '', ''),
 ('NO', '', 'SELECT 1 ', 'FROM tbl_registrados_newsletter ', 'WHERE correo = ? LIMIT 1 ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_enlaces ', 'WHERE id_seccion = 47', '', '', '', '', ''),
-('NO', '', 'SELECT * ', 'FROM tbl_blogs ', 'WHERE LOWER(descripcionPrincipal) LIKE |?| OR LOWER(titulo) LIKE |?|', '', '', '', '', '')
+('NO', '', 'SELECT * ', 'FROM tbl_blogs ', 'WHERE LOWER(descripcionPrincipal) LIKE |?| OR LOWER(titulo) LIKE |?| OR LOWER(descripcionSecundaria) LIKE |?| ', '', '', '', '', '')
 ;
+
+INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES 
+('NO','','SELECT * ','FROM tbl_textos ','WHERE id_seccion = 38 ','','','','',''),
+('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 48 ', '', '', '', '', ''),
+('NO', '', 'SELECT * ', 'FROM tbl_enlaces ', 'WHERE id_seccion = 18 ', '', '', '', '', '')
+;
+
+INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
+('NO', '', 'SELECT * ', 'FROM tbl_imagenes ', 'WHERE id_seccion = 25 ', '', '', '', '', ''),
+('NO','','SELECT * ','FROM tbl_circulares ','WHERE id_seccion = 25 ','','','','','')
+;
+
+INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
+('NO', '', 'DELETE ', 'FROM tbl_registrados_newsletter ', 'WHERE id = |?| AND correo = |?|', '', '', '', '', ''),
+('NO','','SELECT * ','FROM tbl_textos ','WHERE id_seccion = 32 ','','','','',''),
+('NO','','SELECT * ','FROM tbl_parametros ','WHERE id_seccion = 31 ','','','','',''),
+('NO','','SELECT * ','FROM tbl_blogs ','WHERE idCategoria = ? ','','','','','')
+;
+
+UPDATE tbl_sentencias SET campos = 'SELECT * ' WHERE (`id` = '158');
+UPDATE tbl_sentencias SET condiciones = 'WHERE id = ? AND correo = ?' WHERE (`id` = '166');

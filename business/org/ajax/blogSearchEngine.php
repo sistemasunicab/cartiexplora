@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $valueFiltrado = '\'%' . strtolower($value) . '%\'';
 
     if ($verTodo == 'true') {
-          $res_sentecia = $mysqli1->query($sentencia . "161");
+          $res_sentecia = $mysqli1->query($sentencia . "160");//161
 
           while ($row_sentencia = $res_sentecia->fetch_assoc()) {
                $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|?|', $valueFiltrado, $row_sentencia['condiciones']);
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                <div class="col-lg-3 col-md-4 logros-noticias-separation mt-3 '.$position.'">
                     <div class="noticias-hover">
                          <div class="noticias-img-effect">
-                              <img src="../../../'.$row_datos['imagen'].'" class="noticias-img">
+                              <img src="'.$row_datos['imagen'].'" class="noticias-img">
                          </div>
                          <div class="noticias-container">
                               <div class="noticias-box d-flex flex-column justify-content-between">
@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($verTodo == 'false') {
 
           if (!empty($value)) {
-                $res_sentecia = $mysqli1->query($sentencia . "154");
+                $res_sentecia = $mysqli1->query($sentencia . "153");//154
 
                 while ($row_sentencia = $res_sentecia->fetch_assoc()) {
                      $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|?|', $valueFiltrado, $row_sentencia['condiciones']);

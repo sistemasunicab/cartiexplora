@@ -133,7 +133,7 @@
                          <div class="col-3">
                               <div class="form-group ghf">
                                    <button id="btnsiguiente" class="presaberes-boton" onclick="sig_pregunta();"> Siguiente <i class="fa fa-arrow-circle-right"></i></button>
-                                   <button id="btnfinalizar" class="presaberes-boton" onclick="finalizar();" style="display: none;"> Finalizar <i class="fa fa-arrow-circle-right"></i></button>
+                                   <button id="btnfinalizar" class="presaberes-boton" onclick="finalizar_sm();" style="display: none;"> Finalizar <i class="fa fa-arrow-circle-right"></i></button>
                               </div>
                          </div>
                          <div class="col-9">

@@ -73,12 +73,12 @@ INSERT INTO tbl_textos (id_seccion, paginaPadre, identificacion, texto ) VALUES
 (38, 'presaberes', 'paso', 'PASO1'),
 (38, 'presaberes', 'paso_indicacion', 'Informacion del estudiante'),
 (38, 'presaberes', 'paso_descripcion', 'Numero de documento de identidad del estudiante (sin puntos)'),
-(38, 'presaberes', 'indicacion', 'El propósito de ésta evaluación es validar los conocimientos mínimos requeridos.'),
-(38, 'presaberes', 'indicacion', 'Al concluir la evaluación, encontraras un <b class="font-roboto-bold">resumen del resultado y una puntuación en porcentaje.</b> Si esta puntuación <b class="font-roboto-bold">es superior al 80%</b> el estudiante aprueba la evaluación.'),
-(38, 'presaberes', 'indicacion', '<b class="font-roboto-bold">Cada pregunta tiene un sólo intento </b>. La evaluación consta de <b class="font-roboto-bold">90 preguntas.</b>'),
-(46, 'presaberes_principal', 'indicacion', 'Vas a encontrar preguntas de varios temas.'),
-(46, 'presaberes_principal', 'indicacion', 'Una vez más te recordamos que al concluir la evaluación, encontraras un <b class="font-roboto-bold">resumen del resultado y una puntuación en porcentaje</b>. Si esta puntuación <b class="font-roboto-bold">es superior al 80%</b> el estudiante aprueba la evaluación.'),
-(46, 'presaberes_principal', 'titulo', 'Bienvenido a esta evaluacion de conocimientos para el Grado: '),
+(38, 'presaberes', 'indicacion', 'El propósito de esta evaluación es ayudarte a identificar las falencias en los conceptos previos o presaberes, en los cuales debes investigar y profundizar para desarrollar las actividades de cada pensamiento.'),
+(38, 'presaberes', 'indicacion', 'Al concluir la evaluación encontrarás un <strong>resumen del resultado y una hoja de ruta sugerida,</strong> esta servirá para convertir tus falencias en fortalezas e integrarlas a los conocimientos requeridos para este grado.'),
+(38, 'presaberes', 'indicacion', '<strong>Cada pregunta tiene un solo intento,</strong> pero puedes pausar la evaluación y volver a ingresar para finalizarla.'),
+(46, 'presaberes_principal', 'indicacion', 'Vas a encontrar preguntas de varios pensamientos y varios conceptos.'),
+(46, 'presaberes_principal', 'indicacion', 'Todas las preguntas están relacionadas con contenidos y temas <strong>que son necesarios conocer</strong> para que puedas desarrollar todas las actividades de grado <strong>_grado*</strong>.'),
+(46, 'presaberes_principal', 'titulo', 'Bienvenido a la evaluación de presaberes'),
 (47, 'newsletter', '', 'Publicaciones educativas y reflexiones digitales'),
 (47, 'newsletter', '', 'Noticias y novedades institucionales'),
 (47, 'newsletter', '', 'Eventos, experiencias y celebraciones'),
@@ -89,3 +89,14 @@ INSERT INTO tbl_textos (id_seccion, paginaPadre, identificacion, texto ) VALUES
 (47, 'newsletter', '', 'Cancela tu suscripcion haciendo <a href="?" style="color:rgb(46, 136, 255);">click aqui.</a>'),
 (47, 'newsletter', '', '¡Gracias por suscribirte al blog Conectados de UNICAB!')
 ;
+
+INSERT INTO tbl_textos (id_seccion, paginaPadre, identificacion, texto ) VALUES 
+(38, 'presaberes', 'indicacion', 'La evaluación consta de <strong><label id="lblct_preg"></label> preguntas</strong> (o menos) no calificables cuantitativamente y <strong>no hay límite de tiempo.</strong>'),
+(46, 'presaberes_principal', 'indicacion', 'Una vez más te recordamos que al concluir la evaluación, encontraras un <strong>resumen del resultado y una hoja de ruta sugerida, </strong>para esta servirá para convertir tus falencias en fortalezas e integrarlas a los conocimientos requeridos para este grado.')
+;
+
+INSERT INTO tbl_textos (id_seccion, paginaPadre, identificacion, texto ) VALUES 
+(32, 'blog', 'verBlogs', 'Resultados de: '),
+(32, 'blog', 'categoriaSeleccionada', 'Noticias relacionadas a categoria: ')
+;
+

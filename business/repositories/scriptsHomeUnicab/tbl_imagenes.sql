@@ -44,8 +44,8 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, ruta
 (7, 'assets/img/calendario.png', '', '', '', 'calendario', 'Calendario académico', 'derecha', '', ''),
 (7, 'assets/img/entidades.png', '', '', '', 'entidades', 'Entidades que nos vigilan', 'derecha', '', ''),
 (7, 'assets/img/egresados.png', '', '', '', 'egresados', 'Egresados', 'derecha', '', ''),
-(7, 'assets/img/manual.png', '', '', '', 'manual', 'Manual de convivencia', 'derecha', '', ''),
-(7, 'assets/img/evidencias.png', '', '', '', 'evidencias', 'Evidencias de congresos y reconocimientos', 'derecha', '', ''),
+(0, 'assets/img/manual.png', '', '', '', 'manual', 'Manual de convivencia', 'derecha', '', ''),
+(0, 'assets/img/evidencias.png', '', '', '', 'evidencias', 'Evidencias de congresos y reconocimientos', 'derecha', '', ''),
 (7, 'assets/img/testimonios.png', '', '', '', 'testimonios', 'Testimonios', 'derecha', '', ''),
 (7, 'assets/img/biblioteca.png', '', '', '', 'biblioteca', 'Biblioteca', 'derecha', '', ''),
 (7, 'assets/img/atencion.png', '', '', '', 'atencion', 'Horarios de atención', 'derecha', '', ''),
@@ -170,10 +170,14 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, ruta
 (38, 'assets/img/IconoPresaberes.png', '', '', '', '', '', 'abajo', '', '');
 
 INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, rutaTabletaHorizontal, descripcion, titulo, posicionTitulo, rutaEncima, textoAlterno) VALUES 
-(39, 'assets/img/pagos/statement.png', '', '', '', 'statement-cion', 'Pago a través de MiPagoAmigo', '', '', ''),
-(39, 'assets/img/pagos/Banco_Caja_Social.png', '', '', '', 'banco caja social icono', '', '', '', ''),
-(39, 'assets/img/pagos/mipagoamigo.png', '', '', '', 'mipagoamigo icono', '', '', '', ''),
-(39, 'assets/img/pagos/operation.png', '', '', '', 'instructivo pago', 'Instructivo de pago', '', '', ''),
+(39, 'assets/img/pagos/statement.png', '', '', '', 'statement-cion', 'Pago a través de MiPagoAmigo', 'izquierda', '', ''),
+(39, 'assets/img/pagos/Banco_Caja_Social.png', '', '', '', 'banco caja social icono', '', '', '', '');
+
+INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, rutaTabletaHorizontal, descripcion, titulo, posicionTitulo, enlace, rutaEncima, textoAlterno) VALUES 
+(39, 'assets/img/pagos/mipagoamigo.png', '', '', '', 'mipagoamigo icono', '', 'https://www.mipagoamigo.com/MPA_WebSite/ServicePayments/StartPayment?id=3555&searchedCategoryId=&searchedAgreementName=UNICAB%20CORPORACION%20EDUCATIVA', '', '', '');
+(39, 'assets/img/pagos/operation.png', '', '', '', 'instructivo pago', 'Instructivo de pago', '', 'https://youtu.be/Q48MW92gABA', '', '');
+
+INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, rutaTabletaHorizontal, descripcion, titulo, posicionTitulo, rutaEncima, textoAlterno) VALUES 
 (39, 'assets/img/pagos/statement.png', '', '', '', 'statement-icon', 'Pago a través de ePayco', '', '', ''),
 (39, 'assets/img/pagos/epayco.png', '', '', '', 'epayco', 'Conceptos de pago de pensión', '', '', ''),
 (39, 'assets/img/pagos/right-arrow.png', '', '', '', 'flecha', '', '', '', ''),
@@ -182,7 +186,7 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, ruta
 ;
 
 INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, rutaTabletaHorizontal, descripcion, titulo, posicionTitulo, rutaEncima, textoAlterno) VALUES 
-(40, 'assets/img/pagos/statement.png', '', '', '', 'statement-cion', 'Costos', '', '', ''),
+(40, 'assets/img/pagos/statement.png', '', '', '', 'statement-icon', 'Costos', 'izquierda', '', ''),
 (40, 'assets/img/paper_14969976.svg', '', '', '', 'descargar-pdf', 'Ver', '', '', ''),
 (40, 'assets/img/ayuda.gif', '', '', '', 'imagen ayuda', 'Contáctate con nuestro equipo de trabajo', '', '', '');
 
@@ -235,4 +239,16 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, ruta
 (47, 'assets/img/newsletterNoticiasIcon.png', '', '', '', '', '', '', '', '', ''),
 (47, 'assets/img/newsletterEventosIcon.png', '', '', '', '', '', '', '', '', ''),
 (47, 'assets/img/newsletterHerramientasIcon.png', '', '', '', '', '', '', '', '', '')
+;
+
+INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, rutaTabletaHorizontal, descripcion, titulo, posicionTitulo, enlace, rutaEncima, textoAlterno) VALUES
+(48, 'assets/img/encabezado_informes1.jpg', '', '', '', '', '', '', '', '', ''),
+(48, 'assets/img/checked_1.jpg', '', '', '', '', '', '', '', '', ''),
+(48, 'assets/img/unchecked_1.jpg', '', '', '', '', '', '', '', '', ''),
+(48, 'assets/img/na_1.jpg', '', '', '', '', '', '', '', '', '')
+;
+
+INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, rutaTabletaHorizontal, descripcion, titulo, posicionTitulo, rutaEncima, textoAlterno) VALUES 
+(25, 'assets/img/pagos/statement.png', '', '', '', 'statement-icon', 'Estados financieros', 'izquierda', '', ''),
+(25, 'assets/img/paper_14969976.svg', '', '', '', 'descargar-pdf', 'Ver', '', '', '')
 ;

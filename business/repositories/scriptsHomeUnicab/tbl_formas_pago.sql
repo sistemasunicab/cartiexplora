@@ -6,7 +6,7 @@ CREATE TABLE tbl_formas_pago (
   texto varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-INSERT INTO tbl_formas_pago ( valor ,  texto ) VALUES ('EFECTIVO', 'Efectivo');
-INSERT INTO tbl_formas_pago ( valor ,  texto ) VALUES ('PSE', 'PSE');
-INSERT INTO tbl_formas_pago ( valor ,  texto ) VALUES ('PSE6', 'PSE < 60000');
+INSERT INTO tbl_formas_pago ( valor ,  texto ) VALUES ('E', 'Efectivo');
+INSERT INTO tbl_formas_pago ( valor ,  texto ) VALUES ('P', 'PSE');
+INSERT INTO tbl_formas_pago ( valor ,  texto ) VALUES ('P6', 'PSE < 60000');
 INSERT INTO tbl_formas_pago ( valor ,  texto ) VALUES ('TC', 'Tarjeta de crédito');

@@ -1,6 +1,4 @@
 <?php  
-    //-- Runtime --//
-
     if ($nivel == "raiz") {
         require('business/repositories/1cc2s4Home.php');
     } else if ($nivel == "uno") {
@@ -23,7 +21,6 @@
         $html .= '
           <section class="pt-5 logros-post-section">
                <div class="container">
-
         ';
     }
 
@@ -42,7 +39,8 @@
                $showBlog = [
                     'imagenPrincipal' => $row_datos['imagen'],
                     'fechaPublicacion' => $row_datos['fechaPublicacion'],
-                    'descripcion' => $row_datos['descripcionPrincipal'], 
+                    'descripcion' => $row_datos['descripcionPrincipal'],
+                    'descripcion2' => $row_datos['descripcionSecundaria'],
                     'tituloBlog' => $row_datos['titulo'],
                     'autor' => $row_datos['autor'],
                     'blogId' => $blogId
@@ -78,7 +76,8 @@
                $showBlog = [
                     'imagenPrincipal' => $row_datos['imagen'],
                     'fechaPublicacion' => $row_datos['fechaPublicacion'],
-                    'descripcion' => $row_datos['descripcionPrincipal'], 
+                    'descripcion' => $row_datos['descripcionPrincipal'],
+                    'descripcion2' => $row_datos['descripcionSecundaria'],
                     'tituloBlog' => $row_datos['titulo'],
                     'autor' => $row_datos['autor'],
                     'blogId' => $row_datos['id']
@@ -182,7 +181,7 @@
      }  
 
      // Obteniendo el formulario
-     $res_sentencia = $mysqli1->query($sentencia."152");
+     $res_sentencia = $mysqli1->query($sentencia."151");//152
      while($row_sentencia = $res_sentencia->fetch_assoc()){
           $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']).$row_sentencia['ordenamientos'];
      }  
@@ -193,8 +192,11 @@
      }
 
      $correoCampo = array_shift($camposNewsletter);
+     $campoCancelarSuscripcion = array_shift($camposNewsletter);
+     $cancelarSuscripcionBoton = array_shift($camposNewsletter);
      $texto1 = array_shift($parametros);
      $textoUnsubscribe = array_shift($parametros);
+     $textoCajaUnsubscribe = array_shift($parametros);
 
     if ($html != '') {
 
@@ -209,10 +211,10 @@
                <div class="row">
                     <div class="col-lg-8 col-md-6 col-sm-4 col-1"></div>
                     <div class="col-lg-4 col-md-6 col-sm-8 col-11">
-                         <form id="newsletterForm">
+                         <form id="newsletterForm" data-form-instance data-form-configuracion=\'{"botonSubmit": "registerNewsletter"}\'>
                               <div class="row m-0 noticias-newsletter-main">
                                    <div class="col-8 p-0">
-                                        <input onkeyup="validarCampoNewsletter(this, \''.$correoCampo['texto'].'\', \'correo\', 1, \'registerNewsletter\', \'newsletterForm\')" type="' . $correoCampo['tipo'] . '" id="' . $correoCampo['campo'] . '" class="campoFormulario noticias-newsletter-input" ' . $correoCampo['obligatorio'] . ' ' . $correoCampo['soloLectura'] . ' ' . $correoCampo['habilitado'] . ' placeholder="'.$correoCampo['placeHolder'].'">
+                                        <input data-descripcion="'.$correoCampo['texto'].'" data-regla-validacion="correo" data-control-submit="1" type="' . $correoCampo['tipo'] . '" id="' . $correoCampo['campo'] . '" class="campoFormulario noticias-newsletter-input" ' . $correoCampo['obligatorio'] . ' ' . $correoCampo['soloLectura'] . ' ' . $correoCampo['habilitado'] . ' placeholder="'.$correoCampo['placeHolder'].'">
                                    </div>
                                    
                                    <button type="submit" id="registerNewsletter" class="col-4 noticias-newsletter-btn" style="display: none;">
@@ -236,9 +238,33 @@
                     <div class="col-lg-4 col-md-6 col-sm-11 col-11">
                          <p class="noticias-newsletter-response d-none" data-response-type="success" id="newsletter-response"></p>
                     </div>
+               </div>     
+          </div>
+
+          <div class="container newsletter-unsubscribe" style="display: none;" id="newsletter-cancelarSuscripcion">
+               <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-2 col-2"></div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-8 col-8 unsubscribe-container">
+                         <p>'.$textoCajaUnsubscribe.'</p>
+
+                         <form id="newsletterUnsubscribeForm" data-form-instance data-form-configuracion=\'{"botonSubmit": "unsubscribeNewsletterButton"}\'>
+                              <input data-descripcion="'.$campoCancelarSuscripcion['texto'].'" data-regla-validacion="correo" data-control-submit="1" type="' . $campoCancelarSuscripcion['tipo'] . '" id="' . $campoCancelarSuscripcion['campo'] . '" class="campoFormulario" ' . $campoCancelarSuscripcion['obligatorio'] . ' ' . $campoCancelarSuscripcion['soloLectura'] . ' ' . $campoCancelarSuscripcion['habilitado'] . ' placeholder="'.$campoCancelarSuscripcion['placeHolder'].'">
+
+                              <button type="' . $cancelarSuscripcionBoton['tipo'] . '" id="unsubscribeNewsletterButton" class="unsubscribe-button" style="display: none;">
+                                   '.$cancelarSuscripcionBoton['texto'].'
+                              </button>
+                         </form>
+
+                         <p class="noticias-newsletter-response d-none" data-response-type="success" id="unsubscribe-newsletter-response"></p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-2 col-2"></div>
                </div>
-          ';
-               
+          </div>
+
+          <div class="container">
+          ';               
                
           $fecha = new DateTime($showBlog['fechaPublicacion']);
           $formatter = new IntlDateFormatter("es_ES", IntlDateFormatter::FULL, IntlDateFormatter::NONE);
@@ -272,8 +298,9 @@
           <div class="row pb-5">
                <div class="col-md-1 d-lg-none d-block"></div>
                <div class="col-lg-8 col-md-10 col-sm-12 col-12">
-                    <img src="../../../'.$showBlog['imagenPrincipal'].'" id="blogImage" alt="" class="logros-post-img">
-                    <p class="logros-post-text" id="content">'.$showBlog['descripcion'].'</p>
+                    <img src="'.$showBlog['imagenPrincipal'].'" id="blogImage" alt="" class="logros-post-img">
+                    <p class="logros-post-text" id="content">'.$showBlog['descripcion'].'</p><br>
+                    <p>'.$showBlog['descripcion2'].'</p>
                </div>
                <div class="col-md-1 d-lg-none d-block"></div>
 
@@ -300,7 +327,7 @@
                                         <p class="noticias-title col-7 p-0">'.$blog['tituloBlog'].'</p>
                                         <a href="../../../business/org/pages/blog.php?blogId='.urlencode($blog['blogId']).'#blog_post" class="col-4 logros-aside-boton font-roboto-bolditalic py-2 m-0">'.$blog['textoBoton'].'</a>
                                    </div>
-                                   <img src="../../../'.$blog['imagenPrincipal'].'" alt="" class="img-fluid w-100">
+                                   <img src="'.$blog['imagenPrincipal'].'" alt="" class="img-fluid w-100">
                               </div>
                               ';
 
@@ -340,28 +367,28 @@
                <div class="row mb-4">
                     <div class="col-lg-2 col-md-2"></div>
                     <div class="col-lg-8 col-md-8 col-sm-12 col-12">
-                         <form class="d-flex flex-column gap-3 border-green px-0 pb-3" id="comentariosCampos">
+                         <form class="d-flex flex-column gap-3 border-green px-0 pb-3" id="comentariosCampos" data-form-instance data-form-configuracion=\'{"botonSubmit": "send_blog_comment"}\' >
                               <h4 class="">Dejame tu comentario</h4>
 
                               <div class="row m-0 justify-content-center">
                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <input onkeyup="validarCampo(this, \''.$comentarioCampo['texto'].'\', \'texto\', 1, \'send_blog_comment\')" type="' . $comentarioCampo['tipo'] . '" id="' . $comentarioCampo['campo'] . '" class="campoFormulario w-100 p-2" ' . $comentarioCampo['obligatorio'] . ' ' . $comentarioCampo['soloLectura'] . ' ' . $comentarioCampo['habilitado'] . ' placeholder="'.$comentarioCampo['placeHolder'].'">
+                                        <input data-descripcion="'.$comentarioCampo['texto'].'" data-regla-validacion="texto" data-control-submit="1" type="' . $comentarioCampo['tipo'] . '" id="' . $comentarioCampo['campo'] . '" class="w-100 p-2" ' . $comentarioCampo['obligatorio'] . ' ' . $comentarioCampo['soloLectura'] . ' ' . $comentarioCampo['habilitado'] . ' placeholder="'.$comentarioCampo['placeHolder'].'">
                                    </div>
                               </div>
                                    
                               <div class="row m-0 justify-content-center">
                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <input onkeyup="validarCampo(this, \''.$correoCampo['texto'].'\', \'correo\', 1, \'send_blog_comment\')" type="' . $correoCampo['tipo'] . '" id="' . $correoCampo['campo'] . '" class="campoFormulario w-100 p-2" ' . $correoCampo['obligatorio'] . ' ' . $correoCampo['soloLectura'] . ' ' . $correoCampo['habilitado'] . ' placeholder="'.$correoCampo['placeHolder'].'">
+                                        <input data-descripcion="'.$correoCampo['texto'].'" data-regla-validacion="correo" data-control-submit="1" type="' . $correoCampo['tipo'] . '" id="' . $correoCampo['campo'] . '" class="w-100 p-2" ' . $correoCampo['obligatorio'] . ' ' . $correoCampo['soloLectura'] . ' ' . $correoCampo['habilitado'] . ' placeholder="'.$correoCampo['placeHolder'].'">
                                    </div>
                               </div>
                               
                               <div class="row m-0 justify-content-center">
                                    <div class="col-lg-2 col-md-2 col-sm-2 col-2 d-flex justify-content-center">
-                                        <input class="campoFormulario m-2" type="' . $aceptarDatosCampo['tipo'] . '" id="' . $aceptarDatosCampo['campo'] . '" name="' . $aceptarDatosCampo['campo'] . '" ' . $aceptarDatosCampo['obligatorio'] . ' ' . $aceptarDatosCampo['soloLectura'] . ' ' . $aceptarDatosCampo['habilitado'] . '>
+                                        <input class="m-2" type="' . $aceptarDatosCampo['tipo'] . '" id="' . $aceptarDatosCampo['campo'] . '" name="' . $aceptarDatosCampo['campo'] . '" ' . $aceptarDatosCampo['obligatorio'] . ' ' . $aceptarDatosCampo['soloLectura'] . ' ' . $aceptarDatosCampo['habilitado'] . '>
                                    </div>
 
                                    <div class="col-lg-10 col-md-10 col-sm-10 col-10">
-                                        <p class="logros-aceptarDatos">'.$aceptarDatosCampo['texto'].' *<br><br>* indica los campos obligatorios.</p>
+                                        <p class="logros-aceptarDatos">'.$aceptarDatosCampo['texto'].'</p>
                                    </div>  
                               </div>
 
@@ -410,7 +437,9 @@
                </div>
 
                <div class="row" id="comentarios">
-                    ';
+          
+               ';
+               
           foreach (array_reverse($comentarios) as $comentario) {
                $html .= '
                     <div class="col-lg-2 col-md-2"></div>

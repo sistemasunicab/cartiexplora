@@ -106,7 +106,7 @@
                     <div class="row">
                          <div class="col-lg-5 col-md-4"></div>
                          <div class="col-lg-2 col-md-4">
-                              <button class="presaberes-boton border-0" onclick="val_documento_presaberes();">Continuar</button>
+                              <button class="presaberes-boton border-0" onclick="val_documento_presaberes_sm();">Continuar</button>
                          </div>
                          <div class="col-lg-5 col-md-4"></div>
                     </div><br>
@@ -193,7 +193,7 @@
                     <div class="row">
                          <div class="col-lg-2 col-md-3"></div>
                          <div class="col-lg-2 col-md-3">
-                              <form name="formulario" id="formulario" method="post" action="evaluacionPresaberes_1.php" enctype="multipart/form-data">
+                              <form name="formulario" id="formulario" method="post" action="evaluacionPresaberes_1sm.php" enctype="multipart/form-data">
                                    <div class="form-group">
                                    <input type="hidden" name="verificacion">
                                    <input type="hidden" id="n_documento" name="n_documento"/>

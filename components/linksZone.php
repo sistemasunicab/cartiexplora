@@ -3,12 +3,22 @@
      //-- Funciones --//
 
      function crearLink($datos, $links){
-          $link = '   
+          if ($datos[1] == "Biblioteca") {
+               $link = '   
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-6 linksZone-container linkCarousel-block"> <!-- Link -->
+                         <img src="'.$datos[0].'" alt="" class="img-fluid">
+                         <a href="'.$links[$datos[1]].'" target="_blank">'.$datos[1].'</a>
+                    </div>
+               ';
+          }
+          else {
+               $link = '   
                     <div class="col-lg-4 col-md-4 col-sm-6 col-6 linksZone-container linkCarousel-block"> <!-- Link -->
                          <img src="'.$datos[0].'" alt="" class="img-fluid">
                          <a href="'.$links[$datos[1]].'">'.$datos[1].'</a>
                     </div>
-          ';
+               ';
+          }          
 
           return $link;
      }

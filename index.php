@@ -2,6 +2,7 @@
     include('./clases/ImageAttributeBuilder.php');
     include('./clases/ButtonStylesBannerBuilder.php');
     include('./clases/FlexTitleLoader.php');
+    include('./clases/GenerateQuery.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

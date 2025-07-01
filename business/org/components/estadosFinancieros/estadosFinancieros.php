@@ -39,7 +39,7 @@ foreach ($datos_estados_financieros as $row_datos_estados_financieros) {
     $html_row_two .= '</div>';
 
     $html_row_three = '<div class="row p-0 m-0">';
-    $html_row_three .= '<form id="form_info" class="form-financial p-0">';
+    $html_row_three .= '<form id="form_info" class="form-financial p-0" action="../ajax/login_estados1.php" method="POST">';
     $campo_final = $campos_formulario[count($campos_formulario) - 1];
     for ($i = 0; $i < count($campos_formulario) - 1; $i++) {
         $campo = $campos_formulario[$i];
@@ -66,7 +66,7 @@ foreach ($datos_estados_financieros as $row_datos_estados_financieros) {
     $html_row_three .= '<div class="row p-0 m-0">';
     $html_row_three .= '<div class="col-lg-5 col-md-5 col-sm-4 col-4 p-0"></div>';
     $html_row_three .= '<div class="col-lg-2 col-md-2 col-sm-4 col-4 p-0 d-flex">';
-    $html_row_three .= '<button id="' . $campo_final['campo'] . '" class="form-control btn-submit-financial btn mx-auto px-lg-4 px-md-3 px-sm-3 px-3">';
+    $html_row_three .= '<button id="' . $campo_final['campo'] . '" type="submit" class="form-control btn-submit-financial btn mx-auto px-lg-4 px-md-3 px-sm-3 px-3">';
     $html_row_three .= '<p class="font-roboto-medium tx-white m-0 p-0">' . $campo_final['texto'] . '</p>';
     $html_row_three .= '<img src="' . $image_path . '" alt="Solicitar" width="30px">';
     $html_row_three .= '</button>';

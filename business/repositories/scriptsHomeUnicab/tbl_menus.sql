@@ -56,3 +56,7 @@ INSERT INTO tbl_menus (menu, nivel, padre, icono, linkNivelRaiz, linkNivelTres, 
 ('Blog', 'raiz', '1', '', 'business/org/pages/blog.php', '../../../business/org/pages/blog.php', '');
 
 UPDATE tbl_menus SET menu = "Celebrando Logros" WHERE id = 35;
+UPDATE tbl_menus SET visible = 0 WHERE id = 13;
+UPDATE tbl_menus SET visible = 0 WHERE id = 23;
+UPDATE tbl_menus SET menu = "Srevicios" WHERE id = 24;
+UPDATE tbl_menus SET visible = 0 WHERE padre = 3 AND id != 24;

@@ -63,7 +63,7 @@
             $html .=        '<p class="p-publicaciones">'. $row_publicacion['texto'] . '</p>';
             $html .=        '<div class="row align-items-center btn-my-publicaciones">';
             $html .=            '<div class="col-lg-2 col-md-2 col-sm-4 col-4 text-center">';
-            $html .=                '<a onclick="descargarArchivo(\'' . $nivel . '\', \''. $row_publicacion['ruta'] .'\', \''.$row_publicacion['nombreArchivo'] . '\', \'' . $row_publicacion['destino'] .'\')" class="d-inline-block download-button">';
+            $html .=                '<a href="'.$row_publicacion['ruta'].'" class="d-inline-block download-button">';
             $html .=                    $iconoPdf;
             $html .=                '</a>';
             $html .=            '</div>';
@@ -72,7 +72,7 @@
 
             $href = "";
 
-            if ($nivel == "raiz") {
+            /*if ($nivel == "raiz") {
                 $href .= $row_publicacion['linkLeer'];
             } else if ($nivel == "uno") {
                 $href .= '../'. $row_publicacion['linkLeer'];
@@ -80,9 +80,9 @@
                 $href .= '../../'. $row_publicacion['linkLeer'];
             } else if ($nivel == "tres") {
                 $href .= '../../../'. $row_publicacion['linkLeer'];
-            }
+            }*/
 
-            $html .=                '<a href="'. $href .'" target="_blank" class="btn-publicaciones">Leer</a>';
+            $html .=                '<a href="'.$row_publicacion['ruta'].'" target="_blank" class="btn-publicaciones">Leer</a>';
             $html .=            '</div>';
             $html .=            '<div class="col-lg-5 d-lg-block d-md-none col-sm-5 col-5"></div>';
             $html .=        '</div>';

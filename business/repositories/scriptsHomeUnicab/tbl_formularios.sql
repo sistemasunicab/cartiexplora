@@ -113,3 +113,15 @@ INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLe
 
 INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder) VALUES
 (8, 'correoNewsletter', 'text', 'Correo', 'required', '', '', 'Ingresa tu correo');
+
+INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder) VALUES
+(39, 'txtcodfact', 'hidden', '', '', '', '', ''),
+(39, 'txtconcepto', 'hidden', '', '', '', '', ''),
+(39, 'txtcontrolpago', 'hidden', '', '', '', '', ''),
+(39, 'txtidgrado', 'hidden', '', '', '', '', '')
+;
+
+INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder) VALUES
+(8, 'unsubscribeNewsletter', 'text', 'Correo', 'required', '', '', 'Ingresa tu correo.'),
+(8, 'unsubscribeNewsletterButton', 'submit', 'Cancelar Suscripcion.', '', '', '', '')
+;

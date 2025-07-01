@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail = new PHPMailer(true);
 
         // Verificando si existe el correo ya en base de datos.
-        $sentencia_verificacion = $mysqli1->query($sentencia."159");
+        $sentencia_verificacion = $mysqli1->query($sentencia."158");//159
         while($row_sentencia = $sentencia_verificacion->fetch_assoc()){
              $datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('?', '\''.$correo.'\'', $row_sentencia['condiciones']);
         }  
@@ -47,14 +47,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($estaRegistrado == false) {
             try {
                 // obteniendo informacion principal
-                $res_sentencia = $mysqli1->query($sentencia."155");
+                $res_sentencia = $mysqli1->query($sentencia."154");//155
                 while($row_sentencia = $res_sentencia->fetch_assoc()){
                      $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
                 }     
                 $res_datos_seccion = $mysqli1->query($sql_datos);
 
                 // Obteniendo los textos
-                $res_sentencia = $mysqli1->query($sentencia."157");
+                $res_sentencia = $mysqli1->query($sentencia."156");//157
                 while($row_sentencia = $res_sentencia->fetch_assoc()){
                      $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
                 }  
@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }   
 
                 // Obteniendo los textos
-                $res_sentencia = $mysqli1->query($sentencia."158");
+                $res_sentencia = $mysqli1->query($sentencia."157");//158
                 while($row_sentencia = $res_sentencia->fetch_assoc()){
                      $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
                 }  
@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }   
 
                 // Obteniendo los enlaces
-                $res_sentencia = $mysqli1->query($sentencia."160");
+                $res_sentencia = $mysqli1->query($sentencia."159");//160
                 while($row_sentencia = $res_sentencia->fetch_assoc()){
                      $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
                 }  
@@ -236,7 +236,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 $mail->send();
 
-                $res_sentecia = $mysqli1->query($sentencia . "153");
+                $res_sentecia = $mysqli1->query($sentencia . "152");//153
                 while ($row_sentencia = $res_sentecia->fetch_assoc()) {
                     $sql_form = $row_sentencia['tablas'] . $row_sentencia['inserciones'];
                 }
@@ -262,7 +262,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif ($suscripcion == 'false' && !empty($correo) && filter_var($correo, FILTER_VALIDATE_EMAIL)) {
         
         // Verificando si existe el correo ya en base de datos.
-        $sentencia_verificacion = $mysqli1->query($sentencia."159");
+        $sentencia_verificacion = $mysqli1->query($sentencia."158");//159
         while($row_sentencia = $sentencia_verificacion->fetch_assoc()){
              $datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('?', '\''.$correo.'\'', $row_sentencia['condiciones']);
         }  
@@ -274,7 +274,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $correo = $row_datos['correo'];
             }   
 
-            $res_sentecia = $mysqli1->query($sentencia . "153");
+            $res_sentecia = $mysqli1->query($sentencia . "166");//153
             while ($row_sentencia = $res_sentecia->fetch_assoc()) {
                 $sql_form = $row_sentencia['campos'].$row_sentencia['tablas'].$row_sentencia['condiciones'];
             }

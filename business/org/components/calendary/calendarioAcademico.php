@@ -4,6 +4,17 @@
     $html_row_two   = '';
     $html_base      = '';
 
+    //Se obtiene el enlace del calendario
+    $exe_calendario = $mysqli1->query($sentencia . "163");
+    while ($row_calendario = $exe_calendario->fetch_assoc()) {
+        $sql_calendario = $row_calendario['campos'] . $row_calendario['tablas'] . $row_calendario['condiciones'];
+    }
+
+    $res_calendario = $mysqli1->query($sql_calendario);
+    while ($row_pdf = $res_calendario->fetch_assoc()) {
+        $link_calendario = $row_pdf['link'];
+    }
+
     // 1) Obtenemos datos de calendario (sentencia #56)
     $rowsCalendary = obtenerFilas($mysqli1, $sentencia, 56);
 
@@ -18,7 +29,7 @@
                               '</h2-calendario>';
             $html_row_one .= '</div>';
             $html_row_one .= '<div class="col-lg-1 col-md-3 col-4 p-0 m-0"></div>';
-            $html_row_one .= '</div>';
+            $html_row_one .= '</div>';            
 
             // 2) Obtenemos datos de la imagen asociada (sentencia #62)
             $rowsImage = obtenerFilas($mysqli1, $sentencia, 62);
@@ -39,13 +50,12 @@
                                     . 'class="mb-5 mb-lg-0 mx-auto mx-lg-0 me-lg-5 img-fluid" '
                                     . 'style="width:140px;"'
                                     . '>';
-                    $html_row_two .= '<button '
+                    $html_row_two .= '<a href="'.$link_calendario.'" target="_blank" '
                                     . 'class="mx-lg-0 mx-auto btn shadow h-auto tx-color-wh btn-calendary fw-semibold" '
                                     . 'style="width:200px;"'
-                                    . 'onclick="window.location.href=\'./entrevista.php\';"'
                                     . '>'
                                     . 'Ver'
-                                    . '</button>';
+                                    . '</a>';
                     $html_row_two .= '</div>';
                     $html_row_two .= '</div>';
                     $html_row_two .= '<div class="col-lg-4 col-1 p-0 m-0"></div>';

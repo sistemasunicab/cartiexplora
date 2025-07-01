@@ -50,5 +50,94 @@ INSERT INTO tbl_sentencias_procesos (nombre, utilizaJoin, campos, tablas, joinTa
 CASE e.perfil WHEN ''TU'' THEN ''SI'' WHEN ''SU'' THEN ''SI'' WHEN ''TU_AW'' THEN ''SI'' WHEN ''ST_PU'' THEN ''SI'' 
 WHEN ''AR'' THEN ''SI'' WHEN ''FI'' THEN ''SI'' WHEN ''PS'' THEN ''SI'' ELSE ''NO'' END perfil ', 'FROM tbl_empleados e ', '', 'WHERE e.estado = |_activo*| AND e.id != 18 ', '', 'ORDER BY e.id ASC ', '', '', '');
 
+INSERT INTO tbl_sentencias_procesos (nombre, utilizaJoin, campos, tablas, joinTablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
+('grado estudiante', 'NO', 'SELECT id_grado ', 'FROM matricula ', '', 'WHERE idMatricula = (SELECT MAX(idMatricula) idmax FROM matricula WHERE id_estudiante = (SELECT id FROM estudiantes WHERE n_documento = |_ndoc*|))', '', '', '', '', ''),
+('incrementos convenio pago', 'NO', 'SELECT * ', 'FROM tbl_cp ', '', 'WHERE convenio = |_convenio*| ', '', '', '', '', ''),
+('valor pago icfes', 'NO', 'SELECT * ', 'FROM _tabla* ', '', 'WHERE id_grado = 0 AND a = _a* ', '', '', '', '', ''),
+('valor pago', 'NO', 'SELECT * ', 'FROM _tabla* ', '', 'WHERE id_grado = _idgrado* AND a = _a* ', '', '', '', '', ''),
+('incrementos pse', 'NO', 'SELECT * ', 'FROM tbl_incrementos ', '', 'WHERE tipo = |_PSE*| ', '', '', '', '', ''),
+('incrementos', 'NO', 'SELECT * ', 'FROM tbl_incrementos ', '', 'WHERE tipo = |_tipo*| ', '', '', '', '', ''),
+('valor gateway', 'NO', 'SELECT ifnull(val_fijo_gateway, 0) val_gateway, ct_actual ', 'FROM tbl_gateway ', '', 'WHERE estado = |_estado*| AND id_convenio = (SELECT id FROM tbl_cp WHERE convenio = |_convenio*|) ', '', '', '', '', '')
+;
+
+INSERT INTO tbl_sentencias_procesos (nombre, utilizaJoin, campos, tablas, joinTablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
+('validacion presaberes', 'NO', 'SELECT COUNT(1) ct ', 'FROM tbl_respuestas ', '', 'WHERE identificacion = |_documento*| AND respuesta = |_NA*| AND a = _fanio* ', '', '', '', '', ''),
+('valida ct preguntas abiertas', 'NO', 'SELECT COUNT(1) ct ', 'FROM tbl_respuestas ', '', 'WHERE identificacion = |_documento*| AND a = _fanio* AND estado = |_estado*| ', '', '', '', '', ''),
+('valida ct preguntas cargadas', 'NO', 'SELECT COUNT(1) ct ', 'FROM tbl_respuestas ', '', 'WHERE identificacion = |_documento*| AND a = _fanio* ', '', '', '', '', ''),
+('valida preguntas grado sm', 'NO', 'SELECT g.id, g.grado, e.origen ', 'FROM estudiantes_eval_admision e, grados g ', '', 'WHERE e.id_grado = g.id AND e.n_documento = |_documento*| ', '', '', '', '', ''),
+('valida ct preguntas grado', 'NO', 'SELECT COUNT(1) ct ', 'FROM tbl_preguntas ', '', 'WHERE id_grado = _idgra* ', '', '', '', '', '')
+;
+
+INSERT INTO tbl_sentencias_procesos (nombre, utilizaJoin, campos, tablas, joinTablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
+('consulta pregunta', 'NO', 'SELECT * ', 'FROM tbl_preguntas ', '', 'WHERE id = _idpreg* ', '', '', '', '', ''),
+('nombre y grado presaberes', 'NO', 'SELECT e.*, g.grado ', 'FROM estudiantes_eval_admision e, grados g ', '', 'WHERE e.id_grado = g.id AND e.n_documento = |_documento*| ', '', '', '', '', ''),
+('temas pensamiento bio', 'NO', 'SELECT DISTINCT tp.id, tp.tema ', 'FROM tbl_preguntas p, tbl_temas_preguntas tp ', '', 'WHERE p.id_tema = tp.id AND p.id_grado = _idgrado* AND p.id_materia = _idmateria* ', '', '', '', '', ''),
+('preguntas por tema bio', 'NO', 'SELECT id ', 'FROM tbl_preguntas ', '', 'WHERE id_tema = _idtema* AND id_grado = _idgrado* AND id_materia = _idmateria* ', '', '', '', '', ''),
+('ct preguntas por tema bio', 'NO', 'SELECT ct_preguntas ', 'FROM tbl_temas_preguntas ', '', 'WHERE id_grado = _idgrado* AND id_materia = _idmateria* AND id = _id* ', '', '', '', '', ''),
+
+('temas pensamiento soc', 'NO', 'SELECT DISTINCT tp.id, tp.tema ', 'FROM tbl_preguntas p, tbl_temas_preguntas tp ', '', 'WHERE p.id_tema = tp.id AND p.id_grado = _idgrado* AND p.id_materia = _idmateria* ', '', '', '', '', ''),
+('preguntas por tema soc', 'NO', 'SELECT id ', 'FROM tbl_preguntas ', '', 'WHERE id_tema = _idtema* AND id_grado = _idgrado* AND id_materia = _idmateria* ', '', '', '', '', ''),
+('ct preguntas por tema soc', 'NO', 'SELECT ct_preguntas ', 'FROM tbl_temas_preguntas ', '', 'WHERE id_grado = _idgrado* AND id_materia = _idmateria* AND id = _id* ', '', '', '', '', ''),
+('temas pensamiento num', 'NO', 'SELECT DISTINCT tp.id, tp.tema ', 'FROM tbl_preguntas p, tbl_temas_preguntas tp ', '', 'WHERE p.id_tema = tp.id AND p.id_grado = _idgrado* AND p.id_materia = _idmateria* ', '', '', '', '', ''),
+('preguntas por tema num', 'NO', 'SELECT id ', 'FROM tbl_preguntas ', '', 'WHERE id_tema = _idtema* AND id_grado = _idgrado* AND id_materia = _idmateria* ', '', '', '', '', ''),
+('ct preguntas por tema num', 'NO', 'SELECT ct_preguntas ', 'FROM tbl_temas_preguntas ', '', 'WHERE id_grado = _idgrado* AND id_materia = _idmateria* AND id = _id* ', '', '', '', '', ''),
+('temas pensamiento esp', 'NO', 'SELECT DISTINCT tp.id, tp.tema ', 'FROM tbl_preguntas p, tbl_temas_preguntas tp ', '', 'WHERE p.id_tema = tp.id AND p.id_grado = _idgrado* AND p.id_materia = _idmateria* ', '', '', '', '', ''),
+('preguntas por tema esp', 'NO', 'SELECT id ', 'FROM tbl_preguntas ', '', 'WHERE id_tema = _idtema* AND id_grado = _idgrado* AND id_materia = _idmateria* ', '', '', '', '', ''),
+('ct preguntas por tema esp', 'NO', 'SELECT ct_preguntas ', 'FROM tbl_temas_preguntas ', '', 'WHERE id_grado = _idgrado* AND id_materia = _idmateria* AND id = _id* ', '', '', '', '', ''),
+('temas pensamiento ing', 'NO', 'SELECT DISTINCT tp.id, tp.tema ', 'FROM tbl_preguntas p, tbl_temas_preguntas tp ', '', 'WHERE p.id_tema = tp.id AND p.id_grado = _idgrado* AND p.id_materia = _idmateria* ', '', '', '', '', ''),
+('preguntas por tema ing', 'NO', 'SELECT id ', 'FROM tbl_preguntas ', '', 'WHERE id_tema = _idtema* AND id_grado = _idgrado* AND id_materia = _idmateria* ', '', '', '', '', ''),
+('ct preguntas por tema ing', 'NO', 'SELECT ct_preguntas ', 'FROM tbl_temas_preguntas ', '', 'WHERE id_grado = _idgrado* AND id_materia = _idmateria* AND id = _id* ', '', '', '', '', ''),
+('temas pensamiento tec', 'NO', 'SELECT DISTINCT tp.id, tp.tema ', 'FROM tbl_preguntas p, tbl_temas_preguntas tp ', '', 'WHERE p.id_tema = tp.id AND p.id_grado = _idgrado* AND p.id_materia = _idmateria* ', '', '', '', '', ''),
+('preguntas por tema tec', 'NO', 'SELECT id ', 'FROM tbl_preguntas ', '', 'WHERE id_tema = _idtema* AND id_grado = _idgrado* AND id_materia = _idmateria* ', '', '', '', '', ''),
+('ct preguntas por tema tec', 'NO', 'SELECT ct_preguntas ', 'FROM tbl_temas_preguntas ', '', 'WHERE id_grado = _idgrado* AND id_materia = _idmateria* AND id = _id* ', '', '', '', '', ''),
+('temas pensamiento fis', 'NO', 'SELECT DISTINCT tp.id, tp.tema ', 'FROM tbl_preguntas p, tbl_temas_preguntas tp ', '', 'WHERE p.id_tema = tp.id AND p.id_grado = _idgrado* AND p.id_materia = _idmateria* ', '', '', '', '', ''),
+('preguntas por tema fis', 'NO', 'SELECT id ', 'FROM tbl_preguntas ', '', 'WHERE id_tema = _idtema* AND id_grado = _idgrado* AND id_materia = _idmateria* ', '', '', '', '', ''),
+('ct preguntas por tema fis', 'NO', 'SELECT ct_preguntas ', 'FROM tbl_temas_preguntas ', '', 'WHERE id_grado = _idgrado* AND id_materia = _idmateria* AND id = _id* ', '', '', '', '', ''),
+
+('conteos ok', 'NO', 'SELECT COUNT(1) ct_ok, identificacion ', 'FROM tbl_respuestas ', '', 'WHERE resultado = |_resultado*| AND identificacion = |_documento*| AND a = _a* ', 'GROUP BY identificacion ', '', '', '', ''),
+('conteos no', 'NO', 'SELECT COUNT(1) ct_no, identificacion ', 'FROM tbl_respuestas ', '', 'WHERE resultado = |_resultado*| AND identificacion = |_documento*| AND a = _a* ', 'GROUP BY identificacion ', '', '', '', ''),
+('conteos na', 'NO', 'SELECT COUNT(1) ct_na, identificacion ', 'FROM tbl_respuestas ', '', 'WHERE resultado = |_resultado*| AND identificacion = |_documento*| AND a = _a* ', 'GROUP BY identificacion ', '', '', '', ''),
+('valida si hay registros en tbl_respuestas', 'NO', 'SELECT COUNT(1) ct ', 'FROM tbl_respuestas ', '', 'WHERE identificacion = |_documento*| AND a = _a* ', '', '', '', '', ''),
+('consulta pensamiento', 'NO', 'SELECT id_materia ', 'FROM |_tabla*| ', '', 'WHERE id = _id* ', '', '', '', '', '')
+;
+
+INSERT INTO tbl_sentencias_procesos (nombre, utilizaJoin, campos, tablas, joinTablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
+('insert tbl_respuestas', 'NO', '', 'INSERT tbl_respuestas ', '', '', '', '', '', '', '(id_grado, id_materia, id_pregunta, a, identificacion, respuesta, resultado, estado) VALUES (_idgrado*, _idpen*, _idpregunta*, _a*, |_documento*|, |_respuesta*|, |_resultado*|, |_estado*|)'),
+('valida respuestas na', 'NO', 'SELECT * ', 'FROM tbl_respuestas ', '', 'WHERE resultado = |_resultado*| AND identificacion = |_documento*| AND a = _a* ', '', '', '', '', ''),
+('actualizar respuesta presaberes', 'NO', '', 'UPDATE tbl_respuestas ', '', 'WHERE id_pregunta = _idpreg* AND identificacion = |_documento*| AND a = _a* ', '', '', 'SET respuesta = |_respuesta*|, resultado = |_resultado*| ', '', ''),
+('nombre estudiante', 'NO', 'SELECT e.id, e.nombres, e.apellidos ', 'FROM estudiantes e ', '', 'WHERE e.n_documento = |_documento*| ', '', '', '', '', ''),
+
+('conteos no num', 'NO', 'SELECT COUNT(1) ct ', 'FROM tbl_respuestas r, tbl_preguntas p ', '', 'WHERE r.id_pregunta = p.id AND r.resultado = |_resultado*| AND r.identificacion = |_documento*| AND r.a = _a* AND r.id_materia = 5 ', '', '', '', '', ''),
+('conteos no bio', 'NO', 'SELECT COUNT(1) ct ', 'FROM tbl_respuestas r, tbl_preguntas p ', '', 'WHERE r.id_pregunta = p.id AND r.resultado = |_resultado*| AND r.identificacion = |_documento*| AND r.a = _a* AND r.id_materia = 1 ', '', '', '', '', ''),
+('conteos no soc', 'NO', 'SELECT COUNT(1) ct ', 'FROM tbl_respuestas r, tbl_preguntas p ', '', 'WHERE r.id_pregunta = p.id AND r.resultado = |_resultado*| AND r.identificacion = |_documento*| AND r.a = _a* AND r.id_materia = 4 ', '', '', '', '', ''),
+('conteos no esp', 'NO', 'SELECT COUNT(1) ct ', 'FROM tbl_respuestas r, tbl_preguntas p ', '', 'WHERE r.id_pregunta = p.id AND r.resultado = |_resultado*| AND r.identificacion = |_documento*| AND r.a = _a* AND r.id_materia = 6 ', '', '', '', '', ''),
+('conteos no ing', 'NO', 'SELECT COUNT(1) ct ', 'FROM tbl_respuestas r, tbl_preguntas p ', '', 'WHERE r.id_pregunta = p.id AND r.resultado = |_resultado*| AND r.identificacion = |_documento*| AND r.a = _a* AND r.id_materia = 7 ', '', '', '', '', ''),
+('conteos no tec', 'NO', 'SELECT COUNT(1) ct ', 'FROM tbl_respuestas r, tbl_preguntas p ', '', 'WHERE r.id_pregunta = p.id AND r.resultado = |_resultado*| AND r.identificacion = |_documento*| AND r.a = _a* AND r.id_materia = 9 ', '', '', '', '', ''),
+('conteos no fis', 'NO', 'SELECT COUNT(1) ct ', 'FROM tbl_respuestas r, tbl_preguntas p ', '', 'WHERE r.id_pregunta = p.id AND r.resultado = |_resultado*| AND r.identificacion = |_documento*| AND r.a = _a* AND r.id_materia = 11 ', '', '', '', '', ''),
+
+('retroalimentacion no num', 'NO', 'SELECT DISTINCT p.retroalimentacion ', 'FROM tbl_respuestas r, tbl_preguntas p ', '', 'WHERE r.id_pregunta = p.id AND r.resultado = |_resultado*| AND r.identificacion = |_documento*| AND r.a = _a* AND r.id_materia = _idmateria* ', '', '', '', '', ''),
+('retroalimentacion no bio', 'NO', 'SELECT DISTINCT p.retroalimentacion ', 'FROM tbl_respuestas r, tbl_preguntas p ', '', 'WHERE r.id_pregunta = p.id AND r.resultado = |_resultado*| AND r.identificacion = |_documento*| AND r.a = _a* AND r.id_materia = _idmateria* ', '', '', '', '', ''),
+('retroalimentacion no soc', 'NO', 'SELECT DISTINCT p.retroalimentacion ', 'FROM tbl_respuestas r, tbl_preguntas p ', '', 'WHERE r.id_pregunta = p.id AND r.resultado = |_resultado*| AND r.identificacion = |_documento*| AND r.a = _a* AND r.id_materia = _idmateria* ', '', '', '', '', ''),
+('retroalimentacion no esp', 'NO', 'SELECT DISTINCT p.retroalimentacion ', 'FROM tbl_respuestas r, tbl_preguntas p ', '', 'WHERE r.id_pregunta = p.id AND r.resultado = |_resultado*| AND r.identificacion = |_documento*| AND r.a = _a* AND r.id_materia = _idmateria* ', '', '', '', '', ''),
+('retroalimentacion no ing', 'NO', 'SELECT DISTINCT p.retroalimentacion ', 'FROM tbl_respuestas r, tbl_preguntas p ', '', 'WHERE r.id_pregunta = p.id AND r.resultado = |_resultado*| AND r.identificacion = |_documento*| AND r.a = _a* AND r.id_materia = _idmateria* ', '', '', '', '', ''),
+('retroalimentacion no tec', 'NO', 'SELECT DISTINCT p.retroalimentacion ', 'FROM tbl_respuestas r, tbl_preguntas p ', '', 'WHERE r.id_pregunta = p.id AND r.resultado = |_resultado*| AND r.identificacion = |_documento*| AND r.a = _a* AND r.id_materia = _idmateria* ', '', '', '', '', ''),
+('retroalimentacion no fis', 'NO', 'SELECT DISTINCT p.retroalimentacion ', 'FROM tbl_respuestas r, tbl_preguntas p ', '', 'WHERE r.id_pregunta = p.id AND r.resultado = |_resultado*| AND r.identificacion = |_documento*| AND r.a = _a* AND r.id_materia = _idmateria* ', '', '', '', '', '')
+;
+
+INSERT INTO tbl_sentencias_procesos (nombre, utilizaJoin, campos, tablas, joinTablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
+('conteos ok por pensamiento', 'NO', 'SELECT COUNT(1) ct_ok, identificacion, id_materia ', 'FROM tbl_respuestas ', '', 'WHERE resultado = |_resultado*| AND identificacion = |_documento*| AND a = _a* ', 'GROUP BY identificacion, id_materia ', '', '', '', ''),
+('conteos no por pensamiento', 'NO', 'SELECT COUNT(1) ct_no, identificacion, id_materia ', 'FROM tbl_respuestas ', '', 'WHERE resultado = |_resultado*| AND identificacion = |_documento*| AND a = _a* ', 'GROUP BY identificacion, id_materia ', '', '', '', ''),
+('conteos na por pensamiento', 'NO', 'SELECT COUNT(1) ct_na, identificacion, id_materia ', 'FROM tbl_respuestas ', '', 'WHERE resultado = |_resultado*| AND identificacion = |_documento*| AND a = _a* ', 'GROUP BY identificacion, id_materia ', '', '', '', ''),
+('resultado preguntas', 'NO', 'SELECT m.materia, m.pensamiento, p.pregunta, r.respuesta, r.resultado, case r.resultado when |_resultado*| then |_muyBien*| else p.retroalimentacion end comentarios, substring(p.imagen, 7) ruta ', 'FROM tbl_respuestas r, tbl_preguntas p, materias m ', '', 'WHERE r.id_pregunta = p.id AND r.id_materia = m.id AND r.a = _a* AND r.identificacion = |_documento*| ', '', '', '', '', ''),
+('valida preguntas grado', 'NO', 'SELECT g.id, g.grado ', 'FROM estudiantes e, matricula m, grados g ', '', 'WHERE e.id = m.id_estudiante AND m.id_grado = g.id AND e.n_documento = |_documento*| AND m.n_matricula like _a* AND m.estado IN (|_estado*|, |_estado1*|) ', '', '', '', '', ''),
+('estudiantes activos', 'NO', 'SELECT COUNT(1) ct ', 'FROM matricula ', '', 'WHERE n_matricula like _a* and estado = |_estado*| ', '', '', '', '', ''),
+('autorizados para estados financieros', 'NO', 'SELECT * ', 'FROM tbl_empleados ', '', 'WHERE email = |_usuario*| AND n_documento = |_pass*| AND estado = |_estado*| ', '', '', '', '', '')
+;
+
+
+
+
+
+
 
 

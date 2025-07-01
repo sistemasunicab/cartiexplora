@@ -34,7 +34,7 @@ if (!empty($rowsVisible)) {
 
             // Slides
             foreach ($rowsEvents as $i => $row) {
-                $tituloEvento = $row['nombre'];
+                $tituloEvento = $row['nombre']."<br>".$row['fecha'];
                 $fechaIso     = date('c', strtotime($row['fecha'] . ' ' . $row['hora']));
                 $descEvento   = $row['descripcion'];
                 $idEvento     = 'evt' . ($row['id'] ?? rand(1000, 9999));
@@ -82,10 +82,10 @@ if (!empty($rowsVisible)) {
         $html_row_two = '<div class="row m-0 p-0">';
         $html_row_two .= '<div class="col-lg-2 col-0 p-0 m-0"></div>';
         $html_row_two .= '<div class="col-lg-8 col-12 m-0 p-0 d-flex justify-content-lg-end ">';
-        $html_row_two .= '<button 
+        /*$html_row_two .= '<button 
                             class="mx-auto mx-lg-0 ms-lg-auto me-lg-5 mt-4 btn shadow h-auto tx-white btn-calendary fw-semibold" 
                             style="width:250px;"
-                            onclick="window.location.href=\'./entrevista.php\';">Más información</button>';
+                            onclick="window.location.href=\'./entrevista.php\';">Más información</button>';*/
         $html_row_two .= '</div>';
         $html_row_two .= '<div class="col-lg-2 col-0 p-0 m-0"></div>';
         $html_row_two .= '</div>';

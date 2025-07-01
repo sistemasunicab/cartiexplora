@@ -6,19 +6,20 @@
                <div class="col-lg-3 col-md-4 logros-noticias-separation '.$posicion.' '.$visibilidad.'">
                     <div class="noticias-hover">
                          <div class="noticias-img-effect">
-                              <img src="../../../'.$datos['rutaImagen'].'" class="noticias-img">
+                              <img src="'.$datos['rutaImagen'].'" class="noticias-img">
                          </div>
                          <div class="noticias-container">
                               <div class="noticias-box d-flex flex-column justify-content-between">
                                    <div>
-                                        <p class="noticias-date lh-1">'.$datos['fechaPublicacion'].'</p>
+                                        <p class="noticias-date lh-1">'.$datos['fechaPublicacion'].'</p><br>
                                         <p class="noticias-title lh-1">'.$datos['tituloBlog'].'</p>
                                         <p class="noticias-p lh-1 mt-3">'.substr($datos['descripcion'], 0, 157).'...</p>
                                    </div>     
                                    
                                    
                                    <div class="mt-lg-0 mt-md-0 mt-sm-2 mt-3">
-                                        <a role="button" data-button-blog data-blog-id="'.$datos['blogId'].'" class="noticias-link lh-1">'.$datos['textoBoton'].'</a>
+                                        <!--<a role="button" data-button-blog data-blog-id="'.$datos['blogId'].'" class="noticias-link lh-1">'.$datos['textoBoton'].'</a>-->
+                                        <a href="blog.php?blogId='.$datos['blogId'].'#blog_post" class="noticias-link lh-1">'.$datos['textoBoton'].'</a>
                                         <hr class="noticias-littlebar">
                                    </div>
                               </div>
@@ -30,8 +31,6 @@
           return $bloque;
      }
 
-    //-- Runtime --//
-
     if ($nivel == "raiz") {
         require('business/repositories/1cc2s4Home.php');
     } else if ($nivel == "uno") {
@@ -42,6 +41,7 @@
         require('../../../business/repositories/1cc2s4Home.php');
     }
 
+    //Cargar sección
     $res_sentecia = $mysqli1->query($sentencia . "98");//44
     while ($row_sentencia = $res_sentecia->fetch_assoc()) {
         $sql_seccion_dos = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
@@ -81,7 +81,7 @@
      }
 
      // Obteniendo textos
-     $res_sentencia = $mysqli1->query($sentencia."163");//45
+     $res_sentencia = $mysqli1->query($sentencia."167");//45 163
      while($row_sentencia = $res_sentencia->fetch_assoc()){
           $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
      }  
@@ -93,6 +93,7 @@
      }
 
      $resultadosBusqueda = array_shift($datosTextos);
+     $resultadosCategoria = array_shift($datosTextos);
 
     if ($html != '') {
         $html .= '<div class="row">'; 
@@ -129,6 +130,7 @@
                <div class="row">
                     <div class="col-lg-12">
                          <h3 class="logros-noticias-title text-center" id="titulo-busqueda">'.$resultadosBusqueda.'</h3>
+                         <h3 class="logros-noticias-title text-center d-none" id="titulo-busquedaCategorias">'.$resultadosCategoria.'</h3>
                     </div>
                </div>
                

@@ -138,7 +138,7 @@
         }
 
         $html .=    '</div>';
-        $html .= '</main>';
+        $html .= '</main><br><br>';
 
         }
 

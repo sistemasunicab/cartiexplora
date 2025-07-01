@@ -273,7 +273,7 @@ foreach ($copyrightDatos as $filaCopy) {
             </div>
 
             <!-- SEGUNDO FOOTER: ENTIDADES + COPYRIGHT -->
-            <div class="second-footer d-flex flex-column bg-orange w-100 pb-4">
+            <div class="second-footer d-flex flex-column bg-orange w-100 pb-4" id="entidadesVigilan">
                 <?php echo $html_copyright; ?>
             </div>
         </footer>

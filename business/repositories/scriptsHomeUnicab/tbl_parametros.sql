@@ -31,6 +31,15 @@ INSERT INTO tbl_parametros (parametro, v1, v2, t1, t2, f1, f2, id_seccion) VALUE
 ('copyright', NULL, NULL, 'Copyright © 2025 - Equipos Creativo y de Sistemas Unicab Virtual. Reservados todos los derechos', NULL, NULL, NULL, 10);
 
 INSERT INTO tbl_parametros (parametro, v1, v2, t1, t2, f1, f2, id_seccion) VALUES
-('indicador_egresados', 32425, NULL, NULL, NULL, NULL, NULL, 5),
-('indicador_graduados', 563, NULL, NULL, NULL, NULL, NULL, 5);
+('indicador_egresados', 1441, NULL, NULL, NULL, NULL, NULL, 5),
+('indicador_graduados', 131, NULL, NULL, NULL, NULL, NULL, 5);
+
+INSERT INTO tbl_parametros (parametro, v1, v2, t1, t2, f1, f2, id_seccion) VALUES
+('blog_newsletter_texto2', NULL, NULL, '¿Quieres cancelar tu suscripcion? Haz Click Aqui', NULL, NULL, NULL, 8),
+('blog_newsletter_texto3', NULL, NULL, '¿Deseas cancelar tu suscripcion?, Ingresa tu correo electronico:', NULL, NULL, NULL, 8),
+('boton_categoria1_blog', 1, NULL, 'Celebración de Logros', NULL, NULL, NULL, 31),
+('boton_categoria2_blog', 2, NULL, 'Proyectos y experiencias', NULL, NULL, NULL, 31),
+('boton_categoria3_blog', 3, NULL, 'Investigación GIU', NULL, NULL, NULL, 31)
+;
+
 

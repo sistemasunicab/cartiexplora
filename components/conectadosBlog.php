@@ -12,11 +12,10 @@
                          <div class="noticias-container">
                               <div class="noticias-box d-flex flex-column justify-content-between">
                                    <div>
-                                        <p class="noticias-date lh-1">'.$datos['fechaPublicacion'].'</p>
+                                        <p class="noticias-date lh-1">'.$datos['fechaPublicacion'].'</p><br>
                                         <p class="noticias-title lh-1">'.$datos['tituloBlog'].'</p>
                                         <p class="noticias-p lh-1 mt-3">'.substr($datos['descripcion'], 0, 197).'...</p>
-                                   </div>     
-                                   
+                                   </div>                                   
                                    
                                    <div class="mt-lg-0 mt-md-0 mt-sm-2 mt-3">
                                         <a href="business/org/pages/blog.php?blogId='.$datos['blogId'].'#blog_post" class="noticias-link lh-1">'.$datos['textoBoton'].'</a>
@@ -31,13 +30,11 @@
           return $bloque;
      }
 
-     //-- Runtime --//
-
-     // Poniendo el nivel
      $nivel = "raiz";
+     require('business/repositories/1cc2s4Home.php');
+     require('business/repositories/1cc2s4Org.php');
 
      // obteniendo informacion principal
-     require('business/repositories/1cc2s4Home.php');
      $res_sentencia = $mysqli1->query($sentencia."10");
      while($row_sentencia = $res_sentencia->fetch_assoc()){
           $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
@@ -139,7 +136,7 @@
           $direction = FlexTitleLoader::setDirection($datosImagenes[0][2]);
           
           // Obteniendo el formulario
-          $res_sentencia = $mysqli1->query($sentencia."152");
+          $res_sentencia = $mysqli1->query($sentencia."151");//152
           while($row_sentencia = $res_sentencia->fetch_assoc()){
                $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']).$row_sentencia['ordenamientos'];
           }  
@@ -150,8 +147,11 @@
           }
 
           $correoCampo = array_shift($camposNewsletter);
+          $campoCancelarSuscripcion = array_shift($camposNewsletter);
+          $cancelarSuscripcionBoton = array_shift($camposNewsletter);
           $texto1 = array_shift($parametros);
           $textoUnsubscribe = array_shift($parametros);
+          $textoCajaUnsubscribe = array_shift($parametros);
 
           $html .= '
                </div>
@@ -165,11 +165,17 @@
 
                <div class="row">
                     <div class="col-lg-8 col-md-6 col-sm-4 col-1"></div>
-                    <div class="col-lg-4 col-md-6 col-sm-8 col-11">
-                         <form id="newsletterForm" data-new-form>
+                    <div class="col-lg-4 col-md-6 col-sm-8 col-11" id="newsletterBox">
+                         <form 
+                              id="newsletterForm" 
+                              data-form-instance 
+                              data-form-configuracion=\'{
+                                 "botonSubmit": "registerNewsletter"
+                              }\'
+                         >
                               <div class="row m-0 noticias-newsletter-main">
                                    <div class="col-8 p-0">
-                                        <input onkeyup="validarCampoNewsletter(this, \''.$correoCampo['texto'].'\', \'correo\', 1, \'registerNewsletter\', \'newsletterForm\')" type="' . $correoCampo['tipo'] . '" id="' . $correoCampo['campo'] . '" class="campoFormulario noticias-newsletter-input" ' . $correoCampo['obligatorio'] . ' ' . $correoCampo['soloLectura'] . ' ' . $correoCampo['habilitado'] . ' placeholder="'.$correoCampo['placeHolder'].'">
+                                        <input data-descripcion="'.$correoCampo['texto'].'" data-regla-validacion="correo" data-control-submit="1" type="' . $correoCampo['tipo'] . '" id="' . $correoCampo['campo'] . '" class="noticias-newsletter-input" ' . $correoCampo['obligatorio'] . ' ' . $correoCampo['soloLectura'] . ' ' . $correoCampo['habilitado'] . ' placeholder="'.$correoCampo['placeHolder'].'">
                                    </div>
                                    
                                    <button type="submit" id="registerNewsletter" class="col-4 noticias-newsletter-btn" style="display: none;">
@@ -197,6 +203,34 @@
           ';
 
           $html .= '
+               </div>
+
+               <div class="container newsletter-unsubscribe" style="display: none;" id="newsletter-cancelarSuscripcion">
+                    <div class="row">
+                         <div class="col-lg-3 col-md-3 col-sm-2 col-2"></div>
+
+                         <div class="col-lg-6 col-md-6 col-sm-8 col-8 unsubscribe-container">
+                              <p>'.$textoCajaUnsubscribe.'</p>
+
+                              <form 
+                                   id="newsletterUnsubscribeForm" 
+                                   data-form-instance 
+                                   data-form-configuracion=\'{
+                                      "botonSubmit": "unsubscribeNewsletterButton"
+                                   }\'
+                              >
+                                   <input data-descripcion="'.$campoCancelarSuscripcion['texto'].'" data-regla-validacion="correo" data-control-submit="1" type="' . $campoCancelarSuscripcion['tipo'] . '" id="' . $campoCancelarSuscripcion['campo'] . '" ' . $campoCancelarSuscripcion['obligatorio'] . ' ' . $campoCancelarSuscripcion['soloLectura'] . ' ' . $campoCancelarSuscripcion['habilitado'] . ' placeholder="'.$campoCancelarSuscripcion['placeHolder'].'">
+
+                                   <button type="' . $cancelarSuscripcionBoton['tipo'] . '" id="unsubscribeNewsletterButton" class="unsubscribe-button" style="display: none;">
+                                        '.$cancelarSuscripcionBoton['texto'].'
+                                   </button>
+                              </form>
+
+                              <p class="noticias-newsletter-response d-none" data-response-type="success" id="unsubscribe-newsletter-response"></p>
+                         </div>
+
+                         <div class="col-lg-3 col-md-3 col-sm-2 col-2"></div>
+                    </div>
                </div>
           </section>
           ';

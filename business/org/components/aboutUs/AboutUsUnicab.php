@@ -14,12 +14,12 @@ if (!empty($rowsTexto)) {
         $texto  = $row['texto'];
         $html_row_one = '<div class="row col-12 mx-auto p-0 m-0">';
         $html_row_one .= '<div class="col-lg-1 col-1 p-0"></div>';
-        $html_row_one .= '<div class="col-lg-6 col-10 p-0">';
+        $html_row_one .= '<div class="col-lg-7 col-9 p-0">';
         $html_row_one .= '  <h2-nosotros class="font-roboto-light-title tx-blue text-start">'
                             . $titulo .
                             '</h2-nosotros>';
         $html_row_one .= '</div>';
-        $html_row_one .= '<div class="col-lg-5 col-1 p-0"></div>';
+        $html_row_one .= '<div class="col-lg-4 col-2 p-0"></div>';
         $html_row_one .= '</div>';
             
         $html_row_two = '<div class="row col-12 p-0 m-0">';

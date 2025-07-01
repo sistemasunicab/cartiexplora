@@ -1,7 +1,11 @@
 <!--// Indicators //-->
 <?php
 
-     //-- Funciones --//
+     date_default_timezone_set('America/Bogota');
+     $dia=date("d");
+     $mes=date("m");
+     $mesLetra=date("M");
+     $fanio=date("Y");
 
      function formatearIndicador($numero) {
          // A partir de 1millón se añade "M" de sufijo
@@ -43,7 +47,6 @@
          return $formato . $sufijo;
      }
 
-
      function crearIndicador($datos, $posicion, $valor){
           $indicator = '
                     <div class="col-lg-4 col-md-4 col-sm-12 col-12 '.$posicion.'">
@@ -61,13 +64,11 @@
           return $indicator;
      }
 
-     //-- Runtime --//
-
-     // Cargando el nivel
      $nivel = "raiz";
 
      // Obteniendo los datos de los indicadores
      require('business/repositories/1cc2s4Home.php');
+     require('business/repositories/1cc2s4Org.php');
      $res_sentencia = $mysqli1->query($sentencia."7");
      while($row_sentencia = $res_sentencia->fetch_assoc()){
           $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
@@ -128,16 +129,29 @@
                if ($indicator == 3) {
                     $posicion = 'indicator-left';
                     $indicator = 0;
-               }elseif ($indicator > 1) {
+               }
+               elseif ($indicator > 1) {
                     $posicion = 'indicator-center';
                }
 
                if (isset($valoresIndicadores['indicador_'.strtolower($datos[1])])) {
                     $valor = $valoresIndicadores['indicador_'.strtolower($datos[1])]['valor'];
-               }
-               
+               }               
                else {
-                    $valor = 0;
+                    //Se hace la consulta de los estudiantes activos
+                    /*$sql_activos = "SELECT COUNT(1) ct FROM `matricula` where n_matricula like '%2025%' and estado = 'activo'";*/
+                    $sentenciaFinal = $sentencia2."'estudiantes activos'";
+                    $valores = [
+                         '_a*' => '\'%'.$fanio.'%\'',
+                         '_estado*' => 'activo'
+                    ];
+                    $sql_activos = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
+                    $res_activos = $mysqli2->query($sql_activos);
+                    while($row0 = $res_activos->fetch_assoc()) {
+                         $ct = $row0['ct'];
+                    }
+
+                    $valor = $ct;
                }
 
                $html .= crearIndicador($datos, $posicion, $valor);

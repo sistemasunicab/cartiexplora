@@ -84,7 +84,7 @@
         $html .= '<section class="container section-costos">';
         $html .=    '<div class="row">';
         $html .=        '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
-        $html .=            '<h4 class="subtitulo-costos">' . $row_seccion['subTitulo'] . '</h4>';
+        $html .=            '<h4 class="subtitulo-costos">' . $row_seccion['subTitulo'] . " " . $row_seccion['texto'] . '</h4>';
         $html .=        '</div>';
         $html .=    '</div>';
 
@@ -102,7 +102,7 @@
             $html .=        '<div class="col-lg-6 col-md-6 col-sm-6 col-6 text-center">';
             $html .=            '<div class="row align-items-center">';
             $html .=                '<div class="col-lg-6 col-md-6 col-sm-6 col-6">';
-            $html .=                    '<a onclick="descargarArchivo(\'' . $nivel . '\', \''. $row_circulares['ruta'] .'\', \''.$row_circulares['nombreArchivo'] . '\', \'' . $row_circulares['destino'] .'\')" class="download-button mx-3">';
+            $html .=                    '<a href="'.$row_circulares['ruta'].'" target="'.$row_circulares['destino'].'" class="download-button mx-3">';
             $html .=                        '<img ' . ImageAttributeBuilder::buildAttributes($nivel, $iconoPDF['ruta'], $iconoPDF['descripcion']) . ' class="img-fluid pdf-btn-costos">';
             $html .=                    '</a>';
             $html .=                '</div>';

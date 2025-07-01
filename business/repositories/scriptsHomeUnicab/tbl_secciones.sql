@@ -10,6 +10,9 @@ CREATE TABLE tbl_secciones (
   texto varchar(10000) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
+INSERT INTO tbl_secciones (id, seccion, visible, paginaPadre, titulo, subTitulo, texto) VALUES
+(0, '', 0, '', '', '', '');
+
 INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, texto) VALUES
 ('banner', 1, 'home', '', '', ''),
 ('ofertaAcademica', 1, 'home', 'Oferta Académica', '', ''),
@@ -31,7 +34,7 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 ('directorioInstitucional', 1, '', '<b>DIRECTORIO</b> INSTITUCIONAL','',''),
 ('calendarioAcademico', 1, '', '<b>CALENDARIO</b> ACADÉMICO','',''),
 ('calendarioProximoEvento', 1, '', 'Próximo evento','','Tiempo Restante'),
-('comunicados', 1, '', 'COMUNICADOS','',''),
+('comunicados', 0, '', 'COMUNICADOS','',''),
 
 ('lineaTiempo', 1, 'historia', 'Historia y Logros Alcanzados', '', ''),
 ('informacion', 1,'historia', '', '', ''),
@@ -63,7 +66,7 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 ;
 
 INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, texto) VALUES 
-('costos', 1, 'admisiones', '', 'Consulta aquí los costos aprobados por la Secretaría de Educación de Sogamoso para el año 2025', '');
+('costos', 1, 'admisiones', '', 'Consulta aquí los últimos costos aprobados por la Secretaría de Educación de Sogamoso', '(Año 2024)');
 
 UPDATE tbl_secciones SET titulo = 'Noticias Destacadas' WHERE id = 32;
 UPDATE tbl_secciones SET titulo = 'Noticias Destacadas' WHERE id = 8;
@@ -78,5 +81,6 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 
 INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, texto) VALUES 
 ('presaberes_principal', 1, 'presaberes', 'BIENVENIDO', '', ''),
-('newsletterInscrito', 1, 'correo', 'Ya haces parte de <strong style="color:#FF9805;">Conectados</strong>,<br>el blog oficial de UNICAB', '¡Gracias por suscribirte!', 'Desde ahora estarás al tanto de:')
+('newsletterInscrito', 1, 'correo', 'Ya haces parte de <strong style="color:#FF9805;">Conectados</strong>,<br>el blog oficial de UNICAB', '¡Gracias por suscribirte!', 'Desde ahora estarás al tanto de:'),
+('resultadosPresaberes', 1, 'presaberes', '', '', '')
 ;

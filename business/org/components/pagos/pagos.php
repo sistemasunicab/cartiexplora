@@ -150,6 +150,11 @@
         $selectMedioPago = array_shift($formItems);
         $selectConceptoPago = array_shift($formItems);
 
+        $txtCodigoFactura = array_shift($formItems);
+        $txtConcepto = array_shift($formItems);
+        $txtControlPago = array_shift($formItems);
+        $txtIdGrado = array_shift($formItems);
+
         $html .= '<section class="section-title-pagos">'.
                      '<div class="container">'.
                         posicionTitulo('<img class="img-fluid h2-icon-pagos" ' . ImageAttributeBuilder::buildAttributes($nivel, $tituloSeccionUno['ruta'], $tituloSeccionUno['descripcion']) . '>', $tituloSeccionUno['titulo'], $tituloSeccionUno['posicionTitulo']) .
@@ -165,16 +170,19 @@
                         '</div>'.
                         '<div class="col-lg-4 col-md-6 col-sm-6 col-6 columna-2-pagos">'.
                             '<div class="d-flex justify-content-center">'.
-                                '<img class="mipagoamigo-pagos img-fluid w-100" ' . ImageAttributeBuilder::buildAttributes($nivel, $imagenPagoAmigo['ruta'], $imagenPagoAmigo['descripcion']) . '>'.
+                                '<a href="'. $imagenPagoAmigo['enlace'] .'" target="_blank">
+                                    <img class="mipagoamigo-pagos img-fluid w-100" ' . ImageAttributeBuilder::buildAttributes($nivel, $imagenPagoAmigo['ruta'], $imagenPagoAmigo['descripcion']) . '>
+                                </a>'.
                             '</div>'.
                             '<div class="d-flex justify-content-center">'.
-                                '<button class="mipagoamigo-btn-pagos" id="' . $btnPagoAmigo['campo'] . '" type="' . $btnPagoAmigo['tipo'] . '">' . $btnPagoAmigo['texto'] . '</button>'.
+                                //'<button class="mipagoamigo-btn-pagos" id="' . $btnPagoAmigo['campo'] . '" type="' . $btnPagoAmigo['tipo'] . '">' . $btnPagoAmigo['texto'] . '</button>'.
+                                //'<center><label class="mipagoamigo-btn-pagos">' . $btnPagoAmigo['texto'] . '</label></center>'.
                             '</div>'.
                         '</div>'.
                         '<div class="col-lg-4 col-md-12 col-sm-12 col-12 columna-3-pagos">'.
                             '<div>'.
                                 '<p class="title-instructivo-pagos">' . $instructivoPago['titulo'] . '</p>'.
-                                '<a class="enlace-instructivo-pagos" href="'. $instructivoPago['enlace'] .'"><img class="img-fluid w-100" ' . ImageAttributeBuilder::buildAttributes($nivel, $instructivoPago['ruta'], $instructivoPago['descripcion']) . '></a>'.
+                                '<a class="enlace-instructivo-pagos" href="'. $instructivoPago['enlace'] .'" target="_blank"><img class="img-fluid w-100" ' . ImageAttributeBuilder::buildAttributes($nivel, $instructivoPago['ruta'], $instructivoPago['descripcion']) . '></a>'.
                             '</div>'.
                         '</div>'.
                     '</div>'.
@@ -317,7 +325,7 @@
                          '</div>'.
                          '<div class="row form-block-pagos">'.
                              '<div class="col-lg-6 col-md-6 col-sm-12 col-12 text-center">'.
-                                 '<input type="'. $txtRef['tipo'] .'" id="'. $txtRef['campo'] .'" placeholder="'. $txtRef['placeHolder'] .'" onkeyup="validarCampo(this, \'Referencia de pago\', \'texto1\', 1, \'btnpagar\'); validarConsulta();" class="form-control campoFormulario input-pagos" '. $txtRef['obligatorio'] .' '. $txtRef['soloLectura'] .' '. $txtRef['habilitado'] .'>'.
+                                 '<input type="'. $txtRef['tipo'] .'" id="'. $txtRef['campo'] .'" placeholder="'. $txtRef['placeHolder'] .'" onkeyup="validarCampo(this, \'Referencia de pago\', \'texto1\', 1, \'btnpagar\');" class="form-control campoFormulario input-pagos" '. $txtRef['obligatorio'] .' '. $txtRef['soloLectura'] .' '. $txtRef['habilitado'] .'>'.
                              '</div>'.
                              '<div class="col-lg-6 col-md-6 col-sm-12 col-12">'.
                                  '<input type="'. $txtValorRef['tipo'] .'" id="'. $txtValorRef['campo'] .'" class="inactivo form-control input-pagos" placeholder="'. $txtValorRef['placeHolder'] .'" '. $txtValorRef['obligatorio'] .' '. $txtValorRef['soloLectura'] .' '. $txtValorRef['habilitado'] .'>'.
@@ -325,7 +333,7 @@
                          '</div>'.
                          '<div class="row my-5">'.
                              '<div class="col-lg-12 col-md-12 col-sm-12 col-12 my-2 text-center">'.
-                                 '<button class="pagos-btn w-50 text-uppercase" onclick="" type="'.$consultarBtn['tipo'].'" id="'.$consultarBtn['campo'].'">'.$consultarBtn['texto'].'</button>'.
+                                 '<button class="pagos-btn w-50 text-uppercase" onclick="qval();" type="'.$consultarBtn['tipo'].'" id="'.$consultarBtn['campo'].'">'.$consultarBtn['texto'].'</button>'.
                              '</div>'.
                          '</div>'.
                  '</section>'.
@@ -378,10 +386,14 @@
                  '<section class="container section-pagos">'.
                     '<div class="row form-block-pagos">'.
                         '<div class="col-lg-12 col-md-12 col-sm-12 col-12 my-2 text-center">'.
-                            '<button id="'.$btnPagar['campo'].'" type="'.$btnPagar['tipo'].'" class="pagos-btn w-50" onclick="">'.$btnPagar['texto'].'</button>'.
+                            '<button id="'.$btnPagar['campo'].'" type="'.$btnPagar['tipo'].'" class="pagos-btn w-50" onclick="callEpayco()">'.$btnPagar['texto'].'</button>'.
                         '</div>'.
                     '</div>'.
                  '</section>'.
+                 '<input type="'. $txtCodigoFactura['tipo'] .'" id="'. $txtCodigoFactura['campo'] .'" >'.
+                 '<input type="'. $txtConcepto['tipo'] .'" id="'. $txtConcepto['campo'] .'" >'.
+                 '<input type="'. $txtControlPago['tipo'] .'" id="'. $txtControlPago['campo'] .'" value="0">'.
+                 '<input type="'. $txtIdGrado['tipo'] .'" id="'. $txtIdGrado['campo'] .'" value="0">'.
                  '<div id="alert" style="margin-left: 2rem;">'.
                      '<p><i class="fa fa-warning"></i><span>: </span><label id="pdesc"></label>'.
                          '<input type="text" class="alert" style="width: 20px; border: none; background: transparent; color: transparent" id="txtvacio" value="0">'.

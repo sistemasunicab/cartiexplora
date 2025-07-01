@@ -66,15 +66,31 @@
     if ($html != '') {
           $modeloImg = array_shift($imagenes);
 
-          $html .= '
+          /*$html .= '
                     <div class="row '.FlexTitleLoader::setDirection($modeloImg[2]).'">
-                         <div class="col-lg-6 col-md-12 col-sm-12 col-12 d-flex align-items-center">
+                         <div class="col-lg-5 col-md-5 col-sm-12 col-12 align-items-center">
                               <img class="img-fluid w-100 box-shadow-2rem" src="../../../../cartiexplora/'.$modeloImg[0].'" alt="">
                          </div>
 
-                         <div class="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-last order-first">
+                         <div class="col-lg-7 col-md-7 col-sm-12 col-12 order-lg-last order-first">
                               <p class="nuestroModelo-p mb-3">'.$descripcion.'</p>
                          </div>
+                    </div>
+               </main>
+
+               <section class="nuestroModelo-secondSection bg-light-gray-o26">
+                    <div class="container">
+                         <div class="row py-5">
+          ';*/
+          $html .= '
+                    <div class="row">                         
+                         <div class="col-lg-7 col-md-7 col-sm-12 col-12">
+                              <p class="nuestroModelo-p mb-3">'.$descripcion.'</p>
+                         </div>
+                         <div class="col-lg-5 col-md-5 col-sm-12 col-12 align-items-center">
+                              <img class="img-fluid w-100 box-shadow-2rem" src="../../../../cartiexplora/'.$modeloImg[0].'" alt="">
+                         </div>
+
                     </div>
                </main>
 

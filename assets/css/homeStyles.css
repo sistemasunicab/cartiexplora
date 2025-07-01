@@ -72,6 +72,7 @@ circle {
     --roboto-regular: 'Roboto-regular', sans-serif;
     --roboto-thin: 'Roboto-thin', sans-serif;
     --roboto-thinitalic: 'Roboto-thinitalic', sans-serif;
+    --poppins-semi-bold: 'Poppins-semi-bold', sans-serif;
 
     /* Color Palette */
     --bold-blue: #0D3041;
@@ -153,6 +154,11 @@ circle {
     src: url('../fonts/Roboto-ThinItalic.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Poppins-semi-bold';
+    src: url('../fonts/poppins-semi-bold.ttf') format('truetype');
+}
+
 /* Font Classes */
 .font-roboto {
     font-family: var(--roboto-regular);
@@ -218,6 +224,14 @@ circle {
 .font-roboto-thinitalic {
     font-family: var(--roboto-thinitalic);
 }
+
+.poppins-semi-bold {
+    font-family: var(--poppins-semi-bold);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins-medium:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
 
 /* Text Uppercase */
 .tx-uppercase {
@@ -1590,17 +1604,20 @@ p-financieros {
 }
 
 .nuestroModelo-title {
-    font-size: 4.88rem;
+    /*font-size: 4.88rem;*/
+    font-size: 3.75rem;
     letter-spacing: 0.14rem;
     line-height: 1.2;
     font-family: var(--roboto-black);
 }
 
 .nuestroModelo-secondTitle {
-    font-size: 8.75rem;
+    /*font-size: 8.75rem;*/
+    font-size: 6.75rem;
     letter-spacing: 0.24rem;
     line-height: 1;
-    margin-bottom: 7.8rem;
+    /*margin-bottom: 7.8rem;*/
+    margin-bottom: 1rem;
 }
 
 .nuestroModelo-p {
@@ -1783,6 +1800,13 @@ p-financieros {
     font-family: var(--roboto-regular);
 }
 
+.ql-align-justify {
+    font-size: 1.31rem;
+    letter-spacing: 0.02rem;
+    line-height: 1.2;
+    font-family: var(--roboto-regular);
+}
+
 #comentariosCampos {
     border: 2px solid var(--green);
     border-radius: 0 0 0.50rem 0.50rem;
@@ -1831,32 +1855,32 @@ p-financieros {
 }
 
 .logros-aceptarDatos {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     letter-spacing: 0;
     line-height: 1.1;
 }
 
 #send_blog_comment {
-    font-size: 0.56rem;
+    font-size: 1.5rem;
     letter-spacing: 0;
     line-height: 1.1;
 }
 
 .logros-comentario {
-    font-size: 0.94rem;
+    font-size: 1.2rem;
     letter-spacing: 0.01rem;
     line-height: 1.8;
     font-family: var(--roboto-regular);
 }
 
 .logros-correo {
-    font-size: 1.56rem;
+    font-size: 1.2rem;
     letter-spacing: 0.04rem;
     font-family: var(--roboto-bolditalic);
 }
 
 .logros-fecha {
-    font-size: 0.94rem;
+    font-size: 1rem;
     letter-spacing: 0.02rem;
     font-family: var(--roboto-lightitalic);
 }
@@ -1885,16 +1909,163 @@ p-financieros {
     letter-spacing: .03rem;
 }
 
+
+#search-results {
+    margin-top: .5rem;
+    position: relative;
+    z-index: 1000000000;
+}
+
+.search-engine {
+    position: absolute;
+    width: 100%;
+
+    left: 0;
+    top: 0;
+}
+
+.blog-search-error {
+    background-color: rgb(179, 22, 11);
+    padding-bottom: .8rem;
+    padding-top: .8rem;
+
+    font-family: var(--roboto-lightitalic);
+    font-size: 1.4rem;
+    color: #ffabab;
+
+    border-top: 1px solid #ffabab;
+    text-align: center; 
+}
+
+.blog-search-found {
+    background-color: rgba(11, 119, 179, .92);
+    
+    padding-bottom: .8rem;
+    padding-top: .8rem;
+
+    border-top: 1px solid #abe7ff;
+    transition: background-color .1s ease-in;
+}
+
+.blog-search-found:hover {
+    background-color: rgba(9, 97, 145, 0.92);
+}
+
+.blog-search-found h6 {
+    font-family: var(--roboto-light);
+    font-size: 1.1rem;
+    color: #FFF;
+
+}
+
+.blog-search-found h5 {
+    font-family: var(--roboto-italic);
+    font-size: 1.1rem;
+    color: #7ad0ff;
+
+    margin-bottom: .5rem;
+}
+
+.logros-unsubscribe {
+    transition: color .1s ease;
+}
+
+.logros-unsubscribe:hover {
+    color: var(--blue) !important;
+}
+
+.newsletter-unsubscribe {
+    position: fixed;
+    top: .8rem;
+    left: 50%;
+    
+    z-index: 10;
+    transform: translateX(-50%);
+}
+
+.unsubscribe-container {
+    background-color: white;
+    box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.5);
+    padding: 1.25rem 1rem;
+}
+
+.unsubscribe-container p {
+    color: #000;
+    font-family: var(--roboto-regular);
+    font-size: 1.1rem;
+    letter-spacing: 0.02rem;
+    text-align: center;
+    margin-bottom: .4rem;
+}
+
+.unsubscribe-container input {
+    color: #000;
+    font-family: var(--roboto-regular);
+    width: 100%;
+    padding: .5rem;
+    font-size: 1.1rem;
+    border: 1px solid #444444;
+    border-radius: .4rem;
+}
+
+.unsubscribe-container input::placeholder {
+    color: #949494;
+    font-family: var(--roboto-bold);
+    letter-spacing: 0.03rem;
+}
+
+.unsubscribe-button {
+    margin: 0.4rem auto 0px;
+    display: block;
+    border: none;
+    padding: 0.5rem 1rem;
+    background-color: var(--orange);
+    color: white;
+    border-radius: 0.5rem;
+}
+
 /**** CELEBRANDO LOGROS BLOG PAGINA FIN ****/
 
+
 /**** EVALUACION PRESABERES PAGINA ****/
+.oculto {
+    display: none;
+}
+.conteo {
+    width: 100px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    background-color: #16224F;
+    font-size: 16px;
+}
+#divimagen, #divtextopregunta {
+    height: 350px;
+}
+#divtextopregunta {
+    background: var(--orange);
+}
+#divimagen {
+    border: 1px solid black;
+}
+.imgpreg {
+    margin-top: 10px;
+}
+        
+
 .presaberes-globalSection {
-    margin-top: 7.8rem;
     margin-bottom: 7.8rem;
+}
+.presaberes-documento{
+    margin-bottom: 1rem;
+}
+
+.fa-chevron-right {
+    color: var(--orange);
 }
 
 .presaberes-espacio-top {
-    margin-top: 7.8rem;
+    margin-top: 2rem;
 }
 
 .presaberes-title {
@@ -1971,7 +2142,139 @@ p-financieros {
 .presaberes-boton:hover {
     color: var(--bold-blue);
 }
+
+.loader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url("../img/loading1.gif") 50% 50% no-repeat;
+    opacity: .8;
+}
+
+#divenc2 {
+    display: flex;
+    justify-content: space-around;
+}
+
+#divenc2_1 {
+    border: 3px solid #093A5F;
+    width: 50%;
+    padding-left: 20px;
+}
+
+#divenc2_2 {
+    background: #54CF8C;
+    width: 30%;
+    text-align: center;
+}
+
+#divglobal {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background: #F1F1F2;
+}
+
+#tblglobal, thead {
+    border: 2px solid black;
+}
 /**** EVALUACION PRESABERES PAGINA FIN ****/
+
+/**** EVALUACION PRESABERES PRINCIPAL INICIO ****/
+
+.presaberes-main-descripcion::before {
+    content: "> ";
+    font-family: var(--roboto-black);
+    font-size: 1.4rem;
+    color: var(--orange);
+}
+
+.presaberes-main-title {
+    font-family: var(--roboto-bold);
+    font-size: 2.375rem;
+}
+
+.presaberes-main-descripcion {
+    font-family: var(--roboto-regular);
+    font-size: 1.15rem;
+    margin-bottom: .5rem;
+    margin-top: .5rem;
+}
+
+.contenedor-datos {
+    height: 20rem !important;
+    border: 1
+px solid #000;
+    overflow: scroll;
+}
+
+.presaberes-main-preguntatitle {
+    font-family: var(--roboto-black);
+    color: white;
+    font-size: 1.35rem;
+    margin-bottom: .8rem;
+    margin-top: .8rem;
+}
+
+/**** EVALUACION PRESABERES PRINCIPAL FIN ****/
+
+/**** PAGINA PROMOCION 2024 INICIO ****/
+
+.egresados-section {
+    margin-top: var(--m-escritorio);
+    margin-bottom: var(--m-escritorio);
+}
+
+.egresados-title {
+    color: var(--orange);
+    font-family: var(--roboto-black);
+    letter-spacing: 0.136rem;
+    font-size: 4.875rem;
+}
+
+.egresados-subtitle {
+    color: var(--blue);
+    font-family: var(--roboto-black);
+    letter-spacing: 0.105rem;
+    font-size: 3.75rem;
+}
+
+/* cards */
+.egresados-card-title {
+    font-family: var(--roboto-light);
+letter-spacing: 0.07rem;
+    font-size: 2.5rem;
+    color: var(--orange)
+}
+
+.egresados-card-subtitle {
+    font-family: var(--roboto-black);
+    letter-spacing: 0.105rem;
+    font-size: 3.75rem;
+    color: var(--blue);
+}
+
+.egresados-card-description {
+    font-family: var(--roboto-regular);
+    font-size: 1.3125rem;
+    letter-spacing: 0.0225rem;
+    margin-top: 1.8125rem;
+}
+
+.egresados-card-mainimg {
+    height: 22.5625rem;
+    object-fit: scale-down;
+}
+
+.egresados-card-subimg {
+    margin-top:
+0.875rem;
+}
+
+/**** PAGINA PROMOCION 2024 FIN ****/
 
 /** Inicio btn flotante */
 
@@ -2191,9 +2494,11 @@ p-financieros {
 .video-tablet,
 .video-desktop {
     width: 100%;
-    height: 600px;
-    object-fit: contain;
-    display: block;    
+    max-width: 120rem;
+    /*height: 600px;*/
+    height: max-content;
+    /*object-fit: contain;
+    display: block;*/    
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     background-color: #D4CECE;
 }
@@ -2733,7 +3038,7 @@ input[type="checkbox"] {
 }
 
 .section-pagos {
-    margin-top: var(--m-escritorio);
+    /*margin-top: var(--m-escritorio);*/
     margin-bottom: var(--m-escritorio);
 }
 
@@ -3007,6 +3312,14 @@ input[type="checkbox"] {
     text-transform: uppercase;
 }
 
+.label-datos-pago {
+    display: block;
+    font-size: 1.313rem;
+    font-family: var(--roboto-bold);
+    text-align: start;
+    margin-top: 1rem;
+}
+
 .label-valor-manual-pagos {
     font-size: 1.313rem;
     font-family: var(--roboto-bold);
@@ -3055,7 +3368,7 @@ input[type="checkbox"] {
 /** Inicio Costos **/
 
 .section-titulo-costos {
-    padding: 3.25rem 0;
+    padding: 2.938rem 0;
     background-color: var(--bold-blue);
     margin-top: var(--m-escritorio);
     margin-bottom: var(--m-escritorio);
@@ -3142,6 +3455,68 @@ input[type="checkbox"] {
 }
 
 /** Fin Costos **/
+
+/** Inicio Formulario Entrevistas  */
+.loader {
+    opacity: .8;
+    width: 50%;
+    margin-left: 25%;
+}
+.amarillo {
+    background: #FFD156;
+    color: #FFD156;
+}
+.azuloscuro {
+    background: #16224F;
+    color: white;
+    font-weight: bold;
+    display: table;
+    height:50px;
+}
+.azuloscuro h5 {
+    display: table-cell;
+    vertical-align: middle;
+}
+.form-select1 {
+    appearance: none !important;
+    background-image: url("../img/admisiones/select_Icon2.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: right center !important;
+    min-height: 40px !important;
+}
+.icono {
+    width: 50%;
+}
+.icono1 {
+    width: 15%;
+}
+input[type="text"], .select, textarea {
+    border-radius: 15px !important;
+    border: 2px solid #42C3AE;
+}
+.form-label1 {
+    margin: 0.1rem 0;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.btnContinuar, .btnEnviar {
+    border: none;
+    background: transparent;
+}
+
+.hrResultadoPreAdmisiones {
+    border: 1px solid #Ff9805 !important;
+}
+.imgAyuda {
+    width: 20%;
+    height: auto;
+}
+#page-title-area {
+    background-color: #4d4d4f;
+    color: white;
+}
+/** Fin Formulario Entrevistas  */
 
 /** Moviles **/
 @media (max-width: 767px) {
@@ -3833,7 +4208,8 @@ input[type="checkbox"] {
     .nuestroModelo-secondTitle {
         font-size: 2.50rem;
         letter-spacing: 0.07rem;
-        margin-bottom: 3.3rem;
+        /*margin-bottom: 3.3rem;*/
+        margin-bottom: 1rem;
     }
 
     .nuestroModelo-p {
@@ -3988,6 +4364,12 @@ input[type="checkbox"] {
         line-height: 1.2;
     }
 
+    .ql-align-justify {
+        font-size:0.81rem;
+        letter-spacing: 0;
+        line-height: 1.2;
+    }
+
     #comentariosCampos {
         border: 2px solid var(--green);
         border-radius: 0 0 0.50rem 0.50rem;
@@ -4002,13 +4384,13 @@ input[type="checkbox"] {
         font-family: var(--roboto-bolditalic);
         margin: 0;
 
-        font-size: 0.81rem;
+        font-size: 1rem;
         letter-spacing: 0.02rem;
         line-height: 1.2;
     }
 
     #comentariosCampos input {
-        font-size: 0.50rem;
+        font-size: 0.80rem;
         letter-spacing: 0;
         font-family: var(--roboto-regular);
         line-height: 1.3;
@@ -4036,33 +4418,33 @@ input[type="checkbox"] {
     }
 
     .logros-aceptarDatos {
-        font-size: 0.38rem;
+        font-size: 0.75rem;
         letter-spacing: 0;
         line-height: 1;
     }
 
     #send_blog_comment {
-        font-size: 0.94rem;
+        font-size: 1rem;
         letter-spacing: 0.02rem;
         line-height: 1.6;
     }
 
     .logros-comentario {
-        font-size: 0.75rem;
+        font-size: 1rem;
         letter-spacing: 0;
         line-height: 1.5;
         font-family: var(--roboto-regular);
     }
 
     .logros-correo {
-        font-size: 0.75rem;
+        font-size: 1rem;
         letter-spacing: 0.02rem;
         line-height: 1.1;
         font-family: var(--roboto-bolditalic);
     }
 
     .logros-fecha {
-        font-size: 0.31rem;
+        font-size: 0.8rem;
         letter-spacing: 0.01rem;
         line-height: 1.9;
         font-family: var(--roboto-lightitalic);
@@ -4309,60 +4691,6 @@ input[type="checkbox"] {
     }
 
     /**** EVALUACION PRESABERES PRINCIPAL FIN ****/
-
-    /**** PAGINA PROMOCION 2024 INICIO ****/
-
-    .egresados-section {
-        margin-top: var(--m-escritorio);
-        margin-bottom: var(--m-escritorio);
-    }
-
-    .egresados-title {
-        color: var(--orange);
-        font-family: var(--roboto-black);
-        letter-spacing: 0.136rem;
-        font-size: 4.875rem;
-    }
-
-    .egresados-subtitle {
-        color: var(--blue);
-        font-family: var(--roboto-black);
-        letter-spacing: 0.105rem;
-        font-size: 3.75rem;
-    }
-
-    /* cards */
-    .egresados-card-title {
-        font-family: var(--roboto-light);
-        letter-spacing: 0.07rem;
-        font-size: 2.5rem;
-        color: var(--orange)
-    }
-
-    .egresados-card-subtitle {
-        font-family: var(--roboto-black);
-        letter-spacing: 0.105rem;
-        font-size: 3.75rem;
-        color: var(--blue);
-    }
-
-    .egresados-card-description {
-        font-family: var(--roboto-regular);
-        font-size: 1.3125rem;
-        letter-spacing: 0.0225rem;
-        margin-top: 1.8125rem;
-    }
-
-    .egresados-card-mainimg {
-        height: 22.5625rem;
-        object-fit: scale-down;
-    }
-
-    .egresados-card-subimg {
-        margin-top: 0.875rem;
-    }
-
-    /**** PAGINA PROMOCION 2024 FIN ****/
 
     /** Inicio Boton flotante */
 
@@ -4993,6 +5321,13 @@ input[type="checkbox"] {
         font-size: 1.125rem;
     }
 
+    .label-datos-pago {
+        font-size: 1rem;
+        font-family: var(--roboto-medium);
+        text-align: center;
+        margin-top: 1rem;
+    }
+
     .label-valor-manual-pagos {
         font-size: 1rem;
         font-family: var(--roboto-medium);
@@ -5091,6 +5426,12 @@ input[type="checkbox"] {
     }    
 
     /** Fin Costos **/
+
+    /** Inicio Formulario Entrevistas  */
+    .azuloscuro {
+        height: auto;
+    }
+    /** Fin Formulario Entrevistas  */
 }
 
 /** Tabletas **/
@@ -5847,7 +6188,8 @@ input[type="checkbox"] {
     .nuestroModelo-secondTitle {
         font-size: 2.50rem;
         letter-spacing: 0.07rem;
-        margin-bottom: 5.1rem;
+        /*margin-bottom: 5.1rem;*/
+        margin-bottom: 1rem;
     }
 
     .nuestroModelo-p {
@@ -6039,6 +6381,13 @@ input[type="checkbox"] {
         font-family: var(--roboto-regular);
     }
 
+    .ql-align-justify {
+        font-size: 1rem;
+        letter-spacing: 0;
+        line-height: 1.1;
+        font-family: var(--roboto-regular);
+    }
+
     #comentariosCampos {
         border: 2px solid var(--green);
         border-radius: 0 0 0.50rem 0.50rem;
@@ -6053,13 +6402,13 @@ input[type="checkbox"] {
         font-family: var(--roboto-bolditalic);
         margin: 0;
 
-        font-size: 0.81rem;
+        font-size: 1rem;
         letter-spacing: 0.02rem;
         line-height: 1.2;
     }
 
     #comentariosCampos input {
-        font-size: 0.50rem;
+        font-size: 0.80rem;
         letter-spacing: 0;
         font-family: var(--roboto-regular);
         line-height: 1.3;
@@ -6087,33 +6436,33 @@ input[type="checkbox"] {
     }
 
     .logros-aceptarDatos {
-        font-size: 0.38rem;
+        font-size: 0.75rem;
         letter-spacing: 0;
         line-height: 1;
     }
 
     #send_blog_comment {
-        font-size: 0.94rem;
+        font-size: 1rem;
         letter-spacing: 0.02rem;
         line-height: 1.6;
     }
 
     .logros-comentario {
-        font-size: 0.75rem;
+        font-size: 1rem;
         letter-spacing: 0;
         line-height: 1.5;
         font-family: var(--roboto-regular);
     }
 
     .logros-correo {
-        font-size: 0.75rem;
+        font-size: 1rem;
         letter-spacing: 0.02rem;
         line-height: 1.1;
         font-family: var(--roboto-bolditalic);
     }
 
     .logros-fecha {
-        font-size: 0.31rem;
+        font-size: 0.8rem;
         letter-spacing: 0.01rem;
         line-height: 1.9;
         font-family: var(--roboto-lightitalic);
@@ -6212,7 +6561,7 @@ input[type="checkbox"] {
         color: var(--bold-blue);
     }
 
-    /**** EVALUACION PRESABERES PAGINA FIN ****/
+    /**** EVALUACION PRESABERES PAGINA FIN ****/    
 
     /**** PAGINA PROMOCION 2024 INICIO ****/
 
@@ -6851,6 +7200,13 @@ input[type="checkbox"] {
         font-size: 1.125rem;
     }
 
+    .label-datos-pago {
+        font-size: 1rem;
+        font-family: var(--roboto-medium);
+        text-align: center;
+        margin-top: 1rem;
+    }
+
     .label-valor-manual-pagos {
         margin-top: 2rem;
         font-size: 1rem;
@@ -6948,6 +7304,12 @@ input[type="checkbox"] {
     }    
 
     /** Fin Costos **/
+
+    /** Inicio Formulario Entrevistas  */
+    .azuloscuro {
+        height: auto;
+    }
+    /** Fin Formulario Entrevistas  */
 }
 
 @media (min-width: 992px) and (max-width: 1399px) {

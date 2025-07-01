@@ -988,7 +988,7 @@
         $nivel = "tres";
         include('../../../components/navBar.php');
         
-        include("../components/main_presaberes.php");
+        include("../components/main_presaberes_sm.php");
         
         include('../../../components/footer.php');
         include('../../../components/bookstoresMain.php');
