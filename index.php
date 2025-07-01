@@ -2,6 +2,7 @@
     include('./clases/ImageAttributeBuilder.php');
     include('./clases/ButtonStylesBannerBuilder.php');
     include('./clases/FlexTitleLoader.php');
+    include('./clases/GenerateQuery.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +15,7 @@
     <?php 
         $nivel = "raiz";
         include('components/navBar.php');
+        include('components/botonFlotante.php');
         include('components/bannerCarrousel.php');
         //include('components/contentProof.php');
         include('components/academicOffer.php');

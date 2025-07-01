@@ -16,11 +16,11 @@ CREATE TABLE tbl_formularios (
 
 INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder ) VALUES 
 (4, 'nombre', 'text', 'nombre', 'required', '', '', '' ),
-(4, 'correo', 'email', 'correo', 'required', '', '', '' ),
+(4, 'correo', 'text', 'correo', 'required', '', '', '' ),
 (4, 'asunto', 'text', 'asunto', 'required', '', '', '' ),
-(4, 'mensaje', 'textarea', 'mensaje', 'required', '', '', '' ),
+(4, 'mensaje', 'text', 'mensaje', 'required', '', '', '' ),
 (4, 'checkbox', 'checkbox', 'checkbox', 'required', '', '', '' ),
-(4, 'Envía tu mensaje', 'submit', 'Envía tu mensaje', '', '', '', '' ),
+(4, 'enviaMensaje', 'submit', 'Envía tu mensaje', '', '', '', '' ),
 
 (34, 'register_documentoe', 'text', 'Escribe el número documento estudiante y luego haz clic en Continua con el proceso!', 'required', '', '', '"Escribe el número de documento del estudiante sin puntos' ),
 (34, 'register_documentoe_f', 'hidden', '', 'required', '', '', '' ),
@@ -44,3 +44,84 @@ INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLe
 (34, 'parentesco_acudiente_1', 'select', 'Parentesco', 'required', '', '', '' ),
 (34, 'register_ciudada', 'text', 'Ciudad acudiente', 'required', '', '', 'Escribe la ciudad del acudiente' ),
 (34, '', 'submit', '', '', '', '', '' );
+
+INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder) VALUES
+(37, 'comentario', 'text', 'Comentario', 'required', '', '', 'Comentario'),
+(37, 'correo', 'text', 'Correo', 'required', '', '', 'Correo Electronico'),
+(37, 'aceptaDatos', 'checkbox', 'Estoy de acuerdo en que estos datos se almacenen y procesen con el fin de establecer contacto. Soy consciente de que puedo revocar mi consentimiento en cualquier momento.', 'required', '', '', ''),
+(37, 'enviarComentarioBlog', 'submit', 'Enviar', '', '', '', '');
+
+INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder) VALUES
+(39, 'btn_pagoamigo', 'button', 'Haz clic para el pago', '', '', '', ''),
+(39, 'nombre_responsable', 'text', 'Datos de quien paga', 'required', ' ', ' ', 'Nombre de quien paga'),
+(39, 'identificacion_responsable', 'text', '', 'required', '', '', 'Número de identificación'),
+(39, 'tratamiento_datos', 'checkbox', 'Acepto tratamiento de datos', 'required', '', '', ''),
+(39, 'opvalor0', 'radio', 'Ingrese referencia de pago', '', '', '', ''),
+(39, 'opvalor1', 'radio', 'Ingrese valor manual', '', '', '', ''),
+(39, 'txtref', 'text', '', 'required', '', '', 'Referencia de pago'),
+(39, 'txtvalorref', 'text', '', '', 'readonly', '', 'Valor a pagar'),
+(39, 'consultaref', 'button', 'Consultar', '', '', '', ''),
+(39, 'txtnumdoc', 'text', 'Documento estudiante', 'required', '', '', 'Documento estudiante'),
+(39, 'txtanio', 'text', 'Año', 'required', '', '', 'Año'),
+(39, 'txtvalor', 'text', 'Ingrese valor a pagar', 'required', '', '', 'Ingrese valor'),
+(39, 'txtvalorrefman', 'text', '', '', 'readonly', '', 'Referencia de pago'),
+(39, 'btnpagar', 'submit', 'Realizar pago por ePayco', '', '', '', '')
+;
+
+INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder)
+VALUES 
+(25, 'correo_estados_financieros', 'correo', 'correo', 'required', '', '', 'Usuario email'),
+(25, 'password_estados_financieros', 'password', 'contraseña', 'required', '', '', 'Password'),
+(25, 'submit-estados-financieros', 'submit', 'Solicitar', '', '', '', '');
+
+INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder)
+VALUES 
+-- Primera fila
+(26, 'nombre_certificaciones', 'texto', 'nombre', 'required', '', '', 'Nombre Completo'),
+(26, 'identificacion_certificaciones', 'numero', 'identificación', 'required', '', '', 'Número de identificación'),
+(26, 'tipo_id_certificaciones', 'texto', 'tipo', 'required', '', '', 'Seleccionar tipo'),
+
+-- Segunda fila
+(26, 'correo_certificaciones', 'correo', 'correo', 'required', '', '', 'Correo electrónico'),
+(26, 'telefono_certificaciones', 'numero', 'telefono', 'required', '', '', 'Número de teléfono'),
+(26, 'grado_id_certificaciones', 'texto', 'grado', 'required', '', '', 'Seleccionar grado'),
+
+-- Relación con la institución
+(26, 'relacion_certificaciones_select', 'texto', 'relación', 'required', '', '', 'Seleccionar relación con la institución'),
+
+-- Tipo de certificación
+(26, 'tipo_certificaciones_select', 'texto', 'tipo de certificación', 'required', '', '', 'Seleccionar tipo de certificación'),
+
+-- Fecha 
+(26, 'certificaciones_date', 'numero', 'fecha', 'required', '', '', 'Fecha'),
+
+-- Propósito
+(26, 'proposito_certificaciones', 'texto', 'propósito', 'required', '', '', 'Propósito del documento'),
+
+-- Tratamiento de datos
+(26, 'tratamiento_certificaciones', 'checkbox', 'Acepto tratamiento de datos', 'required', '', '', 'Acepto tratamiento de datos.'),
+
+-- Botón de envío
+(26, 'submit-certificaciones-papeles', 'submit', 'Solicitar', '', '', '', '');
+
+DELETE FROM tbl_formularios WHERE id = 36 AND campo = 'tratamiento_datos';
+
+INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder) VALUES
+(39, 'selmediopago', 'select', 'Debe seleccionar un medio de pago.', 'required', '', '', 'Seleccione medio de pago'),
+(39, 'selconcepto', 'select', 'Debe seleccionar un concepto de pago.', 'required', '', '', 'Seleccione concepto de pago')
+;
+
+INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder) VALUES
+(8, 'correoNewsletter', 'text', 'Correo', 'required', '', '', 'Ingresa tu correo');
+
+INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder) VALUES
+(39, 'txtcodfact', 'hidden', '', '', '', '', ''),
+(39, 'txtconcepto', 'hidden', '', '', '', '', ''),
+(39, 'txtcontrolpago', 'hidden', '', '', '', '', ''),
+(39, 'txtidgrado', 'hidden', '', '', '', '', '')
+;
+
+INSERT INTO tbl_formularios (id_seccion, campo, tipo, texto, obligatorio, soloLectura, habilitado, placeHolder) VALUES
+(8, 'unsubscribeNewsletter', 'text', 'Correo', 'required', '', '', 'Ingresa tu correo.'),
+(8, 'unsubscribeNewsletterButton', 'submit', 'Cancelar Suscripcion.', '', '', '', '')
+;

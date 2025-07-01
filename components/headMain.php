@@ -24,6 +24,8 @@
 
             //<!-- Jquery JS  -->
             echo '<script src="assets/bookstores/jquery-3.7.1.min.js"></script>';
+            //<!-- ePayco -->
+            echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout.js"></script>';
             //<!-- HomeJs  -->
             echo '<script src="assets/js/homeJs.js"></script>';
         }
@@ -47,6 +49,8 @@
 
             //<!-- Jquery JS  -->
             echo '<script src="../assets/bookstores/jquery-3.7.1.min.js"></script>';
+            //<!-- ePayco -->
+            echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout.js"></script>';
             //<!-- HomeJs  -->
             echo '<script src="../assets/js/homeJs.js"></script>';
         }        
@@ -70,6 +74,8 @@
 
             //<!-- Jquery JS  -->
             echo '<script src="../../assets/bookstores/jquery-3.7.1.min.js"></script>';
+            //<!-- ePayco -->
+            echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout.js"></script>';
             //<!-- HomeJs  -->
             echo '<script src="../../assets/js/homeJs.js"></script>';
         }        
@@ -93,8 +99,10 @@
 
             //<!-- Jquery JS  -->
             echo '<script src="../../../assets/bookstores/jquery-3.7.1.min.js"></script>';
+            //<!-- ePayco -->
+            echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout.js"></script>';
             //<!-- HomeJs  -->
             echo '<script src="../../../assets/js/homeJs.js"></script>';
-        }        
+        }     
     ?>
 </head>

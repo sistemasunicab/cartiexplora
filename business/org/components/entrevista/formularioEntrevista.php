@@ -106,7 +106,7 @@
                         <div class="col-md-1 col-1 azuloscuro">
                             <h5>'.$textos[0]['identificacion'].'</h5>
                         </div>
-                        <div class="col-md-9 col-9 azuloscuro">
+                        <div class="col-md-8 col-8 azuloscuro">
                             <h5>'.$textos[0]['texto'].'</h5>
                         </div>
                     </div>
@@ -133,17 +133,17 @@
     $html .= '<div class="container datosEstudiante">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-5 col-5"></div>
-                        <div class="col-md-2 col-2">
+                        <div class="col-md-5 col-4"></div>
+                        <div class="col-md-2 col-4">
                             <center>
                                 <img '.ImageAttributeBuilder::buildAttributes($nivel, $icono_documento['ruta'], $icono_documento['descripcion']).' class="icono img-fluid">
                             </center>
                         </div>
-                        <div class="col-md-5 col-5"></div>
+                        <div class="col-md-5 col-4"></div>
                     </div><br>
                     <div class="row">
-                        <div class="col-md-4 col-4"></div>
-                        <div class="col-md-4 col-4">
+                        <div class="col-md-4 col-2"></div>
+                        <div class="col-md-4 col-8">
                             <center>
                                 <div class="form-group">
                                     <label for="'.$documento_estudiante['campo'].'" class="form-label1">'.$documento_estudiante['texto'].'</label>
@@ -152,7 +152,7 @@
                                 </div>
                             </center>
                         </div>
-                        <div class="col-md-4 col-4"></div>
+                        <div class="col-md-4 col-2"></div>
                     </div><br>
                     <div class="row">
                         <div class="col-md-2 col-2"></div>
@@ -162,8 +162,8 @@
                         <div class="col-md-2 col-2"></div>
                     </div><br>
                     <div class="row">
-                        <div class="col-md-4 col-4"></div>
-                        <div class="col-md-4 col-4">
+                        <div class="col-md-4 col-3"></div>
+                        <div class="col-md-4 col-6">
                             <div class="form-group">
                                 <center>
                                     <button type="button" class="btnContinuar" onclick="valDocumentoEntrevista(\'btnEnviar\');">
@@ -172,7 +172,7 @@
                                 </center>
                             </div>
                         </div>
-                        <div class="col-md-4 col-4"></div>
+                        <div class="col-md-4 col-3"></div>
                     </div><br>
                     <div id="divcargando" class="loader">
                         <center><p><img '.ImageAttributeBuilder::buildAttributes($nivel, $gif_loading['ruta'], $gif_loading['descripcion']).' class="img-fluid"></p></center>
@@ -189,7 +189,7 @@
                         <div class="col-md-1 col-1 azuloscuro">
                             <h5>'.$textos[1]['identificacion'].'</h5>
                         </div>
-                        <div class="col-md-9 col-9 azuloscuro">
+                        <div class="col-md-8 col-8 azuloscuro">
                             <h5>'.$textos[1]['texto'].'</h5>
                         </div>
                     </div>
@@ -200,13 +200,13 @@
     $html .= '<div class="container datos">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-5 col-5"></div>
-                        <div class="col-md-2 col-2">
+                        <div class="col-md-5 col-4"></div>
+                        <div class="col-md-2 col-4">
                             <center>
                                 <img '.ImageAttributeBuilder::buildAttributes($nivel, $icono_datos['ruta'], $icono_datos['descripcion']).' class="icono img-fluid">
                             </center>
                         </div>
-                        <div class="col-md-5 col-5"></div>
+                        <div class="col-md-5 col-4"></div>
                     </div>
                 </div>		
             </div><br>';
@@ -239,7 +239,7 @@
                     <input type="'.$estnuevo['tipo'].'" id="'.$estnuevo['campo'].'" name="'.$estnuevo['campo'].'" >
                     
                     <div class="row ml-5">
-                        <div class="col-12 col-sm-5">
+                        <div class="col-md-5 col-12">
                             <div class="form-group">
                                 <label for="'.$register_apellidos['campo'].'" class="form-label1">'.$register_apellidos['texto'].'</label>
                                 <input type="'.$register_apellidos['tipo'].'" class="form-control campoFormulario" id="'.$register_apellidos['campo'].'" name="'.$register_apellidos['campo'].'" placeholder="'.$register_apellidos['placeHolder'].'" onkeyup="validarCampo(this, \'Apellidos\', \'texto\', 1, \'btnEnviar\');" '.$register_apellidos['obligatorio'].' '.$register_apellidos['soloLectura'].' '.$register_apellidos['habilitado'].' >
@@ -248,7 +248,7 @@
                         </div>
                         <div class="col-1">
                         </div>
-                        <div class="col-12 col-sm-5">
+                        <div class="col-md-5 col-12">
                             <div class="form-group">
                                 <label for="'.$register_nombres['campo'].'" class="form-label1">'.$register_nombres['texto'].'</label>
                                 <input type="'.$register_nombres['tipo'].'" class="form-control campoFormulario" id="'.$register_nombres['campo'].'" name="'.$register_nombres['campo'].'" placeholder="'.$register_nombres['placeHolder'].'" onkeyup="validarCampo(this, \'Nombres\', \'texto\', 1, \'btnEnviar\');" '.$register_nombres['obligatorio'].' '.$register_nombres['soloLectura'].' '.$register_nombres['habilitado'].' >
@@ -258,7 +258,7 @@
                     </div><br>
                     
                     <div class="row ml-5">                                                        	
-                        <div class="col-12 col-sm-5">
+                        <div class="col-md-5 col-12">
                             <div class="form-group">
                                 <label for="'.$register_grado['campo'].'" id="lblgrado" class="form-label1">'.$register_grado['texto'].'</label><br>
                                 <select class="form-control form-select1 snormal select campoFormulario" id="'.$register_grado['campo'].'" name="'.$register_grado['campo'].'" '.$register_grado['obligatorio'].' '.$register_grado['soloLectura'].' '.$register_grado['habilitado'].' >
@@ -281,7 +281,7 @@
                         </div>
                         <div class="col-1">
                         </div>			
-                        <div class="col-12 col-sm-5">
+                        <div class="col-md-5 col-12">
                             <div class="form-group">
                                 <label for="'.$register_tipo_documento['campo'].'" id="lbltd" class="form-label1">'.$register_tipo_documento['texto'].'</label><br>
                                 <select class="form-control form-select1 snormal select campoFormulario" id="'.$register_tipo_documento['campo'].'" name="'.$register_tipo_documento['campo'].'" '.$register_tipo_documento['obligatorio'].' '.$register_tipo_documento['soloLectura'].' '.$register_tipo_documento['habilitado'].' >
@@ -305,7 +305,7 @@
                     </div><br>
                     
                     <div class="row ml-5">
-                        <div class="col-12 col-sm-5">
+                        <div class="col-md-5 col-12">
                             <div class="form-group">
                                 <label for="'.$register_telefono['campo'].'" class="form-label1">'.$register_telefono['texto'].'</label>
                                 <input type="'.$register_telefono['tipo'].'" class="form-control campoFormulario" id="'.$register_telefono['campo'].'" name="'.$register_telefono['campo'].'" placeholder="'.$register_telefono['placeHolder'].'" onkeyup="validarCampo(this, \'Número telefónico\', \'texto\', 1, \'btnEnviar\');" '.$register_telefono['obligatorio'].' '.$register_telefono['soloLectura'].' '.$register_telefono['habilitado'].' >
@@ -314,7 +314,7 @@
                         </div>
                         <div class="col-1">
                         </div>
-                        <div class="col-12 col-sm-5">
+                        <div class="col-md-5 col-12">
                             <div class="form-group">
                                 <label for="'.$register_medio['campo'].'" id="lblmedio" class="form-label1">'.$register_medio['texto'].'</label><br>
                                 <select class="form-control form-select1 snormal select campoFormulario" id="'.$register_medio['campo'].'" name="'.$register_medio['campo'].'" '.$register_medio['obligatorio'].' '.$register_medio['soloLectura'].' '.$register_medio['habilitado'].' >
@@ -337,7 +337,7 @@
                     </div><br>
                     
                     <div class="row ml-5">
-                        <div class="col-12 col-sm-5">
+                        <div class="col-md-5 col-12">
                             <div class="form-group">
                                 <label for="register_genero" id="lblgen" class="form-label1">Género</label><br>
                                 <select class="form-control form-select1 snormal select campoFormulario" id="register_genero" name="register_genero" required>
@@ -350,7 +350,7 @@
                         </div>
                         <div class="col-1">
                         </div>
-                        <div class="col-12 col-sm-5">
+                        <div class="col-md-5 col-12">
                             <div class="form-group">
                                 <label for="'.$activiadad_extra['campo'].'" class="form-label1">'.$activiadad_extra['texto'].'</label>
                                 <input type="'.$activiadad_extra['tipo'].'" class="form-control campoFormulario" id="'.$activiadad_extra['campo'].'" name="'.$activiadad_extra['campo'].'" placeholder="'.$activiadad_extra['placeHolder'].'" onkeyup="validarCampo(this, \'Actividad extra\', \'texto\', 1, \'btnEnviar\');" '.$activiadad_extra['obligatorio'].' '.$activiadad_extra['soloLectura'].' '.$activiadad_extra['habilitado'].' >
@@ -367,7 +367,7 @@
                             <div class="col-md-1 col-1 azuloscuro">
                                 <h5>'.$textos[2]['identificacion'].'</h5>
                             </div>
-                            <div class="col-md-9 col-9 azuloscuro">
+                            <div class="col-md-8 col-8 azuloscuro">
                                 <h5>'.$textos[2]['texto'].'</h5>
                             </div>
                         </div>
@@ -375,7 +375,7 @@
                     </div><br>
                     
                     <div class="row ml-5">
-                        <div class="col-12 col-sm-5">
+                        <div class="col-md-5 col-12">
                             <div class="form-group">
                                 <label for="'.$register_nombreA['campo'].'" class="form-label1">'.$register_nombreA['texto'].'</label>
                                 <input type="'.$register_nombreA['tipo'].'" class="form-control campoFormulario" id="'.$register_nombreA['campo'].'" name="'.$register_nombreA['campo'].'" placeholder="'.$register_nombreA['placeHolder'].'" onkeyup="validarCampo(this, \'Nombre acudiente\', \'texto\', 1, \'btnEnviar\');" '.$register_nombreA['obligatorio'].' '.$register_nombreA['soloLectura'].' '.$register_nombreA['habilitado'].' >
@@ -384,7 +384,7 @@
                         </div>
                         <div class="col-1">
                         </div>
-                        <div class="col-12 col-sm-5">
+                        <div class="col-md-5 col-12">
                             <div class="form-group">
                                 <label for="'.$register_documentoA['campo'].'" class="form-label1">'.$register_documentoA['texto'].'</label>
                                 <input type="'.$register_documentoA['tipo'].'" class="form-control campoFormulario" id="'.$register_documentoA['campo'].'" name="'.$register_documentoA['campo'].'" placeholder="'.$register_documentoA['placeHolder'].'" onkeyup="validarCampo(this, \'Documento acudiente\', \'numero\', 1, \'btnEnviar\');" '.$register_documentoA['obligatorio'].' '.$register_documentoA['soloLectura'].' '.$register_documentoA['habilitado'].' >
@@ -394,7 +394,7 @@
                     </div><br>
                     
                     <div class="row ml-5">
-                        <div class="col-12 col-sm-5">
+                        <div class="col-md-5 col-12">
                             <div class="form-group">
                                 <label for="'.$register_direccionA['campo'].'" class="form-label1">'.$register_direccionA['texto'].'</label>
                                 <input type="'.$register_direccionA['tipo'].'" class="form-control campoFormulario" id="'.$register_direccionA['campo'].'" name="'.$register_direccionA['campo'].'" placeholder="'.$register_direccionA['placeHolder'].'" onkeyup="validarCampo(this, \'Direccion de residencia acudiente\', \'texto\', 1, \'btnEnviar\');" '.$register_direccionA['obligatorio'].' '.$register_direccionA['soloLectura'].' '.$register_direccionA['habilitado'].' >
@@ -403,7 +403,7 @@
                         </div>
                         <div class="col-1">
                         </div>
-                        <div class="col-12 col-sm-5">
+                        <div class="col-md-5 col-12">
                             <div class="form-group">
                                 <label for="'.$register_celularA['campo'].'" class="form-label1">'.$register_celularA['texto'].'</label>
                                 <input type="'.$register_celularA['tipo'].'" class="form-control campoFormulario" id="'.$register_celularA['campo'].'" name="'.$register_celularA['campo'].'" placeholder="'.$register_celularA['placeHolder'].'" onkeyup="validarCampo(this, \'Celular acudiente\', \'numero\', 1, \'btnEnviar\');" '.$register_celularA['obligatorio'].' '.$register_celularA['soloLectura'].' '.$register_celularA['habilitado'].' >
@@ -413,7 +413,7 @@
                     </div><br>
                     
                     <div class="row ml-5">
-                        <div class="col-12 col-sm-5">
+                        <div class="col-md-5 col-12">
                             <div class="form-group">
                                 <label for="'.$register_correoA['campo'].'" class="form-label1">'.$register_correoA['texto'].'</label>
                                 <input type="'.$register_correoA['tipo'].'" class="form-control campoFormulario" id="'.$register_correoA['campo'].'" name="'.$register_correoA['campo'].'" placeholder="'.$register_correoA['placeHolder'].'" onkeyup="validarCampo(this, \'Correo electrónico acudiente\', \'correo\', 1, \'btnEnviar\');" '.$register_correoA['obligatorio'].' '.$register_correoA['soloLectura'].' '.$register_correoA['habilitado'].' >
@@ -422,7 +422,7 @@
                         </div>
                         <div class="col-1">
                         </div>
-                        <div class="col-12 col-sm-5">
+                        <div class="col-md-5 col-12">
                             <div class="form-group">
                                 <label for="'.$register_correoA1['campo'].'" class="form-label1">'.$register_correoA1['texto'].'</label>
                                 <input type="'.$register_correoA1['tipo'].'" class="form-control campoFormulario" id="'.$register_correoA1['campo'].'" name="'.$register_correoA1['campo'].'" placeholder="'.$register_correoA1['placeHolder'].'" onkeyup="validarCampo(this, \'Confirmar correo electrónico acudiente\', \'correo\', 1, \'btnEnviar\');" '.$register_correoA1['obligatorio'].' '.$register_correoA1['soloLectura'].' '.$register_correoA1['habilitado'].' >
@@ -432,7 +432,7 @@
                     </div><br>
                     
                     <div class="row ml-5">                                                        	
-                        <div class="col-12 col-sm-5">
+                        <div class="col-md-5 col-12">
                             <div class="form-group">
                                 <label for="parentesco_acudiente_1" id="lblparentesco" class="form-label1">Parentesco</label>
                                 <select id="parentesco_acudiente_1" name="parentesco_acudiente_1" class="form-control form-select1 snormal select campoFormulario" required>
@@ -454,7 +454,7 @@
                         </div>
                         <div class="col-1">
                         </div>			
-                        <div class="col-12 col-sm-5">
+                        <div class="col-md-5 col-12">
                             <div class="form-group">
                                 <label for="'.$register_ciudada['campo'].'" class="form-label1">'.$register_ciudada['texto'].'</label>
                                 <input type="'.$register_ciudada['tipo'].'" class="form-control campoFormulario" id="'.$register_ciudada['campo'].'" name="'.$register_ciudada['campo'].'" placeholder="'.$register_ciudada['placeHolder'].'" onkeyup="validarCampo(this, \'Ciudad acudiente\', \'texto\', 1, \'btnEnviar\');" '.$register_ciudada['obligatorio'].' '.$register_ciudada['soloLectura'].' '.$register_ciudada['habilitado'].' >

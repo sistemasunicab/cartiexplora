@@ -57,3 +57,46 @@ INSERT INTO tbl_textos (id_seccion, paginaPadre, identificacion, texto ) VALUES
 (36, 'admisiones', 'Texto6', 'No haga clic en ninguna de las opciones de la imagen.'),
 (36, 'admisiones', 'Texto7', 'Es un mensaje de advertencia que genera por seguridad nuestro hosting.')
 ;
+
+INSERT INTO tbl_textos (id_seccion, paginaPadre, identificacion, texto ) VALUES 
+(39, 'pagos', 'Concepto', 'pm1|pm2|pm3|pm4|pm5|pm6|pm7|pm8|pm9|pm10'),
+(39, 'pagos', 'Descripción', 'Pago mes febrero|Pago mes marzo|Pago mes abril|Pago mes mayo|Pago mes junio|Pago mes julio|Pago mes agosto|Pago mes septiembre|Pago mes octubre|Pago mes noviembre'),
+(39, 'pagos', 'info financiera', '<p class=\"tx-red\"><b> <span class=\"tx-green\"> * Ingrese referencia de pago.</span> (* Incremento de 5% en pensión si paga después del día 10)</b></p><p class=\"tx-primary-blue\"><b>NOTA:</b> El valor de la pensión se debe pagar a partir de febrero del año 2024 con los nuevos costos emitidos por la Secretaría de Educación. <b>A partir del 1 de febrero el costo por concepto de matrícula tendrá un recargo adicional del 10% por extemporaneidad.</b> El concepto de pago <b>pp (primer pago)</b> incluye el valor de la matrícula más otros cobros periódicos <b>(incluye póliza)</b> más pensión primer mes.</p>'),
+(39, 'pagos', 'titulos pagos', 'Datos para referencia de pago|Datos para valor manual'),
+(39, 'pagos', 'titulo pagos', 'Referencia de pago'),
+(39, 'pagos', '9397454', 'Número de identificación del estudiante'),
+(39, 'pagos', '2025', 'Año'),
+(39, 'pagos', 'ocp', 'Descripción del concepto de pago|<b>ocp</b> otros cobros periodicos|<b>pm6</b> pensión mes 6|<b>m</b> matrícula|<b>p</b> póliza|<b>dg</b> derechos de grado|<b>pp</b> primer pago|<b>mocp</b> matrícula y otros cobros periódicos')
+;
+
+INSERT INTO tbl_textos (id_seccion, paginaPadre, identificacion, texto ) VALUES 
+(38, 'presaberes', 'paso', 'PASO1'),
+(38, 'presaberes', 'paso_indicacion', 'Informacion del estudiante'),
+(38, 'presaberes', 'paso_descripcion', 'Numero de documento de identidad del estudiante (sin puntos)'),
+(38, 'presaberes', 'indicacion', 'El propósito de esta evaluación es ayudarte a identificar las falencias en los conceptos previos o presaberes, en los cuales debes investigar y profundizar para desarrollar las actividades de cada pensamiento.'),
+(38, 'presaberes', 'indicacion', 'Al concluir la evaluación encontrarás un <strong>resumen del resultado y una hoja de ruta sugerida,</strong> esta servirá para convertir tus falencias en fortalezas e integrarlas a los conocimientos requeridos para este grado.'),
+(38, 'presaberes', 'indicacion', '<strong>Cada pregunta tiene un solo intento,</strong> pero puedes pausar la evaluación y volver a ingresar para finalizarla.'),
+(46, 'presaberes_principal', 'indicacion', 'Vas a encontrar preguntas de varios pensamientos y varios conceptos.'),
+(46, 'presaberes_principal', 'indicacion', 'Todas las preguntas están relacionadas con contenidos y temas <strong>que son necesarios conocer</strong> para que puedas desarrollar todas las actividades de grado <strong>_grado*</strong>.'),
+(46, 'presaberes_principal', 'titulo', 'Bienvenido a la evaluación de presaberes'),
+(47, 'newsletter', '', 'Publicaciones educativas y reflexiones digitales'),
+(47, 'newsletter', '', 'Noticias y novedades institucionales'),
+(47, 'newsletter', '', 'Eventos, experiencias y celebraciones'),
+(47, 'newsletter', '', 'Recomendaciones y herramientas útiles'),
+(47, 'newsletter', '', 'Agrega este correo a tus contactos para no perderte ninguna entrada.'),
+(47, 'newsletter', '', 'Eres parte de un ecosistema donde la educación vibra contigo.<br><strong>Eres UNICAB.</strong>'),
+(47, 'newsletter', '', 'unicab.org'),
+(47, 'newsletter', '', 'Cancela tu suscripcion haciendo <a href="?" style="color:rgb(46, 136, 255);">click aqui.</a>'),
+(47, 'newsletter', '', '¡Gracias por suscribirte al blog Conectados de UNICAB!')
+;
+
+INSERT INTO tbl_textos (id_seccion, paginaPadre, identificacion, texto ) VALUES 
+(38, 'presaberes', 'indicacion', 'La evaluación consta de <strong><label id="lblct_preg"></label> preguntas</strong> (o menos) no calificables cuantitativamente y <strong>no hay límite de tiempo.</strong>'),
+(46, 'presaberes_principal', 'indicacion', 'Una vez más te recordamos que al concluir la evaluación, encontraras un <strong>resumen del resultado y una hoja de ruta sugerida, </strong>para esta servirá para convertir tus falencias en fortalezas e integrarlas a los conocimientos requeridos para este grado.')
+;
+
+INSERT INTO tbl_textos (id_seccion, paginaPadre, identificacion, texto ) VALUES 
+(32, 'blog', 'verBlogs', 'Resultados de: '),
+(32, 'blog', 'categoriaSeleccionada', 'Noticias relacionadas a categoria: ')
+;
+
