@@ -1,6 +1,7 @@
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="homeschooling, virtual, bachillerato, CARTI, colegio virtual Colombia, homeschooling legal Colombia, bachillerato virtual MEN, escuela rural virtual, ciclos bachillerato online, educación deportistas virtual, colegio virtual Sogamoso, admisiones colegio virtual, bachillerato flexible Colombia, educación distancia rural, CARTI EXPLORA Sogamoso, Colegio desde casa">
     <title><?php echo $page_title ?></title>
     
     <?php
