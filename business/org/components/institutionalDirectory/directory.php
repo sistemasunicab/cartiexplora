@@ -111,7 +111,8 @@
                         </tr>";
                 }
                 else {
-                    $imagen = substr($row_directorio['infografia'], 9);
+                    //imagen = substr($row_directorio['infografia'], 9);
+                    $imagen = $row_directorio['infografia'];
                     $html_row_four .= "
                         <tr>
                             <td>".$row_directorio['nombres']." ".$row_directorio['apellidos']."</td>
