@@ -1,11 +1,11 @@
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="favicon2025.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <title><?php echo $page_title ?></title>
     
     <?php
         if ($nivel == "raiz") {
+            echo '<link rel="icon" type="image/x-icon" href="favicon2025.ico">';
             //<!-- BOOTSTRAP CSS -->
             echo '<link rel="stylesheet" href="assets/bookstores/bootstrap/css/bootstrap.css">';
             //<!-- FONTAWESOME CSS -->
@@ -31,6 +31,7 @@
             echo '<script src="assets/js/homeJs.js"></script>';
         }
         else if ($nivel == "uno") {
+            echo '<link rel="icon" type="image/x-icon" href="../favicon2025.ico">';
             //<!-- BOOTSTRAP CSS -->
             echo '<link rel="stylesheet" href="../assets/bookstores/bootstrap/css/bootstrap.css">';
             //<!-- FONTAWESOME CSS -->
@@ -56,6 +57,7 @@
             echo '<script src="../assets/js/homeJs.js"></script>';
         }        
         else if ($nivel == "dos") {
+            echo '<link rel="icon" type="image/x-icon" href="../../favicon2025.ico">';
             //<!-- BOOTSTRAP CSS -->
             echo '<link rel="stylesheet" href="../../assets/bookstores/bootstrap/css/bootstrap.css">';
             //<!-- FONTAWESOME CSS -->
@@ -81,6 +83,7 @@
             echo '<script src="../../assets/js/homeJs.js"></script>';
         }        
         else if ($nivel == "tres") {
+            echo '<link rel="icon" type="image/x-icon" href="../../../favicon2025.ico">';
             //<!-- BOOTSTRAP CSS -->
             echo '<link rel="stylesheet" href="../../../assets/bookstores/bootstrap/css/bootstrap.css">';
             //<!-- FONTAWESOME CSS -->
