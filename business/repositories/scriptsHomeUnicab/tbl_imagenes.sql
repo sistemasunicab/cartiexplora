@@ -174,7 +174,7 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, ruta
 (39, 'assets/img/pagos/Banco_Caja_Social.png', '', '', '', 'banco caja social icono', '', '', '', '');
 
 INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, rutaTabletaHorizontal, descripcion, titulo, posicionTitulo, enlace, rutaEncima, textoAlterno) VALUES 
-(39, 'assets/img/pagos/mipagoamigo.png', '', '', '', 'mipagoamigo icono', '', 'https://www.mipagoamigo.com/MPA_WebSite/ServicePayments/StartPayment?id=3555&searchedCategoryId=&searchedAgreementName=UNICAB%20CORPORACION%20EDUCATIVA', '', '', ''),
+(39, 'assets/img/pagos/mipagoamigo.png', '', '', '', 'mipagoamigo icono', '', '', 'https://www.mipagoamigo.com/MPA_WebSite/ServicePayments/StartPayment?id=3555&searchedCategoryId=&searchedAgreementName=UNICAB%20CORPORACION%20EDUCATIVA', '', ''),
 (39, 'assets/img/pagos/operation.png', '', '', '', 'instructivo pago', 'Instructivo de pago', '', 'https://youtu.be/Q48MW92gABA', '', '');
 
 INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, rutaTabletaHorizontal, descripcion, titulo, posicionTitulo, rutaEncima, textoAlterno) VALUES 

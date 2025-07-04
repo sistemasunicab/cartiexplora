@@ -339,6 +339,10 @@ $(document).ready(function () {
             },
         });
     });
+
+    if (window.location.pathname.endsWith("pagos.php")) {
+        mostrarSubmit(btnSubmit.id);
+    }
     
     //mostrarSubmit(btnSubmit.id);
     const formulario = btnSubmit.closest('form');
