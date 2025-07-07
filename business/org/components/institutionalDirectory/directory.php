@@ -111,14 +111,15 @@
                         </tr>";
                 }
                 else {
-                    $imagen = substr($row_directorio['infografia'], 9);
+                    //imagen = substr($row_directorio['infografia'], 9);
+                    $imagen = $row_directorio['infografia'];
                     $html_row_four .= "
                         <tr>
                             <td>".$row_directorio['nombres']." ".$row_directorio['apellidos']."</td>
                             <td>".$row_directorio['dependencia']."</td>
                             <td>".$row_directorio['email']."</td>
                             <td>".$row_directorio['cargo']."</td>
-                            <td><button class='btn btn-info btn-lg' onclick='verInfografia(\"".$imagen."\")'>VER</button></td>
+                            <td><button class='btn bg-orange btn-lg' onclick='verInfografia(\"".$imagen."\")'>VER</button></td>
                         </tr>";
                 }                
             }
