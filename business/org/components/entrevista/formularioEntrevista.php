@@ -234,7 +234,7 @@
     $register_ciudada = array_shift($campos_formulario);
 
     $html .= '<div class="container datos">
-                <form name="formulario" id="formulario" method="post" action="../dml/registro_inicial_putdat.php" enctype="multipart/form-data" target="_blank">
+                <form name="formulario" id="formulario_entrevista" method="post" action="../dml/registro_inicial_putdat.php" enctype="multipart/form-data" target="_blank">
                     <input type="'.$register_documentoe_f['tipo'].'" id="'.$register_documentoe_f['campo'].'" name="'.$register_documentoe_f['campo'].'" '.$register_documentoe_f['obligatorio'].' '.$register_documentoe_f['soloLectura'].' '.$register_documentoe_f['habilitado'].'>
                     <input type="'.$estnuevo['tipo'].'" id="'.$estnuevo['campo'].'" name="'.$estnuevo['campo'].'" >
                     
