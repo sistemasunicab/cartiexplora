@@ -158,10 +158,10 @@ $(document).ready(function () {
             asunto: asunto,
             mensaje: mensaje,
             subscribe: subscribe,
-        };
-
+        };        
+        
         $.ajax({
-            url: "../../cartiexplora/ajax/formInscripcionesAbiertas.php",
+            url: "../../../ajax/formInscripcionesAbiertas.php",
             type: "POST",
             data: data,
             success: function (response) {
