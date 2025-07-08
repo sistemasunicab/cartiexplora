@@ -46,7 +46,7 @@
 
 
     $html = '<div id="carouselExampleAutoplaying" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                 <div class="carousel-indicators">';
+                 <div class="carousel-indicators home-indicators">';
 
     // Genera un indicador de carrusel por imagen
     // El primer indicador debe tener la clase "active" el resto no
