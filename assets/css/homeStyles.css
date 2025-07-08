@@ -2363,6 +2363,12 @@ letter-spacing: 0.07rem;
     background-color: #D4CECE;
 }
 
+.carousel-indicators.home-indicators [data-bs-target] {
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+}
+
 .img-banner {
     /*height: 100%;
     width: auto;*/
@@ -2860,6 +2866,11 @@ input[type="checkbox"] {
 
 :root {
     --shadow-2: 10px 10px 10px #00000040;
+}
+
+.img-banner-principios {
+    max-height: 35rem;
+    object-fit: cover;
 }
 
 .banner-principios {
@@ -4713,6 +4724,7 @@ input[type="text"], .select, textarea {
         right: 0;
         transform: unset;
         z-index: 100;
+        border-top: 1px solid white;
     }
 
     .home-button-fixed a {
@@ -4763,7 +4775,7 @@ input[type="text"], .select, textarea {
         /*height: 31.688rem;*/
         width: 100%;
         background-color: #D4CECE;
-    }
+    }    
 
     .img-banner {
         /*width: auto;
@@ -4779,7 +4791,7 @@ input[type="text"], .select, textarea {
     }
 
     .texto-banner {
-        font-size: 5vw;
+        font-size: 4.5vw;
     }
 
     .video-desktop {

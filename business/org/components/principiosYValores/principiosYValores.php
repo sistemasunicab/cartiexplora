@@ -106,7 +106,7 @@
         $html .=               '<source '. $atributosEscritorio.' media="(min-width: 992px)">';
         $html .=               '<source  '.$atributosTabletaHorizontal.' media="(min-width: 768px)">';
         $html .=               '<source '.$atributosTabletaVertical.' media="(min-width: 576px)">';
-        $html .=               '<img '. $atributosMovil .' alt="Banner principios que nos guian" class="img-fluid w-100">';
+        $html .=               '<img class="img-fluid w-100 img-banner-principios" '. $atributosMovil .' alt="Banner principios que nos guian">';
         $html .=            '</picture>';
         $html .=        '</div>';
         $html .=    '</div>';

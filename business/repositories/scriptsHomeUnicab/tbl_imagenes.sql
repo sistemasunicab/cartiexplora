@@ -252,3 +252,9 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, ruta
 (25, 'assets/img/pagos/statement.png', '', '', '', 'statement-icon', 'Estados financieros', 'izquierda', '', ''),
 (25, 'assets/img/paper_14969976.svg', '', '', '', 'descargar-pdf', 'Ver', '', '', '')
 ;
+
+UPDATE u756063299_home_unicab.tbl_imagenes SET ruta = 'assets/img/principios.jpg', rutaMovil = 'assets/img/principios.jpg', rutaTabletaVertical = 'assets/img/principios.jpg', rutaTabletaHorizontal = 'assets/img/principios.jpg' WHERE (id = '97');
+
+UPDATE u756063299_home_unicab.tbl_imagenes SET enlace = 'business/org/pages/sobreNosotros.php#ofertaAcademica' WHERE (id = '1');
+UPDATE u756063299_home_unicab.tbl_imagenes SET enlace = 'business/org/pages/sobreNosotros.php#ofertaAcademica' WHERE (id = '2');
+UPDATE u756063299_home_unicab.tbl_imagenes SET enlace = 'business/org/pages/sobreNosotros.php#ofertaAcademica' WHERE (id = '3');
