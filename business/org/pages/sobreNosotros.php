@@ -15,7 +15,7 @@
     <?php 
         $nivel = "tres";
         include('../../../components/navBar.php');
-        include('../components/aboutUs/aboutUsUnicab.php'); 
+        include('../components/aboutUs/AboutUsUnicab.php'); 
         include('../components/aboutUs/aboutUsImageOne.php');
         include('../components/aboutUs/aboutUsEducation.php'); 
         include('../components/aboutUs/aboutUsImageTwo.php'); 
