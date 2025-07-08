@@ -15,14 +15,15 @@ CREATE TABLE tbl_banners (
   transparencia varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NULL,
   porcentajeTop varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
   porcentajeLeft varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
-  texto varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NULL,
+  texto varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NULL,
   porcentajeTopTexto varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
   porcentajeLeftTexto varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
   milisegundosSlide varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 INSERT INTO tbl_banners (visible, tipo, ruta, rutaMovil, rutaTabletaVertical, rutaTabletaHorizontal, textoBoton, linkImagen, linkBoton, color, transparencia, porcentajeTop, porcentajeLeft, texto, porcentajeTopTexto, porcentajeLeftTexto, milisegundosSlide) VALUES
-(1, 'imagen', 'assets/img/banner.png', 'assets/img/banner_movil.jpg', 'assets/img/banner_movil.jpg', 'assets/img/banner_tableta.jpg', 'Agendar Entrevista', '', '', '254, 145, 0', '1', '60', '50', '', '', '', '3000'),
-(1, 'imagen', 'assets/img/banner2x.jpg', 'assets/img/banner2x_movil.png', 'assets/img/banner2x_movil.png', 'assets/img/banner2x_tablet.png', 'Haz crecer tus ideas con tecnología. ¡Contáctanos!', '', 'business/solutions/pages/somos.php', '254, 145, 0', '1', '60', '50', '', '', '', '3000'),
-(1, 'imagen', 'assets/img/estudia_con_nosotros_escritorio.jpg', 'assets/img/estudia_con_nosotros_movil.jpg', 'assets/img/estudia_con_nosotros_movil.jpg', 'assets/img/estudia_con_nosotros_tablet.jpg' ,'Descúbrelo aquí', '', '', '254, 145, 0', '1', '70','50', '<b>Haz crecer</b> tus ideas', '45', '50', '3000'),
-(1, 'video', 'assets/media/media.mp4', 'assets/media/media.mp4', 'assets/media/media.mp4', 'assets/media/media.mp4' ,'', '', '', '', '', '','', '', '', '', '5000');
+(1, 'imagen', 'assets/img/grupo_de_trabajo1.png', 'assets/img/grupo_de_trabajo3.png', 'assets/img/grupo_de_trabajo3.png', 'assets/img/grupo_de_trabajo2.png', 'Modelo pedagógico', '', 'business/org/pages/modelo.php', '254, 145, 0', '1', '60', '50', '<b>Detrás de cada logro, un gran equipo</b>', '35', '50', '5000'),
+(1, 'imagen', 'assets/img/unicab_solutions1.png', 'assets/img/unicab_solutions3.png', 'assets/img/unicab_solutions3.png', 'assets/img/unicab_solutions2.png', 'Conócenos', '', 'business/solutions/pages/somos.php', '254, 145, 0', '1', '70', '50', '<b>¿Necesitas software único?<br>Nosotros lo creamos</b>', '25', '50', '3000'),
+(1, 'imagen', 'assets/img/carti_explora1.png', 'assets/img/carti_explora3.png', 'assets/img/carti_explora3.png', 'assets/img/carti_explora2.png' ,'Ir CARTI', '', 'business/cartiExplora/pages/cartiHome.php', '254, 145, 0', '1', '70','50', '<b>Carti Explora, un mundo <br> para pequeños exploradores</b>', '25', '50', '3000'),
+(1, 'video', 'assets/media/videobanner1.mp4', 'assets/media/videobanner3.mp4', 'assets/media/videobanner3.mp4', 'assets/media/videobanner2.mp4' ,'', '', '', '', '', '','', '', '', '', '39000')
+;
