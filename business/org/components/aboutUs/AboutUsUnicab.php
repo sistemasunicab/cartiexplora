@@ -10,6 +10,7 @@ if (!empty($rowsTexto)) {
     
     // 1) Columnas de texto (sentencia 44)
     foreach ($rowsTexto as $row) {
+        echo 'row: ' . $row['titulo'];
         $titulo = $row['titulo'];
         $texto  = $row['texto'];
         $html_row_one = '<div class="row col-12 mx-auto p-0 m-0">';

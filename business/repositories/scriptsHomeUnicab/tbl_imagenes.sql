@@ -54,9 +54,9 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, ruta
 (8, 'assets/img/conectados.png', '', '', '', 'conectados', '', '', '', ''),
 (8, 'assets/img/enviar.png', '', '', '', 'Suscribir', '', 'derecha', '', ''),
 (9, 'assets/img/unicab.png', '', '', '', 'logoUnicab', '', '', '', ''),
-(10, 'assets/img/unicab.png', '', '', '', 'logo', 'Colegio Unicab Virtual', '', '', ''),
-(10, 'assets/img/carti_explora.png', '', '', '', 'logo', 'CARTI Explora', '', '', ''),
-(10, 'assets/img/unicab_solutions.png', '', '', '', 'logo', 'UNICAB Solutions', '', '', ''),
+(10, 'assets/img/unicab.png', '', '', '', 'logo', 'Colegio Unicab Virtual', '', 'https://unicab.org/homeunicabpro/', ''),
+(10, 'assets/img/carti_explora.png', '', '', '', 'logo', 'CARTI Explora', '', '', 'https://unicab.org/homeunicabpro/business/cartiExplora/pages/cartiHome.php'),
+(10, 'assets/img/unicab_solutions.png', '', '', '', 'logo', 'UNICAB Solutions', '', 'https://unicab.org/homeunicabpro/business/solutions/pages/somos.php', ''),
 
 (10, 'assets/img/facebook.png', '', '', '', 'social-media', 'facebook', '', '', ''),
 (10, 'assets/img/x.png', '', '', '', 'social-media', 'x', '', '', ''),

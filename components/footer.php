@@ -66,6 +66,7 @@ foreach ($imagenesDatos as $fila) {
     $imagenesFooter[] = [
         'ruta'   => $fila['ruta'],
         'titulo' => $fila['titulo'],
+        'rutaEncima' => $fila['rutaEncima'],
     ];
 }
 
@@ -76,15 +77,19 @@ foreach ($imagenesFooter as $idx => $imagen) {
     $rutaImg     = rutaPorNivel($imagen['ruta']);
     $altura      = $imagesHeights[$idx] ?? 100; // fallback genérico
     $tituloClean = $imagen['titulo'];
+    $target      = $imagen['rutaEncima'] ?? '';
 
     $hmtl_images .= '
         <div class="col-sm-3 col-4 image-footer d-flex flex-column align-items-center text-center">
+            <a href="' . $target . '" target="_blank">
             <div class="d-flex justify-content-center align-items-center" style="height: 160px;">
-                <img class="img-fluid my-auto" 
+                <img class="zoom-hover img-fluid my-auto" 
                      style="height: ' . $altura . 'px;" 
                      src="' . $rutaImg . '" 
-                     alt="' . $tituloClean . '">
+                     alt="' . $tituloClean . '"
+                     target="' . $target . '">
             </div>
+            </a>
             <p2-footer class="font-roboto-medium m-0 pt-1 lh-sm tx-orange">'
                 . $tituloClean .
             '</p2-footer>
@@ -127,10 +132,11 @@ foreach ($smFooter as $imagen) {
     $rutaImg     = rutaPorNivel($imagen['ruta']);
     $tituloClean = $imagen['title'];
     $linkClean   = $imagen['link'];
+    $height      = $tituloClean == 'youtube' ? 20 : 25;
 
     $hmtl_social_media .= '
         <a class="mt-2 mb-3 mx-2 mx-md-3 mx-lg-2 mx-xl-3" href="' . $linkClean . '" target="_blank">
-            <img style="height:25px" 
+            <img class="social-media-icon zoom-hover" style="height:' . $height . 'px" 
                  src="' . $rutaImg . '" 
                  alt="' . $tituloClean . '">
         </a>';
@@ -160,7 +166,7 @@ foreach ($aliadosDatos as $aliado) {
             <img class="col-12 col-lg-7 my-auto mx-auto mx-lg-0" 
                  src="' . $rutaImg . '" 
                  alt="' . $titulo . '" 
-                 style="width:260px;height:auto;">
+                 style="width:200px;height:auto;">
         </div>';
 }
 

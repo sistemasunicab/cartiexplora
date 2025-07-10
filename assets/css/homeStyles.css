@@ -391,6 +391,8 @@ ul {
 
 #menuDisplay {
     background-color: var(--blue);
+    border-top: 1px solid var(--white);
+    border-bottom: 1px solid var(--white);
 }
 
 #menuDisplay.hover {
@@ -413,6 +415,12 @@ ul {
 
 .first-level-link.hover {
     background-color: var(--aquamarine) !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+    border: none !important;
+    
 }
 
 .menu-item-text:hover {
@@ -516,6 +524,8 @@ ul {
 
     #menuDisplay {
         background-color: inherit;
+        border-top: 1px solid var(--white);
+    border-bottom: 1px solid var(--white);
     }
 
     .menu-item-text {
@@ -649,6 +659,9 @@ p4-footer {
     letter-spacing: 0.0225rem;
 }
 
+.zoom-hover:hover {
+    transform: scale(1.1);
+}
 
 
 .image-footer img {
@@ -664,6 +677,10 @@ p4-footer {
 }
 
 .image-footer:hover p2-footer {
+    color: #4DC250;
+}
+
+.social-media-icon:hover {
     color: #4DC250;
 }
 
@@ -3547,7 +3564,7 @@ input[type="text"], .select, textarea {
 
     /* Footer */
     p2-footer {
-        font-size: 0.75rem;
+        font-size: 0.875    rem;
         line-height: 1.4rem;
         letter-spacing: 0.0225rem;
     }
