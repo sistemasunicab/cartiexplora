@@ -107,10 +107,11 @@
 			$fecha_ingreso = $row_val_estado['fecha_ingreso'];
 		}		
 		
-		if ($estado_val != 'activo' && $diferencia_val == 0 && $actual_val = 2024) {
+		//echo $estado_val." ".$diferencia_val." ".$actual_val."<br>";
+		if ($estado_val != 'activo' && $diferencia_val == 0 && $actual_val == 2024) {
 			$control_antiguos = 1;
 		}
-		else if ($estado_val != 'activo' && abs($diferencia_val) == 1 && $actual_val = 2024) {
+		else if ($estado_val != 'activo' && abs($diferencia_val) == 1 && $actual_val == 2024) {
 			$control_antiguos = 2; //Se considera nuevo si no estuvo con Unicab en el año actual
 		}
 		else if ($estado_val == 'activo') {
