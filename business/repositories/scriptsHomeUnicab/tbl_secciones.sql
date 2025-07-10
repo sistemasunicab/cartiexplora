@@ -13,6 +13,9 @@ CREATE TABLE tbl_secciones (
 INSERT INTO tbl_secciones (id, seccion, visible, paginaPadre, titulo, subTitulo, texto) VALUES
 (0, '', 0, '', '', '', '');
 
+ALTER TABLE tbl_secciones
+  MODIFY id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
 INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, texto) VALUES
 ('banner', 1, 'home', '', '', ''),
 ('ofertaAcademica', 1, 'home', 'Oferta Académica', '', ''),
