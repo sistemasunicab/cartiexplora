@@ -32,7 +32,7 @@
         $html_row_three = '<div class="row col-12 mx-auto p-0 m-0">';
         $html_row_three .= '<div class="col-1 p-0 m-0"></div>';
         $html_row_three .= '<div class="col-10 p-0 m-0">';
-        $html_row_three .= '<div class="row col-10 mx-auto p-0 m-0">';
+        $html_row_three .= '<div class="row col-lg-10 col-12  mx-auto p-0 m-0">';
         $datosImagen = obtenerFilas($mysqli1, $sentencia, 60);
         $image_path = '';
         foreach ($datosImagen as $row_data_image) {
@@ -49,7 +49,7 @@
             $image_path_contacto = rutaPorNivel($ruta);
         }
         $html_row_three .= '<div class="position-relative h-auto my-auto d-inline-block col-lg-8 col-md-12 col-sm-12 col-12 p-0">';
-        $html_row_three .= '<input type="text" id="search" name="search" class="search form-control text-center pe-lg-5 px-2 border-bold-blue border-2 font-roboto-bolditalic" style="height:80px;" placeholder="Buscar">';
+        $html_row_three .= '<input type="text" id="search" name="search" class="search form-control text-center pe-lg-5 px-2 border-bold-blue border-2 font-roboto-bolditalic" placeholder="Buscar">';
         $html_row_three .= '<img src="' . $image_path . '" class="img-fluid d-lg-block d-none position-absolute end-0 top-50 translate-middle-y me-4" alt="Buscar" width="52px">';
         $html_row_three .= '</div>';
         $html_row_three .= '<div class="col-lg-4 col-md-12 col-sm-12 col-12 p-0 m-0 d-flex">';

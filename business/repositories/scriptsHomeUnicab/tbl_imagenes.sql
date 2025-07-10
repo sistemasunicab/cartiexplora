@@ -55,7 +55,7 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, ruta
 (8, 'assets/img/enviar.png', '', '', '', 'Suscribir', '', 'derecha', '', ''),
 (9, 'assets/img/unicab.png', '', '', '', 'logoUnicab', '', '', '', ''),
 (10, 'assets/img/unicab.png', '', '', '', 'logo', 'Colegio Unicab Virtual', '', 'https://unicab.org/homeunicabpro/', ''),
-(10, 'assets/img/carti_explora.png', '', '', '', 'logo', 'CARTI Explora', '', '', 'https://unicab.org/homeunicabpro/business/cartiExplora/pages/cartiHome.php'),
+(10, 'assets/img/carti_explora.png', '', '', '', 'logo', 'CARTI Explora', '', 'https://unicab.org/homeunicabpro/business/cartiExplora/pages/cartiHome.php','' ),
 (10, 'assets/img/unicab_solutions.png', '', '', '', 'logo', 'UNICAB Solutions', '', 'https://unicab.org/homeunicabpro/business/solutions/pages/somos.php', ''),
 
 (10, 'assets/img/facebook.png', '', '', '', 'social-media', 'facebook', '', '', ''),
@@ -87,7 +87,7 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, ruta
 (17, 'assets/img/_2294971155520.png', '', '', '', 'table', 'Correo', '', '', ''),
 (17, 'assets/img/_2294971183744.png', '', '', '', 'table', 'Cargo', '', '', ''),
 (17, 'assets/img/_2294971184896.png', '', '', '', 'table', 'Información', '', '', ''),
-(17, 'assets/img/Grupo 1.png', '', '', '', 'image-schedule', 'LUNES A VIERNES<br>8:00 a.m. A 12:00 p.m.', '', '', 'schedule'),
+(17, 'assets/img/Grupo 1.png', '', '', '', 'image-schedule', 'LUNES A VIERNES<br>8:00 a.m. A 12:00 m.', '', '', 'schedule'),
 (18, 'assets/img/elearning_5466286.svg', '', '', '', 'E-learning', '', '', '', 'E-learning'),
 (20, 'assets/img/paper_14969976.svg', '', '', '', 'PDF', '', '', '', 'PDF'),
 

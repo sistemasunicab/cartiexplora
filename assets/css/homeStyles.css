@@ -524,8 +524,8 @@ ul {
 
     #menuDisplay {
         background-color: inherit;
-        border-top: 1px solid var(--white);
-    border-bottom: 1px solid var(--white);
+        border-top: 0px solid var(--white);
+        border-bottom: 0px solid var(--white);
     }
 
     .menu-item-text {
@@ -797,6 +797,7 @@ input.search {
     letter-spacing: 0.04375rem;
     /* 0.7px / 16 */
     opacity: 0.9;
+    height: 80px;
 }
 
 .custom-table {
@@ -839,6 +840,16 @@ h3-calendario {
     letter-spacing: 0.1rem;
     /* 1.6px / 16 */
 }
+
+ht-calendario {
+    font-size: 3.3625rem;
+    /* 22px / 16 */
+    line-height: 3.3625rem;
+    /* 22px / 16 */
+    letter-spacing: 0.08rem;
+    /* 0.62px / 16 */
+}
+
 
 h4-calendario {
     font-size: 2.375rem;
@@ -934,7 +945,7 @@ p-financieros {
 .form-financial textarea {
     box-sizing: border-box;
     border: 2px solid #42C3AE !important;
-    border-radius: 5px !important;
+    border-radius: 15px !important;
     color: var(--medium-gray) !important;
 }
 
@@ -3663,6 +3674,7 @@ input[type="text"], .select, textarea {
         /* 15px / 16 */
         letter-spacing: 0.0225rem;
         /* 0.36px / 16 */
+        height: 60px;
     }
 
     .logo-buscar {
@@ -3692,6 +3704,15 @@ input[type="text"], .select, textarea {
         font-size: 1.375rem;
         /* 22px / 16 */
         line-height: 1.375rem;
+        /* 22px / 16 */
+        letter-spacing: 0.03875rem;
+        /* 0.62px / 16 */
+    }
+
+    ht-calendario {
+        font-size: 2rem;
+        /* 22px / 16 */
+        line-height: 2rem;
         /* 22px / 16 */
         letter-spacing: 0.03875rem;
         /* 0.62px / 16 */
@@ -5583,6 +5604,7 @@ input[type="text"], .select, textarea {
         letter-spacing: 0.02625rem;
         /* 0.42px / 16 */
         opacity: 0.9;
+        height: 80px;
     }
 
     .logo-buscar {
@@ -5617,6 +5639,16 @@ input[type="text"], .select, textarea {
         letter-spacing: 0.03875rem;
         /* 0.62px / 16 */
     }
+
+    ht-calendario {
+        font-size: 2rem;
+        /* 22px / 16 */
+        line-height: 2rem;
+        /* 22px / 16 */
+        letter-spacing: 0.03875rem;
+        /* 0.62px / 16 */
+    }
+
 
     h4-calendario {
         font-size: 0.875rem;
@@ -7533,6 +7565,16 @@ input[type="text"], .select, textarea {
         letter-spacing: 0.08rem;
         /* 1.6px * 0.8 / 16 */
     }
+
+    ht-calendario {
+        font-size: 2.85rem;
+        /* 22px / 16 */
+        line-height: 2.85rem;
+        /* 22px / 16 */
+        letter-spacing: 0.08rem;
+        /* 0.62px / 16 */
+    }
+
 
     h4-calendario {
         font-size: 1.9rem;
