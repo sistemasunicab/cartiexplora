@@ -1,4 +1,18 @@
 <?php
+function capitalizarInicial($texto) {
+    $texto = mb_strtolower($texto, 'UTF-8');
+    $longitud = mb_strlen($texto, 'UTF-8');
+    for ($i = 0; $i < $longitud; $i++) {
+        $char = mb_substr($texto, $i, 1, 'UTF-8');
+        // Si es una letra alfabética
+        if (preg_match('/\p{L}/u', $char)) {
+            $letraMayus = mb_strtoupper($char, 'UTF-8');
+            return mb_substr($texto, 0, $i, 'UTF-8') . $letraMayus . mb_substr($texto, $i + 1, null, 'UTF-8');
+        }
+     }
+    return $texto;
+}
+
 
 $nivel = "tres";
 if ($nivel == "raiz") {
@@ -44,15 +58,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                $html .= '
                <div class="col-lg-3 col-md-4 logros-noticias-separation mt-3 '.$position.'">
-                    <div class="noticias-hover">
+                    <div class="noticias-hover position-relative">
+                         <div>
+                              <a href="blog.php?blogId='.$row_datos['id'].'#blog_post" class="noticias-botonCompleto"></a>
+                         </div>
+                         
                          <div class="noticias-img-effect">
                               <img src="'.$row_datos['imagen'].'" class="noticias-img">
                          </div>
+
                          <div class="noticias-container">
                               <div class="noticias-box d-flex flex-column justify-content-between">
                                    <div>
                                         <p class="noticias-date lh-1">'.$row_datos['fechaPublicacion'].'</p>
-                                        <p class="noticias-title lh-1">'.$row_datos['titulo'].'</p>
+                                        <p class="noticias-title lh-1">'.capitalizarInicial($row_datos['titulo']).'</p>
                                         <p class="noticias-p lh-1 mt-3">'.substr($row_datos['descripcionPrincipal'], 0, 157).'...</p>
                                    </div>     
                                    

@@ -1,4 +1,17 @@
 <?php
+function capitalizarInicial($texto) {
+    $texto = mb_strtolower($texto, 'UTF-8');
+    $longitud = mb_strlen($texto, 'UTF-8');
+    for ($i = 0; $i < $longitud; $i++) {
+        $char = mb_substr($texto, $i, 1, 'UTF-8');
+        // Si es una letra alfabética
+        if (preg_match('/\p{L}/u', $char)) {
+            $letraMayus = mb_strtoupper($char, 'UTF-8');
+            return mb_substr($texto, 0, $i, 'UTF-8') . $letraMayus . mb_substr($texto, $i + 1, null, 'UTF-8');
+        }
+     }
+    return $texto;
+}
 $nivel = "tres";
 if ($nivel == "raiz") {
     require('business/repositories/1cc2s4Home.php');
@@ -47,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'imagen' => $row_datos['imagen'],
                     'fecha' => $row_datos['fechaPublicacion'],
                     'descripcion' => $row_datos['descripcionPrincipal'], 
-                    'titulo' => $row_datos['titulo'],
+                    'titulo' => capitalizarInicial($row_datos['titulo']),
                     'autor' => $row_datos['autor'],
                     'comentarios' => $comentarios,
                     'id' => $blogId

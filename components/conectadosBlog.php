@@ -3,8 +3,12 @@
      //-- Funciones --//
      function generarBlog($datos, $position) {
           $bloque = '
-               <div class="col-lg-4 col-md-4 col-sm-12 col-12 '.$position.'">
-                    <div class="noticias-hover">
+               <div class="col-lg-4 col-md-4 col-sm-4 col-4 '.$position.'">
+                    <div class="noticias-hover position-relative">
+                         <div>
+                              <a href="business/org/pages/blog.php?blogId='.$datos['blogId'].'#blog_post" class="noticias-botonCompleto"></a>
+                         </div>
+
                          <div class="noticias-img-effect">
                               <img src="'.$datos['rutaImagen'].'" class="noticias-img">
                          </div>
@@ -97,14 +101,14 @@
           $html .= '
           <div class="row mb-4">
                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                    <hr class="noticias-separator" style="height: 3px;">
+                    <hr class="noticias-separator">
                </div>
           </div>
           
           <div class="row mb-4">
                <div class="col-lg-5 col-md-5 col-sm-3 col-3"></div>
                <div class="col-lg-2 col-md-2 col-sm-6 col-6">
-                    <img src="'.$datosImagenes[0][0].'" alt="" class="img-fluid mx-auto">
+                    <img src="'.$datosImagenes[0][0].'" alt="" class="img-fluid mx-auto noticias-logo">
                </div>
                <div class="col-lg-5 col-md-5 col-sm-3 col-3"></div>
           </div>

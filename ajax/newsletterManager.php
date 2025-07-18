@@ -216,7 +216,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                             </div>
 
                                                             <div>
-                                                                '.str_replace('?', $enlaceCancelarSuscripcion.$correo, array_shift($textosNewsletter)).'
+                                                                '.str_replace('?', $enlaceCancelarSuscripcion, array_shift($textosNewsletter)).'
                                                             </div>
                                                         </td>
                                                     </tr>
