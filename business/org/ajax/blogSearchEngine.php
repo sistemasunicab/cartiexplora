@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                }
 
                $html .= '
-               <div class="col-lg-3 col-md-4 logros-noticias-separation mt-3 '.$position.'">
+               <div class="col-lg-3 col-md-4 col-sm-4 col-4 logros-noticias-separation mt-3 '.$position.'">
                     <div class="noticias-hover position-relative">
                          <div>
                               <a href="blog.php?blogId='.$row_datos['id'].'#blog_post" class="noticias-botonCompleto"></a>
