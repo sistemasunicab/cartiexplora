@@ -1075,6 +1075,19 @@ function displayEcosistema(id, btn) {
 /** Modelo Pedagogico Inicio **/
 
 document.addEventListener("DOMContentLoaded", function () {
+    const modeloZoom = document.getElementById("modelo_zoom");
+
+    if (modeloZoom) {
+        const modeloImg = document.getElementById("modelo_imgzoom");
+        const modeloContainer = document.getElementById("modelo-zoomContainer");
+        modeloZoom.addEventListener("click", () => {
+            modeloContainer.classList.toggle("d-none");
+        });
+        modeloContainer.addEventListener("click", () => {
+            modeloContainer.classList.toggle("d-none");
+        });
+    }
+
     const elements = document.querySelectorAll(".nuestroModelo-item");
 
     const observer = new IntersectionObserver((entries) => {
@@ -1212,12 +1225,23 @@ $(document).ready(function() {
         }
     });
 
+    let clickedInsideResults = false;
+
+    $('#search-results').on('mousedown', function() {
+        clickedInsideResults = true;
+    });
+
     $('#searchbar-blog').on('focus', function() {
         $("#search-results").removeClass("d-none");   
     });
 
     $('#searchbar-blog').on('blur', function() {
-        $("#search-results").addClass("d-none");   
+        setTimeout(function() {
+            if (!clickedInsideResults) {
+                $("#search-results").addClass("d-none");
+            }
+            clickedInsideResults = false;
+        }, 100);
     });
 
     const textoBusqueda = $('#titulo-busqueda').text()
@@ -1230,6 +1254,7 @@ $(document).ready(function() {
             data: {verTodo: true, input: $('#searchbar-blog').val()},
             success: function (response) {
                 if (response.status === "success") {
+                    document.getElementById('resultados-busqueda-blog').scrollIntoView({ behavior: 'smooth' });
                     $("#search-results").addClass("d-none"); 
                     $("#noticias-recientes").addClass("d-none"); 
                     $("#titulo-busquedaCategorias").addClass("d-none"); 
@@ -1258,6 +1283,7 @@ $(document).ready(function() {
             data: {categoria: this.dataset.categoria},
             success: function (response) {
                 if (response.status === "success") {
+                    document.getElementById('resultados-busqueda-blog').scrollIntoView({ behavior: 'smooth' });
                     $("#titulo-busqueda").addClass("d-none"); 
                     $("#noticias-recientes").addClass("d-none"); 
                     $("#resultados-busqueda-blog").removeClass("d-none"); 
