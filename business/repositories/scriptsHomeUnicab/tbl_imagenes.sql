@@ -258,3 +258,27 @@ UPDATE u756063299_home_unicab.tbl_imagenes SET ruta = 'assets/img/principios.jpg
 UPDATE u756063299_home_unicab.tbl_imagenes SET enlace = 'business/org/pages/sobreNosotros.php#ofertaAcademica' WHERE (id = '1');
 UPDATE u756063299_home_unicab.tbl_imagenes SET enlace = 'business/org/pages/sobreNosotros.php#ofertaAcademica' WHERE (id = '2');
 UPDATE u756063299_home_unicab.tbl_imagenes SET enlace = 'business/org/pages/sobreNosotros.php#ofertaAcademica' WHERE (id = '3');
+
+UPDATE u756063299_home_unicab.tbl_imagenes SET ruta = 'assets/img/Grupo 2.svg' WHERE (id = '4');
+UPDATE u756063299_home_unicab.tbl_imagenes SET ruta = 'assets/img/Grupo 3.svg' WHERE (id = '5');
+UPDATE u756063299_home_unicab.tbl_imagenes SET ruta = 'assets/img/Grupo 4.svg' WHERE (id = '6');
+UPDATE u756063299_home_unicab.tbl_imagenes SET ruta = 'assets/img/Grupo 5.svg' WHERE (id = '7');
+UPDATE u756063299_home_unicab.tbl_imagenes SET ruta = 'assets/img/Grupo 6.svg' WHERE (id = '8');
+UPDATE u756063299_home_unicab.tbl_imagenes SET ruta = 'assets/img/Grupo 7.svg' WHERE (id = '9');
+UPDATE u756063299_home_unicab.tbl_imagenes SET ruta = 'assets/img/Grupo 8.svg' WHERE (id = '10');
+UPDATE u756063299_home_unicab.tbl_imagenes SET ruta = 'assets/img/Grupo 9.svg' WHERE (id = '11');
+UPDATE u756063299_home_unicab.tbl_imagenes SET ruta = 'assets/img/Grupo 10.svg' WHERE (id = '12');
+UPDATE u756063299_home_unicab.tbl_imagenes SET ruta = 'assets/img/Grupo 13.svg' WHERE (id = '13');
+UPDATE u756063299_home_unicab.tbl_imagenes SET ruta = 'assets/img/Grupo 12.svg' WHERE (id = '14');
+UPDATE u756063299_home_unicab.tbl_imagenes SET ruta = 'assets/img/Grupo 11.svg' WHERE (id = '15');
+
+UPDATE u756063299_home_unicab.tbl_imagenes SET enlace = 'business/org/pages/sobreNosotros.php#primariaYBachillerato' WHERE (id = '1');
+UPDATE u756063299_home_unicab.tbl_imagenes SET enlace = 'business/org/pages/sobreNosotros.php#primariaYBachillerato' WHERE (id = '2');
+UPDATE u756063299_home_unicab.tbl_imagenes SET enlace = 'business/org/pages/sobreNosotros.php#ciclos' WHERE (id = '3');
+
+UPDATE tbl_imagenes SET ruta = 'assets/img/GIU.jpg' WHERE id = 77 AND ruta = "assets/img/GIU.png";
+UPDATE tbl_imagenes SET ruta = 'assets/img/equipoDocentes.jpg' WHERE id = 81 AND ruta = "assets/img/EquipoMaestros.png";
+
+UPDATE tbl_imagenes SET titulo = 'Potencialización de las habilidades <br><span>individuales de los estudiantes.</span>' WHERE id = 83 AND titulo = "Potencialización de las habilidades individuales de los estudiantes.";
+UPDATE tbl_imagenes SET titulo = 'Fortalecimiento de principios y valores <br><span>basados en la autonomía del estudiante.</span>' WHERE id = 84 AND titulo = "Fortalecimiento de principios y valores basados en la autonomía del estudiante.";
+UPDATE tbl_imagenes SET titulo = 'Desarrollo del pensamiento creativo <br><span>del estudiante.</span>' WHERE id = 85 AND titulo = "Desarrollo del pensamiento creativo del estudiante.";

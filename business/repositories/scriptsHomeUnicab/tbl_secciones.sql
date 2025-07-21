@@ -87,3 +87,5 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 ('newsletterInscrito', 1, 'correo', 'Ya haces parte de <strong style="color:#FF9805;">Conectados</strong>,<br>el blog oficial de UNICAB', '¡Gracias por suscribirte!', 'Desde ahora estarás al tanto de:'),
 ('resultadosPresaberes', 1, 'presaberes', '', '', '')
 ;
+
+UPDATE tbl_secciones SET visible = 0 WHERE id = 6 AND seccion = 'conoceNuetroCampus';
