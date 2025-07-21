@@ -34,8 +34,15 @@ if (!empty($rowsTitulosEducacion)) {
             $altern      = $row['textoAlterno'];
             $imgSrc      = rutaPorNivel($row['ruta']);
 
+            $idSeccion = '';
+            if (strtolower($titulo) === strtolower('Educación Regular(grado 1 a grado 11)')){
+                $idSeccion = 'primariaYBachillerato';
+            }else if (strtolower($titulo) === strtolower('Educación por ciclos para adultos')) {
+                $idSeccion = 'ciclos';
+            }
+
             $html_educacion .= '
-                <div class="row d-flex flex-row align-items-start">
+                <div class="row d-flex flex-row align-items-start" id="'.$idSeccion.'">
                     <img class="col-2 img-fluid icon-education p-0 m-0" src="' . $imgSrc . '" alt="' . $altern . '">
                     <div class="col-10 d-flex flex-column p-0 m-0 ps-4 ps-lg-5">
                         <h3-nosotros class="font-roboto-black">' . $titulo . '</h3-nosotros>
@@ -52,6 +59,6 @@ if (!empty($rowsTitulosEducacion)) {
 }
 ?>
 
-<div class="container-fluid my-ws mx-0 p-0">
+<div class="container-fluid my-ws mx-0 p-0" id="ofertaAcademica">
     <?= $html_educacion ?>
 </div>

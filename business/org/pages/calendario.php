@@ -14,6 +14,8 @@
     <?php 
         $nivel = "tres";
         include('../../../components/navBar.php');
+        include('../../../components/botonFlotante.php');
+
         include('../components/calendary/calendarioAcademico.php'); 
         include('../components/calendary/calendarioProximoEvento.php'); 
         include('../components/calendary/comunicados.php'); 

@@ -18,7 +18,7 @@
      while ($row_datos = $res_datos->fetch_assoc()) {
           // Renderizando la seccion
           $html .= '
-          <section class="container campus-section">
+          <section class="container campus-section d-lg-block d-md-none d-sm-none d-none">
 
                <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
