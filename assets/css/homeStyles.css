@@ -2537,7 +2537,8 @@ letter-spacing: 0.07rem;
 .h2-oferta {
     font-family: var(--roboto-black);
     color: var(--blue);
-    font-size: 3.75rem;
+    /* font-size: 3.75rem; */
+    font-size: 3rem;
     text-align: center;
     letter-spacing: 0.105rem;
 }
@@ -2600,7 +2601,8 @@ letter-spacing: 0.07rem;
 .h2-habilidades {
     font-family: var(--roboto-black);
     color: var(--blue);
-    font-size: 3.75rem;
+    /* font-size: 3.75rem; */
+    font-size: 3rem;
     text-align: center;
     letter-spacing: 0.105rem;
 }
@@ -2608,7 +2610,8 @@ letter-spacing: 0.07rem;
 .h1-habilidades {
     letter-spacing: 0.12rem;
     text-align: center;
-    font-size: 4.37rem;
+    /* font-size: 4.37rem; */
+    font-size: 4rem;
     font-family: var(--roboto-light);
 }
 
@@ -2627,10 +2630,29 @@ letter-spacing: 0.07rem;
     margin-bottom: var(--m-escritorio);
 }
 
+.img-habilidades-container {
+    background-color: #0B77B3;
+    padding: 1.2rem;
+    border-radius: 50%;
+    width: 7.625rem;
+    height: 7.625rem;
+    box-shadow: 0px 3px 6px #00000029;
+
+}
+
+.line:nth-child(even):nth-child(-n+6) .img-container .img-habilidades-container {
+  background-color: #28A745;
+}
+.line:nth-child(odd):nth-child(n+6):nth-child(-n+12) .img-container .img-habilidades-container {
+  background-color: #28A745;
+}
+
 .img-habilidades {
     max-width: 7.625rem;
     max-height: 7.625rem;
     object-fit: contain;
+    width: 100%;
+
 }
 
 .p-habilidades {
@@ -2887,13 +2909,16 @@ input[type="checkbox"] {
     color: var(--blue);
     text-transform: uppercase;
     margin-bottom: var(--m-escritorio);
-    font-size: 3.75rem;
+    /* font-size: 3.75rem; */
+    font-size: 3rem;
     line-height: 1;
 }
 
 .p-principios {
-    font-size: 1.31rem;
-    line-height: 1.19;
+    /* font-size: 1.31rem; */
+    /* line-height: 1.19; */
+    font-size: 1.2rem;
+    line-height: 1.4;
 }
 
 .card-h4-principios {
@@ -2927,7 +2952,8 @@ input[type="checkbox"] {
 
 .card-content-principios {
     padding: 0.81rem 2.50rem 2rem 2.50rem;
-    font-size: 1.13rem;
+    /* font-size: 1.13rem; */
+    font-size: 1rem;
     letter-spacing: 0.02rem;
     line-height: 1.5;
     box-shadow: var(--shadow-2);
@@ -2951,11 +2977,36 @@ input[type="checkbox"] {
 }
 
 .btn-principios {
+    position: relative;
     font-size: 1rem;
     font-family: var(--roboto-bolditalic);
     border-radius: 12px;
     padding: 0.75rem;
     background-color: var(--orange);
+    color: white;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-principios::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%) scale3d(0, 1, 1); 
+    width: 120%;
+    height: 120%;
+    background-color: #FFD156;
+    border-radius: 40%;
+    z-index: -1;
+    transition: transform 0.6s ease-in-out;
+}
+
+.btn-principios:hover::before {
+    transform: translate(-50%, -50%) scale3d(2, 2, 1);
+}
+
+.btn-principios:hover {
     color: white;
 }
 
@@ -3001,6 +3052,11 @@ input[type="checkbox"] {
     max-width: 22.1875rem;
     object-fit: contain;
     margin-top: 2rem;
+    transition: transform 0.3s ease-in;
+}
+
+.img-publicaciones:hover {
+    transform: scale(1.1);
 }
 
 .fecha-publicaciones {
@@ -3012,8 +3068,10 @@ input[type="checkbox"] {
 }
 
 .p-publicaciones {
-    font-size: 1.313rem;
-    line-height: 1.3;
+    /* font-size: 1.313rem;
+    line-height: 1.3; */
+    font-size: 1.1rem;
+    line-height: 1.5;
     letter-spacing: 0.023rem;
 }
 
@@ -3023,12 +3081,38 @@ input[type="checkbox"] {
 }
 
 .btn-publicaciones {
+    position: relative;
+    display: inline-block;
     padding: 1.125rem 2.25rem;
     font-size: 1.5625rem;
     font-family: var(--roboto-bolditalic);
     color: white;
     border-radius: 12px;
     background-color: var(--orange);
+    overflow: hidden;
+    z-index: 10;
+}
+
+.btn-publicaciones::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%) scale3d(0, 1, 1); 
+    width: 120%;
+    height: 120%;
+    background-color: #FFD156;
+    border-radius: 40%;
+    z-index: -1;
+    transition: transform 0.6s ease-in-out;
+}
+
+.btn-publicaciones:hover::before {
+    transform: translate(-50%, -50%) scale3d(2, 2, 1);
+}
+
+.btn-publicaciones:hover {
+    color: white;
 }
 
 .download-button {
@@ -4718,6 +4802,7 @@ input[type="text"], .select, textarea {
         display: grid;
         align-items: center;
         text-align: center;
+        border-top: 1px solid white;
         grid-template-columns: repeat(3,1fr);
         border-radius: unset;
         top: 0;
@@ -4875,13 +4960,34 @@ input[type="text"], .select, textarea {
         margin-bottom: var(--m-movil);
     }
 
+    .img-habilidades-container {
+        height: 6.5rem;
+        width: 6.5rem;
+    }
+    
     .img-habilidades {
-        max-width: 4.125rem;
-        max-height: 4.125rem;
+        position: relative;
+        /* max-width: 4.125rem;
+        max-height: 4.125rem;   TAMAÑOS DE ACUERDO AL DISEÑO*/
+        /* Tamaños NUEVOS*/
+        max-width: 6.5rem;
+        max-height: 6.5rem;
+        opacity: 0.45;
     }
 
     .p-habilidades {
-        font-size: 0.5625rem;
+        position: absolute;
+        /* font-size: 0.5625rem; TAMAÑO ANTERIOR DE ACUERDO AL DISEÑO*/
+        font-size: .95rem;
+        font-family: var(--roboto-bold);
+        color: white;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .img-container {
+        position: relative;
     }
 
     .line:nth-child(1n)::after {
@@ -5036,6 +5142,7 @@ input[type="text"], .select, textarea {
     .card-content-principios {
         margin-top: 1rem;
         padding: 1.063rem 2.313rem;
+        margin: 0 1.38rem;
         font-size: 0.813rem;
         line-height: 1.25;
         letter-spacing: 0.001rem;
@@ -6739,13 +6846,28 @@ input[type="text"], .select, textarea {
         margin-bottom: var(--m-tablet);
     }
 
+    .img-habilidades-container {
+        width: 7.6rem;
+        height: 7.6rem;
+    }
+
     .img-habilidades {
-        max-width: 9.6875rem;
-        max-height: 9.6875rem;
+        position: relative;
+        /* max-width: 9.6875rem;
+        max-height: 9.6875rem; */
+        max-width: 7.6875rem;
+        max-height: 7.6875rem;
+        opacity: 0.45;
     }
 
     .p-habilidades {
+        position: absolute;
         font-size: 1.1875rem;
+        font-family: var(--roboto-bold);
+        color: white;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
 
     .img-container {
@@ -6865,8 +6987,10 @@ input[type="text"], .select, textarea {
     }
 
     .item-nuestros-estudiantes div {
-        max-width: 8.44rem;
-        max-height: 8.44rem;
+        max-width: 15rem;
+        max-height: 15rem;
+        /* max-width: 8.44rem;
+        max-height: 8.44rem; */
     }
 
 
@@ -6879,11 +7003,18 @@ input[type="text"], .select, textarea {
 
     /** Inicio Principios y valores */
 
+    .img-banner-principios {
+        max-width: 35.688rem;
+        max-height: 24.688rem;
+    }
+
     .banner-principios {
         margin-top: var(--m-tablet);
         margin-bottom: var(--m-tablet);
-        max-width: 21.25rem;
-        max-height: 22.94rem;
+        /* max-width: 21.25rem;
+        max-height: 22.94rem; */
+        max-width: 35.688rem;
+        max-height: 24.688rem;
     }
 
     .section-principios {
@@ -7006,7 +7137,8 @@ input[type="text"], .select, textarea {
 
     .p-publicaciones {
         font-size: 1rem;
-        line-height: 1.2;
+        /* line-height: 1.4; */
+        line-height: 1.6;
     }
 
     .btn-my-publicaciones {
