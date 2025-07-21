@@ -49,7 +49,7 @@
 
      function crearIndicador($datos, $posicion, $valor){
           $indicator = '
-                    <div class="col-lg-4 col-md-4 col-sm-12 col-12 '.$posicion.'">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4 '.$posicion.'">
                          <div class="indicator-main '.FlexTitleLoader::setDirection($datos[2]).'">
                               <img src="'.$datos[0].'">
 

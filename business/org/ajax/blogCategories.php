@@ -30,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           $html = '';
           while($row_datos = $res_datos->fetch_assoc()){
                $cantidad_filas++;
+               $blogPos++;
 
                $position = 'logros-md-noticias-left';
                if ($blogPos == 3) {
@@ -41,10 +42,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                $html .= '
                <div class="col-lg-3 col-md-4 logros-noticias-separation mt-3 '.$position.'">
-                    <div class="noticias-hover">
+                    <div class="noticias-hover position-relative">
+                         <div>
+                              <a href="blog.php?blogId='.$row_datos['id'].'#blog_post" class="noticias-botonCompleto"></a>
+                         </div>
+
                          <div class="noticias-img-effect">
                               <img src="'.$row_datos['imagen'].'" class="noticias-img">
                          </div>
+
                          <div class="noticias-container">
                               <div class="noticias-box d-flex flex-column justify-content-between">
                                    <div>
