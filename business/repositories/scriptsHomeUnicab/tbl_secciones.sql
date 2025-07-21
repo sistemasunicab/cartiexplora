@@ -88,4 +88,5 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 ('resultadosPresaberes', 1, 'presaberes', '', '', '')
 ;
 
+UPDATE tbl_secciones SET titulo = '<span>Historia y</span><br> Logros Alcanzados' WHERE id = 21;
 UPDATE tbl_secciones SET visible = 0 WHERE id = 6 AND seccion = 'conoceNuetroCampus';
