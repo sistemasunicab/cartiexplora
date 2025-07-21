@@ -3,26 +3,34 @@
     {
         if (strtolower($posicionTitulo) == 'abajo') {
             return
-                '<a href="'.$enlace.'" class="img-container d-flex flex-column align-items-center gap-4 py-4">' . "\n" .
-                     $imgHTML . "\n" .
+                '<a href="'.$enlace.'" class="enlace-habilidades img-container d-flex flex-column align-items-center gap-4 h-100">' . "\n" .
+                    '<div class="img-habilidades-container d-flex flex-column justify-content-center align-items-center">' . "\n" .
+                        $imgHTML . "\n" .
+                     '</div>' . "\n" .
                      '<p class="text-center p-habilidades">' . $titulo . '</p>' . "\n" .
                 '</a>' . "\n";
         } else if (strtolower($posicionTitulo) == 'derecha') {
             return
-                '<a href="'.$enlace.'" class="img-container d-flex align-items-center gap-4 p-0 mx-3">' . "\n" .
-                     $imgHTML . "\n" .
+                '<a href="'.$enlace.'" class="enlace-habilidades img-container d-flex align-items-center gap-4 p-0 mx-3">' . "\n" .
+                    '<div class="img-habilidades-container d-flex flex-column justify-content-center align-items-center">' . "\n" .
+                        $imgHTML . "\n" .
+                     '</div>' . "\n" .
                      '<p class="p-habilidades">' . $titulo . '</p>' . "\n" .
                 '</a>' . "\n";
         } else if (strtolower($posicionTitulo) == 'izquierda') {
             return
-                '<a href="'.$enlace.'" class="img-container d-flex flex-row-reverse align-items-center gap-4 p-0 mx-3">' . "\n" .
-                    $imgHTML . "\n" .
+                '<a href="'.$enlace.'" class="enlace-habilidades img-container d-flex flex-row-reverse align-items-center gap-4 p-0 mx-3">' . "\n" .
+                    '<div class="img-habilidades-container d-flex flex-column justify-content-center align-items-center">' . "\n" .
+                        $imgHTML . "\n" .
+                     '</div>' . "\n" .
                     '<p class="p-habilidades">' . $titulo . '</p>' . "\n" .
                 '</a>' . "\n";
         } else if (strtolower($posicionTitulo) == 'arriba') {
             return
-                '<a href="'.$enlace.'" class="img-container d-flex flex-column-reverse align-items-center gap-2" py-2>' . "\n" .
-                    $imgHTML . "\n" .
+                '<a href="'.$enlace.'" class="enlace-habilidades img-container d-flex flex-column-reverse align-items-center gap-2" h-100>' . "\n" .
+                    '<div class="img-habilidades-container d-flex flex-column justify-content-center align-items-center">' . "\n" .
+                        $imgHTML . "\n" .
+                     '</div>' . "\n" .
                     '<p class="text-center p-habilidades">' . $titulo . '</p>' . "\n" .
                 '</a>' . "\n";
         }
@@ -82,7 +90,7 @@
         $html .=    '<div class="row">';
 
         while ($row_imagenes = $res_imagenes->fetch_assoc()) {
-            $html .=    '<div class="col-lg-2 col-md-4 col-sm-4 col-4 line">';
+            $html .=    '<div class="col-lg-2 col-md-4 col-sm-4 col-4 line mb-4 p-4">';
             $attributes = ImageAttributeBuilder::buildAttributes($nivel, $row_imagenes['ruta'], $row_imagenes['descripcion'], $row_imagenes['rutaEncima']);
             $html .= posicionTituloImagen('<img class="img-habilidades" ' . $attributes . '>', $row_imagenes['titulo'], $row_imagenes['posicionTitulo'], $row_imagenes['enlace']);
             $html .=    '</div>'; 

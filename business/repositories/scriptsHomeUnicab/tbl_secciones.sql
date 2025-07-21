@@ -13,6 +13,9 @@ CREATE TABLE tbl_secciones (
 INSERT INTO tbl_secciones (id, seccion, visible, paginaPadre, titulo, subTitulo, texto) VALUES
 (0, '', 0, '', '', '', '');
 
+ALTER TABLE tbl_secciones
+  MODIFY id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
 INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, texto) VALUES
 ('banner', 1, 'home', '', '', ''),
 ('ofertaAcademica', 1, 'home', 'Oferta Académica', '', ''),
@@ -84,3 +87,6 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 ('newsletterInscrito', 1, 'correo', 'Ya haces parte de <strong style="color:#FF9805;">Conectados</strong>,<br>el blog oficial de UNICAB', '¡Gracias por suscribirte!', 'Desde ahora estarás al tanto de:'),
 ('resultadosPresaberes', 1, 'presaberes', '', '', '')
 ;
+
+UPDATE tbl_secciones SET titulo = '<span>Historia y</span><br> Logros Alcanzados' WHERE id = 21;
+UPDATE tbl_secciones SET visible = 0 WHERE id = 6 AND seccion = 'conoceNuetroCampus';

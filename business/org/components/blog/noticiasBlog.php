@@ -3,11 +3,16 @@
      function generarBlog($datos, $seOculta, $posicion) {
           $visibilidad =  $seOculta ? "d-lg-block d-none" : "";
           $bloque = '
-               <div class="col-lg-3 col-md-4 logros-noticias-separation '.$posicion.' '.$visibilidad.'">
-                    <div class="noticias-hover">
+               <div class="col-lg-3 col-md-4 col-sm-4 col-4 logros-noticias-separation '.$posicion.' '.$visibilidad.'">
+                    <div class="noticias-hover position-relative">
+                         <div>
+                              <a href="blog.php?blogId='.$datos['blogId'].'#blog_post" class="noticias-botonCompleto"></a>
+                         </div>
+
                          <div class="noticias-img-effect">
                               <img src="'.$datos['rutaImagen'].'" class="noticias-img">
                          </div>
+                         
                          <div class="noticias-container">
                               <div class="noticias-box d-flex flex-column justify-content-between">
                                    <div>

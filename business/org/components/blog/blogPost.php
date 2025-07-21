@@ -299,7 +299,7 @@
                <div class="col-lg-8 col-md-8 col-sm-12 col-12">
                     <img src="'.$showBlog['imagenPrincipal'].'" id="blogImage" alt="" class="logros-post-img">
                     <p class="logros-post-text" id="content">'.$showBlog['descripcion'].'</p><br>
-                    <p>'.$showBlog['descripcion2'].'</p>
+                    <p class="logros-post-text">'.$showBlog['descripcion2'].'</p>
                </div>
                
                <div class="d-lg-none d-md-none d-block order-last"></div>
@@ -314,7 +314,7 @@
                          ';
                          $blogCount = 0;
                          foreach ($newestBlogs as $blog) {
-                              $html .= '<div class="d-flex flex-column">';
+                              $html .= '<div class="d-flex flex-column w-100">';
                               $blogFecha = new DateTime($blog['fechaPublicacion']);
                               $fechaFormatter = new IntlDateFormatter("es_ES", IntlDateFormatter::FULL, IntlDateFormatter::NONE);
                               $blogActualFecha = $fechaFormatter->format($blogFecha);
@@ -330,7 +330,7 @@
                               ';
 
                               if ($blogCount < 2) {
-                                   $html .= '<hr class="blog-separator border-1 w-75 my-4">';
+                                   $html .= '<hr class="blog-separator border-1 my-4">';
                                    $blogCount++;
                               }
                          }
@@ -363,8 +363,8 @@
           
           <section class="container my-2rem">
                <div class="row mb-4">
-                    <div class="col-lg-2 col-md-2"></div>
-                    <div class="col-lg-8 col-md-8 col-sm-12 col-12">
+                    <div class="col-lg-3 col-md-3"></div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                          <form class="d-flex flex-column gap-3 border-green px-0 pb-3" id="comentariosCampos" data-form-instance data-form-configuracion=\'{"botonSubmit": "send_blog_comment"}\' >
                               <h4 class="">Dejame tu comentario</h4>
 
@@ -399,7 +399,7 @@
                               </div>
                          </form>
                     </div>
-                    <div class="col-lg-2 col-md-2"></div>
+                    <div class="col-lg-3 col-md-3"></div>
                </div>
 
                <div id="comentario-plantilla" class="d-none">
@@ -442,7 +442,7 @@
                $html .= '
                     <div class="col-lg-2 col-md-2"></div>
                     <div class="comment-block col-lg-8 col-md-8 col-sm-12 col-12">
-                         <hr class="border-1 w-100">
+                         <hr class="w-100" style="height: 1px !important;">
 
                          <div class="row bg-light-gray-o26 py-3 m-0">
                               <div class="col-lg-8 col-md-8 col-sm-6 col-6 px-2">
