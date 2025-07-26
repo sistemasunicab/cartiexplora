@@ -101,37 +101,37 @@
         while($row_directorio = $exe_directorio->fetch_assoc()) {
             if($row_directorio['perfil'] == "SI") {
                 if($row_directorio['infografia'] == '') {
-                    $html_row_four .= "
+                    $html_row_four .= '
                         <tr>
-                            <td>".$row_directorio['nombres']." ".$row_directorio['apellidos']."</td>
-                            <td>".$row_directorio['dependencia']."</td>
-                            <td>".$row_directorio['email']."</td>
-                            <td>".$row_directorio['cargo']."</td>
-                            <td>".$row_directorio['celular']."</td>
-                        </tr>";
+                            <td class="transform-text">'.mb_strtolower($row_directorio['nombres']).' '.mb_strtolower($row_directorio['apellidos']).'</td>
+                            <td class="transform-text">'.mb_strtolower($row_directorio['dependencia']).'</td>
+                            <td>'.$row_directorio['email'].'</td>
+                            <td class="transform-text">'.mb_strtolower($row_directorio['cargo']).'</td>
+                            <td>'.$row_directorio['celular'].'</td>
+                        </tr>';
                 }
                 else {
                     //imagen = substr($row_directorio['infografia'], 9);
                     $imagen = $row_directorio['infografia'];
                     $html_row_four .= "
                         <tr>
-                            <td>".$row_directorio['nombres']." ".$row_directorio['apellidos']."</td>
-                            <td>".$row_directorio['dependencia']."</td>
+                            <td class= \"transform-text\">".mb_strtolower($row_directorio['nombres'])." ".mb_strtolower($row_directorio['apellidos'])."</td>
+                            <td class= \"transform-text\">".mb_strtolower($row_directorio['dependencia'])."</td>
                             <td>".$row_directorio['email']."</td>
-                            <td>".$row_directorio['cargo']."</td>
-                            <td><button class='btn bg-orange btn-lg' onclick='verInfografia(\"".$imagen."\")'>VER</button></td>
-                        </tr>";
+                            <td class= \"transform-text\">".mb_strtolower($row_directorio['cargo'])."</td>
+                            <td><button class='btn bg-orange btn-lg btn-intitutional' onclick='verInfografia(\"".$imagen."\")'>VER</button></td>
+                        </tr>"; 
                 }                
             }
             else {
-                $html_row_four .= "
-                    <tr>
-                        <td>".$row_directorio['nombres']." ".$row_directorio['apellidos']."</td>
-                        <td>".$row_directorio['dependencia']."</td>
-                        <td>".$row_directorio['email']."</td>
-                        <td>".$row_directorio['cargo']."</td>
-                        <td>".$row_directorio['celular']."</td>
-                    </tr>";
+                $html_row_four .= '
+                        <tr>
+                            <td class="transform-text">'.mb_strtolower($row_directorio['nombres']).' '.mb_strtolower($row_directorio['apellidos']).'</td>
+                            <td class="transform-text">'.mb_strtolower($row_directorio['dependencia']).'</td>
+                            <td>'.$row_directorio['email'].'</td>
+                            <td class="transform-text">'.mb_strtolower($row_directorio['cargo']).'</td>
+                            <td>'.$row_directorio['celular'].'</td>
+                        </tr>';
             }
         }
 
