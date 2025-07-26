@@ -34,8 +34,8 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 ('sobreNosotrosEducacionFormal', 1,'sobreNosotros', '<b>Colegio</b><br> UNICAB Virtual ', '(Educación Formal)', ''),
 ('sobreNosotrosImagenesDos', 1,'sobreNosotros', '', '', ''),
 ('sobreNosotrosQuinesSomos', 1,'sobreNosotros', '', '', ''),
-('directorioInstitucional', 1, '', '<b>DIRECTORIO</b> INSTITUCIONAL','',''),
-('calendarioAcademico', 1, '', '<b>CALENDARIO</b> ACADÉMICO','',''),
+('directorioInstitucional', 1, '', '<b>DIRECTORIO</b> Institucional','',''),
+('calendarioAcademico', 1, '', '<b>CALENDARIO</b> Académico','',''),
 ('calendarioProximoEvento', 1, '', 'Próximo evento','','Tiempo Restante'),
 ('comunicados', 0, '', 'COMUNICADOS','',''),
 
@@ -59,14 +59,12 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 ('entrevista', 1, 'admisiones', 'Admisiones', 'Entrevistas', ''),
 ('botonFlotante', 1, 'home', '', '', ''),
 
-('resultadoPreAdmisiones', 1, 'admisiones', 'Admisiones', 'Resultado Pre Admisiones', '')
-;
+('resultadoPreAdmisiones', 1, 'admisiones', 'Admisiones', 'Resultado Pre Admisiones', '');
 
 INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, texto) VALUES 
 ('BlogPost', 1, 'blogpost', '', '', ''),
 ('Presaberes', 1, 'presaberes', 'Evaluacion Presaberes', '(Se recomienda utilizar navegadores diferentes a Internet Explorer)', ''),
-('pagos', '1', 'admisiones', '', '', '')
-;
+('pagos', '1', 'admisiones', '', '', '');
 
 INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, texto) VALUES 
 ('costos', 1, 'admisiones', '', 'Consulta aquí los últimos costos aprobados por la Secretaría de Educación de Sogamoso', '(Año 2024)');
@@ -90,3 +88,6 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 
 UPDATE tbl_secciones SET titulo = '<span>Historia y</span><br> Logros Alcanzados' WHERE id = 21;
 UPDATE tbl_secciones SET visible = 0 WHERE id = 6 AND seccion = 'conoceNuetroCampus';
+
+UPDATE tbl_secciones SET titulo = '<b>DIRECTORIO</b> Institucional' WHERE id = 17;
+UPDATE tbl_secciones SET titulo = '<b>CALENDARIO</b> Académico' WHERE id = 18;

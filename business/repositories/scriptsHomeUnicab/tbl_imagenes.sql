@@ -54,9 +54,9 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, ruta
 (8, 'assets/img/conectados.png', '', '', '', 'conectados', '', '', '', ''),
 (8, 'assets/img/enviar.png', '', '', '', 'Suscribir', '', 'derecha', '', ''),
 (9, 'assets/img/unicab.png', '', '', '', 'logoUnicab', '', '', '', ''),
-(10, 'assets/img/unicab.png', '', '', '', 'logo', 'Colegio Unicab Virtual', '', '', ''),
-(10, 'assets/img/carti_explora.png', '', '', '', 'logo', 'CARTI Explora', '', '', ''),
-(10, 'assets/img/unicab_solutions.png', '', '', '', 'logo', 'UNICAB Solutions', '', '', ''),
+(10, 'assets/img/unicab.png', '', '', '', 'logo', 'Colegio Unicab Virtual', '', 'https://unicab.org/homeunicabpro/', ''),
+(10, 'assets/img/carti_explora.png', '', '', '', 'logo', 'CARTI Explora', '', 'https://unicab.org/homeunicabpro/business/cartiExplora/pages/cartiHome.php','' ),
+(10, 'assets/img/unicab_solutions.png', '', '', '', 'logo', 'UNICAB Solutions', '', 'https://unicab.org/homeunicabpro/business/solutions/pages/somos.php', ''),
 
 (10, 'assets/img/facebook.png', '', '', '', 'social-media', 'facebook', '', '', ''),
 (10, 'assets/img/x.png', '', '', '', 'social-media', 'x', '', '', ''),
@@ -87,7 +87,7 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, ruta
 (17, 'assets/img/_2294971155520.png', '', '', '', 'table', 'Correo', '', '', ''),
 (17, 'assets/img/_2294971183744.png', '', '', '', 'table', 'Cargo', '', '', ''),
 (17, 'assets/img/_2294971184896.png', '', '', '', 'table', 'Información', '', '', ''),
-(17, 'assets/img/Grupo 1.png', '', '', '', 'image-schedule', 'LUNES A VIERNES<br>8:00 a.m. A 12:00 p.m.', '', '', 'schedule'),
+(17, 'assets/img/Grupo 1.png', '', '', '', 'image-schedule', 'LUNES A VIERNES<br>8:00 a.m. A 12:00 m.', '', '', 'schedule'),
 (18, 'assets/img/elearning_5466286.svg', '', '', '', 'E-learning', '', '', '', 'E-learning'),
 (20, 'assets/img/paper_14969976.svg', '', '', '', 'PDF', '', '', '', 'PDF'),
 
@@ -283,4 +283,14 @@ UPDATE tbl_imagenes SET ruta = 'assets/img/equipoDocentes.jpg' WHERE id = 81 AND
 
 UPDATE tbl_imagenes SET titulo = 'Potencialización de las habilidades <br><span>individuales de los estudiantes.</span>' WHERE id = 83 AND titulo = "Potencialización de las habilidades individuales de los estudiantes.";
 UPDATE tbl_imagenes SET titulo = 'Fortalecimiento de principios y valores <br><span>basados en la autonomía del estudiante.</span>' WHERE id = 84 AND titulo = "Fortalecimiento de principios y valores basados en la autonomía del estudiante.";
-UPDATE tbl_imagenes SET titulo = 'Desarrollo del pensamiento creativo <br><span>del estudiante.</span>' WHERE id = 85 AND titulo = "Desarrollo del pensamiento creativo del estudiante.";
+UPDATE tbl_imagenes SET titulo = 'Desarrollo del pensamiento creativo <br><span>del estudiante.</span>' WHERE id = 85 AND titulo = "Desarrollo del pensamiento creativo del estudiante."
+;
+
+UPDATE tbl_imagenes SET enlace = 'https://unicab.org/homeunicabpro/#inicio' WHERE (id = '36');
+UPDATE tbl_imagenes SET enlace = 'https://unicab.org/homeunicabpro/business/cartiExplora/pages/cartiHome.php' WHERE (id = '37');
+UPDATE tbl_imagenes SET enlace = 'https://unicab.org/homeunicabpro/business/solutions/pages/somos.php' WHERE (id = '38');
+UPDATE tbl_imagenes SET titulo = 'LUNES A VIERNES<br>8:00 a.m. A 12:00 p.m.<br>2:00 p.m A 6:00 p.m.' WHERE (id = '66');
+
+UPDATE tbl_imagenes SET id_seccion = '0' WHERE (id = '40');
+UPDATE tbl_imagenes SET id_seccion = '0' WHERE (id = '149');
+UPDATE tbl_imagenes SET id_seccion = '0' WHERE (id = '150');

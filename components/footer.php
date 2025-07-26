@@ -66,25 +66,30 @@ foreach ($imagenesDatos as $fila) {
     $imagenesFooter[] = [
         'ruta'   => $fila['ruta'],
         'titulo' => $fila['titulo'],
+        'enlace' => $fila['enlace'],
     ];
 }
 
 // 4.3) Tamaños de altura predefinidos (pueden ajustarse si cambian de número)
 $imagesHeights = [119.2, 111.2, 68];
-$hmtl_images = '<div class="row col-lg-7 d-flex flex-wrap h-auto gap-5 justify-content-center pt-5">';
+$hmtl_images = '<div class="row col-lg-7 col-md-9 d-flex flex-wrap h-auto gap-5 justify-content-center pt-5">';
 foreach ($imagenesFooter as $idx => $imagen) {
     $rutaImg     = rutaPorNivel($imagen['ruta']);
     $altura      = $imagesHeights[$idx] ?? 100; // fallback genérico
     $tituloClean = $imagen['titulo'];
+    $target      = $imagen['enlace'] ?? '';
 
     $hmtl_images .= '
         <div class="col-sm-3 col-4 image-footer d-flex flex-column align-items-center text-center">
+            <a href="' . $target . '">
             <div class="d-flex justify-content-center align-items-center" style="height: 160px;">
-                <img class="img-fluid my-auto" 
+                <img class="zoom-hover img-fluid my-auto" 
                      style="height: ' . $altura . 'px;" 
                      src="' . $rutaImg . '" 
-                     alt="' . $tituloClean . '">
+                     alt="' . $tituloClean . '"
+                     target="' . $target . '">
             </div>
+            </a>
             <p2-footer class="font-roboto-medium m-0 pt-1 lh-sm tx-orange">'
                 . $tituloClean .
             '</p2-footer>
@@ -127,10 +132,11 @@ foreach ($smFooter as $imagen) {
     $rutaImg     = rutaPorNivel($imagen['ruta']);
     $tituloClean = $imagen['title'];
     $linkClean   = $imagen['link'];
+    $height      = $tituloClean == 'youtube' ? 20 : 25;
 
     $hmtl_social_media .= '
-        <a class="mt-2 mb-3 mx-2 mx-md-3 mx-lg-2 mx-xl-3" href="' . $linkClean . '" target="_blank">
-            <img style="height:25px" 
+        <a class="mt-2 mb-3 mx-2 mx-lg-2 mx-xl-3" href="' . $linkClean . '" target="_blank">
+            <img class="social-media-icon zoom-hover" style="height:' . $height . 'px" 
                  src="' . $rutaImg . '" 
                  alt="' . $tituloClean . '">
         </a>';
@@ -153,14 +159,14 @@ foreach ($aliadosDatos as $aliado) {
     $rutaImg   = rutaPorNivel($ruta);
 
     $hmtl_aliados .= '
-        <div class="row col-12 col-lg-7 d-flex flex-column flex-lg-row">
-            <p3-footer class="col-12 col-lg-3 font-roboto-black tx-white my-4 my-lg-auto mx-auto mx-lg-0 text-center text-lg-start">'
+        <div class="row col-12 col-lg-7 col-md-7 d-flex flex-column flex-lg-row flex-md-row">
+            <p3-footer class="col-12 col-lg-3 col-md-3 font-roboto-black tx-white my-4 my-lg-auto mx-auto mx-lg-0 text-center text-lg-start">'
                 . $titulo .
             '</p3-footer>
-            <img class="col-12 col-lg-7 my-auto mx-auto mx-lg-0" 
+            <img class="col-12 col-lg-7 col-md-7 my-auto mx-auto mx-lg-0" 
                  src="' . $rutaImg . '" 
                  alt="' . $titulo . '" 
-                 style="width:260px;height:auto;">
+                 style="width:200px;height:auto;">
         </div>';
 }
 
@@ -174,9 +180,9 @@ $entidadesDatos = obtenerFilas($mysqli1, $sentencia, 49);
 
 // 7.2) Construir HTML de entidades
 $entities = '
-    <div class="col-10 d-flex flex-column flex-lg-row align-items-center align-items-lg-end m-auto my-4 justify-content-between">
+    <div class="col-10 col-md-11 d-flex flex-column flex-lg-row flex-md-row align-items-center align-items-lg-end align-items-md-end m-auto my-4 justify-content-between">
         <div class="text-center mb-3 mb-lg-0">
-            <p4-footer class="m-auto font-roboto-light tx-white py-1">
+            <p4-footer class="entidades-tx m-auto font-roboto-light tx-white py-1">
                 <b>Entidades que nos vigilan:</b>
             </p4-footer>
         </div>';
@@ -191,14 +197,14 @@ foreach ($entidadesDatos as $filaEnt) {
     $alturaEnt = $imagesHeightsEnt[$countEnt] ?? 50;
 
     $entities .= '
-        <div class="text-center mb-3 mb-lg-0">
+        <div class="text-center mb-3 mb-lg-0 mb-md-0">
             <div>
                 <img src="' . $rutaImg . '" 
                      alt="' . $tituloEnt . '" 
                      class="img-fluid" 
                      style="height:' . $alturaEnt . 'px;width:auto;">
             </div>
-            <p4-footer class="m-0 m-auto font-roboto-light tx-white py-1">'
+            <p4-footer class="entidades-tx m-0 m-auto font-roboto-light tx-white py-1">'
                 . $tituloEnt .
             '</p4-footer>
         </div>';
@@ -220,7 +226,7 @@ $html_copyright = $entities;
 foreach ($copyrightDatos as $filaCopy) {
     $textoCopy = $filaCopy['t1'];
     $html_copyright .= '
-        <p4-footer class="text-center m-auto font-roboto-light tx-white">'
+        <p4-footer class="terminos-condiciones-footer text-center m-auto font-roboto-light tx-white">'
             . $textoCopy .
         '</p4-footer>';
 }
@@ -236,32 +242,32 @@ foreach ($copyrightDatos as $filaCopy) {
         <footer class="w-100 p-0 m-0 bg-bold-blue">
             <!-- PRIMER FOOTER: IMÁGENES + CONTACTO + REDES + ALIADOS -->
             <div class="first-footer mt-5 col-11 m-auto d-flex flex-column tx-white justify-content-end pb-5">
-                <div class="d-flex flex-column flex-lg-row">
+                <div class="d-flex flex-column flex-lg-row flex-md-row justify-content-md-center align-items-md-center">
                     <!-- 9.1) IMÁGENES PRINCIPALES -->
                     <?php echo $hmtl_images; ?>
 
                     <!-- 9.2) CONTACTO + REDES + UBICACIÓN -->
-                    <div class="row col-12 col-lg-5 d-flex flex-column pt-4 mx-auto m-auto">
+                    <div class="row col-12 col-lg-5 col-md-3 d-flex flex-column pt-4 w-auto mx-auto">
                         <div class="d-flex flex-column mb-3 mx-auto">
-                            <p-footer class="lh-sm font-roboto-thinitalic text-center my-0 mx-auto tx-white opacity-75">
+                            <p-footer class="lh-sm .llamanos-escribenos font-roboto-bold text-center text-md-start text-lg-center my-0 mx-auto mx-md-0 mx-lg-auto tx-white">
                                 Llámanos o escríbenos
                             </p-footer>
-                            <h5-footer class="lh-sm font-roboto-bolditalic text-center my-0 mx-auto tx-white">
+                            <h5-footer class="numero-telefono lh-sm font-roboto-bolditalic text-center text-md-start text-lg-center my-0 mx-auto mx-md-0 mx-lg-auto tx-white">
                                 <?php echo $tel; ?>
                             </h5-footer>
-                            <h5-footer class="lh-sm font-roboto-bolditalic text-center my-0 mx-auto tx-white">
+                            <h5-footer class=" admisiones lh-sm font-roboto-bolditalic text-center text-md-start text-lg-center my-0 mx-auto mx-md-0 mx-lg-auto tx-white">
                                 <?php echo $correo; ?>
                             </h5-footer>
                         </div>
                         <div id="info" class="d-flex flex-column w-auto mx-auto">
-                            <p1-footer class="font-roboto-bolditalic text-center my-0 mx-auto">
+                            <p1-footer class="encuentranos font-roboto-bolditalic text-center text-md-start text-lg-center my-0 mx-auto mx-md-0 mx-lg-auto">
                                 Encuéntranos
                             </p1-footer>
                             <?php echo $hmtl_social_media; ?>
-                            <p-footer class="font-roboto-light text-center mx-auto mt-4 mb-0 tx-white">
+                            <p-footer class="direccion-unicab-footer font-roboto-light text-center text-md-start text-lg-center mx-auto mx-md-0 mx-lg-auto mt-4 mb-0 tx-white">
                                 <?php echo $direccion; ?>
                             </p-footer>
-                            <p-footer class="font-roboto-light text-center mx-auto my-0 pb-3 tx-white">
+                            <p-footer class="direccion-unicab-footer font-roboto-light text-center text-md-start text-lg-center mx-auto mx-md-0 mx-lg-auto my-0 pb-3 tx-white">
                                 <?php echo $ubicacion; ?>
                             </p-footer>
                         </div>

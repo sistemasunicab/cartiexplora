@@ -391,6 +391,8 @@ ul {
 
 #menuDisplay {
     background-color: var(--blue);
+    border-top: 1px solid var(--white);
+    border-bottom: 1px solid var(--white);
 }
 
 #menuDisplay.hover {
@@ -413,6 +415,12 @@ ul {
 
 .first-level-link.hover {
     background-color: var(--aquamarine) !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+    border: none !important;
+    
 }
 
 .menu-item-text:hover {
@@ -516,6 +524,8 @@ ul {
 
     #menuDisplay {
         background-color: inherit;
+        border-top: 0px solid var(--white);
+        border-bottom: 0px solid var(--white);
     }
 
     .menu-item-text {
@@ -649,6 +659,9 @@ p4-footer {
     letter-spacing: 0.0225rem;
 }
 
+.zoom-hover:hover {
+    transform: scale(1.1);
+}
 
 
 .image-footer img {
@@ -665,6 +678,10 @@ p4-footer {
 
 .image-footer:hover p2-footer {
     color: #4DC250;
+}
+
+.social-media-icon:hover {
+    filter: brightness(0) invert(1);
 }
 
 /* Fin footer */
@@ -780,6 +797,7 @@ input.search {
     letter-spacing: 0.04375rem;
     /* 0.7px / 16 */
     opacity: 0.9;
+    height: 80px;
 }
 
 .custom-table {
@@ -799,6 +817,43 @@ input.search {
 .img-horario {
     max-width: 500px;
     height: auto;
+}
+
+.btn-intitutional {
+    position: relative;
+    border-radius: 12px;
+    padding: 0.75rem;
+    border-color: transparent;
+    background-color: var(--orange);
+    color: white;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-intitutional::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%) scale3d(0, 1, 1); 
+    width: 120%;
+    height: 120%;
+    background-color: #FFD156;
+    border-radius: 40%;
+    z-index: -1;
+    transition: transform 0.3s ease-in-out;
+}
+
+.btn-intitutional:hover::before {
+    transform: translate(-50%, -50%) scale3d(2, 2, 1);
+}
+
+.btn-intitutional:hover {
+    color: white;
+}
+
+.transform-text {
+    text-transform: capitalize;
 }
 
 /* Fin Institutional Directory */
@@ -822,6 +877,16 @@ h3-calendario {
     letter-spacing: 0.1rem;
     /* 1.6px / 16 */
 }
+
+ht-calendario {
+    font-size: 3.3625rem;
+    /* 22px / 16 */
+    line-height: 3.3625rem;
+    /* 22px / 16 */
+    letter-spacing: 0.08rem;
+    /* 0.62px / 16 */
+}
+
 
 h4-calendario {
     font-size: 2.375rem;
@@ -917,7 +982,7 @@ p-financieros {
 .form-financial textarea {
     box-sizing: border-box;
     border: 2px solid #42C3AE !important;
-    border-radius: 5px !important;
+    border-radius: 15px !important;
     color: var(--medium-gray) !important;
 }
 
@@ -3703,7 +3768,7 @@ input[type="text"], .select, textarea {
 
     /* Footer */
     p2-footer {
-        font-size: 0.75rem;
+        font-size: 0.875    rem;
         line-height: 1.4rem;
         letter-spacing: 0.0225rem;
     }
@@ -3802,6 +3867,7 @@ input[type="text"], .select, textarea {
         /* 15px / 16 */
         letter-spacing: 0.0225rem;
         /* 0.36px / 16 */
+        height: 60px;
     }
 
     .logo-buscar {
@@ -3831,6 +3897,15 @@ input[type="text"], .select, textarea {
         font-size: 1.375rem;
         /* 22px / 16 */
         line-height: 1.375rem;
+        /* 22px / 16 */
+        letter-spacing: 0.03875rem;
+        /* 0.62px / 16 */
+    }
+
+    ht-calendario {
+        font-size: 2rem;
+        /* 22px / 16 */
+        line-height: 2rem;
         /* 22px / 16 */
         letter-spacing: 0.03875rem;
         /* 0.62px / 16 */
@@ -5796,6 +5871,7 @@ input[type="text"], .select, textarea {
         letter-spacing: 0.02625rem;
         /* 0.42px / 16 */
         opacity: 0.9;
+        height: 80px;
     }
 
     .logo-buscar {
@@ -5830,6 +5906,16 @@ input[type="text"], .select, textarea {
         letter-spacing: 0.03875rem;
         /* 0.62px / 16 */
     }
+
+    ht-calendario {
+        font-size: 2rem;
+        /* 22px / 16 */
+        line-height: 2rem;
+        /* 22px / 16 */
+        letter-spacing: 0.03875rem;
+        /* 0.62px / 16 */
+    }
+
 
     h4-calendario {
         font-size: 0.875rem;
@@ -7605,6 +7691,102 @@ input[type="text"], .select, textarea {
         height: auto;
     }
     /** Fin Formulario Entrevistas  */
+
+    /* Footer */
+
+.llamanos-escribenos {
+    font-weight: bold;
+    color: white!important;
+    opacity: 1!important;
+}
+
+.numero-telefono {
+    font-size: 1.8rem;
+}
+
+.admisiones {
+    font-size: 1.2rem;
+}
+
+.encuentranos {
+    font-size: 1.3rem;
+}
+
+.direccion-unicab-footer {
+    font-size: 1rem;
+
+}
+
+.entidades-tx {
+    font-size: 0.8rem;
+}
+
+.terminos-condiciones-footer {
+    font-size: 0.8rem;
+}
+
+h5-footer {
+    font-size: 0.8rem;
+    line-height: 1.15rem;
+    letter-spacing: 0.0505rem;
+}
+
+p-footer {
+    font-size: 1.2rem;
+    line-height: 1.15rem;
+    letter-spacing: 0.042rem;
+}
+
+p1-footer {
+    font-size: 1rem;
+    line-height: 1rem;
+    letter-spacing: 0.035rem;
+}
+
+p2-footer {
+    font-size: 1rem;
+    line-height: 1rem;
+    letter-spacing: 0.0225rem;
+}
+
+p3-footer {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.038rem;
+}
+
+p4-footer {
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.0225rem;
+}
+
+.zoom-hover:hover {
+    transform: scale(1.1);
+}
+
+
+.image-footer img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.image-footer img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.image-footer:hover p2-footer {
+    color: #4DC250;
+}
+
+.social-media-icon:hover {
+    filter: brightness(0) invert(1);
+}
+
+/* Fin footer */
 }
 
 @media (min-width: 992px) and (max-width: 1399px) {
@@ -7688,7 +7870,7 @@ input[type="text"], .select, textarea {
     }
 
     h3-nosotros {
-        font-size: 2rem;
+        font-size: 1.8rem;
         /* 40px * 0.8 / 16 */
         line-height: 2.4rem;
         /* 48px * 0.8 / 16 */
@@ -7708,7 +7890,7 @@ input[type="text"], .select, textarea {
     p-nosotros-1 {
         font-size: 1.05rem;
         /* 21px * 0.8 / 16 */
-        line-height: 1.25rem;
+        line-height: 1.5;
         /* 25px * 0.8 / 16 */
         letter-spacing: 0.018rem;
         /* 0.36px * 0.8 / 16 */
@@ -7785,6 +7967,16 @@ input[type="text"], .select, textarea {
         letter-spacing: 0.08rem;
         /* 1.6px * 0.8 / 16 */
     }
+
+    ht-calendario {
+        font-size: 2.85rem;
+        /* 22px / 16 */
+        line-height: 2.85rem;
+        /* 22px / 16 */
+        letter-spacing: 0.08rem;
+        /* 0.62px / 16 */
+    }
+
 
     h4-calendario {
         font-size: 1.9rem;

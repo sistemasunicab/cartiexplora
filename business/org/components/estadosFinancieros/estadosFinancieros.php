@@ -57,6 +57,7 @@ foreach ($datos_estados_financieros as $row_datos_estados_financieros) {
             type="' . $type . '"
             class="form-control text-center"
             placeholder="' . $campo['placeHolder'] . '"
+            autocomplete="off"
         >';
         $html_row_three .= '</div>';
         $html_row_three .= '<div class="col-lg-4 col-md-3 col-sm-1 col-1 p-0"></div>';
