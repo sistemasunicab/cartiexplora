@@ -88,3 +88,6 @@ INSERT INTO tbl_secciones (seccion, visible, paginaPadre, titulo, subTitulo, tex
 
 UPDATE tbl_secciones SET titulo = '<span>Historia y</span><br> Logros Alcanzados' WHERE id = 21;
 UPDATE tbl_secciones SET visible = 0 WHERE id = 6 AND seccion = 'conoceNuetroCampus';
+
+UPDATE tbl_secciones SET titulo = '<b>DIRECTORIO</b> Institucional' WHERE id = 17;
+UPDATE tbl_secciones SET titulo = '<b>CALENDARIO</b> Académico' WHERE id = 18;
