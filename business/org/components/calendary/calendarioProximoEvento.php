@@ -52,17 +52,17 @@ if (!empty($rowsVisible)) {
                                 font-roboto-bold my-2 fs-5"
                         data-fecha="' . $fechaIso . '"
                         id="countdown-' . $idEvento . '">
-                      <div class="calendary-event col-2 bg-white tx-orange d-flex border-radius-20">
-                        <h3-calendario class="m-0 countdown-day">0</h3-calendario>
+                      <div class="calendary-event col-2 bg-white tx-orange d-flex border-radius-20 font">
+                        <ht-calendario class="m-0 countdown-day font-roboto-bold">0</h3-calendario>
                       </div>
                       <div class="calendary-event col-2 bg-white tx-orange d-flex border-radius-20">
-                        <h3-calendario class="m-0 countdown-hour">0</h3-calendario>
+                        <ht-calendario class="m-0 countdown-hour font-roboto-black">0</h3-calendario>
                       </div>
                       <div class="calendary-event col-2 bg-white tx-orange d-flex border-radius-20">
-                        <h3-calendario class="m-0 countdown-min">0</h3-calendario>
+                        <ht-calendario class="m-0 countdown-min font-roboto-black">0</h3-calendario>
                       </div>
                       <div class="calendary-event col-2 bg-white tx-orange d-flex border-radius-20">
-                        <h3-calendario class="m-0 countdown-sec">0</h3-calendario>
+                        <ht-calendario class="m-0 countdown-sec font-roboto-black">0</h3-calendario>
                       </div>
                     </div>
                   </div>

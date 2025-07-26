@@ -200,7 +200,7 @@ $html_logo = '
 
 // 4) Luego, en el footer o en el nav, lo inyectamos:
 ?>
-<div class="container-fluid m-0 p-0">
+<div class="container-fluid m-0 p-0" id="inicio">
     <div class="row m-0 p-0">
         <nav class="navbar main-nav bg-orange col-12 h-lg-70 p-0">
             <div class="col-12 col-lg-12 h-100 m-auto p-0 d-lg-flex justify-content-between text-start">
