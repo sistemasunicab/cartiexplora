@@ -54,7 +54,9 @@
             $html .=        '<h4 class="h4-publicaciones">'. $row_publicacion['titulo'] .'</h4>';
             $html .=        '<div class="row justify-content-evenly align-items-center">';
             $html .=            '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
-            $html .=                '<img '.ImageAttributeBuilder::buildAttributes($nivel, $row_publicacion['rutaImagen'], $row_publicacion['descripcionImagen']).' class="img-fluid img-publicaciones">';
+            $html .=                '<a class="d-block w-100 h-100" href="'.$row_publicacion['ruta'].'" target="_blank">';
+            $html .=                    '<img '.ImageAttributeBuilder::buildAttributes($nivel, $row_publicacion['rutaImagen'], $row_publicacion['descripcionImagen']).' class="img-fluid img-publicaciones">';
+            $html .=                '</a>';
             $html .=            '</div>';
             $html .=        '</div>';
             $html .=    '</div>';

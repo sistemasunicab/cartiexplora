@@ -14,6 +14,8 @@
     <?php 
         $nivel = "tres";
         include('../../../components/navBar.php');
+        include('../../../components/botonFlotante.php');
+
         include('../components/estadosFinancieros/estadosFinancieros.php');
         //include('../components/estadosFinancieros/certificacionesYPapeles.php');
         include('../../../components/footer.php');

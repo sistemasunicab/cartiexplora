@@ -78,7 +78,7 @@
                     <picture>
                         <source '.ImageAttributeBuilder::buildsrcset($nivel, $rutaImgHistoria).' media="(min-width: 992px)">
                         <source '.ImageAttributeBuilder::buildsrcset($nivel, $rutaImgHistoriaTabletas).' media="(min-width: 768px)">
-                        <img class="img-fluid w-100 historia-informacion-main" src="../../../'.$rutaImgHistoriaMovil.'" alt="">
+                        <img class="img-fluid historia-informacion-main" src="../../../'.$rutaImgHistoriaMovil.'" alt="">
                     </picture>
                 </div>
                 <div class="col-md-2 col-sm-2 col-2 d-lg-none d-block"></div>

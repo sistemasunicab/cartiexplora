@@ -4,12 +4,12 @@
 
      function generarItem($rutaIcono, $texto, $posicionTexto) {
           $item = '
-               <div class="col-md-1 d-lg-none d-md-block"></div>
-               <div class="col-lg-4 col-md-10 d-flex '.FlexTitleLoader::setDirection($posicionTexto).' align-items-center align-items-lg-start nuestroModelo-item"> <!-- Item -->
+               <div class="col-lg-0 col-md-3 col-sm-2 col-2 d-lg-none d-md-block"></div>
+               <div class="col-lg-4 col-md-6 col-sm-8 col-8 d-flex '.FlexTitleLoader::setDirection($posicionTexto).' align-items-center align-items-lg-start nuestroModelo-item"> <!-- Item -->
                     <img src="../../../'.$rutaIcono.'" alt="" class="mb-5 nuestroModelo-icon">
                     <p class="lh-1 nuestroModelo-item-p">'.$texto.'</p>
                </div> <!-- Item End -->
-               <div class="col-md-1 d-lg-none d-md-block"></div>
+               <div class="col-lg-0 col-md-3 col-sm-2 col-2 d-lg-none d-md-block"></div>
           ';
 
           return $item;
@@ -88,7 +88,9 @@
                               <p class="nuestroModelo-p mb-3">'.$descripcion.'</p>
                          </div>
                          <div class="col-lg-5 col-md-5 col-sm-12 col-12 align-items-center">
-                              <img class="img-fluid w-100 box-shadow-2rem" src="../../../'.$modeloImg[0].'" alt="">
+                              <button class="modelo-abrirModal-boton" type="button" id="modelo_zoom">
+                                   <img class="img-fluid w-100 box-shadow-2rem" src="../../../'.$modeloImg[0].'" alt="">
+                              </button>
                          </div>
 
                     </div>
@@ -107,6 +109,19 @@
                     </div>
                </div>
           </section>
+          
+          <div class="modelo-zoom-main w-100 h-100 d-none" id="modelo-zoomContainer">
+               <div class="container modelo-zoom-holder">
+                    <div class="row">
+                         <div class="col-1"></div>
+                         <div class="col-10">
+                              <img src="../../../'.$modeloImg[0].'" class="w-100 img-fluid" id="modelo-imgzoom">
+                         </div>
+                         <div class="col-1"></div>
+                    </div>
+               </div>
+          </div>
+          
           ';
     }
     

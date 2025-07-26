@@ -1320,12 +1320,24 @@ p-financieros {
 
 /* Noticias styles */
 
+.noticias-botonCompleto {
+    background-color: transparent !important;
+    border: none !important;
+
+    position: absolute;
+    z-index: 99;
+    height: 100%;
+    width: 100%;
+
+    display: none;
+}
+
 .noticias-hover {
     transition: transform 0.3s ease;
 }
 
 .noticias-hover:hover {
-    transform: scale(1.05) rotate(3deg);
+    transform: scale(1.05) translateY(-.5rem);
 }
 
 .noticias-hover:hover .noticias-img-effect::after {
@@ -1369,6 +1381,7 @@ p-financieros {
 
 .noticias-container {
     margin-top: -5rem;
+    margin-bottom: 1.5rem;
     padding: 0 1.4rem;
     min-height: 10.326rem;
 }
@@ -1390,7 +1403,7 @@ p-financieros {
 }
 
 .noticias-title {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-family: var(--roboto-bolditalic);
     letter-spacing: 0.04rem;
     line-height: 1.2;
@@ -1429,7 +1442,7 @@ p-financieros {
     box-shadow: 0px 3px 6px #00000029;
 }
 
-.noticias-newsletter-input {
+.noticias-newsletter-input[type="text"] {
     width: 100%;
     height: 3rem;
     font-size: 1.13rem;
@@ -1438,8 +1451,9 @@ p-financieros {
 
     font-family: var(--roboto-mediumitalic);
 
-    border: 1px solid #707070;
-    opacity: 1;
+    border-radius: 0 !important;
+    border: 1px solid #707070 !important;
+    opacity: 1 !important;
 
     padding: 1rem;
 }
@@ -1527,6 +1541,10 @@ p-financieros {
     color: var(--blue);
 }
 
+.historia-title br {
+    display: none;
+}
+
 /* Linea de tiempo */
 .historia-lineaTiempo-card {
     margin-bottom: 4rem;
@@ -1550,8 +1568,8 @@ p-financieros {
 }
 
 .historia-lineaTiempo-p {
-    font-size: 1.375rem;
-    letter-spacing: 0.02rem;
+    font-size: 1.4rem;
+    letter-spacing: 0.03rem;
     font-family: var(--roboto-regular);
     line-height: 1.22;
 }
@@ -1563,8 +1581,8 @@ p-financieros {
 }
 
 .historia-informacion-imgs {
-    width: 24.625rem;
-    height: 24rem;
+    width: 20rem;
+    height: 20rem;
     margin-top: -9.56rem;
 
     object-fit: cover;
@@ -1574,7 +1592,9 @@ p-financieros {
 }
 
 .historia-informacion-main {
-    margin-top: -12rem;
+    width: 80%;
+    margin: -12rem auto 0 auto;
+    display: block;
     filter: drop-shadow(0px 3px 6px #00000029);
 }
 
@@ -1602,11 +1622,11 @@ p-financieros {
 /* Ecosistema styles */
 
 .historia-ecosistema-title {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     letter-spacing: .07rem;
     line-height: 1.2;
     font-family: var(--roboto-light);
-    min-height: 9rem;
+    min-height: 5rem;
 }
 
 .historia-ecosistema-p {
@@ -1622,6 +1642,7 @@ p-financieros {
 
 .historia-ecosistema-logo {
     box-shadow: 10px 10px 10px #00000029;
+    width: 14rem;
     margin-top: .5rem;
 }
 
@@ -1670,7 +1691,7 @@ p-financieros {
 
 .nuestroModelo-title {
     /*font-size: 4.88rem;*/
-    font-size: 3.75rem;
+    font-size: 2rem;
     letter-spacing: 0.14rem;
     line-height: 1.2;
     font-family: var(--roboto-black);
@@ -1678,7 +1699,7 @@ p-financieros {
 
 .nuestroModelo-secondTitle {
     /*font-size: 8.75rem;*/
-    font-size: 6.75rem;
+    font-size: 4rem;
     letter-spacing: 0.24rem;
     line-height: 1;
     /*margin-bottom: 7.8rem;*/
@@ -1686,7 +1707,7 @@ p-financieros {
 }
 
 .nuestroModelo-p {
-    font-size: 1.56rem;
+    font-size: 1rem;
     letter-spacing: 0.03rem;
     line-height: 1.6;
     font-family: var(--roboto-regular);
@@ -1705,8 +1726,8 @@ p-financieros {
 }
 
 .nuestroModelo-item-p {
-    font-size: 2.19rem;
-    letter-spacing: 0.06rem;
+    font-size: 1.4rem;
+    letter-spacing: 0.02rem;
     line-height: 1.2;
 
     font-family: var(--roboto-black);
@@ -1735,6 +1756,27 @@ p-financieros {
     animation: appearModelo .4s ease forwards;
 }
 
+.modelo-abrirModal-boton {
+    border: none !important;
+    background-color: transparent !important;
+}
+
+.modelo-zoom-main {
+    background-color: rgba(0, 0, 0, .7);
+    z-index: 999;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modelo-zoom-holder {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 /**** NUESTRO MODELO PEDAGOGICO PAGINA FIN ****/
 
 /**** CELEBRANDO LOGROS BLOG PAGINA ****/
@@ -1761,7 +1803,7 @@ p-financieros {
 /* styles */
 
 .logros-title {
-    font-size: 3.75rem;
+    font-size: 2.8rem;
     letter-spacing: 0.10rem;
     line-height: 1.3;
     font-family: var(--roboto-light);
@@ -1770,7 +1812,8 @@ p-financieros {
 }
 
 .logros-busqueda-link {
-    font-size: 1.56rem;
+    position: relative;
+    font-size: 1rem;
     line-height: 1.2;
     font-family: var(--roboto-medium);
     color: white;
@@ -1778,7 +1821,35 @@ p-financieros {
     text-align: center;
 
     border-radius: 1rem;
-    transition: color .2s ease-in-out;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.logros-busqueda-link::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%) scale3d(0, 1, 1); 
+    width: 120%;
+    height: 120%;
+    background-color: #FFD156;
+    border-radius: 40%;
+    z-index: -1;
+    transition: transform 0.4s ease-in-out;
+}
+
+.logros-busqueda-link:hover::before {
+    transform: translate(-50%, -50%) scale3d(2, 2, 1);
+}
+
+.logros-busqueda-link:hover {
+    color: white;
+}
+
+.blog-separator {
+    height: 1px !important;
+    width: 80%;
 }
 
 .logros-busqueda-barra[type="text"] {
@@ -1829,7 +1900,7 @@ p-financieros {
 }
 
 .logros-post-title {
-    font-size: 3.75rem;
+    font-size: 2.5rem;
     letter-spacing: 0.10rem;
     line-height: 1;
     font-family: var(--roboto-black);
@@ -1837,14 +1908,14 @@ p-financieros {
 }
 
 .logros-post-publisher {
-    font-size: 1.56rem;
+    font-size: 1.2rem;
     letter-spacing: 0.04rem;
     line-height: 1.2;
     font-family: var(--roboto-bolditalic);
 }
 
 .logros-post-date {
-    font-size: 1.31rem;
+    font-size: 1rem;
     letter-spacing: 0.02rem;
     line-height: 1.2;
     font-family: var(--roboto-regular);
@@ -1859,7 +1930,7 @@ p-financieros {
 }
 
 .logros-post-text {
-    font-size: 1.31rem;
+    font-size: 1rem;
     letter-spacing: 0.02rem;
     line-height: 1.2;
     font-family: var(--roboto-regular);
@@ -1896,9 +1967,10 @@ p-financieros {
     letter-spacing: .03rem;
     font-family: var(--roboto-regular);
     line-height: 1.3;
-    border: 1px solid var(--green);
+    border: 2px solid var(--green);
     padding-top: 1rem;
     padding-bottom: 1rem;
+    border-radius: 5px !important;
 }
 
 #comentariosCampos input::placeholder {
@@ -1926,26 +1998,26 @@ p-financieros {
 }
 
 #send_blog_comment {
-    font-size: 1.5rem;
+    font-size: 1rem;
     letter-spacing: 0;
     line-height: 1.1;
 }
 
 .logros-comentario {
-    font-size: 1.2rem;
+    font-size: .8rem;
     letter-spacing: 0.01rem;
     line-height: 1.8;
     font-family: var(--roboto-regular);
 }
 
 .logros-correo {
-    font-size: 1.2rem;
+    font-size: 1rem;
     letter-spacing: 0.04rem;
     font-family: var(--roboto-bolditalic);
 }
 
 .logros-fecha {
-    font-size: 1rem;
+    font-size: .8rem;
     letter-spacing: 0.02rem;
     font-family: var(--roboto-lightitalic);
 }
@@ -1960,7 +2032,7 @@ p-financieros {
     transition: color .2s ease;
 
     text-align: center;
-    font-size: 1rem;
+    font-size: .6rem;
     letter-spacing: .03rem;
 }
 
@@ -2602,7 +2674,8 @@ letter-spacing: 0.07rem;
 .h2-oferta {
     font-family: var(--roboto-black);
     color: var(--blue);
-    font-size: 3.75rem;
+    /* font-size: 3.75rem; */
+    font-size: 3rem;
     text-align: center;
     letter-spacing: 0.105rem;
 }
@@ -2665,7 +2738,8 @@ letter-spacing: 0.07rem;
 .h2-habilidades {
     font-family: var(--roboto-black);
     color: var(--blue);
-    font-size: 3.75rem;
+    /* font-size: 3.75rem; */
+    font-size: 3rem;
     text-align: center;
     letter-spacing: 0.105rem;
 }
@@ -2673,7 +2747,8 @@ letter-spacing: 0.07rem;
 .h1-habilidades {
     letter-spacing: 0.12rem;
     text-align: center;
-    font-size: 4.37rem;
+    /* font-size: 4.37rem; */
+    font-size: 4rem;
     font-family: var(--roboto-light);
 }
 
@@ -2692,10 +2767,29 @@ letter-spacing: 0.07rem;
     margin-bottom: var(--m-escritorio);
 }
 
+.img-habilidades-container {
+    background-color: #0B77B3;
+    padding: 1.2rem;
+    border-radius: 50%;
+    width: 7.625rem;
+    height: 7.625rem;
+    box-shadow: 0px 3px 6px #00000029;
+
+}
+
+.line:nth-child(even):nth-child(-n+6) .img-container .img-habilidades-container {
+  background-color: #28A745;
+}
+.line:nth-child(odd):nth-child(n+6):nth-child(-n+12) .img-container .img-habilidades-container {
+  background-color: #28A745;
+}
+
 .img-habilidades {
     max-width: 7.625rem;
     max-height: 7.625rem;
     object-fit: contain;
+    width: 100%;
+
 }
 
 .p-habilidades {
@@ -2952,13 +3046,16 @@ input[type="checkbox"] {
     color: var(--blue);
     text-transform: uppercase;
     margin-bottom: var(--m-escritorio);
-    font-size: 3.75rem;
+    /* font-size: 3.75rem; */
+    font-size: 3rem;
     line-height: 1;
 }
 
 .p-principios {
-    font-size: 1.31rem;
-    line-height: 1.19;
+    /* font-size: 1.31rem; */
+    /* line-height: 1.19; */
+    font-size: 1.2rem;
+    line-height: 1.4;
 }
 
 .card-h4-principios {
@@ -2992,7 +3089,8 @@ input[type="checkbox"] {
 
 .card-content-principios {
     padding: 0.81rem 2.50rem 2rem 2.50rem;
-    font-size: 1.13rem;
+    /* font-size: 1.13rem; */
+    font-size: 1rem;
     letter-spacing: 0.02rem;
     line-height: 1.5;
     box-shadow: var(--shadow-2);
@@ -3016,11 +3114,36 @@ input[type="checkbox"] {
 }
 
 .btn-principios {
+    position: relative;
     font-size: 1rem;
     font-family: var(--roboto-bolditalic);
     border-radius: 12px;
     padding: 0.75rem;
     background-color: var(--orange);
+    color: white;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-principios::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%) scale3d(0, 1, 1); 
+    width: 120%;
+    height: 120%;
+    background-color: #FFD156;
+    border-radius: 40%;
+    z-index: -1;
+    transition: transform 0.6s ease-in-out;
+}
+
+.btn-principios:hover::before {
+    transform: translate(-50%, -50%) scale3d(2, 2, 1);
+}
+
+.btn-principios:hover {
     color: white;
 }
 
@@ -3066,6 +3189,11 @@ input[type="checkbox"] {
     max-width: 22.1875rem;
     object-fit: contain;
     margin-top: 2rem;
+    transition: transform 0.3s ease-in;
+}
+
+.img-publicaciones:hover {
+    transform: scale(1.1);
 }
 
 .fecha-publicaciones {
@@ -3077,8 +3205,10 @@ input[type="checkbox"] {
 }
 
 .p-publicaciones {
-    font-size: 1.313rem;
-    line-height: 1.3;
+    /* font-size: 1.313rem;
+    line-height: 1.3; */
+    font-size: 1.1rem;
+    line-height: 1.5;
     letter-spacing: 0.023rem;
 }
 
@@ -3088,12 +3218,38 @@ input[type="checkbox"] {
 }
 
 .btn-publicaciones {
+    position: relative;
+    display: inline-block;
     padding: 1.125rem 2.25rem;
     font-size: 1.5625rem;
     font-family: var(--roboto-bolditalic);
     color: white;
     border-radius: 12px;
     background-color: var(--orange);
+    overflow: hidden;
+    z-index: 10;
+}
+
+.btn-publicaciones::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%) scale3d(0, 1, 1); 
+    width: 120%;
+    height: 120%;
+    background-color: #FFD156;
+    border-radius: 40%;
+    z-index: -1;
+    transition: transform 0.6s ease-in-out;
+}
+
+.btn-publicaciones:hover::before {
+    transform: translate(-50%, -50%) scale3d(2, 2, 1);
+}
+
+.btn-publicaciones:hover {
+    color: white;
 }
 
 .download-button {
@@ -3814,7 +3970,7 @@ input[type="text"], .select, textarea {
 
     .indicator-title {
         font-family: var(--roboto-light);
-        font-size: 1.562rem;
+        font-size: 1.3rem;
         letter-spacing: 0.015rem;
         color: white;
         text-align: center;
@@ -3825,22 +3981,24 @@ input[type="text"], .select, textarea {
         padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
         padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
         
-        margin-bottom: 1rem;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     .indicator-center {
         padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
         padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
 
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     .indicator-right {
         padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
         padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
 
-        margin-top: 1rem;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     /* Indicator styles */
@@ -3859,6 +4017,16 @@ input[type="text"], .select, textarea {
         font-size: 0.8rem;
         letter-spacing: 0.0137rem;
         line-height: 1.1;
+    }
+
+    .indicator-main img {
+        height: 1.0788rem !important;
+        width: auto !important;
+        margin-right: 0.4581rem;
+    }
+
+    .indicator-main {
+        border-radius: 0.375rem;
     }
 
     /**** FIN INDICADORES HOME ****/
@@ -4018,38 +4186,51 @@ input[type="text"], .select, textarea {
         padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
         padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
 
-        margin-top: 1rem;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
     }
 
     .noticias-center {
         padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
         padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
 
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
     }
 
     .noticias-right {
         padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
         padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
 
-        margin-bottom: 1rem;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
     }
 
     /* Noticias styles */
 
+    .noticias-botonCompleto {
+        display: block;
+    }
+
     .noticias-separator {
         width: 65%;
-        height: 3px;
+        height: 1px !important;
         background-color: #707070;
 
         border: none;
         margin: 0 auto;
     }
 
+    .noticias-logo {
+        width: 5rem;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }
+
     .noticias-img {
         width: 100%;
-        height: 12rem;
+        height: 6rem;
 
         object-fit: cover;
         object-position: center;
@@ -4057,41 +4238,42 @@ input[type="text"], .select, textarea {
     
     .noticias-container {
         margin-top: 0;
-        padding: 0;
+        padding: 0 .2rem;
         min-height: 10rem;
+        margin-bottom: 1.5rem;
     }
 
     .noticias-box {
         background-color: white;
         box-shadow: 0.63rem 0.63rem 0.63rem #00000029;
-        padding: .4rem 1.4rem;
+        padding: .4rem;
         position: relative;
         min-height: 10rem;
         z-index: 6;
     }
 
     .noticias-date {
-        font-size: .8rem;
+        font-size: .5rem;
         font-family: var(--roboto-lightitalic);
         letter-spacing: 0.01rem;
         line-height: 1.3;
     }
 
     .noticias-title {
-        font-size: 1.8rem;
+        font-size: .8rem;
         font-family: var(--roboto-bolditalic);
         letter-spacing: 0.01rem;
         line-height: 1.2;
     }
 
     .noticias-p {
-        font-size: 1rem;
+        font-size: 0.6rem;
         font-family: var(--roboto-light);
         line-height: 1.2;
     }
 
     .noticias-link {
-        font-size: 0.8rem;
+        font-size: 0.5rem;
         font-family: var(--roboto-lightitalic);
         letter-spacing: 0.01rem;
         line-height: 1;
@@ -4108,6 +4290,10 @@ input[type="text"], .select, textarea {
         transition: width .2s ease-in-out;
     }    
 
+    .newsletter-unsubscribe {
+        top: 8rem;
+    }
+
     /**** HISTORIA Y LOGROS ALCANZADOS PAGINA ****/
     .historia-section {
         margin-top: 3.3rem;
@@ -4121,6 +4307,15 @@ input[type="text"], .select, textarea {
 
         font-family: var(--roboto-black);
         color: var(--blue);
+        text-align: start;
+    }
+
+    .historia-title span {
+        font-family: var(--roboto-regular);
+    }
+
+    .historia-title br {
+        display: block;
     }
 
     /* Linea de tiempo */
@@ -4219,10 +4414,11 @@ input[type="text"], .select, textarea {
     }
 
     .historia-ecosistema-p {
-        font-size: 0.69rem;
+        font-size: 1rem;
         letter-spacing: 0;
         line-height: 1.1;
         font-family: var(--roboto-regular);
+        text-align: center;
     }
 
     .historia-ecosistema-efecto {
@@ -4232,6 +4428,9 @@ input[type="text"], .select, textarea {
     .historia-ecosistema-logo {
         box-shadow: 10px 10px 10px #00000029;
         margin: 0 auto .5rem auto;
+
+        width: 8rem;
+        height: auto;
     }
 
     .historia-ecosistema-seeMore {
@@ -4325,6 +4524,14 @@ input[type="text"], .select, textarea {
         letter-spacing: 0.02rem;
         line-height: 1;
         text-align: center;
+    }
+
+    .nuestroModelo-item-p span {
+        font-family: var(--roboto-light);
+    }
+
+    .nuestroModelo-item-p br {
+        display: block;
     }
 
     /**** NUESTRO MODELO PEDAGOGICO PAGINA FIN ****/
@@ -4793,6 +5000,7 @@ input[type="text"], .select, textarea {
         display: grid;
         align-items: center;
         text-align: center;
+        border-top: 1px solid white;
         grid-template-columns: repeat(3,1fr);
         border-radius: unset;
         top: 0;
@@ -4950,13 +5158,34 @@ input[type="text"], .select, textarea {
         margin-bottom: var(--m-movil);
     }
 
+    .img-habilidades-container {
+        height: 6.5rem;
+        width: 6.5rem;
+    }
+    
     .img-habilidades {
-        max-width: 4.125rem;
-        max-height: 4.125rem;
+        position: relative;
+        /* max-width: 4.125rem;
+        max-height: 4.125rem;   TAMAÑOS DE ACUERDO AL DISEÑO*/
+        /* Tamaños NUEVOS*/
+        max-width: 6.5rem;
+        max-height: 6.5rem;
+        opacity: 0.45;
     }
 
     .p-habilidades {
-        font-size: 0.5625rem;
+        position: absolute;
+        /* font-size: 0.5625rem; TAMAÑO ANTERIOR DE ACUERDO AL DISEÑO*/
+        font-size: .95rem;
+        font-family: var(--roboto-bold);
+        color: white;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .img-container {
+        position: relative;
     }
 
     .line:nth-child(1n)::after {
@@ -5111,6 +5340,7 @@ input[type="text"], .select, textarea {
     .card-content-principios {
         margin-top: 1rem;
         padding: 1.063rem 2.313rem;
+        margin: 0 1.38rem;
         font-size: 0.813rem;
         line-height: 1.25;
         letter-spacing: 0.001rem;
@@ -5972,6 +6202,11 @@ input[type="text"], .select, textarea {
 
 
     /* Noticias styles */
+
+    .noticias-botonCompleto {
+        display: block;
+    }
+
     .noticias-img {
         width: 100%;
         height: 8rem;
@@ -6001,7 +6236,7 @@ input[type="text"], .select, textarea {
     .noticias-container {
         margin-top: -3rem;
         padding: 0 1.4rem;
-        min-height: 13.188rem;
+        margin-bottom: 1.5rem;
     }
 
     .noticias-box {
@@ -6144,9 +6379,9 @@ input[type="text"], .select, textarea {
 
     .historia-lineaTiempo-p {
         font-size: 1.00rem;
-        letter-spacing: 0;
+        letter-spacing: 0.0187rem;
         font-family: var(--roboto-regular);
-        line-height: 1.1;
+        line-height: 1.4;
     }
 
     /* Imagenes - Informacion */
@@ -6326,6 +6561,14 @@ input[type="text"], .select, textarea {
         text-align: center;
     }
 
+    .nuestroModelo-item-p span {
+        font-family: var(--roboto-light);
+    }
+
+    .nuestroModelo-item-p br {
+        display: block;
+    }
+
     /**** NUESTRO MODELO PEDAGOGICO PAGINA FIN ****/
 
     /**** CELEBRANDO LOGROS BLOG PAGINA ****/
@@ -6359,8 +6602,8 @@ input[type="text"], .select, textarea {
     }
 
     .logros-md-noticias-left {
-        padding-left: 0 !important;
-        padding-right: 8.33333333% !important;
+        padding-left: 8.33333333% !important;
+        padding-right: 0 !important;
         
         margin: 0 !important;
     }
@@ -6373,8 +6616,8 @@ input[type="text"], .select, textarea {
     }
 
     .logros-md-noticias-right {
-        padding-right: 0 !important;
-        padding-left: 8.33333333% !important;
+        padding-left: 0 !important;
+        padding-right: 8.33333333% !important;
         
         margin: 0 !important;
     }
@@ -6443,8 +6686,8 @@ input[type="text"], .select, textarea {
     }
 
     .logros-post-icon {
-        width: 3rem;
-        height: 3rem;
+        width: 2.4rem;
+        height: 2.4rem;
 
         object-fit: contain;
     }
@@ -6452,7 +6695,7 @@ input[type="text"], .select, textarea {
     .logros-post-title {
         font-size: 1.88rem;
         letter-spacing: 0.05rem;
-        line-height: 2;
+        line-height: 1;
         font-family: var(--roboto-black);
         color: var(--blue);
     }
@@ -6480,7 +6723,7 @@ input[type="text"], .select, textarea {
     }
 
     .logros-post-text {
-        font-size: 1rem;
+        font-size: .8rem;
         letter-spacing: 0;
         line-height: 1.1;
         font-family: var(--roboto-regular);
@@ -6524,9 +6767,10 @@ input[type="text"], .select, textarea {
         letter-spacing: 0;
         font-family: var(--roboto-regular);
         line-height: 1.3;
-        border: 1px solid var(--green);
+        border: 1px solid var(--green) !important;
         padding-top: 1rem;
         padding-bottom: 1rem;
+        border-radius: .1rem !important;
     }
 
     #comentariosCampos input::placeholder {
@@ -6584,13 +6828,13 @@ input[type="text"], .select, textarea {
         background-color: var(--orange);
         color: white;
         font-family: var(--roboto-regular);
-        padding: .5rem;
+        padding: .2rem;
         border-radius: .3rem;
 
         transition: color .2s ease;
 
         text-align: center;
-        font-size: .80rem;
+        font-size: .5rem;
         letter-spacing: 1.1;
     }
 
@@ -6825,13 +7069,28 @@ input[type="text"], .select, textarea {
         margin-bottom: var(--m-tablet);
     }
 
+    .img-habilidades-container {
+        width: 7.6rem;
+        height: 7.6rem;
+    }
+
     .img-habilidades {
-        max-width: 9.6875rem;
-        max-height: 9.6875rem;
+        position: relative;
+        /* max-width: 9.6875rem;
+        max-height: 9.6875rem; */
+        max-width: 7.6875rem;
+        max-height: 7.6875rem;
+        opacity: 0.45;
     }
 
     .p-habilidades {
+        position: absolute;
         font-size: 1.1875rem;
+        font-family: var(--roboto-bold);
+        color: white;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
 
     .img-container {
@@ -6951,8 +7210,10 @@ input[type="text"], .select, textarea {
     }
 
     .item-nuestros-estudiantes div {
-        max-width: 8.44rem;
-        max-height: 8.44rem;
+        max-width: 15rem;
+        max-height: 15rem;
+        /* max-width: 8.44rem;
+        max-height: 8.44rem; */
     }
 
 
@@ -6965,11 +7226,18 @@ input[type="text"], .select, textarea {
 
     /** Inicio Principios y valores */
 
+    .img-banner-principios {
+        max-width: 35.688rem;
+        max-height: 24.688rem;
+    }
+
     .banner-principios {
         margin-top: var(--m-tablet);
         margin-bottom: var(--m-tablet);
-        max-width: 21.25rem;
-        max-height: 22.94rem;
+        /* max-width: 21.25rem;
+        max-height: 22.94rem; */
+        max-width: 35.688rem;
+        max-height: 24.688rem;
     }
 
     .section-principios {
@@ -7092,7 +7360,8 @@ input[type="text"], .select, textarea {
 
     .p-publicaciones {
         font-size: 1rem;
-        line-height: 1.2;
+        /* line-height: 1.4; */
+        line-height: 1.6;
     }
 
     .btn-my-publicaciones {

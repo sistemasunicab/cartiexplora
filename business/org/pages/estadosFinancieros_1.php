@@ -14,6 +14,8 @@
     <?php 
         $nivel = "tres";
         include('../../../components/navBar.php');
+        include('../../../components/botonFlotante.php');
+
         include('../components/estadosFinancieros/estadosFinancieros_1.php');
         include('../../../components/footer.php');
         include('../../../components/bookstoresMain.php');
