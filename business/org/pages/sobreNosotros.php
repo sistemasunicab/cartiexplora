@@ -8,12 +8,15 @@
     $nivel = "tres";
     $page_title = "Sobre Nosotros";
     include('../../../components/headMain.php');
+    require_once __DIR__ . '/../../../components/auxiliares.php'; 
 ?>
 <body>
     
     <?php 
         $nivel = "tres";
         include('../../../components/navBar.php');
+        include('../../../components/botonFlotante.php');
+
         include('../components/aboutUs/aboutUsUnicab.php'); 
         include('../components/aboutUs/aboutUsImageOne.php');
         include('../components/aboutUs/aboutUsEducation.php'); 

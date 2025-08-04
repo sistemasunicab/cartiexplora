@@ -14,23 +14,12 @@
     <?php 
         $nivel = "tres";
         include('../../../components/navBar.php');
-    ?>
+        include('../../../components/botonFlotante.php');
 
-    <?php 
-        $nivel = 'tres';
         include('../components/calendary/calendarioAcademico.php'); 
-    ?>
-    <?php 
-        $nivel = 'tres';
         include('../components/calendary/calendarioProximoEvento.php'); 
-    ?>
-    <?php 
-        $nivel = 'tres';
         include('../components/calendary/comunicados.php'); 
-    ?>
-
-    <?php 
-        $nivel = "tres";
+        include('../../../components/footer.php');
         include('../../../components/bookstoresMain.php');
     ?>
 </body>

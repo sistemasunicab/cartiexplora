@@ -1,0 +1,20 @@
+.carti-icons{
+    max-width: 3rem;
+    max-height: 3rem;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.carti-image {
+    -webkit-mask-image: linear-gradient(black 95%, transparent);
+    mask-image: linear-gradient(black 95%, transparent);
+}
+
+.carti-mision-icons{
+    max-width: 5rem;
+    max-height: 5rem;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}

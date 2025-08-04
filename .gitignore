@@ -1,2 +1,6 @@
 /.vscode
 .env
+
+*.pdf
+
+*.mp4

@@ -1,14 +1,16 @@
 <?php
     //-- Funciones --//
-   function generarLineaTiempo($iconoLinea, $tituloLinea, $orientacion, $descripcionLinea) {
+   function generarLineaTiempo($iconoLinea, $tituloLinea, $orientacion, $descripcionLinea, $cardClase) {
         $bloque = '
-        <div class="col-lg-12 d-flex gap-5 justify-content-between mb-5 flex-column flex-lg-row">
-            <div class="p-0 m-0 d-flex '.FlexTitleLoader::setDirection($orientacion).' align-items-center linea-tiempo">
-                <img class="linea-tiempo-icono" src="../../../../cartiexplora/'.$iconoLinea.'" alt="">
-                <h2 class="text-center tx-orange font-roboto-black">'.$tituloLinea.'</h2>
+        <div class="row '.$cardClase.'">
+            <div class="col-lg-3 col-md-3 col-sm-4 col-4 d-flex '.FlexTitleLoader::setDirection($orientacion).' align-items-center">
+                <img class="historia-lineaTiempo-icon" src="../../../'.$iconoLinea.'" alt="">
+                <p class="historia-lineaTiempo-title">'.$tituloLinea.'</p>
             </div>
 
-            <p class="ps-5 m-0">'.$descripcionLinea.'</p>
+            <div class="col-lg-9 col-md-9 col-sm-8 col-8">
+                <p class="historia-lineaTiempo-p">'.$descripcionLinea.'</p>
+            </div>
         </div>
         ';
 
@@ -25,7 +27,7 @@
         require('../../../business/repositories/1cc2s4Home.php');
     }
 
-    $res_sentecia = $mysqli1->query($sentencia . "62");
+    $res_sentecia = $mysqli1->query($sentencia . "67");
     while ($row_sentencia = $res_sentecia->fetch_assoc()) {
         $sql_seccion_dos = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
     }
@@ -35,16 +37,18 @@
     while ($row_datos_seccion = $res_seccion_dos->fetch_assoc()) {
         // Obtiene el titulo de la sección y lo renderiza
         $html .= '
-        <main class="container d-flex flex-column gap-2rem margin-top-5rem">
+        <main class="container historia-section">
+
             <div class="row">
-                <div class="col-lg-12 d-flex gap-5 justify-content-center mb-5">
-                    <h1 class="p-0 m-0 tx-blue font-roboto-black text-center">' . $row_datos_seccion['titulo'] . '</h1>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                    <h3 class="historia-title">' . $row_datos_seccion['titulo'] . '</h3>
                 </div>
+            </div>
         ';
     }
 
     // Obteniendo linea del tiempo
-    $res_sentencia = $mysqli1->query($sentencia."66");
+    $res_sentencia = $mysqli1->query($sentencia."71");
     while($row_sentencia = $res_sentencia->fetch_assoc()){
          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
     }  
@@ -54,7 +58,7 @@
          $datosLineas[$row_datos['titulo']] = [$row_datos['ruta'], $row_datos['titulo'], $row_datos['posicionTitulo']];
     }
 
-    $res_sentencia = $mysqli1->query($sentencia."67");
+    $res_sentencia = $mysqli1->query($sentencia."72");
     while($row_sentencia = $res_sentencia->fetch_assoc()){
          $sql_datos = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
     }  
@@ -68,8 +72,15 @@
 
     if ($html != '') {
 
+        $lineaTiempoActual = 0;
         foreach ($datosLineas as $datos) {
-            $html .= generarLineaTiempo($datos[0], $datos[1], $datos[2], $datos[3]);
+            $lineaTiempoActual++;
+            $cardClase = "";
+            if ($lineaTiempoActual < count($datosLineas)) {
+                $cardClase = "historia-lineaTiempo-card";
+            }
+
+            $html .= generarLineaTiempo($datos[0], $datos[1], $datos[2], $datos[3], $cardClase);
         }
 
         $html .= '

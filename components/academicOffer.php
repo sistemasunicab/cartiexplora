@@ -19,11 +19,11 @@
     while ($row_datos_seccion = $res_seccion_dos->fetch_assoc()) {
         // Obtiene el titulo de la sección y lo renderiza
 
-        $html .= '<section class="my-5">';
-        $html .=    '<div class="container my-2">';
+        $html .= '<section class="section-oferta">';
+        $html .=    '<div class="container">';
         $html .=       '<div class="row">';
-        $html .=           '<div class="col-lg-12">';
-        $html .=               '<h2 class="text-center font-roboto-black tx-blue" id="ofertaAcademica">' . $row_datos_seccion['titulo'] . '</h2>';
+        $html .=           '<div class="col-lg-12 col-md-12 col-sm-12 col-12">';
+        $html .=               '<h2 class="h2-oferta h2-mb" id="ofertaAcademica">' . $row_datos_seccion['titulo'] . '</h2>';
         $html .=           '</div>';
         $html .=       '</div>';
         $html .=    '</div>';
@@ -37,24 +37,37 @@
         
         $res_images = $mysqli1->query($sql_images);
         
-        $html .=    '<div class="bg-light-gray-o26">';
-        $html .=        '<div class="container py-5">';
-        $html .=            '<div class="row justify-content-between">';
+        $html .=    '<div class="fondo-oferta">';
+        $html .=        '<div class="container padding-oferta">';
+        $html .=            '<div class="row">';
         
         // Renderiza las imágenes
-        $ultimaImagen = 1; 
+        $posicionImagen = 0; 
         while ($row_images = $res_images->fetch_assoc()) {
             $attributes = ImageAttributeBuilder::buildAttributes($nivel, $row_images['ruta'], $row_images['descripcion'], $row_images['rutaEncima']);
-
-            $html .=            '<div class="col-md-3 col-lg-3">';
-            $html .=                '<a href="'.$row_images['enlace'].'" class="academic-offer-img">';
-            $html .=                    '<img ' . $attributes . ' class="img-fluid w-100" >';
-            $html .=                '</a>';
-            $html .=            '</div>';
-            if($ultimaImagen !== $res_images->num_rows){
-                $html .=        '<div class="col-md-1 col-lg-1"></div>';
+            if($posicionImagen === 0) {
+                $html .=            '<div class="col-lg-4 col-md-4 col-sm-6 col-6 img-left-oferta text-center">';
+                $html .=                '<a href="'.$row_images['enlace'].'" class="img-oferta">';
+                $html .=                    '<img ' . $attributes . ' class="img-fluid w-100" >';
+                $html .=                '</a>';
+                $html .=            '</div>';
+                $posicionImagen++;
+            }else if($posicionImagen === 1) {
+                $html .=            '<div class="col-lg-4 col-md-4 col-sm-6 col-6 img-center-oferta text-center">';
+                $html .=                '<a href="'.$row_images['enlace'].'" class="img-oferta">';
+                $html .=                    '<img ' . $attributes . ' class="img-fluid w-100" >';
+                $html .=                '</a>';
+                $html .=            '</div>';
+                $posicionImagen++;
+            }else {
+                $html .=            '<div class="col-lg-4 col-md-4 col-sm-12 col-12 img-right-oferta text-center">';
+                $html .=                '<a href="'.$row_images['enlace'].'" class="img-oferta">';
+                $html .=                    '<img ' . $attributes . ' class="img-fluid w-100" >';
+                $html .=                '</a>';
+                $html .=            '</div>';
+                $posicionImagen = 0;
             }
-            $ultimaImagen++;
+
         }
         $html .=            '</div>';
         $html .=        '</div>';

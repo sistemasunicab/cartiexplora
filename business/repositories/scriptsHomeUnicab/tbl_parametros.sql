@@ -13,7 +13,7 @@ CREATE TABLE tbl_parametros (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 INSERT INTO tbl_parametros (parametro, v1, v2, t1, t2, f1, f2, id_seccion) VALUES
-('telefono_admisiones', NULL, NULL, '300 815 6513', NULL, NULL, NULL, 10),
+('telefono_admisiones', NULL, NULL, '300 815 6531', NULL, NULL, NULL, 10),
 ('correo_admisiones', NULL, NULL, 'admisiones@unicab.org', NULL, NULL, NULL, 10),
 ('direccion_unicab', NULL, NULL, 'Calle 13a No. 16-60', NULL, NULL, NULL, 10),
 ('ubicacion_unicab', NULL, NULL, 'Sogamoso - Boyacá - Colombia', NULL, NULL, NULL, 10),
@@ -25,6 +25,21 @@ INSERT INTO tbl_parametros (parametro, v1, v2, t1, t2, f1, f2, id_seccion) VALUE
 ('x', NULL, NULL, 'https://x.com/unicab_virtual?lang=es', NULL, NULL, NULL, 10),
 ('instagram', NULL, NULL, 'https://www.instagram.com/unicabvirtual/?hl=es', NULL, NULL, NULL, 10),
 ('youtube', NULL, NULL, 'https://www.youtube.com/@unicabco/videos', NULL, NULL, NULL, 10),
+('linkedin', NULL, NULL, 'https://co.linkedin.com/company/colegio-virtual-unicab', NULL, NULL, NULL, 10),
+('tiktok', NULL, NULL, 'https://www.tiktok.com/@colegio_unicab_', NULL, NULL, NULL, 10),
 ('terminos_condiciones', NULL, NULL, 'Términos y Condiciones / Política de privacidad / Cookies', NULL, NULL, NULL, 10),
 ('copyright', NULL, NULL, 'Copyright © 2025 - Equipos Creativo y de Sistemas Unicab Virtual. Reservados todos los derechos', NULL, NULL, NULL, 10);
+
+INSERT INTO tbl_parametros (parametro, v1, v2, t1, t2, f1, f2, id_seccion) VALUES
+('indicador_egresados', 1441, NULL, NULL, NULL, NULL, NULL, 5),
+('indicador_graduados', 131, NULL, NULL, NULL, NULL, NULL, 5);
+
+INSERT INTO tbl_parametros (parametro, v1, v2, t1, t2, f1, f2, id_seccion) VALUES
+('blog_newsletter_texto2', NULL, NULL, '¿Quieres cancelar tu suscripcion? Haz Click Aqui', NULL, NULL, NULL, 8),
+('blog_newsletter_texto3', NULL, NULL, '¿Deseas cancelar tu suscripcion?, Ingresa tu correo electronico:', NULL, NULL, NULL, 8),
+('boton_categoria1_blog', 1, NULL, 'Celebración de Logros', NULL, NULL, NULL, 31),
+('boton_categoria2_blog', 2, NULL, 'Proyectos y experiencias', NULL, NULL, NULL, 31),
+('boton_categoria3_blog', 3, NULL, 'Investigación GIU', NULL, NULL, NULL, 31)
+;
+
 

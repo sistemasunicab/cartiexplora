@@ -5,28 +5,16 @@
     {
         if (strtolower($posicionTitulo) == 'abajo') {
             return
-            '<div class="col-5 solutions-card">
+            '<div class="col-lg-5 col-md-5 col-sm-12 col-12 solutions-card">
                 <div class="solutions-card-img d-flex justify-content-center align-items-center">
                     '. $imgHTML .'
                 </div>
                 <div class="solutions-card-desc">
                     <p class="font-roboto-black">'. $titulo .'</p>
                 </div>
-                <div class="d-flex justify-content-end card-line">
-                    <a href="'. $enlace .'" class="solutions-card-button tx-white bg-orange font-roboto-bolditalic">Más Información</a>
-                </div>
-            </div>';
-        }  else if (strtolower($posicionTitulo) == 'arriba') {
-            return
-            '<div class="col-5 solutions-card">   
-                <div class="solutions-card-desc">
-                    <p class="font-roboto-black">'. $titulo .'</p>
-                </div> 
-                <div class="solutions-card-img d-flex justify-content-center align-items-center">
-                        '. $imgHTML .'
-                    </div>
-                <div class="d-flex justify-content-end card-line">
-                    <a href="'. $enlace .'" class="solutions-card-button tx-white bg-orange font-roboto-bolditalic">Más Información</a>
+                <hr class="bg-orange m-0">
+                <div class="d-lg-flex justify-content-lg-end">
+                    <a href="'. $enlace .'" class="solutions-card-button tx-white bg-orange font-roboto-bolditalic d-lg-inline d-md-block d-sm-block d-block">Más Información</a>
                 </div>
             </div>';
         }
@@ -52,15 +40,14 @@
         $res_imagenes = $mysqli1->query($sql_imagenes);
 
         $html .= '<section class="container">'; 
-        $html .=    '<div class="row my-5">'; 
+        $html .=    '<div class="row my-4 p-lg-4 p-md-3 p-sm-2 p-2">'; 
        
         $numCards = 1;
         while ($row_imagenes = $res_imagenes->fetch_assoc()) {
            $html .= posicionTituloImagen('<img'.ImageAttributeBuilder::buildAttributes('tres', $row_imagenes['ruta'], 'card-icon').'>', $row_imagenes['titulo'], $row_imagenes['posicionTitulo'], $row_imagenes['enlace']);
 
             if(!($numCards++ % 2 === 0)){
-                $html .=    '<div class="col-1"></div>';
-                $html .=    '<div class="col-1"></div>';
+                $html .=    '<div class="col-lg-2 col-md-2 col-sm-0 col-0"></div>';
             }
            
         }

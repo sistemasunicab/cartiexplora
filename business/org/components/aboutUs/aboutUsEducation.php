@@ -1,70 +1,64 @@
 <?php
-$numero_de_sentencia_educacion = "46";
-$res_sentencia_educacion = $mysqli1->query($sentencia . $numero_de_sentencia_educacion);
-while ($row_sentencia_educacion = $res_sentencia_educacion->fetch_assoc()) {
-    $condiciones_educacion = str_replace('|', '\'', $row_sentencia_educacion['condiciones']);
-    $sql_datos_educacion = $row_sentencia_educacion['campos'] . $row_sentencia_educacion['tablas'] . $condiciones_educacion;
-}
+$html_educacion = '';
 
-$res_datos_educacion = $mysqli1->query($sql_datos_educacion);
+// 1) Títulos de educación (sentencia 46)
+$rowsTitulosEducacion = obtenerFilas($mysqli1, $sentencia, 46);
+$rowsContenidoEducacion = obtenerFilas($mysqli1, $sentencia, 41);
 
-if ($res_datos_educacion->num_rows > 0) {
-    $html_educacion = '<div class="my-10 w-100 p-0">';
-    $html_educacion .= '<div class="d-flex flex-column flex-md-row col-10 justify-content-between mx-auto">';
+if (!empty($rowsTitulosEducacion)) {
+    $html_educacion .= '<div class="row col-12 mx-auto p-0 m-0">';
+    
+    $html_educacion .= '<div class="col-0 col-lg-1 p-0 m-0"></div>';
+    // Columna izquierda: títulos
+    $html_educacion .= '<div class="col-10 col-lg-3 d-flex flex-column p-0 gap-5 mx-auto mx-lg-0">';
+    foreach ($rowsTitulosEducacion as $row) {
+        $titulo    = $row['titulo'];
+        $subTitulo = $row['subTitulo'];
 
-    while ($row_datos_educacion = $res_datos_educacion->fetch_assoc()) {
-        $html_educacion .= '<div class="mx-auto mx-md-0 text-center text-md-start col-10 col-md-4 mt-0 mt-md-10 mb-5">';
-        $html_educacion .= '<h2 class="tx-blue font-roboto-light-title">' . $row_datos_educacion['titulo'] . '</h2>';
-        $html_educacion .= '<h3 class="tx-black font-roboto-bold">' . $row_datos_educacion['subTitulo'] . '</h3>';
-        $html_educacion .= '</div>';
+        $html_educacion .= '
+            <div class="mt-lg-20 mb-lg-3 mb-ws d-flex flex-column gap-3 ms-lg-0 ms-4">
+                <h2-nosotros class="tx-blue font-roboto-light-title">' . $titulo . '</h2-nosotros>
+                <h3-nosotros class="tx-black font-roboto-bold">' . $subTitulo . '</h3-nosotros>
+            </div>';
     }
+    $html_educacion .= '</div>';
 
-    $numero_de_sentencia_educacion = "41";
-    $res_sentencia_educacion = $mysqli1->query($sentencia . $numero_de_sentencia_educacion);
-    while ($row_sentencia_educacion = $res_sentencia_educacion->fetch_assoc()) {
-        $condiciones_educacion = str_replace('|', '\'', $row_sentencia_educacion['condiciones']);
-        $sql_datos_educacion = $row_sentencia_educacion['campos'] . $row_sentencia_educacion['tablas'] . $condiciones_educacion;
-    }
+    // Columna derecha: íconos, textos y descripciones (solo si hay contenido)
+    if (!empty($rowsContenidoEducacion)) {
+        $html_educacion .= '<div class="col-lg-1 col-0 p-0"></div>';
+        $html_educacion .= '<div class="col-10 col-lg-6 d-flex flex-column gap-lg-5 gap-4 mt-0 p-0 mx-auto mx-lg-0">';
 
-    $res_datos_educacion = $mysqli1->query($sql_datos_educacion);
+        foreach ($rowsContenidoEducacion as $row) {
+            $titulo      = $row['titulo'];
+            $descripcion = $row['descripcion'];
+            $altern      = $row['textoAlterno'];
+            $imgSrc      = rutaPorNivel($row['ruta']);
 
-    $html_educacion .= '<div class="col-10 mx-auto me-md-0 d-md-flex flex-md-column col-md-7">';
-    while ($row_datos_educacion = $res_datos_educacion->fetch_assoc()) {
+            $idSeccion = '';
+            if (strtolower($titulo) === strtolower('Educación Regular(grado 1 a grado 11)')){
+                $idSeccion = 'primariaYBachillerato';
+            }else if (strtolower($titulo) === strtolower('Educación por ciclos para adultos')) {
+                $idSeccion = 'ciclos';
+            }
 
-        $path = $row_datos_educacion['ruta'];
-        $altern = $row_datos_educacion['textoAlterno'];
-        $descripcion = $row_datos_educacion['descripcion'];
-        $titulo = $row_datos_educacion['titulo'];
-        $path_image = '';
-        if ($nivel == "raiz") {
-            $path_image = $path;
-        } else if ($nivel == "uno") {
-            $path_image = '../' . $path;
-        } else if ($nivel == "dos") {
-            $path_image = '../../' . $path;
-        } else if ($nivel == "tres") {
-            $path_image = '../../../' . $path;
+            $html_educacion .= '
+                <div class="row d-flex flex-row align-items-start" id="'.$idSeccion.'">
+                    <img class="col-2 img-fluid icon-education p-0 m-0" src="' . $imgSrc . '" alt="' . $altern . '">
+                    <div class="col-10 d-flex flex-column p-0 m-0 ps-4 ps-lg-5">
+                        <h3-nosotros class="font-roboto-black">' . $titulo . '</h3-nosotros>
+                        <p-nosotros-1 class="mt-4">' . $descripcion . '</p-nosotros-1>
+                    </div>
+                </div>';
         }
-        $html_educacion .= '<div class="font-roboto-regular d-flex flex-row gap-4">';
-        $html_educacion .= '<img class="image-education" src="' . $path_image . '" alt="' . $altern . '">';
-        $html_educacion .= '<div class="mb-3">';
-        $html_educacion .= '<h3 class="font-roboto-black">' . $titulo . '</h3>';
-        $html_educacion .= '<p class="special-paragraph">' . $descripcion . '</p>';
+
         $html_educacion .= '</div>';
-        $html_educacion .= '</div>';
+        $html_educacion .= '<div class="col-0 col-lg-1 p-0 m-0"></div>';
     }
-    $html_educacion .= '</div>';
 
-    $html_educacion .= '</div>';
-    $html_educacion .= '</div>';
-
+    $html_educacion .= '</div>'; // Cierra row
 }
 ?>
 
-<div class="container-fluid m-0 p-0">
-    <div class="row m-0 p-0">
-        <?php
-        echo $html_educacion;
-        ?>
-    </div>
+<div class="container-fluid my-ws mx-0 p-0" id="ofertaAcademica">
+    <?= $html_educacion ?>
 </div>

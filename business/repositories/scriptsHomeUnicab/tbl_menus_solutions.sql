@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS tbl_menus_solutions;
+
 CREATE TABLE tbl_menus_solutions (
   id int(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   menu varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
@@ -20,3 +22,6 @@ INSERT INTO tbl_menus_solutions (menu, nivel, padre, icono, linkNivelRaiz, linkN
 ('Director del Programa de educación formal', 'raiz', '1', '', 'business/solutions/pages/directorProgramaEducacionFormal.php', 'directorProgramaEducacionFormal.php',''),
 ('Servicios de educación informal', 'raiz', '1', '', 'business/solutions/pages/serviciosEducacionInformal.php', 'serviciosEducacionInformal.php',''),
 ('Consultoría empresarial', 'raiz', '1', '', 'business/solutions/pages/consultoriaEmpresarial.php', 'consultoriaEmpresarial.php','');
+
+UPDATE tbl_menus_solutions SET menu = "Srevicios" WHERE id = 3;
+UPDATE tbl_menus_solutions SET visible = 0 WHERE padre = 1 AND id != 3;
