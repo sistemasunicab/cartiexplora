@@ -118,7 +118,7 @@ if (empty($menuPrincipal) && $mysqli1->error) {
 
                 if (!empty($linkSub1)) {
                     $html_s .= '
-                        <a class="a-nav col-lg-12 w-auto text-center text-lg-start my-1 d-block"
+                        <a target="' . $rowSub1['destino'] . '" class="a-nav col-lg-12 w-auto text-center text-lg-start my-1 d-block"
                            href="' . htmlspecialchars($linkSub1, ENT_QUOTES, 'UTF-8') . '">
                             ' . $menuSub1 . '
                         </a>';

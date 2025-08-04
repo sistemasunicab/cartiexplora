@@ -141,19 +141,23 @@ while ($row_datos_logo = $res_datos_logo->fetch_assoc()) {
 
 $html = '';
 if ($nivel == "raiz") {
-    $html .= '<a class="unicab-brand" href="business/solutions/pages/somos.php">';
+    //$html .= '<a class="unicab-brand" href="business/solutions/pages/somos.php">';
+    $html .= '<a class="unicab-brand" href="https://unicab.solutions/nus/business/solutions/pages/somos.php">';
     $html .= '<img src="' . $ruta_logo . '" alt="" width="162" height="55" class="d-inline-block align-text-center">';
     $html .= '</a>';
 } else if ($nivel == "uno") {
-    $html .= '<a class="unicab-brand" href="../business/solutions/pages/somos.php">';
+    //$html .= '<a class="unicab-brand" href="../business/solutions/pages/somos.php">';
+    $html .= '<a class="unicab-brand" href="https://unicab.solutions/nus/business/solutions/pages/somos.php">';
     $html .= '<img src="../' . $ruta_logo . '" alt="" width="162" height="55" class="d-inline-block align-text-center">';
     $html .= '</a>';
 } else if ($nivel == "dos") {
-    $html .= '<a class="unicab-brand" href="../../business/solutions/pages/somos.php">';
+    //$html .= '<a class="unicab-brand" href="../../business/solutions/pages/somos.php">';
+    $html .= '<a class="unicab-brand" href="https://unicab.solutions/nus/business/solutions/pages/somos.php">';
     $html .= '<img src="../../' . $ruta_logo . '" alt="" width="162" height="55" class="d-inline-block align-text-center">';
     $html .= '</a>';
 } else if ($nivel == "tres") {
-    $html .= '<a class="unicab-brand" href="../../../business/solutions/pages/somos.php">';
+    //$html .= '<a class="unicab-brand" href="../../../business/solutions/pages/somos.php">';
+    $html .= '<a class="unicab-brand" href="https://unicab.solutions/nus/business/solutions/pages/somos.php">';
     $html .= '<img src="../../../' . $ruta_logo . '" alt="" width="162" height="55" class="d-inline-block align-text-center">';
     $html .= '</a>';
 }
