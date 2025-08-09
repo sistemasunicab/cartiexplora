@@ -35,7 +35,7 @@
 
     $res_sentecia = $mysqli1->query($sentencia . "2");
     while ($row_sentencia = $res_sentecia->fetch_assoc()) {
-        $sql_banner = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
+        $sql_banner = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'] . $row_sentencia['ordenamientos'];
     }
     $res_banner = $mysqli1->query($sql_banner);
     $rows_items = [];
