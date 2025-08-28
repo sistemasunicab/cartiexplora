@@ -16,7 +16,7 @@ CREATE TABLE tbl_sentencias (
 
 INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
 ('NO', '', 'SELECT * ', 'FROM tbl_menus ', 'WHERE nivel = |x| AND padre = |y| AND visible = 1 ', '', '', '', '', ''),
-('NO', '', 'SELECT * ', 'FROM tbl_banners ', 'WHERE visible = 1 ', '', '', '', '', ''),
+('NO', '', 'SELECT * ', 'FROM tbl_banners ', 'WHERE visible = 1 ', '', 'ORDER BY id DESC ', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 1 AND visible = 1 ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 2 AND visible = 1 ', '', '', '', '', ''),
 ('NO', '', 'SELECT * ', 'FROM tbl_secciones ', 'WHERE id = 3 AND visible = 1 ', '', '', '', '', ''),

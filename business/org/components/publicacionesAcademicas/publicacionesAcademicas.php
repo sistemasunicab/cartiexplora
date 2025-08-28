@@ -64,13 +64,14 @@
             $html .=        '<span class="fecha-publicaciones">Publicación: '.$date->format('m/Y'). '</span>';
             $html .=        '<p class="p-publicaciones">'. $row_publicacion['texto'] . '</p>';
             $html .=        '<div class="row align-items-center btn-my-publicaciones">';
-            $html .=            '<div class="col-lg-2 col-md-2 col-sm-4 col-4 text-center">';
+            $html .=            '<div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center">';
             $html .=                '<a href="'.$row_publicacion['ruta'].'" class="d-inline-block download-button">';
             $html .=                    $iconoPdf;
             $html .=                '</a>';
+            $html .=                '<label>'.$row_publicacion['isbn'].'</label>';
             $html .=            '</div>';
             $html .=            '<div class="col-lg-1 d-lg-block d-md-none col-sm-1 col-1 "></div>';
-            $html .=            '<div class="col-lg-4 col-md-10 col-sm-4 col-4">';
+            $html .=            '<div class="col-lg-4 col-md-9 col-sm-4 col-4">';
 
             $href = "";
 
@@ -86,7 +87,7 @@
 
             $html .=                '<a href="'.$row_publicacion['ruta'].'" target="_blank" class="btn-publicaciones">Leer</a>';
             $html .=            '</div>';
-            $html .=            '<div class="col-lg-5 d-lg-block d-md-none col-sm-5 col-5"></div>';
+            $html .=            '<div class="col-lg-4 d-lg-block d-md-none col-sm-5 col-4"></div>';
             $html .=        '</div>';
             $html .=    '</div>';
             $html .= '</div>';
