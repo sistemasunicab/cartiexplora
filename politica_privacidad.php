@@ -69,7 +69,8 @@
 
             <br>
             <h3>4. Seguridad de los Datos</h3>
-            <p>Implementamos diversas medidas de seguridad para proteger su información personal. Los datos se almacenan en servidores seguros y utilizamos <strong>cifrado SSL/TLS</strong> para proteger la transmisión de datos sensibles.</p>
+            <!--<p>Implementamos diversas medidas de seguridad para proteger su información personal. Los datos se almacenan en servidores seguros y utilizamos <strong>cifrado SSL/TLS</strong> para proteger la transmisión de datos sensibles.</p>-->
+			<p>Para proteger su información personal. Los datos se almacenan en servidores seguros.</p>
 
             <br>
             <h3>5. Derechos del Usuario</h3>
