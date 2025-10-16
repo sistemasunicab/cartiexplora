@@ -26,6 +26,9 @@
     $mes=date("m");
     $mesLetra=date("M");
     $fanio=date("Y");
+    if($mes >= 10) {
+		$fanio++;
+	}
 
     //Se consulta el grado del documento
     /*$sql = "SELECT e.*, g.grado 
