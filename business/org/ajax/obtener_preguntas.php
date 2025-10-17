@@ -15,7 +15,7 @@
 	$tipo = $data['tipo'] ?? '';
 
 	try {
-		$sql = "SELECT id, pregunta FROM tbl_encuesta_eeuu_preguntas WHERE tipo = ?";
+		$sql = "SELECT id, pregunta FROM tbl_encuesta_eeuu_preguntas WHERE tipo = ? AND respuesta_texto = 'NO'";
 		$stmt = $mysqli2->prepare($sql);
 		$stmt->bind_param("s", $tipo);
 		$stmt->execute();
