@@ -9,7 +9,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Eliminar Cuenta - Uniconecta</title>
-        <!--https://unicab.org/homeunicabpro/politica_privacidad.php-->
+        <!-- https://unicab.org/homeunicabpro/politica_privacidad.php -->
         <style>
             body {
                 font-family: Arial, sans-serif;
