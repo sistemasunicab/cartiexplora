@@ -108,6 +108,8 @@
             echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout.js"></script>';
             //<!-- HomeJs  -->
             echo '<script src="../../../assets/js/homeJs.js"></script>';
-        }     
+        }
+
+        echo '<link href="https://unicab.solutions/css/jquery.dataTables.min.css" rel="stylesheet">';
     ?>
 </head>
