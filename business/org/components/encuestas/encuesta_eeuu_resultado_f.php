@@ -33,10 +33,37 @@
                 width: 90%;
                 margin: 0 5%;
                 justify-items: center;
+                overflow-x: auto;
             }
             #graficaCard {
                 width: 80%
             }
+            .dataTables_wrapper {
+                width: 100%;
+                /*overflow-x: auto;*/
+            }
+            table.dataTable {
+                width: 100% !important;
+            }
+
+            /* Sobrescribe los estilos que DataTables crea para su contenedor de scroll */
+div.dataTables_wrapper div.dataTables_scrollBody {
+    width: 100% !important;
+    min-width: 100% !important; /* Asegura que no se expanda más allá del 100% */
+}
+
+/* Fuerza el contenedor principal que DataTables crea */
+div.dataTables_wrapper {
+    width: 100% !important;
+    min-width: 100% !important;
+}
+
+/* Asegura que el contenedor de Bootstrap no interfiera */
+.table-responsive {
+    overflow-x: auto !important; /* Fuerza el scroll horizontal */
+    width: 100% !important;
+    min-width: 100% !important;
+}
 
         </style>
     </head>
@@ -50,7 +77,7 @@
             <h3 class="text-center mb-4">Tabla participantes</h3>
             <!-- class="table table-bordered table-striped align-middle"  -->
             <div class="table-responsive mb-5">
-                <table id="listParticipantes" class="table table-condensed table-striped" style="width:100%">
+                <table id="listParticipantes" class="table table-condensed table-striped display">
                     <thead class="">
                         <tr>
                             <th>Nombre</th>
@@ -121,7 +148,19 @@
 
         <script>
             $(document).ready(function() {
-                $('#listParticipantes').DataTable();
+                //$('#listParticipantes').DataTable();
+                $('#listParticipantes').DataTable({
+                    responsive: false,
+                    autoWidth: false,
+                    scrollX: true, // agrega scroll horizontal si el contenido es muy ancho
+                    language: {
+                        url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json'
+                    },
+                    columnDefs: [
+                        { targets: "_all", className: "dt-head-center dt-body-center" }
+                    ]
+                });
+                $('#listParticipantes').DataTable().columns.adjust().draw();
 
                 $("#search").keyup(function(){
                     _this = this;
