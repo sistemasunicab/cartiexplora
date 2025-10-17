@@ -111,5 +111,6 @@
         }
 
         echo '<link href="https://unicab.solutions/css/jquery.dataTables.min.css" rel="stylesheet">';
+        echo '<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">';
     ?>
 </head>
