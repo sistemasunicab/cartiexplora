@@ -24,6 +24,7 @@
     <script type="text/javascript" src="https://unicab.org/registro/docenteunicab/updreg/js/Chart.bundle.min.js"></script>
     <!--<script type="text/javascript" src="https://unicab.org/registro/js/jquery.dataTables.min.js"></script>-->
     <script src="https://unicab.solutions/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
 <body>
     
 </html>
