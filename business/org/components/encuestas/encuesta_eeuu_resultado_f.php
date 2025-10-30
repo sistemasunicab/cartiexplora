@@ -47,23 +47,23 @@
             }
 
             /* Sobrescribe los estilos que DataTables crea para su contenedor de scroll */
-div.dataTables_wrapper div.dataTables_scrollBody {
-    width: 100% !important;
-    min-width: 100% !important; /* Asegura que no se expanda más allá del 100% */
-}
+            div.dataTables_wrapper div.dataTables_scrollBody {
+                width: 100% !important;
+                min-width: 100% !important; /* Asegura que no se expanda más allá del 100% */
+            }
 
-/* Fuerza el contenedor principal que DataTables crea */
-div.dataTables_wrapper {
-    width: 100% !important;
-    min-width: 100% !important;
-}
+            /* Fuerza el contenedor principal que DataTables crea */
+            div.dataTables_wrapper {
+                width: 100% !important;
+                min-width: 100% !important;
+            }
 
-/* Asegura que el contenedor de Bootstrap no interfiera */
-.table-responsive {
-    overflow-x: auto !important; /* Fuerza el scroll horizontal */
-    width: 100% !important;
-    min-width: 100% !important;
-}
+            /* Asegura que el contenedor de Bootstrap no interfiera */
+            .table-responsive {
+                overflow-x: auto !important; /* Fuerza el scroll horizontal */
+                width: 100% !important;
+                min-width: 100% !important;
+            }
 
         </style>
     </head>
@@ -120,6 +120,12 @@ div.dataTables_wrapper {
                     </tbody>
                 </table>
             </div>
+
+            <div>
+                <form class="form-horizontal" action="https://unicab.org/bd_exportar_encuesta_eeuu_getdat.php"  method="POST" target="_blank">
+                    <input type="submit" class="btn btn-primary" value="Exportar Encuesta" >
+                </form>
+            </div><br>
 
             <h3 class="text-center mb-3">Estadísticas por Tipo de pregunta y pregunta</h3>
 
