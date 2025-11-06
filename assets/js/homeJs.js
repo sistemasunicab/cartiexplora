@@ -161,7 +161,8 @@ $(document).ready(function () {
         };        
         
         $.ajax({
-            url: "../../../ajax/formInscripcionesAbiertas.php",
+            //Esta es la ruta desde donde se llama ... cartiexplora/components/inscripciones.php
+            url: "../cartiexplora/ajax/formInscripcionesAbiertas.php",
             type: "POST",
             data: data,
             success: function (response) {
