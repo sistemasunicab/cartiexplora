@@ -120,16 +120,16 @@
         $html .=    '</div>';
 
         $html .=    '<br><br><div class="row">';
-        $html .=        '<div class="col-3 d-lg-flex align-items-lg-center justify-content-lg-start">';
+        $html .=        '<div class="col-lg-3 col-md-3 col-sm-3 col-6 d-lg-flex align-items-lg-center justify-content-lg-start">';
         $html .=            '<iframe width="315" height="560" src="https://www.youtube.com/embed/IfRW2fxItjU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
         $html .=        '</div>';
-        $html .=        '<div class="col-3 d-lg-flex align-items-lg-center justify-content-lg-start">';
+        $html .=        '<div class="col-lg-3 col-md-3 col-sm-3 col-6 d-lg-flex align-items-lg-center justify-content-lg-start">';
         $html .=            '<iframe width="315" height="560" src="https://www.youtube.com/embed/SCWCUMKt5Ks" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
         $html .=        '</div>';
-        $html .=        '<div class="col-3 d-lg-flex align-items-lg-center justify-content-lg-start">';
+        $html .=        '<div class="col-lg-3 col-md-3 col-sm-3 col-6 d-lg-flex align-items-lg-center justify-content-lg-start">';
         $html .=            '<iframe width="315" height="560" src="https://www.youtube.com/embed/2Y02ckW2fQY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
         $html .=        '</div>';
-        $html .=        '<div class="col-3 d-lg-flex align-items-lg-center justify-content-lg-start">';
+        $html .=        '<div class="col-lg-3 col-md-3 col-sm-3 col-6 d-lg-flex align-items-lg-center justify-content-lg-start">';
         $html .=            '<iframe width="315" height="560" src="https://www.youtube.com/embed/WXoxjLOUx7U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
         $html .=        '</div>';
         $html .=    '</div>';
