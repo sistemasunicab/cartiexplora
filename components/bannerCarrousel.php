@@ -70,6 +70,7 @@
 
         $link_image = $rows_items[$i]['linkImagen'];
         $link_button = $rows_items[$i]['linkBoton'];
+        $target = $rows_items[$i]['target'];
         $text_button = $rows_items[$i]['textoBoton'];
         $text = $rows_items[$i]['texto'];
         $top_text = $rows_items[$i]['porcentajeTopTexto'];
@@ -123,7 +124,7 @@
             }
 
             if   ($text_button){
-                $html .=    '<a href="' . $link_button . '" class="button-carousel button-absolute" style="' . $button_styles . '" role="button">' . $text_button . '</a>';
+                $html .=    '<a href="' . $link_button . '" class="button-carousel button-absolute" style="' . $button_styles . '" role="button" target="'.$target.'">' . $text_button . '</a>';
             }
 
             $html .= '</div>';
@@ -137,7 +138,7 @@
             }
 
             if   ($text_button){
-                $html .=    '<a href="' . $link_button . '" class="button-carousel button-absolute" style="' . $button_styles . '" role="button">' . $text_button . '</a>';
+                $html .=    '<a href="' . $link_button . '" class="button-carousel button-absolute" style="' . $button_styles . '" role="button" target="'.$target.'">' . $text_button . '</a>';
             }
 
             $html .= '</div>';
