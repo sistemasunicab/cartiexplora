@@ -125,7 +125,7 @@
 
             if ($text_button){
                 if ($rows_items[$i]['tipo'] === 'video'){
-                    $html .=    '<a id="buttonVideo" href="' . $link_button . '" class="button-carousel button-absolute" style="' . $button_styles . '" role="button" target="'.$target.'">' . $text_button . '</a>';
+                    $html .=    '<a id="buttonVideo" href="' . $link_button . '" class="button-carousel button-absolute" style="' . $button_styles . '" role="button" target="_blank">' . $text_button . '</a>';
                 }
                 else {
                     $html .=    '<a href="' . $link_button . '" class="button-carousel button-absolute" style="' . $button_styles . '" role="button" target="'.$target.'">' . $text_button . '</a>';
@@ -144,7 +144,7 @@
 
             if ($text_button){
                 if ($rows_items[$i]['tipo'] === 'video'){
-                    $html .=    '<a id="buttonVideo" href="' . $link_button . '" class="button-carousel button-absolute" style="' . $button_styles . '" role="button" target="'.$target.'">' . $text_button . '</a>';
+                    $html .=    '<a id="buttonVideo" href="' . $link_button . '" class="button-carousel button-absolute" style="' . $button_styles . '" role="button" target="_blank">' . $text_button . '</a>';
                 }
                 else {
                     $html .=    '<a href="' . $link_button . '" class="button-carousel button-absolute" style="' . $button_styles . '" role="button" target="'.$target.'">' . $text_button . '</a>';
