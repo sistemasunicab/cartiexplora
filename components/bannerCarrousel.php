@@ -77,10 +77,10 @@
         $left_text = $rows_items[$i]['porcentajeLeftTexto'];
         $interval = $rows_items[$i]['milisegundosSlide'];
         $button_styles = ButtonStylesBannerBuilder::buildStyles($rows_items[$i]['color'], $rows_items[$i]['transparencia'], $rows_items[$i]['porcentajeTop'], $rows_items[$i]['porcentajeLeft']);
+        $buttonVideo_styles = 'position: absolute; background: rgba(254, 145, 0, 1); top: 70%; left: 50%; transform: translateX(-50%);';
 
         $elemento = '';
         if ($rows_items[$i]['tipo'] === 'video'){
-
             $rutaEscritorio = añadirNivelARuta($nivel, $rows_items[$i]['ruta']);
             $rutaTabletaHorizontal = añadirNivelARuta($nivel, $rows_items[$i]['rutaTabletaHorizontal']);
             $rutaMovil = añadirNivelARuta($nivel, $rows_items[$i]['rutaMovil']);
@@ -123,8 +123,13 @@
                 $html .=    '<p class="texto-banner" style=" top: ' . $top_text . '%; left: ' . $left_text . '%; transform: translateX(-'.$left_text.'%)" >' . $text . '</p>';
             }
 
-            if   ($text_button){
-                $html .=    '<a href="' . $link_button . '" class="button-carousel button-absolute" style="' . $button_styles . '" role="button" target="'.$target.'">' . $text_button . '</a>';
+            if ($text_button){
+                if ($rows_items[$i]['tipo'] === 'video'){
+                    $html .=    '<a id="buttonVideo" href="' . $link_button . '" class="button-carousel button-absolute" style="' . $button_styles . '" role="button" target="_blank">' . $text_button . '</a>';
+                }
+                else {
+                    $html .=    '<a href="' . $link_button . '" class="button-carousel button-absolute" style="' . $button_styles . '" role="button" target="'.$target.'">' . $text_button . '</a>';
+                }                
             }
 
             $html .= '</div>';
@@ -137,8 +142,13 @@
                 $html .=    '<p class="texto-banner" style=" top: ' . $top_text . '%; left: ' . $left_text . '%; transform: translateX(-'.$left_text.'%)" >' . $text . '</p>';
             }
 
-            if   ($text_button){
-                $html .=    '<a href="' . $link_button . '" class="button-carousel button-absolute" style="' . $button_styles . '" role="button" target="'.$target.'">' . $text_button . '</a>';
+            if ($text_button){
+                if ($rows_items[$i]['tipo'] === 'video'){
+                    $html .=    '<a id="buttonVideo" href="' . $link_button . '" class="button-carousel button-absolute" style="' . $button_styles . '" role="button" target="_blank">' . $text_button . '</a>';
+                }
+                else {
+                    $html .=    '<a href="' . $link_button . '" class="button-carousel button-absolute" style="' . $button_styles . '" role="button" target="'.$target.'">' . $text_button . '</a>';
+                }                
             }
 
             $html .= '</div>';
