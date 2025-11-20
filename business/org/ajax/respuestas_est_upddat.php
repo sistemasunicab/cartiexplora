@@ -30,6 +30,9 @@
     $mes=date("m");
     $mesLetra=date("M");
     $fanio=date("Y");
+	if ($mes >= 10) {
+		$fanio++;
+	}
     
     //Se actualiza la respuesta
 	/*$sql_updpreg = "UPDATE tbl_respuestas SET respuesta = '$respuesta', resultado = '$resultado' 
