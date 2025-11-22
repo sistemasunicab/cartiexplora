@@ -36,13 +36,40 @@
 
             $sentencia = $mysqli1->prepare($sql_form);
             $sentencia->bind_param("sssss", $nombre, $email, $asunto, $mensaje, $fecha_mysql);
-            $sentencia->execute();
+            if ($sentencia->execute()) {
+                $url_solutions = "https://unicab.solutions/email_formulario_inscripcion.php";
+                // 1. Codificar los arrays a JSON (Cadenas de texto)
+                $data_original_json = json_encode($_POST);
+                $params = [
+                    'data_original_json' => $data_original_json
+                ];
+                
+                // Usar cURL para hacer la llamada interna
+                $ch = curl_init($url_solutions);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // (solo si estás en entorno local de prueba)
+                curl_setopt($ch, CURLOPT_POST, 1);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+                $respuesta_b = trim(curl_exec($ch));
+                $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                curl_close($ch);
+                
+                $respuesta_json = json_decode($respuesta_b, true); // el "true" lo convierte en array asociativo
+                $respuesta_correo = $respuesta_json['mensaje_correo'];
 
-            // Respuesta de éxito
-            echo json_encode([
-                'status' => 'success',
-                'message' => "Datos recibidos correctamente"
-            ]);
+                // Respuesta de éxito
+                echo json_encode([
+                    'status' => 'success',
+                    'message' => "Datos recibidos correctamente",
+                    'respuesta_correo' => $respuesta_correo
+                ]);
+            }
+            else {
+                echo json_encode([
+                    'status' => 'error'
+                ]);
+            }
+            
         } else {
             http_response_code(400); // Código HTTP 400 (Bad Request)
             echo json_encode([

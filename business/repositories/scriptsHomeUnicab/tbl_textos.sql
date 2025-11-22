@@ -64,7 +64,7 @@ INSERT INTO tbl_textos (id_seccion, paginaPadre, identificacion, texto ) VALUES
 (39, 'pagos', 'titulo pagos', 'Referencia de pago'),
 (39, 'pagos', '9397454', 'Número de identificación del estudiante'),
 (39, 'pagos', '2025', 'Año'),
-(39, 'pagos', 'ocp', 'Descripción del concepto de pago|<b>ocp</b> otros cobros periodicos|<b>pm6</b> pensión mes 6|<b>m</b> matrícula|<b>p</b> póliza|<b>dg</b> derechos de grado|<b>pp</b> primer pago|<b>mocp</b> matrícula y otros cobros periódicos')
+(39, 'pagos', 'ocp', 'Descripción del concepto de pago|<b>ocp</b> otros cobros periodicos|<b>pm6</b> pensión mes 6|<b>m</b> matrícula|<b>p</b> póliza|<b>dg</b> derechos de grado|<b>dgv</b> derechos de grado virtual|<b>pp</b> primer pago|<b>mocp</b> matrícula y otros cobros periódicos')
 ;
 
 INSERT INTO tbl_textos (id_seccion, paginaPadre, identificacion, texto ) VALUES 
