@@ -242,3 +242,8 @@ INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones
 
 UPDATE tbl_sentencias SET campos = 'SELECT * ' WHERE (`id` = '158');
 UPDATE tbl_sentencias SET condiciones = 'WHERE id = ? AND correo = ?' WHERE (`id` = '166');
+
+INSERT INTO tbl_sentencias (utilizaJoin, joinTablas, campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones, inserciones) VALUES
+('NO','','SELECT * ','FROM tbl_parametros ','WHERE parametro = |terminos_condiciones| ','','','','',''),
+('NO','','SELECT * ','FROM tbl_parametros ','WHERE parametro = |copyright| ','','','','','')
+;
