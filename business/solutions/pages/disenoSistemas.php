@@ -16,7 +16,8 @@
 
         include('../../../components/navBarSolutions.php');
         include('../components/disenoSistemas.php');
-        include('../../../components/footer.php');
+        //include('../../../components/footer.php');
+        include('../../../components/footerSolutions.php');
         include('../../../components/bookstoresMain.php');
     ?>
 
