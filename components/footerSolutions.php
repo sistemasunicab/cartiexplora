@@ -110,8 +110,8 @@
     while ($row_data = $res_data->fetch_assoc()) {
         $linksMap[] = $row_data;
     }
-    $terminos = $linksMap[4]['t1'];
-    $copyRight = $linksMap[5]['t1'];
+    //$terminos = $linksMap[4]['t1'];
+    //$copyRight = $linksMap[5]['t1'];
 
     $res_sentecia = $mysqli1->query($sentencia . "36");
     while ($row_sentencia = $res_sentecia->fetch_assoc()) {
@@ -243,8 +243,27 @@
 
     // 8.2) Construir HTML final
     $html_copyright = $entities;
-    //$html_copyright .= $terminos;
-    //$html_copyright .= $copyRight;
+    
+    $res_sentecia = $mysqli1->query($sentencia . "170");
+    while ($row_sentencia = $res_sentecia->fetch_assoc()) {
+        $sql_data = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
+    }
+    
+    $res_data = $mysqli1->query($sql_data);
+    while ($row_data = $res_data->fetch_assoc()) {
+        $terminos = $row_data['t1'];
+    }
+
+    $res_sentecia = $mysqli1->query($sentencia . "171");
+    while ($row_sentencia = $res_sentecia->fetch_assoc()) {
+        $sql_data = $row_sentencia['campos'].$row_sentencia['tablas'].str_replace('|', '\'', $row_sentencia['condiciones']);
+    }
+    
+    $res_data = $mysqli1->query($sql_data);
+    while ($row_data = $res_data->fetch_assoc()) {
+        $copyRight = $row_data['t1'];
+    }
+
     $html_copyright .= '
             <p4-footer class="terminos-condiciones-footer text-center m-auto font-roboto-light tx-white">'
                 . $terminos .
