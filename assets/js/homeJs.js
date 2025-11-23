@@ -3188,7 +3188,7 @@ function insertar_pago(id_evento, documento, nombre, valor, estado, ref_epayco) 
         url:"../ajax/registrar_pago_putdat.php",
         data:"idevento=" + id_evento + "&documento=" + documento + "&nombre=" + nombre + "&valor=" + valor + "&estado=" + estado + "&ref_epayco=" + ref_epayco,
         success:function(r) {
-            alert(r);
+            //alert(r);
             var res = JSON.parse(r);
             var insert = res.insert;
             if (insert == "OK") {
@@ -3210,7 +3210,7 @@ function volver() {
     var nombrepagador = $("#nombrepagador1").val();
     var nombre = nombrepagador.replace(" ", "_");
     
-    location.href = rutavolver + '&documento=' + documento + "&nombre=" + nombre;
+    location.href = rutavolver;
 }
 /* EPAYCO */
 
