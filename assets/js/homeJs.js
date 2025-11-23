@@ -347,6 +347,12 @@ $(document).ready(function () {
     if (window.location.pathname.endsWith("pagos.php")) {
         mostrarSubmit(btnSubmit.id);
     }
+    else if (window.location.pathname.endsWith("pagar_curso.php")) {
+        mostrarSubmit(btnSubmit.id);
+    }
+    else if (window.location.pathname.endsWith("transformacionDigital.php")) {
+        mostrarSubmit(btnSubmit.id);
+    }
     
     //mostrarSubmit(btnSubmit.id);
     const formulario = btnSubmit.closest('form');
@@ -2392,6 +2398,22 @@ $(document).ready(function() {
         }
     });*/
 
+    $("#selmediopago").change(function() {
+        const medio = document.querySelector("#selmediopago");
+        const nombre = document.querySelector("#txtnom");
+        //console.log(medio);
+        if(medio.value == "NA") {
+            $("#pdesc").html("Debe seleccionar un medio de pago").css("color", "red");
+            $("#alert").show();
+            $("#btnPagarCurso").hide();
+        }
+        else {
+            $("#pdesc").html("");
+            $("#alert").hide();
+            validarCampo(nombre, 'Nombre de quien paga', 'texto', 1, 'btnPagarCurso');
+        }
+    });
+
     // Mostrar referencia o valor manual
     $("input[name=opvalor]").click(function () {
         // Limpieza inicial
@@ -2460,6 +2482,92 @@ $(document).ready(function() {
     });
 
     //mostrar_submit_epayco(btnSelecccionado);
+    $("#btnPagarCurso").hide();
+
+    //Referencia de payco que viene por url
+    let ref_payco = getQueryParam('ref_payco');
+    //Url Rest Metodo get, se pasa la llave y la ref_payco como paremetro
+    let urlapp = "https://secure.epayco.co/validation/v1/reference/" + ref_payco;
+
+    $.get(urlapp, function(response) {
+
+        if (response.success) {
+
+            if (response.data.x_cod_response == 1) {
+            //Codigo personalizado
+            $("#respuesta").addClass("aceptada");
+            }
+            //Transaccion Rechazada
+            if (response.data.x_cod_response == 2) {
+            $("#respuesta").addClass("rechazada");
+            }
+            //Transaccion Pendiente
+            if (response.data.x_cod_response == 3) {
+            $("#respuesta").addClass("pendiente");
+            }
+            //Transaccion Fallida
+            if (response.data.x_cod_response == 4) {
+
+            }
+
+            $('#fecha').html(response.data.x_transaction_date);
+            $('#respuesta').html(response.data.x_response);
+            $('#referencia').text(response.data.x_extra2);
+            $('#motivo').text(response.data.x_response_reason_text);
+            $('#recibo').text(response.data.x_transaction_id);
+            $('#banco').text(response.data.x_bank_name);
+            $('#autorizacion').text(response.data.x_approval_code);
+            $('#factura').text(response.data.x_id_invoice);
+            $('#nombrepagador').text(response.data.x_extra4);
+            $('#nombrepagador1').text(response.data.x_extra4);
+            $('#concepto').text(response.data.x_description);
+            $('#ref_epayco').text(response.data.x_ref_payco);
+
+            //$('#rutacontinuar').val(response.data.x_extra1 + response.data.x_ref_payco);
+            $('#rutacontinuar').val('../../solutions/pages/transformacionDigital.php');
+            //$('#rutacontinuar').val("https://unicab.solutions/diplomados/derecho_disciplinario/index.php?ref_pago=" + response.data.x_ref_payco);
+            $('#documentopago').val(response.data.x_extra2);
+            $('#ref_epayco1').val(response.data.x_ref_payco);
+            $('#estado').val(response.data.x_response);
+            $('#valor1').val(response.data.x_amount);
+            $('#idevento').val(response.data.x_extra3);
+
+            if(response.data.x_bank_name == "GANA") {
+                let cod_proyecto = 242;
+            }
+            else if(response.data.x_bank_name == "EFECTY") {
+                let cod_proyecto = 111992;
+            }
+            else if(response.data.x_bank_name == "BALOTO") {
+                let cod_proyecto = 950715;
+            }
+            else if(response.data.x_bank_name == "PUNTO RED") {
+                let cod_proyecto = 110342;
+            }
+            else if(response.data.x_bank_name == "RED SERVI") {
+                let cod_proyecto = 761;
+            }
+            else if(response.data.x_bank_name == "SURED") {
+                    let cod_proyecto = 'MR0382';
+                }
+            else {
+                let cod_proyecto = "";
+            }
+            $('#cod_proyecto').text(cod_proyecto);
+            $('#desc_res').text(response.data.x_response_reason_text);
+            $('#valor').text(response.data.x_amount + ' ' + response.data.x_currency_code);
+        } 
+        else {
+            //alert("Error consultando la información");
+            console.log("Error consultando la información");
+        }
+
+        let nombrepagador = response.data.x_extra4;
+        let nombre = nombrepagador.replace(" ", "_");
+        insertar_pago(response.data.x_extra3, response.data.x_extra2, nombre, response.data.x_amount, response.data.x_response, response.data.x_ref_payco);
+        //insertar_pago(4, "9397454", nombre, response.data.x_amount, response.data.x_response, response.data.x_ref_payco);
+
+    });
 });
 
 let handler = ePayco.checkout.configure({
@@ -2625,7 +2733,166 @@ function callEpayco() {
         }
         
         handler.open(data);
-    }   
+    }
+    else {
+        //Se genera código de factura
+        let codfact1 = "";
+        let ale = 0;
+        let sa1 = ["q","a","1","z","x","2","s","w","3","p","l","4","m","k","5","o","e","6",
+                "d","c","7","i","j","8","n","r","9","f","v","0","u","h","b","t","g"];
+        let medioValor = "";
+        let valor = 0;
+        let data={};
+        
+        let medio = document.querySelector("#selmediopago");
+        medioValor = medio.value;
+        
+        for(let i = 1; i <=10; i++) {
+            ale = parseInt(Math.random()*sa1.length);
+            codfact1 = codfact1 + sa1[ale];
+        }
+        
+        //Se arma la petición de pago
+        let codigo = $("#txtref").val();
+        console.log(codigo);
+        //let array = codigo.split("-");
+        //let doc_est = array[0];
+        let nombre = $("#txtnom").val();
+        let identif = $("#txtidentif").val();
+        let idEvento = 0;
+        idEvento = $("#idEvento").val();
+        //let codfact = $("#txtcodfact").val();
+        //let concepto = $("#txtconcepto").val();
+        //Esto hace un replace de manera global, utilizando expresiones regulares
+        //let concepto1 = concepto.replace(/[ ]/gi,"_");
+        
+        valor = $("#txtvalor").val();
+        console.log(valor);
+        let fecha = $("#txtano").val();
+        let referencia = $("#txtref").val();
+        
+        //var factura = doc_est + "_" + codfact;
+        let factura = identif + "_" + codfact1;
+        
+        //Se arma la referencia de pago
+        if(medioValor == "E") {
+            data={
+                //Parametros compra (obligatorio)
+                name: "Unicab Colegio Virtual",
+                description: "Pago Curso Desarrollo Pensamiento Lógico",
+                invoice: factura,
+                currency: "cop",
+                amount: valor,
+                tax_base: "0",
+                tax: "0",
+                country: "co",
+                lang: "es",
+                
+                //Onpage="false" - Standard="true"
+                external: "false",
+                key: "870fd53ee9274a76a62c34f434b09569",
+                
+                //Atributos opcionales
+                extra1: codigo,
+                extra2: identif,
+                extra3: idEvento,
+                extra4: nombre,
+                confirmation: "https://unicab.solutions/nus/business/solutions/pages/resultado_pagos.php",
+                response: "https://unicab.solutions/nus/business/solutions/pages/resultado_pagos.php",                
+                
+                //Atributos cliente
+                name_billing: nombre,
+                //address_billing: "Carrera 19 numero 14 91",
+                type_doc_billing: "cc",
+                //mobilephone_billing: "3050000000",
+                number_doc_billing: identif,
+                
+                //atributo deshabilitación metodo de pago
+                methodsDisable: ["TDC", "PSE", "SP", "DP"]
+                
+            };
+        }
+        else if(medioValor == "P" || medioValor == "P6") {
+            data={
+                //Parametros compra (obligatorio)
+                name: "Unicab Colegio Virtual",
+                description: "Pago Curso Desarrollo Pensamiento Lógico",
+                invoice: factura,
+                currency: "cop",
+                amount: valor,
+                tax_base: "0",
+                tax: "0",
+                country: "co",
+                lang: "es",
+                
+                //Onpage="false" - Standard="true"
+                external: "false",
+                key: "870fd53ee9274a76a62c34f434b09569",
+                
+                //Atributos opcionales
+                extra1: codigo,
+                extra2: identif,
+                extra3: idEvento,
+                extra4: nombre,
+                confirmation: "https://unicab.solutions/nus/business/solutions/pages/resultado_pagos.php",
+                response: "https://unicab.solutions/nus/business/solutions/pages/resultado_pagos.php",
+                
+                
+                //Atributos cliente
+                name_billing: nombre,
+                //address_billing: "Carrera 19 numero 14 91",
+                type_doc_billing: "cc",
+                //mobilephone_billing: "3050000000",
+                number_doc_billing: identif,
+                
+                //atributo deshabilitación metodo de pago
+                methodsDisable: ["TDC", "SP", "CASH", "DP"]
+                
+            };
+        }
+        else if(medioValor == "TC") {
+            data={
+                //Parametros compra (obligatorio)
+                name: "Unicab Colegio Virtual",
+                description: "Pago Curso Desarrollo Pensamiento Lógico",
+                invoice: factura,
+                currency: "cop",
+                amount: valor,
+                tax_base: "0",
+                tax: "0",
+                country: "co",
+                lang: "es",
+                
+                //Onpage="false" - Standard="true"
+                external: "false",
+                key: "870fd53ee9274a76a62c34f434b09569",
+                
+                //Atributos opcionales
+                extra1: codigo,
+                extra2: identif,
+                extra3: idEvento,
+                extra4: nombre,
+                confirmation: "https://unicab.solutions/nus/business/solutions/pages/resultado_pagos.php",
+                response: "https://unicab.solutions/nus/business/solutions/pages/resultado_pagos.php",
+                
+                
+                //Atributos cliente
+                name_billing: nombre,
+                //address_billing: "Carrera 19 numero 14 91",
+                type_doc_billing: "cc",
+                //mobilephone_billing: "3050000000",
+                number_doc_billing: identif,
+                
+                //atributo deshabilitación metodo de pago
+                methodsDisable: ["PSE", "SP", "CASH", "DP"]
+                
+            };
+        }
+        
+        handler.open(data);
+
+        //location.href = "../../solutions/pages/resultado_pagos.php";
+    }
 }
 
 function qval() {
@@ -2886,6 +3153,65 @@ const armarReferenciaPago = () => {
         }
     }
 };
+
+function mostrarBotonPagarCursozz(idButton) {
+    const medio = document.querySelector("#selmediopago");
+    let control = 0;
+    if(medio.value == "NA") {
+        control = 1;
+    }
+
+    if (control == 0) {
+       let txtnom = $("#txtnom").val();
+       if (txtnom != "");
+    }
+
+    if (control == 0) {
+        $("#btnPagarCurso").show();
+    }
+}
+
+function getQueryParam(param) {
+    location.search.substr(1)
+    .split("&")
+    .some(function(item) { // returns first occurence and stops
+        return item.split("=")[0] == param && (param = item.split("=")[1])
+    })
+    return param
+}
+
+function insertar_pago(id_evento, documento, nombre, valor, estado, ref_epayco) {
+    console.log("evento: " + id_evento + " doc: " + documento + "nombre: " + nombre + " valor: " + valor + " estado: " + estado + " ref_epayco: " + ref_epayco);
+    $.ajax({
+        type:"POST",
+        //url:"../business/solutions/ajax/registrar_pago_putdat.php",
+        url:"../ajax/registrar_pago_putdat.php",
+        data:"idevento=" + id_evento + "&documento=" + documento + "&nombre=" + nombre + "&valor=" + valor + "&estado=" + estado + "&ref_epayco=" + ref_epayco,
+        success:function(r) {
+            //alert(r);
+            var res = JSON.parse(r);
+            var insert = res.insert;
+            if (insert == "OK") {
+                $("#btnvolver").show();
+            }
+            else {
+                $("#btnvolver").hide();
+            }
+        }
+    });
+}
+
+function volver() {
+    //var rutavolver = "https://unicab.solutions/diplomados/derecho_disciplinario/index.php?ref_pago=" + $("#ref_epayco1").val();
+    var rutavolver = $("#rutacontinuar").val();
+    //var documento = "9397454";
+    var documento = $("#documentopago").val();
+    var ref_epayco = $("#ref_epayco1").val();
+    var nombrepagador = $("#nombrepagador1").val();
+    var nombre = nombrepagador.replace(" ", "_");
+    
+    location.href = rutavolver;
+}
 /* EPAYCO */
 
 /** Estados Financieros */

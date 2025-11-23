@@ -1,0 +1,18 @@
+DROP TABLE tbl_tipos_eventos;
+
+CREATE TABLE tbl_tipos_eventos (
+  id int(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  tipo_evento varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+INSERT INTO tbl_tipos_eventos (tipo_evento) VALUES
+('SELECCIONE TIPO EVENTO'),
+('ASESORIA'),
+('CONGRESO'),
+('CONSULTORIA'),
+('CURSO DE FORMACION'),
+('DIPLOMADO'),
+('FORO'),
+('SEMINARIO'),
+('CURSO DE CERTIFICACION');
+
