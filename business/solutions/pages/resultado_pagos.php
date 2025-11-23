@@ -15,6 +15,7 @@
         $nivel = "tres";
         include('../../../components/navBarSolutions.php');
         //include('../components/transformacionDigital.php');
+        // https://unicab.solutions/nus/business/solutions/ajax/registrar_pago_putdat.php?idevento=1&documento=123456&nombre=Gregory_Figueredo&valor=280000&estado=Pendiente&ref_epayco=320878260
     ?>
 
     <!--== Resultado Pagos Start ==-->
