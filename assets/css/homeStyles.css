@@ -3792,10 +3792,15 @@ input[type="text"], .select, textarea {
     background: var(--bold-blue);
     color: var(--bold-blue);
 }
+
 .naranja {
     background: var(--orange);
     color: white;
     font-weight: bold;
+}
+
+.pendiente {
+    color: orange;
 }
 
 /** Moviles **/

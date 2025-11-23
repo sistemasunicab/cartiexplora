@@ -1,5 +1,5 @@
 <?php
-
+    $nivel = "tres";
     require('../../repositories/1cc2s4Sol.php');
 
     date_default_timezone_set('America/Bogota');

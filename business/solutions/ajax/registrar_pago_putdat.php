@@ -1,4 +1,5 @@
 <?php
+    $nivel == "tres";
     require('../../repositories/1cc2s4Sol.php');
     header("Cache-Control: no-cache, must-revalidate");
 	header("Expires: Sat, 1 Jul 2000 05:00:00 GMT");
@@ -11,7 +12,7 @@
 	$a = date("Y",$fecha);
 	$hora = date("H",$fecha);
 	$minutos = date("i",$fecha);
-    $fecha2 = $a.$mes. $dia;
+    $fecha2 = $a.$mes.$dia;
 
     $idevento = $_REQUEST["idevento"];
 	$documento = $_REQUEST["documento"];
@@ -26,7 +27,8 @@
 	
 	//Se hace el insert
 	$sql_insert = "INSERT INTO tbl_pagos (id_evento, n_documento, nombre_completo, estado, valor, ref_epayco, fecha) 
-	VALUES ($idevento, '$documento', '$nombre', '$estado', $valor, '$ref_epayco', '$fecha2')";
+	VALUES ($idevento, '$documento', '$nombre', '$estado', $valor, '$ref_epayco', '$fecha2') 
+    ON DUPLICATE KEY UPDATE estado = VALUES(estado)";
 	$exe_insert = $mysqli1->query($sql_insert);
 	
 	//Se valida si el registro se guardo
