@@ -29,3 +29,7 @@ INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo,
 (5, 'assets/img/solutions-icon-transformacion.png', '', 'Capacitación en <b>Transformación Digital</b>', 'abajo', '/cartiexplora/business/solutions/pages/transformacionDigital.php', '', ''),
 (6, 'assets/img/solutions-imagen-capacitacion2x.png', '', '', '', '', '', ''),
 (6, 'assets/img/solutions-icon-capacitacion.png', '', 'Servicios de <b>capacitación con metodología virtual, e híbrida</b> en diferentes modalidades', 'abajo', '/cartiexplora/business/solutions/pages/capacitacion.php', '', '');
+
+INSERT INTO tbl_imagenes (id_seccion, ruta, descripcion, titulo, posicionTitulo, enlace, rutaEncima, textoAlterno) VALUES
+(5, 'assets/img/Grupo 4@2x.png', '', 'Curso del <b>Desarrollo del Pensamiento Lógico</b>', 'abajo', '', '', '')
+;
