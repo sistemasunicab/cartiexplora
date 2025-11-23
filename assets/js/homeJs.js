@@ -2524,7 +2524,7 @@ $(document).ready(function() {
             $('#ref_epayco').text(response.data.x_ref_payco);
 
             //$('#rutacontinuar').val(response.data.x_extra1 + response.data.x_ref_payco);
-            $('#rutacontinuar').val('../../business/solutions/pages/transformacionDigital.php');
+            $('#rutacontinuar').val('../../solutions/pages/transformacionDigital.php');
             //$('#rutacontinuar').val("https://unicab.solutions/diplomados/derecho_disciplinario/index.php?ref_pago=" + response.data.x_ref_payco);
             $('#documentopago').val(response.data.x_extra2);
             $('#ref_epayco1').val(response.data.x_ref_payco);
@@ -3188,7 +3188,7 @@ function insertar_pago(id_evento, documento, nombre, valor, estado, ref_epayco) 
         url:"../../solutions/ajax/registrar_pago_putdat.php",
         data:"idevento=" + id_evento + "&documento=" + documento + "&nombre=" + nombre + "&valor=" + valor + "&estado=" + estado + "&ref_epayco=" + ref_epayco,
         success:function(r) {
-            //alert(r);
+            alert(r);
             var res = JSON.parse(r);
             var insert = res.insert;
             if (insert == "OK") {
