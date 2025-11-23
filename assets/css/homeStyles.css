@@ -3788,6 +3788,16 @@ input[type="text"], .select, textarea {
     }
 }
 
+.azulclaro {
+    background: var(--bold-blue);
+    color: var(--bold-blue);
+}
+.naranja {
+    background: var(--orange);
+    color: white;
+    font-weight: bold;
+}
+
 /** Moviles **/
 @media (max-width: 767px) {
 
