@@ -3185,7 +3185,7 @@ function insertar_pago(id_evento, documento, nombre, valor, estado, ref_epayco) 
     $.ajax({
         type:"POST",
         //url:"../business/solutions/ajax/registrar_pago_putdat.php",
-        url:"../../solutions/ajax/registrar_pago_putdat.php",
+        url:"../ajax/registrar_pago_putdat.php",
         data:"idevento=" + id_evento + "&documento=" + documento + "&nombre=" + nombre + "&valor=" + valor + "&estado=" + estado + "&ref_epayco=" + ref_epayco,
         success:function(r) {
             alert(r);
