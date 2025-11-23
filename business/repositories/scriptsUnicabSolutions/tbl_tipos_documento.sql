@@ -1,0 +1,15 @@
+DROP TABLE tbl_tipos_documento;
+
+CREATE TABLE tbl_tipos_documento (
+  id int(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  tipo_documento varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+INSERT INTO tbl_tipos_documento (tipo_documento) VALUES
+('DOCUMENTO PERSONAL DE IDENTIFICACION'),
+('REGISTRO CIVIL'),
+('CÉDULA COLOMBIANA'),
+('PASAPORTE'),
+('PERMISO ESPECIAL DE PERMANENCIA'),
+('CÉDULA DE EXTRANJERÍA.'),
+('TARJETA DE IDENTIDAD');

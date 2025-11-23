@@ -7,7 +7,7 @@
 <?php 
     $nivel = "tres";
     $page_title = "Unicab Solutions";
-    include('../../../components/headMain.php');
+    include('../../../components/headMainSolutions.php');
 ?>
 <body>
     <?php 
@@ -16,7 +16,8 @@
         include("../components/hero.php");
         include("../components/servicios.php");
 
-        include('../../../components/footer.php');
+        //include('../../../components/footer.php');
+        include('../../../components/footerSolutions.php');
         include('../../../components/bookstoresMain.php');
     ?>  
 <body>

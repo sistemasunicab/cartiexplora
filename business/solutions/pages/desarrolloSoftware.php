@@ -7,7 +7,7 @@
 <?php
     $nivel = "tres";
     $page_title = "Diseño y Desarrollo de Software";
-    include('../../../components/headMain.php');
+    include('../../../components/headMainSolutions.php');
 ?>
 
 <body>
@@ -15,7 +15,8 @@
         $nivel = "tres";
         include('../../../components/navBarSolutions.php');
         include('../components/desarrolloSoftware.php');
-        include('../../../components/footer.php');
+        //include('../../../components/footer.php');
+        include('../../../components/footerSolutions.php');
         include('../../../components/bookstoresMain.php');
     ?>
 

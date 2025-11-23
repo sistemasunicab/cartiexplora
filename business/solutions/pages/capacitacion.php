@@ -7,7 +7,7 @@
 <?php
     $nivel = "tres";
     $page_title = "Servicios de capacitación";
-    include('../../../components/headMain.php');
+    include('../../../components/headMainSolutions.php');
 ?>
 
 <body>
@@ -15,7 +15,8 @@
         $nivel = "tres";
         include('../../../components/navBarSolutions.php');
         include('../components/capacitacion.php');
-        include('../../../components/footer.php');
+        //include('../../../components/footer.php');
+        include('../../../components/footerSolutions.php');
         include('../../../components/bookstoresMain.php');
     ?>
 
