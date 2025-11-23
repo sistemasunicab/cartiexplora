@@ -7,7 +7,7 @@
 <?php
     $nivel = "tres";
     $page_title = "Capacitación en Transformación Digital";
-    include('../../../components/headMain.php');
+    include('../../../components/headMainSolutions.php');
 ?>
 
 <body>

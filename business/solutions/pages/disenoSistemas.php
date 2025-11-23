@@ -7,7 +7,7 @@
 <?php
     $nivel = "tres";
     $page_title = "Diseño de Sistemas";
-    include('../../../components/headMain.php');
+    include('../../../components/headMainSolutions.php');
 ?>
 
 <body>
