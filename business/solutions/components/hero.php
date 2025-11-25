@@ -66,7 +66,8 @@
         $html .= '<section class="container">';
         $html .=    '<div class="row justify-content-center">';
         $html .=       '<div class="col-lg-7 col-md-8 col-sm-10 col-11 hero-card">';
-        $html .=          '<h2 class="font-roboto-light-title">'.$row_datos_seccion['titulo'].'</h2>';
+        //$html .=          '<h2 class="font-roboto-light-title">'.$row_datos_seccion['titulo'].'</h2>';
+        $html .=          '<a href="transformacionDigital.php#cursoDesarrolloPensamientoLogico" class="solutions-card-button tx-white bg-orange font-roboto-bolditalic d-lg-inline d-md-block d-sm-block d-block">'.$row_datos_seccion['subTitulo'].'</a>';
         $html .=       '</div>'; 
         $html .=    '</div>';
         $html .= '</section>';
