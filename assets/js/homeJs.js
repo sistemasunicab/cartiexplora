@@ -2398,6 +2398,8 @@ $(document).ready(function() {
         }
     });*/
 
+    $("#formPensamientoLogico").hide();
+
     $("#selmediopago").change(function() {
         const medio = document.querySelector("#selmediopago");
         const nombre = document.querySelector("#txtnom");
@@ -2532,26 +2534,27 @@ $(document).ready(function() {
             $('#valor1').val(response.data.x_amount);
             $('#idevento').val(response.data.x_extra3);
 
+            let cod_proyecto = "";
             if(response.data.x_bank_name == "GANA") {
-                let cod_proyecto = 242;
+                cod_proyecto = 242;
             }
             else if(response.data.x_bank_name == "EFECTY") {
-                let cod_proyecto = 111992;
+                cod_proyecto = 111992;
             }
             else if(response.data.x_bank_name == "BALOTO") {
-                let cod_proyecto = 950715;
+                cod_proyecto = 950715;
             }
             else if(response.data.x_bank_name == "PUNTO RED") {
-                let cod_proyecto = 110342;
+                cod_proyecto = 110342;
             }
             else if(response.data.x_bank_name == "RED SERVI") {
-                let cod_proyecto = 761;
+                cod_proyecto = 761;
             }
             else if(response.data.x_bank_name == "SURED") {
-                    let cod_proyecto = 'MR0382';
+                    cod_proyecto = 'MR0382';
                 }
             else {
-                let cod_proyecto = "";
+                cod_proyecto = "";
             }
             $('#cod_proyecto').text(cod_proyecto);
             $('#desc_res').text(response.data.x_response_reason_text);
@@ -3189,8 +3192,8 @@ function insertar_pago(id_evento, documento, nombre, valor, estado, ref_epayco) 
         data:"idevento=" + id_evento + "&documento=" + documento + "&nombre=" + nombre + "&valor=" + valor + "&estado=" + estado + "&ref_epayco=" + ref_epayco,
         success:function(r) {
             //alert(r);
-            var res = JSON.parse(r);
-            var insert = res.insert;
+            let res = JSON.parse(r);
+            let insert = res.insert;
             if (insert == "OK") {
                 $("#btnvolver").show();
             }
@@ -3211,6 +3214,32 @@ function volver() {
     var nombre = nombrepagador.replace(" ", "_");
     
     location.href = rutavolver;
+}
+
+function validar_ref_epayco() {
+    let ref_epayco = $("#val_ref_epayco").val().trim();
+    if (ref_epayco == "") {
+        alert("Ingrese el código de referencia epayco o pin de pago");
+        return;
+    }
+
+    let url = "https://secure.payco.co/restpagos/transaction/response.json?ref_payco=" + ref_epayco + "&public_key=870fd53ee9274a76a62c34f434b09569";
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        //console.log(data); 
+        let estado = data.data.x_response;
+        console.log(estado);
+        estado = "Aceptada";
+        if (estado == "Aceptada") {
+            $("#formPensamientoLogico").show();
+            $("#ref_epayco").val(data.data.x_ref_payco);
+        }
+        else {
+            $("#formPensamientoLogico").hide();
+            alert("Esta transacción esta en estado " + estado);
+        }
+    })
 }
 /* EPAYCO */
 
