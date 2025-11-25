@@ -3802,6 +3802,12 @@ input[type="text"], .select, textarea {
 .pendiente {
     color: orange;
 }
+.aceptada {
+    color: green;
+}
+.rechazada {
+    color: red;
+}
 
 /** Moviles **/
 @media (max-width: 767px) {
