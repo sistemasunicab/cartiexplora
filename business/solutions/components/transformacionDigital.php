@@ -110,7 +110,7 @@
                         </a>
                     </div><br><br>';
 
-        $html .=    '<div class="container datosEstudiante">
+        $html .=    '<div class="container">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-2 col-2 amarillo">
@@ -118,6 +118,40 @@
                                 </div>
                                 <div class="col-md-10 col-10 azuloscuro">
                                     <h6>Paso 3</h6>
+                                    <h6>VALIDAR PAGO</h6>
+                                </div>
+                            </div>
+                            <br>
+                        </div>		
+                    </div><br>
+                    
+                    <div class="container">
+                        <div class="row ml-5">
+                        <div class="col-12 col-sm-5">
+                            <div class="form-group">
+                                <label for="register_documento">Ref Epayco (PIN)</label>
+                                <input type="text" class="form-control borde-personalizado" id="val_ref_epayco" name="val_ref_epayco" required placeholder="Ref Epayco (PIN)">
+                            </div>
+                        </div>
+                        <div class="col-1">
+                        </div>
+                        <div class="col-12 col-sm-5">
+                            <div class="form-group">
+                                <button id="btnValidarEpayco" class="btn-circulares-costos">
+                                    <h6 style="display: inline-block;" class="pr-3" id="entrar" onclick="validar_ref_epayco();">Validar Pago</h6>
+                                </button>
+                            </div>
+                        </div>
+                    </div><br>';
+
+        $html .=    '<div class="container">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-2 col-2 amarillo">
+                                    <h6>Paso 4</h6>
+                                </div>
+                                <div class="col-md-10 col-10 azuloscuro">
+                                    <h6>Paso 4</h6>
                                     <h6>FORMULARIO INSCRIPCIÓN</h6>
                                 </div>
                             </div>
@@ -126,7 +160,7 @@
                     </div><br>
                     
                     <div class="container">
-                        <form name="formPensamientoLogico" id="formPensamientoLogico" method="post" action="" enctype="multipart/form-data">
+                        <form name="formPensamientoLogico" id="formPensamientoLogico" method="post" action="../ajax/registro_desarrollo_logico_n1.php" enctype="multipart/form-data">
                             <div class="row ml-5">
                                 <div class="col-12 col-sm-5">
                                     <div class="form-group">
@@ -172,11 +206,22 @@
                                 </div>
                                 <div class="col-12 col-sm-5">
                                     <div class="form-group">
+                                        <label for="register_documento">Ref Epayco (PIN)</label>
+                                        <input type="text" class="form-control borde-personalizado campoFormulario" id="ref_epayco" name="ref_epayco" required readonly value="0">
+                                    </div>
+                                </div>
+                            </div><br>
+
+                            <div class="row ml-5">                                
+                                <div class="col-12 col-sm-5">
+                                    <div class="form-group">
                                         <label for="register_comprobante">Comprobante de pago</span></label>
                                         <input type="file" id="register_comprobante" name="register_comprobante" required accept=".pdf" class="ArchivosAdjuntos tx-white bg-orange font-roboto-bolditalic d-lg-inline d-md-block d-sm-block d-block">
                                     </div>
                                 </div>
                             </div><br>
+                            <input type="hidden" id="id_evento" name="id_evento" value="1">
+                            <input type="hidden" id="id_tipo_participante" name="id_tipo_participante" value="5">
 
                             <div class="row ml-5">                                                        	
                                 <div class="col-12">
@@ -198,8 +243,23 @@
                     </div>';
 
         $html .= '</main>';
-
     }
 
     echo $html;
+
+    /*$url_solutions = "https://secure.payco.co/restpagos/transaction/response.json?ref_payco=320878260&public_key=870fd53ee9274a76a62c34f434b09569";
+	// Usar cURL para hacer la llamada interna
+	$ch = curl_init($url_solutions);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	//curl_setopt($ch, CURLOPT_POST, 1);
+	//curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+	$respuesta_b = trim(curl_exec($ch));
+	$http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+	curl_close($ch);
+	
+	$respuesta_json = json_decode($respuesta_b, true); // el "true" lo convierte en array asociativo
+	//var_dump($respuesta_json);
+    echo $respuesta_json['data']['x_amount'];*/
+
+    //echo $_SERVER['DOCUMENT_ROOT'];
 ?>
