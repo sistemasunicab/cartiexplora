@@ -53,7 +53,7 @@
         $html .=        '</div>';
         $html .=    '</div>';
 
-        $html .=    '<div class="row my-5 align-items-center cursoPensamientoLogico">';
+        $html .=    '<div class="row my-5 align-items-center cursoPensamientoLogico" id="cursoDesarrolloPensamientoLogico">';
         $html .=        '<div class="col-lg-2 col-md-12 col-sm-12 col-12 d-flex justify-content-center align-items-center">';
         $html .=            '<img class="solutions-icon" '.ImageAttributeBuilder::buildAttributes($nivel, $imagenes[2]['ruta'], 'icono') .'>';
         $html .=        '</div>';
@@ -243,6 +243,17 @@
                     </div>';
 
         $html .= '</main>';
+
+        $html .= '<script>';
+        $html .= 'const formulario = document.getElementById("formPensamientoLogico");';
+        $html .= 'const boton = document.getElementById("btnEnviarDL");';
+        $html .= 'const mensajeCarga = "Enviando...";';
+        $html .= 'formulario.addEventListener("submit", function(event) {';
+        $html .= 'boton.disabled = true;';
+        $html .= 'boton.innerHTML = mensajeCarga;';
+        $html .= 'boton.innerHTML = \'<img src="../../../assets/img/subiendo.gif" class="img-fluid" style="width: 20%; vertical-align: middle; margin-right: 8px;"> Enviando, por favor espera...\';';
+        $html .= '});';
+        $html .= '</script>';
     }
 
     echo $html;
