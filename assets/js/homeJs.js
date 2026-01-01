@@ -3227,7 +3227,7 @@ function validar_ref_epayco() {
     fetch(url)
     .then(response => response.json())
     .then(data => {
-        //console.log(data); 
+        //console.log(data);
         let estado = data.data.x_response;
         console.log(estado);
         //estado = "Aceptada"; 
