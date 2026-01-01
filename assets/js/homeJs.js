@@ -3230,7 +3230,7 @@ function validar_ref_epayco() {
         //console.log(data); 
         let estado = data.data.x_response;
         console.log(estado);
-        //estado = "Aceptada";
+        //estado = "Aceptada"; 
         if (estado == "Aceptada") {
             $("#formPensamientoLogico").show();
             $("#ref_epayco").val(data.data.x_ref_payco);
