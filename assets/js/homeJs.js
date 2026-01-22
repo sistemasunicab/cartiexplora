@@ -2604,7 +2604,7 @@ function callEpayco() {
         let doc_est = array[0];
         //var nombre = $("#txtnom").val();
         let nombre = $("#nombre_responsable").val();
-        let identif = $("#txtidentif").val();
+        let identif = $("#identificacion_responsable").val();
         let codfact = $("#txtcodfact").val();
         let concepto = $("#txtconcepto").val();
         //Esto hace un replace de manera global, utilizando expresiones regulares
@@ -2616,6 +2616,7 @@ function callEpayco() {
         }
         else if(opvalor == 1) {
             valor = $("#txtvalor").val();
+            concepto = "Pago manual";
         }
         console.log(valor);
         
@@ -2734,7 +2735,8 @@ function callEpayco() {
                 
             };
         }
-        
+        console.log(data);
+
         handler.open(data);
     }
     else {
