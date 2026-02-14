@@ -3809,6 +3809,23 @@ input[type="text"], .select, textarea {
     color: red;
 }
 
+/**** SERVICIOS CARTI ****/
+.services-carti-section {
+    margin-top: 7.8rem !important;
+}
+
+.animacionimg button {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.animacionimg button:hover {
+    transform: scale(1.05) rotate(2deg);
+    /*box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);*/
+    box-shadow: inset 0px 0px 40px transparent,
+            0px 0px 40px #253668;
+}
+
 /** Moviles **/
 @media (max-width: 767px) {
 
@@ -5815,6 +5832,11 @@ input[type="text"], .select, textarea {
         height: auto;
     }
     /** Fin Formulario Entrevistas  */
+
+    /**** SERVICIOS CARTI ****/
+    .services-carti-section {
+        margin-top: 3.3rem !important;
+    }
 }
 
 /** Tabletas **/
@@ -7753,99 +7775,104 @@ input[type="text"], .select, textarea {
 
     /* Footer */
 
-.llamanos-escribenos {
-    font-weight: bold;
-    color: white!important;
-    opacity: 1!important;
-}
+    .llamanos-escribenos {
+        font-weight: bold;
+        color: white!important;
+        opacity: 1!important;
+    }
 
-.numero-telefono {
-    font-size: 1.8rem;
-}
+    .numero-telefono {
+        font-size: 1.8rem;
+    }
 
-.admisiones {
-    font-size: 1.2rem;
-}
+    .admisiones {
+        font-size: 1.2rem;
+    }
 
-.encuentranos {
-    font-size: 1.3rem;
-}
+    .encuentranos {
+        font-size: 1.3rem;
+    }
 
-.direccion-unicab-footer {
-    font-size: 1rem;
+    .direccion-unicab-footer {
+        font-size: 1rem;
 
-}
+    }
 
-.entidades-tx {
-    font-size: 0.8rem;
-}
+    .entidades-tx {
+        font-size: 0.8rem;
+    }
 
-.terminos-condiciones-footer {
-    font-size: 0.8rem;
-}
+    .terminos-condiciones-footer {
+        font-size: 0.8rem;
+    }
 
-h5-footer {
-    font-size: 0.8rem;
-    line-height: 1.15rem;
-    letter-spacing: 0.0505rem;
-}
+    h5-footer {
+        font-size: 0.8rem;
+        line-height: 1.15rem;
+        letter-spacing: 0.0505rem;
+    }
 
-p-footer {
-    font-size: 1.2rem;
-    line-height: 1.15rem;
-    letter-spacing: 0.042rem;
-}
+    p-footer {
+        font-size: 1.2rem;
+        line-height: 1.15rem;
+        letter-spacing: 0.042rem;
+    }
 
-p1-footer {
-    font-size: 1rem;
-    line-height: 1rem;
-    letter-spacing: 0.035rem;
-}
+    p1-footer {
+        font-size: 1rem;
+        line-height: 1rem;
+        letter-spacing: 0.035rem;
+    }
 
-p2-footer {
-    font-size: 1rem;
-    line-height: 1rem;
-    letter-spacing: 0.0225rem;
-}
+    p2-footer {
+        font-size: 1rem;
+        line-height: 1rem;
+        letter-spacing: 0.0225rem;
+    }
 
-p3-footer {
-    font-size: 1rem;
-    line-height: 1.5rem;
-    letter-spacing: 0.038rem;
-}
+    p3-footer {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        letter-spacing: 0.038rem;
+    }
 
-p4-footer {
-    font-size: 0.8rem;
-    line-height: 1.5rem;
-    letter-spacing: 0.0225rem;
-}
+    p4-footer {
+        font-size: 0.8rem;
+        line-height: 1.5rem;
+        letter-spacing: 0.0225rem;
+    }
 
-.zoom-hover:hover {
-    transform: scale(1.1);
-}
+    .zoom-hover:hover {
+        transform: scale(1.1);
+    }
 
 
-.image-footer img {
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: contain;
-}
+    .image-footer img {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+    }
 
-.image-footer img {
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: contain;
-}
+    .image-footer img {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+    }
 
-.image-footer:hover p2-footer {
-    color: #4DC250;
-}
+    .image-footer:hover p2-footer {
+        color: #4DC250;
+    }
 
-.social-media-icon:hover {
-    filter: brightness(0) invert(1);
-}
+    .social-media-icon:hover {
+        filter: brightness(0) invert(1);
+    }
 
-/* Fin footer */
+    /* Fin footer */
+
+    /**** SERVICIOS CARTI ****/
+    .services-carti-section {
+        margin-top: 5.1rem !important;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1399px) {
