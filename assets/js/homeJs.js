@@ -2573,11 +2573,12 @@ $(document).ready(function() {
     });
 });
 
-let handler = ePayco.checkout.configure({
+/*let handler = ePayco.checkout.configure({
     key: '870fd53ee9274a76a62c34f434b09569',
     test: false
-});
+});*/
 
+//Esta función ya no aplica... Era la versión checkout 1
 function callEpayco() {
     if (window.location.pathname.endsWith("pagos.php")) {
         //Se genera código de factura
@@ -2643,8 +2644,8 @@ function callEpayco() {
                 
                 //Atributos opcionales
                 extra1: codigo,
-                extra2: "extra2",
-                extra3: "extra3",
+                extra2: nombre,
+                extra3: identif,
                 confirmation: "https://unicab.org/resultado_pagos.php",
                 response: "https://unicab.org/resultado_pagos.php",
                 
@@ -2680,8 +2681,8 @@ function callEpayco() {
                 
                 //Atributos opcionales
                 extra1: codigo,
-                extra2: "extra2",
-                extra3: "extra3",
+                extra2: nombre,
+                extra3: identif,
                 confirmation: "https://unicab.org/resultado_pagos.php",
                 response: "https://unicab.org/resultado_pagos.php",
                 
@@ -2717,8 +2718,8 @@ function callEpayco() {
                 
                 //Atributos opcionales
                 extra1: codigo,
-                extra2: "extra2",
-                extra3: "extra3",
+                extra2: nombre,
+                extra3: identif,
                 confirmation: "https://unicab.org/resultado_pagos.php",
                 response: "https://unicab.org/resultado_pagos.php",
                 
@@ -2900,6 +2901,284 @@ function callEpayco() {
     }
 }
 
+// Función que se ejecuta al hacer clic
+async function handlePayment() {
+    //Se genera código de factura
+    let codfact1 = "";
+    let ale = 0;
+    let sa1 = ["q","a","1","z","x","2","s","w","3","p","l","4","m","k","5","o","e","6",
+            "d","c","7","i","j","8","n","r","9","f","v","0","u","h","b","t","g"];
+    let medioValor = "";
+    let valor = 0;
+    let data={};
+    
+    let medio = document.querySelector("#selmediopago");
+    medioValor = medio.dataset.value;
+    
+    for(let i = 1; i <=10; i++) {
+        ale = parseInt(Math.random()*sa1.length);
+        codfact1 = codfact1 + sa1[ale];
+    }
+    
+    //Se arma la petición de pago
+    let codigo = $("#txtref").val();
+    console.log(codigo);
+    let array = codigo.split("-");
+    let doc_est = array[0];
+    //var nombre = $("#txtnom").val();
+    let nombre = $("#nombre_responsable").val();
+    let identif = $("#identificacion_responsable").val();
+    let codfact = $("#txtcodfact").val();
+    let concepto = $("#txtconcepto").val();
+    //Esto hace un replace de manera global, utilizando expresiones regulares
+    let concepto1 = concepto.replace(/[ ]/gi,"_");
+    
+    let opvalor = $('input:radio[name=opvalor]:checked').val();
+    if(opvalor == 0) {
+        valor = $("#txtvalorref").val();
+    }
+    else if(opvalor == 1) {
+        valor = $("#txtvalor").val();
+        concepto = "Pago manual";
+    }
+    //console.log(valor);
+    
+    //var factura = doc_est + "_" + codfact;
+    let factura = doc_est + "_" + codfact1;
+
+    //Se arma la data de la solicitud
+    if(medioValor == "E") {
+        data={
+            //Parametros compra (obligatorio)
+            checkout_version: "2",
+            test: false,
+            name: "Unicab Colegio Virtual",
+            currency: "COP",
+            amount: valor, // Total a pagar
+
+            description: concepto,
+            lang: "ES", // ES | EN
+            invoice: factura, // numero de factura
+            country: "CO", // Código alpha-2
+            taxBase: 0,
+            tax: 0,
+            taxIco: 0,
+            response: "https://unicab.org/homeunicabpro/business/org/pages/resultado_pagos.php",
+            confirmation: "https://unicab.org/homeunicabpro/business/org/pages/resultado_pagos.php",
+            
+            //Onpage="false" - Standard="true"
+            //external: "false",
+            key: "870fd53ee9274a76a62c34f434b09569",
+            
+            //Atributos opcionales
+            extra1: codigo,
+            extra2: nombre,
+            extra3: identif,
+            /*extras: {
+                extra1: codigo,
+                "extra2": "extra2",
+                "extra3": "extra3",
+                "extra4": "extra4",
+                "extra5": "extra5",
+                "extra6": "extra6",
+                "extra7":  "extra7",
+                "extra8": "extra8",
+                "extra9": "extra9",
+                "extra10": "extra10",
+                "extra11": "extra11"
+            },*/
+            
+            
+            //Atributos cliente
+            nameBilling: nombre,
+            typeDocBilling: "CC",
+            numberDocBilling: identif,
+            /*billing: {
+                name:  nombre,
+                typeDoc: "CC",
+                numberDoc: identif,
+                "email": "cliente@gmail.com",
+                "address": "AV 18 # 18 - 17",
+                "callingCode": "+57",
+                "mobilePhone": "312456654"
+            },*/
+            name_billing: nombre,
+            type_doc_billing: "CC",
+            number_doc_billing: identif,
+            
+            //atributo deshabilitación metodo de pago
+            methodsDisable: ["TDC", "PSE", "SP", "DP"]
+            
+        };
+    }
+    else if(medioValor == "P" || medioValor == "P6") {
+        data={
+            //Parametros compra (obligatorio)
+            checkout_version: "2",
+            test: false,
+            name: "Unicab Colegio Virtual",
+            currency: "COP",
+            amount: valor, // Total a pagar
+
+            description: concepto,
+            lang: "ES", // ES | EN
+            invoice: factura, // numero de factura
+            country: "CO", // Código alpha-2
+            taxBase: 0,
+            tax: 0,
+            taxIco: 0,
+            response: "https://unicab.org/homeunicabpro/business/org/pages/resultado_pagos.php",
+            confirmation: "https://unicab.org/homeunicabpro/business/org/pages/resultado_pagos.php",
+            
+            //Onpage="false" - Standard="true"
+            //external: "false",
+            key: "870fd53ee9274a76a62c34f434b09569",
+            
+            //Atributos opcionales
+            extra1: codigo,
+            extra2: nombre,
+            extra3: identif,
+            /*extras: {
+                extra1: codigo,
+                "extra2": "extra2",
+                "extra3": "extra3",
+                "extra4": "extra4",
+                "extra5": "extra5",
+                "extra6": "extra6",
+                "extra7":  "extra7",
+                "extra8": "extra8",
+                "extra9": "extra9",
+                "extra10": "extra10",
+                "extra11": "extra11"
+            },*/
+            
+            
+            //Atributos cliente
+            nameBilling: nombre,
+            typeDocBilling: "CC",
+            numberDocBilling: identif,
+            /*billing: {
+                name:  nombre,
+                typeDoc: "CC",
+                numberDoc: identif,
+                "email": "cliente@gmail.com",
+                "address": "AV 18 # 18 - 17",
+                "callingCode": "+57",
+                "mobilePhone": "312456654"
+            },*/
+            name_billing: nombre,
+            type_doc_billing: "CC",
+            number_doc_billing: identif,
+            
+            //atributo deshabilitación metodo de pago
+            methodsDisable: ["TDC", "SP", "CASH", "DP"]
+            
+        };
+    }
+    else if(medioValor == "TC") {
+        data={
+            //Parametros compra (obligatorio)
+            checkout_version: "2",
+            test: false,
+            name: "Unicab Colegio Virtual",
+            currency: "COP",
+            amount: valor, // Total a pagar
+
+            description: concepto,
+            lang: "ES", // ES | EN
+            invoice: factura, // numero de factura
+            country: "CO", // Código alpha-2
+            taxBase: 0,
+            tax: 0,
+            taxIco: 0,
+            response: "https://unicab.org/homeunicabpro/business/org/pages/resultado_pagos.php",
+            confirmation: "https://unicab.org/homeunicabpro/business/org/pages/resultado_pagos.php",
+            
+            //Onpage="false" - Standard="true"
+            //external: "false",
+            key: "870fd53ee9274a76a62c34f434b09569",
+            
+            //Atributos opcionales
+            extra1: codigo,
+            extra2: nombre,
+            extra3: identif,
+            /*extras: {
+                extra1: codigo,
+                "extra2": "extra2",
+                "extra3": "extra3",
+                "extra4": "extra4",
+                "extra5": "extra5",
+                "extra6": "extra6",
+                "extra7":  "extra7",
+                "extra8": "extra8",
+                "extra9": "extra9",
+                "extra10": "extra10",
+                "extra11": "extra11"
+            },*/
+            
+            
+            //Atributos cliente
+            nameBilling: nombre,
+            typeDocBilling: "CC",
+            numberDocBilling: identif,
+            /*billing: {
+                name:  nombre,
+                typeDoc: "CC",
+                numberDoc: identif,
+                "email": "cliente@gmail.com",
+                "address": "AV 18 # 18 - 17",
+                "callingCode": "+57",
+                "mobilePhone": "312456654"
+            },*/
+            name_billing: nombre,
+            type_doc_billing: "CC",
+            number_doc_billing: identif,
+            
+            //atributo deshabilitación metodo de pago
+            methodsDisable: ["PSE", "SP", "CASH", "DP"]
+            
+        };
+    }
+    //console.log(data);
+
+    //#############################################################################################
+
+    console.log("🔄 Iniciando proceso de pago...");
+    
+    // 1. Obtener sessionId del backend
+    const response = await fetch('../../../api/create-session.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ data })
+    });
+
+    //const { sessionId } = await response.json();
+    const result = await response.json();
+    let sessionId = result.sessionId;
+    //console.log("✅ SessionId obtenido: ", sessionId);
+    //console.log("✅dataSession: ", result.dataSession);
+
+    // 2. Configurar checkout
+    const checkout = ePayco.checkout.configure({
+        sessionId,
+        type: "onpage",
+        test: false
+    });
+
+    // 3. Eventos
+    //checkout.onCreated(() => console.log("✅ Checkout creado"));
+    //checkout.onErrors(e => console.error("❌ Error:", e));
+    //checkout.onClosed(() => console.log("🔒 Checkout cerrado"));
+
+    // 4. Abrir checkout
+    checkout.open();
+}
+
+// Asignar evento al botón
+/*document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById("payBtn").onclick = handlePayment;
+});*/
+
 function qval() {
     let control = 0;
     let medioValor = "";
@@ -3066,13 +3345,12 @@ function qval() {
                         $("#txtvalor").val("");
                         $("#txtvalorrefman").val("");
                     }
+
+                    valor > 0 ? setTimeout("mostrar_submit_epayco(0)",1000) : console.log("No es posible el pago de 0");
                 }
             });
         }
-        
-        setTimeout("mostrar_submit_epayco(0)",1000);
     }
-
 }
 
 function mostrar_submit_epayco(btnSelecccionado) {

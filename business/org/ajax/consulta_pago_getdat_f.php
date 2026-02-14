@@ -1,5 +1,5 @@
 <?php	
-	//http://localhost:90/cartiexplora/business/org/ajax/consulta_pago_getdat_f.php?ndoc=1049639438&a=2025&tabla=tbl_costos_unicab&conv=UNICAB_COLEGIO_VIRTUAL&tipo=E&tconc=pm6
+	//http://localhost:90/cartiexplora/business/org/ajax/consulta_pago_getdat_f.php?ndoc=1049639438&a=2026&tabla=tbl_costos_unicab&conv=UNICAB_COLEGIO_VIRTUAL&tipo=E&tconc=pm1
 	//datos = "ndoc=" + ndoc + "&a=" + ano + "&tabla=tbl_costos_unicab&conv=UNICAB_COLEGIO_VIRTUAL&tipo=TC&tconc=" + tipo_conc;
 
 	include('../../../clases/GenerateQuery.php');
@@ -49,6 +49,7 @@
 	$concepto1 = "";
 
 	//Se consulta el grado del estudiante
+	$idgra = 0;
 	$sentenciaFinal = $sentencia2."'grado estudiante'";
 	$valores = [
 		'_ndoc*' => $ndoc
@@ -56,6 +57,7 @@
 	$query0 = GenerateQuery::querySql($mysqli2, $sentenciaFinal, $valores);
     //echo $query0;
 	$resultado0 = $mysqli2->query($query0);
+	//$resultado0 = $mysqli2->query($query0) or die($mysqli2->error);
 	while($row0 = $resultado0->fetch_assoc()) {
 	    $idgra = $row0['id_grado'];
 	}
@@ -107,7 +109,7 @@
 		else if($tconc == "pm1") {
 		    $valor = $row['pension'];
 		    $concepto1 = "PENSION M1";
-			if($fecha2 > "2025/02/10") {
+			if($fecha2 > "2026/02/10") {
 		        $valor = $valor + round($valor * 0.05, 0);
 				//$valor = $valor + 1000;
 		    }
@@ -115,7 +117,7 @@
 		else if($tconc == "pm2") {
 		    $valor = $row['pension'];
 		    $concepto1 = "PENSION M2";
-		    if($fecha2 > "2025/03/10") {
+		    if($fecha2 > "2026/03/10") {
 		        $valor = $valor + round($valor * 0.05, 0);
 				//$valor = $valor + 1000;
 		    }
@@ -123,7 +125,7 @@
 		else if($tconc == "pm3") {
 		    $valor = $row['pension'];
 		    $concepto1 = "PENSION M3";
-		    if($fecha2 > "2025/04/10") {
+		    if($fecha2 > "2026/04/10") {
 		        $valor = $valor + round($valor * 0.05, 0);
 				//$valor = $valor + 1000;
 		    }
@@ -131,7 +133,7 @@
 		else if($tconc == "pm4") {
 		    $valor = $row['pension'];
 		    $concepto1 = "PENSION M4";
-		    if($fecha2 > "2025/05/10") {
+		    if($fecha2 > "2026/05/10") {
 		        $valor = $valor + round($valor * 0.05, 0);
 				//$valor = $valor + 1000;
 		    }
@@ -139,7 +141,7 @@
 		else if($tconc == "pm5") {
 		    $valor = $row['pension'];
 		    $concepto1 = "PENSION M5";
-		    if($fecha2 > "2025/06/10") {
+		    if($fecha2 > "2026/06/10") {
 		        $valor = $valor + round($valor * 0.05, 0);
 				//$valor = $valor + 1000;
 		    }
@@ -147,7 +149,7 @@
 		else if($tconc == "pm6") {
 		    $valor = $row['pension'];
 		    $concepto1 = "PENSION M6";
-		    if($fecha2 > "2025/07/10") {
+		    if($fecha2 > "2026/07/10") {
 		        $valor = $valor + round($valor * 0.05, 0);
 				//$valor = $valor + 1000;
 		    }
@@ -155,7 +157,7 @@
 		else if($tconc == "pm7") {
 		    $valor = $row['pension'];
 		    $concepto1 = "PENSION M7";
-		    if($fecha2 > "2025/08/10") {
+		    if($fecha2 > "2026/08/10") {
 		        $valor = $valor + round($valor * 0.05, 0);
 				//$valor = $valor + 1000;
 		    }
@@ -163,7 +165,7 @@
 		else if($tconc == "pm8") {
 		    $valor = $row['pension'];
 		    $concepto1 = "PENSION M8";
-		    if($fecha2 > "2025/09/10") {
+		    if($fecha2 > "2026/09/10") {
 		        $valor = $valor + round($valor * 0.05, 0);
 				//$valor = $valor + 1000;
 		    }
@@ -171,7 +173,7 @@
 		else if($tconc == "pm9") {
 		    $valor = $row['pension'];
 		    $concepto1 = "PENSION M9";
-		    if($fecha2 > "2025/10/10") {
+		    if($fecha2 > "2026/10/10") {
 		        $valor = $valor + round($valor * 0.05, 0);
 				//$valor = $valor + 1000;
 		    }
@@ -179,7 +181,7 @@
 		else if($tconc == "pm10") {
 		    $valor = $row['pension'];
 		    $concepto1 = "PENSION M10";
-		    if($fecha2 > "2025/11/10") {
+		    if($fecha2 > "2026/11/10") {
 		        $valor = $valor + round($valor * 0.05, 0);
 				//$valor = $valor + 1000;
 		    }

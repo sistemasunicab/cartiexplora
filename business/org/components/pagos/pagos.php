@@ -386,7 +386,8 @@
                  '<section class="container section-pagos">'.
                     '<div class="row form-block-pagos">'.
                         '<div class="col-lg-12 col-md-12 col-sm-12 col-12 my-2 text-center">'.
-                            '<button id="'.$btnPagar['campo'].'" type="'.$btnPagar['tipo'].'" class="pagos-btn w-50" onclick="callEpayco()">'.$btnPagar['texto'].'</button>'.
+                            //'<button id="'.$btnPagar['campo'].'" type="'.$btnPagar['tipo'].'" class="pagos-btn w-50" onclick="callEpayco()">'.$btnPagar['texto'].'</button>'.
+                            '<button id="'.$btnPagar['campo'].'" type="'.$btnPagar['tipo'].'" class="pagos-btn w-50" onclick="handlePayment()">'.$btnPagar['texto'].'</button>'.
                         '</div>'.
                     '</div>'.
                  '</section>'.
