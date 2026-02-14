@@ -27,7 +27,8 @@
             //<!-- Jquery JS  -->
             echo '<script src="assets/bookstores/jquery-3.7.1.min.js"></script>';
             //<!-- ePayco -->
-            echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout.js"></script>';
+            //echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout.js"></script>';
+            echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout-v2.js"></script>';
             //<!-- HomeJs  -->
             echo '<script src="assets/js/homeJs.js?V=1.0.1"></script>';
         }
@@ -53,7 +54,8 @@
             //<!-- Jquery JS  -->
             echo '<script src="../assets/bookstores/jquery-3.7.1.min.js"></script>';
             //<!-- ePayco -->
-            echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout.js"></script>';
+            //echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout.js"></script>';
+            echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout-v2.js"></script>';
             //<!-- HomeJs  -->
             echo '<script src="../assets/js/homeJs.js?V=1.0.1"></script>';
         }        
@@ -79,7 +81,8 @@
             //<!-- Jquery JS  -->
             echo '<script src="../../assets/bookstores/jquery-3.7.1.min.js"></script>';
             //<!-- ePayco -->
-            echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout.js"></script>';
+            //echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout.js"></script>';
+            echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout-v2.js"></script>';
             //<!-- HomeJs  -->
             echo '<script src="../../assets/js/homeJs.js?V=1.0.1"></script>';
         }        
@@ -105,7 +108,8 @@
             //<!-- Jquery JS  -->
             echo '<script src="../../../assets/bookstores/jquery-3.7.1.min.js"></script>';
             //<!-- ePayco -->
-            echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout.js"></script>';
+            //echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout.js"></script>';
+            echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout-v2.js"></script>';
             //<!-- HomeJs  -->
             echo '<script src="../../../assets/js/homeJs.js?V=1.0.1"></script>';
         }
