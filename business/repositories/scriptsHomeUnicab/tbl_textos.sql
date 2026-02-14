@@ -98,3 +98,10 @@ INSERT INTO tbl_textos (id_seccion, paginaPadre, identificacion, texto ) VALUES
 (32, 'blog', 'categoriaSeleccionada', 'Noticias relacionadas a categoria: ')
 ;
 
+INSERT INTO tbl_textos (id_seccion, paginaPadre, identificacion, texto ) VALUES 
+(50, 'cartiHome', 'campus', '<b>CARTI EXPLORA</b> es el campus de <b>UNICAB Corporación Educativa</b>, un espacio de
+aprendizaje para un mundo cambiante, donde niños, niñas, jóvenes, adultos y familias viven
+experiencias en diversos ambientes, que los invitan a comprender la vida, adaptarse a los cambios
+y descubrir su sentido de vida por medio del disfrute.')
+;
+

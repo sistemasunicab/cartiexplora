@@ -294,3 +294,19 @@ UPDATE tbl_imagenes SET titulo = 'LUNES A VIERNES<br>8:00 a.m. A 12:00 p.m.<br>2
 UPDATE tbl_imagenes SET id_seccion = '0' WHERE (id = '40');
 UPDATE tbl_imagenes SET id_seccion = '0' WHERE (id = '149');
 UPDATE tbl_imagenes SET id_seccion = '0' WHERE (id = '150');
+
+INSERT INTO tbl_imagenes (id_seccion, ruta, rutaMovil, rutaTabletaVertical, rutaTabletaHorizontal, descripcion, titulo, posicionTitulo, rutaEncima, textoAlterno) VALUES 
+(50, 'assets/img/Banner_carti.png', '', '', '', 'Banner', '', '', '', ''),
+(50, 'assets/img/fotografia_carti.png', '', '', '', 'Imagen explorador', '', '', '', ''),
+(50, 'assets/img/solutions-icon-capacitacion.png', '', '', '', 'Icono', '', 'abajo', '', ''),
+(50, 'assets/img/descargar_pdf.png', '', '', '', 'Icono', 'Portafolio', 'abajoCentrado', '', ''),
+(50, 'assets/img/admisiones/ico2_admisiones_2025_1.jpg', '', '', '', 'Icono', 'Agendar entrevista', 'abajoCentrado', '', '')
+;
+/*(30, 'assets/img/solutions-icon-capacitacion.png', '', '', '', 'Icono', 'Visión', 'abajo', '', ''),
+(30, 'assets/img/vision_naranja.png', '', '', '', 'Icono', 'Principios Institucionales', 'abajo', '', ''),
+(30, 'assets/img/compromiso.png', '', '', '', 'Icono', 'Compromiso', 'derecha', '', ''),
+(30, 'assets/img/honestidad.png', '', '', '', 'Icono', 'Ética', 'derecha', '', ''),
+(30, 'assets/img/solutions-icon-desarrollo.png', '', '', '', 'Icono', 'Libertad', 'derecha', '', ''),
+(30, 'assets/img/equidad.png', '', '', '', 'Icono', 'Equidad', 'derecha', '', ''),
+(30, 'assets/img/responsabilidad.png', '', '', '', 'Icono', 'Responsabilidad', 'derecha', '', ''),
+(30, 'assets/img/solutions-icon-sistemas.png', '', '', '', 'Icono', 'Pertinencia', 'derecha', '', ''),*/

@@ -27,9 +27,10 @@
             //<!-- Jquery JS  -->
             echo '<script src="assets/bookstores/jquery-3.7.1.min.js"></script>';
             //<!-- ePayco -->
-            echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout.js"></script>';
+            //echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout.js"></script>';
+            echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout-v2.js"></script>';
             //<!-- HomeJs  -->
-            echo '<script src="assets/js/homeJs.js?V=1.0.1"></script>';
+            echo '<script src="assets/js/homeJs.js?V=1.0.2"></script>';
         }
         else if ($nivel == "uno") {
             echo '<link rel="icon" type="image/x-icon" href="../favicon2025.ico">';
@@ -53,9 +54,10 @@
             //<!-- Jquery JS  -->
             echo '<script src="../assets/bookstores/jquery-3.7.1.min.js"></script>';
             //<!-- ePayco -->
-            echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout.js"></script>';
+            //echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout.js"></script>';
+            echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout-v2.js"></script>';
             //<!-- HomeJs  -->
-            echo '<script src="../assets/js/homeJs.js?V=1.0.1"></script>';
+            echo '<script src="../assets/js/homeJs.js?V=1.0.2"></script>';
         }        
         else if ($nivel == "dos") {
             echo '<link rel="icon" type="image/x-icon" href="../../favicon2025.ico">';
@@ -79,9 +81,10 @@
             //<!-- Jquery JS  -->
             echo '<script src="../../assets/bookstores/jquery-3.7.1.min.js"></script>';
             //<!-- ePayco -->
-            echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout.js"></script>';
+            //echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout.js"></script>';
+            echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout-v2.js"></script>';
             //<!-- HomeJs  -->
-            echo '<script src="../../assets/js/homeJs.js?V=1.0.1"></script>';
+            echo '<script src="../../assets/js/homeJs.js?V=1.0.2"></script>';
         }        
         else if ($nivel == "tres") {
             echo '<link rel="icon" type="image/x-icon" href="../../../favicon2025.ico">';
@@ -105,9 +108,10 @@
             //<!-- Jquery JS  -->
             echo '<script src="../../../assets/bookstores/jquery-3.7.1.min.js"></script>';
             //<!-- ePayco -->
-            echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout.js"></script>';
+            //echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout.js"></script>';
+            echo '<script type="text/javascript" src="https://checkout.epayco.co/checkout-v2.js"></script>';
             //<!-- HomeJs  -->
-            echo '<script src="../../../assets/js/homeJs.js?V=1.0.1"></script>';
+            echo '<script src="../../../assets/js/homeJs.js?V=1.0.2"></script>';
         }
 
         echo '<link href="https://unicab.solutions/css/jquery.dataTables.min.css" rel="stylesheet">';
