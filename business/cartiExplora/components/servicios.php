@@ -130,7 +130,7 @@
             $html .=        '<div class="row" id="divInformacionGeneral">';
             $html .=            '<div class="col-6 animacionimg">
                                     <button type="button" class="btn botones">
-                                        <a href="documentos/Portafolio_Atencion_Primera_Infancia.pdf" target="_blank">';
+                                        <a href="../../../assets/documents/Portafolio_CARTI_2026.pdf" target="_blank">';
             $html .=        posicionTitulo('<img '.ImageAttributeBuilder::buildAttributes($nivel, $imagen_portafolio['ruta'], $imagen_portafolio['descripcion']).' class="carti-mision-icons img-fluid w-100">', 
                             $imagen_portafolio['titulo'],  $imagen_portafolio['posicionTitulo'], 'tx-orange');
             $html .=                    '</a>
