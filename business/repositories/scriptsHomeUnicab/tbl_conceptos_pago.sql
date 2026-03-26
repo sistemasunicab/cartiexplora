@@ -20,3 +20,4 @@ INSERT INTO tbl_conceptos_pago ( valor ,  texto ) VALUES ('pm10', 'Pensión mes 
 INSERT INTO tbl_conceptos_pago ( valor ,  texto ) VALUES ('ocp', 'Otros cobros periódicos');
 INSERT INTO tbl_conceptos_pago ( valor ,  texto ) VALUES ('pp', 'Primer pago');
 INSERT INTO tbl_conceptos_pago ( valor ,  texto ) VALUES ('dg', 'Derechos de grado');
+INSERT INTO tbl_conceptos_pago ( valor ,  texto ) VALUES ('icf', 'Icfes');
