@@ -3302,7 +3302,7 @@ function qval() {
                             valor = res.valor;
                             concepto1 = "MATRICULA Y OCP";
                         }
-                        else if(tipo_conc == "icfes") {
+                        else if(tipo_conc == "icf") {
                             if(res.id_grado_est == "12" || res.id_grado_est == "18") {
                                 valor = res.valor;
                             }

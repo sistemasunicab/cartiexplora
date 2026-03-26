@@ -42,7 +42,7 @@
     $fecha2 = $fanio."/".$mes."/". $dia;
     //La última modificación fue el 2022/02/11
     $fecha_mat_ordinarias = "2023/12/15";
-	$fecha_icfes_ordinarias = "2024/04/30";
+	$fecha_icfes_ordinarias = "2026/04/21";
 	
 	$valor = 0;
 	$concepto = "PAGO ";
@@ -76,7 +76,7 @@
 	//Se consulta el valor del pago
 	//El id_grado 0 de la tabla de costos es para el valor del ICFES. pp es para el valor ordinario y mocp es para el valor extraordinario
 	//que esta relacionado con la variable $fecha_icfes_ordinarias
-	if($tconc == "icfes") {
+	if($tconc == "icf") {
 	    //$query0 = "SELECT * FROM $tabla cu WHERE id_grado = 0 AND a = $a";
 		$sentenciaFinal = $sentencia2."'valor pago icfes'";
 		$valores = [
@@ -216,8 +216,8 @@
 		        $valor = $valor + round($valor * 0.03, 0);
 		    }
 		    //echo $valor;
-		}
-		else if($tconc == "icfes") {
+		}*/
+		else if($tconc == "icf") {
 		    
 		    $concepto1 = "ICFES";
 		    if($fecha2 <= $fecha_icfes_ordinarias) {
@@ -227,7 +227,7 @@
 				$valor = $row['mocp'];
 			}
 		    //echo $valor;
-		}*/
+		}
 	}
 	$concepto = $concepto.$concepto1." ".$a;
 	
