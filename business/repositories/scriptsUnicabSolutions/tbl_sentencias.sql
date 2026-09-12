@@ -30,3 +30,7 @@ INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamie
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id = 4', '', '', '', ''),
 ('SELECT * ', 'FROM tbl_imagenes ', 'WHERE id = 5', '', '', '', '');
 
+INSERT INTO tbl_sentencias (campos, tablas, condiciones, agrupaciones, ordenamientos, modificaciones, condicionesAgrupaciones) VALUES
+('SELECT * ', 'FROM tbl_costos ', 'WHERE id_evento = 1 ', '', '', '', '')
+;
+

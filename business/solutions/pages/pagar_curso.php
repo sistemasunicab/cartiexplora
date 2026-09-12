@@ -1,6 +1,29 @@
 <?php
     include('../../../clases/ImageAttributeBuilder.php');
     include('../../../clases/ButtonStylesBannerBuilder.php');
+    $nivel = "tres";
+    require('../../repositories/1cc2s4Sol.php');
+
+    date_default_timezone_set('America/Bogota');
+	$fecha = time();
+	$dia = date("d",$fecha);
+	$mes = date("m",$fecha);
+	$a = date("Y",$fecha);
+	$hora = date("H",$fecha);
+	$minutos = date("i",$fecha);
+    $fecha2 = $a.$mes. $dia;
+
+    // Obtener datos del evento
+    $res_sentecia = $mysqli1->query($sentencia . "18");
+    while ($row_sentencia = $res_sentecia->fetch_assoc()) {
+        $sql_evento = $row_sentencia['campos'] . $row_sentencia['tablas'] . $row_sentencia['condiciones'];
+    }
+    
+    $res_evento = $mysqli1->query($sql_evento);
+
+    while($row_evento = $res_evento->fetch_assoc()){
+        $evento[] = $row_evento;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,10 +39,15 @@
         include('../../../components/navBarSolutions.php');
         //include('../components/transformacionDigital.php');
         
-        $fecha = $_REQUEST['fecha'];
-        $valor = $_REQUEST['valorCurso'];
+        //href="../pages/pagar_curso.php?valorCurso=400000&fecha='.$fecha2.'&referencia=curso-dpl-nivel1&idEvento=1"
+        //$fecha = $_REQUEST['fecha'];
+        $fechaDescuento = $evento[0]['fecha_descuento'];
+        $costo = $evento[0]['costo'];
+        $valorDescuento = $evento[0]['valor_con_descuento'];
         $referencia = $_REQUEST['referencia'];
         $idEvento = $_REQUEST['idEvento'];
+
+        $valor = $fecha2 < $fechaDescuento ? $valorDescuento : $costo;
     ?>
 
     <!-- CONTENIDO PRINCIPAL -->
@@ -58,7 +86,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-12">
                             <label for="txtano">* Fecha</label>
-                            <input type="text" id="txtano" class="form-control validar" value="<?php echo $fecha; ?>" readonly required/>
+                            <input type="text" id="txtano" class="form-control validar" value="<?php echo $fecha2; ?>" readonly required/>
                         </div>
                     </div><br>
 

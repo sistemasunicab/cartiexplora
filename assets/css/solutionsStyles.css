@@ -8,11 +8,12 @@
 
 /* Página principal */
 .hero-card{
-    padding: 2rem;
-    border-radius: 28px;
-    margin: -5rem 0 4rem 0;
+    padding: 1rem;
+    border-radius: 15px;
+    margin: 1rem 0 4rem 0;
     text-align: center;
-    background-color: #FFF;
+    /* background-color: #FFF; */
+    background-color: var(--orange);
     color: var(--blue);
     box-shadow: var(--shadow-1);
 }
@@ -103,5 +104,16 @@ hr:not([size]) {
 @media (max-width: 767px)  {
     .solutions-card-button{
         font-size: 4vw;
+    }
+}
+@media (min-width: 500px)  {
+    .solutions-card-button{
+        font-size: 4vw;
+    }
+    .titulo-servicio {
+        margin-left: 1.5rem;
+    }
+    .movil500 {
+        margin-left: 1.5rem;
     }
 }
